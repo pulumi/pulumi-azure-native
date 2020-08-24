@@ -5,70 +5,33 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+from . import outputs
+from ._inputs import *
+
+__all__ = ['MachineExtension']
 
 
 class MachineExtension(pulumi.CustomResource):
-    auto_upgrade_minor_version: pulumi.Output[bool]
-    """
-    Indicates whether the extension should use a newer minor version if one is available at deployment time. Once deployed, however, the extension will not upgrade minor versions unless redeployed, even with this property set to true.
-    """
-    force_update_tag: pulumi.Output[str]
-    """
-    How the extension handler should be forced to update even if the extension configuration has not changed.
-    """
-    instance_view: pulumi.Output[dict]
-    """
-    The machine extension instance view.
-      * `name` (`str`) - The machine extension name.
-      * `status` (`dict`) - Instance view status.
-        * `code` (`str`) - The status code.
-        * `display_status` (`str`) - The short localizable label for the status.
-        * `level` (`str`) - The level code.
-        * `message` (`str`) - The detailed status message, including for alerts and error messages.
-        * `time` (`str`) - The time of the status.
-
-      * `type` (`str`) - Specifies the type of the extension; an example is "CustomScriptExtension".
-      * `type_handler_version` (`str`) - Specifies the version of the script handler.
-    """
-    location: pulumi.Output[str]
-    """
-    The geo-location where the resource lives
-    """
-    name: pulumi.Output[str]
-    """
-    The name of the resource
-    """
-    protected_settings: pulumi.Output[dict]
-    """
-    The extension can contain either protectedSettings or protectedSettingsFromKeyVault or no protected settings at all.
-    """
-    provisioning_state: pulumi.Output[str]
-    """
-    The provisioning state, which only appears in the response.
-    """
-    publisher: pulumi.Output[str]
-    """
-    The name of the extension handler publisher.
-    """
-    settings: pulumi.Output[dict]
-    """
-    Json formatted public settings for the extension.
-    """
-    tags: pulumi.Output[dict]
-    """
-    Resource tags.
-    """
-    type: pulumi.Output[str]
-    """
-    The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
-    """
-    type_handler_version: pulumi.Output[str]
-    """
-    Specifies the version of the script handler.
-    """
-    def __init__(__self__, resource_name, opts=None, auto_upgrade_minor_version=None, force_update_tag=None, instance_view=None, location=None, name=None, protected_settings=None, publisher=None, resource_group_name=None, settings=None, tags=None, type=None, type_handler_version=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 auto_upgrade_minor_version: Optional[pulumi.Input[bool]] = None,
+                 force_update_tag: Optional[pulumi.Input[str]] = None,
+                 instance_view: Optional[pulumi.Input[pulumi.InputType['MachineExtensionPropertiesInstanceViewArgs']]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 protected_settings: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 publisher: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 settings: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 type: Optional[pulumi.Input[str]] = None,
+                 type_handler_version: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         Describes a Machine Extension.
 
@@ -76,29 +39,16 @@ class MachineExtension(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] auto_upgrade_minor_version: Indicates whether the extension should use a newer minor version if one is available at deployment time. Once deployed, however, the extension will not upgrade minor versions unless redeployed, even with this property set to true.
         :param pulumi.Input[str] force_update_tag: How the extension handler should be forced to update even if the extension configuration has not changed.
-        :param pulumi.Input[dict] instance_view: The machine extension instance view.
+        :param pulumi.Input[pulumi.InputType['MachineExtensionPropertiesInstanceViewArgs']] instance_view: The machine extension instance view.
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input[str] name: The name of the machine extension.
-        :param pulumi.Input[dict] protected_settings: The extension can contain either protectedSettings or protectedSettingsFromKeyVault or no protected settings at all.
+        :param pulumi.Input[Mapping[str, Any]] protected_settings: The extension can contain either protectedSettings or protectedSettingsFromKeyVault or no protected settings at all.
         :param pulumi.Input[str] publisher: The name of the extension handler publisher.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
-        :param pulumi.Input[dict] settings: Json formatted public settings for the extension.
-        :param pulumi.Input[dict] tags: Resource tags.
+        :param pulumi.Input[Mapping[str, Any]] settings: Json formatted public settings for the extension.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         :param pulumi.Input[str] type: Specifies the type of the extension; an example is "CustomScriptExtension".
         :param pulumi.Input[str] type_handler_version: Specifies the version of the script handler.
-
-        The **instance_view** object supports the following:
-
-          * `name` (`pulumi.Input[str]`) - The machine extension name.
-          * `status` (`pulumi.Input[dict]`) - Instance view status.
-            * `code` (`pulumi.Input[str]`) - The status code.
-            * `display_status` (`pulumi.Input[str]`) - The short localizable label for the status.
-            * `level` (`pulumi.Input[str]`) - The level code.
-            * `message` (`pulumi.Input[str]`) - The detailed status message, including for alerts and error messages.
-            * `time` (`pulumi.Input[str]`) - The time of the status.
-
-          * `type` (`pulumi.Input[str]`) - Specifies the type of the extension; an example is "CustomScriptExtension".
-          * `type_handler_version` (`pulumi.Input[str]`) - Specifies the version of the script handler.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -143,13 +93,15 @@ class MachineExtension(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None) -> 'MachineExtension':
         """
         Get an existing MachineExtension resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -158,8 +110,105 @@ class MachineExtension(pulumi.CustomResource):
 
         return MachineExtension(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter(name="autoUpgradeMinorVersion")
+    def auto_upgrade_minor_version(self) -> Optional[bool]:
+        """
+        Indicates whether the extension should use a newer minor version if one is available at deployment time. Once deployed, however, the extension will not upgrade minor versions unless redeployed, even with this property set to true.
+        """
+        return pulumi.get(self, "auto_upgrade_minor_version")
+
+    @property
+    @pulumi.getter(name="forceUpdateTag")
+    def force_update_tag(self) -> Optional[str]:
+        """
+        How the extension handler should be forced to update even if the extension configuration has not changed.
+        """
+        return pulumi.get(self, "force_update_tag")
+
+    @property
+    @pulumi.getter(name="instanceView")
+    def instance_view(self) -> Optional['outputs.MachineExtensionPropertiesResponseInstanceView']:
+        """
+        The machine extension instance view.
+        """
+        return pulumi.get(self, "instance_view")
+
+    @property
+    @pulumi.getter
+    def location(self) -> str:
+        """
+        The geo-location where the resource lives
+        """
+        return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the resource
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="protectedSettings")
+    def protected_settings(self) -> Optional[Mapping[str, Any]]:
+        """
+        The extension can contain either protectedSettings or protectedSettingsFromKeyVault or no protected settings at all.
+        """
+        return pulumi.get(self, "protected_settings")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        The provisioning state, which only appears in the response.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter
+    def publisher(self) -> Optional[str]:
+        """
+        The name of the extension handler publisher.
+        """
+        return pulumi.get(self, "publisher")
+
+    @property
+    @pulumi.getter
+    def settings(self) -> Optional[Mapping[str, Any]]:
+        """
+        Json formatted public settings for the extension.
+        """
+        return pulumi.get(self, "settings")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Mapping[str, str]]:
+        """
+        Resource tags.
+        """
+        return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="typeHandlerVersion")
+    def type_handler_version(self) -> Optional[str]:
+        """
+        Specifies the version of the script handler.
+        """
+        return pulumi.get(self, "type_handler_version")
+
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

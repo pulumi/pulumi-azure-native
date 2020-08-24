@@ -5,82 +5,44 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+from . import outputs
+from ._inputs import *
+
+__all__ = ['User']
 
 
 class User(pulumi.CustomResource):
-    created_date: pulumi.Output[str]
-    """
-    The creation date of the user profile.
-    """
-    identity: pulumi.Output[dict]
-    """
-    The identity of the user.
-      * `app_id` (`str`) - Set to the app Id of the client JWT making the request.
-      * `object_id` (`str`) - Set to the object Id of the client JWT making the request. Not all users have object Id. For CSP (reseller) scenarios for example, object Id is not available.
-      * `principal_id` (`str`) - Set to the principal Id of the client JWT making the request. Service principal will not have the principal Id.
-      * `principal_name` (`str`) - Set to the principal name / UPN of the client JWT making the request.
-      * `tenant_id` (`str`) - Set to the tenant ID of the client JWT making the request.
-    """
-    location: pulumi.Output[str]
-    """
-    The location of the resource.
-    """
-    name: pulumi.Output[str]
-    """
-    The name of the resource.
-    """
-    provisioning_state: pulumi.Output[str]
-    """
-    The provisioning status of the resource.
-    """
-    secret_store: pulumi.Output[dict]
-    """
-    The secret store of the user.
-      * `key_vault_id` (`str`) - The ID of the user's Key vault.
-      * `key_vault_uri` (`str`) - The URI of the user's Key vault.
-    """
-    tags: pulumi.Output[dict]
-    """
-    The tags of the resource.
-    """
-    type: pulumi.Output[str]
-    """
-    The type of the resource.
-    """
-    unique_identifier: pulumi.Output[str]
-    """
-    The unique immutable identifier of a resource (Guid).
-    """
-    def __init__(__self__, resource_name, opts=None, identity=None, lab_name=None, location=None, name=None, provisioning_state=None, resource_group_name=None, secret_store=None, tags=None, unique_identifier=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 identity: Optional[pulumi.Input[pulumi.InputType['UserIdentityArgs']]] = None,
+                 lab_name: Optional[pulumi.Input[str]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 provisioning_state: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 secret_store: Optional[pulumi.Input[pulumi.InputType['UserSecretStoreArgs']]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 unique_identifier: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         Profile of a lab user.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[dict] identity: The identity of the user.
+        :param pulumi.Input[pulumi.InputType['UserIdentityArgs']] identity: The identity of the user.
         :param pulumi.Input[str] lab_name: The name of the lab.
         :param pulumi.Input[str] location: The location of the resource.
         :param pulumi.Input[str] name: The name of the user profile.
         :param pulumi.Input[str] provisioning_state: The provisioning status of the resource.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
-        :param pulumi.Input[dict] secret_store: The secret store of the user.
-        :param pulumi.Input[dict] tags: The tags of the resource.
+        :param pulumi.Input[pulumi.InputType['UserSecretStoreArgs']] secret_store: The secret store of the user.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The tags of the resource.
         :param pulumi.Input[str] unique_identifier: The unique immutable identifier of a resource (Guid).
-
-        The **identity** object supports the following:
-
-          * `app_id` (`pulumi.Input[str]`) - Set to the app Id of the client JWT making the request.
-          * `object_id` (`pulumi.Input[str]`) - Set to the object Id of the client JWT making the request. Not all users have object Id. For CSP (reseller) scenarios for example, object Id is not available.
-          * `principal_id` (`pulumi.Input[str]`) - Set to the principal Id of the client JWT making the request. Service principal will not have the principal Id.
-          * `principal_name` (`pulumi.Input[str]`) - Set to the principal name / UPN of the client JWT making the request.
-          * `tenant_id` (`pulumi.Input[str]`) - Set to the tenant ID of the client JWT making the request.
-
-        The **secret_store** object supports the following:
-
-          * `key_vault_id` (`pulumi.Input[str]`) - The ID of the user's Key vault.
-          * `key_vault_uri` (`pulumi.Input[str]`) - The URI of the user's Key vault.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -125,13 +87,15 @@ class User(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None) -> 'User':
         """
         Get an existing User resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -140,8 +104,81 @@ class User(pulumi.CustomResource):
 
         return User(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter(name="createdDate")
+    def created_date(self) -> str:
+        """
+        The creation date of the user profile.
+        """
+        return pulumi.get(self, "created_date")
+
+    @property
+    @pulumi.getter
+    def identity(self) -> Optional['outputs.UserIdentityResponse']:
+        """
+        The identity of the user.
+        """
+        return pulumi.get(self, "identity")
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[str]:
+        """
+        The location of the resource.
+        """
+        return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the resource.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> Optional[str]:
+        """
+        The provisioning status of the resource.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="secretStore")
+    def secret_store(self) -> Optional['outputs.UserSecretStoreResponse']:
+        """
+        The secret store of the user.
+        """
+        return pulumi.get(self, "secret_store")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Mapping[str, str]]:
+        """
+        The tags of the resource.
+        """
+        return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        The type of the resource.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="uniqueIdentifier")
+    def unique_identifier(self) -> Optional[str]:
+        """
+        The unique immutable identifier of a resource (Guid).
+        """
+        return pulumi.get(self, "unique_identifier")
+
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

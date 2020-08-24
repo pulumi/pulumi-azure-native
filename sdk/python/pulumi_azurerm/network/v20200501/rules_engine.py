@@ -5,49 +5,26 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+from . import outputs
+from ._inputs import *
+
+__all__ = ['RulesEngine']
 
 
 class RulesEngine(pulumi.CustomResource):
-    name: pulumi.Output[str]
-    """
-    Resource name.
-    """
-    resource_state: pulumi.Output[str]
-    """
-    Resource status.
-    """
-    rules: pulumi.Output[list]
-    """
-    A list of rules that define a particular Rules Engine Configuration.
-      * `action` (`dict`) - Actions to perform on the request and response if all of the match conditions are met.
-        * `request_header_actions` (`list`) - A list of header actions to apply from the request from AFD to the origin.
-          * `header_action_type` (`str`) - Which type of manipulation to apply to the header.
-          * `header_name` (`str`) - The name of the header this action will apply to.
-          * `value` (`str`) - The value to update the given header name with. This value is not used if the actionType is Delete.
-
-        * `response_header_actions` (`list`) - A list of header actions to apply from the response from AFD to the client.
-        * `route_configuration_override` (`dict`) - Override the route configuration.
-          * `odata_type` (`str`)
-
-      * `match_conditions` (`list`) - A list of match conditions that must meet in order for the actions of this rule to run. Having no match conditions means the actions will always run.
-        * `negate_condition` (`bool`) - Describes if this is negate condition or not
-        * `rules_engine_match_value` (`list`) - Match values to match against. The operator will apply to each value in here with OR semantics. If any of them match the variable with the given operator this match condition is considered a match.
-        * `rules_engine_match_variable` (`str`) - Match Variable
-        * `rules_engine_operator` (`str`) - Describes operator to apply to the match condition.
-        * `selector` (`str`) - Name of selector in RequestHeader or RequestBody to be matched
-        * `transforms` (`list`) - List of transforms
-
-      * `match_processing_behavior` (`str`) - If this rule is a match should the rules engine continue running the remaining rules or stop. If not present, defaults to Continue.
-      * `name` (`str`) - A name to refer to this specific rule.
-      * `priority` (`float`) - A priority assigned to this rule. 
-    """
-    type: pulumi.Output[str]
-    """
-    Resource type.
-    """
-    def __init__(__self__, resource_name, opts=None, front_door_name=None, name=None, resource_group_name=None, resource_state=None, rules=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 front_door_name: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 resource_state: Optional[pulumi.Input[str]] = None,
+                 rules: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['RulesEngineRuleArgs']]]]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         A rules engine configuration containing a list of rules that will run to modify the runtime behavior of the request and response.
 
@@ -57,31 +34,7 @@ class RulesEngine(pulumi.CustomResource):
         :param pulumi.Input[str] name: Name of the Rules Engine which is unique within the Front Door.
         :param pulumi.Input[str] resource_group_name: Name of the Resource group within the Azure subscription.
         :param pulumi.Input[str] resource_state: Resource status.
-        :param pulumi.Input[list] rules: A list of rules that define a particular Rules Engine Configuration.
-
-        The **rules** object supports the following:
-
-          * `action` (`pulumi.Input[dict]`) - Actions to perform on the request and response if all of the match conditions are met.
-            * `request_header_actions` (`pulumi.Input[list]`) - A list of header actions to apply from the request from AFD to the origin.
-              * `header_action_type` (`pulumi.Input[str]`) - Which type of manipulation to apply to the header.
-              * `header_name` (`pulumi.Input[str]`) - The name of the header this action will apply to.
-              * `value` (`pulumi.Input[str]`) - The value to update the given header name with. This value is not used if the actionType is Delete.
-
-            * `response_header_actions` (`pulumi.Input[list]`) - A list of header actions to apply from the response from AFD to the client.
-            * `route_configuration_override` (`pulumi.Input[dict]`) - Override the route configuration.
-              * `odata_type` (`pulumi.Input[str]`)
-
-          * `match_conditions` (`pulumi.Input[list]`) - A list of match conditions that must meet in order for the actions of this rule to run. Having no match conditions means the actions will always run.
-            * `negate_condition` (`pulumi.Input[bool]`) - Describes if this is negate condition or not
-            * `rules_engine_match_value` (`pulumi.Input[list]`) - Match values to match against. The operator will apply to each value in here with OR semantics. If any of them match the variable with the given operator this match condition is considered a match.
-            * `rules_engine_match_variable` (`pulumi.Input[str]`) - Match Variable
-            * `rules_engine_operator` (`pulumi.Input[str]`) - Describes operator to apply to the match condition.
-            * `selector` (`pulumi.Input[str]`) - Name of selector in RequestHeader or RequestBody to be matched
-            * `transforms` (`pulumi.Input[list]`) - List of transforms
-
-          * `match_processing_behavior` (`pulumi.Input[str]`) - If this rule is a match should the rules engine continue running the remaining rules or stop. If not present, defaults to Continue.
-          * `name` (`pulumi.Input[str]`) - A name to refer to this specific rule.
-          * `priority` (`pulumi.Input[float]`) - A priority assigned to this rule. 
+        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['RulesEngineRuleArgs']]]] rules: A list of rules that define a particular Rules Engine Configuration.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -121,13 +74,15 @@ class RulesEngine(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None) -> 'RulesEngine':
         """
         Get an existing RulesEngine resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -136,8 +91,41 @@ class RulesEngine(pulumi.CustomResource):
 
         return RulesEngine(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Resource name.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="resourceState")
+    def resource_state(self) -> Optional[str]:
+        """
+        Resource status.
+        """
+        return pulumi.get(self, "resource_state")
+
+    @property
+    @pulumi.getter
+    def rules(self) -> Optional[List['outputs.RulesEngineRuleResponse']]:
+        """
+        A list of rules that define a particular Rules Engine Configuration.
+        """
+        return pulumi.get(self, "rules")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Resource type.
+        """
+        return pulumi.get(self, "type")
+
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

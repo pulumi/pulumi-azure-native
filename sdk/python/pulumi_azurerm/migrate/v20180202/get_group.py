@@ -5,10 +5,16 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
 
+__all__ = [
+    'GetGroupResult',
+    'AwaitableGetGroupResult',
+    'get_group',
+]
 
+@pulumi.output_type
 class GetGroupResult:
     """
     A group created in a Migration project.
@@ -16,46 +22,81 @@ class GetGroupResult:
     def __init__(__self__, assessments=None, created_timestamp=None, e_tag=None, machines=None, name=None, type=None, updated_timestamp=None):
         if assessments and not isinstance(assessments, list):
             raise TypeError("Expected argument 'assessments' to be a list")
-        __self__.assessments = assessments
+        pulumi.set(__self__, "assessments", assessments)
+        if created_timestamp and not isinstance(created_timestamp, str):
+            raise TypeError("Expected argument 'created_timestamp' to be a str")
+        pulumi.set(__self__, "created_timestamp", created_timestamp)
+        if e_tag and not isinstance(e_tag, str):
+            raise TypeError("Expected argument 'e_tag' to be a str")
+        pulumi.set(__self__, "e_tag", e_tag)
+        if machines and not isinstance(machines, list):
+            raise TypeError("Expected argument 'machines' to be a list")
+        pulumi.set(__self__, "machines", machines)
+        if name and not isinstance(name, str):
+            raise TypeError("Expected argument 'name' to be a str")
+        pulumi.set(__self__, "name", name)
+        if type and not isinstance(type, str):
+            raise TypeError("Expected argument 'type' to be a str")
+        pulumi.set(__self__, "type", type)
+        if updated_timestamp and not isinstance(updated_timestamp, str):
+            raise TypeError("Expected argument 'updated_timestamp' to be a str")
+        pulumi.set(__self__, "updated_timestamp", updated_timestamp)
+
+    @property
+    @pulumi.getter
+    def assessments(self) -> List[str]:
         """
         List of References to Assessments created on this group.
         """
-        if created_timestamp and not isinstance(created_timestamp, str):
-            raise TypeError("Expected argument 'created_timestamp' to be a str")
-        __self__.created_timestamp = created_timestamp
+        return pulumi.get(self, "assessments")
+
+    @property
+    @pulumi.getter(name="createdTimestamp")
+    def created_timestamp(self) -> str:
         """
         Time when this project was created. Date-Time represented in ISO-8601 format.
         """
-        if e_tag and not isinstance(e_tag, str):
-            raise TypeError("Expected argument 'e_tag' to be a str")
-        __self__.e_tag = e_tag
+        return pulumi.get(self, "created_timestamp")
+
+    @property
+    @pulumi.getter(name="eTag")
+    def e_tag(self) -> Optional[str]:
         """
         For optimistic concurrency control.
         """
-        if machines and not isinstance(machines, list):
-            raise TypeError("Expected argument 'machines' to be a list")
-        __self__.machines = machines
+        return pulumi.get(self, "e_tag")
+
+    @property
+    @pulumi.getter
+    def machines(self) -> List[str]:
         """
         List of machine names that are part of this group.
         """
-        if name and not isinstance(name, str):
-            raise TypeError("Expected argument 'name' to be a str")
-        __self__.name = name
+        return pulumi.get(self, "machines")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
         """
         Name of the group.
         """
-        if type and not isinstance(type, str):
-            raise TypeError("Expected argument 'type' to be a str")
-        __self__.type = type
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
         """
         Type of the object = [Microsoft.Migrate/projects/groups].
         """
-        if updated_timestamp and not isinstance(updated_timestamp, str):
-            raise TypeError("Expected argument 'updated_timestamp' to be a str")
-        __self__.updated_timestamp = updated_timestamp
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="updatedTimestamp")
+    def updated_timestamp(self) -> str:
         """
         Time when this project was last updated. Date-Time represented in ISO-8601 format.
         """
+        return pulumi.get(self, "updated_timestamp")
 
 
 class AwaitableGetGroupResult(GetGroupResult):
@@ -73,7 +114,10 @@ class AwaitableGetGroupResult(GetGroupResult):
             updated_timestamp=self.updated_timestamp)
 
 
-def get_group(name=None, project_name=None, resource_group_name=None, opts=None):
+def get_group(name: Optional[str] = None,
+              project_name: Optional[str] = None,
+              resource_group_name: Optional[str] = None,
+              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetGroupResult:
     """
     Use this data source to access information about an existing resource.
 
@@ -89,13 +133,13 @@ def get_group(name=None, project_name=None, resource_group_name=None, opts=None)
         opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = _utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('azurerm:migrate/v20180202:getGroup', __args__, opts=opts).value
+    __ret__ = pulumi.runtime.invoke('azurerm:migrate/v20180202:getGroup', __args__, opts=opts, typ=GetGroupResult).value
 
     return AwaitableGetGroupResult(
-        assessments=__ret__.get('assessments'),
-        created_timestamp=__ret__.get('createdTimestamp'),
-        e_tag=__ret__.get('eTag'),
-        machines=__ret__.get('machines'),
-        name=__ret__.get('name'),
-        type=__ret__.get('type'),
-        updated_timestamp=__ret__.get('updatedTimestamp'))
+        assessments=__ret__.assessments,
+        created_timestamp=__ret__.created_timestamp,
+        e_tag=__ret__.e_tag,
+        machines=__ret__.machines,
+        name=__ret__.name,
+        type=__ret__.type,
+        updated_timestamp=__ret__.updated_timestamp)

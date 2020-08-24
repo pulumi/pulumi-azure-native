@@ -5,10 +5,17 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+from . import outputs
 
+__all__ = [
+    'GetExpressRouteCircuitResult',
+    'AwaitableGetExpressRouteCircuitResult',
+    'get_express_route_circuit',
+]
 
+@pulumi.output_type
 class GetExpressRouteCircuitResult:
     """
     ExpressRouteCircuit resource
@@ -16,124 +23,224 @@ class GetExpressRouteCircuitResult:
     def __init__(__self__, allow_classic_operations=None, authorizations=None, bandwidth_in_gbps=None, circuit_provisioning_state=None, etag=None, express_route_port=None, gateway_manager_etag=None, global_reach_enabled=None, location=None, name=None, peerings=None, provisioning_state=None, service_key=None, service_provider_notes=None, service_provider_properties=None, service_provider_provisioning_state=None, sku=None, stag=None, tags=None, type=None):
         if allow_classic_operations and not isinstance(allow_classic_operations, bool):
             raise TypeError("Expected argument 'allow_classic_operations' to be a bool")
-        __self__.allow_classic_operations = allow_classic_operations
+        pulumi.set(__self__, "allow_classic_operations", allow_classic_operations)
+        if authorizations and not isinstance(authorizations, list):
+            raise TypeError("Expected argument 'authorizations' to be a list")
+        pulumi.set(__self__, "authorizations", authorizations)
+        if bandwidth_in_gbps and not isinstance(bandwidth_in_gbps, float):
+            raise TypeError("Expected argument 'bandwidth_in_gbps' to be a float")
+        pulumi.set(__self__, "bandwidth_in_gbps", bandwidth_in_gbps)
+        if circuit_provisioning_state and not isinstance(circuit_provisioning_state, str):
+            raise TypeError("Expected argument 'circuit_provisioning_state' to be a str")
+        pulumi.set(__self__, "circuit_provisioning_state", circuit_provisioning_state)
+        if etag and not isinstance(etag, str):
+            raise TypeError("Expected argument 'etag' to be a str")
+        pulumi.set(__self__, "etag", etag)
+        if express_route_port and not isinstance(express_route_port, dict):
+            raise TypeError("Expected argument 'express_route_port' to be a dict")
+        pulumi.set(__self__, "express_route_port", express_route_port)
+        if gateway_manager_etag and not isinstance(gateway_manager_etag, str):
+            raise TypeError("Expected argument 'gateway_manager_etag' to be a str")
+        pulumi.set(__self__, "gateway_manager_etag", gateway_manager_etag)
+        if global_reach_enabled and not isinstance(global_reach_enabled, bool):
+            raise TypeError("Expected argument 'global_reach_enabled' to be a bool")
+        pulumi.set(__self__, "global_reach_enabled", global_reach_enabled)
+        if location and not isinstance(location, str):
+            raise TypeError("Expected argument 'location' to be a str")
+        pulumi.set(__self__, "location", location)
+        if name and not isinstance(name, str):
+            raise TypeError("Expected argument 'name' to be a str")
+        pulumi.set(__self__, "name", name)
+        if peerings and not isinstance(peerings, list):
+            raise TypeError("Expected argument 'peerings' to be a list")
+        pulumi.set(__self__, "peerings", peerings)
+        if provisioning_state and not isinstance(provisioning_state, str):
+            raise TypeError("Expected argument 'provisioning_state' to be a str")
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if service_key and not isinstance(service_key, str):
+            raise TypeError("Expected argument 'service_key' to be a str")
+        pulumi.set(__self__, "service_key", service_key)
+        if service_provider_notes and not isinstance(service_provider_notes, str):
+            raise TypeError("Expected argument 'service_provider_notes' to be a str")
+        pulumi.set(__self__, "service_provider_notes", service_provider_notes)
+        if service_provider_properties and not isinstance(service_provider_properties, dict):
+            raise TypeError("Expected argument 'service_provider_properties' to be a dict")
+        pulumi.set(__self__, "service_provider_properties", service_provider_properties)
+        if service_provider_provisioning_state and not isinstance(service_provider_provisioning_state, str):
+            raise TypeError("Expected argument 'service_provider_provisioning_state' to be a str")
+        pulumi.set(__self__, "service_provider_provisioning_state", service_provider_provisioning_state)
+        if sku and not isinstance(sku, dict):
+            raise TypeError("Expected argument 'sku' to be a dict")
+        pulumi.set(__self__, "sku", sku)
+        if stag and not isinstance(stag, float):
+            raise TypeError("Expected argument 'stag' to be a float")
+        pulumi.set(__self__, "stag", stag)
+        if tags and not isinstance(tags, dict):
+            raise TypeError("Expected argument 'tags' to be a dict")
+        pulumi.set(__self__, "tags", tags)
+        if type and not isinstance(type, str):
+            raise TypeError("Expected argument 'type' to be a str")
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="allowClassicOperations")
+    def allow_classic_operations(self) -> Optional[bool]:
         """
         Allow classic operations
         """
-        if authorizations and not isinstance(authorizations, list):
-            raise TypeError("Expected argument 'authorizations' to be a list")
-        __self__.authorizations = authorizations
+        return pulumi.get(self, "allow_classic_operations")
+
+    @property
+    @pulumi.getter
+    def authorizations(self) -> Optional[List['outputs.ExpressRouteCircuitAuthorizationResponse']]:
         """
         The list of authorizations.
         """
-        if bandwidth_in_gbps and not isinstance(bandwidth_in_gbps, float):
-            raise TypeError("Expected argument 'bandwidth_in_gbps' to be a float")
-        __self__.bandwidth_in_gbps = bandwidth_in_gbps
+        return pulumi.get(self, "authorizations")
+
+    @property
+    @pulumi.getter(name="bandwidthInGbps")
+    def bandwidth_in_gbps(self) -> Optional[float]:
         """
         The bandwidth of the circuit when the circuit is provisioned on an ExpressRoutePort resource.
         """
-        if circuit_provisioning_state and not isinstance(circuit_provisioning_state, str):
-            raise TypeError("Expected argument 'circuit_provisioning_state' to be a str")
-        __self__.circuit_provisioning_state = circuit_provisioning_state
+        return pulumi.get(self, "bandwidth_in_gbps")
+
+    @property
+    @pulumi.getter(name="circuitProvisioningState")
+    def circuit_provisioning_state(self) -> Optional[str]:
         """
         The CircuitProvisioningState state of the resource.
         """
-        if etag and not isinstance(etag, str):
-            raise TypeError("Expected argument 'etag' to be a str")
-        __self__.etag = etag
+        return pulumi.get(self, "circuit_provisioning_state")
+
+    @property
+    @pulumi.getter
+    def etag(self) -> str:
         """
         Gets a unique read-only string that changes whenever the resource is updated.
         """
-        if express_route_port and not isinstance(express_route_port, dict):
-            raise TypeError("Expected argument 'express_route_port' to be a dict")
-        __self__.express_route_port = express_route_port
+        return pulumi.get(self, "etag")
+
+    @property
+    @pulumi.getter(name="expressRoutePort")
+    def express_route_port(self) -> Optional['outputs.SubResourceResponse']:
         """
         The reference to the ExpressRoutePort resource when the circuit is provisioned on an ExpressRoutePort resource.
         """
-        if gateway_manager_etag and not isinstance(gateway_manager_etag, str):
-            raise TypeError("Expected argument 'gateway_manager_etag' to be a str")
-        __self__.gateway_manager_etag = gateway_manager_etag
+        return pulumi.get(self, "express_route_port")
+
+    @property
+    @pulumi.getter(name="gatewayManagerEtag")
+    def gateway_manager_etag(self) -> Optional[str]:
         """
         The GatewayManager Etag.
         """
-        if global_reach_enabled and not isinstance(global_reach_enabled, bool):
-            raise TypeError("Expected argument 'global_reach_enabled' to be a bool")
-        __self__.global_reach_enabled = global_reach_enabled
+        return pulumi.get(self, "gateway_manager_etag")
+
+    @property
+    @pulumi.getter(name="globalReachEnabled")
+    def global_reach_enabled(self) -> Optional[bool]:
         """
         Flag denoting Global reach status.
         """
-        if location and not isinstance(location, str):
-            raise TypeError("Expected argument 'location' to be a str")
-        __self__.location = location
+        return pulumi.get(self, "global_reach_enabled")
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[str]:
         """
         Resource location.
         """
-        if name and not isinstance(name, str):
-            raise TypeError("Expected argument 'name' to be a str")
-        __self__.name = name
+        return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
         """
         Resource name.
         """
-        if peerings and not isinstance(peerings, list):
-            raise TypeError("Expected argument 'peerings' to be a list")
-        __self__.peerings = peerings
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def peerings(self) -> Optional[List['outputs.ExpressRouteCircuitPeeringResponse']]:
         """
         The list of peerings.
         """
-        if provisioning_state and not isinstance(provisioning_state, str):
-            raise TypeError("Expected argument 'provisioning_state' to be a str")
-        __self__.provisioning_state = provisioning_state
+        return pulumi.get(self, "peerings")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> Optional[str]:
         """
         Gets the provisioning state of the public IP resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
         """
-        if service_key and not isinstance(service_key, str):
-            raise TypeError("Expected argument 'service_key' to be a str")
-        __self__.service_key = service_key
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="serviceKey")
+    def service_key(self) -> Optional[str]:
         """
         The ServiceKey.
         """
-        if service_provider_notes and not isinstance(service_provider_notes, str):
-            raise TypeError("Expected argument 'service_provider_notes' to be a str")
-        __self__.service_provider_notes = service_provider_notes
+        return pulumi.get(self, "service_key")
+
+    @property
+    @pulumi.getter(name="serviceProviderNotes")
+    def service_provider_notes(self) -> Optional[str]:
         """
         The ServiceProviderNotes.
         """
-        if service_provider_properties and not isinstance(service_provider_properties, dict):
-            raise TypeError("Expected argument 'service_provider_properties' to be a dict")
-        __self__.service_provider_properties = service_provider_properties
+        return pulumi.get(self, "service_provider_notes")
+
+    @property
+    @pulumi.getter(name="serviceProviderProperties")
+    def service_provider_properties(self) -> Optional['outputs.ExpressRouteCircuitServiceProviderPropertiesResponse']:
         """
         The ServiceProviderProperties.
         """
-        if service_provider_provisioning_state and not isinstance(service_provider_provisioning_state, str):
-            raise TypeError("Expected argument 'service_provider_provisioning_state' to be a str")
-        __self__.service_provider_provisioning_state = service_provider_provisioning_state
+        return pulumi.get(self, "service_provider_properties")
+
+    @property
+    @pulumi.getter(name="serviceProviderProvisioningState")
+    def service_provider_provisioning_state(self) -> Optional[str]:
         """
         The ServiceProviderProvisioningState state of the resource.
         """
-        if sku and not isinstance(sku, dict):
-            raise TypeError("Expected argument 'sku' to be a dict")
-        __self__.sku = sku
+        return pulumi.get(self, "service_provider_provisioning_state")
+
+    @property
+    @pulumi.getter
+    def sku(self) -> Optional['outputs.ExpressRouteCircuitSkuResponse']:
         """
         The SKU.
         """
-        if stag and not isinstance(stag, float):
-            raise TypeError("Expected argument 'stag' to be a float")
-        __self__.stag = stag
+        return pulumi.get(self, "sku")
+
+    @property
+    @pulumi.getter
+    def stag(self) -> float:
         """
         The identifier of the circuit traffic. Outer tag for QinQ encapsulation.
         """
-        if tags and not isinstance(tags, dict):
-            raise TypeError("Expected argument 'tags' to be a dict")
-        __self__.tags = tags
+        return pulumi.get(self, "stag")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Mapping[str, str]]:
         """
         Resource tags.
         """
-        if type and not isinstance(type, str):
-            raise TypeError("Expected argument 'type' to be a str")
-        __self__.type = type
+        return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
         """
         Resource type.
         """
+        return pulumi.get(self, "type")
 
 
 class AwaitableGetExpressRouteCircuitResult(GetExpressRouteCircuitResult):
@@ -164,7 +271,9 @@ class AwaitableGetExpressRouteCircuitResult(GetExpressRouteCircuitResult):
             type=self.type)
 
 
-def get_express_route_circuit(name=None, resource_group_name=None, opts=None):
+def get_express_route_circuit(name: Optional[str] = None,
+                              resource_group_name: Optional[str] = None,
+                              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetExpressRouteCircuitResult:
     """
     Use this data source to access information about an existing resource.
 
@@ -178,26 +287,26 @@ def get_express_route_circuit(name=None, resource_group_name=None, opts=None):
         opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = _utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('azurerm:network/v20190201:getExpressRouteCircuit', __args__, opts=opts).value
+    __ret__ = pulumi.runtime.invoke('azurerm:network/v20190201:getExpressRouteCircuit', __args__, opts=opts, typ=GetExpressRouteCircuitResult).value
 
     return AwaitableGetExpressRouteCircuitResult(
-        allow_classic_operations=__ret__.get('allowClassicOperations'),
-        authorizations=__ret__.get('authorizations'),
-        bandwidth_in_gbps=__ret__.get('bandwidthInGbps'),
-        circuit_provisioning_state=__ret__.get('circuitProvisioningState'),
-        etag=__ret__.get('etag'),
-        express_route_port=__ret__.get('expressRoutePort'),
-        gateway_manager_etag=__ret__.get('gatewayManagerEtag'),
-        global_reach_enabled=__ret__.get('globalReachEnabled'),
-        location=__ret__.get('location'),
-        name=__ret__.get('name'),
-        peerings=__ret__.get('peerings'),
-        provisioning_state=__ret__.get('provisioningState'),
-        service_key=__ret__.get('serviceKey'),
-        service_provider_notes=__ret__.get('serviceProviderNotes'),
-        service_provider_properties=__ret__.get('serviceProviderProperties'),
-        service_provider_provisioning_state=__ret__.get('serviceProviderProvisioningState'),
-        sku=__ret__.get('sku'),
-        stag=__ret__.get('stag'),
-        tags=__ret__.get('tags'),
-        type=__ret__.get('type'))
+        allow_classic_operations=__ret__.allow_classic_operations,
+        authorizations=__ret__.authorizations,
+        bandwidth_in_gbps=__ret__.bandwidth_in_gbps,
+        circuit_provisioning_state=__ret__.circuit_provisioning_state,
+        etag=__ret__.etag,
+        express_route_port=__ret__.express_route_port,
+        gateway_manager_etag=__ret__.gateway_manager_etag,
+        global_reach_enabled=__ret__.global_reach_enabled,
+        location=__ret__.location,
+        name=__ret__.name,
+        peerings=__ret__.peerings,
+        provisioning_state=__ret__.provisioning_state,
+        service_key=__ret__.service_key,
+        service_provider_notes=__ret__.service_provider_notes,
+        service_provider_properties=__ret__.service_provider_properties,
+        service_provider_provisioning_state=__ret__.service_provider_provisioning_state,
+        sku=__ret__.sku,
+        stag=__ret__.stag,
+        tags=__ret__.tags,
+        type=__ret__.type)

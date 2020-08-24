@@ -6,3 +6,5 @@
 from .get_job import *
 from .job import *
 from .list_bit_locker_key import *
+from ._inputs import *
+from . import outputs

@@ -5,47 +5,33 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+
+__all__ = ['Logger']
 
 
 class Logger(pulumi.CustomResource):
-    credentials: pulumi.Output[dict]
-    """
-    The name and SendRule connection string of the event hub for azureEventHub logger.
-    Instrumentation key for applicationInsights logger.
-    """
-    description: pulumi.Output[str]
-    """
-    Logger description.
-    """
-    is_buffered: pulumi.Output[bool]
-    """
-    Whether records are buffered in the logger before publishing. Default is assumed to be true.
-    """
-    logger_type: pulumi.Output[str]
-    """
-    Logger type.
-    """
-    name: pulumi.Output[str]
-    """
-    Resource name.
-    """
-    resource_id: pulumi.Output[str]
-    """
-    Azure Resource Id of a log target (either Azure Event Hub resource or Azure Application Insights resource).
-    """
-    type: pulumi.Output[str]
-    """
-    Resource type for API Management resource.
-    """
-    def __init__(__self__, resource_name, opts=None, credentials=None, description=None, is_buffered=None, logger_type=None, name=None, resource_group_name=None, resource_id=None, service_name=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 credentials: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 is_buffered: Optional[pulumi.Input[bool]] = None,
+                 logger_type: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 resource_id: Optional[pulumi.Input[str]] = None,
+                 service_name: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         Logger details.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[dict] credentials: The name and SendRule connection string of the event hub for azureEventHub logger.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] credentials: The name and SendRule connection string of the event hub for azureEventHub logger.
                Instrumentation key for applicationInsights logger.
         :param pulumi.Input[str] description: Logger description.
         :param pulumi.Input[bool] is_buffered: Whether records are buffered in the logger before publishing. Default is assumed to be true.
@@ -100,13 +86,15 @@ class Logger(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None) -> 'Logger':
         """
         Get an existing Logger resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -115,8 +103,66 @@ class Logger(pulumi.CustomResource):
 
         return Logger(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter
+    def credentials(self) -> Mapping[str, str]:
+        """
+        The name and SendRule connection string of the event hub for azureEventHub logger.
+        Instrumentation key for applicationInsights logger.
+        """
+        return pulumi.get(self, "credentials")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        """
+        Logger description.
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="isBuffered")
+    def is_buffered(self) -> Optional[bool]:
+        """
+        Whether records are buffered in the logger before publishing. Default is assumed to be true.
+        """
+        return pulumi.get(self, "is_buffered")
+
+    @property
+    @pulumi.getter(name="loggerType")
+    def logger_type(self) -> str:
+        """
+        Logger type.
+        """
+        return pulumi.get(self, "logger_type")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Resource name.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="resourceId")
+    def resource_id(self) -> Optional[str]:
+        """
+        Azure Resource Id of a log target (either Azure Event Hub resource or Azure Application Insights resource).
+        """
+        return pulumi.get(self, "resource_id")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Resource type for API Management resource.
+        """
+        return pulumi.get(self, "type")
+
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

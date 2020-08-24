@@ -5,3 +5,5 @@
 # Export this package's modules as members:
 from .deployment_at_management_group_scope import *
 from .get_deployment_at_management_group_scope import *
+from ._inputs import *
+from . import outputs

@@ -5,10 +5,17 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+from . import outputs
 
+__all__ = [
+    'GetUserSettingsResult',
+    'AwaitableGetUserSettingsResult',
+    'get_user_settings',
+]
 
+@pulumi.output_type
 class GetUserSettingsResult:
     """
     Response to get user settings
@@ -16,10 +23,15 @@ class GetUserSettingsResult:
     def __init__(__self__, properties=None):
         if properties and not isinstance(properties, dict):
             raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        pulumi.set(__self__, "properties", properties)
+
+    @property
+    @pulumi.getter
+    def properties(self) -> 'outputs.UserPropertiesResponse':
         """
         The cloud shell user settings properties.
         """
+        return pulumi.get(self, "properties")
 
 
 class AwaitableGetUserSettingsResult(GetUserSettingsResult):
@@ -31,7 +43,8 @@ class AwaitableGetUserSettingsResult(GetUserSettingsResult):
             properties=self.properties)
 
 
-def get_user_settings(user_settings_name=None, opts=None):
+def get_user_settings(user_settings_name: Optional[str] = None,
+                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetUserSettingsResult:
     """
     Use this data source to access information about an existing resource.
 
@@ -43,7 +56,7 @@ def get_user_settings(user_settings_name=None, opts=None):
         opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = _utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('azurerm:portal/v20181001:getUserSettings', __args__, opts=opts).value
+    __ret__ = pulumi.runtime.invoke('azurerm:portal/v20181001:getUserSettings', __args__, opts=opts, typ=GetUserSettingsResult).value
 
     return AwaitableGetUserSettingsResult(
-        properties=__ret__.get('properties'))
+        properties=__ret__.properties)

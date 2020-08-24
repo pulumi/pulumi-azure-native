@@ -25,3 +25,5 @@ from .manager import *
 from .manager_extended_info import *
 from .storage_account_credential import *
 from .storage_domain import *
+from ._inputs import *
+from . import outputs

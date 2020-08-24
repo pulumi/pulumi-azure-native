@@ -5,49 +5,25 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+from . import outputs
+from ._inputs import *
+
+__all__ = ['ManagementPolicy']
 
 
 class ManagementPolicy(pulumi.CustomResource):
-    last_modified_time: pulumi.Output[str]
-    """
-    Returns the date and time the ManagementPolicies was last modified.
-    """
-    name: pulumi.Output[str]
-    """
-    The name of the resource
-    """
-    policy: pulumi.Output[dict]
-    """
-    The Storage Account ManagementPolicy, in JSON format. See more details in: https://docs.microsoft.com/en-us/azure/storage/common/storage-lifecycle-managment-concepts.
-      * `rules` (`list`) - The Storage Account ManagementPolicies Rules. See more details in: https://docs.microsoft.com/en-us/azure/storage/common/storage-lifecycle-managment-concepts.
-        * `definition` (`dict`) - An object that defines the Lifecycle rule.
-          * `actions` (`dict`) - An object that defines the action set.
-            * `base_blob` (`dict`) - The management policy action for base blob
-              * `delete` (`dict`) - The function to delete the blob
-                * `days_after_modification_greater_than` (`float`) - Integer value indicating the age in days after last modification
-
-              * `tier_to_archive` (`dict`) - The function to tier blobs to archive storage. Support blobs currently at Hot or Cool tier
-              * `tier_to_cool` (`dict`) - The function to tier blobs to cool storage. Support blobs currently at Hot tier
-
-            * `snapshot` (`dict`) - The management policy action for snapshot
-              * `delete` (`dict`) - The function to delete the blob snapshot
-                * `days_after_creation_greater_than` (`float`) - Integer value indicating the age in days after creation
-
-          * `filters` (`dict`) - An object that defines the filter set.
-            * `blob_types` (`list`) - An array of predefined enum values. Only blockBlob is supported.
-            * `prefix_match` (`list`) - An array of strings for prefixes to be match.
-
-        * `enabled` (`bool`) - Rule is enabled if set to true.
-        * `name` (`str`) - A rule name can contain any combination of alpha numeric characters. Rule name is case-sensitive. It must be unique within a policy.
-        * `type` (`str`) - The valid value is Lifecycle
-    """
-    type: pulumi.Output[str]
-    """
-    The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
-    """
-    def __init__(__self__, resource_name, opts=None, account_name=None, name=None, policy=None, resource_group_name=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 account_name: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 policy: Optional[pulumi.Input[pulumi.InputType['ManagementPolicySchemaArgs']]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         The Get Storage Account ManagementPolicies operation response.
 
@@ -55,32 +31,8 @@ class ManagementPolicy(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_name: The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.
         :param pulumi.Input[str] name: The name of the Storage Account Management Policy. It should always be 'default'
-        :param pulumi.Input[dict] policy: The Storage Account ManagementPolicy, in JSON format. See more details in: https://docs.microsoft.com/en-us/azure/storage/common/storage-lifecycle-managment-concepts.
+        :param pulumi.Input[pulumi.InputType['ManagementPolicySchemaArgs']] policy: The Storage Account ManagementPolicy, in JSON format. See more details in: https://docs.microsoft.com/en-us/azure/storage/common/storage-lifecycle-managment-concepts.
         :param pulumi.Input[str] resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.
-
-        The **policy** object supports the following:
-
-          * `rules` (`pulumi.Input[list]`) - The Storage Account ManagementPolicies Rules. See more details in: https://docs.microsoft.com/en-us/azure/storage/common/storage-lifecycle-managment-concepts.
-            * `definition` (`pulumi.Input[dict]`) - An object that defines the Lifecycle rule.
-              * `actions` (`pulumi.Input[dict]`) - An object that defines the action set.
-                * `base_blob` (`pulumi.Input[dict]`) - The management policy action for base blob
-                  * `delete` (`pulumi.Input[dict]`) - The function to delete the blob
-                    * `days_after_modification_greater_than` (`pulumi.Input[float]`) - Integer value indicating the age in days after last modification
-
-                  * `tier_to_archive` (`pulumi.Input[dict]`) - The function to tier blobs to archive storage. Support blobs currently at Hot or Cool tier
-                  * `tier_to_cool` (`pulumi.Input[dict]`) - The function to tier blobs to cool storage. Support blobs currently at Hot tier
-
-                * `snapshot` (`pulumi.Input[dict]`) - The management policy action for snapshot
-                  * `delete` (`pulumi.Input[dict]`) - The function to delete the blob snapshot
-                    * `days_after_creation_greater_than` (`pulumi.Input[float]`) - Integer value indicating the age in days after creation
-
-              * `filters` (`pulumi.Input[dict]`) - An object that defines the filter set.
-                * `blob_types` (`pulumi.Input[list]`) - An array of predefined enum values. Only blockBlob is supported.
-                * `prefix_match` (`pulumi.Input[list]`) - An array of strings for prefixes to be match.
-
-            * `enabled` (`pulumi.Input[bool]`) - Rule is enabled if set to true.
-            * `name` (`pulumi.Input[str]`) - A rule name can contain any combination of alpha numeric characters. Rule name is case-sensitive. It must be unique within a policy.
-            * `type` (`pulumi.Input[str]`) - The valid value is Lifecycle
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -122,13 +74,15 @@ class ManagementPolicy(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None) -> 'ManagementPolicy':
         """
         Get an existing ManagementPolicy resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -137,8 +91,41 @@ class ManagementPolicy(pulumi.CustomResource):
 
         return ManagementPolicy(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter(name="lastModifiedTime")
+    def last_modified_time(self) -> str:
+        """
+        Returns the date and time the ManagementPolicies was last modified.
+        """
+        return pulumi.get(self, "last_modified_time")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the resource
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def policy(self) -> 'outputs.ManagementPolicySchemaResponse':
+        """
+        The Storage Account ManagementPolicy, in JSON format. See more details in: https://docs.microsoft.com/en-us/azure/storage/common/storage-lifecycle-managment-concepts.
+        """
+        return pulumi.get(self, "policy")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+        """
+        return pulumi.get(self, "type")
+
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

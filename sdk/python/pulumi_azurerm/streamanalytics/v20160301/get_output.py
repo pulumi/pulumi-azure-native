@@ -5,10 +5,17 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+from . import outputs
 
+__all__ = [
+    'GetOutputResult',
+    'AwaitableGetOutputResult',
+    'get_output',
+]
 
+@pulumi.output_type
 class GetOutputResult:
     """
     An output object, containing all information associated with the named output. All outputs are contained under a streaming job.
@@ -16,40 +23,70 @@ class GetOutputResult:
     def __init__(__self__, datasource=None, diagnostics=None, etag=None, name=None, serialization=None, type=None):
         if datasource and not isinstance(datasource, dict):
             raise TypeError("Expected argument 'datasource' to be a dict")
-        __self__.datasource = datasource
+        pulumi.set(__self__, "datasource", datasource)
+        if diagnostics and not isinstance(diagnostics, dict):
+            raise TypeError("Expected argument 'diagnostics' to be a dict")
+        pulumi.set(__self__, "diagnostics", diagnostics)
+        if etag and not isinstance(etag, str):
+            raise TypeError("Expected argument 'etag' to be a str")
+        pulumi.set(__self__, "etag", etag)
+        if name and not isinstance(name, str):
+            raise TypeError("Expected argument 'name' to be a str")
+        pulumi.set(__self__, "name", name)
+        if serialization and not isinstance(serialization, dict):
+            raise TypeError("Expected argument 'serialization' to be a dict")
+        pulumi.set(__self__, "serialization", serialization)
+        if type and not isinstance(type, str):
+            raise TypeError("Expected argument 'type' to be a str")
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def datasource(self) -> Optional['outputs.OutputDataSourceResponse']:
         """
         Describes the data source that output will be written to. Required on PUT (CreateOrReplace) requests.
         """
-        if diagnostics and not isinstance(diagnostics, dict):
-            raise TypeError("Expected argument 'diagnostics' to be a dict")
-        __self__.diagnostics = diagnostics
+        return pulumi.get(self, "datasource")
+
+    @property
+    @pulumi.getter
+    def diagnostics(self) -> 'outputs.DiagnosticsResponse':
         """
         Describes conditions applicable to the Input, Output, or the job overall, that warrant customer attention.
         """
-        if etag and not isinstance(etag, str):
-            raise TypeError("Expected argument 'etag' to be a str")
-        __self__.etag = etag
+        return pulumi.get(self, "diagnostics")
+
+    @property
+    @pulumi.getter
+    def etag(self) -> str:
         """
         The current entity tag for the output. This is an opaque string. You can use it to detect whether the resource has changed between requests. You can also use it in the If-Match or If-None-Match headers for write operations for optimistic concurrency.
         """
-        if name and not isinstance(name, str):
-            raise TypeError("Expected argument 'name' to be a str")
-        __self__.name = name
+        return pulumi.get(self, "etag")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
         """
         Resource name
         """
-        if serialization and not isinstance(serialization, dict):
-            raise TypeError("Expected argument 'serialization' to be a dict")
-        __self__.serialization = serialization
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def serialization(self) -> Optional['outputs.SerializationResponse']:
         """
         Describes how data from an input is serialized or how data is serialized when written to an output. Required on PUT (CreateOrReplace) requests.
         """
-        if type and not isinstance(type, str):
-            raise TypeError("Expected argument 'type' to be a str")
-        __self__.type = type
+        return pulumi.get(self, "serialization")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
         """
         Resource type
         """
+        return pulumi.get(self, "type")
 
 
 class AwaitableGetOutputResult(GetOutputResult):
@@ -66,7 +103,10 @@ class AwaitableGetOutputResult(GetOutputResult):
             type=self.type)
 
 
-def get_output(job_name=None, name=None, resource_group_name=None, opts=None):
+def get_output(job_name: Optional[str] = None,
+               name: Optional[str] = None,
+               resource_group_name: Optional[str] = None,
+               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetOutputResult:
     """
     Use this data source to access information about an existing resource.
 
@@ -82,12 +122,12 @@ def get_output(job_name=None, name=None, resource_group_name=None, opts=None):
         opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = _utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('azurerm:streamanalytics/v20160301:getOutput', __args__, opts=opts).value
+    __ret__ = pulumi.runtime.invoke('azurerm:streamanalytics/v20160301:getOutput', __args__, opts=opts, typ=GetOutputResult).value
 
     return AwaitableGetOutputResult(
-        datasource=__ret__.get('datasource'),
-        diagnostics=__ret__.get('diagnostics'),
-        etag=__ret__.get('etag'),
-        name=__ret__.get('name'),
-        serialization=__ret__.get('serialization'),
-        type=__ret__.get('type'))
+        datasource=__ret__.datasource,
+        diagnostics=__ret__.diagnostics,
+        etag=__ret__.etag,
+        name=__ret__.name,
+        serialization=__ret__.serialization,
+        type=__ret__.type)

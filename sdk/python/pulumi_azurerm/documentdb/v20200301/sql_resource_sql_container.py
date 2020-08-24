@@ -5,30 +5,29 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+from . import outputs
+from ._inputs import *
+
+__all__ = ['SqlResourceSqlContainer']
 
 
 class SqlResourceSqlContainer(pulumi.CustomResource):
-    location: pulumi.Output[str]
-    """
-    The location of the resource group to which the resource belongs.
-    """
-    name: pulumi.Output[str]
-    """
-    The name of the ARM resource.
-    """
-    options: pulumi.Output[dict]
-    resource: pulumi.Output[dict]
-    tags: pulumi.Output[dict]
-    """
-    Tags are a list of key-value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters. For example, the default experience for a template type is set with "defaultExperience": "Cassandra". Current "defaultExperience" values also include "Table", "Graph", "DocumentDB", and "MongoDB".
-    """
-    type: pulumi.Output[str]
-    """
-    The type of Azure resource.
-    """
-    def __init__(__self__, resource_name, opts=None, account_name=None, database_name=None, location=None, name=None, options=None, resource=None, resource_group_name=None, tags=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 account_name: Optional[pulumi.Input[str]] = None,
+                 database_name: Optional[pulumi.Input[str]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 options: Optional[pulumi.Input[pulumi.InputType['CreateUpdateOptionsArgs']]] = None,
+                 resource: Optional[pulumi.Input[pulumi.InputType['SqlContainerResourceArgs']]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         An Azure Cosmos DB container.
 
@@ -38,54 +37,10 @@ class SqlResourceSqlContainer(pulumi.CustomResource):
         :param pulumi.Input[str] database_name: Cosmos DB database name.
         :param pulumi.Input[str] location: The location of the resource group to which the resource belongs.
         :param pulumi.Input[str] name: Cosmos DB container name.
-        :param pulumi.Input[dict] options: A key-value pair of options to be applied for the request. This corresponds to the headers sent with the request.
-        :param pulumi.Input[dict] resource: The standard JSON format of a container
+        :param pulumi.Input[pulumi.InputType['CreateUpdateOptionsArgs']] options: A key-value pair of options to be applied for the request. This corresponds to the headers sent with the request.
+        :param pulumi.Input[pulumi.InputType['SqlContainerResourceArgs']] resource: The standard JSON format of a container
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input[dict] tags: Tags are a list of key-value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters. For example, the default experience for a template type is set with "defaultExperience": "Cassandra". Current "defaultExperience" values also include "Table", "Graph", "DocumentDB", and "MongoDB".
-
-        The **options** object supports the following:
-
-          * `throughput` (`pulumi.Input[str]`) - Request Units per second. For example, "throughput": "10000".
-
-        The **resource** object supports the following:
-
-          * `conflict_resolution_policy` (`pulumi.Input[dict]`) - The conflict resolution policy for the container.
-            * `conflict_resolution_path` (`pulumi.Input[str]`) - The conflict resolution path in the case of LastWriterWins mode.
-            * `conflict_resolution_procedure` (`pulumi.Input[str]`) - The procedure to resolve conflicts in the case of custom mode.
-            * `mode` (`pulumi.Input[str]`) - Indicates the conflict resolution mode.
-
-          * `default_ttl` (`pulumi.Input[float]`) - Default time to live
-          * `id` (`pulumi.Input[str]`) - Name of the Cosmos DB SQL container
-          * `indexing_policy` (`pulumi.Input[dict]`) - The configuration of the indexing policy. By default, the indexing is automatic for all document paths within the container
-            * `automatic` (`pulumi.Input[bool]`) - Indicates if the indexing policy is automatic
-            * `composite_indexes` (`pulumi.Input[list]`) - List of composite path list
-              * `order` (`pulumi.Input[str]`) - Sort order for composite paths.
-              * `path` (`pulumi.Input[str]`) - The path for which the indexing behavior applies to. Index paths typically start with root and end with wildcard (/path/*)
-
-            * `excluded_paths` (`pulumi.Input[list]`) - List of paths to exclude from indexing
-              * `path` (`pulumi.Input[str]`) - The path for which the indexing behavior applies to. Index paths typically start with root and end with wildcard (/path/*)
-
-            * `included_paths` (`pulumi.Input[list]`) - List of paths to include in the indexing
-              * `indexes` (`pulumi.Input[list]`) - List of indexes for this path
-                * `data_type` (`pulumi.Input[str]`) - The datatype for which the indexing behavior is applied to.
-                * `kind` (`pulumi.Input[str]`) - Indicates the type of index.
-                * `precision` (`pulumi.Input[float]`) - The precision of the index. -1 is maximum precision.
-
-              * `path` (`pulumi.Input[str]`) - The path for which the indexing behavior applies to. Index paths typically start with root and end with wildcard (/path/*)
-
-            * `indexing_mode` (`pulumi.Input[str]`) - Indicates the indexing mode.
-            * `spatial_indexes` (`pulumi.Input[list]`) - List of spatial specifics
-              * `path` (`pulumi.Input[str]`) - The path for which the indexing behavior applies to. Index paths typically start with root and end with wildcard (/path/*)
-              * `types` (`pulumi.Input[list]`) - List of path's spatial type
-
-          * `partition_key` (`pulumi.Input[dict]`) - The configuration of the partition key to be used for partitioning data into multiple partitions
-            * `kind` (`pulumi.Input[str]`) - Indicates the kind of algorithm used for partitioning
-            * `paths` (`pulumi.Input[list]`) - List of paths using which data within the container can be partitioned
-            * `version` (`pulumi.Input[float]`) - Indicates the version of the partition key definition
-
-          * `unique_key_policy` (`pulumi.Input[dict]`) - The unique key policy configuration for specifying uniqueness constraints on documents in the collection in the Azure Cosmos DB service.
-            * `unique_keys` (`pulumi.Input[list]`) - List of unique keys on that enforces uniqueness constraint on documents in the collection in the Azure Cosmos DB service.
-              * `paths` (`pulumi.Input[list]`) - List of paths must be unique for each document in the Azure Cosmos DB service
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Tags are a list of key-value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters. For example, the default experience for a template type is set with "defaultExperience": "Cassandra". Current "defaultExperience" values also include "Table", "Graph", "DocumentDB", and "MongoDB".
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -134,13 +89,15 @@ class SqlResourceSqlContainer(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None) -> 'SqlResourceSqlContainer':
         """
         Get an existing SqlResourceSqlContainer resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -149,8 +106,51 @@ class SqlResourceSqlContainer(pulumi.CustomResource):
 
         return SqlResourceSqlContainer(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[str]:
+        """
+        The location of the resource group to which the resource belongs.
+        """
+        return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the ARM resource.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def options(self) -> Optional['outputs.SqlContainerGetPropertiesResponseOptions']:
+        return pulumi.get(self, "options")
+
+    @property
+    @pulumi.getter
+    def resource(self) -> Optional['outputs.SqlContainerGetPropertiesResponseResource']:
+        return pulumi.get(self, "resource")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Mapping[str, str]]:
+        """
+        Tags are a list of key-value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters. For example, the default experience for a template type is set with "defaultExperience": "Cassandra". Current "defaultExperience" values also include "Table", "Graph", "DocumentDB", and "MongoDB".
+        """
+        return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        The type of Azure resource.
+        """
+        return pulumi.get(self, "type")
+
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

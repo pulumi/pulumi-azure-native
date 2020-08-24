@@ -5,40 +5,24 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+
+__all__ = ['DisasterRecoveryConfig']
 
 
 class DisasterRecoveryConfig(pulumi.CustomResource):
-    alternate_name: pulumi.Output[str]
-    """
-    Primary/Secondary eventhub namespace name, which is part of GEO DR pairing
-    """
-    name: pulumi.Output[str]
-    """
-    Resource name
-    """
-    partner_namespace: pulumi.Output[str]
-    """
-    ARM Id of the Primary/Secondary eventhub namespace name, which is part of GEO DR pairing
-    """
-    pending_replication_operations_count: pulumi.Output[float]
-    """
-    Number of entities pending to be replicated.
-    """
-    provisioning_state: pulumi.Output[str]
-    """
-    Provisioning state of the Alias(Disaster Recovery configuration) - possible values 'Accepted' or 'Succeeded' or 'Failed'
-    """
-    role: pulumi.Output[str]
-    """
-    role of namespace in GEO DR - possible values 'Primary' or 'PrimaryNotReplicating' or 'Secondary'
-    """
-    type: pulumi.Output[str]
-    """
-    Resource type
-    """
-    def __init__(__self__, resource_name, opts=None, alternate_name=None, name=None, namespace_name=None, partner_namespace=None, resource_group_name=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 alternate_name: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 namespace_name: Optional[pulumi.Input[str]] = None,
+                 partner_namespace: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         Single item in List or Get Alias(Disaster Recovery configuration) operation
 
@@ -89,13 +73,15 @@ class DisasterRecoveryConfig(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None) -> 'DisasterRecoveryConfig':
         """
         Get an existing DisasterRecoveryConfig resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -104,8 +90,65 @@ class DisasterRecoveryConfig(pulumi.CustomResource):
 
         return DisasterRecoveryConfig(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter(name="alternateName")
+    def alternate_name(self) -> Optional[str]:
+        """
+        Primary/Secondary eventhub namespace name, which is part of GEO DR pairing
+        """
+        return pulumi.get(self, "alternate_name")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Resource name
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="partnerNamespace")
+    def partner_namespace(self) -> Optional[str]:
+        """
+        ARM Id of the Primary/Secondary eventhub namespace name, which is part of GEO DR pairing
+        """
+        return pulumi.get(self, "partner_namespace")
+
+    @property
+    @pulumi.getter(name="pendingReplicationOperationsCount")
+    def pending_replication_operations_count(self) -> float:
+        """
+        Number of entities pending to be replicated.
+        """
+        return pulumi.get(self, "pending_replication_operations_count")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        Provisioning state of the Alias(Disaster Recovery configuration) - possible values 'Accepted' or 'Succeeded' or 'Failed'
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter
+    def role(self) -> str:
+        """
+        role of namespace in GEO DR - possible values 'Primary' or 'PrimaryNotReplicating' or 'Secondary'
+        """
+        return pulumi.get(self, "role")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Resource type
+        """
+        return pulumi.get(self, "type")
+
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

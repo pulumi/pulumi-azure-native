@@ -5,302 +5,68 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+from . import outputs
+from ._inputs import *
+
+__all__ = ['ManagedCluster']
 
 
 class ManagedCluster(pulumi.CustomResource):
-    aad_profile: pulumi.Output[dict]
-    """
-    Profile of Azure Active Directory configuration.
-      * `client_app_id` (`str`) - The client AAD application ID.
-      * `server_app_id` (`str`) - The server AAD application ID.
-      * `server_app_secret` (`str`) - The server AAD application secret.
-      * `tenant_id` (`str`) - The AAD tenant ID to use for authentication. If not specified, will use the tenant of the deployment subscription.
-    """
-    addon_profiles: pulumi.Output[dict]
-    """
-    Profile of managed cluster add-on.
-    """
-    agent_pool_profiles: pulumi.Output[list]
-    """
-    Properties of the agent pool.
-      * `availability_zones` (`list`) - Availability zones for nodes. Must use VirtualMachineScaleSets AgentPoolType.
-      * `count` (`float`) - Number of agents (VMs) to host docker containers. Allowed values must be in the range of 1 to 100 (inclusive). The default value is 1.
-      * `enable_auto_scaling` (`bool`) - Whether to enable auto-scaler
-      * `enable_node_public_ip` (`bool`) - Enable public IP for nodes
-      * `max_count` (`float`) - Maximum number of nodes for auto-scaling
-      * `max_pods` (`float`) - Maximum number of pods that can run on a node.
-      * `min_count` (`float`) - Minimum number of nodes for auto-scaling
-      * `name` (`str`) - Unique name of the agent pool profile in the context of the subscription and resource group.
-      * `node_labels` (`dict`) - Agent pool node labels to be persisted across all nodes in agent pool.
-      * `node_taints` (`list`) - Taints added to new nodes during node pool create and scale. For example, key=value:NoSchedule.
-      * `orchestrator_version` (`str`) - Version of orchestrator specified when creating the managed cluster.
-      * `os_disk_size_gb` (`float`) - OS Disk Size in GB to be used to specify the disk size for every machine in this master/agent pool. If you specify 0, it will apply the default osDisk size according to the vmSize specified.
-      * `os_type` (`str`) - OsType to be used to specify os type. Choose from Linux and Windows. Default to Linux.
-      * `provisioning_state` (`str`) - The current deployment or provisioning state, which only appears in the response.
-      * `scale_set_eviction_policy` (`str`) - ScaleSetEvictionPolicy to be used to specify eviction policy for Spot or low priority virtual machine scale set. Default to Delete.
-      * `scale_set_priority` (`str`) - ScaleSetPriority to be used to specify virtual machine scale set priority. Default to regular.
-      * `spot_max_price` (`float`) - SpotMaxPrice to be used to specify the maximum price you are willing to pay in US Dollars. Possible values are any decimal value greater than zero or -1 which indicates default price to be up-to on-demand.
-      * `tags` (`dict`) - Agent pool tags to be persisted on the agent pool virtual machine scale set.
-      * `type` (`str`) - AgentPoolType represents types of an agent pool
-      * `vm_size` (`str`) - Size of agent VMs.
-      * `vnet_subnet_id` (`str`) - VNet SubnetID specifies the VNet's subnet identifier.
-    """
-    api_server_access_profile: pulumi.Output[dict]
-    """
-    Access profile for managed cluster API server.
-      * `authorized_ip_ranges` (`list`) - Authorized IP Ranges to kubernetes API server.
-      * `enable_private_cluster` (`bool`) - Whether to create the cluster as a private cluster or not.
-    """
-    auto_scaler_profile: pulumi.Output[dict]
-    """
-    Parameters to be applied to the cluster-autoscaler when enabled
-      * `max_graceful_termination_sec` (`str`)
-      * `scale_down_delay_after_add` (`str`)
-      * `scale_down_delay_after_delete` (`str`)
-      * `scale_down_delay_after_failure` (`str`)
-      * `scale_down_unneeded_time` (`str`)
-      * `scale_down_unready_time` (`str`)
-      * `scale_down_utilization_threshold` (`str`)
-      * `scan_interval` (`str`)
-    """
-    disk_encryption_set_id: pulumi.Output[str]
-    """
-    ResourceId of the disk encryption set to use for enabling encryption at rest.
-    """
-    dns_prefix: pulumi.Output[str]
-    """
-    DNS prefix specified when creating the managed cluster.
-    """
-    enable_pod_security_policy: pulumi.Output[bool]
-    """
-    (DEPRECATING) Whether to enable Kubernetes pod security policy (preview). This feature is set for removal on October 15th, 2020. Learn more at aka.ms/aks/azpodpolicy.
-    """
-    enable_rbac: pulumi.Output[bool]
-    """
-    Whether to enable Kubernetes Role-Based Access Control.
-    """
-    fqdn: pulumi.Output[str]
-    """
-    FQDN for the master pool.
-    """
-    identity: pulumi.Output[dict]
-    """
-    The identity of the managed cluster, if configured.
-      * `principal_id` (`str`) - The principal id of the system assigned identity which is used by master components.
-      * `tenant_id` (`str`) - The tenant id of the system assigned identity which is used by master components.
-      * `type` (`str`) - The type of identity used for the managed cluster. Type 'SystemAssigned' will use an implicitly created identity in master components and an auto-created user assigned identity in MC_ resource group in agent nodes. Type 'None' will not use MSI for the managed cluster, service principal will be used instead.
-    """
-    identity_profile: pulumi.Output[dict]
-    """
-    Identities associated with the cluster.
-    """
-    kubernetes_version: pulumi.Output[str]
-    """
-    Version of Kubernetes specified when creating the managed cluster.
-    """
-    linux_profile: pulumi.Output[dict]
-    """
-    Profile for Linux VMs in the container service cluster.
-      * `admin_username` (`str`) - The administrator username to use for Linux VMs.
-      * `ssh` (`dict`) - SSH configuration for Linux-based VMs running on Azure.
-        * `public_keys` (`list`) - The list of SSH public keys used to authenticate with Linux-based VMs. Only expect one key specified.
-          * `key_data` (`str`) - Certificate public key used to authenticate with VMs through SSH. The certificate must be in PEM format with or without headers.
-    """
-    location: pulumi.Output[str]
-    """
-    Resource location
-    """
-    max_agent_pools: pulumi.Output[float]
-    """
-    The max number of agent pools for the managed cluster.
-    """
-    name: pulumi.Output[str]
-    """
-    Resource name
-    """
-    network_profile: pulumi.Output[dict]
-    """
-    Profile of network configuration.
-      * `dns_service_ip` (`str`) - An IP address assigned to the Kubernetes DNS service. It must be within the Kubernetes service address range specified in serviceCidr.
-      * `docker_bridge_cidr` (`str`) - A CIDR notation IP range assigned to the Docker bridge network. It must not overlap with any Subnet IP ranges or the Kubernetes service address range.
-      * `load_balancer_profile` (`dict`) - Profile of the cluster load balancer.
-        * `allocated_outbound_ports` (`float`) - Desired number of allocated SNAT ports per VM. Allowed values must be in the range of 0 to 64000 (inclusive). The default value is 0 which results in Azure dynamically allocating ports.
-        * `effective_outbound_i_ps` (`list`) - The effective outbound IP resources of the cluster load balancer.
-          * `id` (`str`) - The fully qualified Azure resource id.
-
-        * `idle_timeout_in_minutes` (`float`) - Desired outbound flow idle timeout in minutes. Allowed values must be in the range of 4 to 120 (inclusive). The default value is 30 minutes.
-        * `managed_outbound_i_ps` (`dict`) - Desired managed outbound IPs for the cluster load balancer.
-          * `count` (`float`) - Desired number of outbound IP created/managed by Azure for the cluster load balancer. Allowed values must be in the range of 1 to 100 (inclusive). The default value is 1. 
-
-        * `outbound_ip_prefixes` (`dict`) - Desired outbound IP Prefix resources for the cluster load balancer.
-          * `public_ip_prefixes` (`list`) - A list of public IP prefix resources.
-
-        * `outbound_i_ps` (`dict`) - Desired outbound IP resources for the cluster load balancer.
-          * `public_i_ps` (`list`) - A list of public IP resources.
-
-      * `load_balancer_sku` (`str`) - The load balancer sku for the managed cluster.
-      * `network_mode` (`str`) - Network mode used for building Kubernetes network.
-      * `network_plugin` (`str`) - Network plugin used for building Kubernetes network.
-      * `network_policy` (`str`) - Network policy used for building Kubernetes network.
-      * `outbound_type` (`str`) - The outbound (egress) routing method.
-      * `pod_cidr` (`str`) - A CIDR notation IP range from which to assign pod IPs when kubenet is used.
-      * `service_cidr` (`str`) - A CIDR notation IP range from which to assign service cluster IPs. It must not overlap with any Subnet IP ranges.
-    """
-    node_resource_group: pulumi.Output[str]
-    """
-    Name of the resource group containing agent pool nodes.
-    """
-    private_fqdn: pulumi.Output[str]
-    """
-    FQDN of private cluster.
-    """
-    provisioning_state: pulumi.Output[str]
-    """
-    The current deployment or provisioning state, which only appears in the response.
-    """
-    service_principal_profile: pulumi.Output[dict]
-    """
-    Information about a service principal identity for the cluster to use for manipulating Azure APIs.
-      * `client_id` (`str`) - The ID for the service principal.
-      * `secret` (`str`) - The secret password associated with the service principal in plain text.
-    """
-    tags: pulumi.Output[dict]
-    """
-    Resource tags
-    """
-    type: pulumi.Output[str]
-    """
-    Resource type
-    """
-    windows_profile: pulumi.Output[dict]
-    """
-    Profile for Windows VMs in the container service cluster.
-      * `admin_password` (`str`) - The administrator password to use for Windows VMs.
-      * `admin_username` (`str`) - The administrator username to use for Windows VMs.
-    """
-    def __init__(__self__, resource_name, opts=None, aad_profile=None, addon_profiles=None, agent_pool_profiles=None, api_server_access_profile=None, auto_scaler_profile=None, disk_encryption_set_id=None, dns_prefix=None, enable_pod_security_policy=None, enable_rbac=None, identity=None, identity_profile=None, kubernetes_version=None, linux_profile=None, location=None, name=None, network_profile=None, node_resource_group=None, resource_group_name=None, service_principal_profile=None, tags=None, windows_profile=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 aad_profile: Optional[pulumi.Input[pulumi.InputType['ManagedClusterAADProfileArgs']]] = None,
+                 addon_profiles: Optional[pulumi.Input[Mapping[str, pulumi.Input[pulumi.InputType['ManagedClusterAddonProfileArgs']]]]] = None,
+                 agent_pool_profiles: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['ManagedClusterAgentPoolProfileArgs']]]]] = None,
+                 api_server_access_profile: Optional[pulumi.Input[pulumi.InputType['ManagedClusterAPIServerAccessProfileArgs']]] = None,
+                 auto_scaler_profile: Optional[pulumi.Input[pulumi.InputType['ManagedClusterPropertiesAutoScalerProfileArgs']]] = None,
+                 disk_encryption_set_id: Optional[pulumi.Input[str]] = None,
+                 dns_prefix: Optional[pulumi.Input[str]] = None,
+                 enable_pod_security_policy: Optional[pulumi.Input[bool]] = None,
+                 enable_rbac: Optional[pulumi.Input[bool]] = None,
+                 identity: Optional[pulumi.Input[pulumi.InputType['ManagedClusterIdentityArgs']]] = None,
+                 identity_profile: Optional[pulumi.Input[Mapping[str, pulumi.Input[pulumi.InputType['ManagedClusterPropertiesIdentityProfileArgs']]]]] = None,
+                 kubernetes_version: Optional[pulumi.Input[str]] = None,
+                 linux_profile: Optional[pulumi.Input[pulumi.InputType['ContainerServiceLinuxProfileArgs']]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 network_profile: Optional[pulumi.Input[pulumi.InputType['ContainerServiceNetworkProfileArgs']]] = None,
+                 node_resource_group: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 service_principal_profile: Optional[pulumi.Input[pulumi.InputType['ManagedClusterServicePrincipalProfileArgs']]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 windows_profile: Optional[pulumi.Input[pulumi.InputType['ManagedClusterWindowsProfileArgs']]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         Managed cluster.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[dict] aad_profile: Profile of Azure Active Directory configuration.
-        :param pulumi.Input[dict] addon_profiles: Profile of managed cluster add-on.
-        :param pulumi.Input[list] agent_pool_profiles: Properties of the agent pool.
-        :param pulumi.Input[dict] api_server_access_profile: Access profile for managed cluster API server.
-        :param pulumi.Input[dict] auto_scaler_profile: Parameters to be applied to the cluster-autoscaler when enabled
+        :param pulumi.Input[pulumi.InputType['ManagedClusterAADProfileArgs']] aad_profile: Profile of Azure Active Directory configuration.
+        :param pulumi.Input[Mapping[str, pulumi.Input[pulumi.InputType['ManagedClusterAddonProfileArgs']]]] addon_profiles: Profile of managed cluster add-on.
+        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['ManagedClusterAgentPoolProfileArgs']]]] agent_pool_profiles: Properties of the agent pool.
+        :param pulumi.Input[pulumi.InputType['ManagedClusterAPIServerAccessProfileArgs']] api_server_access_profile: Access profile for managed cluster API server.
+        :param pulumi.Input[pulumi.InputType['ManagedClusterPropertiesAutoScalerProfileArgs']] auto_scaler_profile: Parameters to be applied to the cluster-autoscaler when enabled
         :param pulumi.Input[str] disk_encryption_set_id: ResourceId of the disk encryption set to use for enabling encryption at rest.
         :param pulumi.Input[str] dns_prefix: DNS prefix specified when creating the managed cluster.
         :param pulumi.Input[bool] enable_pod_security_policy: (DEPRECATING) Whether to enable Kubernetes pod security policy (preview). This feature is set for removal on October 15th, 2020. Learn more at aka.ms/aks/azpodpolicy.
         :param pulumi.Input[bool] enable_rbac: Whether to enable Kubernetes Role-Based Access Control.
-        :param pulumi.Input[dict] identity: The identity of the managed cluster, if configured.
-        :param pulumi.Input[dict] identity_profile: Identities associated with the cluster.
+        :param pulumi.Input[pulumi.InputType['ManagedClusterIdentityArgs']] identity: The identity of the managed cluster, if configured.
+        :param pulumi.Input[Mapping[str, pulumi.Input[pulumi.InputType['ManagedClusterPropertiesIdentityProfileArgs']]]] identity_profile: Identities associated with the cluster.
         :param pulumi.Input[str] kubernetes_version: Version of Kubernetes specified when creating the managed cluster.
-        :param pulumi.Input[dict] linux_profile: Profile for Linux VMs in the container service cluster.
+        :param pulumi.Input[pulumi.InputType['ContainerServiceLinuxProfileArgs']] linux_profile: Profile for Linux VMs in the container service cluster.
         :param pulumi.Input[str] location: Resource location
         :param pulumi.Input[str] name: The name of the managed cluster resource.
-        :param pulumi.Input[dict] network_profile: Profile of network configuration.
+        :param pulumi.Input[pulumi.InputType['ContainerServiceNetworkProfileArgs']] network_profile: Profile of network configuration.
         :param pulumi.Input[str] node_resource_group: Name of the resource group containing agent pool nodes.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
-        :param pulumi.Input[dict] service_principal_profile: Information about a service principal identity for the cluster to use for manipulating Azure APIs.
-        :param pulumi.Input[dict] tags: Resource tags
-        :param pulumi.Input[dict] windows_profile: Profile for Windows VMs in the container service cluster.
-
-        The **aad_profile** object supports the following:
-
-          * `client_app_id` (`pulumi.Input[str]`) - The client AAD application ID.
-          * `server_app_id` (`pulumi.Input[str]`) - The server AAD application ID.
-          * `server_app_secret` (`pulumi.Input[str]`) - The server AAD application secret.
-          * `tenant_id` (`pulumi.Input[str]`) - The AAD tenant ID to use for authentication. If not specified, will use the tenant of the deployment subscription.
-
-        The **agent_pool_profiles** object supports the following:
-
-          * `availability_zones` (`pulumi.Input[list]`) - Availability zones for nodes. Must use VirtualMachineScaleSets AgentPoolType.
-          * `count` (`pulumi.Input[float]`) - Number of agents (VMs) to host docker containers. Allowed values must be in the range of 1 to 100 (inclusive). The default value is 1.
-          * `enable_auto_scaling` (`pulumi.Input[bool]`) - Whether to enable auto-scaler
-          * `enable_node_public_ip` (`pulumi.Input[bool]`) - Enable public IP for nodes
-          * `max_count` (`pulumi.Input[float]`) - Maximum number of nodes for auto-scaling
-          * `max_pods` (`pulumi.Input[float]`) - Maximum number of pods that can run on a node.
-          * `min_count` (`pulumi.Input[float]`) - Minimum number of nodes for auto-scaling
-          * `name` (`pulumi.Input[str]`) - Unique name of the agent pool profile in the context of the subscription and resource group.
-          * `node_labels` (`pulumi.Input[dict]`) - Agent pool node labels to be persisted across all nodes in agent pool.
-          * `node_taints` (`pulumi.Input[list]`) - Taints added to new nodes during node pool create and scale. For example, key=value:NoSchedule.
-          * `orchestrator_version` (`pulumi.Input[str]`) - Version of orchestrator specified when creating the managed cluster.
-          * `os_disk_size_gb` (`pulumi.Input[float]`) - OS Disk Size in GB to be used to specify the disk size for every machine in this master/agent pool. If you specify 0, it will apply the default osDisk size according to the vmSize specified.
-          * `os_type` (`pulumi.Input[str]`) - OsType to be used to specify os type. Choose from Linux and Windows. Default to Linux.
-          * `scale_set_eviction_policy` (`pulumi.Input[str]`) - ScaleSetEvictionPolicy to be used to specify eviction policy for Spot or low priority virtual machine scale set. Default to Delete.
-          * `scale_set_priority` (`pulumi.Input[str]`) - ScaleSetPriority to be used to specify virtual machine scale set priority. Default to regular.
-          * `spot_max_price` (`pulumi.Input[float]`) - SpotMaxPrice to be used to specify the maximum price you are willing to pay in US Dollars. Possible values are any decimal value greater than zero or -1 which indicates default price to be up-to on-demand.
-          * `tags` (`pulumi.Input[dict]`) - Agent pool tags to be persisted on the agent pool virtual machine scale set.
-          * `type` (`pulumi.Input[str]`) - AgentPoolType represents types of an agent pool
-          * `vm_size` (`pulumi.Input[str]`) - Size of agent VMs.
-          * `vnet_subnet_id` (`pulumi.Input[str]`) - VNet SubnetID specifies the VNet's subnet identifier.
-
-        The **api_server_access_profile** object supports the following:
-
-          * `authorized_ip_ranges` (`pulumi.Input[list]`) - Authorized IP Ranges to kubernetes API server.
-          * `enable_private_cluster` (`pulumi.Input[bool]`) - Whether to create the cluster as a private cluster or not.
-
-        The **auto_scaler_profile** object supports the following:
-
-          * `max_graceful_termination_sec` (`pulumi.Input[str]`)
-          * `scale_down_delay_after_add` (`pulumi.Input[str]`)
-          * `scale_down_delay_after_delete` (`pulumi.Input[str]`)
-          * `scale_down_delay_after_failure` (`pulumi.Input[str]`)
-          * `scale_down_unneeded_time` (`pulumi.Input[str]`)
-          * `scale_down_unready_time` (`pulumi.Input[str]`)
-          * `scale_down_utilization_threshold` (`pulumi.Input[str]`)
-          * `scan_interval` (`pulumi.Input[str]`)
-
-        The **identity** object supports the following:
-
-          * `type` (`pulumi.Input[str]`) - The type of identity used for the managed cluster. Type 'SystemAssigned' will use an implicitly created identity in master components and an auto-created user assigned identity in MC_ resource group in agent nodes. Type 'None' will not use MSI for the managed cluster, service principal will be used instead.
-
-        The **linux_profile** object supports the following:
-
-          * `admin_username` (`pulumi.Input[str]`) - The administrator username to use for Linux VMs.
-          * `ssh` (`pulumi.Input[dict]`) - SSH configuration for Linux-based VMs running on Azure.
-            * `public_keys` (`pulumi.Input[list]`) - The list of SSH public keys used to authenticate with Linux-based VMs. Only expect one key specified.
-              * `key_data` (`pulumi.Input[str]`) - Certificate public key used to authenticate with VMs through SSH. The certificate must be in PEM format with or without headers.
-
-        The **network_profile** object supports the following:
-
-          * `dns_service_ip` (`pulumi.Input[str]`) - An IP address assigned to the Kubernetes DNS service. It must be within the Kubernetes service address range specified in serviceCidr.
-          * `docker_bridge_cidr` (`pulumi.Input[str]`) - A CIDR notation IP range assigned to the Docker bridge network. It must not overlap with any Subnet IP ranges or the Kubernetes service address range.
-          * `load_balancer_profile` (`pulumi.Input[dict]`) - Profile of the cluster load balancer.
-            * `allocated_outbound_ports` (`pulumi.Input[float]`) - Desired number of allocated SNAT ports per VM. Allowed values must be in the range of 0 to 64000 (inclusive). The default value is 0 which results in Azure dynamically allocating ports.
-            * `effective_outbound_i_ps` (`pulumi.Input[list]`) - The effective outbound IP resources of the cluster load balancer.
-              * `id` (`pulumi.Input[str]`) - The fully qualified Azure resource id.
-
-            * `idle_timeout_in_minutes` (`pulumi.Input[float]`) - Desired outbound flow idle timeout in minutes. Allowed values must be in the range of 4 to 120 (inclusive). The default value is 30 minutes.
-            * `managed_outbound_i_ps` (`pulumi.Input[dict]`) - Desired managed outbound IPs for the cluster load balancer.
-              * `count` (`pulumi.Input[float]`) - Desired number of outbound IP created/managed by Azure for the cluster load balancer. Allowed values must be in the range of 1 to 100 (inclusive). The default value is 1. 
-
-            * `outbound_ip_prefixes` (`pulumi.Input[dict]`) - Desired outbound IP Prefix resources for the cluster load balancer.
-              * `public_ip_prefixes` (`pulumi.Input[list]`) - A list of public IP prefix resources.
-
-            * `outbound_i_ps` (`pulumi.Input[dict]`) - Desired outbound IP resources for the cluster load balancer.
-              * `public_i_ps` (`pulumi.Input[list]`) - A list of public IP resources.
-
-          * `load_balancer_sku` (`pulumi.Input[str]`) - The load balancer sku for the managed cluster.
-          * `network_mode` (`pulumi.Input[str]`) - Network mode used for building Kubernetes network.
-          * `network_plugin` (`pulumi.Input[str]`) - Network plugin used for building Kubernetes network.
-          * `network_policy` (`pulumi.Input[str]`) - Network policy used for building Kubernetes network.
-          * `outbound_type` (`pulumi.Input[str]`) - The outbound (egress) routing method.
-          * `pod_cidr` (`pulumi.Input[str]`) - A CIDR notation IP range from which to assign pod IPs when kubenet is used.
-          * `service_cidr` (`pulumi.Input[str]`) - A CIDR notation IP range from which to assign service cluster IPs. It must not overlap with any Subnet IP ranges.
-
-        The **service_principal_profile** object supports the following:
-
-          * `client_id` (`pulumi.Input[str]`) - The ID for the service principal.
-          * `secret` (`pulumi.Input[str]`) - The secret password associated with the service principal in plain text.
-
-        The **windows_profile** object supports the following:
-
-          * `admin_password` (`pulumi.Input[str]`) - The administrator password to use for Windows VMs.
-          * `admin_username` (`pulumi.Input[str]`) - The administrator username to use for Windows VMs.
+        :param pulumi.Input[pulumi.InputType['ManagedClusterServicePrincipalProfileArgs']] service_principal_profile: Information about a service principal identity for the cluster to use for manipulating Azure APIs.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags
+        :param pulumi.Input[pulumi.InputType['ManagedClusterWindowsProfileArgs']] windows_profile: Profile for Windows VMs in the container service cluster.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -360,13 +126,15 @@ class ManagedCluster(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None) -> 'ManagedCluster':
         """
         Get an existing ManagedCluster resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -375,8 +143,209 @@ class ManagedCluster(pulumi.CustomResource):
 
         return ManagedCluster(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter(name="aadProfile")
+    def aad_profile(self) -> Optional['outputs.ManagedClusterAADProfileResponse']:
+        """
+        Profile of Azure Active Directory configuration.
+        """
+        return pulumi.get(self, "aad_profile")
+
+    @property
+    @pulumi.getter(name="addonProfiles")
+    def addon_profiles(self) -> Optional[Mapping[str, 'outputs.ManagedClusterAddonProfileResponse']]:
+        """
+        Profile of managed cluster add-on.
+        """
+        return pulumi.get(self, "addon_profiles")
+
+    @property
+    @pulumi.getter(name="agentPoolProfiles")
+    def agent_pool_profiles(self) -> Optional[List['outputs.ManagedClusterAgentPoolProfileResponse']]:
+        """
+        Properties of the agent pool.
+        """
+        return pulumi.get(self, "agent_pool_profiles")
+
+    @property
+    @pulumi.getter(name="apiServerAccessProfile")
+    def api_server_access_profile(self) -> Optional['outputs.ManagedClusterAPIServerAccessProfileResponse']:
+        """
+        Access profile for managed cluster API server.
+        """
+        return pulumi.get(self, "api_server_access_profile")
+
+    @property
+    @pulumi.getter(name="autoScalerProfile")
+    def auto_scaler_profile(self) -> Optional['outputs.ManagedClusterPropertiesResponseAutoScalerProfile']:
+        """
+        Parameters to be applied to the cluster-autoscaler when enabled
+        """
+        return pulumi.get(self, "auto_scaler_profile")
+
+    @property
+    @pulumi.getter(name="diskEncryptionSetID")
+    def disk_encryption_set_id(self) -> Optional[str]:
+        """
+        ResourceId of the disk encryption set to use for enabling encryption at rest.
+        """
+        return pulumi.get(self, "disk_encryption_set_id")
+
+    @property
+    @pulumi.getter(name="dnsPrefix")
+    def dns_prefix(self) -> Optional[str]:
+        """
+        DNS prefix specified when creating the managed cluster.
+        """
+        return pulumi.get(self, "dns_prefix")
+
+    @property
+    @pulumi.getter(name="enablePodSecurityPolicy")
+    def enable_pod_security_policy(self) -> Optional[bool]:
+        """
+        (DEPRECATING) Whether to enable Kubernetes pod security policy (preview). This feature is set for removal on October 15th, 2020. Learn more at aka.ms/aks/azpodpolicy.
+        """
+        return pulumi.get(self, "enable_pod_security_policy")
+
+    @property
+    @pulumi.getter(name="enableRBAC")
+    def enable_rbac(self) -> Optional[bool]:
+        """
+        Whether to enable Kubernetes Role-Based Access Control.
+        """
+        return pulumi.get(self, "enable_rbac")
+
+    @property
+    @pulumi.getter
+    def fqdn(self) -> str:
+        """
+        FQDN for the master pool.
+        """
+        return pulumi.get(self, "fqdn")
+
+    @property
+    @pulumi.getter
+    def identity(self) -> Optional['outputs.ManagedClusterIdentityResponse']:
+        """
+        The identity of the managed cluster, if configured.
+        """
+        return pulumi.get(self, "identity")
+
+    @property
+    @pulumi.getter(name="identityProfile")
+    def identity_profile(self) -> Optional[Mapping[str, 'outputs.ManagedClusterPropertiesResponseIdentityProfile']]:
+        """
+        Identities associated with the cluster.
+        """
+        return pulumi.get(self, "identity_profile")
+
+    @property
+    @pulumi.getter(name="kubernetesVersion")
+    def kubernetes_version(self) -> Optional[str]:
+        """
+        Version of Kubernetes specified when creating the managed cluster.
+        """
+        return pulumi.get(self, "kubernetes_version")
+
+    @property
+    @pulumi.getter(name="linuxProfile")
+    def linux_profile(self) -> Optional['outputs.ContainerServiceLinuxProfileResponse']:
+        """
+        Profile for Linux VMs in the container service cluster.
+        """
+        return pulumi.get(self, "linux_profile")
+
+    @property
+    @pulumi.getter
+    def location(self) -> str:
+        """
+        Resource location
+        """
+        return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter(name="maxAgentPools")
+    def max_agent_pools(self) -> float:
+        """
+        The max number of agent pools for the managed cluster.
+        """
+        return pulumi.get(self, "max_agent_pools")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Resource name
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="networkProfile")
+    def network_profile(self) -> Optional['outputs.ContainerServiceNetworkProfileResponse']:
+        """
+        Profile of network configuration.
+        """
+        return pulumi.get(self, "network_profile")
+
+    @property
+    @pulumi.getter(name="nodeResourceGroup")
+    def node_resource_group(self) -> Optional[str]:
+        """
+        Name of the resource group containing agent pool nodes.
+        """
+        return pulumi.get(self, "node_resource_group")
+
+    @property
+    @pulumi.getter(name="privateFQDN")
+    def private_fqdn(self) -> str:
+        """
+        FQDN of private cluster.
+        """
+        return pulumi.get(self, "private_fqdn")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        The current deployment or provisioning state, which only appears in the response.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="servicePrincipalProfile")
+    def service_principal_profile(self) -> Optional['outputs.ManagedClusterServicePrincipalProfileResponse']:
+        """
+        Information about a service principal identity for the cluster to use for manipulating Azure APIs.
+        """
+        return pulumi.get(self, "service_principal_profile")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Mapping[str, str]]:
+        """
+        Resource tags
+        """
+        return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Resource type
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="windowsProfile")
+    def windows_profile(self) -> Optional['outputs.ManagedClusterWindowsProfileResponse']:
+        """
+        Profile for Windows VMs in the container service cluster.
+        """
+        return pulumi.get(self, "windows_profile")
+
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

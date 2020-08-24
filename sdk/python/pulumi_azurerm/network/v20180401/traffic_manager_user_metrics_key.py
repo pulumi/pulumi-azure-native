@@ -5,24 +5,19 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+
+__all__ = ['TrafficManagerUserMetricsKey']
 
 
 class TrafficManagerUserMetricsKey(pulumi.CustomResource):
-    key: pulumi.Output[str]
-    """
-    The key returned by the User Metrics operation.
-    """
-    name: pulumi.Output[str]
-    """
-    The name of the resource
-    """
-    type: pulumi.Output[str]
-    """
-    The type of the resource. Ex- Microsoft.Network/trafficManagerProfiles.
-    """
-    def __init__(__self__, resource_name, opts=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         Class representing Traffic Manager User Metrics.
 
@@ -56,13 +51,15 @@ class TrafficManagerUserMetricsKey(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None) -> 'TrafficManagerUserMetricsKey':
         """
         Get an existing TrafficManagerUserMetricsKey resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -71,8 +68,33 @@ class TrafficManagerUserMetricsKey(pulumi.CustomResource):
 
         return TrafficManagerUserMetricsKey(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter
+    def key(self) -> Optional[str]:
+        """
+        The key returned by the User Metrics operation.
+        """
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        The name of the resource
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[str]:
+        """
+        The type of the resource. Ex- Microsoft.Network/trafficManagerProfiles.
+        """
+        return pulumi.get(self, "type")
+
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

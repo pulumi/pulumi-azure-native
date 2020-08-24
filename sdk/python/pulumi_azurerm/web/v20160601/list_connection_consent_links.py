@@ -5,10 +5,18 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+from . import outputs
+from ._inputs import *
 
+__all__ = [
+    'ListConnectionConsentLinksResult',
+    'AwaitableListConnectionConsentLinksResult',
+    'list_connection_consent_links',
+]
 
+@pulumi.output_type
 class ListConnectionConsentLinksResult:
     """
     Collection of consent links
@@ -16,10 +24,15 @@ class ListConnectionConsentLinksResult:
     def __init__(__self__, value=None):
         if value and not isinstance(value, list):
             raise TypeError("Expected argument 'value' to be a list")
-        __self__.value = value
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[List['outputs.ConsentLinkDefinitionResponseResult']]:
         """
         Collection of resources
         """
+        return pulumi.get(self, "value")
 
 
 class AwaitableListConnectionConsentLinksResult(ListConnectionConsentLinksResult):
@@ -31,20 +44,16 @@ class AwaitableListConnectionConsentLinksResult(ListConnectionConsentLinksResult
             value=self.value)
 
 
-def list_connection_consent_links(connection_name=None, parameters=None, resource_group_name=None, opts=None):
+def list_connection_consent_links(connection_name: Optional[str] = None,
+                                  parameters: Optional[List[pulumi.InputType['ConsentLinkParameterDefinitionArgs']]] = None,
+                                  resource_group_name: Optional[str] = None,
+                                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListConnectionConsentLinksResult:
     """
     Use this data source to access information about an existing resource.
 
     :param str connection_name: Connection name
-    :param list parameters: Collection of resources
+    :param List[pulumi.InputType['ConsentLinkParameterDefinitionArgs']] parameters: Collection of resources
     :param str resource_group_name: The resource group
-
-    The **parameters** object supports the following:
-
-      * `object_id` (`str`) - AAD OID (user or group) if the principal type is ActiveDirectory. MSA PUID if the principal type is MicrosoftAccount
-      * `parameter_name` (`str`) - Name of the parameter in the connection provider's OAuth settings
-      * `redirect_url` (`str`) - Name of the parameter in the connection provider's OAuth settings
-      * `tenant_id` (`str`) - The tenant id
     """
     __args__ = dict()
     __args__['connectionName'] = connection_name
@@ -54,7 +63,7 @@ def list_connection_consent_links(connection_name=None, parameters=None, resourc
         opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = _utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('azurerm:web/v20160601:listConnectionConsentLinks', __args__, opts=opts).value
+    __ret__ = pulumi.runtime.invoke('azurerm:web/v20160601:listConnectionConsentLinks', __args__, opts=opts, typ=ListConnectionConsentLinksResult).value
 
     return AwaitableListConnectionConsentLinksResult(
-        value=__ret__.get('value'))
+        value=__ret__.value)

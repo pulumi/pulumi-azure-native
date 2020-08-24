@@ -5,145 +5,60 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+from . import outputs
+from ._inputs import *
+
+__all__ = ['Kpi']
 
 
 class Kpi(pulumi.CustomResource):
-    aliases: pulumi.Output[list]
-    """
-    The aliases.
-      * `alias_name` (`str`) - KPI alias name.
-      * `expression` (`str`) - The expression.
-    """
-    calculation_window: pulumi.Output[str]
-    """
-    The calculation window.
-    """
-    calculation_window_field_name: pulumi.Output[str]
-    """
-    Name of calculation window field.
-    """
-    description: pulumi.Output[dict]
-    """
-    Localized description for the KPI.
-    """
-    display_name: pulumi.Output[dict]
-    """
-    Localized display name for the KPI.
-    """
-    entity_type: pulumi.Output[str]
-    """
-    The mapping entity type.
-    """
-    entity_type_name: pulumi.Output[str]
-    """
-    The mapping entity name.
-    """
-    expression: pulumi.Output[str]
-    """
-    The computation expression for the KPI.
-    """
-    extracts: pulumi.Output[list]
-    """
-    The KPI extracts.
-      * `expression` (`str`) - The expression.
-      * `extract_name` (`str`) - KPI extract name.
-    """
-    filter: pulumi.Output[str]
-    """
-    The filter expression for the KPI.
-    """
-    function: pulumi.Output[str]
-    """
-    The computation function for the KPI.
-    """
-    group_by: pulumi.Output[list]
-    """
-    the group by properties for the KPI.
-    """
-    group_by_metadata: pulumi.Output[list]
-    """
-    The KPI GroupByMetadata.
-      * `display_name` (`dict`) - The display name.
-      * `field_name` (`str`) - The name of the field.
-      * `field_type` (`str`) - The type of the field.
-    """
-    kpi_name: pulumi.Output[str]
-    """
-    The KPI name.
-    """
-    name: pulumi.Output[str]
-    """
-    Resource name.
-    """
-    participant_profiles_metadata: pulumi.Output[list]
-    """
-    The participant profiles.
-      * `type_name` (`str`) - Name of the type.
-    """
-    provisioning_state: pulumi.Output[str]
-    """
-    Provisioning state.
-    """
-    tenant_id: pulumi.Output[str]
-    """
-    The hub name.
-    """
-    thres_holds: pulumi.Output[dict]
-    """
-    The KPI thresholds.
-      * `increasing_kpi` (`bool`) - Whether or not the KPI is an increasing KPI.
-      * `lower_limit` (`float`) - The lower threshold limit.
-      * `upper_limit` (`float`) - The upper threshold limit.
-    """
-    type: pulumi.Output[str]
-    """
-    Resource type.
-    """
-    unit: pulumi.Output[str]
-    """
-    The unit of measurement for the KPI.
-    """
-    def __init__(__self__, resource_name, opts=None, aliases=None, calculation_window=None, calculation_window_field_name=None, description=None, display_name=None, entity_type=None, entity_type_name=None, expression=None, extracts=None, filter=None, function=None, group_by=None, hub_name=None, name=None, resource_group_name=None, thres_holds=None, unit=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 aliases: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['KpiAliasArgs']]]]] = None,
+                 calculation_window: Optional[pulumi.Input[str]] = None,
+                 calculation_window_field_name: Optional[pulumi.Input[str]] = None,
+                 description: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 display_name: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 entity_type: Optional[pulumi.Input[str]] = None,
+                 entity_type_name: Optional[pulumi.Input[str]] = None,
+                 expression: Optional[pulumi.Input[str]] = None,
+                 extracts: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['KpiExtractArgs']]]]] = None,
+                 filter: Optional[pulumi.Input[str]] = None,
+                 function: Optional[pulumi.Input[str]] = None,
+                 group_by: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 hub_name: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 thres_holds: Optional[pulumi.Input[pulumi.InputType['KpiThresholdsArgs']]] = None,
+                 unit: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         The KPI resource format.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[list] aliases: The aliases.
+        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['KpiAliasArgs']]]] aliases: The aliases.
         :param pulumi.Input[str] calculation_window: The calculation window.
         :param pulumi.Input[str] calculation_window_field_name: Name of calculation window field.
-        :param pulumi.Input[dict] description: Localized description for the KPI.
-        :param pulumi.Input[dict] display_name: Localized display name for the KPI.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] description: Localized description for the KPI.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] display_name: Localized display name for the KPI.
         :param pulumi.Input[str] entity_type: The mapping entity type.
         :param pulumi.Input[str] entity_type_name: The mapping entity name.
         :param pulumi.Input[str] expression: The computation expression for the KPI.
-        :param pulumi.Input[list] extracts: The KPI extracts.
+        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['KpiExtractArgs']]]] extracts: The KPI extracts.
         :param pulumi.Input[str] filter: The filter expression for the KPI.
         :param pulumi.Input[str] function: The computation function for the KPI.
-        :param pulumi.Input[list] group_by: the group by properties for the KPI.
+        :param pulumi.Input[List[pulumi.Input[str]]] group_by: the group by properties for the KPI.
         :param pulumi.Input[str] hub_name: The name of the hub.
         :param pulumi.Input[str] name: The name of the KPI.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
-        :param pulumi.Input[dict] thres_holds: The KPI thresholds.
+        :param pulumi.Input[pulumi.InputType['KpiThresholdsArgs']] thres_holds: The KPI thresholds.
         :param pulumi.Input[str] unit: The unit of measurement for the KPI.
-
-        The **aliases** object supports the following:
-
-          * `alias_name` (`pulumi.Input[str]`) - KPI alias name.
-          * `expression` (`pulumi.Input[str]`) - The expression.
-
-        The **extracts** object supports the following:
-
-          * `expression` (`pulumi.Input[str]`) - The expression.
-          * `extract_name` (`pulumi.Input[str]`) - KPI extract name.
-
-        The **thres_holds** object supports the following:
-
-          * `increasing_kpi` (`pulumi.Input[bool]`) - Whether or not the KPI is an increasing KPI.
-          * `lower_limit` (`pulumi.Input[float]`) - The lower threshold limit.
-          * `upper_limit` (`pulumi.Input[float]`) - The upper threshold limit.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -210,13 +125,15 @@ class Kpi(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None) -> 'Kpi':
         """
         Get an existing Kpi resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -225,8 +142,177 @@ class Kpi(pulumi.CustomResource):
 
         return Kpi(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter
+    def aliases(self) -> Optional[List['outputs.KpiAliasResponse']]:
+        """
+        The aliases.
+        """
+        return pulumi.get(self, "aliases")
+
+    @property
+    @pulumi.getter(name="calculationWindow")
+    def calculation_window(self) -> str:
+        """
+        The calculation window.
+        """
+        return pulumi.get(self, "calculation_window")
+
+    @property
+    @pulumi.getter(name="calculationWindowFieldName")
+    def calculation_window_field_name(self) -> Optional[str]:
+        """
+        Name of calculation window field.
+        """
+        return pulumi.get(self, "calculation_window_field_name")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[Mapping[str, str]]:
+        """
+        Localized description for the KPI.
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="displayName")
+    def display_name(self) -> Optional[Mapping[str, str]]:
+        """
+        Localized display name for the KPI.
+        """
+        return pulumi.get(self, "display_name")
+
+    @property
+    @pulumi.getter(name="entityType")
+    def entity_type(self) -> str:
+        """
+        The mapping entity type.
+        """
+        return pulumi.get(self, "entity_type")
+
+    @property
+    @pulumi.getter(name="entityTypeName")
+    def entity_type_name(self) -> str:
+        """
+        The mapping entity name.
+        """
+        return pulumi.get(self, "entity_type_name")
+
+    @property
+    @pulumi.getter
+    def expression(self) -> str:
+        """
+        The computation expression for the KPI.
+        """
+        return pulumi.get(self, "expression")
+
+    @property
+    @pulumi.getter
+    def extracts(self) -> Optional[List['outputs.KpiExtractResponse']]:
+        """
+        The KPI extracts.
+        """
+        return pulumi.get(self, "extracts")
+
+    @property
+    @pulumi.getter
+    def filter(self) -> Optional[str]:
+        """
+        The filter expression for the KPI.
+        """
+        return pulumi.get(self, "filter")
+
+    @property
+    @pulumi.getter
+    def function(self) -> str:
+        """
+        The computation function for the KPI.
+        """
+        return pulumi.get(self, "function")
+
+    @property
+    @pulumi.getter(name="groupBy")
+    def group_by(self) -> Optional[List[str]]:
+        """
+        the group by properties for the KPI.
+        """
+        return pulumi.get(self, "group_by")
+
+    @property
+    @pulumi.getter(name="groupByMetadata")
+    def group_by_metadata(self) -> List['outputs.KpiGroupByMetadataResponse']:
+        """
+        The KPI GroupByMetadata.
+        """
+        return pulumi.get(self, "group_by_metadata")
+
+    @property
+    @pulumi.getter(name="kpiName")
+    def kpi_name(self) -> str:
+        """
+        The KPI name.
+        """
+        return pulumi.get(self, "kpi_name")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Resource name.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="participantProfilesMetadata")
+    def participant_profiles_metadata(self) -> List['outputs.KpiParticipantProfilesMetadataResponse']:
+        """
+        The participant profiles.
+        """
+        return pulumi.get(self, "participant_profiles_metadata")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        Provisioning state.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="tenantId")
+    def tenant_id(self) -> str:
+        """
+        The hub name.
+        """
+        return pulumi.get(self, "tenant_id")
+
+    @property
+    @pulumi.getter(name="thresHolds")
+    def thres_holds(self) -> Optional['outputs.KpiThresholdsResponse']:
+        """
+        The KPI thresholds.
+        """
+        return pulumi.get(self, "thres_holds")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Resource type.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def unit(self) -> Optional[str]:
+        """
+        The unit of measurement for the KPI.
+        """
+        return pulumi.get(self, "unit")
+
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

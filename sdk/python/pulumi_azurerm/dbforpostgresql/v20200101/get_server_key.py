@@ -5,10 +5,16 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
 
+__all__ = [
+    'GetServerKeyResult',
+    'AwaitableGetServerKeyResult',
+    'get_server_key',
+]
 
+@pulumi.output_type
 class GetServerKeyResult:
     """
     A PostgreSQL Server key.
@@ -16,40 +22,70 @@ class GetServerKeyResult:
     def __init__(__self__, creation_date=None, kind=None, name=None, server_key_type=None, type=None, uri=None):
         if creation_date and not isinstance(creation_date, str):
             raise TypeError("Expected argument 'creation_date' to be a str")
-        __self__.creation_date = creation_date
+        pulumi.set(__self__, "creation_date", creation_date)
+        if kind and not isinstance(kind, str):
+            raise TypeError("Expected argument 'kind' to be a str")
+        pulumi.set(__self__, "kind", kind)
+        if name and not isinstance(name, str):
+            raise TypeError("Expected argument 'name' to be a str")
+        pulumi.set(__self__, "name", name)
+        if server_key_type and not isinstance(server_key_type, str):
+            raise TypeError("Expected argument 'server_key_type' to be a str")
+        pulumi.set(__self__, "server_key_type", server_key_type)
+        if type and not isinstance(type, str):
+            raise TypeError("Expected argument 'type' to be a str")
+        pulumi.set(__self__, "type", type)
+        if uri and not isinstance(uri, str):
+            raise TypeError("Expected argument 'uri' to be a str")
+        pulumi.set(__self__, "uri", uri)
+
+    @property
+    @pulumi.getter(name="creationDate")
+    def creation_date(self) -> str:
         """
         The key creation date.
         """
-        if kind and not isinstance(kind, str):
-            raise TypeError("Expected argument 'kind' to be a str")
-        __self__.kind = kind
+        return pulumi.get(self, "creation_date")
+
+    @property
+    @pulumi.getter
+    def kind(self) -> str:
         """
         Kind of encryption protector used to protect the key.
         """
-        if name and not isinstance(name, str):
-            raise TypeError("Expected argument 'name' to be a str")
-        __self__.name = name
+        return pulumi.get(self, "kind")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
         """
         The name of the resource
         """
-        if server_key_type and not isinstance(server_key_type, str):
-            raise TypeError("Expected argument 'server_key_type' to be a str")
-        __self__.server_key_type = server_key_type
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="serverKeyType")
+    def server_key_type(self) -> str:
         """
         The key type like 'AzureKeyVault'.
         """
-        if type and not isinstance(type, str):
-            raise TypeError("Expected argument 'type' to be a str")
-        __self__.type = type
+        return pulumi.get(self, "server_key_type")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
         """
         The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
         """
-        if uri and not isinstance(uri, str):
-            raise TypeError("Expected argument 'uri' to be a str")
-        __self__.uri = uri
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def uri(self) -> Optional[str]:
         """
         The URI of the key.
         """
+        return pulumi.get(self, "uri")
 
 
 class AwaitableGetServerKeyResult(GetServerKeyResult):
@@ -66,7 +102,10 @@ class AwaitableGetServerKeyResult(GetServerKeyResult):
             uri=self.uri)
 
 
-def get_server_key(name=None, resource_group_name=None, server_name=None, opts=None):
+def get_server_key(name: Optional[str] = None,
+                   resource_group_name: Optional[str] = None,
+                   server_name: Optional[str] = None,
+                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetServerKeyResult:
     """
     Use this data source to access information about an existing resource.
 
@@ -82,12 +121,12 @@ def get_server_key(name=None, resource_group_name=None, server_name=None, opts=N
         opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = _utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('azurerm:dbforpostgresql/v20200101:getServerKey', __args__, opts=opts).value
+    __ret__ = pulumi.runtime.invoke('azurerm:dbforpostgresql/v20200101:getServerKey', __args__, opts=opts, typ=GetServerKeyResult).value
 
     return AwaitableGetServerKeyResult(
-        creation_date=__ret__.get('creationDate'),
-        kind=__ret__.get('kind'),
-        name=__ret__.get('name'),
-        server_key_type=__ret__.get('serverKeyType'),
-        type=__ret__.get('type'),
-        uri=__ret__.get('uri'))
+        creation_date=__ret__.creation_date,
+        kind=__ret__.kind,
+        name=__ret__.name,
+        server_key_type=__ret__.server_key_type,
+        type=__ret__.type,
+        uri=__ret__.uri)

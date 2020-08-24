@@ -5,219 +5,54 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+from . import outputs
+from ._inputs import *
+
+__all__ = ['ConnectionMonitor']
 
 
 class ConnectionMonitor(pulumi.CustomResource):
-    auto_start: pulumi.Output[bool]
-    """
-    Determines if the connection monitor will start automatically once created.
-    """
-    connection_monitor_type: pulumi.Output[str]
-    """
-    Type of connection monitor.
-    """
-    destination: pulumi.Output[dict]
-    """
-    Describes the destination of connection monitor.
-      * `address` (`str`) - Address of the connection monitor destination (IP or domain name).
-      * `port` (`float`) - The destination port used by connection monitor.
-      * `resource_id` (`str`) - The ID of the resource used as the destination by connection monitor.
-    """
-    endpoints: pulumi.Output[list]
-    """
-    List of connection monitor endpoints.
-      * `address` (`str`) - Address of the connection monitor endpoint (IP or domain name).
-      * `filter` (`dict`) - Filter for sub-items within the endpoint.
-        * `items` (`list`) - List of items in the filter.
-          * `address` (`str`) - The address of the filter item.
-          * `type` (`str`) - The type of item included in the filter. Currently only 'AgentAddress' is supported.
-
-        * `type` (`str`) - The behavior of the endpoint filter. Currently only 'Include' is supported.
-
-      * `name` (`str`) - The name of the connection monitor endpoint.
-      * `resource_id` (`str`) - Resource ID of the connection monitor endpoint.
-    """
-    etag: pulumi.Output[str]
-    """
-    A unique read-only string that changes whenever the resource is updated.
-    """
-    location: pulumi.Output[str]
-    """
-    Connection monitor location.
-    """
-    monitoring_interval_in_seconds: pulumi.Output[float]
-    """
-    Monitoring interval in seconds.
-    """
-    monitoring_status: pulumi.Output[str]
-    """
-    The monitoring status of the connection monitor.
-    """
-    name: pulumi.Output[str]
-    """
-    Name of the connection monitor.
-    """
-    notes: pulumi.Output[str]
-    """
-    Optional notes to be associated with the connection monitor.
-    """
-    outputs: pulumi.Output[list]
-    """
-    List of connection monitor outputs.
-      * `type` (`str`) - Connection monitor output destination type. Currently, only "Workspace" is supported.
-      * `workspace_settings` (`dict`) - Describes the settings for producing output into a log analytics workspace.
-        * `workspace_resource_id` (`str`) - Log analytics workspace resource ID.
-    """
-    provisioning_state: pulumi.Output[str]
-    """
-    The provisioning state of the connection monitor.
-    """
-    source: pulumi.Output[dict]
-    """
-    Describes the source of connection monitor.
-      * `port` (`float`) - The source port used by connection monitor.
-      * `resource_id` (`str`) - The ID of the resource used as the source by connection monitor.
-    """
-    start_time: pulumi.Output[str]
-    """
-    The date and time when the connection monitor was started.
-    """
-    tags: pulumi.Output[dict]
-    """
-    Connection monitor tags.
-    """
-    test_configurations: pulumi.Output[list]
-    """
-    List of connection monitor test configurations.
-      * `http_configuration` (`dict`) - The parameters used to perform test evaluation over HTTP.
-        * `method` (`str`) - The HTTP method to use.
-        * `path` (`str`) - The path component of the URI. For instance, "/dir1/dir2".
-        * `port` (`float`) - The port to connect to.
-        * `prefer_https` (`bool`) - Value indicating whether HTTPS is preferred over HTTP in cases where the choice is not explicit.
-        * `request_headers` (`list`) - The HTTP headers to transmit with the request.
-          * `name` (`str`) - The name in HTTP header.
-          * `value` (`str`) - The value in HTTP header.
-
-        * `valid_status_code_ranges` (`list`) - HTTP status codes to consider successful. For instance, "2xx,301-304,418".
-
-      * `icmp_configuration` (`dict`) - The parameters used to perform test evaluation over ICMP.
-        * `disable_trace_route` (`bool`) - Value indicating whether path evaluation with trace route should be disabled.
-
-      * `name` (`str`) - The name of the connection monitor test configuration.
-      * `preferred_ip_version` (`str`) - The preferred IP version to use in test evaluation. The connection monitor may choose to use a different version depending on other parameters.
-      * `protocol` (`str`) - The protocol to use in test evaluation.
-      * `success_threshold` (`dict`) - The threshold for declaring a test successful.
-        * `checks_failed_percent` (`float`) - The maximum percentage of failed checks permitted for a test to evaluate as successful.
-        * `round_trip_time_ms` (`float`) - The maximum round-trip time in milliseconds permitted for a test to evaluate as successful.
-
-      * `tcp_configuration` (`dict`) - The parameters used to perform test evaluation over TCP.
-        * `disable_trace_route` (`bool`) - Value indicating whether path evaluation with trace route should be disabled.
-        * `port` (`float`) - The port to connect to.
-
-      * `test_frequency_sec` (`float`) - The frequency of test evaluation, in seconds.
-    """
-    test_groups: pulumi.Output[list]
-    """
-    List of connection monitor test groups.
-      * `destinations` (`list`) - List of destination endpoint names.
-      * `disable` (`bool`) - Value indicating whether test group is disabled.
-      * `name` (`str`) - The name of the connection monitor test group.
-      * `sources` (`list`) - List of source endpoint names.
-      * `test_configurations` (`list`) - List of test configuration names.
-    """
-    type: pulumi.Output[str]
-    """
-    Connection monitor type.
-    """
-    def __init__(__self__, resource_name, opts=None, auto_start=None, destination=None, endpoints=None, location=None, monitoring_interval_in_seconds=None, name=None, network_watcher_name=None, notes=None, outputs=None, resource_group_name=None, source=None, tags=None, test_configurations=None, test_groups=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 auto_start: Optional[pulumi.Input[bool]] = None,
+                 destination: Optional[pulumi.Input[pulumi.InputType['ConnectionMonitorDestinationArgs']]] = None,
+                 endpoints: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['ConnectionMonitorEndpointArgs']]]]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 monitoring_interval_in_seconds: Optional[pulumi.Input[float]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 network_watcher_name: Optional[pulumi.Input[str]] = None,
+                 notes: Optional[pulumi.Input[str]] = None,
+                 outputs: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['ConnectionMonitorOutputArgs']]]]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 source: Optional[pulumi.Input[pulumi.InputType['ConnectionMonitorSourceArgs']]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 test_configurations: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['ConnectionMonitorTestConfigurationArgs']]]]] = None,
+                 test_groups: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['ConnectionMonitorTestGroupArgs']]]]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         Information about the connection monitor.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] auto_start: Determines if the connection monitor will start automatically once created.
-        :param pulumi.Input[dict] destination: Describes the destination of connection monitor.
-        :param pulumi.Input[list] endpoints: List of connection monitor endpoints.
+        :param pulumi.Input[pulumi.InputType['ConnectionMonitorDestinationArgs']] destination: Describes the destination of connection monitor.
+        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['ConnectionMonitorEndpointArgs']]]] endpoints: List of connection monitor endpoints.
         :param pulumi.Input[str] location: Connection monitor location.
         :param pulumi.Input[float] monitoring_interval_in_seconds: Monitoring interval in seconds.
         :param pulumi.Input[str] name: The name of the connection monitor.
         :param pulumi.Input[str] network_watcher_name: The name of the Network Watcher resource.
         :param pulumi.Input[str] notes: Optional notes to be associated with the connection monitor.
-        :param pulumi.Input[list] outputs: List of connection monitor outputs.
+        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['ConnectionMonitorOutputArgs']]]] outputs: List of connection monitor outputs.
         :param pulumi.Input[str] resource_group_name: The name of the resource group containing Network Watcher.
-        :param pulumi.Input[dict] source: Describes the source of connection monitor.
-        :param pulumi.Input[dict] tags: Connection monitor tags.
-        :param pulumi.Input[list] test_configurations: List of connection monitor test configurations.
-        :param pulumi.Input[list] test_groups: List of connection monitor test groups.
-
-        The **destination** object supports the following:
-
-          * `address` (`pulumi.Input[str]`) - Address of the connection monitor destination (IP or domain name).
-          * `port` (`pulumi.Input[float]`) - The destination port used by connection monitor.
-          * `resource_id` (`pulumi.Input[str]`) - The ID of the resource used as the destination by connection monitor.
-
-        The **endpoints** object supports the following:
-
-          * `address` (`pulumi.Input[str]`) - Address of the connection monitor endpoint (IP or domain name).
-          * `filter` (`pulumi.Input[dict]`) - Filter for sub-items within the endpoint.
-            * `items` (`pulumi.Input[list]`) - List of items in the filter.
-              * `address` (`pulumi.Input[str]`) - The address of the filter item.
-              * `type` (`pulumi.Input[str]`) - The type of item included in the filter. Currently only 'AgentAddress' is supported.
-
-            * `type` (`pulumi.Input[str]`) - The behavior of the endpoint filter. Currently only 'Include' is supported.
-
-          * `name` (`pulumi.Input[str]`) - The name of the connection monitor endpoint.
-          * `resource_id` (`pulumi.Input[str]`) - Resource ID of the connection monitor endpoint.
-
-        The **outputs** object supports the following:
-
-          * `type` (`pulumi.Input[str]`) - Connection monitor output destination type. Currently, only "Workspace" is supported.
-          * `workspace_settings` (`pulumi.Input[dict]`) - Describes the settings for producing output into a log analytics workspace.
-            * `workspace_resource_id` (`pulumi.Input[str]`) - Log analytics workspace resource ID.
-
-        The **source** object supports the following:
-
-          * `port` (`pulumi.Input[float]`) - The source port used by connection monitor.
-          * `resource_id` (`pulumi.Input[str]`) - The ID of the resource used as the source by connection monitor.
-
-        The **test_configurations** object supports the following:
-
-          * `http_configuration` (`pulumi.Input[dict]`) - The parameters used to perform test evaluation over HTTP.
-            * `method` (`pulumi.Input[str]`) - The HTTP method to use.
-            * `path` (`pulumi.Input[str]`) - The path component of the URI. For instance, "/dir1/dir2".
-            * `port` (`pulumi.Input[float]`) - The port to connect to.
-            * `prefer_https` (`pulumi.Input[bool]`) - Value indicating whether HTTPS is preferred over HTTP in cases where the choice is not explicit.
-            * `request_headers` (`pulumi.Input[list]`) - The HTTP headers to transmit with the request.
-              * `name` (`pulumi.Input[str]`) - The name in HTTP header.
-              * `value` (`pulumi.Input[str]`) - The value in HTTP header.
-
-            * `valid_status_code_ranges` (`pulumi.Input[list]`) - HTTP status codes to consider successful. For instance, "2xx,301-304,418".
-
-          * `icmp_configuration` (`pulumi.Input[dict]`) - The parameters used to perform test evaluation over ICMP.
-            * `disable_trace_route` (`pulumi.Input[bool]`) - Value indicating whether path evaluation with trace route should be disabled.
-
-          * `name` (`pulumi.Input[str]`) - The name of the connection monitor test configuration.
-          * `preferred_ip_version` (`pulumi.Input[str]`) - The preferred IP version to use in test evaluation. The connection monitor may choose to use a different version depending on other parameters.
-          * `protocol` (`pulumi.Input[str]`) - The protocol to use in test evaluation.
-          * `success_threshold` (`pulumi.Input[dict]`) - The threshold for declaring a test successful.
-            * `checks_failed_percent` (`pulumi.Input[float]`) - The maximum percentage of failed checks permitted for a test to evaluate as successful.
-            * `round_trip_time_ms` (`pulumi.Input[float]`) - The maximum round-trip time in milliseconds permitted for a test to evaluate as successful.
-
-          * `tcp_configuration` (`pulumi.Input[dict]`) - The parameters used to perform test evaluation over TCP.
-            * `disable_trace_route` (`pulumi.Input[bool]`) - Value indicating whether path evaluation with trace route should be disabled.
-            * `port` (`pulumi.Input[float]`) - The port to connect to.
-
-          * `test_frequency_sec` (`pulumi.Input[float]`) - The frequency of test evaluation, in seconds.
-
-        The **test_groups** object supports the following:
-
-          * `destinations` (`pulumi.Input[list]`) - List of destination endpoint names.
-          * `disable` (`pulumi.Input[bool]`) - Value indicating whether test group is disabled.
-          * `name` (`pulumi.Input[str]`) - The name of the connection monitor test group.
-          * `sources` (`pulumi.Input[list]`) - List of source endpoint names.
-          * `test_configurations` (`pulumi.Input[list]`) - List of test configuration names.
+        :param pulumi.Input[pulumi.InputType['ConnectionMonitorSourceArgs']] source: Describes the source of connection monitor.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Connection monitor tags.
+        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['ConnectionMonitorTestConfigurationArgs']]]] test_configurations: List of connection monitor test configurations.
+        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['ConnectionMonitorTestGroupArgs']]]] test_groups: List of connection monitor test groups.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -271,13 +106,15 @@ class ConnectionMonitor(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None) -> 'ConnectionMonitor':
         """
         Get an existing ConnectionMonitor resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -286,8 +123,153 @@ class ConnectionMonitor(pulumi.CustomResource):
 
         return ConnectionMonitor(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter(name="autoStart")
+    def auto_start(self) -> Optional[bool]:
+        """
+        Determines if the connection monitor will start automatically once created.
+        """
+        return pulumi.get(self, "auto_start")
+
+    @property
+    @pulumi.getter(name="connectionMonitorType")
+    def connection_monitor_type(self) -> str:
+        """
+        Type of connection monitor.
+        """
+        return pulumi.get(self, "connection_monitor_type")
+
+    @property
+    @pulumi.getter
+    def destination(self) -> Optional['outputs.ConnectionMonitorDestinationResponse']:
+        """
+        Describes the destination of connection monitor.
+        """
+        return pulumi.get(self, "destination")
+
+    @property
+    @pulumi.getter
+    def endpoints(self) -> Optional[List['outputs.ConnectionMonitorEndpointResponse']]:
+        """
+        List of connection monitor endpoints.
+        """
+        return pulumi.get(self, "endpoints")
+
+    @property
+    @pulumi.getter
+    def etag(self) -> str:
+        """
+        A unique read-only string that changes whenever the resource is updated.
+        """
+        return pulumi.get(self, "etag")
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[str]:
+        """
+        Connection monitor location.
+        """
+        return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter(name="monitoringIntervalInSeconds")
+    def monitoring_interval_in_seconds(self) -> Optional[float]:
+        """
+        Monitoring interval in seconds.
+        """
+        return pulumi.get(self, "monitoring_interval_in_seconds")
+
+    @property
+    @pulumi.getter(name="monitoringStatus")
+    def monitoring_status(self) -> str:
+        """
+        The monitoring status of the connection monitor.
+        """
+        return pulumi.get(self, "monitoring_status")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Name of the connection monitor.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def notes(self) -> Optional[str]:
+        """
+        Optional notes to be associated with the connection monitor.
+        """
+        return pulumi.get(self, "notes")
+
+    @property
+    @pulumi.getter
+    def outputs(self) -> Optional[List['outputs.ConnectionMonitorOutputResponse']]:
+        """
+        List of connection monitor outputs.
+        """
+        return pulumi.get(self, "outputs")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        The provisioning state of the connection monitor.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter
+    def source(self) -> Optional['outputs.ConnectionMonitorSourceResponse']:
+        """
+        Describes the source of connection monitor.
+        """
+        return pulumi.get(self, "source")
+
+    @property
+    @pulumi.getter(name="startTime")
+    def start_time(self) -> str:
+        """
+        The date and time when the connection monitor was started.
+        """
+        return pulumi.get(self, "start_time")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Mapping[str, str]]:
+        """
+        Connection monitor tags.
+        """
+        return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter(name="testConfigurations")
+    def test_configurations(self) -> Optional[List['outputs.ConnectionMonitorTestConfigurationResponse']]:
+        """
+        List of connection monitor test configurations.
+        """
+        return pulumi.get(self, "test_configurations")
+
+    @property
+    @pulumi.getter(name="testGroups")
+    def test_groups(self) -> Optional[List['outputs.ConnectionMonitorTestGroupResponse']]:
+        """
+        List of connection monitor test groups.
+        """
+        return pulumi.get(self, "test_groups")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Connection monitor type.
+        """
+        return pulumi.get(self, "type")
+
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

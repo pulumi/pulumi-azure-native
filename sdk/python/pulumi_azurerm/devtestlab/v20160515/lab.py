@@ -5,70 +5,27 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+
+__all__ = ['Lab']
 
 
 class Lab(pulumi.CustomResource):
-    artifacts_storage_account: pulumi.Output[str]
-    """
-    The lab's artifact storage account.
-    """
-    created_date: pulumi.Output[str]
-    """
-    The creation date of the lab.
-    """
-    default_premium_storage_account: pulumi.Output[str]
-    """
-    The lab's default premium storage account.
-    """
-    default_storage_account: pulumi.Output[str]
-    """
-    The lab's default storage account.
-    """
-    lab_storage_type: pulumi.Output[str]
-    """
-    Type of storage used by the lab. It can be either Premium or Standard. Default is Premium.
-    """
-    location: pulumi.Output[str]
-    """
-    The location of the resource.
-    """
-    name: pulumi.Output[str]
-    """
-    The name of the resource.
-    """
-    premium_data_disk_storage_account: pulumi.Output[str]
-    """
-    The lab's premium data disk storage account.
-    """
-    premium_data_disks: pulumi.Output[str]
-    """
-    The setting to enable usage of premium data disks.
-    When its value is 'Enabled', creation of standard or premium data disks is allowed.
-    When its value is 'Disabled', only creation of standard data disks is allowed.
-    """
-    provisioning_state: pulumi.Output[str]
-    """
-    The provisioning status of the resource.
-    """
-    tags: pulumi.Output[dict]
-    """
-    The tags of the resource.
-    """
-    type: pulumi.Output[str]
-    """
-    The type of the resource.
-    """
-    unique_identifier: pulumi.Output[str]
-    """
-    The unique immutable identifier of a resource (Guid).
-    """
-    vault_name: pulumi.Output[str]
-    """
-    The lab's Key vault.
-    """
-    def __init__(__self__, resource_name, opts=None, lab_storage_type=None, location=None, name=None, premium_data_disks=None, provisioning_state=None, resource_group_name=None, tags=None, unique_identifier=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 lab_storage_type: Optional[pulumi.Input[str]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 premium_data_disks: Optional[pulumi.Input[str]] = None,
+                 provisioning_state: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 unique_identifier: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         A lab.
 
@@ -82,7 +39,7 @@ class Lab(pulumi.CustomResource):
                When its value is 'Disabled', only creation of standard data disks is allowed.
         :param pulumi.Input[str] provisioning_state: The provisioning status of the resource.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
-        :param pulumi.Input[dict] tags: The tags of the resource.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The tags of the resource.
         :param pulumi.Input[str] unique_identifier: The unique immutable identifier of a resource (Guid).
         """
         if __name__ is not None:
@@ -130,13 +87,15 @@ class Lab(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None) -> 'Lab':
         """
         Get an existing Lab resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -145,8 +104,123 @@ class Lab(pulumi.CustomResource):
 
         return Lab(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter(name="artifactsStorageAccount")
+    def artifacts_storage_account(self) -> str:
+        """
+        The lab's artifact storage account.
+        """
+        return pulumi.get(self, "artifacts_storage_account")
+
+    @property
+    @pulumi.getter(name="createdDate")
+    def created_date(self) -> str:
+        """
+        The creation date of the lab.
+        """
+        return pulumi.get(self, "created_date")
+
+    @property
+    @pulumi.getter(name="defaultPremiumStorageAccount")
+    def default_premium_storage_account(self) -> str:
+        """
+        The lab's default premium storage account.
+        """
+        return pulumi.get(self, "default_premium_storage_account")
+
+    @property
+    @pulumi.getter(name="defaultStorageAccount")
+    def default_storage_account(self) -> str:
+        """
+        The lab's default storage account.
+        """
+        return pulumi.get(self, "default_storage_account")
+
+    @property
+    @pulumi.getter(name="labStorageType")
+    def lab_storage_type(self) -> Optional[str]:
+        """
+        Type of storage used by the lab. It can be either Premium or Standard. Default is Premium.
+        """
+        return pulumi.get(self, "lab_storage_type")
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[str]:
+        """
+        The location of the resource.
+        """
+        return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the resource.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="premiumDataDiskStorageAccount")
+    def premium_data_disk_storage_account(self) -> str:
+        """
+        The lab's premium data disk storage account.
+        """
+        return pulumi.get(self, "premium_data_disk_storage_account")
+
+    @property
+    @pulumi.getter(name="premiumDataDisks")
+    def premium_data_disks(self) -> Optional[str]:
+        """
+        The setting to enable usage of premium data disks.
+        When its value is 'Enabled', creation of standard or premium data disks is allowed.
+        When its value is 'Disabled', only creation of standard data disks is allowed.
+        """
+        return pulumi.get(self, "premium_data_disks")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> Optional[str]:
+        """
+        The provisioning status of the resource.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Mapping[str, str]]:
+        """
+        The tags of the resource.
+        """
+        return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        The type of the resource.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="uniqueIdentifier")
+    def unique_identifier(self) -> Optional[str]:
+        """
+        The unique immutable identifier of a resource (Guid).
+        """
+        return pulumi.get(self, "unique_identifier")
+
+    @property
+    @pulumi.getter(name="vaultName")
+    def vault_name(self) -> str:
+        """
+        The lab's Key vault.
+        """
+        return pulumi.get(self, "vault_name")
+
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

@@ -5,10 +5,17 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+from . import outputs
 
+__all__ = [
+    'GetPrivateEndpointConnectionResult',
+    'AwaitableGetPrivateEndpointConnectionResult',
+    'get_private_endpoint_connection',
+]
 
+@pulumi.output_type
 class GetPrivateEndpointConnectionResult:
     """
     Describes an existing Private Endpoint connection to the Azure Cognitive Search service.
@@ -16,22 +23,37 @@ class GetPrivateEndpointConnectionResult:
     def __init__(__self__, name=None, properties=None, type=None):
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
-        __self__.name = name
+        pulumi.set(__self__, "name", name)
+        if properties and not isinstance(properties, dict):
+            raise TypeError("Expected argument 'properties' to be a dict")
+        pulumi.set(__self__, "properties", properties)
+        if type and not isinstance(type, str):
+            raise TypeError("Expected argument 'type' to be a str")
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
         """
         The name of the private endpoint connection.
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def properties(self) -> 'outputs.PrivateEndpointConnectionPropertiesResponse':
         """
         Describes the properties of an existing Private Endpoint connection to the Azure Cognitive Search service.
         """
-        if type and not isinstance(type, str):
-            raise TypeError("Expected argument 'type' to be a str")
-        __self__.type = type
+        return pulumi.get(self, "properties")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
         """
         The resource type.
         """
+        return pulumi.get(self, "type")
 
 
 class AwaitableGetPrivateEndpointConnectionResult(GetPrivateEndpointConnectionResult):
@@ -45,7 +67,10 @@ class AwaitableGetPrivateEndpointConnectionResult(GetPrivateEndpointConnectionRe
             type=self.type)
 
 
-def get_private_endpoint_connection(name=None, resource_group_name=None, search_service_name=None, opts=None):
+def get_private_endpoint_connection(name: Optional[str] = None,
+                                    resource_group_name: Optional[str] = None,
+                                    search_service_name: Optional[str] = None,
+                                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPrivateEndpointConnectionResult:
     """
     Use this data source to access information about an existing resource.
 
@@ -61,9 +86,9 @@ def get_private_endpoint_connection(name=None, resource_group_name=None, search_
         opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = _utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('azurerm:search/v20200313:getPrivateEndpointConnection', __args__, opts=opts).value
+    __ret__ = pulumi.runtime.invoke('azurerm:search/v20200313:getPrivateEndpointConnection', __args__, opts=opts, typ=GetPrivateEndpointConnectionResult).value
 
     return AwaitableGetPrivateEndpointConnectionResult(
-        name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
-        type=__ret__.get('type'))
+        name=__ret__.name,
+        properties=__ret__.properties,
+        type=__ret__.type)

@@ -5,108 +5,44 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+from . import outputs
+from ._inputs import *
+
+__all__ = ['VirtualNetwork']
 
 
 class VirtualNetwork(pulumi.CustomResource):
-    allowed_subnets: pulumi.Output[list]
-    """
-    The allowed subnets of the virtual network.
-      * `allow_public_ip` (`str`) - The permission policy of the subnet for allowing public IP addresses (i.e. Allow, Deny)).
-      * `lab_subnet_name` (`str`) - The name of the subnet as seen in the lab.
-      * `resource_id` (`str`) - The resource ID of the subnet.
-    """
-    created_date: pulumi.Output[str]
-    """
-    The creation date of the virtual network.
-    """
-    description: pulumi.Output[str]
-    """
-    The description of the virtual network.
-    """
-    external_provider_resource_id: pulumi.Output[str]
-    """
-    The Microsoft.Network resource identifier of the virtual network.
-    """
-    external_subnets: pulumi.Output[list]
-    """
-    The external subnet properties.
-      * `id` (`str`) - Gets or sets the identifier.
-      * `name` (`str`) - Gets or sets the name.
-    """
-    location: pulumi.Output[str]
-    """
-    The location of the resource.
-    """
-    name: pulumi.Output[str]
-    """
-    The name of the resource.
-    """
-    provisioning_state: pulumi.Output[str]
-    """
-    The provisioning status of the resource.
-    """
-    subnet_overrides: pulumi.Output[list]
-    """
-    The subnet overrides of the virtual network.
-      * `lab_subnet_name` (`str`) - The name given to the subnet within the lab.
-      * `resource_id` (`str`) - The resource ID of the subnet.
-      * `shared_public_ip_address_configuration` (`dict`) - Properties that virtual machines on this subnet will share.
-        * `allowed_ports` (`list`) - Backend ports that virtual machines on this subnet are allowed to expose
-          * `backend_port` (`float`) - Backend port of the target virtual machine.
-          * `transport_protocol` (`str`) - Protocol type of the port.
-
-      * `use_in_vm_creation_permission` (`str`) - Indicates whether this subnet can be used during virtual machine creation (i.e. Allow, Deny).
-      * `use_public_ip_address_permission` (`str`) - Indicates whether public IP addresses can be assigned to virtual machines on this subnet (i.e. Allow, Deny).
-      * `virtual_network_pool_name` (`str`) - The virtual network pool associated with this subnet.
-    """
-    tags: pulumi.Output[dict]
-    """
-    The tags of the resource.
-    """
-    type: pulumi.Output[str]
-    """
-    The type of the resource.
-    """
-    unique_identifier: pulumi.Output[str]
-    """
-    The unique immutable identifier of a resource (Guid).
-    """
-    def __init__(__self__, resource_name, opts=None, allowed_subnets=None, description=None, external_provider_resource_id=None, lab_name=None, location=None, name=None, resource_group_name=None, subnet_overrides=None, tags=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 allowed_subnets: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['SubnetArgs']]]]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 external_provider_resource_id: Optional[pulumi.Input[str]] = None,
+                 lab_name: Optional[pulumi.Input[str]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 subnet_overrides: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['SubnetOverrideArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         A virtual network.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[list] allowed_subnets: The allowed subnets of the virtual network.
+        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['SubnetArgs']]]] allowed_subnets: The allowed subnets of the virtual network.
         :param pulumi.Input[str] description: The description of the virtual network.
         :param pulumi.Input[str] external_provider_resource_id: The Microsoft.Network resource identifier of the virtual network.
         :param pulumi.Input[str] lab_name: The name of the lab.
         :param pulumi.Input[str] location: The location of the resource.
         :param pulumi.Input[str] name: The name of the virtual network.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
-        :param pulumi.Input[list] subnet_overrides: The subnet overrides of the virtual network.
-        :param pulumi.Input[dict] tags: The tags of the resource.
-
-        The **allowed_subnets** object supports the following:
-
-          * `allow_public_ip` (`pulumi.Input[str]`) - The permission policy of the subnet for allowing public IP addresses (i.e. Allow, Deny)).
-          * `lab_subnet_name` (`pulumi.Input[str]`) - The name of the subnet as seen in the lab.
-          * `resource_id` (`pulumi.Input[str]`) - The resource ID of the subnet.
-
-        The **subnet_overrides** object supports the following:
-
-          * `lab_subnet_name` (`pulumi.Input[str]`) - The name given to the subnet within the lab.
-          * `resource_id` (`pulumi.Input[str]`) - The resource ID of the subnet.
-          * `shared_public_ip_address_configuration` (`pulumi.Input[dict]`) - Properties that virtual machines on this subnet will share.
-            * `allowed_ports` (`pulumi.Input[list]`) - Backend ports that virtual machines on this subnet are allowed to expose
-              * `backend_port` (`pulumi.Input[float]`) - Backend port of the target virtual machine.
-              * `transport_protocol` (`pulumi.Input[str]`) - Protocol type of the port.
-
-          * `use_in_vm_creation_permission` (`pulumi.Input[str]`) - Indicates whether this subnet can be used during virtual machine creation (i.e. Allow, Deny).
-          * `use_public_ip_address_permission` (`pulumi.Input[str]`) - Indicates whether public IP addresses can be assigned to virtual machines on this subnet (i.e. Allow, Deny).
-          * `virtual_network_pool_name` (`pulumi.Input[str]`) - The virtual network pool associated with this subnet.
+        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['SubnetOverrideArgs']]]] subnet_overrides: The subnet overrides of the virtual network.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The tags of the resource.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -154,13 +90,15 @@ class VirtualNetwork(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None) -> 'VirtualNetwork':
         """
         Get an existing VirtualNetwork resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -169,8 +107,105 @@ class VirtualNetwork(pulumi.CustomResource):
 
         return VirtualNetwork(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter(name="allowedSubnets")
+    def allowed_subnets(self) -> Optional[List['outputs.SubnetResponse']]:
+        """
+        The allowed subnets of the virtual network.
+        """
+        return pulumi.get(self, "allowed_subnets")
+
+    @property
+    @pulumi.getter(name="createdDate")
+    def created_date(self) -> str:
+        """
+        The creation date of the virtual network.
+        """
+        return pulumi.get(self, "created_date")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        """
+        The description of the virtual network.
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="externalProviderResourceId")
+    def external_provider_resource_id(self) -> Optional[str]:
+        """
+        The Microsoft.Network resource identifier of the virtual network.
+        """
+        return pulumi.get(self, "external_provider_resource_id")
+
+    @property
+    @pulumi.getter(name="externalSubnets")
+    def external_subnets(self) -> List['outputs.ExternalSubnetResponse']:
+        """
+        The external subnet properties.
+        """
+        return pulumi.get(self, "external_subnets")
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[str]:
+        """
+        The location of the resource.
+        """
+        return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the resource.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        The provisioning status of the resource.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="subnetOverrides")
+    def subnet_overrides(self) -> Optional[List['outputs.SubnetOverrideResponse']]:
+        """
+        The subnet overrides of the virtual network.
+        """
+        return pulumi.get(self, "subnet_overrides")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Mapping[str, str]]:
+        """
+        The tags of the resource.
+        """
+        return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        The type of the resource.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="uniqueIdentifier")
+    def unique_identifier(self) -> str:
+        """
+        The unique immutable identifier of a resource (Guid).
+        """
+        return pulumi.get(self, "unique_identifier")
+
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

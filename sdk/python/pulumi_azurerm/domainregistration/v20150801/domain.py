@@ -5,231 +5,72 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+from . import outputs
+from ._inputs import *
+
+__all__ = ['Domain']
 
 
 class Domain(pulumi.CustomResource):
-    auto_renew: pulumi.Output[bool]
-    """
-    If true then domain will renewed automatically
-    """
-    consent: pulumi.Output[dict]
-    """
-    Legal agreement consent
-      * `agreed_at` (`str`) - Timestamp when the agreements were accepted
-      * `agreed_by` (`str`) - Client IP address
-      * `agreement_keys` (`list`) - List of applicable legal agreement keys. This list can be retrieved using ListLegalAgreements Api under TopLevelDomain resource
-    """
-    contact_admin: pulumi.Output[dict]
-    """
-    Admin contact information
-      * `address_mailing` (`dict`) - Mailing address
-        * `address1` (`str`) - Address 1
-        * `address2` (`str`) - Address 2
-        * `city` (`str`) - City
-        * `country` (`str`) - Country
-        * `postal_code` (`str`) - Postal code
-        * `state` (`str`) - State
-
-      * `email` (`str`) - Email address
-      * `fax` (`str`) - Fax number
-      * `job_title` (`str`) - Job title
-      * `name_first` (`str`) - First name
-      * `name_last` (`str`) - Last name
-      * `name_middle` (`str`) - Middle name
-      * `organization` (`str`) - Organization
-      * `phone` (`str`) - Phone number
-    """
-    contact_billing: pulumi.Output[dict]
-    """
-    Billing contact information
-      * `address_mailing` (`dict`) - Mailing address
-        * `address1` (`str`) - Address 1
-        * `address2` (`str`) - Address 2
-        * `city` (`str`) - City
-        * `country` (`str`) - Country
-        * `postal_code` (`str`) - Postal code
-        * `state` (`str`) - State
-
-      * `email` (`str`) - Email address
-      * `fax` (`str`) - Fax number
-      * `job_title` (`str`) - Job title
-      * `name_first` (`str`) - First name
-      * `name_last` (`str`) - Last name
-      * `name_middle` (`str`) - Middle name
-      * `organization` (`str`) - Organization
-      * `phone` (`str`) - Phone number
-    """
-    contact_registrant: pulumi.Output[dict]
-    """
-    Registrant contact information
-      * `address_mailing` (`dict`) - Mailing address
-        * `address1` (`str`) - Address 1
-        * `address2` (`str`) - Address 2
-        * `city` (`str`) - City
-        * `country` (`str`) - Country
-        * `postal_code` (`str`) - Postal code
-        * `state` (`str`) - State
-
-      * `email` (`str`) - Email address
-      * `fax` (`str`) - Fax number
-      * `job_title` (`str`) - Job title
-      * `name_first` (`str`) - First name
-      * `name_last` (`str`) - Last name
-      * `name_middle` (`str`) - Middle name
-      * `organization` (`str`) - Organization
-      * `phone` (`str`) - Phone number
-    """
-    contact_tech: pulumi.Output[dict]
-    """
-    Technical contact information
-      * `address_mailing` (`dict`) - Mailing address
-        * `address1` (`str`) - Address 1
-        * `address2` (`str`) - Address 2
-        * `city` (`str`) - City
-        * `country` (`str`) - Country
-        * `postal_code` (`str`) - Postal code
-        * `state` (`str`) - State
-
-      * `email` (`str`) - Email address
-      * `fax` (`str`) - Fax number
-      * `job_title` (`str`) - Job title
-      * `name_first` (`str`) - First name
-      * `name_last` (`str`) - Last name
-      * `name_middle` (`str`) - Middle name
-      * `organization` (`str`) - Organization
-      * `phone` (`str`) - Phone number
-    """
-    created_time: pulumi.Output[str]
-    """
-    Domain creation timestamp
-    """
-    domain_not_renewable_reasons: pulumi.Output[list]
-    """
-    Reasons why domain is not renewable
-    """
-    expiration_time: pulumi.Output[str]
-    """
-    Domain expiration timestamp
-    """
-    kind: pulumi.Output[str]
-    """
-    Kind of resource
-    """
-    last_renewed_time: pulumi.Output[str]
-    """
-    Timestamp when the domain was renewed last time
-    """
-    location: pulumi.Output[str]
-    """
-    Resource Location
-    """
-    managed_host_names: pulumi.Output[list]
-    """
-    All hostnames derived from the domain and assigned to Azure resources
-      * `azure_resource_name` (`str`) - Name of the Azure resource the hostname is assigned to. If it is assigned to a traffic manager then it will be the traffic manager name otherwise it will be the website name
-      * `azure_resource_type` (`str`) - Type of the Azure resource the hostname is assigned to
-      * `custom_host_name_dns_record_type` (`str`) - Type of the Dns record
-      * `host_name_type` (`str`) - Type of the hostname
-      * `name` (`str`) - Name of the hostname
-      * `site_names` (`list`) - List of sites the hostname is assigned to. This list will have more than one site only if the hostname is pointing to a Traffic Manager
-    """
-    name: pulumi.Output[str]
-    """
-    Resource Name
-    """
-    name_servers: pulumi.Output[list]
-    """
-    Name servers
-    """
-    privacy: pulumi.Output[bool]
-    """
-    If true then domain privacy is enabled for this domain
-    """
-    provisioning_state: pulumi.Output[str]
-    """
-    Domain provisioning state
-    """
-    ready_for_dns_record_management: pulumi.Output[bool]
-    """
-    If true then Azure can assign this domain to Web Apps. This value will be true if domain registration status is active and it is hosted on name servers Azure has programmatic access to
-    """
-    registration_status: pulumi.Output[str]
-    """
-    Domain registration status
-    """
-    tags: pulumi.Output[dict]
-    """
-    Resource tags
-    """
-    type: pulumi.Output[str]
-    """
-    Resource type
-    """
-    def __init__(__self__, resource_name, opts=None, auto_renew=None, consent=None, contact_admin=None, contact_billing=None, contact_registrant=None, contact_tech=None, created_time=None, domain_not_renewable_reasons=None, expiration_time=None, id=None, kind=None, last_renewed_time=None, location=None, managed_host_names=None, name=None, name_servers=None, privacy=None, provisioning_state=None, ready_for_dns_record_management=None, registration_status=None, resource_group_name=None, tags=None, type=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 auto_renew: Optional[pulumi.Input[bool]] = None,
+                 consent: Optional[pulumi.Input[pulumi.InputType['DomainPurchaseConsentArgs']]] = None,
+                 contact_admin: Optional[pulumi.Input[pulumi.InputType['ContactArgs']]] = None,
+                 contact_billing: Optional[pulumi.Input[pulumi.InputType['ContactArgs']]] = None,
+                 contact_registrant: Optional[pulumi.Input[pulumi.InputType['ContactArgs']]] = None,
+                 contact_tech: Optional[pulumi.Input[pulumi.InputType['ContactArgs']]] = None,
+                 created_time: Optional[pulumi.Input[str]] = None,
+                 domain_not_renewable_reasons: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 expiration_time: Optional[pulumi.Input[str]] = None,
+                 id: Optional[pulumi.Input[str]] = None,
+                 kind: Optional[pulumi.Input[str]] = None,
+                 last_renewed_time: Optional[pulumi.Input[str]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 managed_host_names: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['HostNameArgs']]]]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 name_servers: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 privacy: Optional[pulumi.Input[bool]] = None,
+                 provisioning_state: Optional[pulumi.Input[str]] = None,
+                 ready_for_dns_record_management: Optional[pulumi.Input[bool]] = None,
+                 registration_status: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 type: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         Represents a domain
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] auto_renew: If true then domain will renewed automatically
-        :param pulumi.Input[dict] consent: Legal agreement consent
-        :param pulumi.Input[dict] contact_admin: Admin contact information
-        :param pulumi.Input[dict] contact_billing: Billing contact information
-        :param pulumi.Input[dict] contact_registrant: Registrant contact information
-        :param pulumi.Input[dict] contact_tech: Technical contact information
+        :param pulumi.Input[pulumi.InputType['DomainPurchaseConsentArgs']] consent: Legal agreement consent
+        :param pulumi.Input[pulumi.InputType['ContactArgs']] contact_admin: Admin contact information
+        :param pulumi.Input[pulumi.InputType['ContactArgs']] contact_billing: Billing contact information
+        :param pulumi.Input[pulumi.InputType['ContactArgs']] contact_registrant: Registrant contact information
+        :param pulumi.Input[pulumi.InputType['ContactArgs']] contact_tech: Technical contact information
         :param pulumi.Input[str] created_time: Domain creation timestamp
-        :param pulumi.Input[list] domain_not_renewable_reasons: Reasons why domain is not renewable
+        :param pulumi.Input[List[pulumi.Input[str]]] domain_not_renewable_reasons: Reasons why domain is not renewable
         :param pulumi.Input[str] expiration_time: Domain expiration timestamp
         :param pulumi.Input[str] id: Resource Id
         :param pulumi.Input[str] kind: Kind of resource
         :param pulumi.Input[str] last_renewed_time: Timestamp when the domain was renewed last time
         :param pulumi.Input[str] location: Resource Location
-        :param pulumi.Input[list] managed_host_names: All hostnames derived from the domain and assigned to Azure resources
+        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['HostNameArgs']]]] managed_host_names: All hostnames derived from the domain and assigned to Azure resources
         :param pulumi.Input[str] name: Name of the domain
-        :param pulumi.Input[list] name_servers: Name servers
+        :param pulumi.Input[List[pulumi.Input[str]]] name_servers: Name servers
         :param pulumi.Input[bool] privacy: If true then domain privacy is enabled for this domain
         :param pulumi.Input[str] provisioning_state: Domain provisioning state
         :param pulumi.Input[bool] ready_for_dns_record_management: If true then Azure can assign this domain to Web Apps. This value will be true if domain registration status is active and it is hosted on name servers Azure has programmatic access to
         :param pulumi.Input[str] registration_status: Domain registration status
         :param pulumi.Input[str] resource_group_name: &gt;Name of the resource group
-        :param pulumi.Input[dict] tags: Resource tags
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags
         :param pulumi.Input[str] type: Resource type
-
-        The **consent** object supports the following:
-
-          * `agreed_at` (`pulumi.Input[str]`) - Timestamp when the agreements were accepted
-          * `agreed_by` (`pulumi.Input[str]`) - Client IP address
-          * `agreement_keys` (`pulumi.Input[list]`) - List of applicable legal agreement keys. This list can be retrieved using ListLegalAgreements Api under TopLevelDomain resource
-
-        The **contact_admin** object supports the following:
-
-          * `address_mailing` (`pulumi.Input[dict]`) - Mailing address
-            * `address1` (`pulumi.Input[str]`) - Address 1
-            * `address2` (`pulumi.Input[str]`) - Address 2
-            * `city` (`pulumi.Input[str]`) - City
-            * `country` (`pulumi.Input[str]`) - Country
-            * `postal_code` (`pulumi.Input[str]`) - Postal code
-            * `state` (`pulumi.Input[str]`) - State
-
-          * `email` (`pulumi.Input[str]`) - Email address
-          * `fax` (`pulumi.Input[str]`) - Fax number
-          * `job_title` (`pulumi.Input[str]`) - Job title
-          * `name_first` (`pulumi.Input[str]`) - First name
-          * `name_last` (`pulumi.Input[str]`) - Last name
-          * `name_middle` (`pulumi.Input[str]`) - Middle name
-          * `organization` (`pulumi.Input[str]`) - Organization
-          * `phone` (`pulumi.Input[str]`) - Phone number
-
-        The **managed_host_names** object supports the following:
-
-          * `azure_resource_name` (`pulumi.Input[str]`) - Name of the Azure resource the hostname is assigned to. If it is assigned to a traffic manager then it will be the traffic manager name otherwise it will be the website name
-          * `azure_resource_type` (`pulumi.Input[str]`) - Type of the Azure resource the hostname is assigned to
-          * `custom_host_name_dns_record_type` (`pulumi.Input[str]`) - Type of the Dns record
-          * `host_name_type` (`pulumi.Input[str]`) - Type of the hostname
-          * `name` (`pulumi.Input[str]`) - Name of the hostname
-          * `site_names` (`pulumi.Input[list]`) - List of sites the hostname is assigned to. This list will have more than one site only if the hostname is pointing to a Traffic Manager
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -286,13 +127,15 @@ class Domain(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None) -> 'Domain':
         """
         Get an existing Domain resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -301,8 +144,177 @@ class Domain(pulumi.CustomResource):
 
         return Domain(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter(name="autoRenew")
+    def auto_renew(self) -> Optional[bool]:
+        """
+        If true then domain will renewed automatically
+        """
+        return pulumi.get(self, "auto_renew")
+
+    @property
+    @pulumi.getter
+    def consent(self) -> Optional['outputs.DomainPurchaseConsentResponse']:
+        """
+        Legal agreement consent
+        """
+        return pulumi.get(self, "consent")
+
+    @property
+    @pulumi.getter(name="contactAdmin")
+    def contact_admin(self) -> Optional['outputs.ContactResponse']:
+        """
+        Admin contact information
+        """
+        return pulumi.get(self, "contact_admin")
+
+    @property
+    @pulumi.getter(name="contactBilling")
+    def contact_billing(self) -> Optional['outputs.ContactResponse']:
+        """
+        Billing contact information
+        """
+        return pulumi.get(self, "contact_billing")
+
+    @property
+    @pulumi.getter(name="contactRegistrant")
+    def contact_registrant(self) -> Optional['outputs.ContactResponse']:
+        """
+        Registrant contact information
+        """
+        return pulumi.get(self, "contact_registrant")
+
+    @property
+    @pulumi.getter(name="contactTech")
+    def contact_tech(self) -> Optional['outputs.ContactResponse']:
+        """
+        Technical contact information
+        """
+        return pulumi.get(self, "contact_tech")
+
+    @property
+    @pulumi.getter(name="createdTime")
+    def created_time(self) -> Optional[str]:
+        """
+        Domain creation timestamp
+        """
+        return pulumi.get(self, "created_time")
+
+    @property
+    @pulumi.getter(name="domainNotRenewableReasons")
+    def domain_not_renewable_reasons(self) -> Optional[List[str]]:
+        """
+        Reasons why domain is not renewable
+        """
+        return pulumi.get(self, "domain_not_renewable_reasons")
+
+    @property
+    @pulumi.getter(name="expirationTime")
+    def expiration_time(self) -> Optional[str]:
+        """
+        Domain expiration timestamp
+        """
+        return pulumi.get(self, "expiration_time")
+
+    @property
+    @pulumi.getter
+    def kind(self) -> Optional[str]:
+        """
+        Kind of resource
+        """
+        return pulumi.get(self, "kind")
+
+    @property
+    @pulumi.getter(name="lastRenewedTime")
+    def last_renewed_time(self) -> Optional[str]:
+        """
+        Timestamp when the domain was renewed last time
+        """
+        return pulumi.get(self, "last_renewed_time")
+
+    @property
+    @pulumi.getter
+    def location(self) -> str:
+        """
+        Resource Location
+        """
+        return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter(name="managedHostNames")
+    def managed_host_names(self) -> Optional[List['outputs.HostNameResponse']]:
+        """
+        All hostnames derived from the domain and assigned to Azure resources
+        """
+        return pulumi.get(self, "managed_host_names")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        Resource Name
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="nameServers")
+    def name_servers(self) -> Optional[List[str]]:
+        """
+        Name servers
+        """
+        return pulumi.get(self, "name_servers")
+
+    @property
+    @pulumi.getter
+    def privacy(self) -> Optional[bool]:
+        """
+        If true then domain privacy is enabled for this domain
+        """
+        return pulumi.get(self, "privacy")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> Optional[str]:
+        """
+        Domain provisioning state
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="readyForDnsRecordManagement")
+    def ready_for_dns_record_management(self) -> Optional[bool]:
+        """
+        If true then Azure can assign this domain to Web Apps. This value will be true if domain registration status is active and it is hosted on name servers Azure has programmatic access to
+        """
+        return pulumi.get(self, "ready_for_dns_record_management")
+
+    @property
+    @pulumi.getter(name="registrationStatus")
+    def registration_status(self) -> Optional[str]:
+        """
+        Domain registration status
+        """
+        return pulumi.get(self, "registration_status")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Mapping[str, str]]:
+        """
+        Resource tags
+        """
+        return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[str]:
+        """
+        Resource type
+        """
+        return pulumi.get(self, "type")
+
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

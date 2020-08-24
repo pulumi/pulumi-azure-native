@@ -5,10 +5,17 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+from . import outputs
 
+__all__ = [
+    'ListQueryKeyBySearchServiceResult',
+    'AwaitableListQueryKeyBySearchServiceResult',
+    'list_query_key_by_search_service',
+]
 
+@pulumi.output_type
 class ListQueryKeyBySearchServiceResult:
     """
     Response containing the query API keys for a given Azure Cognitive Search service.
@@ -16,16 +23,26 @@ class ListQueryKeyBySearchServiceResult:
     def __init__(__self__, next_link=None, value=None):
         if next_link and not isinstance(next_link, str):
             raise TypeError("Expected argument 'next_link' to be a str")
-        __self__.next_link = next_link
+        pulumi.set(__self__, "next_link", next_link)
+        if value and not isinstance(value, list):
+            raise TypeError("Expected argument 'value' to be a list")
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter(name="nextLink")
+    def next_link(self) -> str:
         """
         Request URL that can be used to query next page of query keys. Returned when the total number of requested query keys exceed maximum page size.
         """
-        if value and not isinstance(value, list):
-            raise TypeError("Expected argument 'value' to be a list")
-        __self__.value = value
+        return pulumi.get(self, "next_link")
+
+    @property
+    @pulumi.getter
+    def value(self) -> List['outputs.QueryKeyResponseResult']:
         """
         The query keys for the Azure Cognitive Search service.
         """
+        return pulumi.get(self, "value")
 
 
 class AwaitableListQueryKeyBySearchServiceResult(ListQueryKeyBySearchServiceResult):
@@ -38,7 +55,9 @@ class AwaitableListQueryKeyBySearchServiceResult(ListQueryKeyBySearchServiceResu
             value=self.value)
 
 
-def list_query_key_by_search_service(resource_group_name=None, search_service_name=None, opts=None):
+def list_query_key_by_search_service(resource_group_name: Optional[str] = None,
+                                     search_service_name: Optional[str] = None,
+                                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListQueryKeyBySearchServiceResult:
     """
     Use this data source to access information about an existing resource.
 
@@ -52,8 +71,8 @@ def list_query_key_by_search_service(resource_group_name=None, search_service_na
         opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = _utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('azurerm:search/v20200313:listQueryKeyBySearchService', __args__, opts=opts).value
+    __ret__ = pulumi.runtime.invoke('azurerm:search/v20200313:listQueryKeyBySearchService', __args__, opts=opts, typ=ListQueryKeyBySearchServiceResult).value
 
     return AwaitableListQueryKeyBySearchServiceResult(
-        next_link=__ret__.get('nextLink'),
-        value=__ret__.get('value'))
+        next_link=__ret__.next_link,
+        value=__ret__.value)

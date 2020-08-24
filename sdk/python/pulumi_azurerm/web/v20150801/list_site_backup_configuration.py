@@ -5,10 +5,17 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+from . import outputs
 
+__all__ = [
+    'ListSiteBackupConfigurationResult',
+    'AwaitableListSiteBackupConfigurationResult',
+    'list_site_backup_configuration',
+]
 
+@pulumi.output_type
 class ListSiteBackupConfigurationResult:
     """
     Description of a backup which will be performed
@@ -16,58 +23,103 @@ class ListSiteBackupConfigurationResult:
     def __init__(__self__, backup_schedule=None, databases=None, enabled=None, kind=None, location=None, name=None, storage_account_url=None, tags=None, type=None):
         if backup_schedule and not isinstance(backup_schedule, dict):
             raise TypeError("Expected argument 'backup_schedule' to be a dict")
-        __self__.backup_schedule = backup_schedule
+        pulumi.set(__self__, "backup_schedule", backup_schedule)
+        if databases and not isinstance(databases, list):
+            raise TypeError("Expected argument 'databases' to be a list")
+        pulumi.set(__self__, "databases", databases)
+        if enabled and not isinstance(enabled, bool):
+            raise TypeError("Expected argument 'enabled' to be a bool")
+        pulumi.set(__self__, "enabled", enabled)
+        if kind and not isinstance(kind, str):
+            raise TypeError("Expected argument 'kind' to be a str")
+        pulumi.set(__self__, "kind", kind)
+        if location and not isinstance(location, str):
+            raise TypeError("Expected argument 'location' to be a str")
+        pulumi.set(__self__, "location", location)
+        if name and not isinstance(name, str):
+            raise TypeError("Expected argument 'name' to be a str")
+        pulumi.set(__self__, "name", name)
+        if storage_account_url and not isinstance(storage_account_url, str):
+            raise TypeError("Expected argument 'storage_account_url' to be a str")
+        pulumi.set(__self__, "storage_account_url", storage_account_url)
+        if tags and not isinstance(tags, dict):
+            raise TypeError("Expected argument 'tags' to be a dict")
+        pulumi.set(__self__, "tags", tags)
+        if type and not isinstance(type, str):
+            raise TypeError("Expected argument 'type' to be a str")
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="backupSchedule")
+    def backup_schedule(self) -> Optional['outputs.BackupScheduleResponseResult']:
         """
         Schedule for the backup if it is executed periodically
         """
-        if databases and not isinstance(databases, list):
-            raise TypeError("Expected argument 'databases' to be a list")
-        __self__.databases = databases
+        return pulumi.get(self, "backup_schedule")
+
+    @property
+    @pulumi.getter
+    def databases(self) -> Optional[List['outputs.DatabaseBackupSettingResponseResult']]:
         """
         Databases included in the backup
         """
-        if enabled and not isinstance(enabled, bool):
-            raise TypeError("Expected argument 'enabled' to be a bool")
-        __self__.enabled = enabled
+        return pulumi.get(self, "databases")
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[bool]:
         """
         True if the backup schedule is enabled (must be included in that case), false if the backup schedule should be disabled
         """
-        if kind and not isinstance(kind, str):
-            raise TypeError("Expected argument 'kind' to be a str")
-        __self__.kind = kind
+        return pulumi.get(self, "enabled")
+
+    @property
+    @pulumi.getter
+    def kind(self) -> Optional[str]:
         """
         Kind of resource
         """
-        if location and not isinstance(location, str):
-            raise TypeError("Expected argument 'location' to be a str")
-        __self__.location = location
+        return pulumi.get(self, "kind")
+
+    @property
+    @pulumi.getter
+    def location(self) -> str:
         """
         Resource Location
         """
-        if name and not isinstance(name, str):
-            raise TypeError("Expected argument 'name' to be a str")
-        __self__.name = name
+        return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
         """
         Resource Name
         """
-        if storage_account_url and not isinstance(storage_account_url, str):
-            raise TypeError("Expected argument 'storage_account_url' to be a str")
-        __self__.storage_account_url = storage_account_url
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="storageAccountUrl")
+    def storage_account_url(self) -> Optional[str]:
         """
         SAS URL to the container
         """
-        if tags and not isinstance(tags, dict):
-            raise TypeError("Expected argument 'tags' to be a dict")
-        __self__.tags = tags
+        return pulumi.get(self, "storage_account_url")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Mapping[str, str]]:
         """
         Resource tags
         """
-        if type and not isinstance(type, str):
-            raise TypeError("Expected argument 'type' to be a str")
-        __self__.type = type
+        return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
         """
         Resource type
         """
+        return pulumi.get(self, "type")
 
 
 class AwaitableListSiteBackupConfigurationResult(ListSiteBackupConfigurationResult):
@@ -87,7 +139,9 @@ class AwaitableListSiteBackupConfigurationResult(ListSiteBackupConfigurationResu
             type=self.type)
 
 
-def list_site_backup_configuration(name=None, resource_group_name=None, opts=None):
+def list_site_backup_configuration(name: Optional[str] = None,
+                                   resource_group_name: Optional[str] = None,
+                                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListSiteBackupConfigurationResult:
     """
     Use this data source to access information about an existing resource.
 
@@ -101,15 +155,15 @@ def list_site_backup_configuration(name=None, resource_group_name=None, opts=Non
         opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = _utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('azurerm:web/v20150801:listSiteBackupConfiguration', __args__, opts=opts).value
+    __ret__ = pulumi.runtime.invoke('azurerm:web/v20150801:listSiteBackupConfiguration', __args__, opts=opts, typ=ListSiteBackupConfigurationResult).value
 
     return AwaitableListSiteBackupConfigurationResult(
-        backup_schedule=__ret__.get('backupSchedule'),
-        databases=__ret__.get('databases'),
-        enabled=__ret__.get('enabled'),
-        kind=__ret__.get('kind'),
-        location=__ret__.get('location'),
-        name=__ret__.get('name'),
-        storage_account_url=__ret__.get('storageAccountUrl'),
-        tags=__ret__.get('tags'),
-        type=__ret__.get('type'))
+        backup_schedule=__ret__.backup_schedule,
+        databases=__ret__.databases,
+        enabled=__ret__.enabled,
+        kind=__ret__.kind,
+        location=__ret__.location,
+        name=__ret__.name,
+        storage_account_url=__ret__.storage_account_url,
+        tags=__ret__.tags,
+        type=__ret__.type)

@@ -5,10 +5,17 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+from . import outputs
 
+__all__ = [
+    'GetStreamingLocatorResult',
+    'AwaitableGetStreamingLocatorResult',
+    'get_streaming_locator',
+]
 
+@pulumi.output_type
 class GetStreamingLocatorResult:
     """
     A Streaming Locator resource
@@ -16,76 +23,136 @@ class GetStreamingLocatorResult:
     def __init__(__self__, alternative_media_id=None, asset_name=None, content_keys=None, created=None, default_content_key_policy_name=None, end_time=None, filters=None, name=None, start_time=None, streaming_locator_id=None, streaming_policy_name=None, type=None):
         if alternative_media_id and not isinstance(alternative_media_id, str):
             raise TypeError("Expected argument 'alternative_media_id' to be a str")
-        __self__.alternative_media_id = alternative_media_id
+        pulumi.set(__self__, "alternative_media_id", alternative_media_id)
+        if asset_name and not isinstance(asset_name, str):
+            raise TypeError("Expected argument 'asset_name' to be a str")
+        pulumi.set(__self__, "asset_name", asset_name)
+        if content_keys and not isinstance(content_keys, list):
+            raise TypeError("Expected argument 'content_keys' to be a list")
+        pulumi.set(__self__, "content_keys", content_keys)
+        if created and not isinstance(created, str):
+            raise TypeError("Expected argument 'created' to be a str")
+        pulumi.set(__self__, "created", created)
+        if default_content_key_policy_name and not isinstance(default_content_key_policy_name, str):
+            raise TypeError("Expected argument 'default_content_key_policy_name' to be a str")
+        pulumi.set(__self__, "default_content_key_policy_name", default_content_key_policy_name)
+        if end_time and not isinstance(end_time, str):
+            raise TypeError("Expected argument 'end_time' to be a str")
+        pulumi.set(__self__, "end_time", end_time)
+        if filters and not isinstance(filters, list):
+            raise TypeError("Expected argument 'filters' to be a list")
+        pulumi.set(__self__, "filters", filters)
+        if name and not isinstance(name, str):
+            raise TypeError("Expected argument 'name' to be a str")
+        pulumi.set(__self__, "name", name)
+        if start_time and not isinstance(start_time, str):
+            raise TypeError("Expected argument 'start_time' to be a str")
+        pulumi.set(__self__, "start_time", start_time)
+        if streaming_locator_id and not isinstance(streaming_locator_id, str):
+            raise TypeError("Expected argument 'streaming_locator_id' to be a str")
+        pulumi.set(__self__, "streaming_locator_id", streaming_locator_id)
+        if streaming_policy_name and not isinstance(streaming_policy_name, str):
+            raise TypeError("Expected argument 'streaming_policy_name' to be a str")
+        pulumi.set(__self__, "streaming_policy_name", streaming_policy_name)
+        if type and not isinstance(type, str):
+            raise TypeError("Expected argument 'type' to be a str")
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="alternativeMediaId")
+    def alternative_media_id(self) -> Optional[str]:
         """
         Alternative Media ID of this Streaming Locator
         """
-        if asset_name and not isinstance(asset_name, str):
-            raise TypeError("Expected argument 'asset_name' to be a str")
-        __self__.asset_name = asset_name
+        return pulumi.get(self, "alternative_media_id")
+
+    @property
+    @pulumi.getter(name="assetName")
+    def asset_name(self) -> str:
         """
         Asset Name
         """
-        if content_keys and not isinstance(content_keys, list):
-            raise TypeError("Expected argument 'content_keys' to be a list")
-        __self__.content_keys = content_keys
+        return pulumi.get(self, "asset_name")
+
+    @property
+    @pulumi.getter(name="contentKeys")
+    def content_keys(self) -> Optional[List['outputs.StreamingLocatorContentKeyResponse']]:
         """
         The ContentKeys used by this Streaming Locator.
         """
-        if created and not isinstance(created, str):
-            raise TypeError("Expected argument 'created' to be a str")
-        __self__.created = created
+        return pulumi.get(self, "content_keys")
+
+    @property
+    @pulumi.getter
+    def created(self) -> str:
         """
         The creation time of the Streaming Locator.
         """
-        if default_content_key_policy_name and not isinstance(default_content_key_policy_name, str):
-            raise TypeError("Expected argument 'default_content_key_policy_name' to be a str")
-        __self__.default_content_key_policy_name = default_content_key_policy_name
+        return pulumi.get(self, "created")
+
+    @property
+    @pulumi.getter(name="defaultContentKeyPolicyName")
+    def default_content_key_policy_name(self) -> Optional[str]:
         """
         Name of the default ContentKeyPolicy used by this Streaming Locator.
         """
-        if end_time and not isinstance(end_time, str):
-            raise TypeError("Expected argument 'end_time' to be a str")
-        __self__.end_time = end_time
+        return pulumi.get(self, "default_content_key_policy_name")
+
+    @property
+    @pulumi.getter(name="endTime")
+    def end_time(self) -> Optional[str]:
         """
         The end time of the Streaming Locator.
         """
-        if filters and not isinstance(filters, list):
-            raise TypeError("Expected argument 'filters' to be a list")
-        __self__.filters = filters
+        return pulumi.get(self, "end_time")
+
+    @property
+    @pulumi.getter
+    def filters(self) -> Optional[List[str]]:
         """
         A list of asset or account filters which apply to this streaming locator
         """
-        if name and not isinstance(name, str):
-            raise TypeError("Expected argument 'name' to be a str")
-        __self__.name = name
+        return pulumi.get(self, "filters")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
         """
         The name of the resource
         """
-        if start_time and not isinstance(start_time, str):
-            raise TypeError("Expected argument 'start_time' to be a str")
-        __self__.start_time = start_time
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="startTime")
+    def start_time(self) -> Optional[str]:
         """
         The start time of the Streaming Locator.
         """
-        if streaming_locator_id and not isinstance(streaming_locator_id, str):
-            raise TypeError("Expected argument 'streaming_locator_id' to be a str")
-        __self__.streaming_locator_id = streaming_locator_id
+        return pulumi.get(self, "start_time")
+
+    @property
+    @pulumi.getter(name="streamingLocatorId")
+    def streaming_locator_id(self) -> Optional[str]:
         """
         The StreamingLocatorId of the Streaming Locator.
         """
-        if streaming_policy_name and not isinstance(streaming_policy_name, str):
-            raise TypeError("Expected argument 'streaming_policy_name' to be a str")
-        __self__.streaming_policy_name = streaming_policy_name
+        return pulumi.get(self, "streaming_locator_id")
+
+    @property
+    @pulumi.getter(name="streamingPolicyName")
+    def streaming_policy_name(self) -> str:
         """
         Name of the Streaming Policy used by this Streaming Locator. Either specify the name of Streaming Policy you created or use one of the predefined Streaming Policies. The predefined Streaming Policies available are: 'Predefined_DownloadOnly', 'Predefined_ClearStreamingOnly', 'Predefined_DownloadAndClearStreaming', 'Predefined_ClearKey', 'Predefined_MultiDrmCencStreaming' and 'Predefined_MultiDrmStreaming'
         """
-        if type and not isinstance(type, str):
-            raise TypeError("Expected argument 'type' to be a str")
-        __self__.type = type
+        return pulumi.get(self, "streaming_policy_name")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
         """
         The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
         """
+        return pulumi.get(self, "type")
 
 
 class AwaitableGetStreamingLocatorResult(GetStreamingLocatorResult):
@@ -108,7 +175,10 @@ class AwaitableGetStreamingLocatorResult(GetStreamingLocatorResult):
             type=self.type)
 
 
-def get_streaming_locator(account_name=None, name=None, resource_group_name=None, opts=None):
+def get_streaming_locator(account_name: Optional[str] = None,
+                          name: Optional[str] = None,
+                          resource_group_name: Optional[str] = None,
+                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetStreamingLocatorResult:
     """
     Use this data source to access information about an existing resource.
 
@@ -124,18 +194,18 @@ def get_streaming_locator(account_name=None, name=None, resource_group_name=None
         opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = _utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('azurerm:media/v20200501:getStreamingLocator', __args__, opts=opts).value
+    __ret__ = pulumi.runtime.invoke('azurerm:media/v20200501:getStreamingLocator', __args__, opts=opts, typ=GetStreamingLocatorResult).value
 
     return AwaitableGetStreamingLocatorResult(
-        alternative_media_id=__ret__.get('alternativeMediaId'),
-        asset_name=__ret__.get('assetName'),
-        content_keys=__ret__.get('contentKeys'),
-        created=__ret__.get('created'),
-        default_content_key_policy_name=__ret__.get('defaultContentKeyPolicyName'),
-        end_time=__ret__.get('endTime'),
-        filters=__ret__.get('filters'),
-        name=__ret__.get('name'),
-        start_time=__ret__.get('startTime'),
-        streaming_locator_id=__ret__.get('streamingLocatorId'),
-        streaming_policy_name=__ret__.get('streamingPolicyName'),
-        type=__ret__.get('type'))
+        alternative_media_id=__ret__.alternative_media_id,
+        asset_name=__ret__.asset_name,
+        content_keys=__ret__.content_keys,
+        created=__ret__.created,
+        default_content_key_policy_name=__ret__.default_content_key_policy_name,
+        end_time=__ret__.end_time,
+        filters=__ret__.filters,
+        name=__ret__.name,
+        start_time=__ret__.start_time,
+        streaming_locator_id=__ret__.streaming_locator_id,
+        streaming_policy_name=__ret__.streaming_policy_name,
+        type=__ret__.type)

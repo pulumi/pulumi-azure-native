@@ -5,40 +5,27 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+from . import outputs
+from ._inputs import *
+
+__all__ = ['Task']
 
 
 class Task(pulumi.CustomResource):
-    etag: pulumi.Output[str]
-    """
-    HTTP strong entity tag value. This is ignored if submitted.
-    """
-    name: pulumi.Output[str]
-    """
-    Resource name.
-    """
-    properties: pulumi.Output[dict]
-    """
-    Custom task properties
-      * `commands` (`list`) - Array of command properties.
-        * `command_type` (`str`) - Command type.
-        * `errors` (`list`) - Array of errors. This is ignored if submitted.
-          * `code` (`str`) - The machine-readable description of the error, such as 'InvalidRequest' or 'InternalServerError'
-          * `details` (`list`) - Inner errors that caused this error
-          * `message` (`str`) - The human-readable description of the error
-
-        * `state` (`str`) - The state of the command. This is ignored if submitted.
-
-      * `errors` (`list`) - Array of errors. This is ignored if submitted.
-      * `state` (`str`) - The state of the task. This is ignored if submitted.
-      * `task_type` (`str`) - Task type.
-    """
-    type: pulumi.Output[str]
-    """
-    Resource type.
-    """
-    def __init__(__self__, resource_name, opts=None, etag=None, group_name=None, name=None, project_name=None, properties=None, service_name=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 etag: Optional[pulumi.Input[str]] = None,
+                 group_name: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 project_name: Optional[pulumi.Input[str]] = None,
+                 properties: Optional[pulumi.Input[pulumi.InputType['ProjectTaskPropertiesArgs']]] = None,
+                 service_name: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         A task resource
 
@@ -48,12 +35,8 @@ class Task(pulumi.CustomResource):
         :param pulumi.Input[str] group_name: Name of the resource group
         :param pulumi.Input[str] name: Name of the Task
         :param pulumi.Input[str] project_name: Name of the project
-        :param pulumi.Input[dict] properties: Custom task properties
+        :param pulumi.Input[pulumi.InputType['ProjectTaskPropertiesArgs']] properties: Custom task properties
         :param pulumi.Input[str] service_name: Name of the service
-
-        The **properties** object supports the following:
-
-          * `task_type` (`pulumi.Input[str]`) - Task type.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -94,13 +77,15 @@ class Task(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None) -> 'Task':
         """
         Get an existing Task resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -109,8 +94,41 @@ class Task(pulumi.CustomResource):
 
         return Task(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter
+    def etag(self) -> Optional[str]:
+        """
+        HTTP strong entity tag value. This is ignored if submitted.
+        """
+        return pulumi.get(self, "etag")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Resource name.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def properties(self) -> 'outputs.ProjectTaskPropertiesResponse':
+        """
+        Custom task properties
+        """
+        return pulumi.get(self, "properties")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Resource type.
+        """
+        return pulumi.get(self, "type")
+
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

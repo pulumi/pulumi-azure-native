@@ -5,172 +5,60 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+from . import outputs
+from ._inputs import *
+
+__all__ = ['RecordSet']
 
 
 class RecordSet(pulumi.CustomResource):
-    a_records: pulumi.Output[list]
-    """
-    The list of A records in the record set.
-      * `ipv4_address` (`str`) - The IPv4 address of this A record.
-    """
-    aaaa_records: pulumi.Output[list]
-    """
-    The list of AAAA records in the record set.
-      * `ipv6_address` (`str`) - The IPv6 address of this AAAA record.
-    """
-    caa_records: pulumi.Output[list]
-    """
-    The list of CAA records in the record set.
-      * `flags` (`float`) - The flags for this CAA record as an integer between 0 and 255.
-      * `tag` (`str`) - The tag for this CAA record.
-      * `value` (`str`) - The value for this CAA record.
-    """
-    cname_record: pulumi.Output[dict]
-    """
-    The CNAME record in the  record set.
-      * `cname` (`str`) - The canonical name for this CNAME record.
-    """
-    etag: pulumi.Output[str]
-    """
-    The etag of the record set.
-    """
-    fqdn: pulumi.Output[str]
-    """
-    Fully qualified domain name of the record set.
-    """
-    metadata: pulumi.Output[dict]
-    """
-    The metadata attached to the record set.
-    """
-    mx_records: pulumi.Output[list]
-    """
-    The list of MX records in the record set.
-      * `exchange` (`str`) - The domain name of the mail host for this MX record.
-      * `preference` (`float`) - The preference value for this MX record.
-    """
-    name: pulumi.Output[str]
-    """
-    The name of the record set.
-    """
-    ns_records: pulumi.Output[list]
-    """
-    The list of NS records in the record set.
-      * `nsdname` (`str`) - The name server name for this NS record.
-    """
-    ptr_records: pulumi.Output[list]
-    """
-    The list of PTR records in the record set.
-      * `ptrdname` (`str`) - The PTR target domain name for this PTR record.
-    """
-    soa_record: pulumi.Output[dict]
-    """
-    The SOA record in the record set.
-      * `email` (`str`) - The email contact for this SOA record.
-      * `expire_time` (`float`) - The expire time for this SOA record.
-      * `host` (`str`) - The domain name of the authoritative name server for this SOA record.
-      * `minimum_ttl` (`float`) - The minimum value for this SOA record. By convention this is used to determine the negative caching duration.
-      * `refresh_time` (`float`) - The refresh value for this SOA record.
-      * `retry_time` (`float`) - The retry time for this SOA record.
-      * `serial_number` (`float`) - The serial number for this SOA record.
-    """
-    srv_records: pulumi.Output[list]
-    """
-    The list of SRV records in the record set.
-      * `port` (`float`) - The port value for this SRV record.
-      * `priority` (`float`) - The priority value for this SRV record.
-      * `target` (`str`) - The target domain name for this SRV record.
-      * `weight` (`float`) - The weight value for this SRV record.
-    """
-    ttl: pulumi.Output[float]
-    """
-    The TTL (time-to-live) of the records in the record set.
-    """
-    txt_records: pulumi.Output[list]
-    """
-    The list of TXT records in the record set.
-      * `value` (`list`) - The text value of this TXT record.
-    """
-    type: pulumi.Output[str]
-    """
-    The type of the record set.
-    """
-    def __init__(__self__, resource_name, opts=None, a_records=None, aaaa_records=None, caa_records=None, cname_record=None, etag=None, metadata=None, mx_records=None, name=None, ns_records=None, ptr_records=None, record_type=None, resource_group_name=None, soa_record=None, srv_records=None, ttl=None, txt_records=None, zone_name=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 a_records: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['ARecordArgs']]]]] = None,
+                 aaaa_records: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['AaaaRecordArgs']]]]] = None,
+                 caa_records: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['CaaRecordArgs']]]]] = None,
+                 cname_record: Optional[pulumi.Input[pulumi.InputType['CnameRecordArgs']]] = None,
+                 etag: Optional[pulumi.Input[str]] = None,
+                 metadata: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 mx_records: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['MxRecordArgs']]]]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 ns_records: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['NsRecordArgs']]]]] = None,
+                 ptr_records: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['PtrRecordArgs']]]]] = None,
+                 record_type: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 soa_record: Optional[pulumi.Input[pulumi.InputType['SoaRecordArgs']]] = None,
+                 srv_records: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['SrvRecordArgs']]]]] = None,
+                 ttl: Optional[pulumi.Input[float]] = None,
+                 txt_records: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['TxtRecordArgs']]]]] = None,
+                 zone_name: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         Describes a DNS record set (a collection of DNS records with the same name and type).
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[list] a_records: The list of A records in the record set.
-        :param pulumi.Input[list] aaaa_records: The list of AAAA records in the record set.
-        :param pulumi.Input[list] caa_records: The list of CAA records in the record set.
-        :param pulumi.Input[dict] cname_record: The CNAME record in the  record set.
+        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['ARecordArgs']]]] a_records: The list of A records in the record set.
+        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['AaaaRecordArgs']]]] aaaa_records: The list of AAAA records in the record set.
+        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['CaaRecordArgs']]]] caa_records: The list of CAA records in the record set.
+        :param pulumi.Input[pulumi.InputType['CnameRecordArgs']] cname_record: The CNAME record in the  record set.
         :param pulumi.Input[str] etag: The etag of the record set.
-        :param pulumi.Input[dict] metadata: The metadata attached to the record set.
-        :param pulumi.Input[list] mx_records: The list of MX records in the record set.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] metadata: The metadata attached to the record set.
+        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['MxRecordArgs']]]] mx_records: The list of MX records in the record set.
         :param pulumi.Input[str] name: The name of the record set, relative to the name of the zone.
-        :param pulumi.Input[list] ns_records: The list of NS records in the record set.
-        :param pulumi.Input[list] ptr_records: The list of PTR records in the record set.
+        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['NsRecordArgs']]]] ns_records: The list of NS records in the record set.
+        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['PtrRecordArgs']]]] ptr_records: The list of PTR records in the record set.
         :param pulumi.Input[str] record_type: The type of DNS record in this record set. Record sets of type SOA can be updated but not created (they are created when the DNS zone is created).
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input[dict] soa_record: The SOA record in the record set.
-        :param pulumi.Input[list] srv_records: The list of SRV records in the record set.
+        :param pulumi.Input[pulumi.InputType['SoaRecordArgs']] soa_record: The SOA record in the record set.
+        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['SrvRecordArgs']]]] srv_records: The list of SRV records in the record set.
         :param pulumi.Input[float] ttl: The TTL (time-to-live) of the records in the record set.
-        :param pulumi.Input[list] txt_records: The list of TXT records in the record set.
+        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['TxtRecordArgs']]]] txt_records: The list of TXT records in the record set.
         :param pulumi.Input[str] zone_name: The name of the DNS zone (without a terminating dot).
-
-        The **a_records** object supports the following:
-
-          * `ipv4_address` (`pulumi.Input[str]`) - The IPv4 address of this A record.
-
-        The **aaaa_records** object supports the following:
-
-          * `ipv6_address` (`pulumi.Input[str]`) - The IPv6 address of this AAAA record.
-
-        The **caa_records** object supports the following:
-
-          * `flags` (`pulumi.Input[float]`) - The flags for this CAA record as an integer between 0 and 255.
-          * `tag` (`pulumi.Input[str]`) - The tag for this CAA record.
-          * `value` (`pulumi.Input[str]`) - The value for this CAA record.
-
-        The **cname_record** object supports the following:
-
-          * `cname` (`pulumi.Input[str]`) - The canonical name for this CNAME record.
-
-        The **mx_records** object supports the following:
-
-          * `exchange` (`pulumi.Input[str]`) - The domain name of the mail host for this MX record.
-          * `preference` (`pulumi.Input[float]`) - The preference value for this MX record.
-
-        The **ns_records** object supports the following:
-
-          * `nsdname` (`pulumi.Input[str]`) - The name server name for this NS record.
-
-        The **ptr_records** object supports the following:
-
-          * `ptrdname` (`pulumi.Input[str]`) - The PTR target domain name for this PTR record.
-
-        The **soa_record** object supports the following:
-
-          * `email` (`pulumi.Input[str]`) - The email contact for this SOA record.
-          * `expire_time` (`pulumi.Input[float]`) - The expire time for this SOA record.
-          * `host` (`pulumi.Input[str]`) - The domain name of the authoritative name server for this SOA record.
-          * `minimum_ttl` (`pulumi.Input[float]`) - The minimum value for this SOA record. By convention this is used to determine the negative caching duration.
-          * `refresh_time` (`pulumi.Input[float]`) - The refresh value for this SOA record.
-          * `retry_time` (`pulumi.Input[float]`) - The retry time for this SOA record.
-          * `serial_number` (`pulumi.Input[float]`) - The serial number for this SOA record.
-
-        The **srv_records** object supports the following:
-
-          * `port` (`pulumi.Input[float]`) - The port value for this SRV record.
-          * `priority` (`pulumi.Input[float]`) - The priority value for this SRV record.
-          * `target` (`pulumi.Input[str]`) - The target domain name for this SRV record.
-          * `weight` (`pulumi.Input[float]`) - The weight value for this SRV record.
-
-        The **txt_records** object supports the following:
-
-          * `value` (`pulumi.Input[list]`) - The text value of this TXT record.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -225,13 +113,15 @@ class RecordSet(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None) -> 'RecordSet':
         """
         Get an existing RecordSet resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -240,8 +130,137 @@ class RecordSet(pulumi.CustomResource):
 
         return RecordSet(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter(name="aRecords")
+    def a_records(self) -> Optional[List['outputs.ARecordResponse']]:
+        """
+        The list of A records in the record set.
+        """
+        return pulumi.get(self, "a_records")
+
+    @property
+    @pulumi.getter(name="aaaaRecords")
+    def aaaa_records(self) -> Optional[List['outputs.AaaaRecordResponse']]:
+        """
+        The list of AAAA records in the record set.
+        """
+        return pulumi.get(self, "aaaa_records")
+
+    @property
+    @pulumi.getter(name="caaRecords")
+    def caa_records(self) -> Optional[List['outputs.CaaRecordResponse']]:
+        """
+        The list of CAA records in the record set.
+        """
+        return pulumi.get(self, "caa_records")
+
+    @property
+    @pulumi.getter(name="cnameRecord")
+    def cname_record(self) -> Optional['outputs.CnameRecordResponse']:
+        """
+        The CNAME record in the  record set.
+        """
+        return pulumi.get(self, "cname_record")
+
+    @property
+    @pulumi.getter
+    def etag(self) -> Optional[str]:
+        """
+        The etag of the record set.
+        """
+        return pulumi.get(self, "etag")
+
+    @property
+    @pulumi.getter
+    def fqdn(self) -> str:
+        """
+        Fully qualified domain name of the record set.
+        """
+        return pulumi.get(self, "fqdn")
+
+    @property
+    @pulumi.getter
+    def metadata(self) -> Optional[Mapping[str, str]]:
+        """
+        The metadata attached to the record set.
+        """
+        return pulumi.get(self, "metadata")
+
+    @property
+    @pulumi.getter(name="mxRecords")
+    def mx_records(self) -> Optional[List['outputs.MxRecordResponse']]:
+        """
+        The list of MX records in the record set.
+        """
+        return pulumi.get(self, "mx_records")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the record set.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="nsRecords")
+    def ns_records(self) -> Optional[List['outputs.NsRecordResponse']]:
+        """
+        The list of NS records in the record set.
+        """
+        return pulumi.get(self, "ns_records")
+
+    @property
+    @pulumi.getter(name="ptrRecords")
+    def ptr_records(self) -> Optional[List['outputs.PtrRecordResponse']]:
+        """
+        The list of PTR records in the record set.
+        """
+        return pulumi.get(self, "ptr_records")
+
+    @property
+    @pulumi.getter(name="soaRecord")
+    def soa_record(self) -> Optional['outputs.SoaRecordResponse']:
+        """
+        The SOA record in the record set.
+        """
+        return pulumi.get(self, "soa_record")
+
+    @property
+    @pulumi.getter(name="srvRecords")
+    def srv_records(self) -> Optional[List['outputs.SrvRecordResponse']]:
+        """
+        The list of SRV records in the record set.
+        """
+        return pulumi.get(self, "srv_records")
+
+    @property
+    @pulumi.getter
+    def ttl(self) -> Optional[float]:
+        """
+        The TTL (time-to-live) of the records in the record set.
+        """
+        return pulumi.get(self, "ttl")
+
+    @property
+    @pulumi.getter(name="txtRecords")
+    def txt_records(self) -> Optional[List['outputs.TxtRecordResponse']]:
+        """
+        The list of TXT records in the record set.
+        """
+        return pulumi.get(self, "txt_records")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        The type of the record set.
+        """
+        return pulumi.get(self, "type")
+
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

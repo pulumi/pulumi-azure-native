@@ -5,10 +5,17 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+from . import outputs
 
+__all__ = [
+    'GetPrivateCloudResult',
+    'AwaitableGetPrivateCloudResult',
+    'get_private_cloud',
+]
 
+@pulumi.output_type
 class GetPrivateCloudResult:
     """
     A private cloud resource
@@ -16,118 +23,213 @@ class GetPrivateCloudResult:
     def __init__(__self__, circuit=None, endpoints=None, identity_sources=None, internet=None, location=None, management_cluster=None, management_network=None, name=None, network_block=None, nsxt_certificate_thumbprint=None, nsxt_password=None, provisioning_network=None, provisioning_state=None, sku=None, tags=None, type=None, vcenter_certificate_thumbprint=None, vcenter_password=None, vmotion_network=None):
         if circuit and not isinstance(circuit, dict):
             raise TypeError("Expected argument 'circuit' to be a dict")
-        __self__.circuit = circuit
+        pulumi.set(__self__, "circuit", circuit)
+        if endpoints and not isinstance(endpoints, dict):
+            raise TypeError("Expected argument 'endpoints' to be a dict")
+        pulumi.set(__self__, "endpoints", endpoints)
+        if identity_sources and not isinstance(identity_sources, list):
+            raise TypeError("Expected argument 'identity_sources' to be a list")
+        pulumi.set(__self__, "identity_sources", identity_sources)
+        if internet and not isinstance(internet, str):
+            raise TypeError("Expected argument 'internet' to be a str")
+        pulumi.set(__self__, "internet", internet)
+        if location and not isinstance(location, str):
+            raise TypeError("Expected argument 'location' to be a str")
+        pulumi.set(__self__, "location", location)
+        if management_cluster and not isinstance(management_cluster, dict):
+            raise TypeError("Expected argument 'management_cluster' to be a dict")
+        pulumi.set(__self__, "management_cluster", management_cluster)
+        if management_network and not isinstance(management_network, str):
+            raise TypeError("Expected argument 'management_network' to be a str")
+        pulumi.set(__self__, "management_network", management_network)
+        if name and not isinstance(name, str):
+            raise TypeError("Expected argument 'name' to be a str")
+        pulumi.set(__self__, "name", name)
+        if network_block and not isinstance(network_block, str):
+            raise TypeError("Expected argument 'network_block' to be a str")
+        pulumi.set(__self__, "network_block", network_block)
+        if nsxt_certificate_thumbprint and not isinstance(nsxt_certificate_thumbprint, str):
+            raise TypeError("Expected argument 'nsxt_certificate_thumbprint' to be a str")
+        pulumi.set(__self__, "nsxt_certificate_thumbprint", nsxt_certificate_thumbprint)
+        if nsxt_password and not isinstance(nsxt_password, str):
+            raise TypeError("Expected argument 'nsxt_password' to be a str")
+        pulumi.set(__self__, "nsxt_password", nsxt_password)
+        if provisioning_network and not isinstance(provisioning_network, str):
+            raise TypeError("Expected argument 'provisioning_network' to be a str")
+        pulumi.set(__self__, "provisioning_network", provisioning_network)
+        if provisioning_state and not isinstance(provisioning_state, str):
+            raise TypeError("Expected argument 'provisioning_state' to be a str")
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if sku and not isinstance(sku, dict):
+            raise TypeError("Expected argument 'sku' to be a dict")
+        pulumi.set(__self__, "sku", sku)
+        if tags and not isinstance(tags, dict):
+            raise TypeError("Expected argument 'tags' to be a dict")
+        pulumi.set(__self__, "tags", tags)
+        if type and not isinstance(type, str):
+            raise TypeError("Expected argument 'type' to be a str")
+        pulumi.set(__self__, "type", type)
+        if vcenter_certificate_thumbprint and not isinstance(vcenter_certificate_thumbprint, str):
+            raise TypeError("Expected argument 'vcenter_certificate_thumbprint' to be a str")
+        pulumi.set(__self__, "vcenter_certificate_thumbprint", vcenter_certificate_thumbprint)
+        if vcenter_password and not isinstance(vcenter_password, str):
+            raise TypeError("Expected argument 'vcenter_password' to be a str")
+        pulumi.set(__self__, "vcenter_password", vcenter_password)
+        if vmotion_network and not isinstance(vmotion_network, str):
+            raise TypeError("Expected argument 'vmotion_network' to be a str")
+        pulumi.set(__self__, "vmotion_network", vmotion_network)
+
+    @property
+    @pulumi.getter
+    def circuit(self) -> Optional['outputs.CircuitResponse']:
         """
         An ExpressRoute Circuit
         """
-        if endpoints and not isinstance(endpoints, dict):
-            raise TypeError("Expected argument 'endpoints' to be a dict")
-        __self__.endpoints = endpoints
+        return pulumi.get(self, "circuit")
+
+    @property
+    @pulumi.getter
+    def endpoints(self) -> 'outputs.EndpointsResponse':
         """
         The endpoints
         """
-        if identity_sources and not isinstance(identity_sources, list):
-            raise TypeError("Expected argument 'identity_sources' to be a list")
-        __self__.identity_sources = identity_sources
+        return pulumi.get(self, "endpoints")
+
+    @property
+    @pulumi.getter(name="identitySources")
+    def identity_sources(self) -> Optional[List['outputs.IdentitySourceResponse']]:
         """
         vCenter Single Sign On Identity Sources
         """
-        if internet and not isinstance(internet, str):
-            raise TypeError("Expected argument 'internet' to be a str")
-        __self__.internet = internet
+        return pulumi.get(self, "identity_sources")
+
+    @property
+    @pulumi.getter
+    def internet(self) -> Optional[str]:
         """
         Connectivity to internet is enabled or disabled
         """
-        if location and not isinstance(location, str):
-            raise TypeError("Expected argument 'location' to be a str")
-        __self__.location = location
+        return pulumi.get(self, "internet")
+
+    @property
+    @pulumi.getter
+    def location(self) -> str:
         """
         Resource location
         """
-        if management_cluster and not isinstance(management_cluster, dict):
-            raise TypeError("Expected argument 'management_cluster' to be a dict")
-        __self__.management_cluster = management_cluster
+        return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter(name="managementCluster")
+    def management_cluster(self) -> 'outputs.ManagementClusterResponse':
         """
         The default cluster used for management
         """
-        if management_network and not isinstance(management_network, str):
-            raise TypeError("Expected argument 'management_network' to be a str")
-        __self__.management_network = management_network
+        return pulumi.get(self, "management_cluster")
+
+    @property
+    @pulumi.getter(name="managementNetwork")
+    def management_network(self) -> str:
         """
         Network used to access vCenter Server and NSX-T Manager
         """
-        if name and not isinstance(name, str):
-            raise TypeError("Expected argument 'name' to be a str")
-        __self__.name = name
+        return pulumi.get(self, "management_network")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
         """
         Resource name.
         """
-        if network_block and not isinstance(network_block, str):
-            raise TypeError("Expected argument 'network_block' to be a str")
-        __self__.network_block = network_block
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="networkBlock")
+    def network_block(self) -> str:
         """
         The block of addresses should be unique across VNet in your subscription as well as on-premise. Make sure the CIDR format is conformed to (A.B.C.D/X) where A,B,C,D are between 0 and 255, and X is between 0 and 22
         """
-        if nsxt_certificate_thumbprint and not isinstance(nsxt_certificate_thumbprint, str):
-            raise TypeError("Expected argument 'nsxt_certificate_thumbprint' to be a str")
-        __self__.nsxt_certificate_thumbprint = nsxt_certificate_thumbprint
+        return pulumi.get(self, "network_block")
+
+    @property
+    @pulumi.getter(name="nsxtCertificateThumbprint")
+    def nsxt_certificate_thumbprint(self) -> str:
         """
         Thumbprint of the NSX-T Manager SSL certificate
         """
-        if nsxt_password and not isinstance(nsxt_password, str):
-            raise TypeError("Expected argument 'nsxt_password' to be a str")
-        __self__.nsxt_password = nsxt_password
+        return pulumi.get(self, "nsxt_certificate_thumbprint")
+
+    @property
+    @pulumi.getter(name="nsxtPassword")
+    def nsxt_password(self) -> Optional[str]:
         """
         Optionally, set the NSX-T Manager password when the private cloud is created
         """
-        if provisioning_network and not isinstance(provisioning_network, str):
-            raise TypeError("Expected argument 'provisioning_network' to be a str")
-        __self__.provisioning_network = provisioning_network
+        return pulumi.get(self, "nsxt_password")
+
+    @property
+    @pulumi.getter(name="provisioningNetwork")
+    def provisioning_network(self) -> str:
         """
         Used for virtual machine cold migration, cloning, and snapshot migration
         """
-        if provisioning_state and not isinstance(provisioning_state, str):
-            raise TypeError("Expected argument 'provisioning_state' to be a str")
-        __self__.provisioning_state = provisioning_state
+        return pulumi.get(self, "provisioning_network")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
         """
         The provisioning state
         """
-        if sku and not isinstance(sku, dict):
-            raise TypeError("Expected argument 'sku' to be a dict")
-        __self__.sku = sku
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter
+    def sku(self) -> 'outputs.SkuResponse':
         """
         The private cloud SKU
         """
-        if tags and not isinstance(tags, dict):
-            raise TypeError("Expected argument 'tags' to be a dict")
-        __self__.tags = tags
+        return pulumi.get(self, "sku")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Mapping[str, str]]:
         """
         Resource tags
         """
-        if type and not isinstance(type, str):
-            raise TypeError("Expected argument 'type' to be a str")
-        __self__.type = type
+        return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
         """
         Resource type.
         """
-        if vcenter_certificate_thumbprint and not isinstance(vcenter_certificate_thumbprint, str):
-            raise TypeError("Expected argument 'vcenter_certificate_thumbprint' to be a str")
-        __self__.vcenter_certificate_thumbprint = vcenter_certificate_thumbprint
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="vcenterCertificateThumbprint")
+    def vcenter_certificate_thumbprint(self) -> str:
         """
         Thumbprint of the vCenter Server SSL certificate
         """
-        if vcenter_password and not isinstance(vcenter_password, str):
-            raise TypeError("Expected argument 'vcenter_password' to be a str")
-        __self__.vcenter_password = vcenter_password
+        return pulumi.get(self, "vcenter_certificate_thumbprint")
+
+    @property
+    @pulumi.getter(name="vcenterPassword")
+    def vcenter_password(self) -> Optional[str]:
         """
         Optionally, set the vCenter admin password when the private cloud is created
         """
-        if vmotion_network and not isinstance(vmotion_network, str):
-            raise TypeError("Expected argument 'vmotion_network' to be a str")
-        __self__.vmotion_network = vmotion_network
+        return pulumi.get(self, "vcenter_password")
+
+    @property
+    @pulumi.getter(name="vmotionNetwork")
+    def vmotion_network(self) -> str:
         """
         Used for live migration of virtual machines
         """
+        return pulumi.get(self, "vmotion_network")
 
 
 class AwaitableGetPrivateCloudResult(GetPrivateCloudResult):
@@ -157,7 +259,9 @@ class AwaitableGetPrivateCloudResult(GetPrivateCloudResult):
             vmotion_network=self.vmotion_network)
 
 
-def get_private_cloud(name=None, resource_group_name=None, opts=None):
+def get_private_cloud(name: Optional[str] = None,
+                      resource_group_name: Optional[str] = None,
+                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPrivateCloudResult:
     """
     Use this data source to access information about an existing resource.
 
@@ -171,25 +275,25 @@ def get_private_cloud(name=None, resource_group_name=None, opts=None):
         opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = _utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('azurerm:avs/v20200320:getPrivateCloud', __args__, opts=opts).value
+    __ret__ = pulumi.runtime.invoke('azurerm:avs/v20200320:getPrivateCloud', __args__, opts=opts, typ=GetPrivateCloudResult).value
 
     return AwaitableGetPrivateCloudResult(
-        circuit=__ret__.get('circuit'),
-        endpoints=__ret__.get('endpoints'),
-        identity_sources=__ret__.get('identitySources'),
-        internet=__ret__.get('internet'),
-        location=__ret__.get('location'),
-        management_cluster=__ret__.get('managementCluster'),
-        management_network=__ret__.get('managementNetwork'),
-        name=__ret__.get('name'),
-        network_block=__ret__.get('networkBlock'),
-        nsxt_certificate_thumbprint=__ret__.get('nsxtCertificateThumbprint'),
-        nsxt_password=__ret__.get('nsxtPassword'),
-        provisioning_network=__ret__.get('provisioningNetwork'),
-        provisioning_state=__ret__.get('provisioningState'),
-        sku=__ret__.get('sku'),
-        tags=__ret__.get('tags'),
-        type=__ret__.get('type'),
-        vcenter_certificate_thumbprint=__ret__.get('vcenterCertificateThumbprint'),
-        vcenter_password=__ret__.get('vcenterPassword'),
-        vmotion_network=__ret__.get('vmotionNetwork'))
+        circuit=__ret__.circuit,
+        endpoints=__ret__.endpoints,
+        identity_sources=__ret__.identity_sources,
+        internet=__ret__.internet,
+        location=__ret__.location,
+        management_cluster=__ret__.management_cluster,
+        management_network=__ret__.management_network,
+        name=__ret__.name,
+        network_block=__ret__.network_block,
+        nsxt_certificate_thumbprint=__ret__.nsxt_certificate_thumbprint,
+        nsxt_password=__ret__.nsxt_password,
+        provisioning_network=__ret__.provisioning_network,
+        provisioning_state=__ret__.provisioning_state,
+        sku=__ret__.sku,
+        tags=__ret__.tags,
+        type=__ret__.type,
+        vcenter_certificate_thumbprint=__ret__.vcenter_certificate_thumbprint,
+        vcenter_password=__ret__.vcenter_password,
+        vmotion_network=__ret__.vmotion_network)

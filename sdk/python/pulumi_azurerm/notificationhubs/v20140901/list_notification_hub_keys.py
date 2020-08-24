@@ -5,10 +5,16 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
 
+__all__ = [
+    'ListNotificationHubKeysResult',
+    'AwaitableListNotificationHubKeysResult',
+    'list_notification_hub_keys',
+]
 
+@pulumi.output_type
 class ListNotificationHubKeysResult:
     """
     Namespace/NotificationHub Connection String
@@ -16,16 +22,26 @@ class ListNotificationHubKeysResult:
     def __init__(__self__, primary_connection_string=None, secondary_connection_string=None):
         if primary_connection_string and not isinstance(primary_connection_string, str):
             raise TypeError("Expected argument 'primary_connection_string' to be a str")
-        __self__.primary_connection_string = primary_connection_string
+        pulumi.set(__self__, "primary_connection_string", primary_connection_string)
+        if secondary_connection_string and not isinstance(secondary_connection_string, str):
+            raise TypeError("Expected argument 'secondary_connection_string' to be a str")
+        pulumi.set(__self__, "secondary_connection_string", secondary_connection_string)
+
+    @property
+    @pulumi.getter(name="primaryConnectionString")
+    def primary_connection_string(self) -> Optional[str]:
         """
         Gets or sets the primaryConnectionString of the created Namespace AuthorizationRule.
         """
-        if secondary_connection_string and not isinstance(secondary_connection_string, str):
-            raise TypeError("Expected argument 'secondary_connection_string' to be a str")
-        __self__.secondary_connection_string = secondary_connection_string
+        return pulumi.get(self, "primary_connection_string")
+
+    @property
+    @pulumi.getter(name="secondaryConnectionString")
+    def secondary_connection_string(self) -> Optional[str]:
         """
         Gets or sets the secondaryConnectionString of the created Namespace AuthorizationRule
         """
+        return pulumi.get(self, "secondary_connection_string")
 
 
 class AwaitableListNotificationHubKeysResult(ListNotificationHubKeysResult):
@@ -38,7 +54,11 @@ class AwaitableListNotificationHubKeysResult(ListNotificationHubKeysResult):
             secondary_connection_string=self.secondary_connection_string)
 
 
-def list_notification_hub_keys(authorization_rule_name=None, namespace_name=None, notification_hub_name=None, resource_group_name=None, opts=None):
+def list_notification_hub_keys(authorization_rule_name: Optional[str] = None,
+                               namespace_name: Optional[str] = None,
+                               notification_hub_name: Optional[str] = None,
+                               resource_group_name: Optional[str] = None,
+                               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListNotificationHubKeysResult:
     """
     Use this data source to access information about an existing resource.
 
@@ -56,8 +76,8 @@ def list_notification_hub_keys(authorization_rule_name=None, namespace_name=None
         opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = _utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('azurerm:notificationhubs/v20140901:listNotificationHubKeys', __args__, opts=opts).value
+    __ret__ = pulumi.runtime.invoke('azurerm:notificationhubs/v20140901:listNotificationHubKeys', __args__, opts=opts, typ=ListNotificationHubKeysResult).value
 
     return AwaitableListNotificationHubKeysResult(
-        primary_connection_string=__ret__.get('primaryConnectionString'),
-        secondary_connection_string=__ret__.get('secondaryConnectionString'))
+        primary_connection_string=__ret__.primary_connection_string,
+        secondary_connection_string=__ret__.secondary_connection_string)

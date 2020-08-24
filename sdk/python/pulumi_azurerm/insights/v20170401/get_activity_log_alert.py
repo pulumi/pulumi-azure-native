@@ -5,10 +5,17 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+from . import outputs
 
+__all__ = [
+    'GetActivityLogAlertResult',
+    'AwaitableGetActivityLogAlertResult',
+    'get_activity_log_alert',
+]
 
+@pulumi.output_type
 class GetActivityLogAlertResult:
     """
     An activity log alert resource.
@@ -16,58 +23,103 @@ class GetActivityLogAlertResult:
     def __init__(__self__, actions=None, condition=None, description=None, enabled=None, location=None, name=None, scopes=None, tags=None, type=None):
         if actions and not isinstance(actions, dict):
             raise TypeError("Expected argument 'actions' to be a dict")
-        __self__.actions = actions
+        pulumi.set(__self__, "actions", actions)
+        if condition and not isinstance(condition, dict):
+            raise TypeError("Expected argument 'condition' to be a dict")
+        pulumi.set(__self__, "condition", condition)
+        if description and not isinstance(description, str):
+            raise TypeError("Expected argument 'description' to be a str")
+        pulumi.set(__self__, "description", description)
+        if enabled and not isinstance(enabled, bool):
+            raise TypeError("Expected argument 'enabled' to be a bool")
+        pulumi.set(__self__, "enabled", enabled)
+        if location and not isinstance(location, str):
+            raise TypeError("Expected argument 'location' to be a str")
+        pulumi.set(__self__, "location", location)
+        if name and not isinstance(name, str):
+            raise TypeError("Expected argument 'name' to be a str")
+        pulumi.set(__self__, "name", name)
+        if scopes and not isinstance(scopes, list):
+            raise TypeError("Expected argument 'scopes' to be a list")
+        pulumi.set(__self__, "scopes", scopes)
+        if tags and not isinstance(tags, dict):
+            raise TypeError("Expected argument 'tags' to be a dict")
+        pulumi.set(__self__, "tags", tags)
+        if type and not isinstance(type, str):
+            raise TypeError("Expected argument 'type' to be a str")
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def actions(self) -> 'outputs.ActivityLogAlertActionListResponse':
         """
         The actions that will activate when the condition is met.
         """
-        if condition and not isinstance(condition, dict):
-            raise TypeError("Expected argument 'condition' to be a dict")
-        __self__.condition = condition
+        return pulumi.get(self, "actions")
+
+    @property
+    @pulumi.getter
+    def condition(self) -> 'outputs.ActivityLogAlertAllOfConditionResponse':
         """
         The condition that will cause this alert to activate.
         """
-        if description and not isinstance(description, str):
-            raise TypeError("Expected argument 'description' to be a str")
-        __self__.description = description
+        return pulumi.get(self, "condition")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
         """
         A description of this activity log alert.
         """
-        if enabled and not isinstance(enabled, bool):
-            raise TypeError("Expected argument 'enabled' to be a bool")
-        __self__.enabled = enabled
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[bool]:
         """
         Indicates whether this activity log alert is enabled. If an activity log alert is not enabled, then none of its actions will be activated.
         """
-        if location and not isinstance(location, str):
-            raise TypeError("Expected argument 'location' to be a str")
-        __self__.location = location
+        return pulumi.get(self, "enabled")
+
+    @property
+    @pulumi.getter
+    def location(self) -> str:
         """
         Resource location
         """
-        if name and not isinstance(name, str):
-            raise TypeError("Expected argument 'name' to be a str")
-        __self__.name = name
+        return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
         """
         Azure resource name
         """
-        if scopes and not isinstance(scopes, list):
-            raise TypeError("Expected argument 'scopes' to be a list")
-        __self__.scopes = scopes
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def scopes(self) -> List[str]:
         """
         A list of resourceIds that will be used as prefixes. The alert will only apply to activityLogs with resourceIds that fall under one of these prefixes. This list must include at least one item.
         """
-        if tags and not isinstance(tags, dict):
-            raise TypeError("Expected argument 'tags' to be a dict")
-        __self__.tags = tags
+        return pulumi.get(self, "scopes")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Mapping[str, str]]:
         """
         Resource tags
         """
-        if type and not isinstance(type, str):
-            raise TypeError("Expected argument 'type' to be a str")
-        __self__.type = type
+        return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
         """
         Azure resource type
         """
+        return pulumi.get(self, "type")
 
 
 class AwaitableGetActivityLogAlertResult(GetActivityLogAlertResult):
@@ -87,7 +139,9 @@ class AwaitableGetActivityLogAlertResult(GetActivityLogAlertResult):
             type=self.type)
 
 
-def get_activity_log_alert(name=None, resource_group_name=None, opts=None):
+def get_activity_log_alert(name: Optional[str] = None,
+                           resource_group_name: Optional[str] = None,
+                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetActivityLogAlertResult:
     """
     Use this data source to access information about an existing resource.
 
@@ -101,15 +155,15 @@ def get_activity_log_alert(name=None, resource_group_name=None, opts=None):
         opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = _utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('azurerm:insights/v20170401:getActivityLogAlert', __args__, opts=opts).value
+    __ret__ = pulumi.runtime.invoke('azurerm:insights/v20170401:getActivityLogAlert', __args__, opts=opts, typ=GetActivityLogAlertResult).value
 
     return AwaitableGetActivityLogAlertResult(
-        actions=__ret__.get('actions'),
-        condition=__ret__.get('condition'),
-        description=__ret__.get('description'),
-        enabled=__ret__.get('enabled'),
-        location=__ret__.get('location'),
-        name=__ret__.get('name'),
-        scopes=__ret__.get('scopes'),
-        tags=__ret__.get('tags'),
-        type=__ret__.get('type'))
+        actions=__ret__.actions,
+        condition=__ret__.condition,
+        description=__ret__.description,
+        enabled=__ret__.enabled,
+        location=__ret__.location,
+        name=__ret__.name,
+        scopes=__ret__.scopes,
+        tags=__ret__.tags,
+        type=__ret__.type)

@@ -5,10 +5,17 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+from . import outputs
 
+__all__ = [
+    'GetLabAccountResult',
+    'AwaitableGetLabAccountResult',
+    'get_lab_account',
+]
 
+@pulumi.output_type
 class GetLabAccountResult:
     """
     Represents a lab account.
@@ -16,58 +23,103 @@ class GetLabAccountResult:
     def __init__(__self__, enabled_region_selection=None, latest_operation_result=None, location=None, name=None, provisioning_state=None, size_configuration=None, tags=None, type=None, unique_identifier=None):
         if enabled_region_selection and not isinstance(enabled_region_selection, bool):
             raise TypeError("Expected argument 'enabled_region_selection' to be a bool")
-        __self__.enabled_region_selection = enabled_region_selection
+        pulumi.set(__self__, "enabled_region_selection", enabled_region_selection)
+        if latest_operation_result and not isinstance(latest_operation_result, dict):
+            raise TypeError("Expected argument 'latest_operation_result' to be a dict")
+        pulumi.set(__self__, "latest_operation_result", latest_operation_result)
+        if location and not isinstance(location, str):
+            raise TypeError("Expected argument 'location' to be a str")
+        pulumi.set(__self__, "location", location)
+        if name and not isinstance(name, str):
+            raise TypeError("Expected argument 'name' to be a str")
+        pulumi.set(__self__, "name", name)
+        if provisioning_state and not isinstance(provisioning_state, str):
+            raise TypeError("Expected argument 'provisioning_state' to be a str")
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if size_configuration and not isinstance(size_configuration, dict):
+            raise TypeError("Expected argument 'size_configuration' to be a dict")
+        pulumi.set(__self__, "size_configuration", size_configuration)
+        if tags and not isinstance(tags, dict):
+            raise TypeError("Expected argument 'tags' to be a dict")
+        pulumi.set(__self__, "tags", tags)
+        if type and not isinstance(type, str):
+            raise TypeError("Expected argument 'type' to be a str")
+        pulumi.set(__self__, "type", type)
+        if unique_identifier and not isinstance(unique_identifier, str):
+            raise TypeError("Expected argument 'unique_identifier' to be a str")
+        pulumi.set(__self__, "unique_identifier", unique_identifier)
+
+    @property
+    @pulumi.getter(name="enabledRegionSelection")
+    def enabled_region_selection(self) -> Optional[bool]:
         """
         Represents if region selection is enabled
         """
-        if latest_operation_result and not isinstance(latest_operation_result, dict):
-            raise TypeError("Expected argument 'latest_operation_result' to be a dict")
-        __self__.latest_operation_result = latest_operation_result
+        return pulumi.get(self, "enabled_region_selection")
+
+    @property
+    @pulumi.getter(name="latestOperationResult")
+    def latest_operation_result(self) -> 'outputs.LatestOperationResultResponse':
         """
         The details of the latest operation. ex: status, error
         """
-        if location and not isinstance(location, str):
-            raise TypeError("Expected argument 'location' to be a str")
-        __self__.location = location
+        return pulumi.get(self, "latest_operation_result")
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[str]:
         """
         The location of the resource.
         """
-        if name and not isinstance(name, str):
-            raise TypeError("Expected argument 'name' to be a str")
-        __self__.name = name
+        return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
         """
         The name of the resource.
         """
-        if provisioning_state and not isinstance(provisioning_state, str):
-            raise TypeError("Expected argument 'provisioning_state' to be a str")
-        __self__.provisioning_state = provisioning_state
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> Optional[str]:
         """
         The provisioning status of the resource.
         """
-        if size_configuration and not isinstance(size_configuration, dict):
-            raise TypeError("Expected argument 'size_configuration' to be a dict")
-        __self__.size_configuration = size_configuration
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="sizeConfiguration")
+    def size_configuration(self) -> 'outputs.SizeConfigurationPropertiesResponse':
         """
         Represents the size configuration under the lab account
         """
-        if tags and not isinstance(tags, dict):
-            raise TypeError("Expected argument 'tags' to be a dict")
-        __self__.tags = tags
+        return pulumi.get(self, "size_configuration")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Mapping[str, str]]:
         """
         The tags of the resource.
         """
-        if type and not isinstance(type, str):
-            raise TypeError("Expected argument 'type' to be a str")
-        __self__.type = type
+        return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
         """
         The type of the resource.
         """
-        if unique_identifier and not isinstance(unique_identifier, str):
-            raise TypeError("Expected argument 'unique_identifier' to be a str")
-        __self__.unique_identifier = unique_identifier
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="uniqueIdentifier")
+    def unique_identifier(self) -> Optional[str]:
         """
         The unique immutable identifier of a resource (Guid).
         """
+        return pulumi.get(self, "unique_identifier")
 
 
 class AwaitableGetLabAccountResult(GetLabAccountResult):
@@ -87,7 +139,10 @@ class AwaitableGetLabAccountResult(GetLabAccountResult):
             unique_identifier=self.unique_identifier)
 
 
-def get_lab_account(expand=None, name=None, resource_group_name=None, opts=None):
+def get_lab_account(expand: Optional[str] = None,
+                    name: Optional[str] = None,
+                    resource_group_name: Optional[str] = None,
+                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetLabAccountResult:
     """
     Use this data source to access information about an existing resource.
 
@@ -103,15 +158,15 @@ def get_lab_account(expand=None, name=None, resource_group_name=None, opts=None)
         opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = _utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('azurerm:labservices/v20181015:getLabAccount', __args__, opts=opts).value
+    __ret__ = pulumi.runtime.invoke('azurerm:labservices/v20181015:getLabAccount', __args__, opts=opts, typ=GetLabAccountResult).value
 
     return AwaitableGetLabAccountResult(
-        enabled_region_selection=__ret__.get('enabledRegionSelection'),
-        latest_operation_result=__ret__.get('latestOperationResult'),
-        location=__ret__.get('location'),
-        name=__ret__.get('name'),
-        provisioning_state=__ret__.get('provisioningState'),
-        size_configuration=__ret__.get('sizeConfiguration'),
-        tags=__ret__.get('tags'),
-        type=__ret__.get('type'),
-        unique_identifier=__ret__.get('uniqueIdentifier'))
+        enabled_region_selection=__ret__.enabled_region_selection,
+        latest_operation_result=__ret__.latest_operation_result,
+        location=__ret__.location,
+        name=__ret__.name,
+        provisioning_state=__ret__.provisioning_state,
+        size_configuration=__ret__.size_configuration,
+        tags=__ret__.tags,
+        type=__ret__.type,
+        unique_identifier=__ret__.unique_identifier)

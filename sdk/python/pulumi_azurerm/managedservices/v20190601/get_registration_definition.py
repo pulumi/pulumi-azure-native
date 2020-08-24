@@ -5,10 +5,17 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+from . import outputs
 
+__all__ = [
+    'GetRegistrationDefinitionResult',
+    'AwaitableGetRegistrationDefinitionResult',
+    'get_registration_definition',
+]
 
+@pulumi.output_type
 class GetRegistrationDefinitionResult:
     """
     Registration definition.
@@ -16,28 +23,48 @@ class GetRegistrationDefinitionResult:
     def __init__(__self__, name=None, plan=None, properties=None, type=None):
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
-        __self__.name = name
+        pulumi.set(__self__, "name", name)
+        if plan and not isinstance(plan, dict):
+            raise TypeError("Expected argument 'plan' to be a dict")
+        pulumi.set(__self__, "plan", plan)
+        if properties and not isinstance(properties, dict):
+            raise TypeError("Expected argument 'properties' to be a dict")
+        pulumi.set(__self__, "properties", properties)
+        if type and not isinstance(type, str):
+            raise TypeError("Expected argument 'type' to be a str")
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
         """
         Name of the registration definition.
         """
-        if plan and not isinstance(plan, dict):
-            raise TypeError("Expected argument 'plan' to be a dict")
-        __self__.plan = plan
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def plan(self) -> Optional['outputs.PlanResponse']:
         """
         Plan details for the managed services.
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        return pulumi.get(self, "plan")
+
+    @property
+    @pulumi.getter
+    def properties(self) -> 'outputs.RegistrationDefinitionPropertiesResponse':
         """
         Properties of a registration definition.
         """
-        if type and not isinstance(type, str):
-            raise TypeError("Expected argument 'type' to be a str")
-        __self__.type = type
+        return pulumi.get(self, "properties")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
         """
         Type of the resource.
         """
+        return pulumi.get(self, "type")
 
 
 class AwaitableGetRegistrationDefinitionResult(GetRegistrationDefinitionResult):
@@ -52,7 +79,9 @@ class AwaitableGetRegistrationDefinitionResult(GetRegistrationDefinitionResult):
             type=self.type)
 
 
-def get_registration_definition(name=None, scope=None, opts=None):
+def get_registration_definition(name: Optional[str] = None,
+                                scope: Optional[str] = None,
+                                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetRegistrationDefinitionResult:
     """
     Use this data source to access information about an existing resource.
 
@@ -66,10 +95,10 @@ def get_registration_definition(name=None, scope=None, opts=None):
         opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = _utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('azurerm:managedservices/v20190601:getRegistrationDefinition', __args__, opts=opts).value
+    __ret__ = pulumi.runtime.invoke('azurerm:managedservices/v20190601:getRegistrationDefinition', __args__, opts=opts, typ=GetRegistrationDefinitionResult).value
 
     return AwaitableGetRegistrationDefinitionResult(
-        name=__ret__.get('name'),
-        plan=__ret__.get('plan'),
-        properties=__ret__.get('properties'),
-        type=__ret__.get('type'))
+        name=__ret__.name,
+        plan=__ret__.plan,
+        properties=__ret__.properties,
+        type=__ret__.type)

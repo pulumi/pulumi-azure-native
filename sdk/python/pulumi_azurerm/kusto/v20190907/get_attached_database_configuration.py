@@ -5,10 +5,16 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
 
+__all__ = [
+    'GetAttachedDatabaseConfigurationResult',
+    'AwaitableGetAttachedDatabaseConfigurationResult',
+    'get_attached_database_configuration',
+]
 
+@pulumi.output_type
 class GetAttachedDatabaseConfigurationResult:
     """
     Class representing an attached database configuration.
@@ -16,52 +22,92 @@ class GetAttachedDatabaseConfigurationResult:
     def __init__(__self__, attached_database_names=None, cluster_resource_id=None, database_name=None, default_principals_modification_kind=None, location=None, name=None, provisioning_state=None, type=None):
         if attached_database_names and not isinstance(attached_database_names, list):
             raise TypeError("Expected argument 'attached_database_names' to be a list")
-        __self__.attached_database_names = attached_database_names
+        pulumi.set(__self__, "attached_database_names", attached_database_names)
+        if cluster_resource_id and not isinstance(cluster_resource_id, str):
+            raise TypeError("Expected argument 'cluster_resource_id' to be a str")
+        pulumi.set(__self__, "cluster_resource_id", cluster_resource_id)
+        if database_name and not isinstance(database_name, str):
+            raise TypeError("Expected argument 'database_name' to be a str")
+        pulumi.set(__self__, "database_name", database_name)
+        if default_principals_modification_kind and not isinstance(default_principals_modification_kind, str):
+            raise TypeError("Expected argument 'default_principals_modification_kind' to be a str")
+        pulumi.set(__self__, "default_principals_modification_kind", default_principals_modification_kind)
+        if location and not isinstance(location, str):
+            raise TypeError("Expected argument 'location' to be a str")
+        pulumi.set(__self__, "location", location)
+        if name and not isinstance(name, str):
+            raise TypeError("Expected argument 'name' to be a str")
+        pulumi.set(__self__, "name", name)
+        if provisioning_state and not isinstance(provisioning_state, str):
+            raise TypeError("Expected argument 'provisioning_state' to be a str")
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if type and not isinstance(type, str):
+            raise TypeError("Expected argument 'type' to be a str")
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="attachedDatabaseNames")
+    def attached_database_names(self) -> List[str]:
         """
         The list of databases from the clusterResourceId which are currently attached to the cluster.
         """
-        if cluster_resource_id and not isinstance(cluster_resource_id, str):
-            raise TypeError("Expected argument 'cluster_resource_id' to be a str")
-        __self__.cluster_resource_id = cluster_resource_id
+        return pulumi.get(self, "attached_database_names")
+
+    @property
+    @pulumi.getter(name="clusterResourceId")
+    def cluster_resource_id(self) -> str:
         """
         The resource id of the cluster where the databases you would like to attach reside.
         """
-        if database_name and not isinstance(database_name, str):
-            raise TypeError("Expected argument 'database_name' to be a str")
-        __self__.database_name = database_name
+        return pulumi.get(self, "cluster_resource_id")
+
+    @property
+    @pulumi.getter(name="databaseName")
+    def database_name(self) -> str:
         """
         The name of the database which you would like to attach, use * if you want to follow all current and future databases.
         """
-        if default_principals_modification_kind and not isinstance(default_principals_modification_kind, str):
-            raise TypeError("Expected argument 'default_principals_modification_kind' to be a str")
-        __self__.default_principals_modification_kind = default_principals_modification_kind
+        return pulumi.get(self, "database_name")
+
+    @property
+    @pulumi.getter(name="defaultPrincipalsModificationKind")
+    def default_principals_modification_kind(self) -> str:
         """
         The default principals modification kind
         """
-        if location and not isinstance(location, str):
-            raise TypeError("Expected argument 'location' to be a str")
-        __self__.location = location
+        return pulumi.get(self, "default_principals_modification_kind")
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[str]:
         """
         Resource location.
         """
-        if name and not isinstance(name, str):
-            raise TypeError("Expected argument 'name' to be a str")
-        __self__.name = name
+        return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
         """
         The name of the resource
         """
-        if provisioning_state and not isinstance(provisioning_state, str):
-            raise TypeError("Expected argument 'provisioning_state' to be a str")
-        __self__.provisioning_state = provisioning_state
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
         """
         The provisioned state of the resource.
         """
-        if type and not isinstance(type, str):
-            raise TypeError("Expected argument 'type' to be a str")
-        __self__.type = type
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
         """
         The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
         """
+        return pulumi.get(self, "type")
 
 
 class AwaitableGetAttachedDatabaseConfigurationResult(GetAttachedDatabaseConfigurationResult):
@@ -80,7 +126,10 @@ class AwaitableGetAttachedDatabaseConfigurationResult(GetAttachedDatabaseConfigu
             type=self.type)
 
 
-def get_attached_database_configuration(cluster_name=None, name=None, resource_group_name=None, opts=None):
+def get_attached_database_configuration(cluster_name: Optional[str] = None,
+                                        name: Optional[str] = None,
+                                        resource_group_name: Optional[str] = None,
+                                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAttachedDatabaseConfigurationResult:
     """
     Use this data source to access information about an existing resource.
 
@@ -96,14 +145,14 @@ def get_attached_database_configuration(cluster_name=None, name=None, resource_g
         opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = _utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('azurerm:kusto/v20190907:getAttachedDatabaseConfiguration', __args__, opts=opts).value
+    __ret__ = pulumi.runtime.invoke('azurerm:kusto/v20190907:getAttachedDatabaseConfiguration', __args__, opts=opts, typ=GetAttachedDatabaseConfigurationResult).value
 
     return AwaitableGetAttachedDatabaseConfigurationResult(
-        attached_database_names=__ret__.get('attachedDatabaseNames'),
-        cluster_resource_id=__ret__.get('clusterResourceId'),
-        database_name=__ret__.get('databaseName'),
-        default_principals_modification_kind=__ret__.get('defaultPrincipalsModificationKind'),
-        location=__ret__.get('location'),
-        name=__ret__.get('name'),
-        provisioning_state=__ret__.get('provisioningState'),
-        type=__ret__.get('type'))
+        attached_database_names=__ret__.attached_database_names,
+        cluster_resource_id=__ret__.cluster_resource_id,
+        database_name=__ret__.database_name,
+        default_principals_modification_kind=__ret__.default_principals_modification_kind,
+        location=__ret__.location,
+        name=__ret__.name,
+        provisioning_state=__ret__.provisioning_state,
+        type=__ret__.type)

@@ -5,10 +5,16 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
 
+__all__ = [
+    'GetVirtualNetworkRuleResult',
+    'AwaitableGetVirtualNetworkRuleResult',
+    'get_virtual_network_rule',
+]
 
+@pulumi.output_type
 class GetVirtualNetworkRuleResult:
     """
     Data Lake Store virtual network rule information.
@@ -16,22 +22,37 @@ class GetVirtualNetworkRuleResult:
     def __init__(__self__, name=None, subnet_id=None, type=None):
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
-        __self__.name = name
+        pulumi.set(__self__, "name", name)
+        if subnet_id and not isinstance(subnet_id, str):
+            raise TypeError("Expected argument 'subnet_id' to be a str")
+        pulumi.set(__self__, "subnet_id", subnet_id)
+        if type and not isinstance(type, str):
+            raise TypeError("Expected argument 'type' to be a str")
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
         """
         The resource name.
         """
-        if subnet_id and not isinstance(subnet_id, str):
-            raise TypeError("Expected argument 'subnet_id' to be a str")
-        __self__.subnet_id = subnet_id
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="subnetId")
+    def subnet_id(self) -> str:
         """
         The resource identifier for the subnet.
         """
-        if type and not isinstance(type, str):
-            raise TypeError("Expected argument 'type' to be a str")
-        __self__.type = type
+        return pulumi.get(self, "subnet_id")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
         """
         The resource type.
         """
+        return pulumi.get(self, "type")
 
 
 class AwaitableGetVirtualNetworkRuleResult(GetVirtualNetworkRuleResult):
@@ -45,7 +66,10 @@ class AwaitableGetVirtualNetworkRuleResult(GetVirtualNetworkRuleResult):
             type=self.type)
 
 
-def get_virtual_network_rule(account_name=None, name=None, resource_group_name=None, opts=None):
+def get_virtual_network_rule(account_name: Optional[str] = None,
+                             name: Optional[str] = None,
+                             resource_group_name: Optional[str] = None,
+                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVirtualNetworkRuleResult:
     """
     Use this data source to access information about an existing resource.
 
@@ -61,9 +85,9 @@ def get_virtual_network_rule(account_name=None, name=None, resource_group_name=N
         opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = _utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('azurerm:datalakestore/v20161101:getVirtualNetworkRule', __args__, opts=opts).value
+    __ret__ = pulumi.runtime.invoke('azurerm:datalakestore/v20161101:getVirtualNetworkRule', __args__, opts=opts, typ=GetVirtualNetworkRuleResult).value
 
     return AwaitableGetVirtualNetworkRuleResult(
-        name=__ret__.get('name'),
-        subnet_id=__ret__.get('subnetId'),
-        type=__ret__.get('type'))
+        name=__ret__.name,
+        subnet_id=__ret__.subnet_id,
+        type=__ret__.type)

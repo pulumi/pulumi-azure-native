@@ -5,10 +5,17 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+from . import outputs
 
+__all__ = [
+    'GetRoleDefinitionResult',
+    'AwaitableGetRoleDefinitionResult',
+    'get_role_definition',
+]
 
+@pulumi.output_type
 class GetRoleDefinitionResult:
     """
     Role definition.
@@ -16,46 +23,81 @@ class GetRoleDefinitionResult:
     def __init__(__self__, assignable_scopes=None, description=None, name=None, permissions=None, role_name=None, role_type=None, type=None):
         if assignable_scopes and not isinstance(assignable_scopes, list):
             raise TypeError("Expected argument 'assignable_scopes' to be a list")
-        __self__.assignable_scopes = assignable_scopes
+        pulumi.set(__self__, "assignable_scopes", assignable_scopes)
+        if description and not isinstance(description, str):
+            raise TypeError("Expected argument 'description' to be a str")
+        pulumi.set(__self__, "description", description)
+        if name and not isinstance(name, str):
+            raise TypeError("Expected argument 'name' to be a str")
+        pulumi.set(__self__, "name", name)
+        if permissions and not isinstance(permissions, list):
+            raise TypeError("Expected argument 'permissions' to be a list")
+        pulumi.set(__self__, "permissions", permissions)
+        if role_name and not isinstance(role_name, str):
+            raise TypeError("Expected argument 'role_name' to be a str")
+        pulumi.set(__self__, "role_name", role_name)
+        if role_type and not isinstance(role_type, str):
+            raise TypeError("Expected argument 'role_type' to be a str")
+        pulumi.set(__self__, "role_type", role_type)
+        if type and not isinstance(type, str):
+            raise TypeError("Expected argument 'type' to be a str")
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="assignableScopes")
+    def assignable_scopes(self) -> Optional[List[str]]:
         """
         Role definition assignable scopes.
         """
-        if description and not isinstance(description, str):
-            raise TypeError("Expected argument 'description' to be a str")
-        __self__.description = description
+        return pulumi.get(self, "assignable_scopes")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
         """
         The role definition description.
         """
-        if name and not isinstance(name, str):
-            raise TypeError("Expected argument 'name' to be a str")
-        __self__.name = name
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
         """
         The role definition name.
         """
-        if permissions and not isinstance(permissions, list):
-            raise TypeError("Expected argument 'permissions' to be a list")
-        __self__.permissions = permissions
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def permissions(self) -> Optional[List['outputs.PermissionResponse']]:
         """
         Role definition permissions.
         """
-        if role_name and not isinstance(role_name, str):
-            raise TypeError("Expected argument 'role_name' to be a str")
-        __self__.role_name = role_name
+        return pulumi.get(self, "permissions")
+
+    @property
+    @pulumi.getter(name="roleName")
+    def role_name(self) -> Optional[str]:
         """
         The role name.
         """
-        if role_type and not isinstance(role_type, str):
-            raise TypeError("Expected argument 'role_type' to be a str")
-        __self__.role_type = role_type
+        return pulumi.get(self, "role_name")
+
+    @property
+    @pulumi.getter(name="roleType")
+    def role_type(self) -> Optional[str]:
         """
         The role type.
         """
-        if type and not isinstance(type, str):
-            raise TypeError("Expected argument 'type' to be a str")
-        __self__.type = type
+        return pulumi.get(self, "role_type")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
         """
         The role definition type.
         """
+        return pulumi.get(self, "type")
 
 
 class AwaitableGetRoleDefinitionResult(GetRoleDefinitionResult):
@@ -73,7 +115,9 @@ class AwaitableGetRoleDefinitionResult(GetRoleDefinitionResult):
             type=self.type)
 
 
-def get_role_definition(name=None, scope=None, opts=None):
+def get_role_definition(name: Optional[str] = None,
+                        scope: Optional[str] = None,
+                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetRoleDefinitionResult:
     """
     Use this data source to access information about an existing resource.
 
@@ -87,13 +131,13 @@ def get_role_definition(name=None, scope=None, opts=None):
         opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = _utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('azurerm:authorization/v20150701:getRoleDefinition', __args__, opts=opts).value
+    __ret__ = pulumi.runtime.invoke('azurerm:authorization/v20150701:getRoleDefinition', __args__, opts=opts, typ=GetRoleDefinitionResult).value
 
     return AwaitableGetRoleDefinitionResult(
-        assignable_scopes=__ret__.get('assignableScopes'),
-        description=__ret__.get('description'),
-        name=__ret__.get('name'),
-        permissions=__ret__.get('permissions'),
-        role_name=__ret__.get('roleName'),
-        role_type=__ret__.get('roleType'),
-        type=__ret__.get('type'))
+        assignable_scopes=__ret__.assignable_scopes,
+        description=__ret__.description,
+        name=__ret__.name,
+        permissions=__ret__.permissions,
+        role_name=__ret__.role_name,
+        role_type=__ret__.role_type,
+        type=__ret__.type)

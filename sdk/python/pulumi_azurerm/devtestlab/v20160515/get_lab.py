@@ -5,10 +5,16 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
 
+__all__ = [
+    'GetLabResult',
+    'AwaitableGetLabResult',
+    'get_lab',
+]
 
+@pulumi.output_type
 class GetLabResult:
     """
     A lab.
@@ -16,90 +22,160 @@ class GetLabResult:
     def __init__(__self__, artifacts_storage_account=None, created_date=None, default_premium_storage_account=None, default_storage_account=None, lab_storage_type=None, location=None, name=None, premium_data_disk_storage_account=None, premium_data_disks=None, provisioning_state=None, tags=None, type=None, unique_identifier=None, vault_name=None):
         if artifacts_storage_account and not isinstance(artifacts_storage_account, str):
             raise TypeError("Expected argument 'artifacts_storage_account' to be a str")
-        __self__.artifacts_storage_account = artifacts_storage_account
+        pulumi.set(__self__, "artifacts_storage_account", artifacts_storage_account)
+        if created_date and not isinstance(created_date, str):
+            raise TypeError("Expected argument 'created_date' to be a str")
+        pulumi.set(__self__, "created_date", created_date)
+        if default_premium_storage_account and not isinstance(default_premium_storage_account, str):
+            raise TypeError("Expected argument 'default_premium_storage_account' to be a str")
+        pulumi.set(__self__, "default_premium_storage_account", default_premium_storage_account)
+        if default_storage_account and not isinstance(default_storage_account, str):
+            raise TypeError("Expected argument 'default_storage_account' to be a str")
+        pulumi.set(__self__, "default_storage_account", default_storage_account)
+        if lab_storage_type and not isinstance(lab_storage_type, str):
+            raise TypeError("Expected argument 'lab_storage_type' to be a str")
+        pulumi.set(__self__, "lab_storage_type", lab_storage_type)
+        if location and not isinstance(location, str):
+            raise TypeError("Expected argument 'location' to be a str")
+        pulumi.set(__self__, "location", location)
+        if name and not isinstance(name, str):
+            raise TypeError("Expected argument 'name' to be a str")
+        pulumi.set(__self__, "name", name)
+        if premium_data_disk_storage_account and not isinstance(premium_data_disk_storage_account, str):
+            raise TypeError("Expected argument 'premium_data_disk_storage_account' to be a str")
+        pulumi.set(__self__, "premium_data_disk_storage_account", premium_data_disk_storage_account)
+        if premium_data_disks and not isinstance(premium_data_disks, str):
+            raise TypeError("Expected argument 'premium_data_disks' to be a str")
+        pulumi.set(__self__, "premium_data_disks", premium_data_disks)
+        if provisioning_state and not isinstance(provisioning_state, str):
+            raise TypeError("Expected argument 'provisioning_state' to be a str")
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if tags and not isinstance(tags, dict):
+            raise TypeError("Expected argument 'tags' to be a dict")
+        pulumi.set(__self__, "tags", tags)
+        if type and not isinstance(type, str):
+            raise TypeError("Expected argument 'type' to be a str")
+        pulumi.set(__self__, "type", type)
+        if unique_identifier and not isinstance(unique_identifier, str):
+            raise TypeError("Expected argument 'unique_identifier' to be a str")
+        pulumi.set(__self__, "unique_identifier", unique_identifier)
+        if vault_name and not isinstance(vault_name, str):
+            raise TypeError("Expected argument 'vault_name' to be a str")
+        pulumi.set(__self__, "vault_name", vault_name)
+
+    @property
+    @pulumi.getter(name="artifactsStorageAccount")
+    def artifacts_storage_account(self) -> str:
         """
         The lab's artifact storage account.
         """
-        if created_date and not isinstance(created_date, str):
-            raise TypeError("Expected argument 'created_date' to be a str")
-        __self__.created_date = created_date
+        return pulumi.get(self, "artifacts_storage_account")
+
+    @property
+    @pulumi.getter(name="createdDate")
+    def created_date(self) -> str:
         """
         The creation date of the lab.
         """
-        if default_premium_storage_account and not isinstance(default_premium_storage_account, str):
-            raise TypeError("Expected argument 'default_premium_storage_account' to be a str")
-        __self__.default_premium_storage_account = default_premium_storage_account
+        return pulumi.get(self, "created_date")
+
+    @property
+    @pulumi.getter(name="defaultPremiumStorageAccount")
+    def default_premium_storage_account(self) -> str:
         """
         The lab's default premium storage account.
         """
-        if default_storage_account and not isinstance(default_storage_account, str):
-            raise TypeError("Expected argument 'default_storage_account' to be a str")
-        __self__.default_storage_account = default_storage_account
+        return pulumi.get(self, "default_premium_storage_account")
+
+    @property
+    @pulumi.getter(name="defaultStorageAccount")
+    def default_storage_account(self) -> str:
         """
         The lab's default storage account.
         """
-        if lab_storage_type and not isinstance(lab_storage_type, str):
-            raise TypeError("Expected argument 'lab_storage_type' to be a str")
-        __self__.lab_storage_type = lab_storage_type
+        return pulumi.get(self, "default_storage_account")
+
+    @property
+    @pulumi.getter(name="labStorageType")
+    def lab_storage_type(self) -> Optional[str]:
         """
         Type of storage used by the lab. It can be either Premium or Standard. Default is Premium.
         """
-        if location and not isinstance(location, str):
-            raise TypeError("Expected argument 'location' to be a str")
-        __self__.location = location
+        return pulumi.get(self, "lab_storage_type")
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[str]:
         """
         The location of the resource.
         """
-        if name and not isinstance(name, str):
-            raise TypeError("Expected argument 'name' to be a str")
-        __self__.name = name
+        return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
         """
         The name of the resource.
         """
-        if premium_data_disk_storage_account and not isinstance(premium_data_disk_storage_account, str):
-            raise TypeError("Expected argument 'premium_data_disk_storage_account' to be a str")
-        __self__.premium_data_disk_storage_account = premium_data_disk_storage_account
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="premiumDataDiskStorageAccount")
+    def premium_data_disk_storage_account(self) -> str:
         """
         The lab's premium data disk storage account.
         """
-        if premium_data_disks and not isinstance(premium_data_disks, str):
-            raise TypeError("Expected argument 'premium_data_disks' to be a str")
-        __self__.premium_data_disks = premium_data_disks
+        return pulumi.get(self, "premium_data_disk_storage_account")
+
+    @property
+    @pulumi.getter(name="premiumDataDisks")
+    def premium_data_disks(self) -> Optional[str]:
         """
         The setting to enable usage of premium data disks.
         When its value is 'Enabled', creation of standard or premium data disks is allowed.
         When its value is 'Disabled', only creation of standard data disks is allowed.
         """
-        if provisioning_state and not isinstance(provisioning_state, str):
-            raise TypeError("Expected argument 'provisioning_state' to be a str")
-        __self__.provisioning_state = provisioning_state
+        return pulumi.get(self, "premium_data_disks")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> Optional[str]:
         """
         The provisioning status of the resource.
         """
-        if tags and not isinstance(tags, dict):
-            raise TypeError("Expected argument 'tags' to be a dict")
-        __self__.tags = tags
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Mapping[str, str]]:
         """
         The tags of the resource.
         """
-        if type and not isinstance(type, str):
-            raise TypeError("Expected argument 'type' to be a str")
-        __self__.type = type
+        return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
         """
         The type of the resource.
         """
-        if unique_identifier and not isinstance(unique_identifier, str):
-            raise TypeError("Expected argument 'unique_identifier' to be a str")
-        __self__.unique_identifier = unique_identifier
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="uniqueIdentifier")
+    def unique_identifier(self) -> Optional[str]:
         """
         The unique immutable identifier of a resource (Guid).
         """
-        if vault_name and not isinstance(vault_name, str):
-            raise TypeError("Expected argument 'vault_name' to be a str")
-        __self__.vault_name = vault_name
+        return pulumi.get(self, "unique_identifier")
+
+    @property
+    @pulumi.getter(name="vaultName")
+    def vault_name(self) -> str:
         """
         The lab's Key vault.
         """
+        return pulumi.get(self, "vault_name")
 
 
 class AwaitableGetLabResult(GetLabResult):
@@ -124,7 +200,10 @@ class AwaitableGetLabResult(GetLabResult):
             vault_name=self.vault_name)
 
 
-def get_lab(expand=None, name=None, resource_group_name=None, opts=None):
+def get_lab(expand: Optional[str] = None,
+            name: Optional[str] = None,
+            resource_group_name: Optional[str] = None,
+            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetLabResult:
     """
     Use this data source to access information about an existing resource.
 
@@ -140,20 +219,20 @@ def get_lab(expand=None, name=None, resource_group_name=None, opts=None):
         opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = _utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('azurerm:devtestlab/v20160515:getLab', __args__, opts=opts).value
+    __ret__ = pulumi.runtime.invoke('azurerm:devtestlab/v20160515:getLab', __args__, opts=opts, typ=GetLabResult).value
 
     return AwaitableGetLabResult(
-        artifacts_storage_account=__ret__.get('artifactsStorageAccount'),
-        created_date=__ret__.get('createdDate'),
-        default_premium_storage_account=__ret__.get('defaultPremiumStorageAccount'),
-        default_storage_account=__ret__.get('defaultStorageAccount'),
-        lab_storage_type=__ret__.get('labStorageType'),
-        location=__ret__.get('location'),
-        name=__ret__.get('name'),
-        premium_data_disk_storage_account=__ret__.get('premiumDataDiskStorageAccount'),
-        premium_data_disks=__ret__.get('premiumDataDisks'),
-        provisioning_state=__ret__.get('provisioningState'),
-        tags=__ret__.get('tags'),
-        type=__ret__.get('type'),
-        unique_identifier=__ret__.get('uniqueIdentifier'),
-        vault_name=__ret__.get('vaultName'))
+        artifacts_storage_account=__ret__.artifacts_storage_account,
+        created_date=__ret__.created_date,
+        default_premium_storage_account=__ret__.default_premium_storage_account,
+        default_storage_account=__ret__.default_storage_account,
+        lab_storage_type=__ret__.lab_storage_type,
+        location=__ret__.location,
+        name=__ret__.name,
+        premium_data_disk_storage_account=__ret__.premium_data_disk_storage_account,
+        premium_data_disks=__ret__.premium_data_disks,
+        provisioning_state=__ret__.provisioning_state,
+        tags=__ret__.tags,
+        type=__ret__.type,
+        unique_identifier=__ret__.unique_identifier,
+        vault_name=__ret__.vault_name)

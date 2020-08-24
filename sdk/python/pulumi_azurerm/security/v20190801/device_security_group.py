@@ -5,99 +5,38 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+from . import outputs
+from ._inputs import *
+
+__all__ = ['DeviceSecurityGroup']
 
 
 class DeviceSecurityGroup(pulumi.CustomResource):
-    allowlist_rules: pulumi.Output[list]
-    """
-    The allow-list custom alert rules.
-      * `allowlist_values` (`list`) - The values to allow. The format of the values depends on the rule type.
-      * `description` (`str`) - The description of the custom alert.
-      * `display_name` (`str`) - The display name of the custom alert.
-      * `is_enabled` (`bool`) - Status of the custom alert.
-      * `rule_type` (`str`) - The type of the custom alert rule.
-      * `value_type` (`str`) - The value type of the items in the list.
-    """
-    denylist_rules: pulumi.Output[list]
-    """
-    The deny-list custom alert rules.
-      * `denylist_values` (`list`) - The values to deny. The format of the values depends on the rule type.
-      * `description` (`str`) - The description of the custom alert.
-      * `display_name` (`str`) - The display name of the custom alert.
-      * `is_enabled` (`bool`) - Status of the custom alert.
-      * `rule_type` (`str`) - The type of the custom alert rule.
-      * `value_type` (`str`) - The value type of the items in the list.
-    """
-    name: pulumi.Output[str]
-    """
-    Resource name
-    """
-    threshold_rules: pulumi.Output[list]
-    """
-    The list of custom alert threshold rules.
-      * `description` (`str`) - The description of the custom alert.
-      * `display_name` (`str`) - The display name of the custom alert.
-      * `is_enabled` (`bool`) - Status of the custom alert.
-      * `max_threshold` (`float`) - The maximum threshold.
-      * `min_threshold` (`float`) - The minimum threshold.
-      * `rule_type` (`str`) - The type of the custom alert rule.
-    """
-    time_window_rules: pulumi.Output[list]
-    """
-    The list of custom alert time-window rules.
-      * `description` (`str`) - The description of the custom alert.
-      * `display_name` (`str`) - The display name of the custom alert.
-      * `is_enabled` (`bool`) - Status of the custom alert.
-      * `max_threshold` (`float`) - The maximum threshold.
-      * `min_threshold` (`float`) - The minimum threshold.
-      * `rule_type` (`str`) - The type of the custom alert rule.
-      * `time_window_size` (`str`) - The time window size in iso8601 format.
-    """
-    type: pulumi.Output[str]
-    """
-    Resource type
-    """
-    def __init__(__self__, resource_name, opts=None, allowlist_rules=None, denylist_rules=None, name=None, resource_id=None, threshold_rules=None, time_window_rules=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 allowlist_rules: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['AllowlistCustomAlertRuleArgs']]]]] = None,
+                 denylist_rules: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['DenylistCustomAlertRuleArgs']]]]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 resource_id: Optional[pulumi.Input[str]] = None,
+                 threshold_rules: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['ThresholdCustomAlertRuleArgs']]]]] = None,
+                 time_window_rules: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['TimeWindowCustomAlertRuleArgs']]]]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         The device security group resource
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[list] allowlist_rules: The allow-list custom alert rules.
-        :param pulumi.Input[list] denylist_rules: The deny-list custom alert rules.
+        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['AllowlistCustomAlertRuleArgs']]]] allowlist_rules: The allow-list custom alert rules.
+        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['DenylistCustomAlertRuleArgs']]]] denylist_rules: The deny-list custom alert rules.
         :param pulumi.Input[str] name: The name of the device security group. Note that the name of the device security group is case insensitive.
         :param pulumi.Input[str] resource_id: The identifier of the resource.
-        :param pulumi.Input[list] threshold_rules: The list of custom alert threshold rules.
-        :param pulumi.Input[list] time_window_rules: The list of custom alert time-window rules.
-
-        The **allowlist_rules** object supports the following:
-
-          * `allowlist_values` (`pulumi.Input[list]`) - The values to allow. The format of the values depends on the rule type.
-          * `is_enabled` (`pulumi.Input[bool]`) - Status of the custom alert.
-          * `rule_type` (`pulumi.Input[str]`) - The type of the custom alert rule.
-
-        The **denylist_rules** object supports the following:
-
-          * `denylist_values` (`pulumi.Input[list]`) - The values to deny. The format of the values depends on the rule type.
-          * `is_enabled` (`pulumi.Input[bool]`) - Status of the custom alert.
-          * `rule_type` (`pulumi.Input[str]`) - The type of the custom alert rule.
-
-        The **threshold_rules** object supports the following:
-
-          * `is_enabled` (`pulumi.Input[bool]`) - Status of the custom alert.
-          * `max_threshold` (`pulumi.Input[float]`) - The maximum threshold.
-          * `min_threshold` (`pulumi.Input[float]`) - The minimum threshold.
-          * `rule_type` (`pulumi.Input[str]`) - The type of the custom alert rule.
-
-        The **time_window_rules** object supports the following:
-
-          * `is_enabled` (`pulumi.Input[bool]`) - Status of the custom alert.
-          * `max_threshold` (`pulumi.Input[float]`) - The maximum threshold.
-          * `min_threshold` (`pulumi.Input[float]`) - The minimum threshold.
-          * `rule_type` (`pulumi.Input[str]`) - The type of the custom alert rule.
-          * `time_window_size` (`pulumi.Input[str]`) - The time window size in iso8601 format.
+        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['ThresholdCustomAlertRuleArgs']]]] threshold_rules: The list of custom alert threshold rules.
+        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['TimeWindowCustomAlertRuleArgs']]]] time_window_rules: The list of custom alert time-window rules.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -134,13 +73,15 @@ class DeviceSecurityGroup(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None) -> 'DeviceSecurityGroup':
         """
         Get an existing DeviceSecurityGroup resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -149,8 +90,57 @@ class DeviceSecurityGroup(pulumi.CustomResource):
 
         return DeviceSecurityGroup(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter(name="allowlistRules")
+    def allowlist_rules(self) -> Optional[List['outputs.AllowlistCustomAlertRuleResponse']]:
+        """
+        The allow-list custom alert rules.
+        """
+        return pulumi.get(self, "allowlist_rules")
+
+    @property
+    @pulumi.getter(name="denylistRules")
+    def denylist_rules(self) -> Optional[List['outputs.DenylistCustomAlertRuleResponse']]:
+        """
+        The deny-list custom alert rules.
+        """
+        return pulumi.get(self, "denylist_rules")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Resource name
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="thresholdRules")
+    def threshold_rules(self) -> Optional[List['outputs.ThresholdCustomAlertRuleResponse']]:
+        """
+        The list of custom alert threshold rules.
+        """
+        return pulumi.get(self, "threshold_rules")
+
+    @property
+    @pulumi.getter(name="timeWindowRules")
+    def time_window_rules(self) -> Optional[List['outputs.TimeWindowCustomAlertRuleResponse']]:
+        """
+        The list of custom alert time-window rules.
+        """
+        return pulumi.get(self, "time_window_rules")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Resource type
+        """
+        return pulumi.get(self, "type")
+
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

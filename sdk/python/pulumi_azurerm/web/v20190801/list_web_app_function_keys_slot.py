@@ -5,10 +5,16 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
 
+__all__ = [
+    'ListWebAppFunctionKeysSlotResult',
+    'AwaitableListWebAppFunctionKeysSlotResult',
+    'list_web_app_function_keys_slot',
+]
 
+@pulumi.output_type
 class ListWebAppFunctionKeysSlotResult:
     """
     String dictionary resource.
@@ -16,22 +22,37 @@ class ListWebAppFunctionKeysSlotResult:
     def __init__(__self__, kind=None, name=None, type=None):
         if kind and not isinstance(kind, str):
             raise TypeError("Expected argument 'kind' to be a str")
-        __self__.kind = kind
+        pulumi.set(__self__, "kind", kind)
+        if name and not isinstance(name, str):
+            raise TypeError("Expected argument 'name' to be a str")
+        pulumi.set(__self__, "name", name)
+        if type and not isinstance(type, str):
+            raise TypeError("Expected argument 'type' to be a str")
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def kind(self) -> Optional[str]:
         """
         Kind of resource.
         """
-        if name and not isinstance(name, str):
-            raise TypeError("Expected argument 'name' to be a str")
-        __self__.name = name
+        return pulumi.get(self, "kind")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
         """
         Resource Name.
         """
-        if type and not isinstance(type, str):
-            raise TypeError("Expected argument 'type' to be a str")
-        __self__.type = type
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
         """
         Resource type.
         """
+        return pulumi.get(self, "type")
 
 
 class AwaitableListWebAppFunctionKeysSlotResult(ListWebAppFunctionKeysSlotResult):
@@ -45,7 +66,10 @@ class AwaitableListWebAppFunctionKeysSlotResult(ListWebAppFunctionKeysSlotResult
             type=self.type)
 
 
-def list_web_app_function_keys_slot(name=None, resource_group_name=None, slot=None, opts=None):
+def list_web_app_function_keys_slot(name: Optional[str] = None,
+                                    resource_group_name: Optional[str] = None,
+                                    slot: Optional[str] = None,
+                                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListWebAppFunctionKeysSlotResult:
     """
     Use this data source to access information about an existing resource.
 
@@ -61,9 +85,9 @@ def list_web_app_function_keys_slot(name=None, resource_group_name=None, slot=No
         opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = _utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('azurerm:web/v20190801:listWebAppFunctionKeysSlot', __args__, opts=opts).value
+    __ret__ = pulumi.runtime.invoke('azurerm:web/v20190801:listWebAppFunctionKeysSlot', __args__, opts=opts, typ=ListWebAppFunctionKeysSlotResult).value
 
     return AwaitableListWebAppFunctionKeysSlotResult(
-        kind=__ret__.get('kind'),
-        name=__ret__.get('name'),
-        type=__ret__.get('type'))
+        kind=__ret__.kind,
+        name=__ret__.name,
+        type=__ret__.type)

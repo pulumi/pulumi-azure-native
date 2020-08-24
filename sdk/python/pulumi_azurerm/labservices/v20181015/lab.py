@@ -5,78 +5,30 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+from . import outputs
+
+__all__ = ['Lab']
 
 
 class Lab(pulumi.CustomResource):
-    created_by_object_id: pulumi.Output[str]
-    """
-    Object id of the user that created the lab.
-    """
-    created_by_user_principal_name: pulumi.Output[str]
-    """
-    Lab creator name
-    """
-    created_date: pulumi.Output[str]
-    """
-    Creation date for the lab
-    """
-    invitation_code: pulumi.Output[str]
-    """
-    Invitation code that users can use to join a lab.
-    """
-    latest_operation_result: pulumi.Output[dict]
-    """
-    The details of the latest operation. ex: status, error
-      * `error_code` (`str`) - Error code on failure.
-      * `error_message` (`str`) - The error message.
-      * `http_method` (`str`) - The HttpMethod - PUT/POST/DELETE for the operation.
-      * `operation_url` (`str`) - The URL to use to check long-running operation status
-      * `request_uri` (`str`) - Request URI of the operation.
-      * `status` (`str`) - The current status of the operation.
-    """
-    location: pulumi.Output[str]
-    """
-    The location of the resource.
-    """
-    max_users_in_lab: pulumi.Output[float]
-    """
-    Maximum number of users allowed in the lab.
-    """
-    name: pulumi.Output[str]
-    """
-    The name of the resource.
-    """
-    provisioning_state: pulumi.Output[str]
-    """
-    The provisioning status of the resource.
-    """
-    tags: pulumi.Output[dict]
-    """
-    The tags of the resource.
-    """
-    type: pulumi.Output[str]
-    """
-    The type of the resource.
-    """
-    unique_identifier: pulumi.Output[str]
-    """
-    The unique immutable identifier of a resource (Guid).
-    """
-    usage_quota: pulumi.Output[str]
-    """
-    Maximum duration a user can use an environment for in the lab.
-    """
-    user_access_mode: pulumi.Output[str]
-    """
-    Lab user access mode (open to all vs. restricted to those listed on the lab).
-    """
-    user_quota: pulumi.Output[float]
-    """
-    Maximum value MaxUsersInLab can be set to, as specified by the service
-    """
-    def __init__(__self__, resource_name, opts=None, lab_account_name=None, location=None, max_users_in_lab=None, name=None, provisioning_state=None, resource_group_name=None, tags=None, unique_identifier=None, usage_quota=None, user_access_mode=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 lab_account_name: Optional[pulumi.Input[str]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 max_users_in_lab: Optional[pulumi.Input[float]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 provisioning_state: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 unique_identifier: Optional[pulumi.Input[str]] = None,
+                 usage_quota: Optional[pulumi.Input[str]] = None,
+                 user_access_mode: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         Represents a lab.
 
@@ -88,7 +40,7 @@ class Lab(pulumi.CustomResource):
         :param pulumi.Input[str] name: The name of the lab.
         :param pulumi.Input[str] provisioning_state: The provisioning status of the resource.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
-        :param pulumi.Input[dict] tags: The tags of the resource.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The tags of the resource.
         :param pulumi.Input[str] unique_identifier: The unique immutable identifier of a resource (Guid).
         :param pulumi.Input[str] usage_quota: Maximum duration a user can use an environment for in the lab.
         :param pulumi.Input[str] user_access_mode: Lab user access mode (open to all vs. restricted to those listed on the lab).
@@ -140,13 +92,15 @@ class Lab(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None) -> 'Lab':
         """
         Get an existing Lab resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -155,8 +109,129 @@ class Lab(pulumi.CustomResource):
 
         return Lab(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter(name="createdByObjectId")
+    def created_by_object_id(self) -> str:
+        """
+        Object id of the user that created the lab.
+        """
+        return pulumi.get(self, "created_by_object_id")
+
+    @property
+    @pulumi.getter(name="createdByUserPrincipalName")
+    def created_by_user_principal_name(self) -> str:
+        """
+        Lab creator name
+        """
+        return pulumi.get(self, "created_by_user_principal_name")
+
+    @property
+    @pulumi.getter(name="createdDate")
+    def created_date(self) -> str:
+        """
+        Creation date for the lab
+        """
+        return pulumi.get(self, "created_date")
+
+    @property
+    @pulumi.getter(name="invitationCode")
+    def invitation_code(self) -> str:
+        """
+        Invitation code that users can use to join a lab.
+        """
+        return pulumi.get(self, "invitation_code")
+
+    @property
+    @pulumi.getter(name="latestOperationResult")
+    def latest_operation_result(self) -> 'outputs.LatestOperationResultResponse':
+        """
+        The details of the latest operation. ex: status, error
+        """
+        return pulumi.get(self, "latest_operation_result")
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[str]:
+        """
+        The location of the resource.
+        """
+        return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter(name="maxUsersInLab")
+    def max_users_in_lab(self) -> Optional[float]:
+        """
+        Maximum number of users allowed in the lab.
+        """
+        return pulumi.get(self, "max_users_in_lab")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the resource.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> Optional[str]:
+        """
+        The provisioning status of the resource.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Mapping[str, str]]:
+        """
+        The tags of the resource.
+        """
+        return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        The type of the resource.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="uniqueIdentifier")
+    def unique_identifier(self) -> Optional[str]:
+        """
+        The unique immutable identifier of a resource (Guid).
+        """
+        return pulumi.get(self, "unique_identifier")
+
+    @property
+    @pulumi.getter(name="usageQuota")
+    def usage_quota(self) -> Optional[str]:
+        """
+        Maximum duration a user can use an environment for in the lab.
+        """
+        return pulumi.get(self, "usage_quota")
+
+    @property
+    @pulumi.getter(name="userAccessMode")
+    def user_access_mode(self) -> Optional[str]:
+        """
+        Lab user access mode (open to all vs. restricted to those listed on the lab).
+        """
+        return pulumi.get(self, "user_access_mode")
+
+    @property
+    @pulumi.getter(name="userQuota")
+    def user_quota(self) -> float:
+        """
+        Maximum value MaxUsersInLab can be set to, as specified by the service
+        """
+        return pulumi.get(self, "user_quota")
+
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

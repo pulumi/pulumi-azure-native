@@ -5,10 +5,17 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+from . import outputs
 
+__all__ = [
+    'GetServiceResult',
+    'AwaitableGetServiceResult',
+    'get_service',
+]
 
+@pulumi.output_type
 class GetServiceResult:
     """
     A Database Migration Service resource
@@ -16,64 +23,114 @@ class GetServiceResult:
     def __init__(__self__, etag=None, kind=None, location=None, name=None, provisioning_state=None, public_key=None, sku=None, tags=None, type=None, virtual_subnet_id=None):
         if etag and not isinstance(etag, str):
             raise TypeError("Expected argument 'etag' to be a str")
-        __self__.etag = etag
+        pulumi.set(__self__, "etag", etag)
+        if kind and not isinstance(kind, str):
+            raise TypeError("Expected argument 'kind' to be a str")
+        pulumi.set(__self__, "kind", kind)
+        if location and not isinstance(location, str):
+            raise TypeError("Expected argument 'location' to be a str")
+        pulumi.set(__self__, "location", location)
+        if name and not isinstance(name, str):
+            raise TypeError("Expected argument 'name' to be a str")
+        pulumi.set(__self__, "name", name)
+        if provisioning_state and not isinstance(provisioning_state, str):
+            raise TypeError("Expected argument 'provisioning_state' to be a str")
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if public_key and not isinstance(public_key, str):
+            raise TypeError("Expected argument 'public_key' to be a str")
+        pulumi.set(__self__, "public_key", public_key)
+        if sku and not isinstance(sku, dict):
+            raise TypeError("Expected argument 'sku' to be a dict")
+        pulumi.set(__self__, "sku", sku)
+        if tags and not isinstance(tags, dict):
+            raise TypeError("Expected argument 'tags' to be a dict")
+        pulumi.set(__self__, "tags", tags)
+        if type and not isinstance(type, str):
+            raise TypeError("Expected argument 'type' to be a str")
+        pulumi.set(__self__, "type", type)
+        if virtual_subnet_id and not isinstance(virtual_subnet_id, str):
+            raise TypeError("Expected argument 'virtual_subnet_id' to be a str")
+        pulumi.set(__self__, "virtual_subnet_id", virtual_subnet_id)
+
+    @property
+    @pulumi.getter
+    def etag(self) -> Optional[str]:
         """
         HTTP strong entity tag value. Ignored if submitted
         """
-        if kind and not isinstance(kind, str):
-            raise TypeError("Expected argument 'kind' to be a str")
-        __self__.kind = kind
+        return pulumi.get(self, "etag")
+
+    @property
+    @pulumi.getter
+    def kind(self) -> Optional[str]:
         """
         The resource kind. Only 'vm' (the default) is supported.
         """
-        if location and not isinstance(location, str):
-            raise TypeError("Expected argument 'location' to be a str")
-        __self__.location = location
+        return pulumi.get(self, "kind")
+
+    @property
+    @pulumi.getter
+    def location(self) -> str:
         """
         Resource location.
         """
-        if name and not isinstance(name, str):
-            raise TypeError("Expected argument 'name' to be a str")
-        __self__.name = name
+        return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
         """
         Resource name.
         """
-        if provisioning_state and not isinstance(provisioning_state, str):
-            raise TypeError("Expected argument 'provisioning_state' to be a str")
-        __self__.provisioning_state = provisioning_state
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
         """
         The resource's provisioning state
         """
-        if public_key and not isinstance(public_key, str):
-            raise TypeError("Expected argument 'public_key' to be a str")
-        __self__.public_key = public_key
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="publicKey")
+    def public_key(self) -> Optional[str]:
         """
         The public key of the service, used to encrypt secrets sent to the service
         """
-        if sku and not isinstance(sku, dict):
-            raise TypeError("Expected argument 'sku' to be a dict")
-        __self__.sku = sku
+        return pulumi.get(self, "public_key")
+
+    @property
+    @pulumi.getter
+    def sku(self) -> Optional['outputs.ServiceSkuResponse']:
         """
         Service SKU
         """
-        if tags and not isinstance(tags, dict):
-            raise TypeError("Expected argument 'tags' to be a dict")
-        __self__.tags = tags
+        return pulumi.get(self, "sku")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Mapping[str, str]]:
         """
         Resource tags.
         """
-        if type and not isinstance(type, str):
-            raise TypeError("Expected argument 'type' to be a str")
-        __self__.type = type
+        return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
         """
         Resource type.
         """
-        if virtual_subnet_id and not isinstance(virtual_subnet_id, str):
-            raise TypeError("Expected argument 'virtual_subnet_id' to be a str")
-        __self__.virtual_subnet_id = virtual_subnet_id
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="virtualSubnetId")
+    def virtual_subnet_id(self) -> str:
         """
         The ID of the Microsoft.Network/virtualNetworks/subnets resource to which the service should be joined
         """
+        return pulumi.get(self, "virtual_subnet_id")
 
 
 class AwaitableGetServiceResult(GetServiceResult):
@@ -94,7 +151,9 @@ class AwaitableGetServiceResult(GetServiceResult):
             virtual_subnet_id=self.virtual_subnet_id)
 
 
-def get_service(group_name=None, name=None, opts=None):
+def get_service(group_name: Optional[str] = None,
+                name: Optional[str] = None,
+                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetServiceResult:
     """
     Use this data source to access information about an existing resource.
 
@@ -108,16 +167,16 @@ def get_service(group_name=None, name=None, opts=None):
         opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = _utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('azurerm:datamigration/v20180419:getService', __args__, opts=opts).value
+    __ret__ = pulumi.runtime.invoke('azurerm:datamigration/v20180419:getService', __args__, opts=opts, typ=GetServiceResult).value
 
     return AwaitableGetServiceResult(
-        etag=__ret__.get('etag'),
-        kind=__ret__.get('kind'),
-        location=__ret__.get('location'),
-        name=__ret__.get('name'),
-        provisioning_state=__ret__.get('provisioningState'),
-        public_key=__ret__.get('publicKey'),
-        sku=__ret__.get('sku'),
-        tags=__ret__.get('tags'),
-        type=__ret__.get('type'),
-        virtual_subnet_id=__ret__.get('virtualSubnetId'))
+        etag=__ret__.etag,
+        kind=__ret__.kind,
+        location=__ret__.location,
+        name=__ret__.name,
+        provisioning_state=__ret__.provisioning_state,
+        public_key=__ret__.public_key,
+        sku=__ret__.sku,
+        tags=__ret__.tags,
+        type=__ret__.type,
+        virtual_subnet_id=__ret__.virtual_subnet_id)

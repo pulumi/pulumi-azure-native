@@ -5,52 +5,30 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+
+__all__ = ['DataExport']
 
 
 class DataExport(pulumi.CustomResource):
-    all_tables: pulumi.Output[bool]
-    """
-    When ‘true’, all workspace's tables are exported.
-    """
-    created_date: pulumi.Output[str]
-    """
-    The latest data export rule modification time.
-    """
-    data_export_id: pulumi.Output[str]
-    """
-    The data export rule ID.
-    """
-    enable: pulumi.Output[bool]
-    """
-    Active when enabled.
-    """
-    event_hub_name: pulumi.Output[str]
-    """
-    Optional. Allows to define an Event Hub name. Not applicable when destination is Storage Account.
-    """
-    last_modified_date: pulumi.Output[str]
-    """
-    Date and time when the export was last modified.
-    """
-    name: pulumi.Output[str]
-    """
-    The name of the resource
-    """
-    resource_id: pulumi.Output[str]
-    """
-    The destination resource ID. This can be copied from the Properties entry of the destination resource in Azure.
-    """
-    table_names: pulumi.Output[list]
-    """
-    An array of tables to export, for example: [“Heartbeat, SecurityEvent”].
-    """
-    type: pulumi.Output[str]
-    """
-    The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
-    """
-    def __init__(__self__, resource_name, opts=None, all_tables=None, created_date=None, data_export_id=None, enable=None, event_hub_name=None, last_modified_date=None, name=None, resource_group_name=None, resource_id=None, table_names=None, workspace_name=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 all_tables: Optional[pulumi.Input[bool]] = None,
+                 created_date: Optional[pulumi.Input[str]] = None,
+                 data_export_id: Optional[pulumi.Input[str]] = None,
+                 enable: Optional[pulumi.Input[bool]] = None,
+                 event_hub_name: Optional[pulumi.Input[str]] = None,
+                 last_modified_date: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 resource_id: Optional[pulumi.Input[str]] = None,
+                 table_names: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 workspace_name: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         The top level data export resource container.
 
@@ -65,7 +43,7 @@ class DataExport(pulumi.CustomResource):
         :param pulumi.Input[str] name: The data export rule name.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] resource_id: The destination resource ID. This can be copied from the Properties entry of the destination resource in Azure.
-        :param pulumi.Input[list] table_names: An array of tables to export, for example: [“Heartbeat, SecurityEvent”].
+        :param pulumi.Input[List[pulumi.Input[str]]] table_names: An array of tables to export, for example: [“Heartbeat, SecurityEvent”].
         :param pulumi.Input[str] workspace_name: The name of the workspace.
         """
         if __name__ is not None:
@@ -112,13 +90,15 @@ class DataExport(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None) -> 'DataExport':
         """
         Get an existing DataExport resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -127,8 +107,89 @@ class DataExport(pulumi.CustomResource):
 
         return DataExport(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter(name="allTables")
+    def all_tables(self) -> Optional[bool]:
+        """
+        When ‘true’, all workspace's tables are exported.
+        """
+        return pulumi.get(self, "all_tables")
+
+    @property
+    @pulumi.getter(name="createdDate")
+    def created_date(self) -> Optional[str]:
+        """
+        The latest data export rule modification time.
+        """
+        return pulumi.get(self, "created_date")
+
+    @property
+    @pulumi.getter(name="dataExportId")
+    def data_export_id(self) -> Optional[str]:
+        """
+        The data export rule ID.
+        """
+        return pulumi.get(self, "data_export_id")
+
+    @property
+    @pulumi.getter
+    def enable(self) -> Optional[bool]:
+        """
+        Active when enabled.
+        """
+        return pulumi.get(self, "enable")
+
+    @property
+    @pulumi.getter(name="eventHubName")
+    def event_hub_name(self) -> Optional[str]:
+        """
+        Optional. Allows to define an Event Hub name. Not applicable when destination is Storage Account.
+        """
+        return pulumi.get(self, "event_hub_name")
+
+    @property
+    @pulumi.getter(name="lastModifiedDate")
+    def last_modified_date(self) -> Optional[str]:
+        """
+        Date and time when the export was last modified.
+        """
+        return pulumi.get(self, "last_modified_date")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the resource
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="resourceId")
+    def resource_id(self) -> str:
+        """
+        The destination resource ID. This can be copied from the Properties entry of the destination resource in Azure.
+        """
+        return pulumi.get(self, "resource_id")
+
+    @property
+    @pulumi.getter(name="tableNames")
+    def table_names(self) -> Optional[List[str]]:
+        """
+        An array of tables to export, for example: [“Heartbeat, SecurityEvent”].
+        """
+        return pulumi.get(self, "table_names")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+        """
+        return pulumi.get(self, "type")
+
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

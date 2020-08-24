@@ -5,10 +5,17 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+from . import outputs
 
+__all__ = [
+    'GetJitRequestResult',
+    'AwaitableGetJitRequestResult',
+    'get_jit_request',
+]
 
+@pulumi.output_type
 class GetJitRequestResult:
     """
     Information about JIT request definition.
@@ -16,76 +23,136 @@ class GetJitRequestResult:
     def __init__(__self__, application_resource_id=None, created_by=None, jit_authorization_policies=None, jit_request_state=None, jit_scheduling_policy=None, location=None, name=None, provisioning_state=None, publisher_tenant_id=None, tags=None, type=None, updated_by=None):
         if application_resource_id and not isinstance(application_resource_id, str):
             raise TypeError("Expected argument 'application_resource_id' to be a str")
-        __self__.application_resource_id = application_resource_id
+        pulumi.set(__self__, "application_resource_id", application_resource_id)
+        if created_by and not isinstance(created_by, dict):
+            raise TypeError("Expected argument 'created_by' to be a dict")
+        pulumi.set(__self__, "created_by", created_by)
+        if jit_authorization_policies and not isinstance(jit_authorization_policies, list):
+            raise TypeError("Expected argument 'jit_authorization_policies' to be a list")
+        pulumi.set(__self__, "jit_authorization_policies", jit_authorization_policies)
+        if jit_request_state and not isinstance(jit_request_state, str):
+            raise TypeError("Expected argument 'jit_request_state' to be a str")
+        pulumi.set(__self__, "jit_request_state", jit_request_state)
+        if jit_scheduling_policy and not isinstance(jit_scheduling_policy, dict):
+            raise TypeError("Expected argument 'jit_scheduling_policy' to be a dict")
+        pulumi.set(__self__, "jit_scheduling_policy", jit_scheduling_policy)
+        if location and not isinstance(location, str):
+            raise TypeError("Expected argument 'location' to be a str")
+        pulumi.set(__self__, "location", location)
+        if name and not isinstance(name, str):
+            raise TypeError("Expected argument 'name' to be a str")
+        pulumi.set(__self__, "name", name)
+        if provisioning_state and not isinstance(provisioning_state, str):
+            raise TypeError("Expected argument 'provisioning_state' to be a str")
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if publisher_tenant_id and not isinstance(publisher_tenant_id, str):
+            raise TypeError("Expected argument 'publisher_tenant_id' to be a str")
+        pulumi.set(__self__, "publisher_tenant_id", publisher_tenant_id)
+        if tags and not isinstance(tags, dict):
+            raise TypeError("Expected argument 'tags' to be a dict")
+        pulumi.set(__self__, "tags", tags)
+        if type and not isinstance(type, str):
+            raise TypeError("Expected argument 'type' to be a str")
+        pulumi.set(__self__, "type", type)
+        if updated_by and not isinstance(updated_by, dict):
+            raise TypeError("Expected argument 'updated_by' to be a dict")
+        pulumi.set(__self__, "updated_by", updated_by)
+
+    @property
+    @pulumi.getter(name="applicationResourceId")
+    def application_resource_id(self) -> str:
         """
         The parent application id.
         """
-        if created_by and not isinstance(created_by, dict):
-            raise TypeError("Expected argument 'created_by' to be a dict")
-        __self__.created_by = created_by
+        return pulumi.get(self, "application_resource_id")
+
+    @property
+    @pulumi.getter(name="createdBy")
+    def created_by(self) -> 'outputs.ApplicationClientDetailsResponse':
         """
         The client entity that created the JIT request.
         """
-        if jit_authorization_policies and not isinstance(jit_authorization_policies, list):
-            raise TypeError("Expected argument 'jit_authorization_policies' to be a list")
-        __self__.jit_authorization_policies = jit_authorization_policies
+        return pulumi.get(self, "created_by")
+
+    @property
+    @pulumi.getter(name="jitAuthorizationPolicies")
+    def jit_authorization_policies(self) -> List['outputs.JitAuthorizationPoliciesResponse']:
         """
         The JIT authorization policies.
         """
-        if jit_request_state and not isinstance(jit_request_state, str):
-            raise TypeError("Expected argument 'jit_request_state' to be a str")
-        __self__.jit_request_state = jit_request_state
+        return pulumi.get(self, "jit_authorization_policies")
+
+    @property
+    @pulumi.getter(name="jitRequestState")
+    def jit_request_state(self) -> str:
         """
         The JIT request state.
         """
-        if jit_scheduling_policy and not isinstance(jit_scheduling_policy, dict):
-            raise TypeError("Expected argument 'jit_scheduling_policy' to be a dict")
-        __self__.jit_scheduling_policy = jit_scheduling_policy
+        return pulumi.get(self, "jit_request_state")
+
+    @property
+    @pulumi.getter(name="jitSchedulingPolicy")
+    def jit_scheduling_policy(self) -> 'outputs.JitSchedulingPolicyResponse':
         """
         The JIT request properties.
         """
-        if location and not isinstance(location, str):
-            raise TypeError("Expected argument 'location' to be a str")
-        __self__.location = location
+        return pulumi.get(self, "jit_scheduling_policy")
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[str]:
         """
         Resource location
         """
-        if name and not isinstance(name, str):
-            raise TypeError("Expected argument 'name' to be a str")
-        __self__.name = name
+        return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
         """
         Resource name
         """
-        if provisioning_state and not isinstance(provisioning_state, str):
-            raise TypeError("Expected argument 'provisioning_state' to be a str")
-        __self__.provisioning_state = provisioning_state
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
         """
         The JIT request provisioning state.
         """
-        if publisher_tenant_id and not isinstance(publisher_tenant_id, str):
-            raise TypeError("Expected argument 'publisher_tenant_id' to be a str")
-        __self__.publisher_tenant_id = publisher_tenant_id
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="publisherTenantId")
+    def publisher_tenant_id(self) -> str:
         """
         The publisher tenant id.
         """
-        if tags and not isinstance(tags, dict):
-            raise TypeError("Expected argument 'tags' to be a dict")
-        __self__.tags = tags
+        return pulumi.get(self, "publisher_tenant_id")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Mapping[str, str]]:
         """
         Resource tags
         """
-        if type and not isinstance(type, str):
-            raise TypeError("Expected argument 'type' to be a str")
-        __self__.type = type
+        return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
         """
         Resource type
         """
-        if updated_by and not isinstance(updated_by, dict):
-            raise TypeError("Expected argument 'updated_by' to be a dict")
-        __self__.updated_by = updated_by
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="updatedBy")
+    def updated_by(self) -> 'outputs.ApplicationClientDetailsResponse':
         """
         The client entity that last updated the JIT request.
         """
+        return pulumi.get(self, "updated_by")
 
 
 class AwaitableGetJitRequestResult(GetJitRequestResult):
@@ -108,7 +175,9 @@ class AwaitableGetJitRequestResult(GetJitRequestResult):
             updated_by=self.updated_by)
 
 
-def get_jit_request(name=None, resource_group_name=None, opts=None):
+def get_jit_request(name: Optional[str] = None,
+                    resource_group_name: Optional[str] = None,
+                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetJitRequestResult:
     """
     Use this data source to access information about an existing resource.
 
@@ -122,18 +191,18 @@ def get_jit_request(name=None, resource_group_name=None, opts=None):
         opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = _utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('azurerm:solutions/v20190701:getJitRequest', __args__, opts=opts).value
+    __ret__ = pulumi.runtime.invoke('azurerm:solutions/v20190701:getJitRequest', __args__, opts=opts, typ=GetJitRequestResult).value
 
     return AwaitableGetJitRequestResult(
-        application_resource_id=__ret__.get('applicationResourceId'),
-        created_by=__ret__.get('createdBy'),
-        jit_authorization_policies=__ret__.get('jitAuthorizationPolicies'),
-        jit_request_state=__ret__.get('jitRequestState'),
-        jit_scheduling_policy=__ret__.get('jitSchedulingPolicy'),
-        location=__ret__.get('location'),
-        name=__ret__.get('name'),
-        provisioning_state=__ret__.get('provisioningState'),
-        publisher_tenant_id=__ret__.get('publisherTenantId'),
-        tags=__ret__.get('tags'),
-        type=__ret__.get('type'),
-        updated_by=__ret__.get('updatedBy'))
+        application_resource_id=__ret__.application_resource_id,
+        created_by=__ret__.created_by,
+        jit_authorization_policies=__ret__.jit_authorization_policies,
+        jit_request_state=__ret__.jit_request_state,
+        jit_scheduling_policy=__ret__.jit_scheduling_policy,
+        location=__ret__.location,
+        name=__ret__.name,
+        provisioning_state=__ret__.provisioning_state,
+        publisher_tenant_id=__ret__.publisher_tenant_id,
+        tags=__ret__.tags,
+        type=__ret__.type,
+        updated_by=__ret__.updated_by)

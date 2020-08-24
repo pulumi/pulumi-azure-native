@@ -5,10 +5,17 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+from . import outputs
 
+__all__ = [
+    'GetDomainServiceResult',
+    'AwaitableGetDomainServiceResult',
+    'get_domain_service',
+]
 
+@pulumi.output_type
 class GetDomainServiceResult:
     """
     Domain service.
@@ -16,100 +23,180 @@ class GetDomainServiceResult:
     def __init__(__self__, deployment_id=None, domain_name=None, domain_security_settings=None, etag=None, filtered_sync=None, ldaps_settings=None, location=None, name=None, notification_settings=None, provisioning_state=None, replica_sets=None, sync_owner=None, tags=None, tenant_id=None, type=None, version=None):
         if deployment_id and not isinstance(deployment_id, str):
             raise TypeError("Expected argument 'deployment_id' to be a str")
-        __self__.deployment_id = deployment_id
+        pulumi.set(__self__, "deployment_id", deployment_id)
+        if domain_name and not isinstance(domain_name, str):
+            raise TypeError("Expected argument 'domain_name' to be a str")
+        pulumi.set(__self__, "domain_name", domain_name)
+        if domain_security_settings and not isinstance(domain_security_settings, dict):
+            raise TypeError("Expected argument 'domain_security_settings' to be a dict")
+        pulumi.set(__self__, "domain_security_settings", domain_security_settings)
+        if etag and not isinstance(etag, str):
+            raise TypeError("Expected argument 'etag' to be a str")
+        pulumi.set(__self__, "etag", etag)
+        if filtered_sync and not isinstance(filtered_sync, str):
+            raise TypeError("Expected argument 'filtered_sync' to be a str")
+        pulumi.set(__self__, "filtered_sync", filtered_sync)
+        if ldaps_settings and not isinstance(ldaps_settings, dict):
+            raise TypeError("Expected argument 'ldaps_settings' to be a dict")
+        pulumi.set(__self__, "ldaps_settings", ldaps_settings)
+        if location and not isinstance(location, str):
+            raise TypeError("Expected argument 'location' to be a str")
+        pulumi.set(__self__, "location", location)
+        if name and not isinstance(name, str):
+            raise TypeError("Expected argument 'name' to be a str")
+        pulumi.set(__self__, "name", name)
+        if notification_settings and not isinstance(notification_settings, dict):
+            raise TypeError("Expected argument 'notification_settings' to be a dict")
+        pulumi.set(__self__, "notification_settings", notification_settings)
+        if provisioning_state and not isinstance(provisioning_state, str):
+            raise TypeError("Expected argument 'provisioning_state' to be a str")
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if replica_sets and not isinstance(replica_sets, list):
+            raise TypeError("Expected argument 'replica_sets' to be a list")
+        pulumi.set(__self__, "replica_sets", replica_sets)
+        if sync_owner and not isinstance(sync_owner, str):
+            raise TypeError("Expected argument 'sync_owner' to be a str")
+        pulumi.set(__self__, "sync_owner", sync_owner)
+        if tags and not isinstance(tags, dict):
+            raise TypeError("Expected argument 'tags' to be a dict")
+        pulumi.set(__self__, "tags", tags)
+        if tenant_id and not isinstance(tenant_id, str):
+            raise TypeError("Expected argument 'tenant_id' to be a str")
+        pulumi.set(__self__, "tenant_id", tenant_id)
+        if type and not isinstance(type, str):
+            raise TypeError("Expected argument 'type' to be a str")
+        pulumi.set(__self__, "type", type)
+        if version and not isinstance(version, float):
+            raise TypeError("Expected argument 'version' to be a float")
+        pulumi.set(__self__, "version", version)
+
+    @property
+    @pulumi.getter(name="deploymentId")
+    def deployment_id(self) -> str:
         """
         Deployment Id
         """
-        if domain_name and not isinstance(domain_name, str):
-            raise TypeError("Expected argument 'domain_name' to be a str")
-        __self__.domain_name = domain_name
+        return pulumi.get(self, "deployment_id")
+
+    @property
+    @pulumi.getter(name="domainName")
+    def domain_name(self) -> Optional[str]:
         """
         The name of the Azure domain that the user would like to deploy Domain Services to.
         """
-        if domain_security_settings and not isinstance(domain_security_settings, dict):
-            raise TypeError("Expected argument 'domain_security_settings' to be a dict")
-        __self__.domain_security_settings = domain_security_settings
+        return pulumi.get(self, "domain_name")
+
+    @property
+    @pulumi.getter(name="domainSecuritySettings")
+    def domain_security_settings(self) -> Optional['outputs.DomainSecuritySettingsResponse']:
         """
         DomainSecurity Settings
         """
-        if etag and not isinstance(etag, str):
-            raise TypeError("Expected argument 'etag' to be a str")
-        __self__.etag = etag
+        return pulumi.get(self, "domain_security_settings")
+
+    @property
+    @pulumi.getter
+    def etag(self) -> Optional[str]:
         """
         Resource etag
         """
-        if filtered_sync and not isinstance(filtered_sync, str):
-            raise TypeError("Expected argument 'filtered_sync' to be a str")
-        __self__.filtered_sync = filtered_sync
+        return pulumi.get(self, "etag")
+
+    @property
+    @pulumi.getter(name="filteredSync")
+    def filtered_sync(self) -> Optional[str]:
         """
         Enabled or Disabled flag to turn on Group-based filtered sync
         """
-        if ldaps_settings and not isinstance(ldaps_settings, dict):
-            raise TypeError("Expected argument 'ldaps_settings' to be a dict")
-        __self__.ldaps_settings = ldaps_settings
+        return pulumi.get(self, "filtered_sync")
+
+    @property
+    @pulumi.getter(name="ldapsSettings")
+    def ldaps_settings(self) -> Optional['outputs.LdapsSettingsResponse']:
         """
         Secure LDAP Settings
         """
-        if location and not isinstance(location, str):
-            raise TypeError("Expected argument 'location' to be a str")
-        __self__.location = location
+        return pulumi.get(self, "ldaps_settings")
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[str]:
         """
         Resource location
         """
-        if name and not isinstance(name, str):
-            raise TypeError("Expected argument 'name' to be a str")
-        __self__.name = name
+        return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
         """
         Resource name
         """
-        if notification_settings and not isinstance(notification_settings, dict):
-            raise TypeError("Expected argument 'notification_settings' to be a dict")
-        __self__.notification_settings = notification_settings
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="notificationSettings")
+    def notification_settings(self) -> Optional['outputs.NotificationSettingsResponse']:
         """
         Notification Settings
         """
-        if provisioning_state and not isinstance(provisioning_state, str):
-            raise TypeError("Expected argument 'provisioning_state' to be a str")
-        __self__.provisioning_state = provisioning_state
+        return pulumi.get(self, "notification_settings")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
         """
         the current deployment or provisioning state, which only appears in the response.
         """
-        if replica_sets and not isinstance(replica_sets, list):
-            raise TypeError("Expected argument 'replica_sets' to be a list")
-        __self__.replica_sets = replica_sets
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="replicaSets")
+    def replica_sets(self) -> Optional[List['outputs.ReplicaSetResponse']]:
         """
         List of ReplicaSets
         """
-        if sync_owner and not isinstance(sync_owner, str):
-            raise TypeError("Expected argument 'sync_owner' to be a str")
-        __self__.sync_owner = sync_owner
+        return pulumi.get(self, "replica_sets")
+
+    @property
+    @pulumi.getter(name="syncOwner")
+    def sync_owner(self) -> str:
         """
         SyncOwner ReplicaSet Id
         """
-        if tags and not isinstance(tags, dict):
-            raise TypeError("Expected argument 'tags' to be a dict")
-        __self__.tags = tags
+        return pulumi.get(self, "sync_owner")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Mapping[str, str]]:
         """
         Resource tags
         """
-        if tenant_id and not isinstance(tenant_id, str):
-            raise TypeError("Expected argument 'tenant_id' to be a str")
-        __self__.tenant_id = tenant_id
+        return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter(name="tenantId")
+    def tenant_id(self) -> str:
         """
         Azure Active Directory Tenant Id
         """
-        if type and not isinstance(type, str):
-            raise TypeError("Expected argument 'type' to be a str")
-        __self__.type = type
+        return pulumi.get(self, "tenant_id")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
         """
         Resource type
         """
-        if version and not isinstance(version, float):
-            raise TypeError("Expected argument 'version' to be a float")
-        __self__.version = version
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def version(self) -> float:
         """
         Data Model Version
         """
+        return pulumi.get(self, "version")
 
 
 class AwaitableGetDomainServiceResult(GetDomainServiceResult):
@@ -136,7 +223,9 @@ class AwaitableGetDomainServiceResult(GetDomainServiceResult):
             version=self.version)
 
 
-def get_domain_service(name=None, resource_group_name=None, opts=None):
+def get_domain_service(name: Optional[str] = None,
+                       resource_group_name: Optional[str] = None,
+                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDomainServiceResult:
     """
     Use this data source to access information about an existing resource.
 
@@ -150,22 +239,22 @@ def get_domain_service(name=None, resource_group_name=None, opts=None):
         opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = _utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('azurerm:aad/v20200101:getDomainService', __args__, opts=opts).value
+    __ret__ = pulumi.runtime.invoke('azurerm:aad/v20200101:getDomainService', __args__, opts=opts, typ=GetDomainServiceResult).value
 
     return AwaitableGetDomainServiceResult(
-        deployment_id=__ret__.get('deploymentId'),
-        domain_name=__ret__.get('domainName'),
-        domain_security_settings=__ret__.get('domainSecuritySettings'),
-        etag=__ret__.get('etag'),
-        filtered_sync=__ret__.get('filteredSync'),
-        ldaps_settings=__ret__.get('ldapsSettings'),
-        location=__ret__.get('location'),
-        name=__ret__.get('name'),
-        notification_settings=__ret__.get('notificationSettings'),
-        provisioning_state=__ret__.get('provisioningState'),
-        replica_sets=__ret__.get('replicaSets'),
-        sync_owner=__ret__.get('syncOwner'),
-        tags=__ret__.get('tags'),
-        tenant_id=__ret__.get('tenantId'),
-        type=__ret__.get('type'),
-        version=__ret__.get('version'))
+        deployment_id=__ret__.deployment_id,
+        domain_name=__ret__.domain_name,
+        domain_security_settings=__ret__.domain_security_settings,
+        etag=__ret__.etag,
+        filtered_sync=__ret__.filtered_sync,
+        ldaps_settings=__ret__.ldaps_settings,
+        location=__ret__.location,
+        name=__ret__.name,
+        notification_settings=__ret__.notification_settings,
+        provisioning_state=__ret__.provisioning_state,
+        replica_sets=__ret__.replica_sets,
+        sync_owner=__ret__.sync_owner,
+        tags=__ret__.tags,
+        tenant_id=__ret__.tenant_id,
+        type=__ret__.type,
+        version=__ret__.version)

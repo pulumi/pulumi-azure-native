@@ -73,3 +73,5 @@ from .web_app_source_control import *
 from .web_app_source_control_slot import *
 from .web_app_vnet_connection import *
 from .web_app_vnet_connection_slot import *
+from ._inputs import *
+from . import outputs

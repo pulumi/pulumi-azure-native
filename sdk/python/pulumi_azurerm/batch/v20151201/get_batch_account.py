@@ -5,10 +5,17 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+from . import outputs
 
+__all__ = [
+    'GetBatchAccountResult',
+    'AwaitableGetBatchAccountResult',
+    'get_batch_account',
+]
 
+@pulumi.output_type
 class GetBatchAccountResult:
     """
     Contains information about an Azure Batch account.
@@ -16,64 +23,114 @@ class GetBatchAccountResult:
     def __init__(__self__, account_endpoint=None, active_job_and_job_schedule_quota=None, auto_storage=None, core_quota=None, location=None, name=None, pool_quota=None, provisioning_state=None, tags=None, type=None):
         if account_endpoint and not isinstance(account_endpoint, str):
             raise TypeError("Expected argument 'account_endpoint' to be a str")
-        __self__.account_endpoint = account_endpoint
+        pulumi.set(__self__, "account_endpoint", account_endpoint)
+        if active_job_and_job_schedule_quota and not isinstance(active_job_and_job_schedule_quota, float):
+            raise TypeError("Expected argument 'active_job_and_job_schedule_quota' to be a float")
+        pulumi.set(__self__, "active_job_and_job_schedule_quota", active_job_and_job_schedule_quota)
+        if auto_storage and not isinstance(auto_storage, dict):
+            raise TypeError("Expected argument 'auto_storage' to be a dict")
+        pulumi.set(__self__, "auto_storage", auto_storage)
+        if core_quota and not isinstance(core_quota, float):
+            raise TypeError("Expected argument 'core_quota' to be a float")
+        pulumi.set(__self__, "core_quota", core_quota)
+        if location and not isinstance(location, str):
+            raise TypeError("Expected argument 'location' to be a str")
+        pulumi.set(__self__, "location", location)
+        if name and not isinstance(name, str):
+            raise TypeError("Expected argument 'name' to be a str")
+        pulumi.set(__self__, "name", name)
+        if pool_quota and not isinstance(pool_quota, float):
+            raise TypeError("Expected argument 'pool_quota' to be a float")
+        pulumi.set(__self__, "pool_quota", pool_quota)
+        if provisioning_state and not isinstance(provisioning_state, str):
+            raise TypeError("Expected argument 'provisioning_state' to be a str")
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if tags and not isinstance(tags, dict):
+            raise TypeError("Expected argument 'tags' to be a dict")
+        pulumi.set(__self__, "tags", tags)
+        if type and not isinstance(type, str):
+            raise TypeError("Expected argument 'type' to be a str")
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="accountEndpoint")
+    def account_endpoint(self) -> str:
         """
         The endpoint used by this account to interact with the Batch services.
         """
-        if active_job_and_job_schedule_quota and not isinstance(active_job_and_job_schedule_quota, float):
-            raise TypeError("Expected argument 'active_job_and_job_schedule_quota' to be a float")
-        __self__.active_job_and_job_schedule_quota = active_job_and_job_schedule_quota
+        return pulumi.get(self, "account_endpoint")
+
+    @property
+    @pulumi.getter(name="activeJobAndJobScheduleQuota")
+    def active_job_and_job_schedule_quota(self) -> float:
         """
         The active job and job schedule quota for this Batch account.
         """
-        if auto_storage and not isinstance(auto_storage, dict):
-            raise TypeError("Expected argument 'auto_storage' to be a dict")
-        __self__.auto_storage = auto_storage
+        return pulumi.get(self, "active_job_and_job_schedule_quota")
+
+    @property
+    @pulumi.getter(name="autoStorage")
+    def auto_storage(self) -> Optional['outputs.AutoStoragePropertiesResponse']:
         """
         The properties and status of any auto storage account associated with the account.
         """
-        if core_quota and not isinstance(core_quota, float):
-            raise TypeError("Expected argument 'core_quota' to be a float")
-        __self__.core_quota = core_quota
+        return pulumi.get(self, "auto_storage")
+
+    @property
+    @pulumi.getter(name="coreQuota")
+    def core_quota(self) -> float:
         """
         The core quota for this Batch account.
         """
-        if location and not isinstance(location, str):
-            raise TypeError("Expected argument 'location' to be a str")
-        __self__.location = location
+        return pulumi.get(self, "core_quota")
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[str]:
         """
         The location of the resource
         """
-        if name and not isinstance(name, str):
-            raise TypeError("Expected argument 'name' to be a str")
-        __self__.name = name
+        return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
         """
         The name of the resource
         """
-        if pool_quota and not isinstance(pool_quota, float):
-            raise TypeError("Expected argument 'pool_quota' to be a float")
-        __self__.pool_quota = pool_quota
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="poolQuota")
+    def pool_quota(self) -> float:
         """
         The pool quota for this Batch account.
         """
-        if provisioning_state and not isinstance(provisioning_state, str):
-            raise TypeError("Expected argument 'provisioning_state' to be a str")
-        __self__.provisioning_state = provisioning_state
+        return pulumi.get(self, "pool_quota")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> Optional[str]:
         """
         The provisioned state of the resource
         """
-        if tags and not isinstance(tags, dict):
-            raise TypeError("Expected argument 'tags' to be a dict")
-        __self__.tags = tags
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Mapping[str, str]]:
         """
         The tags of the resource
         """
-        if type and not isinstance(type, str):
-            raise TypeError("Expected argument 'type' to be a str")
-        __self__.type = type
+        return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
         """
         The type of the resource
         """
+        return pulumi.get(self, "type")
 
 
 class AwaitableGetBatchAccountResult(GetBatchAccountResult):
@@ -94,7 +151,9 @@ class AwaitableGetBatchAccountResult(GetBatchAccountResult):
             type=self.type)
 
 
-def get_batch_account(name=None, resource_group_name=None, opts=None):
+def get_batch_account(name: Optional[str] = None,
+                      resource_group_name: Optional[str] = None,
+                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetBatchAccountResult:
     """
     Use this data source to access information about an existing resource.
 
@@ -108,16 +167,16 @@ def get_batch_account(name=None, resource_group_name=None, opts=None):
         opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = _utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('azurerm:batch/v20151201:getBatchAccount', __args__, opts=opts).value
+    __ret__ = pulumi.runtime.invoke('azurerm:batch/v20151201:getBatchAccount', __args__, opts=opts, typ=GetBatchAccountResult).value
 
     return AwaitableGetBatchAccountResult(
-        account_endpoint=__ret__.get('accountEndpoint'),
-        active_job_and_job_schedule_quota=__ret__.get('activeJobAndJobScheduleQuota'),
-        auto_storage=__ret__.get('autoStorage'),
-        core_quota=__ret__.get('coreQuota'),
-        location=__ret__.get('location'),
-        name=__ret__.get('name'),
-        pool_quota=__ret__.get('poolQuota'),
-        provisioning_state=__ret__.get('provisioningState'),
-        tags=__ret__.get('tags'),
-        type=__ret__.get('type'))
+        account_endpoint=__ret__.account_endpoint,
+        active_job_and_job_schedule_quota=__ret__.active_job_and_job_schedule_quota,
+        auto_storage=__ret__.auto_storage,
+        core_quota=__ret__.core_quota,
+        location=__ret__.location,
+        name=__ret__.name,
+        pool_quota=__ret__.pool_quota,
+        provisioning_state=__ret__.provisioning_state,
+        tags=__ret__.tags,
+        type=__ret__.type)

@@ -5,10 +5,17 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+from . import outputs
 
+__all__ = [
+    'ListDatabaseAccountConnectionStringsResult',
+    'AwaitableListDatabaseAccountConnectionStringsResult',
+    'list_database_account_connection_strings',
+]
 
+@pulumi.output_type
 class ListDatabaseAccountConnectionStringsResult:
     """
     The connection strings for the given database account.
@@ -16,10 +23,15 @@ class ListDatabaseAccountConnectionStringsResult:
     def __init__(__self__, connection_strings=None):
         if connection_strings and not isinstance(connection_strings, list):
             raise TypeError("Expected argument 'connection_strings' to be a list")
-        __self__.connection_strings = connection_strings
+        pulumi.set(__self__, "connection_strings", connection_strings)
+
+    @property
+    @pulumi.getter(name="connectionStrings")
+    def connection_strings(self) -> Optional[List['outputs.DatabaseAccountConnectionStringResponseResult']]:
         """
         An array that contains the connection strings for the Cosmos DB account.
         """
+        return pulumi.get(self, "connection_strings")
 
 
 class AwaitableListDatabaseAccountConnectionStringsResult(ListDatabaseAccountConnectionStringsResult):
@@ -31,7 +43,9 @@ class AwaitableListDatabaseAccountConnectionStringsResult(ListDatabaseAccountCon
             connection_strings=self.connection_strings)
 
 
-def list_database_account_connection_strings(account_name=None, resource_group_name=None, opts=None):
+def list_database_account_connection_strings(account_name: Optional[str] = None,
+                                             resource_group_name: Optional[str] = None,
+                                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListDatabaseAccountConnectionStringsResult:
     """
     Use this data source to access information about an existing resource.
 
@@ -45,7 +59,7 @@ def list_database_account_connection_strings(account_name=None, resource_group_n
         opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = _utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('azurerm:documentdb/v20160331:listDatabaseAccountConnectionStrings', __args__, opts=opts).value
+    __ret__ = pulumi.runtime.invoke('azurerm:documentdb/v20160331:listDatabaseAccountConnectionStrings', __args__, opts=opts, typ=ListDatabaseAccountConnectionStringsResult).value
 
     return AwaitableListDatabaseAccountConnectionStringsResult(
-        connection_strings=__ret__.get('connectionStrings'))
+        connection_strings=__ret__.connection_strings)

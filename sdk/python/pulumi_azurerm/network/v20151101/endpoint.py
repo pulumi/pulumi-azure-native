@@ -5,52 +5,33 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+
+__all__ = ['Endpoint']
 
 
 class Endpoint(pulumi.CustomResource):
-    endpoint_location: pulumi.Output[str]
-    """
-    Specifies the location of the external or nested endpoints when using the ‘Performance’ traffic routing method.
-    """
-    endpoint_monitor_status: pulumi.Output[str]
-    """
-    Gets or sets the monitoring status of the endpoint.
-    """
-    endpoint_status: pulumi.Output[str]
-    """
-    Gets or sets the status of the endpoint..  If the endpoint is Enabled, it is probed for endpoint health and is included in the traffic routing method.  Possible values are 'Enabled' and 'Disabled'.
-    """
-    min_child_endpoints: pulumi.Output[float]
-    """
-    Gets or sets the minimum number of endpoints that must be available in the child profile in order for the parent profile to be considered available. Only applicable to endpoint of type 'NestedEndpoints'.
-    """
-    name: pulumi.Output[str]
-    """
-    Gets or sets the name of the Traffic Manager endpoint.
-    """
-    priority: pulumi.Output[float]
-    """
-    Gets or sets the priority of this endpoint when using the ‘Priority’ traffic routing method. Possible values are from 1 to 1000, lower values represent higher priority. This is an optional parameter.  If specified, it must be specified on all endpoints, and no two endpoints can share the same priority value.
-    """
-    target: pulumi.Output[str]
-    """
-    Gets or sets the fully-qualified DNS name of the endpoint.  Traffic Manager returns this value in DNS responses to direct traffic to this endpoint.
-    """
-    target_resource_id: pulumi.Output[str]
-    """
-    Gets or sets the Azure Resource URI of the of the endpoint.  Not applicable to endpoints of type 'ExternalEndpoints'.
-    """
-    type: pulumi.Output[str]
-    """
-    Gets or sets the endpoint type of the Traffic Manager endpoint.
-    """
-    weight: pulumi.Output[float]
-    """
-    Gets or sets the weight of this endpoint when using the 'Weighted' traffic routing method. Possible values are from 1 to 1000.
-    """
-    def __init__(__self__, resource_name, opts=None, endpoint_location=None, endpoint_monitor_status=None, endpoint_status=None, endpoint_type=None, id=None, min_child_endpoints=None, name=None, priority=None, profile_name=None, resource_group_name=None, target=None, target_resource_id=None, type=None, weight=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 endpoint_location: Optional[pulumi.Input[str]] = None,
+                 endpoint_monitor_status: Optional[pulumi.Input[str]] = None,
+                 endpoint_status: Optional[pulumi.Input[str]] = None,
+                 endpoint_type: Optional[pulumi.Input[str]] = None,
+                 id: Optional[pulumi.Input[str]] = None,
+                 min_child_endpoints: Optional[pulumi.Input[float]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 priority: Optional[pulumi.Input[float]] = None,
+                 profile_name: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 target: Optional[pulumi.Input[str]] = None,
+                 target_resource_id: Optional[pulumi.Input[str]] = None,
+                 type: Optional[pulumi.Input[str]] = None,
+                 weight: Optional[pulumi.Input[float]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         Class representing a Traffic Manager endpoint.
 
@@ -119,13 +100,15 @@ class Endpoint(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None) -> 'Endpoint':
         """
         Get an existing Endpoint resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -134,8 +117,89 @@ class Endpoint(pulumi.CustomResource):
 
         return Endpoint(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter(name="endpointLocation")
+    def endpoint_location(self) -> Optional[str]:
+        """
+        Specifies the location of the external or nested endpoints when using the ‘Performance’ traffic routing method.
+        """
+        return pulumi.get(self, "endpoint_location")
+
+    @property
+    @pulumi.getter(name="endpointMonitorStatus")
+    def endpoint_monitor_status(self) -> Optional[str]:
+        """
+        Gets or sets the monitoring status of the endpoint.
+        """
+        return pulumi.get(self, "endpoint_monitor_status")
+
+    @property
+    @pulumi.getter(name="endpointStatus")
+    def endpoint_status(self) -> Optional[str]:
+        """
+        Gets or sets the status of the endpoint..  If the endpoint is Enabled, it is probed for endpoint health and is included in the traffic routing method.  Possible values are 'Enabled' and 'Disabled'.
+        """
+        return pulumi.get(self, "endpoint_status")
+
+    @property
+    @pulumi.getter(name="minChildEndpoints")
+    def min_child_endpoints(self) -> Optional[float]:
+        """
+        Gets or sets the minimum number of endpoints that must be available in the child profile in order for the parent profile to be considered available. Only applicable to endpoint of type 'NestedEndpoints'.
+        """
+        return pulumi.get(self, "min_child_endpoints")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        Gets or sets the name of the Traffic Manager endpoint.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def priority(self) -> Optional[float]:
+        """
+        Gets or sets the priority of this endpoint when using the ‘Priority’ traffic routing method. Possible values are from 1 to 1000, lower values represent higher priority. This is an optional parameter.  If specified, it must be specified on all endpoints, and no two endpoints can share the same priority value.
+        """
+        return pulumi.get(self, "priority")
+
+    @property
+    @pulumi.getter
+    def target(self) -> Optional[str]:
+        """
+        Gets or sets the fully-qualified DNS name of the endpoint.  Traffic Manager returns this value in DNS responses to direct traffic to this endpoint.
+        """
+        return pulumi.get(self, "target")
+
+    @property
+    @pulumi.getter(name="targetResourceId")
+    def target_resource_id(self) -> Optional[str]:
+        """
+        Gets or sets the Azure Resource URI of the of the endpoint.  Not applicable to endpoints of type 'ExternalEndpoints'.
+        """
+        return pulumi.get(self, "target_resource_id")
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[str]:
+        """
+        Gets or sets the endpoint type of the Traffic Manager endpoint.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def weight(self) -> Optional[float]:
+        """
+        Gets or sets the weight of this endpoint when using the 'Weighted' traffic routing method. Possible values are from 1 to 1000.
+        """
+        return pulumi.get(self, "weight")
+
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

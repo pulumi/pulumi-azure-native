@@ -5,10 +5,17 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+from . import outputs
 
+__all__ = [
+    'ListChannelWithKeysResult',
+    'AwaitableListChannelWithKeysResult',
+    'list_channel_with_keys',
+]
 
+@pulumi.output_type
 class ListChannelWithKeysResult:
     """
     Bot channel resource definition
@@ -16,52 +23,92 @@ class ListChannelWithKeysResult:
     def __init__(__self__, etag=None, kind=None, location=None, name=None, properties=None, sku=None, tags=None, type=None):
         if etag and not isinstance(etag, str):
             raise TypeError("Expected argument 'etag' to be a str")
-        __self__.etag = etag
+        pulumi.set(__self__, "etag", etag)
+        if kind and not isinstance(kind, str):
+            raise TypeError("Expected argument 'kind' to be a str")
+        pulumi.set(__self__, "kind", kind)
+        if location and not isinstance(location, str):
+            raise TypeError("Expected argument 'location' to be a str")
+        pulumi.set(__self__, "location", location)
+        if name and not isinstance(name, str):
+            raise TypeError("Expected argument 'name' to be a str")
+        pulumi.set(__self__, "name", name)
+        if properties and not isinstance(properties, dict):
+            raise TypeError("Expected argument 'properties' to be a dict")
+        pulumi.set(__self__, "properties", properties)
+        if sku and not isinstance(sku, dict):
+            raise TypeError("Expected argument 'sku' to be a dict")
+        pulumi.set(__self__, "sku", sku)
+        if tags and not isinstance(tags, dict):
+            raise TypeError("Expected argument 'tags' to be a dict")
+        pulumi.set(__self__, "tags", tags)
+        if type and not isinstance(type, str):
+            raise TypeError("Expected argument 'type' to be a str")
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def etag(self) -> Optional[str]:
         """
         Entity Tag
         """
-        if kind and not isinstance(kind, str):
-            raise TypeError("Expected argument 'kind' to be a str")
-        __self__.kind = kind
+        return pulumi.get(self, "etag")
+
+    @property
+    @pulumi.getter
+    def kind(self) -> Optional[str]:
         """
         Required. Gets or sets the Kind of the resource.
         """
-        if location and not isinstance(location, str):
-            raise TypeError("Expected argument 'location' to be a str")
-        __self__.location = location
+        return pulumi.get(self, "kind")
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[str]:
         """
         Specifies the location of the resource.
         """
-        if name and not isinstance(name, str):
-            raise TypeError("Expected argument 'name' to be a str")
-        __self__.name = name
+        return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
         """
         Specifies the name of the resource.
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def properties(self) -> 'outputs.ChannelResponse':
         """
         The set of properties specific to bot channel resource
         """
-        if sku and not isinstance(sku, dict):
-            raise TypeError("Expected argument 'sku' to be a dict")
-        __self__.sku = sku
+        return pulumi.get(self, "properties")
+
+    @property
+    @pulumi.getter
+    def sku(self) -> Optional['outputs.SkuResponse']:
         """
         Gets or sets the SKU of the resource.
         """
-        if tags and not isinstance(tags, dict):
-            raise TypeError("Expected argument 'tags' to be a dict")
-        __self__.tags = tags
+        return pulumi.get(self, "sku")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Mapping[str, str]]:
         """
         Contains resource tags defined as key/value pairs.
         """
-        if type and not isinstance(type, str):
-            raise TypeError("Expected argument 'type' to be a str")
-        __self__.type = type
+        return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
         """
         Specifies the type of the resource.
         """
+        return pulumi.get(self, "type")
 
 
 class AwaitableListChannelWithKeysResult(ListChannelWithKeysResult):
@@ -80,7 +127,10 @@ class AwaitableListChannelWithKeysResult(ListChannelWithKeysResult):
             type=self.type)
 
 
-def list_channel_with_keys(name=None, resource_group_name=None, resource_name=None, opts=None):
+def list_channel_with_keys(name: Optional[str] = None,
+                           resource_group_name: Optional[str] = None,
+                           resource_name: Optional[str] = None,
+                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListChannelWithKeysResult:
     """
     Use this data source to access information about an existing resource.
 
@@ -96,14 +146,14 @@ def list_channel_with_keys(name=None, resource_group_name=None, resource_name=No
         opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = _utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('azurerm:botservice/v20200602:listChannelWithKeys', __args__, opts=opts).value
+    __ret__ = pulumi.runtime.invoke('azurerm:botservice/v20200602:listChannelWithKeys', __args__, opts=opts, typ=ListChannelWithKeysResult).value
 
     return AwaitableListChannelWithKeysResult(
-        etag=__ret__.get('etag'),
-        kind=__ret__.get('kind'),
-        location=__ret__.get('location'),
-        name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
-        sku=__ret__.get('sku'),
-        tags=__ret__.get('tags'),
-        type=__ret__.get('type'))
+        etag=__ret__.etag,
+        kind=__ret__.kind,
+        location=__ret__.location,
+        name=__ret__.name,
+        properties=__ret__.properties,
+        sku=__ret__.sku,
+        tags=__ret__.tags,
+        type=__ret__.type)

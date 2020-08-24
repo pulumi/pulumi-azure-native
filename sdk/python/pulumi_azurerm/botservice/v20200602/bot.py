@@ -5,59 +5,29 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+from . import outputs
+from ._inputs import *
+
+__all__ = ['Bot']
 
 
 class Bot(pulumi.CustomResource):
-    etag: pulumi.Output[str]
-    """
-    Entity Tag
-    """
-    kind: pulumi.Output[str]
-    """
-    Required. Gets or sets the Kind of the resource.
-    """
-    location: pulumi.Output[str]
-    """
-    Specifies the location of the resource.
-    """
-    name: pulumi.Output[str]
-    """
-    Specifies the name of the resource.
-    """
-    properties: pulumi.Output[dict]
-    """
-    The set of properties specific to bot resource
-      * `configured_channels` (`list`) - Collection of channels for which the bot is configured
-      * `description` (`str`) - The description of the bot
-      * `developer_app_insight_key` (`str`) - The Application Insights key
-      * `developer_app_insights_api_key` (`str`) - The Application Insights Api Key
-      * `developer_app_insights_application_id` (`str`) - The Application Insights App Id
-      * `display_name` (`str`) - The Name of the bot
-      * `enabled_channels` (`list`) - Collection of channels for which the bot is enabled
-      * `endpoint` (`str`) - The bot's endpoint
-      * `endpoint_version` (`str`) - The bot's endpoint version
-      * `icon_url` (`str`) - The Icon Url of the bot
-      * `luis_app_ids` (`list`) - Collection of LUIS App Ids
-      * `luis_key` (`str`) - The LUIS Key
-      * `msa_app_id` (`str`) - Microsoft App Id for the bot
-    """
-    sku: pulumi.Output[dict]
-    """
-    Gets or sets the SKU of the resource.
-      * `name` (`str`) - The sku name
-      * `tier` (`str`) - Gets the sku tier. This is based on the SKU name.
-    """
-    tags: pulumi.Output[dict]
-    """
-    Contains resource tags defined as key/value pairs.
-    """
-    type: pulumi.Output[str]
-    """
-    Specifies the type of the resource.
-    """
-    def __init__(__self__, resource_name, opts=None, etag=None, kind=None, location=None, name=None, properties=None, resource_group_name=None, sku=None, tags=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 etag: Optional[pulumi.Input[str]] = None,
+                 kind: Optional[pulumi.Input[str]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 properties: Optional[pulumi.Input[pulumi.InputType['BotPropertiesArgs']]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 sku: Optional[pulumi.Input[pulumi.InputType['SkuArgs']]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         Bot resource definition
 
@@ -67,27 +37,10 @@ class Bot(pulumi.CustomResource):
         :param pulumi.Input[str] kind: Required. Gets or sets the Kind of the resource.
         :param pulumi.Input[str] location: Specifies the location of the resource.
         :param pulumi.Input[str] name: The name of the Bot resource.
-        :param pulumi.Input[dict] properties: The set of properties specific to bot resource
+        :param pulumi.Input[pulumi.InputType['BotPropertiesArgs']] properties: The set of properties specific to bot resource
         :param pulumi.Input[str] resource_group_name: The name of the Bot resource group in the user subscription.
-        :param pulumi.Input[dict] sku: Gets or sets the SKU of the resource.
-        :param pulumi.Input[dict] tags: Contains resource tags defined as key/value pairs.
-
-        The **properties** object supports the following:
-
-          * `description` (`pulumi.Input[str]`) - The description of the bot
-          * `developer_app_insight_key` (`pulumi.Input[str]`) - The Application Insights key
-          * `developer_app_insights_api_key` (`pulumi.Input[str]`) - The Application Insights Api Key
-          * `developer_app_insights_application_id` (`pulumi.Input[str]`) - The Application Insights App Id
-          * `display_name` (`pulumi.Input[str]`) - The Name of the bot
-          * `endpoint` (`pulumi.Input[str]`) - The bot's endpoint
-          * `icon_url` (`pulumi.Input[str]`) - The Icon Url of the bot
-          * `luis_app_ids` (`pulumi.Input[list]`) - Collection of LUIS App Ids
-          * `luis_key` (`pulumi.Input[str]`) - The LUIS Key
-          * `msa_app_id` (`pulumi.Input[str]`) - Microsoft App Id for the bot
-
-        The **sku** object supports the following:
-
-          * `name` (`pulumi.Input[str]`) - The sku name
+        :param pulumi.Input[pulumi.InputType['SkuArgs']] sku: Gets or sets the SKU of the resource.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Contains resource tags defined as key/value pairs.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -126,13 +79,15 @@ class Bot(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None) -> 'Bot':
         """
         Get an existing Bot resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -141,8 +96,73 @@ class Bot(pulumi.CustomResource):
 
         return Bot(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter
+    def etag(self) -> Optional[str]:
+        """
+        Entity Tag
+        """
+        return pulumi.get(self, "etag")
+
+    @property
+    @pulumi.getter
+    def kind(self) -> Optional[str]:
+        """
+        Required. Gets or sets the Kind of the resource.
+        """
+        return pulumi.get(self, "kind")
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[str]:
+        """
+        Specifies the location of the resource.
+        """
+        return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Specifies the name of the resource.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def properties(self) -> 'outputs.BotPropertiesResponse':
+        """
+        The set of properties specific to bot resource
+        """
+        return pulumi.get(self, "properties")
+
+    @property
+    @pulumi.getter
+    def sku(self) -> Optional['outputs.SkuResponse']:
+        """
+        Gets or sets the SKU of the resource.
+        """
+        return pulumi.get(self, "sku")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Mapping[str, str]]:
+        """
+        Contains resource tags defined as key/value pairs.
+        """
+        return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Specifies the type of the resource.
+        """
+        return pulumi.get(self, "type")
+
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

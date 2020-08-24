@@ -5,10 +5,17 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+from . import outputs
 
+__all__ = [
+    'GetSmartDetectorAlertRuleResult',
+    'AwaitableGetSmartDetectorAlertRuleResult',
+    'get_smart_detector_alert_rule',
+]
 
+@pulumi.output_type
 class GetSmartDetectorAlertRuleResult:
     """
     The alert rule information
@@ -16,76 +23,136 @@ class GetSmartDetectorAlertRuleResult:
     def __init__(__self__, action_groups=None, description=None, detector=None, frequency=None, location=None, name=None, scope=None, severity=None, state=None, tags=None, throttling=None, type=None):
         if action_groups and not isinstance(action_groups, dict):
             raise TypeError("Expected argument 'action_groups' to be a dict")
-        __self__.action_groups = action_groups
+        pulumi.set(__self__, "action_groups", action_groups)
+        if description and not isinstance(description, str):
+            raise TypeError("Expected argument 'description' to be a str")
+        pulumi.set(__self__, "description", description)
+        if detector and not isinstance(detector, dict):
+            raise TypeError("Expected argument 'detector' to be a dict")
+        pulumi.set(__self__, "detector", detector)
+        if frequency and not isinstance(frequency, str):
+            raise TypeError("Expected argument 'frequency' to be a str")
+        pulumi.set(__self__, "frequency", frequency)
+        if location and not isinstance(location, str):
+            raise TypeError("Expected argument 'location' to be a str")
+        pulumi.set(__self__, "location", location)
+        if name and not isinstance(name, str):
+            raise TypeError("Expected argument 'name' to be a str")
+        pulumi.set(__self__, "name", name)
+        if scope and not isinstance(scope, list):
+            raise TypeError("Expected argument 'scope' to be a list")
+        pulumi.set(__self__, "scope", scope)
+        if severity and not isinstance(severity, str):
+            raise TypeError("Expected argument 'severity' to be a str")
+        pulumi.set(__self__, "severity", severity)
+        if state and not isinstance(state, str):
+            raise TypeError("Expected argument 'state' to be a str")
+        pulumi.set(__self__, "state", state)
+        if tags and not isinstance(tags, dict):
+            raise TypeError("Expected argument 'tags' to be a dict")
+        pulumi.set(__self__, "tags", tags)
+        if throttling and not isinstance(throttling, dict):
+            raise TypeError("Expected argument 'throttling' to be a dict")
+        pulumi.set(__self__, "throttling", throttling)
+        if type and not isinstance(type, str):
+            raise TypeError("Expected argument 'type' to be a str")
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="actionGroups")
+    def action_groups(self) -> 'outputs.ActionGroupsInformationResponse':
         """
         The alert rule actions.
         """
-        if description and not isinstance(description, str):
-            raise TypeError("Expected argument 'description' to be a str")
-        __self__.description = description
+        return pulumi.get(self, "action_groups")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
         """
         The alert rule description.
         """
-        if detector and not isinstance(detector, dict):
-            raise TypeError("Expected argument 'detector' to be a dict")
-        __self__.detector = detector
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def detector(self) -> 'outputs.DetectorResponse':
         """
         The alert rule's detector.
         """
-        if frequency and not isinstance(frequency, str):
-            raise TypeError("Expected argument 'frequency' to be a str")
-        __self__.frequency = frequency
+        return pulumi.get(self, "detector")
+
+    @property
+    @pulumi.getter
+    def frequency(self) -> str:
         """
         The alert rule frequency in ISO8601 format. The time granularity must be in minutes and minimum value is 5 minutes.
         """
-        if location and not isinstance(location, str):
-            raise TypeError("Expected argument 'location' to be a str")
-        __self__.location = location
+        return pulumi.get(self, "frequency")
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[str]:
         """
         The resource location.
         """
-        if name and not isinstance(name, str):
-            raise TypeError("Expected argument 'name' to be a str")
-        __self__.name = name
+        return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
         """
         The resource name.
         """
-        if scope and not isinstance(scope, list):
-            raise TypeError("Expected argument 'scope' to be a list")
-        __self__.scope = scope
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def scope(self) -> List[str]:
         """
         The alert rule resources scope.
         """
-        if severity and not isinstance(severity, str):
-            raise TypeError("Expected argument 'severity' to be a str")
-        __self__.severity = severity
+        return pulumi.get(self, "scope")
+
+    @property
+    @pulumi.getter
+    def severity(self) -> str:
         """
         The alert rule severity.
         """
-        if state and not isinstance(state, str):
-            raise TypeError("Expected argument 'state' to be a str")
-        __self__.state = state
+        return pulumi.get(self, "severity")
+
+    @property
+    @pulumi.getter
+    def state(self) -> str:
         """
         The alert rule state.
         """
-        if tags and not isinstance(tags, dict):
-            raise TypeError("Expected argument 'tags' to be a dict")
-        __self__.tags = tags
+        return pulumi.get(self, "state")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Mapping[str, Any]]:
         """
         The resource tags.
         """
-        if throttling and not isinstance(throttling, dict):
-            raise TypeError("Expected argument 'throttling' to be a dict")
-        __self__.throttling = throttling
+        return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter
+    def throttling(self) -> Optional['outputs.ThrottlingInformationResponse']:
         """
         The alert rule throttling information.
         """
-        if type and not isinstance(type, str):
-            raise TypeError("Expected argument 'type' to be a str")
-        __self__.type = type
+        return pulumi.get(self, "throttling")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
         """
         The resource type.
         """
+        return pulumi.get(self, "type")
 
 
 class AwaitableGetSmartDetectorAlertRuleResult(GetSmartDetectorAlertRuleResult):
@@ -108,7 +175,10 @@ class AwaitableGetSmartDetectorAlertRuleResult(GetSmartDetectorAlertRuleResult):
             type=self.type)
 
 
-def get_smart_detector_alert_rule(expand_detector=None, name=None, resource_group_name=None, opts=None):
+def get_smart_detector_alert_rule(expand_detector: Optional[bool] = None,
+                                  name: Optional[str] = None,
+                                  resource_group_name: Optional[str] = None,
+                                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSmartDetectorAlertRuleResult:
     """
     Use this data source to access information about an existing resource.
 
@@ -124,18 +194,18 @@ def get_smart_detector_alert_rule(expand_detector=None, name=None, resource_grou
         opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = _utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('azurerm:alertsmanagement/v20190601:getSmartDetectorAlertRule', __args__, opts=opts).value
+    __ret__ = pulumi.runtime.invoke('azurerm:alertsmanagement/v20190601:getSmartDetectorAlertRule', __args__, opts=opts, typ=GetSmartDetectorAlertRuleResult).value
 
     return AwaitableGetSmartDetectorAlertRuleResult(
-        action_groups=__ret__.get('actionGroups'),
-        description=__ret__.get('description'),
-        detector=__ret__.get('detector'),
-        frequency=__ret__.get('frequency'),
-        location=__ret__.get('location'),
-        name=__ret__.get('name'),
-        scope=__ret__.get('scope'),
-        severity=__ret__.get('severity'),
-        state=__ret__.get('state'),
-        tags=__ret__.get('tags'),
-        throttling=__ret__.get('throttling'),
-        type=__ret__.get('type'))
+        action_groups=__ret__.action_groups,
+        description=__ret__.description,
+        detector=__ret__.detector,
+        frequency=__ret__.frequency,
+        location=__ret__.location,
+        name=__ret__.name,
+        scope=__ret__.scope,
+        severity=__ret__.severity,
+        state=__ret__.state,
+        tags=__ret__.tags,
+        throttling=__ret__.throttling,
+        type=__ret__.type)

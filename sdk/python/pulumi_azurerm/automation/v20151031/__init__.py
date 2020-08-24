@@ -32,3 +32,5 @@ from .schedule import *
 from .variable import *
 from .watcher import *
 from .webhook import *
+from ._inputs import *
+from . import outputs

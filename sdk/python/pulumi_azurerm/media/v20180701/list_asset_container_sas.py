@@ -5,10 +5,16 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
 
+__all__ = [
+    'ListAssetContainerSasResult',
+    'AwaitableListAssetContainerSasResult',
+    'list_asset_container_sas',
+]
 
+@pulumi.output_type
 class ListAssetContainerSasResult:
     """
     The Asset Storage container SAS URLs.
@@ -16,10 +22,15 @@ class ListAssetContainerSasResult:
     def __init__(__self__, asset_container_sas_urls=None):
         if asset_container_sas_urls and not isinstance(asset_container_sas_urls, list):
             raise TypeError("Expected argument 'asset_container_sas_urls' to be a list")
-        __self__.asset_container_sas_urls = asset_container_sas_urls
+        pulumi.set(__self__, "asset_container_sas_urls", asset_container_sas_urls)
+
+    @property
+    @pulumi.getter(name="assetContainerSasUrls")
+    def asset_container_sas_urls(self) -> Optional[List[str]]:
         """
         The list of Asset container SAS URLs.
         """
+        return pulumi.get(self, "asset_container_sas_urls")
 
 
 class AwaitableListAssetContainerSasResult(ListAssetContainerSasResult):
@@ -31,7 +42,12 @@ class AwaitableListAssetContainerSasResult(ListAssetContainerSasResult):
             asset_container_sas_urls=self.asset_container_sas_urls)
 
 
-def list_asset_container_sas(account_name=None, asset_name=None, expiry_time=None, permissions=None, resource_group_name=None, opts=None):
+def list_asset_container_sas(account_name: Optional[str] = None,
+                             asset_name: Optional[str] = None,
+                             expiry_time: Optional[str] = None,
+                             permissions: Optional[str] = None,
+                             resource_group_name: Optional[str] = None,
+                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListAssetContainerSasResult:
     """
     Use this data source to access information about an existing resource.
 
@@ -51,7 +67,7 @@ def list_asset_container_sas(account_name=None, asset_name=None, expiry_time=Non
         opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = _utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('azurerm:media/v20180701:listAssetContainerSas', __args__, opts=opts).value
+    __ret__ = pulumi.runtime.invoke('azurerm:media/v20180701:listAssetContainerSas', __args__, opts=opts, typ=ListAssetContainerSasResult).value
 
     return AwaitableListAssetContainerSasResult(
-        asset_container_sas_urls=__ret__.get('assetContainerSasUrls'))
+        asset_container_sas_urls=__ret__.asset_container_sas_urls)

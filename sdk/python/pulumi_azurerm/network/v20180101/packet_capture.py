@@ -5,49 +5,30 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+from . import outputs
+from ._inputs import *
+
+__all__ = ['PacketCapture']
 
 
 class PacketCapture(pulumi.CustomResource):
-    bytes_to_capture_per_packet: pulumi.Output[float]
-    """
-    Number of bytes captured per packet, the remaining bytes are truncated.
-    """
-    etag: pulumi.Output[str]
-    filters: pulumi.Output[list]
-    name: pulumi.Output[str]
-    """
-    Name of the packet capture.
-    """
-    provisioning_state: pulumi.Output[str]
-    """
-    The provisioning state of the packet capture session.
-    """
-    storage_location: pulumi.Output[dict]
-    """
-    Describes the storage location for a packet capture session.
-      * `file_path` (`str`) - A valid local path on the targeting VM. Must include the name of the capture file (*.cap). For linux virtual machine it must start with /var/captures. Required if no storage ID is provided, otherwise optional.
-      * `storage_id` (`str`) - The ID of the storage account to save the packet capture session. Required if no local file path is provided.
-      * `storage_path` (`str`) - The URI of the storage path to save the packet capture. Must be a well-formed URI describing the location to save the packet capture.
-    """
-    target: pulumi.Output[str]
-    """
-    The ID of the targeted resource, only VM is currently supported.
-    """
-    time_limit_in_seconds: pulumi.Output[float]
-    """
-    Maximum duration of the capture session in seconds.
-    """
-    total_bytes_per_session: pulumi.Output[float]
-    """
-    Maximum size of the capture output.
-    """
-    type: pulumi.Output[str]
-    """
-    Packet capture type.
-    """
-    def __init__(__self__, resource_name, opts=None, bytes_to_capture_per_packet=None, filters=None, name=None, network_watcher_name=None, resource_group_name=None, storage_location=None, target=None, time_limit_in_seconds=None, total_bytes_per_session=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 bytes_to_capture_per_packet: Optional[pulumi.Input[float]] = None,
+                 filters: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['PacketCaptureFilterArgs']]]]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 network_watcher_name: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 storage_location: Optional[pulumi.Input[pulumi.InputType['PacketCaptureStorageLocationArgs']]] = None,
+                 target: Optional[pulumi.Input[str]] = None,
+                 time_limit_in_seconds: Optional[pulumi.Input[float]] = None,
+                 total_bytes_per_session: Optional[pulumi.Input[float]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         Information about packet capture session.
 
@@ -57,24 +38,10 @@ class PacketCapture(pulumi.CustomResource):
         :param pulumi.Input[str] name: The name of the packet capture session.
         :param pulumi.Input[str] network_watcher_name: The name of the network watcher.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
-        :param pulumi.Input[dict] storage_location: Describes the storage location for a packet capture session.
+        :param pulumi.Input[pulumi.InputType['PacketCaptureStorageLocationArgs']] storage_location: Describes the storage location for a packet capture session.
         :param pulumi.Input[str] target: The ID of the targeted resource, only VM is currently supported.
         :param pulumi.Input[float] time_limit_in_seconds: Maximum duration of the capture session in seconds.
         :param pulumi.Input[float] total_bytes_per_session: Maximum size of the capture output.
-
-        The **filters** object supports the following:
-
-          * `local_ip_address` (`pulumi.Input[str]`) - Local IP Address to be filtered on. Notation: "127.0.0.1" for single address entry. "127.0.0.1-127.0.0.255" for range. "127.0.0.1;127.0.0.5"? for multiple entries. Multiple ranges not currently supported. Mixing ranges with multiple entries not currently supported. Default = null.
-          * `local_port` (`pulumi.Input[str]`) - Local port to be filtered on. Notation: "80" for single port entry."80-85" for range. "80;443;" for multiple entries. Multiple ranges not currently supported. Mixing ranges with multiple entries not currently supported. Default = null.
-          * `protocol` (`pulumi.Input[str]`) - Protocol to be filtered on.
-          * `remote_ip_address` (`pulumi.Input[str]`) - Local IP Address to be filtered on. Notation: "127.0.0.1" for single address entry. "127.0.0.1-127.0.0.255" for range. "127.0.0.1;127.0.0.5;" for multiple entries. Multiple ranges not currently supported. Mixing ranges with multiple entries not currently supported. Default = null.
-          * `remote_port` (`pulumi.Input[str]`) - Remote port to be filtered on. Notation: "80" for single port entry."80-85" for range. "80;443;" for multiple entries. Multiple ranges not currently supported. Mixing ranges with multiple entries not currently supported. Default = null.
-
-        The **storage_location** object supports the following:
-
-          * `file_path` (`pulumi.Input[str]`) - A valid local path on the targeting VM. Must include the name of the capture file (*.cap). For linux virtual machine it must start with /var/captures. Required if no storage ID is provided, otherwise optional.
-          * `storage_id` (`pulumi.Input[str]`) - The ID of the storage account to save the packet capture session. Required if no local file path is provided.
-          * `storage_path` (`pulumi.Input[str]`) - The URI of the storage path to save the packet capture. Must be a well-formed URI describing the location to save the packet capture.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -124,13 +91,15 @@ class PacketCapture(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None) -> 'PacketCapture':
         """
         Get an existing PacketCapture resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -139,8 +108,83 @@ class PacketCapture(pulumi.CustomResource):
 
         return PacketCapture(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter(name="bytesToCapturePerPacket")
+    def bytes_to_capture_per_packet(self) -> Optional[float]:
+        """
+        Number of bytes captured per packet, the remaining bytes are truncated.
+        """
+        return pulumi.get(self, "bytes_to_capture_per_packet")
+
+    @property
+    @pulumi.getter
+    def etag(self) -> Optional[str]:
+        return pulumi.get(self, "etag")
+
+    @property
+    @pulumi.getter
+    def filters(self) -> Optional[List['outputs.PacketCaptureFilterResponse']]:
+        return pulumi.get(self, "filters")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Name of the packet capture.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> Optional[str]:
+        """
+        The provisioning state of the packet capture session.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="storageLocation")
+    def storage_location(self) -> 'outputs.PacketCaptureStorageLocationResponse':
+        """
+        Describes the storage location for a packet capture session.
+        """
+        return pulumi.get(self, "storage_location")
+
+    @property
+    @pulumi.getter
+    def target(self) -> str:
+        """
+        The ID of the targeted resource, only VM is currently supported.
+        """
+        return pulumi.get(self, "target")
+
+    @property
+    @pulumi.getter(name="timeLimitInSeconds")
+    def time_limit_in_seconds(self) -> Optional[float]:
+        """
+        Maximum duration of the capture session in seconds.
+        """
+        return pulumi.get(self, "time_limit_in_seconds")
+
+    @property
+    @pulumi.getter(name="totalBytesPerSession")
+    def total_bytes_per_session(self) -> Optional[float]:
+        """
+        Maximum size of the capture output.
+        """
+        return pulumi.get(self, "total_bytes_per_session")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Packet capture type.
+        """
+        return pulumi.get(self, "type")
+
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

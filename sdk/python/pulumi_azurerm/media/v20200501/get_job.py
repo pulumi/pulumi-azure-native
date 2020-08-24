@@ -5,10 +5,17 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+from . import outputs
 
+__all__ = [
+    'GetJobResult',
+    'AwaitableGetJobResult',
+    'get_job',
+]
 
+@pulumi.output_type
 class GetJobResult:
     """
     A Job resource type. The progress and state can be obtained by polling a Job or subscribing to events using EventGrid.
@@ -16,76 +23,136 @@ class GetJobResult:
     def __init__(__self__, correlation_data=None, created=None, description=None, end_time=None, input=None, last_modified=None, name=None, outputs=None, priority=None, start_time=None, state=None, type=None):
         if correlation_data and not isinstance(correlation_data, dict):
             raise TypeError("Expected argument 'correlation_data' to be a dict")
-        __self__.correlation_data = correlation_data
+        pulumi.set(__self__, "correlation_data", correlation_data)
+        if created and not isinstance(created, str):
+            raise TypeError("Expected argument 'created' to be a str")
+        pulumi.set(__self__, "created", created)
+        if description and not isinstance(description, str):
+            raise TypeError("Expected argument 'description' to be a str")
+        pulumi.set(__self__, "description", description)
+        if end_time and not isinstance(end_time, str):
+            raise TypeError("Expected argument 'end_time' to be a str")
+        pulumi.set(__self__, "end_time", end_time)
+        if input and not isinstance(input, dict):
+            raise TypeError("Expected argument 'input' to be a dict")
+        pulumi.set(__self__, "input", input)
+        if last_modified and not isinstance(last_modified, str):
+            raise TypeError("Expected argument 'last_modified' to be a str")
+        pulumi.set(__self__, "last_modified", last_modified)
+        if name and not isinstance(name, str):
+            raise TypeError("Expected argument 'name' to be a str")
+        pulumi.set(__self__, "name", name)
+        if outputs and not isinstance(outputs, list):
+            raise TypeError("Expected argument 'outputs' to be a list")
+        pulumi.set(__self__, "outputs", outputs)
+        if priority and not isinstance(priority, str):
+            raise TypeError("Expected argument 'priority' to be a str")
+        pulumi.set(__self__, "priority", priority)
+        if start_time and not isinstance(start_time, str):
+            raise TypeError("Expected argument 'start_time' to be a str")
+        pulumi.set(__self__, "start_time", start_time)
+        if state and not isinstance(state, str):
+            raise TypeError("Expected argument 'state' to be a str")
+        pulumi.set(__self__, "state", state)
+        if type and not isinstance(type, str):
+            raise TypeError("Expected argument 'type' to be a str")
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="correlationData")
+    def correlation_data(self) -> Optional[Mapping[str, str]]:
         """
         Customer provided key, value pairs that will be returned in Job and JobOutput state events.
         """
-        if created and not isinstance(created, str):
-            raise TypeError("Expected argument 'created' to be a str")
-        __self__.created = created
+        return pulumi.get(self, "correlation_data")
+
+    @property
+    @pulumi.getter
+    def created(self) -> str:
         """
         The UTC date and time when the Job was created, in 'YYYY-MM-DDThh:mm:ssZ' format.
         """
-        if description and not isinstance(description, str):
-            raise TypeError("Expected argument 'description' to be a str")
-        __self__.description = description
+        return pulumi.get(self, "created")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
         """
         Optional customer supplied description of the Job.
         """
-        if end_time and not isinstance(end_time, str):
-            raise TypeError("Expected argument 'end_time' to be a str")
-        __self__.end_time = end_time
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="endTime")
+    def end_time(self) -> str:
         """
         The UTC date and time at which this Job finished processing.
         """
-        if input and not isinstance(input, dict):
-            raise TypeError("Expected argument 'input' to be a dict")
-        __self__.input = input
+        return pulumi.get(self, "end_time")
+
+    @property
+    @pulumi.getter
+    def input(self) -> 'outputs.JobInputResponse':
         """
         The inputs for the Job.
         """
-        if last_modified and not isinstance(last_modified, str):
-            raise TypeError("Expected argument 'last_modified' to be a str")
-        __self__.last_modified = last_modified
+        return pulumi.get(self, "input")
+
+    @property
+    @pulumi.getter(name="lastModified")
+    def last_modified(self) -> str:
         """
         The UTC date and time when the Job was last updated, in 'YYYY-MM-DDThh:mm:ssZ' format.
         """
-        if name and not isinstance(name, str):
-            raise TypeError("Expected argument 'name' to be a str")
-        __self__.name = name
+        return pulumi.get(self, "last_modified")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
         """
         The name of the resource
         """
-        if outputs and not isinstance(outputs, list):
-            raise TypeError("Expected argument 'outputs' to be a list")
-        __self__.outputs = outputs
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def outputs(self) -> List['outputs.JobOutputResponse']:
         """
         The outputs for the Job.
         """
-        if priority and not isinstance(priority, str):
-            raise TypeError("Expected argument 'priority' to be a str")
-        __self__.priority = priority
+        return pulumi.get(self, "outputs")
+
+    @property
+    @pulumi.getter
+    def priority(self) -> Optional[str]:
         """
         Priority with which the job should be processed. Higher priority jobs are processed before lower priority jobs. If not set, the default is normal.
         """
-        if start_time and not isinstance(start_time, str):
-            raise TypeError("Expected argument 'start_time' to be a str")
-        __self__.start_time = start_time
+        return pulumi.get(self, "priority")
+
+    @property
+    @pulumi.getter(name="startTime")
+    def start_time(self) -> str:
         """
         The UTC date and time at which this Job began processing.
         """
-        if state and not isinstance(state, str):
-            raise TypeError("Expected argument 'state' to be a str")
-        __self__.state = state
+        return pulumi.get(self, "start_time")
+
+    @property
+    @pulumi.getter
+    def state(self) -> str:
         """
         The current state of the job.
         """
-        if type and not isinstance(type, str):
-            raise TypeError("Expected argument 'type' to be a str")
-        __self__.type = type
+        return pulumi.get(self, "state")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
         """
         The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
         """
+        return pulumi.get(self, "type")
 
 
 class AwaitableGetJobResult(GetJobResult):
@@ -108,7 +175,11 @@ class AwaitableGetJobResult(GetJobResult):
             type=self.type)
 
 
-def get_job(account_name=None, name=None, resource_group_name=None, transform_name=None, opts=None):
+def get_job(account_name: Optional[str] = None,
+            name: Optional[str] = None,
+            resource_group_name: Optional[str] = None,
+            transform_name: Optional[str] = None,
+            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetJobResult:
     """
     Use this data source to access information about an existing resource.
 
@@ -126,18 +197,18 @@ def get_job(account_name=None, name=None, resource_group_name=None, transform_na
         opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = _utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('azurerm:media/v20200501:getJob', __args__, opts=opts).value
+    __ret__ = pulumi.runtime.invoke('azurerm:media/v20200501:getJob', __args__, opts=opts, typ=GetJobResult).value
 
     return AwaitableGetJobResult(
-        correlation_data=__ret__.get('correlationData'),
-        created=__ret__.get('created'),
-        description=__ret__.get('description'),
-        end_time=__ret__.get('endTime'),
-        input=__ret__.get('input'),
-        last_modified=__ret__.get('lastModified'),
-        name=__ret__.get('name'),
-        outputs=__ret__.get('outputs'),
-        priority=__ret__.get('priority'),
-        start_time=__ret__.get('startTime'),
-        state=__ret__.get('state'),
-        type=__ret__.get('type'))
+        correlation_data=__ret__.correlation_data,
+        created=__ret__.created,
+        description=__ret__.description,
+        end_time=__ret__.end_time,
+        input=__ret__.input,
+        last_modified=__ret__.last_modified,
+        name=__ret__.name,
+        outputs=__ret__.outputs,
+        priority=__ret__.priority,
+        start_time=__ret__.start_time,
+        state=__ret__.state,
+        type=__ret__.type)

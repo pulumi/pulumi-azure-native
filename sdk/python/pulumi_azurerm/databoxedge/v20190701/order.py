@@ -5,105 +5,36 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+from . import outputs
+from ._inputs import *
+
+__all__ = ['Order']
 
 
 class Order(pulumi.CustomResource):
-    contact_information: pulumi.Output[dict]
-    """
-    The contact details.
-      * `company_name` (`str`) - The name of the company.
-      * `contact_person` (`str`) - The contact person name.
-      * `email_list` (`list`) - The email list.
-      * `phone` (`str`) - The phone number.
-    """
-    current_status: pulumi.Output[dict]
-    """
-    Current status of the order.
-      * `comments` (`str`) - Comments related to this status change.
-      * `status` (`str`) - Status of the order as per the allowed status types.
-      * `update_date_time` (`str`) - Time of status update.
-    """
-    delivery_tracking_info: pulumi.Output[list]
-    """
-    Tracking information for the package delivered to the customer whether it has an original or a replacement device.
-      * `carrier_name` (`str`) - Name of the carrier used in the delivery.
-      * `serial_number` (`str`) - Serial number of the device being tracked.
-      * `tracking_id` (`str`) - Tracking ID of the shipment.
-      * `tracking_url` (`str`) - Tracking URL of the shipment.
-    """
-    name: pulumi.Output[str]
-    """
-    The object name.
-    """
-    order_history: pulumi.Output[list]
-    """
-    List of status changes in the order.
-      * `comments` (`str`) - Comments related to this status change.
-      * `status` (`str`) - Status of the order as per the allowed status types.
-      * `update_date_time` (`str`) - Time of status update.
-    """
-    return_tracking_info: pulumi.Output[list]
-    """
-    Tracking information for the package returned from the customer whether it has an original or a replacement device.
-      * `carrier_name` (`str`) - Name of the carrier used in the delivery.
-      * `serial_number` (`str`) - Serial number of the device being tracked.
-      * `tracking_id` (`str`) - Tracking ID of the shipment.
-      * `tracking_url` (`str`) - Tracking URL of the shipment.
-    """
-    serial_number: pulumi.Output[str]
-    """
-    Serial number of the device.
-    """
-    shipping_address: pulumi.Output[dict]
-    """
-    The shipping address.
-      * `address_line1` (`str`) - The address line1.
-      * `address_line2` (`str`) - The address line2.
-      * `address_line3` (`str`) - The address line3.
-      * `city` (`str`) - The city name.
-      * `country` (`str`) - The country name.
-      * `postal_code` (`str`) - The postal code.
-      * `state` (`str`) - The state name.
-    """
-    type: pulumi.Output[str]
-    """
-    The hierarchical type of the object.
-    """
-    def __init__(__self__, resource_name, opts=None, contact_information=None, current_status=None, name=None, resource_group_name=None, shipping_address=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 contact_information: Optional[pulumi.Input[pulumi.InputType['ContactDetailsArgs']]] = None,
+                 current_status: Optional[pulumi.Input[pulumi.InputType['OrderStatusArgs']]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 shipping_address: Optional[pulumi.Input[pulumi.InputType['AddressArgs']]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         The order details.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[dict] contact_information: The contact details.
-        :param pulumi.Input[dict] current_status: Current status of the order.
+        :param pulumi.Input[pulumi.InputType['ContactDetailsArgs']] contact_information: The contact details.
+        :param pulumi.Input[pulumi.InputType['OrderStatusArgs']] current_status: Current status of the order.
         :param pulumi.Input[str] name: The device name.
         :param pulumi.Input[str] resource_group_name: The resource group name.
-        :param pulumi.Input[dict] shipping_address: The shipping address.
-
-        The **contact_information** object supports the following:
-
-          * `company_name` (`pulumi.Input[str]`) - The name of the company.
-          * `contact_person` (`pulumi.Input[str]`) - The contact person name.
-          * `email_list` (`pulumi.Input[list]`) - The email list.
-          * `phone` (`pulumi.Input[str]`) - The phone number.
-
-        The **current_status** object supports the following:
-
-          * `comments` (`pulumi.Input[str]`) - Comments related to this status change.
-          * `status` (`pulumi.Input[str]`) - Status of the order as per the allowed status types.
-
-        The **shipping_address** object supports the following:
-
-          * `address_line1` (`pulumi.Input[str]`) - The address line1.
-          * `address_line2` (`pulumi.Input[str]`) - The address line2.
-          * `address_line3` (`pulumi.Input[str]`) - The address line3.
-          * `city` (`pulumi.Input[str]`) - The city name.
-          * `country` (`pulumi.Input[str]`) - The country name.
-          * `postal_code` (`pulumi.Input[str]`) - The postal code.
-          * `state` (`pulumi.Input[str]`) - The state name.
+        :param pulumi.Input[pulumi.InputType['AddressArgs']] shipping_address: The shipping address.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -149,13 +80,15 @@ class Order(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None) -> 'Order':
         """
         Get an existing Order resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -164,8 +97,81 @@ class Order(pulumi.CustomResource):
 
         return Order(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter(name="contactInformation")
+    def contact_information(self) -> 'outputs.ContactDetailsResponse':
+        """
+        The contact details.
+        """
+        return pulumi.get(self, "contact_information")
+
+    @property
+    @pulumi.getter(name="currentStatus")
+    def current_status(self) -> Optional['outputs.OrderStatusResponse']:
+        """
+        Current status of the order.
+        """
+        return pulumi.get(self, "current_status")
+
+    @property
+    @pulumi.getter(name="deliveryTrackingInfo")
+    def delivery_tracking_info(self) -> List['outputs.TrackingInfoResponse']:
+        """
+        Tracking information for the package delivered to the customer whether it has an original or a replacement device.
+        """
+        return pulumi.get(self, "delivery_tracking_info")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The object name.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="orderHistory")
+    def order_history(self) -> List['outputs.OrderStatusResponse']:
+        """
+        List of status changes in the order.
+        """
+        return pulumi.get(self, "order_history")
+
+    @property
+    @pulumi.getter(name="returnTrackingInfo")
+    def return_tracking_info(self) -> List['outputs.TrackingInfoResponse']:
+        """
+        Tracking information for the package returned from the customer whether it has an original or a replacement device.
+        """
+        return pulumi.get(self, "return_tracking_info")
+
+    @property
+    @pulumi.getter(name="serialNumber")
+    def serial_number(self) -> str:
+        """
+        Serial number of the device.
+        """
+        return pulumi.get(self, "serial_number")
+
+    @property
+    @pulumi.getter(name="shippingAddress")
+    def shipping_address(self) -> 'outputs.AddressResponse':
+        """
+        The shipping address.
+        """
+        return pulumi.get(self, "shipping_address")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        The hierarchical type of the object.
+        """
+        return pulumi.get(self, "type")
+
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

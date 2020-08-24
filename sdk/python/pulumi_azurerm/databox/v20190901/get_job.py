@@ -5,10 +5,17 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+from . import outputs
 
+__all__ = [
+    'GetJobResult',
+    'AwaitableGetJobResult',
+    'get_job',
+]
 
+@pulumi.output_type
 class GetJobResult:
     """
     Job Resource.
@@ -16,100 +23,180 @@ class GetJobResult:
     def __init__(__self__, cancellation_reason=None, delivery_info=None, delivery_type=None, details=None, error=None, is_cancellable=None, is_cancellable_without_fee=None, is_deletable=None, is_shipping_address_editable=None, location=None, name=None, sku=None, start_time=None, status=None, tags=None, type=None):
         if cancellation_reason and not isinstance(cancellation_reason, str):
             raise TypeError("Expected argument 'cancellation_reason' to be a str")
-        __self__.cancellation_reason = cancellation_reason
+        pulumi.set(__self__, "cancellation_reason", cancellation_reason)
+        if delivery_info and not isinstance(delivery_info, dict):
+            raise TypeError("Expected argument 'delivery_info' to be a dict")
+        pulumi.set(__self__, "delivery_info", delivery_info)
+        if delivery_type and not isinstance(delivery_type, str):
+            raise TypeError("Expected argument 'delivery_type' to be a str")
+        pulumi.set(__self__, "delivery_type", delivery_type)
+        if details and not isinstance(details, dict):
+            raise TypeError("Expected argument 'details' to be a dict")
+        pulumi.set(__self__, "details", details)
+        if error and not isinstance(error, dict):
+            raise TypeError("Expected argument 'error' to be a dict")
+        pulumi.set(__self__, "error", error)
+        if is_cancellable and not isinstance(is_cancellable, bool):
+            raise TypeError("Expected argument 'is_cancellable' to be a bool")
+        pulumi.set(__self__, "is_cancellable", is_cancellable)
+        if is_cancellable_without_fee and not isinstance(is_cancellable_without_fee, bool):
+            raise TypeError("Expected argument 'is_cancellable_without_fee' to be a bool")
+        pulumi.set(__self__, "is_cancellable_without_fee", is_cancellable_without_fee)
+        if is_deletable and not isinstance(is_deletable, bool):
+            raise TypeError("Expected argument 'is_deletable' to be a bool")
+        pulumi.set(__self__, "is_deletable", is_deletable)
+        if is_shipping_address_editable and not isinstance(is_shipping_address_editable, bool):
+            raise TypeError("Expected argument 'is_shipping_address_editable' to be a bool")
+        pulumi.set(__self__, "is_shipping_address_editable", is_shipping_address_editable)
+        if location and not isinstance(location, str):
+            raise TypeError("Expected argument 'location' to be a str")
+        pulumi.set(__self__, "location", location)
+        if name and not isinstance(name, str):
+            raise TypeError("Expected argument 'name' to be a str")
+        pulumi.set(__self__, "name", name)
+        if sku and not isinstance(sku, dict):
+            raise TypeError("Expected argument 'sku' to be a dict")
+        pulumi.set(__self__, "sku", sku)
+        if start_time and not isinstance(start_time, str):
+            raise TypeError("Expected argument 'start_time' to be a str")
+        pulumi.set(__self__, "start_time", start_time)
+        if status and not isinstance(status, str):
+            raise TypeError("Expected argument 'status' to be a str")
+        pulumi.set(__self__, "status", status)
+        if tags and not isinstance(tags, dict):
+            raise TypeError("Expected argument 'tags' to be a dict")
+        pulumi.set(__self__, "tags", tags)
+        if type and not isinstance(type, str):
+            raise TypeError("Expected argument 'type' to be a str")
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="cancellationReason")
+    def cancellation_reason(self) -> str:
         """
         Reason for cancellation.
         """
-        if delivery_info and not isinstance(delivery_info, dict):
-            raise TypeError("Expected argument 'delivery_info' to be a dict")
-        __self__.delivery_info = delivery_info
+        return pulumi.get(self, "cancellation_reason")
+
+    @property
+    @pulumi.getter(name="deliveryInfo")
+    def delivery_info(self) -> Optional['outputs.JobDeliveryInfoResponse']:
         """
         Delivery Info of Job.
         """
-        if delivery_type and not isinstance(delivery_type, str):
-            raise TypeError("Expected argument 'delivery_type' to be a str")
-        __self__.delivery_type = delivery_type
+        return pulumi.get(self, "delivery_info")
+
+    @property
+    @pulumi.getter(name="deliveryType")
+    def delivery_type(self) -> Optional[str]:
         """
         Delivery type of Job.
         """
-        if details and not isinstance(details, dict):
-            raise TypeError("Expected argument 'details' to be a dict")
-        __self__.details = details
+        return pulumi.get(self, "delivery_type")
+
+    @property
+    @pulumi.getter
+    def details(self) -> Optional['outputs.JobDetailsResponse']:
         """
         Details of a job run. This field will only be sent for expand details filter.
         """
-        if error and not isinstance(error, dict):
-            raise TypeError("Expected argument 'error' to be a dict")
-        __self__.error = error
+        return pulumi.get(self, "details")
+
+    @property
+    @pulumi.getter
+    def error(self) -> 'outputs.ErrorResponse':
         """
         Top level error for the job.
         """
-        if is_cancellable and not isinstance(is_cancellable, bool):
-            raise TypeError("Expected argument 'is_cancellable' to be a bool")
-        __self__.is_cancellable = is_cancellable
+        return pulumi.get(self, "error")
+
+    @property
+    @pulumi.getter(name="isCancellable")
+    def is_cancellable(self) -> bool:
         """
         Describes whether the job is cancellable or not.
         """
-        if is_cancellable_without_fee and not isinstance(is_cancellable_without_fee, bool):
-            raise TypeError("Expected argument 'is_cancellable_without_fee' to be a bool")
-        __self__.is_cancellable_without_fee = is_cancellable_without_fee
+        return pulumi.get(self, "is_cancellable")
+
+    @property
+    @pulumi.getter(name="isCancellableWithoutFee")
+    def is_cancellable_without_fee(self) -> bool:
         """
         Flag to indicate cancellation of scheduled job.
         """
-        if is_deletable and not isinstance(is_deletable, bool):
-            raise TypeError("Expected argument 'is_deletable' to be a bool")
-        __self__.is_deletable = is_deletable
+        return pulumi.get(self, "is_cancellable_without_fee")
+
+    @property
+    @pulumi.getter(name="isDeletable")
+    def is_deletable(self) -> bool:
         """
         Describes whether the job is deletable or not.
         """
-        if is_shipping_address_editable and not isinstance(is_shipping_address_editable, bool):
-            raise TypeError("Expected argument 'is_shipping_address_editable' to be a bool")
-        __self__.is_shipping_address_editable = is_shipping_address_editable
+        return pulumi.get(self, "is_deletable")
+
+    @property
+    @pulumi.getter(name="isShippingAddressEditable")
+    def is_shipping_address_editable(self) -> bool:
         """
         Describes whether the shipping address is editable or not.
         """
-        if location and not isinstance(location, str):
-            raise TypeError("Expected argument 'location' to be a str")
-        __self__.location = location
+        return pulumi.get(self, "is_shipping_address_editable")
+
+    @property
+    @pulumi.getter
+    def location(self) -> str:
         """
         The location of the resource. This will be one of the supported and registered Azure Regions (e.g. West US, East US, Southeast Asia, etc.). The region of a resource cannot be changed once it is created, but if an identical region is specified on update the request will succeed.
         """
-        if name and not isinstance(name, str):
-            raise TypeError("Expected argument 'name' to be a str")
-        __self__.name = name
+        return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
         """
         Name of the object.
         """
-        if sku and not isinstance(sku, dict):
-            raise TypeError("Expected argument 'sku' to be a dict")
-        __self__.sku = sku
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def sku(self) -> 'outputs.SkuResponse':
         """
         The sku type.
         """
-        if start_time and not isinstance(start_time, str):
-            raise TypeError("Expected argument 'start_time' to be a str")
-        __self__.start_time = start_time
+        return pulumi.get(self, "sku")
+
+    @property
+    @pulumi.getter(name="startTime")
+    def start_time(self) -> str:
         """
         Time at which the job was started in UTC ISO 8601 format.
         """
-        if status and not isinstance(status, str):
-            raise TypeError("Expected argument 'status' to be a str")
-        __self__.status = status
+        return pulumi.get(self, "start_time")
+
+    @property
+    @pulumi.getter
+    def status(self) -> str:
         """
         Name of the stage which is in progress.
         """
-        if tags and not isinstance(tags, dict):
-            raise TypeError("Expected argument 'tags' to be a dict")
-        __self__.tags = tags
+        return pulumi.get(self, "status")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Mapping[str, str]]:
         """
         The list of key value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups).
         """
-        if type and not isinstance(type, str):
-            raise TypeError("Expected argument 'type' to be a str")
-        __self__.type = type
+        return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
         """
         Type of the object.
         """
+        return pulumi.get(self, "type")
 
 
 class AwaitableGetJobResult(GetJobResult):
@@ -136,7 +223,10 @@ class AwaitableGetJobResult(GetJobResult):
             type=self.type)
 
 
-def get_job(expand=None, name=None, resource_group_name=None, opts=None):
+def get_job(expand: Optional[str] = None,
+            name: Optional[str] = None,
+            resource_group_name: Optional[str] = None,
+            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetJobResult:
     """
     Use this data source to access information about an existing resource.
 
@@ -152,22 +242,22 @@ def get_job(expand=None, name=None, resource_group_name=None, opts=None):
         opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = _utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('azurerm:databox/v20190901:getJob', __args__, opts=opts).value
+    __ret__ = pulumi.runtime.invoke('azurerm:databox/v20190901:getJob', __args__, opts=opts, typ=GetJobResult).value
 
     return AwaitableGetJobResult(
-        cancellation_reason=__ret__.get('cancellationReason'),
-        delivery_info=__ret__.get('deliveryInfo'),
-        delivery_type=__ret__.get('deliveryType'),
-        details=__ret__.get('details'),
-        error=__ret__.get('error'),
-        is_cancellable=__ret__.get('isCancellable'),
-        is_cancellable_without_fee=__ret__.get('isCancellableWithoutFee'),
-        is_deletable=__ret__.get('isDeletable'),
-        is_shipping_address_editable=__ret__.get('isShippingAddressEditable'),
-        location=__ret__.get('location'),
-        name=__ret__.get('name'),
-        sku=__ret__.get('sku'),
-        start_time=__ret__.get('startTime'),
-        status=__ret__.get('status'),
-        tags=__ret__.get('tags'),
-        type=__ret__.get('type'))
+        cancellation_reason=__ret__.cancellation_reason,
+        delivery_info=__ret__.delivery_info,
+        delivery_type=__ret__.delivery_type,
+        details=__ret__.details,
+        error=__ret__.error,
+        is_cancellable=__ret__.is_cancellable,
+        is_cancellable_without_fee=__ret__.is_cancellable_without_fee,
+        is_deletable=__ret__.is_deletable,
+        is_shipping_address_editable=__ret__.is_shipping_address_editable,
+        location=__ret__.location,
+        name=__ret__.name,
+        sku=__ret__.sku,
+        start_time=__ret__.start_time,
+        status=__ret__.status,
+        tags=__ret__.tags,
+        type=__ret__.type)

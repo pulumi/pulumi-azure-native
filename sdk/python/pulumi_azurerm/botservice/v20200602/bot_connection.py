@@ -5,56 +5,30 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+from . import outputs
+from ._inputs import *
+
+__all__ = ['BotConnection']
 
 
 class BotConnection(pulumi.CustomResource):
-    etag: pulumi.Output[str]
-    """
-    Entity Tag
-    """
-    kind: pulumi.Output[str]
-    """
-    Required. Gets or sets the Kind of the resource.
-    """
-    location: pulumi.Output[str]
-    """
-    Specifies the location of the resource.
-    """
-    name: pulumi.Output[str]
-    """
-    Specifies the name of the resource.
-    """
-    properties: pulumi.Output[dict]
-    """
-    The set of properties specific to bot channel resource
-      * `client_id` (`str`) - Client Id associated with the Connection Setting.
-      * `client_secret` (`str`) - Client Secret associated with the Connection Setting
-      * `parameters` (`list`) - Service Provider Parameters associated with the Connection Setting
-        * `key` (`str`) - Key for the Connection Setting Parameter.
-        * `value` (`str`) - Value associated with the Connection Setting Parameter.
-
-      * `scopes` (`str`) - Scopes associated with the Connection Setting
-      * `service_provider_display_name` (`str`) - Service Provider Display Name associated with the Connection Setting
-      * `service_provider_id` (`str`) - Service Provider Id associated with the Connection Setting
-      * `setting_id` (`str`) - Setting Id set by the service for the Connection Setting.
-    """
-    sku: pulumi.Output[dict]
-    """
-    Gets or sets the SKU of the resource.
-      * `name` (`str`) - The sku name
-      * `tier` (`str`) - Gets the sku tier. This is based on the SKU name.
-    """
-    tags: pulumi.Output[dict]
-    """
-    Contains resource tags defined as key/value pairs.
-    """
-    type: pulumi.Output[str]
-    """
-    Specifies the type of the resource.
-    """
-    def __init__(__self__, resource_name, opts=None, etag=None, kind=None, location=None, name=None, properties=None, resource_group_name=None, resource_name_=None, sku=None, tags=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 etag: Optional[pulumi.Input[str]] = None,
+                 kind: Optional[pulumi.Input[str]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 properties: Optional[pulumi.Input[pulumi.InputType['ConnectionSettingPropertiesArgs']]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 resource_name_: Optional[pulumi.Input[str]] = None,
+                 sku: Optional[pulumi.Input[pulumi.InputType['SkuArgs']]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         Bot channel resource definition
 
@@ -64,27 +38,11 @@ class BotConnection(pulumi.CustomResource):
         :param pulumi.Input[str] kind: Required. Gets or sets the Kind of the resource.
         :param pulumi.Input[str] location: Specifies the location of the resource.
         :param pulumi.Input[str] name: The name of the Bot Service Connection Setting resource.
-        :param pulumi.Input[dict] properties: The set of properties specific to bot channel resource
+        :param pulumi.Input[pulumi.InputType['ConnectionSettingPropertiesArgs']] properties: The set of properties specific to bot channel resource
         :param pulumi.Input[str] resource_group_name: The name of the Bot resource group in the user subscription.
         :param pulumi.Input[str] resource_name_: The name of the Bot resource.
-        :param pulumi.Input[dict] sku: Gets or sets the SKU of the resource.
-        :param pulumi.Input[dict] tags: Contains resource tags defined as key/value pairs.
-
-        The **properties** object supports the following:
-
-          * `client_id` (`pulumi.Input[str]`) - Client Id associated with the Connection Setting.
-          * `client_secret` (`pulumi.Input[str]`) - Client Secret associated with the Connection Setting
-          * `parameters` (`pulumi.Input[list]`) - Service Provider Parameters associated with the Connection Setting
-            * `key` (`pulumi.Input[str]`) - Key for the Connection Setting Parameter.
-            * `value` (`pulumi.Input[str]`) - Value associated with the Connection Setting Parameter.
-
-          * `scopes` (`pulumi.Input[str]`) - Scopes associated with the Connection Setting
-          * `service_provider_display_name` (`pulumi.Input[str]`) - Service Provider Display Name associated with the Connection Setting
-          * `service_provider_id` (`pulumi.Input[str]`) - Service Provider Id associated with the Connection Setting
-
-        The **sku** object supports the following:
-
-          * `name` (`pulumi.Input[str]`) - The sku name
+        :param pulumi.Input[pulumi.InputType['SkuArgs']] sku: Gets or sets the SKU of the resource.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Contains resource tags defined as key/value pairs.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -126,13 +84,15 @@ class BotConnection(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None) -> 'BotConnection':
         """
         Get an existing BotConnection resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -141,8 +101,73 @@ class BotConnection(pulumi.CustomResource):
 
         return BotConnection(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter
+    def etag(self) -> Optional[str]:
+        """
+        Entity Tag
+        """
+        return pulumi.get(self, "etag")
+
+    @property
+    @pulumi.getter
+    def kind(self) -> Optional[str]:
+        """
+        Required. Gets or sets the Kind of the resource.
+        """
+        return pulumi.get(self, "kind")
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[str]:
+        """
+        Specifies the location of the resource.
+        """
+        return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Specifies the name of the resource.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def properties(self) -> 'outputs.ConnectionSettingPropertiesResponse':
+        """
+        The set of properties specific to bot channel resource
+        """
+        return pulumi.get(self, "properties")
+
+    @property
+    @pulumi.getter
+    def sku(self) -> Optional['outputs.SkuResponse']:
+        """
+        Gets or sets the SKU of the resource.
+        """
+        return pulumi.get(self, "sku")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Mapping[str, str]]:
+        """
+        Contains resource tags defined as key/value pairs.
+        """
+        return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Specifies the type of the resource.
+        """
+        return pulumi.get(self, "type")
+
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

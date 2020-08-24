@@ -5,10 +5,16 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
 
+__all__ = [
+    'GetAssessmentResult',
+    'AwaitableGetAssessmentResult',
+    'get_assessment',
+]
 
+@pulumi.output_type
 class GetAssessmentResult:
     """
     An assessment created for a group in the Migration project.
@@ -16,148 +22,268 @@ class GetAssessmentResult:
     def __init__(__self__, azure_hybrid_use_benefit=None, azure_location=None, azure_offer_code=None, azure_pricing_tier=None, azure_storage_redundancy=None, confidence_rating_in_percentage=None, created_timestamp=None, currency=None, discount_percentage=None, e_tag=None, monthly_bandwidth_cost=None, monthly_compute_cost=None, monthly_storage_cost=None, name=None, number_of_machines=None, percentile=None, prices_timestamp=None, scaling_factor=None, sizing_criterion=None, stage=None, status=None, time_range=None, type=None, updated_timestamp=None):
         if azure_hybrid_use_benefit and not isinstance(azure_hybrid_use_benefit, str):
             raise TypeError("Expected argument 'azure_hybrid_use_benefit' to be a str")
-        __self__.azure_hybrid_use_benefit = azure_hybrid_use_benefit
+        pulumi.set(__self__, "azure_hybrid_use_benefit", azure_hybrid_use_benefit)
+        if azure_location and not isinstance(azure_location, str):
+            raise TypeError("Expected argument 'azure_location' to be a str")
+        pulumi.set(__self__, "azure_location", azure_location)
+        if azure_offer_code and not isinstance(azure_offer_code, str):
+            raise TypeError("Expected argument 'azure_offer_code' to be a str")
+        pulumi.set(__self__, "azure_offer_code", azure_offer_code)
+        if azure_pricing_tier and not isinstance(azure_pricing_tier, str):
+            raise TypeError("Expected argument 'azure_pricing_tier' to be a str")
+        pulumi.set(__self__, "azure_pricing_tier", azure_pricing_tier)
+        if azure_storage_redundancy and not isinstance(azure_storage_redundancy, str):
+            raise TypeError("Expected argument 'azure_storage_redundancy' to be a str")
+        pulumi.set(__self__, "azure_storage_redundancy", azure_storage_redundancy)
+        if confidence_rating_in_percentage and not isinstance(confidence_rating_in_percentage, float):
+            raise TypeError("Expected argument 'confidence_rating_in_percentage' to be a float")
+        pulumi.set(__self__, "confidence_rating_in_percentage", confidence_rating_in_percentage)
+        if created_timestamp and not isinstance(created_timestamp, str):
+            raise TypeError("Expected argument 'created_timestamp' to be a str")
+        pulumi.set(__self__, "created_timestamp", created_timestamp)
+        if currency and not isinstance(currency, str):
+            raise TypeError("Expected argument 'currency' to be a str")
+        pulumi.set(__self__, "currency", currency)
+        if discount_percentage and not isinstance(discount_percentage, float):
+            raise TypeError("Expected argument 'discount_percentage' to be a float")
+        pulumi.set(__self__, "discount_percentage", discount_percentage)
+        if e_tag and not isinstance(e_tag, str):
+            raise TypeError("Expected argument 'e_tag' to be a str")
+        pulumi.set(__self__, "e_tag", e_tag)
+        if monthly_bandwidth_cost and not isinstance(monthly_bandwidth_cost, float):
+            raise TypeError("Expected argument 'monthly_bandwidth_cost' to be a float")
+        pulumi.set(__self__, "monthly_bandwidth_cost", monthly_bandwidth_cost)
+        if monthly_compute_cost and not isinstance(monthly_compute_cost, float):
+            raise TypeError("Expected argument 'monthly_compute_cost' to be a float")
+        pulumi.set(__self__, "monthly_compute_cost", monthly_compute_cost)
+        if monthly_storage_cost and not isinstance(monthly_storage_cost, float):
+            raise TypeError("Expected argument 'monthly_storage_cost' to be a float")
+        pulumi.set(__self__, "monthly_storage_cost", monthly_storage_cost)
+        if name and not isinstance(name, str):
+            raise TypeError("Expected argument 'name' to be a str")
+        pulumi.set(__self__, "name", name)
+        if number_of_machines and not isinstance(number_of_machines, float):
+            raise TypeError("Expected argument 'number_of_machines' to be a float")
+        pulumi.set(__self__, "number_of_machines", number_of_machines)
+        if percentile and not isinstance(percentile, str):
+            raise TypeError("Expected argument 'percentile' to be a str")
+        pulumi.set(__self__, "percentile", percentile)
+        if prices_timestamp and not isinstance(prices_timestamp, str):
+            raise TypeError("Expected argument 'prices_timestamp' to be a str")
+        pulumi.set(__self__, "prices_timestamp", prices_timestamp)
+        if scaling_factor and not isinstance(scaling_factor, float):
+            raise TypeError("Expected argument 'scaling_factor' to be a float")
+        pulumi.set(__self__, "scaling_factor", scaling_factor)
+        if sizing_criterion and not isinstance(sizing_criterion, str):
+            raise TypeError("Expected argument 'sizing_criterion' to be a str")
+        pulumi.set(__self__, "sizing_criterion", sizing_criterion)
+        if stage and not isinstance(stage, str):
+            raise TypeError("Expected argument 'stage' to be a str")
+        pulumi.set(__self__, "stage", stage)
+        if status and not isinstance(status, str):
+            raise TypeError("Expected argument 'status' to be a str")
+        pulumi.set(__self__, "status", status)
+        if time_range and not isinstance(time_range, str):
+            raise TypeError("Expected argument 'time_range' to be a str")
+        pulumi.set(__self__, "time_range", time_range)
+        if type and not isinstance(type, str):
+            raise TypeError("Expected argument 'type' to be a str")
+        pulumi.set(__self__, "type", type)
+        if updated_timestamp and not isinstance(updated_timestamp, str):
+            raise TypeError("Expected argument 'updated_timestamp' to be a str")
+        pulumi.set(__self__, "updated_timestamp", updated_timestamp)
+
+    @property
+    @pulumi.getter(name="azureHybridUseBenefit")
+    def azure_hybrid_use_benefit(self) -> str:
         """
         AHUB discount on windows virtual machines.
         """
-        if azure_location and not isinstance(azure_location, str):
-            raise TypeError("Expected argument 'azure_location' to be a str")
-        __self__.azure_location = azure_location
+        return pulumi.get(self, "azure_hybrid_use_benefit")
+
+    @property
+    @pulumi.getter(name="azureLocation")
+    def azure_location(self) -> str:
         """
         Target Azure location for which the machines should be assessed. These enums are the same as used by Compute API.
         """
-        if azure_offer_code and not isinstance(azure_offer_code, str):
-            raise TypeError("Expected argument 'azure_offer_code' to be a str")
-        __self__.azure_offer_code = azure_offer_code
+        return pulumi.get(self, "azure_location")
+
+    @property
+    @pulumi.getter(name="azureOfferCode")
+    def azure_offer_code(self) -> str:
         """
         Offer code according to which cost estimation is done.
         """
-        if azure_pricing_tier and not isinstance(azure_pricing_tier, str):
-            raise TypeError("Expected argument 'azure_pricing_tier' to be a str")
-        __self__.azure_pricing_tier = azure_pricing_tier
+        return pulumi.get(self, "azure_offer_code")
+
+    @property
+    @pulumi.getter(name="azurePricingTier")
+    def azure_pricing_tier(self) -> str:
         """
         Pricing tier for Size evaluation.
         """
-        if azure_storage_redundancy and not isinstance(azure_storage_redundancy, str):
-            raise TypeError("Expected argument 'azure_storage_redundancy' to be a str")
-        __self__.azure_storage_redundancy = azure_storage_redundancy
+        return pulumi.get(self, "azure_pricing_tier")
+
+    @property
+    @pulumi.getter(name="azureStorageRedundancy")
+    def azure_storage_redundancy(self) -> str:
         """
         Storage Redundancy type offered by Azure.
         """
-        if confidence_rating_in_percentage and not isinstance(confidence_rating_in_percentage, float):
-            raise TypeError("Expected argument 'confidence_rating_in_percentage' to be a float")
-        __self__.confidence_rating_in_percentage = confidence_rating_in_percentage
+        return pulumi.get(self, "azure_storage_redundancy")
+
+    @property
+    @pulumi.getter(name="confidenceRatingInPercentage")
+    def confidence_rating_in_percentage(self) -> float:
         """
         Confidence rating percentage for assessment. Can be in the range [0, 100].
         """
-        if created_timestamp and not isinstance(created_timestamp, str):
-            raise TypeError("Expected argument 'created_timestamp' to be a str")
-        __self__.created_timestamp = created_timestamp
+        return pulumi.get(self, "confidence_rating_in_percentage")
+
+    @property
+    @pulumi.getter(name="createdTimestamp")
+    def created_timestamp(self) -> str:
         """
         Time when this project was created. Date-Time represented in ISO-8601 format.
         """
-        if currency and not isinstance(currency, str):
-            raise TypeError("Expected argument 'currency' to be a str")
-        __self__.currency = currency
+        return pulumi.get(self, "created_timestamp")
+
+    @property
+    @pulumi.getter
+    def currency(self) -> str:
         """
         Currency to report prices in.
         """
-        if discount_percentage and not isinstance(discount_percentage, float):
-            raise TypeError("Expected argument 'discount_percentage' to be a float")
-        __self__.discount_percentage = discount_percentage
+        return pulumi.get(self, "currency")
+
+    @property
+    @pulumi.getter(name="discountPercentage")
+    def discount_percentage(self) -> float:
         """
         Custom discount percentage to be applied on final costs. Can be in the range [0, 100].
         """
-        if e_tag and not isinstance(e_tag, str):
-            raise TypeError("Expected argument 'e_tag' to be a str")
-        __self__.e_tag = e_tag
+        return pulumi.get(self, "discount_percentage")
+
+    @property
+    @pulumi.getter(name="eTag")
+    def e_tag(self) -> Optional[str]:
         """
         For optimistic concurrency control.
         """
-        if monthly_bandwidth_cost and not isinstance(monthly_bandwidth_cost, float):
-            raise TypeError("Expected argument 'monthly_bandwidth_cost' to be a float")
-        __self__.monthly_bandwidth_cost = monthly_bandwidth_cost
+        return pulumi.get(self, "e_tag")
+
+    @property
+    @pulumi.getter(name="monthlyBandwidthCost")
+    def monthly_bandwidth_cost(self) -> float:
         """
         Monthly network cost estimate for the machines that are part of this assessment as a group, for a 31-day month.
         """
-        if monthly_compute_cost and not isinstance(monthly_compute_cost, float):
-            raise TypeError("Expected argument 'monthly_compute_cost' to be a float")
-        __self__.monthly_compute_cost = monthly_compute_cost
+        return pulumi.get(self, "monthly_bandwidth_cost")
+
+    @property
+    @pulumi.getter(name="monthlyComputeCost")
+    def monthly_compute_cost(self) -> float:
         """
         Monthly compute cost estimate for the machines that are part of this assessment as a group, for a 31-day month.
         """
-        if monthly_storage_cost and not isinstance(monthly_storage_cost, float):
-            raise TypeError("Expected argument 'monthly_storage_cost' to be a float")
-        __self__.monthly_storage_cost = monthly_storage_cost
+        return pulumi.get(self, "monthly_compute_cost")
+
+    @property
+    @pulumi.getter(name="monthlyStorageCost")
+    def monthly_storage_cost(self) -> float:
         """
         Monthly storage cost estimate for the machines that are part of this assessment as a group, for a 31-day month.
         """
-        if name and not isinstance(name, str):
-            raise TypeError("Expected argument 'name' to be a str")
-        __self__.name = name
+        return pulumi.get(self, "monthly_storage_cost")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
         """
         Unique name of an assessment.
         """
-        if number_of_machines and not isinstance(number_of_machines, float):
-            raise TypeError("Expected argument 'number_of_machines' to be a float")
-        __self__.number_of_machines = number_of_machines
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="numberOfMachines")
+    def number_of_machines(self) -> float:
         """
         Number of assessed machines part of this assessment.
         """
-        if percentile and not isinstance(percentile, str):
-            raise TypeError("Expected argument 'percentile' to be a str")
-        __self__.percentile = percentile
+        return pulumi.get(self, "number_of_machines")
+
+    @property
+    @pulumi.getter
+    def percentile(self) -> str:
         """
         Percentile of performance data used to recommend Azure size.
         """
-        if prices_timestamp and not isinstance(prices_timestamp, str):
-            raise TypeError("Expected argument 'prices_timestamp' to be a str")
-        __self__.prices_timestamp = prices_timestamp
+        return pulumi.get(self, "percentile")
+
+    @property
+    @pulumi.getter(name="pricesTimestamp")
+    def prices_timestamp(self) -> str:
         """
         Time when the Azure Prices were queried. Date-Time represented in ISO-8601 format.
         """
-        if scaling_factor and not isinstance(scaling_factor, float):
-            raise TypeError("Expected argument 'scaling_factor' to be a float")
-        __self__.scaling_factor = scaling_factor
+        return pulumi.get(self, "prices_timestamp")
+
+    @property
+    @pulumi.getter(name="scalingFactor")
+    def scaling_factor(self) -> float:
         """
         Scaling factor used over utilization data to add a performance buffer for new machines to be created in Azure. Min Value = 1.0, Max value = 1.9, Default = 1.3.
         """
-        if sizing_criterion and not isinstance(sizing_criterion, str):
-            raise TypeError("Expected argument 'sizing_criterion' to be a str")
-        __self__.sizing_criterion = sizing_criterion
+        return pulumi.get(self, "scaling_factor")
+
+    @property
+    @pulumi.getter(name="sizingCriterion")
+    def sizing_criterion(self) -> str:
         """
         Assessment sizing criterion.
         """
-        if stage and not isinstance(stage, str):
-            raise TypeError("Expected argument 'stage' to be a str")
-        __self__.stage = stage
+        return pulumi.get(self, "sizing_criterion")
+
+    @property
+    @pulumi.getter
+    def stage(self) -> str:
         """
         User configurable setting that describes the status of the assessment.
         """
-        if status and not isinstance(status, str):
-            raise TypeError("Expected argument 'status' to be a str")
-        __self__.status = status
+        return pulumi.get(self, "stage")
+
+    @property
+    @pulumi.getter
+    def status(self) -> str:
         """
         Whether the assessment has been created and is valid.
         """
-        if time_range and not isinstance(time_range, str):
-            raise TypeError("Expected argument 'time_range' to be a str")
-        __self__.time_range = time_range
+        return pulumi.get(self, "status")
+
+    @property
+    @pulumi.getter(name="timeRange")
+    def time_range(self) -> str:
         """
         Time range of performance data used to recommend a size.
         """
-        if type and not isinstance(type, str):
-            raise TypeError("Expected argument 'type' to be a str")
-        __self__.type = type
+        return pulumi.get(self, "time_range")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
         """
         Type of the object = [Microsoft.Migrate/projects/groups/assessments].
         """
-        if updated_timestamp and not isinstance(updated_timestamp, str):
-            raise TypeError("Expected argument 'updated_timestamp' to be a str")
-        __self__.updated_timestamp = updated_timestamp
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="updatedTimestamp")
+    def updated_timestamp(self) -> str:
         """
         Time when this project was last updated. Date-Time represented in ISO-8601 format.
         """
+        return pulumi.get(self, "updated_timestamp")
 
 
 class AwaitableGetAssessmentResult(GetAssessmentResult):
@@ -192,7 +318,11 @@ class AwaitableGetAssessmentResult(GetAssessmentResult):
             updated_timestamp=self.updated_timestamp)
 
 
-def get_assessment(group_name=None, name=None, project_name=None, resource_group_name=None, opts=None):
+def get_assessment(group_name: Optional[str] = None,
+                   name: Optional[str] = None,
+                   project_name: Optional[str] = None,
+                   resource_group_name: Optional[str] = None,
+                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAssessmentResult:
     """
     Use this data source to access information about an existing resource.
 
@@ -210,30 +340,30 @@ def get_assessment(group_name=None, name=None, project_name=None, resource_group
         opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = _utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('azurerm:migrate/v20180202:getAssessment', __args__, opts=opts).value
+    __ret__ = pulumi.runtime.invoke('azurerm:migrate/v20180202:getAssessment', __args__, opts=opts, typ=GetAssessmentResult).value
 
     return AwaitableGetAssessmentResult(
-        azure_hybrid_use_benefit=__ret__.get('azureHybridUseBenefit'),
-        azure_location=__ret__.get('azureLocation'),
-        azure_offer_code=__ret__.get('azureOfferCode'),
-        azure_pricing_tier=__ret__.get('azurePricingTier'),
-        azure_storage_redundancy=__ret__.get('azureStorageRedundancy'),
-        confidence_rating_in_percentage=__ret__.get('confidenceRatingInPercentage'),
-        created_timestamp=__ret__.get('createdTimestamp'),
-        currency=__ret__.get('currency'),
-        discount_percentage=__ret__.get('discountPercentage'),
-        e_tag=__ret__.get('eTag'),
-        monthly_bandwidth_cost=__ret__.get('monthlyBandwidthCost'),
-        monthly_compute_cost=__ret__.get('monthlyComputeCost'),
-        monthly_storage_cost=__ret__.get('monthlyStorageCost'),
-        name=__ret__.get('name'),
-        number_of_machines=__ret__.get('numberOfMachines'),
-        percentile=__ret__.get('percentile'),
-        prices_timestamp=__ret__.get('pricesTimestamp'),
-        scaling_factor=__ret__.get('scalingFactor'),
-        sizing_criterion=__ret__.get('sizingCriterion'),
-        stage=__ret__.get('stage'),
-        status=__ret__.get('status'),
-        time_range=__ret__.get('timeRange'),
-        type=__ret__.get('type'),
-        updated_timestamp=__ret__.get('updatedTimestamp'))
+        azure_hybrid_use_benefit=__ret__.azure_hybrid_use_benefit,
+        azure_location=__ret__.azure_location,
+        azure_offer_code=__ret__.azure_offer_code,
+        azure_pricing_tier=__ret__.azure_pricing_tier,
+        azure_storage_redundancy=__ret__.azure_storage_redundancy,
+        confidence_rating_in_percentage=__ret__.confidence_rating_in_percentage,
+        created_timestamp=__ret__.created_timestamp,
+        currency=__ret__.currency,
+        discount_percentage=__ret__.discount_percentage,
+        e_tag=__ret__.e_tag,
+        monthly_bandwidth_cost=__ret__.monthly_bandwidth_cost,
+        monthly_compute_cost=__ret__.monthly_compute_cost,
+        monthly_storage_cost=__ret__.monthly_storage_cost,
+        name=__ret__.name,
+        number_of_machines=__ret__.number_of_machines,
+        percentile=__ret__.percentile,
+        prices_timestamp=__ret__.prices_timestamp,
+        scaling_factor=__ret__.scaling_factor,
+        sizing_criterion=__ret__.sizing_criterion,
+        stage=__ret__.stage,
+        status=__ret__.status,
+        time_range=__ret__.time_range,
+        type=__ret__.type,
+        updated_timestamp=__ret__.updated_timestamp)

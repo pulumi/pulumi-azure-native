@@ -5,10 +5,17 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+from . import outputs
 
+__all__ = [
+    'GetWorkspaceResult',
+    'AwaitableGetWorkspaceResult',
+    'get_workspace',
+]
 
+@pulumi.output_type
 class GetWorkspaceResult:
     """
     Information about workspace.
@@ -16,100 +23,180 @@ class GetWorkspaceResult:
     def __init__(__self__, authorizations=None, created_by=None, created_date_time=None, location=None, managed_resource_group_id=None, name=None, parameters=None, provisioning_state=None, sku=None, storage_account_identity=None, tags=None, type=None, ui_definition_uri=None, updated_by=None, workspace_id=None, workspace_url=None):
         if authorizations and not isinstance(authorizations, list):
             raise TypeError("Expected argument 'authorizations' to be a list")
-        __self__.authorizations = authorizations
+        pulumi.set(__self__, "authorizations", authorizations)
+        if created_by and not isinstance(created_by, dict):
+            raise TypeError("Expected argument 'created_by' to be a dict")
+        pulumi.set(__self__, "created_by", created_by)
+        if created_date_time and not isinstance(created_date_time, str):
+            raise TypeError("Expected argument 'created_date_time' to be a str")
+        pulumi.set(__self__, "created_date_time", created_date_time)
+        if location and not isinstance(location, str):
+            raise TypeError("Expected argument 'location' to be a str")
+        pulumi.set(__self__, "location", location)
+        if managed_resource_group_id and not isinstance(managed_resource_group_id, str):
+            raise TypeError("Expected argument 'managed_resource_group_id' to be a str")
+        pulumi.set(__self__, "managed_resource_group_id", managed_resource_group_id)
+        if name and not isinstance(name, str):
+            raise TypeError("Expected argument 'name' to be a str")
+        pulumi.set(__self__, "name", name)
+        if parameters and not isinstance(parameters, dict):
+            raise TypeError("Expected argument 'parameters' to be a dict")
+        pulumi.set(__self__, "parameters", parameters)
+        if provisioning_state and not isinstance(provisioning_state, str):
+            raise TypeError("Expected argument 'provisioning_state' to be a str")
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if sku and not isinstance(sku, dict):
+            raise TypeError("Expected argument 'sku' to be a dict")
+        pulumi.set(__self__, "sku", sku)
+        if storage_account_identity and not isinstance(storage_account_identity, dict):
+            raise TypeError("Expected argument 'storage_account_identity' to be a dict")
+        pulumi.set(__self__, "storage_account_identity", storage_account_identity)
+        if tags and not isinstance(tags, dict):
+            raise TypeError("Expected argument 'tags' to be a dict")
+        pulumi.set(__self__, "tags", tags)
+        if type and not isinstance(type, str):
+            raise TypeError("Expected argument 'type' to be a str")
+        pulumi.set(__self__, "type", type)
+        if ui_definition_uri and not isinstance(ui_definition_uri, str):
+            raise TypeError("Expected argument 'ui_definition_uri' to be a str")
+        pulumi.set(__self__, "ui_definition_uri", ui_definition_uri)
+        if updated_by and not isinstance(updated_by, dict):
+            raise TypeError("Expected argument 'updated_by' to be a dict")
+        pulumi.set(__self__, "updated_by", updated_by)
+        if workspace_id and not isinstance(workspace_id, str):
+            raise TypeError("Expected argument 'workspace_id' to be a str")
+        pulumi.set(__self__, "workspace_id", workspace_id)
+        if workspace_url and not isinstance(workspace_url, str):
+            raise TypeError("Expected argument 'workspace_url' to be a str")
+        pulumi.set(__self__, "workspace_url", workspace_url)
+
+    @property
+    @pulumi.getter
+    def authorizations(self) -> Optional[List['outputs.WorkspaceProviderAuthorizationResponse']]:
         """
         The workspace provider authorizations.
         """
-        if created_by and not isinstance(created_by, dict):
-            raise TypeError("Expected argument 'created_by' to be a dict")
-        __self__.created_by = created_by
+        return pulumi.get(self, "authorizations")
+
+    @property
+    @pulumi.getter(name="createdBy")
+    def created_by(self) -> Optional['outputs.CreatedByResponse']:
         """
         Indicates the Object ID, PUID and Application ID of entity that created the workspace.
         """
-        if created_date_time and not isinstance(created_date_time, str):
-            raise TypeError("Expected argument 'created_date_time' to be a str")
-        __self__.created_date_time = created_date_time
+        return pulumi.get(self, "created_by")
+
+    @property
+    @pulumi.getter(name="createdDateTime")
+    def created_date_time(self) -> Optional[str]:
         """
         Specifies the date and time when the workspace is created.
         """
-        if location and not isinstance(location, str):
-            raise TypeError("Expected argument 'location' to be a str")
-        __self__.location = location
+        return pulumi.get(self, "created_date_time")
+
+    @property
+    @pulumi.getter
+    def location(self) -> str:
         """
         The geo-location where the resource lives
         """
-        if managed_resource_group_id and not isinstance(managed_resource_group_id, str):
-            raise TypeError("Expected argument 'managed_resource_group_id' to be a str")
-        __self__.managed_resource_group_id = managed_resource_group_id
+        return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter(name="managedResourceGroupId")
+    def managed_resource_group_id(self) -> str:
         """
         The managed resource group Id.
         """
-        if name and not isinstance(name, str):
-            raise TypeError("Expected argument 'name' to be a str")
-        __self__.name = name
+        return pulumi.get(self, "managed_resource_group_id")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
         """
         The name of the resource
         """
-        if parameters and not isinstance(parameters, dict):
-            raise TypeError("Expected argument 'parameters' to be a dict")
-        __self__.parameters = parameters
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def parameters(self) -> Optional['outputs.WorkspaceCustomParametersResponse']:
         """
         The workspace's custom parameters.
         """
-        if provisioning_state and not isinstance(provisioning_state, str):
-            raise TypeError("Expected argument 'provisioning_state' to be a str")
-        __self__.provisioning_state = provisioning_state
+        return pulumi.get(self, "parameters")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
         """
         The workspace provisioning state.
         """
-        if sku and not isinstance(sku, dict):
-            raise TypeError("Expected argument 'sku' to be a dict")
-        __self__.sku = sku
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter
+    def sku(self) -> Optional['outputs.SkuResponse']:
         """
         The SKU of the resource.
         """
-        if storage_account_identity and not isinstance(storage_account_identity, dict):
-            raise TypeError("Expected argument 'storage_account_identity' to be a dict")
-        __self__.storage_account_identity = storage_account_identity
+        return pulumi.get(self, "sku")
+
+    @property
+    @pulumi.getter(name="storageAccountIdentity")
+    def storage_account_identity(self) -> Optional['outputs.ManagedIdentityConfigurationResponse']:
         """
         The details of Managed Identity of Storage Account
         """
-        if tags and not isinstance(tags, dict):
-            raise TypeError("Expected argument 'tags' to be a dict")
-        __self__.tags = tags
+        return pulumi.get(self, "storage_account_identity")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Mapping[str, str]]:
         """
         Resource tags.
         """
-        if type and not isinstance(type, str):
-            raise TypeError("Expected argument 'type' to be a str")
-        __self__.type = type
+        return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
         """
         The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
         """
-        if ui_definition_uri and not isinstance(ui_definition_uri, str):
-            raise TypeError("Expected argument 'ui_definition_uri' to be a str")
-        __self__.ui_definition_uri = ui_definition_uri
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="uiDefinitionUri")
+    def ui_definition_uri(self) -> Optional[str]:
         """
         The blob URI where the UI definition file is located.
         """
-        if updated_by and not isinstance(updated_by, dict):
-            raise TypeError("Expected argument 'updated_by' to be a dict")
-        __self__.updated_by = updated_by
+        return pulumi.get(self, "ui_definition_uri")
+
+    @property
+    @pulumi.getter(name="updatedBy")
+    def updated_by(self) -> Optional['outputs.CreatedByResponse']:
         """
         Indicates the Object ID, PUID and Application ID of entity that last updated the workspace.
         """
-        if workspace_id and not isinstance(workspace_id, str):
-            raise TypeError("Expected argument 'workspace_id' to be a str")
-        __self__.workspace_id = workspace_id
+        return pulumi.get(self, "updated_by")
+
+    @property
+    @pulumi.getter(name="workspaceId")
+    def workspace_id(self) -> str:
         """
         The unique identifier of the databricks workspace in databricks control plane.
         """
-        if workspace_url and not isinstance(workspace_url, str):
-            raise TypeError("Expected argument 'workspace_url' to be a str")
-        __self__.workspace_url = workspace_url
+        return pulumi.get(self, "workspace_id")
+
+    @property
+    @pulumi.getter(name="workspaceUrl")
+    def workspace_url(self) -> str:
         """
         The workspace URL which is of the format 'adb-{workspaceId}.{random}.azuredatabricks.net'
         """
+        return pulumi.get(self, "workspace_url")
 
 
 class AwaitableGetWorkspaceResult(GetWorkspaceResult):
@@ -136,7 +223,9 @@ class AwaitableGetWorkspaceResult(GetWorkspaceResult):
             workspace_url=self.workspace_url)
 
 
-def get_workspace(name=None, resource_group_name=None, opts=None):
+def get_workspace(name: Optional[str] = None,
+                  resource_group_name: Optional[str] = None,
+                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetWorkspaceResult:
     """
     Use this data source to access information about an existing resource.
 
@@ -150,22 +239,22 @@ def get_workspace(name=None, resource_group_name=None, opts=None):
         opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = _utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('azurerm:databricks/v20180401:getWorkspace', __args__, opts=opts).value
+    __ret__ = pulumi.runtime.invoke('azurerm:databricks/v20180401:getWorkspace', __args__, opts=opts, typ=GetWorkspaceResult).value
 
     return AwaitableGetWorkspaceResult(
-        authorizations=__ret__.get('authorizations'),
-        created_by=__ret__.get('createdBy'),
-        created_date_time=__ret__.get('createdDateTime'),
-        location=__ret__.get('location'),
-        managed_resource_group_id=__ret__.get('managedResourceGroupId'),
-        name=__ret__.get('name'),
-        parameters=__ret__.get('parameters'),
-        provisioning_state=__ret__.get('provisioningState'),
-        sku=__ret__.get('sku'),
-        storage_account_identity=__ret__.get('storageAccountIdentity'),
-        tags=__ret__.get('tags'),
-        type=__ret__.get('type'),
-        ui_definition_uri=__ret__.get('uiDefinitionUri'),
-        updated_by=__ret__.get('updatedBy'),
-        workspace_id=__ret__.get('workspaceId'),
-        workspace_url=__ret__.get('workspaceUrl'))
+        authorizations=__ret__.authorizations,
+        created_by=__ret__.created_by,
+        created_date_time=__ret__.created_date_time,
+        location=__ret__.location,
+        managed_resource_group_id=__ret__.managed_resource_group_id,
+        name=__ret__.name,
+        parameters=__ret__.parameters,
+        provisioning_state=__ret__.provisioning_state,
+        sku=__ret__.sku,
+        storage_account_identity=__ret__.storage_account_identity,
+        tags=__ret__.tags,
+        type=__ret__.type,
+        ui_definition_uri=__ret__.ui_definition_uri,
+        updated_by=__ret__.updated_by,
+        workspace_id=__ret__.workspace_id,
+        workspace_url=__ret__.workspace_url)

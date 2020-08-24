@@ -5,10 +5,16 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
 
+__all__ = [
+    'GetAccessPolicyResult',
+    'AwaitableGetAccessPolicyResult',
+    'get_access_policy',
+]
 
+@pulumi.output_type
 class GetAccessPolicyResult:
     """
     An access policy is used to grant users and applications access to the environment. Roles are assigned to service principals in Azure Active Directory. These roles define the actions the principal can perform through the Time Series Insights data plane APIs.
@@ -16,34 +22,59 @@ class GetAccessPolicyResult:
     def __init__(__self__, description=None, name=None, principal_object_id=None, roles=None, type=None):
         if description and not isinstance(description, str):
             raise TypeError("Expected argument 'description' to be a str")
-        __self__.description = description
+        pulumi.set(__self__, "description", description)
+        if name and not isinstance(name, str):
+            raise TypeError("Expected argument 'name' to be a str")
+        pulumi.set(__self__, "name", name)
+        if principal_object_id and not isinstance(principal_object_id, str):
+            raise TypeError("Expected argument 'principal_object_id' to be a str")
+        pulumi.set(__self__, "principal_object_id", principal_object_id)
+        if roles and not isinstance(roles, list):
+            raise TypeError("Expected argument 'roles' to be a list")
+        pulumi.set(__self__, "roles", roles)
+        if type and not isinstance(type, str):
+            raise TypeError("Expected argument 'type' to be a str")
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
         """
         An description of the access policy.
         """
-        if name and not isinstance(name, str):
-            raise TypeError("Expected argument 'name' to be a str")
-        __self__.name = name
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
         """
         Resource name
         """
-        if principal_object_id and not isinstance(principal_object_id, str):
-            raise TypeError("Expected argument 'principal_object_id' to be a str")
-        __self__.principal_object_id = principal_object_id
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="principalObjectId")
+    def principal_object_id(self) -> Optional[str]:
         """
         The objectId of the principal in Azure Active Directory.
         """
-        if roles and not isinstance(roles, list):
-            raise TypeError("Expected argument 'roles' to be a list")
-        __self__.roles = roles
+        return pulumi.get(self, "principal_object_id")
+
+    @property
+    @pulumi.getter
+    def roles(self) -> Optional[List[str]]:
         """
         The list of roles the principal is assigned on the environment.
         """
-        if type and not isinstance(type, str):
-            raise TypeError("Expected argument 'type' to be a str")
-        __self__.type = type
+        return pulumi.get(self, "roles")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
         """
         Resource type
         """
+        return pulumi.get(self, "type")
 
 
 class AwaitableGetAccessPolicyResult(GetAccessPolicyResult):
@@ -59,7 +90,10 @@ class AwaitableGetAccessPolicyResult(GetAccessPolicyResult):
             type=self.type)
 
 
-def get_access_policy(environment_name=None, name=None, resource_group_name=None, opts=None):
+def get_access_policy(environment_name: Optional[str] = None,
+                      name: Optional[str] = None,
+                      resource_group_name: Optional[str] = None,
+                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAccessPolicyResult:
     """
     Use this data source to access information about an existing resource.
 
@@ -75,11 +109,11 @@ def get_access_policy(environment_name=None, name=None, resource_group_name=None
         opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = _utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('azurerm:timeseriesinsights/v20171115:getAccessPolicy', __args__, opts=opts).value
+    __ret__ = pulumi.runtime.invoke('azurerm:timeseriesinsights/v20171115:getAccessPolicy', __args__, opts=opts, typ=GetAccessPolicyResult).value
 
     return AwaitableGetAccessPolicyResult(
-        description=__ret__.get('description'),
-        name=__ret__.get('name'),
-        principal_object_id=__ret__.get('principalObjectId'),
-        roles=__ret__.get('roles'),
-        type=__ret__.get('type'))
+        description=__ret__.description,
+        name=__ret__.name,
+        principal_object_id=__ret__.principal_object_id,
+        roles=__ret__.roles,
+        type=__ret__.type)

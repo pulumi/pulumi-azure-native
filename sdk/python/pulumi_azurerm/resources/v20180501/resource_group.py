@@ -5,37 +5,24 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+from . import outputs
+
+__all__ = ['ResourceGroup']
 
 
 class ResourceGroup(pulumi.CustomResource):
-    location: pulumi.Output[str]
-    """
-    The location of the resource group. It cannot be changed after the resource group has been created. It must be one of the supported Azure locations.
-    """
-    managed_by: pulumi.Output[str]
-    """
-    The ID of the resource that manages this resource group.
-    """
-    name: pulumi.Output[str]
-    """
-    The name of the resource group.
-    """
-    properties: pulumi.Output[dict]
-    """
-    The resource group properties.
-      * `provisioning_state` (`str`) - The provisioning state. 
-    """
-    tags: pulumi.Output[dict]
-    """
-    The tags attached to the resource group.
-    """
-    type: pulumi.Output[str]
-    """
-    The type of the resource group.
-    """
-    def __init__(__self__, resource_name, opts=None, location=None, managed_by=None, name=None, tags=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 managed_by: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         Resource group information.
 
@@ -44,7 +31,7 @@ class ResourceGroup(pulumi.CustomResource):
         :param pulumi.Input[str] location: The location of the resource group. It cannot be changed after the resource group has been created. It must be one of the supported Azure locations.
         :param pulumi.Input[str] managed_by: The ID of the resource that manages this resource group.
         :param pulumi.Input[str] name: The name of the resource group to create or update. Can include alphanumeric, underscore, parentheses, hyphen, period (except at end), and Unicode characters that match the allowed characters.
-        :param pulumi.Input[dict] tags: The tags attached to the resource group.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The tags attached to the resource group.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -82,13 +69,15 @@ class ResourceGroup(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None) -> 'ResourceGroup':
         """
         Get an existing ResourceGroup resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -97,8 +86,57 @@ class ResourceGroup(pulumi.CustomResource):
 
         return ResourceGroup(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter
+    def location(self) -> str:
+        """
+        The location of the resource group. It cannot be changed after the resource group has been created. It must be one of the supported Azure locations.
+        """
+        return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter(name="managedBy")
+    def managed_by(self) -> Optional[str]:
+        """
+        The ID of the resource that manages this resource group.
+        """
+        return pulumi.get(self, "managed_by")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the resource group.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def properties(self) -> 'outputs.ResourceGroupPropertiesResponse':
+        """
+        The resource group properties.
+        """
+        return pulumi.get(self, "properties")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Mapping[str, str]]:
+        """
+        The tags attached to the resource group.
+        """
+        return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        The type of the resource group.
+        """
+        return pulumi.get(self, "type")
+
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

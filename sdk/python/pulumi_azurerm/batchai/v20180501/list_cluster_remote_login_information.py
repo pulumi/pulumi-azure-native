@@ -5,10 +5,17 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+from . import outputs
 
+__all__ = [
+    'ListClusterRemoteLoginInformationResult',
+    'AwaitableListClusterRemoteLoginInformationResult',
+    'list_cluster_remote_login_information',
+]
 
+@pulumi.output_type
 class ListClusterRemoteLoginInformationResult:
     """
     Values returned by the List operation.
@@ -16,16 +23,26 @@ class ListClusterRemoteLoginInformationResult:
     def __init__(__self__, next_link=None, value=None):
         if next_link and not isinstance(next_link, str):
             raise TypeError("Expected argument 'next_link' to be a str")
-        __self__.next_link = next_link
+        pulumi.set(__self__, "next_link", next_link)
+        if value and not isinstance(value, list):
+            raise TypeError("Expected argument 'value' to be a list")
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter(name="nextLink")
+    def next_link(self) -> str:
         """
         The continuation token.
         """
-        if value and not isinstance(value, list):
-            raise TypeError("Expected argument 'value' to be a list")
-        __self__.value = value
+        return pulumi.get(self, "next_link")
+
+    @property
+    @pulumi.getter
+    def value(self) -> List['outputs.RemoteLoginInformationResponseResult']:
         """
         The collection of returned remote login details.
         """
+        return pulumi.get(self, "value")
 
 
 class AwaitableListClusterRemoteLoginInformationResult(ListClusterRemoteLoginInformationResult):
@@ -38,7 +55,10 @@ class AwaitableListClusterRemoteLoginInformationResult(ListClusterRemoteLoginInf
             value=self.value)
 
 
-def list_cluster_remote_login_information(cluster_name=None, resource_group_name=None, workspace_name=None, opts=None):
+def list_cluster_remote_login_information(cluster_name: Optional[str] = None,
+                                          resource_group_name: Optional[str] = None,
+                                          workspace_name: Optional[str] = None,
+                                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListClusterRemoteLoginInformationResult:
     """
     Use this data source to access information about an existing resource.
 
@@ -54,8 +74,8 @@ def list_cluster_remote_login_information(cluster_name=None, resource_group_name
         opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = _utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('azurerm:batchai/v20180501:listClusterRemoteLoginInformation', __args__, opts=opts).value
+    __ret__ = pulumi.runtime.invoke('azurerm:batchai/v20180501:listClusterRemoteLoginInformation', __args__, opts=opts, typ=ListClusterRemoteLoginInformationResult).value
 
     return AwaitableListClusterRemoteLoginInformationResult(
-        next_link=__ret__.get('nextLink'),
-        value=__ret__.get('value'))
+        next_link=__ret__.next_link,
+        value=__ret__.value)

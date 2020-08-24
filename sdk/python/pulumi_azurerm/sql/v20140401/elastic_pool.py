@@ -5,64 +5,30 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+
+__all__ = ['ElasticPool']
 
 
 class ElasticPool(pulumi.CustomResource):
-    creation_date: pulumi.Output[str]
-    """
-    The creation date of the elastic pool (ISO8601 format).
-    """
-    database_dtu_max: pulumi.Output[float]
-    """
-    The maximum DTU any one database can consume.
-    """
-    database_dtu_min: pulumi.Output[float]
-    """
-    The minimum DTU all databases are guaranteed.
-    """
-    dtu: pulumi.Output[float]
-    """
-    The total shared DTU for the database elastic pool.
-    """
-    edition: pulumi.Output[str]
-    """
-    The edition of the elastic pool.
-    """
-    kind: pulumi.Output[str]
-    """
-    Kind of elastic pool.  This is metadata used for the Azure portal experience.
-    """
-    location: pulumi.Output[str]
-    """
-    Resource location.
-    """
-    name: pulumi.Output[str]
-    """
-    Resource name.
-    """
-    state: pulumi.Output[str]
-    """
-    The state of the elastic pool.
-    """
-    storage_mb: pulumi.Output[float]
-    """
-    Gets storage limit for the database elastic pool in MB.
-    """
-    tags: pulumi.Output[dict]
-    """
-    Resource tags.
-    """
-    type: pulumi.Output[str]
-    """
-    Resource type.
-    """
-    zone_redundant: pulumi.Output[bool]
-    """
-    Whether or not this database elastic pool is zone redundant, which means the replicas of this database will be spread across multiple availability zones.
-    """
-    def __init__(__self__, resource_name, opts=None, database_dtu_max=None, database_dtu_min=None, dtu=None, edition=None, location=None, name=None, resource_group_name=None, server_name=None, storage_mb=None, tags=None, zone_redundant=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 database_dtu_max: Optional[pulumi.Input[float]] = None,
+                 database_dtu_min: Optional[pulumi.Input[float]] = None,
+                 dtu: Optional[pulumi.Input[float]] = None,
+                 edition: Optional[pulumi.Input[str]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 server_name: Optional[pulumi.Input[str]] = None,
+                 storage_mb: Optional[pulumi.Input[float]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 zone_redundant: Optional[pulumi.Input[bool]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         Represents a database elastic pool.
 
@@ -77,7 +43,7 @@ class ElasticPool(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
         :param pulumi.Input[str] server_name: The name of the server.
         :param pulumi.Input[float] storage_mb: Gets storage limit for the database elastic pool in MB.
-        :param pulumi.Input[dict] tags: Resource tags.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         :param pulumi.Input[bool] zone_redundant: Whether or not this database elastic pool is zone redundant, which means the replicas of this database will be spread across multiple availability zones.
         """
         if __name__ is not None:
@@ -127,13 +93,15 @@ class ElasticPool(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None) -> 'ElasticPool':
         """
         Get an existing ElasticPool resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -142,8 +110,113 @@ class ElasticPool(pulumi.CustomResource):
 
         return ElasticPool(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter(name="creationDate")
+    def creation_date(self) -> str:
+        """
+        The creation date of the elastic pool (ISO8601 format).
+        """
+        return pulumi.get(self, "creation_date")
+
+    @property
+    @pulumi.getter(name="databaseDtuMax")
+    def database_dtu_max(self) -> Optional[float]:
+        """
+        The maximum DTU any one database can consume.
+        """
+        return pulumi.get(self, "database_dtu_max")
+
+    @property
+    @pulumi.getter(name="databaseDtuMin")
+    def database_dtu_min(self) -> Optional[float]:
+        """
+        The minimum DTU all databases are guaranteed.
+        """
+        return pulumi.get(self, "database_dtu_min")
+
+    @property
+    @pulumi.getter
+    def dtu(self) -> Optional[float]:
+        """
+        The total shared DTU for the database elastic pool.
+        """
+        return pulumi.get(self, "dtu")
+
+    @property
+    @pulumi.getter
+    def edition(self) -> Optional[str]:
+        """
+        The edition of the elastic pool.
+        """
+        return pulumi.get(self, "edition")
+
+    @property
+    @pulumi.getter
+    def kind(self) -> str:
+        """
+        Kind of elastic pool.  This is metadata used for the Azure portal experience.
+        """
+        return pulumi.get(self, "kind")
+
+    @property
+    @pulumi.getter
+    def location(self) -> str:
+        """
+        Resource location.
+        """
+        return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Resource name.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def state(self) -> str:
+        """
+        The state of the elastic pool.
+        """
+        return pulumi.get(self, "state")
+
+    @property
+    @pulumi.getter(name="storageMB")
+    def storage_mb(self) -> Optional[float]:
+        """
+        Gets storage limit for the database elastic pool in MB.
+        """
+        return pulumi.get(self, "storage_mb")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Mapping[str, str]]:
+        """
+        Resource tags.
+        """
+        return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Resource type.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="zoneRedundant")
+    def zone_redundant(self) -> Optional[bool]:
+        """
+        Whether or not this database elastic pool is zone redundant, which means the replicas of this database will be spread across multiple availability zones.
+        """
+        return pulumi.get(self, "zone_redundant")
+
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

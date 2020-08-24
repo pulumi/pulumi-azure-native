@@ -5,10 +5,17 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+from . import outputs
 
+__all__ = [
+    'ListProductDetailsResult',
+    'AwaitableListProductDetailsResult',
+    'list_product_details',
+]
 
+@pulumi.output_type
 class ListProductDetailsResult:
     """
     Extended description about the product required for installing it into Azure Stack.
@@ -16,70 +23,125 @@ class ListProductDetailsResult:
     def __init__(__self__, compute_role=None, data_disk_images=None, gallery_package_blob_sas_uri=None, is_system_extension=None, os_disk_image=None, product_kind=None, support_multiple_extensions=None, uri=None, version=None, vm_os_type=None, vm_scale_set_enabled=None):
         if compute_role and not isinstance(compute_role, str):
             raise TypeError("Expected argument 'compute_role' to be a str")
-        __self__.compute_role = compute_role
+        pulumi.set(__self__, "compute_role", compute_role)
+        if data_disk_images and not isinstance(data_disk_images, list):
+            raise TypeError("Expected argument 'data_disk_images' to be a list")
+        pulumi.set(__self__, "data_disk_images", data_disk_images)
+        if gallery_package_blob_sas_uri and not isinstance(gallery_package_blob_sas_uri, str):
+            raise TypeError("Expected argument 'gallery_package_blob_sas_uri' to be a str")
+        pulumi.set(__self__, "gallery_package_blob_sas_uri", gallery_package_blob_sas_uri)
+        if is_system_extension and not isinstance(is_system_extension, bool):
+            raise TypeError("Expected argument 'is_system_extension' to be a bool")
+        pulumi.set(__self__, "is_system_extension", is_system_extension)
+        if os_disk_image and not isinstance(os_disk_image, dict):
+            raise TypeError("Expected argument 'os_disk_image' to be a dict")
+        pulumi.set(__self__, "os_disk_image", os_disk_image)
+        if product_kind and not isinstance(product_kind, str):
+            raise TypeError("Expected argument 'product_kind' to be a str")
+        pulumi.set(__self__, "product_kind", product_kind)
+        if support_multiple_extensions and not isinstance(support_multiple_extensions, bool):
+            raise TypeError("Expected argument 'support_multiple_extensions' to be a bool")
+        pulumi.set(__self__, "support_multiple_extensions", support_multiple_extensions)
+        if uri and not isinstance(uri, str):
+            raise TypeError("Expected argument 'uri' to be a str")
+        pulumi.set(__self__, "uri", uri)
+        if version and not isinstance(version, str):
+            raise TypeError("Expected argument 'version' to be a str")
+        pulumi.set(__self__, "version", version)
+        if vm_os_type and not isinstance(vm_os_type, str):
+            raise TypeError("Expected argument 'vm_os_type' to be a str")
+        pulumi.set(__self__, "vm_os_type", vm_os_type)
+        if vm_scale_set_enabled and not isinstance(vm_scale_set_enabled, bool):
+            raise TypeError("Expected argument 'vm_scale_set_enabled' to be a bool")
+        pulumi.set(__self__, "vm_scale_set_enabled", vm_scale_set_enabled)
+
+    @property
+    @pulumi.getter(name="computeRole")
+    def compute_role(self) -> str:
         """
         Specifies kind of compute role included in the package.
         """
-        if data_disk_images and not isinstance(data_disk_images, list):
-            raise TypeError("Expected argument 'data_disk_images' to be a list")
-        __self__.data_disk_images = data_disk_images
+        return pulumi.get(self, "compute_role")
+
+    @property
+    @pulumi.getter(name="dataDiskImages")
+    def data_disk_images(self) -> List['outputs.DataDiskImageResponseResult']:
         """
         List of attached data disks.
         """
-        if gallery_package_blob_sas_uri and not isinstance(gallery_package_blob_sas_uri, str):
-            raise TypeError("Expected argument 'gallery_package_blob_sas_uri' to be a str")
-        __self__.gallery_package_blob_sas_uri = gallery_package_blob_sas_uri
+        return pulumi.get(self, "data_disk_images")
+
+    @property
+    @pulumi.getter(name="galleryPackageBlobSasUri")
+    def gallery_package_blob_sas_uri(self) -> str:
         """
         The URI to the .azpkg file that provides information required for showing product in the gallery.
         """
-        if is_system_extension and not isinstance(is_system_extension, bool):
-            raise TypeError("Expected argument 'is_system_extension' to be a bool")
-        __self__.is_system_extension = is_system_extension
+        return pulumi.get(self, "gallery_package_blob_sas_uri")
+
+    @property
+    @pulumi.getter(name="isSystemExtension")
+    def is_system_extension(self) -> bool:
         """
         Specifies if product is a Virtual Machine Extension.
         """
-        if os_disk_image and not isinstance(os_disk_image, dict):
-            raise TypeError("Expected argument 'os_disk_image' to be a dict")
-        __self__.os_disk_image = os_disk_image
+        return pulumi.get(self, "is_system_extension")
+
+    @property
+    @pulumi.getter(name="osDiskImage")
+    def os_disk_image(self) -> 'outputs.OsDiskImageResponseResult':
         """
         OS disk image used by product.
         """
-        if product_kind and not isinstance(product_kind, str):
-            raise TypeError("Expected argument 'product_kind' to be a str")
-        __self__.product_kind = product_kind
+        return pulumi.get(self, "os_disk_image")
+
+    @property
+    @pulumi.getter(name="productKind")
+    def product_kind(self) -> str:
         """
         Specifies the kind of the product (virtualMachine or virtualMachineExtension).
         """
-        if support_multiple_extensions and not isinstance(support_multiple_extensions, bool):
-            raise TypeError("Expected argument 'support_multiple_extensions' to be a bool")
-        __self__.support_multiple_extensions = support_multiple_extensions
+        return pulumi.get(self, "product_kind")
+
+    @property
+    @pulumi.getter(name="supportMultipleExtensions")
+    def support_multiple_extensions(self) -> bool:
         """
         Indicates if specified product supports multiple extensions.
         """
-        if uri and not isinstance(uri, str):
-            raise TypeError("Expected argument 'uri' to be a str")
-        __self__.uri = uri
+        return pulumi.get(self, "support_multiple_extensions")
+
+    @property
+    @pulumi.getter
+    def uri(self) -> str:
         """
         The URI.
         """
-        if version and not isinstance(version, str):
-            raise TypeError("Expected argument 'version' to be a str")
-        __self__.version = version
+        return pulumi.get(self, "uri")
+
+    @property
+    @pulumi.getter
+    def version(self) -> str:
         """
         Specifies product version.
         """
-        if vm_os_type and not isinstance(vm_os_type, str):
-            raise TypeError("Expected argument 'vm_os_type' to be a str")
-        __self__.vm_os_type = vm_os_type
+        return pulumi.get(self, "version")
+
+    @property
+    @pulumi.getter(name="vmOsType")
+    def vm_os_type(self) -> str:
         """
         Specifies operating system used by the product.
         """
-        if vm_scale_set_enabled and not isinstance(vm_scale_set_enabled, bool):
-            raise TypeError("Expected argument 'vm_scale_set_enabled' to be a bool")
-        __self__.vm_scale_set_enabled = vm_scale_set_enabled
+        return pulumi.get(self, "vm_os_type")
+
+    @property
+    @pulumi.getter(name="vmScaleSetEnabled")
+    def vm_scale_set_enabled(self) -> bool:
         """
         Indicates if virtual machine Scale Set is enabled in the specified product.
         """
+        return pulumi.get(self, "vm_scale_set_enabled")
 
 
 class AwaitableListProductDetailsResult(ListProductDetailsResult):
@@ -101,7 +163,10 @@ class AwaitableListProductDetailsResult(ListProductDetailsResult):
             vm_scale_set_enabled=self.vm_scale_set_enabled)
 
 
-def list_product_details(product_name=None, registration_name=None, resource_group=None, opts=None):
+def list_product_details(product_name: Optional[str] = None,
+                         registration_name: Optional[str] = None,
+                         resource_group: Optional[str] = None,
+                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListProductDetailsResult:
     """
     Use this data source to access information about an existing resource.
 
@@ -117,17 +182,17 @@ def list_product_details(product_name=None, registration_name=None, resource_gro
         opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = _utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('azurerm:azurestack/v20170601:listProductDetails', __args__, opts=opts).value
+    __ret__ = pulumi.runtime.invoke('azurerm:azurestack/v20170601:listProductDetails', __args__, opts=opts, typ=ListProductDetailsResult).value
 
     return AwaitableListProductDetailsResult(
-        compute_role=__ret__.get('computeRole'),
-        data_disk_images=__ret__.get('dataDiskImages'),
-        gallery_package_blob_sas_uri=__ret__.get('galleryPackageBlobSasUri'),
-        is_system_extension=__ret__.get('isSystemExtension'),
-        os_disk_image=__ret__.get('osDiskImage'),
-        product_kind=__ret__.get('productKind'),
-        support_multiple_extensions=__ret__.get('supportMultipleExtensions'),
-        uri=__ret__.get('uri'),
-        version=__ret__.get('version'),
-        vm_os_type=__ret__.get('vmOsType'),
-        vm_scale_set_enabled=__ret__.get('vmScaleSetEnabled'))
+        compute_role=__ret__.compute_role,
+        data_disk_images=__ret__.data_disk_images,
+        gallery_package_blob_sas_uri=__ret__.gallery_package_blob_sas_uri,
+        is_system_extension=__ret__.is_system_extension,
+        os_disk_image=__ret__.os_disk_image,
+        product_kind=__ret__.product_kind,
+        support_multiple_extensions=__ret__.support_multiple_extensions,
+        uri=__ret__.uri,
+        version=__ret__.version,
+        vm_os_type=__ret__.vm_os_type,
+        vm_scale_set_enabled=__ret__.vm_scale_set_enabled)

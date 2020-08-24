@@ -14,3 +14,5 @@ from .get_storage_account import *
 from .list_storage_account_keys import *
 from .management_policy import *
 from .storage_account import *
+from ._inputs import *
+from . import outputs

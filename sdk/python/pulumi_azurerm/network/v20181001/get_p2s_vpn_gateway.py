@@ -5,10 +5,17 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+from . import outputs
 
+__all__ = [
+    'GetP2sVpnGatewayResult',
+    'AwaitableGetP2sVpnGatewayResult',
+    'get_p2s_vpn_gateway',
+]
 
+@pulumi.output_type
 class GetP2sVpnGatewayResult:
     """
     P2SVpnGateway Resource.
@@ -16,70 +23,125 @@ class GetP2sVpnGatewayResult:
     def __init__(__self__, etag=None, location=None, name=None, p2_s_vpn_server_configuration=None, provisioning_state=None, tags=None, type=None, virtual_hub=None, vpn_client_address_pool=None, vpn_client_connection_health=None, vpn_gateway_scale_unit=None):
         if etag and not isinstance(etag, str):
             raise TypeError("Expected argument 'etag' to be a str")
-        __self__.etag = etag
+        pulumi.set(__self__, "etag", etag)
+        if location and not isinstance(location, str):
+            raise TypeError("Expected argument 'location' to be a str")
+        pulumi.set(__self__, "location", location)
+        if name and not isinstance(name, str):
+            raise TypeError("Expected argument 'name' to be a str")
+        pulumi.set(__self__, "name", name)
+        if p2_s_vpn_server_configuration and not isinstance(p2_s_vpn_server_configuration, dict):
+            raise TypeError("Expected argument 'p2_s_vpn_server_configuration' to be a dict")
+        pulumi.set(__self__, "p2_s_vpn_server_configuration", p2_s_vpn_server_configuration)
+        if provisioning_state and not isinstance(provisioning_state, str):
+            raise TypeError("Expected argument 'provisioning_state' to be a str")
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if tags and not isinstance(tags, dict):
+            raise TypeError("Expected argument 'tags' to be a dict")
+        pulumi.set(__self__, "tags", tags)
+        if type and not isinstance(type, str):
+            raise TypeError("Expected argument 'type' to be a str")
+        pulumi.set(__self__, "type", type)
+        if virtual_hub and not isinstance(virtual_hub, dict):
+            raise TypeError("Expected argument 'virtual_hub' to be a dict")
+        pulumi.set(__self__, "virtual_hub", virtual_hub)
+        if vpn_client_address_pool and not isinstance(vpn_client_address_pool, dict):
+            raise TypeError("Expected argument 'vpn_client_address_pool' to be a dict")
+        pulumi.set(__self__, "vpn_client_address_pool", vpn_client_address_pool)
+        if vpn_client_connection_health and not isinstance(vpn_client_connection_health, dict):
+            raise TypeError("Expected argument 'vpn_client_connection_health' to be a dict")
+        pulumi.set(__self__, "vpn_client_connection_health", vpn_client_connection_health)
+        if vpn_gateway_scale_unit and not isinstance(vpn_gateway_scale_unit, float):
+            raise TypeError("Expected argument 'vpn_gateway_scale_unit' to be a float")
+        pulumi.set(__self__, "vpn_gateway_scale_unit", vpn_gateway_scale_unit)
+
+    @property
+    @pulumi.getter
+    def etag(self) -> str:
         """
         Gets a unique read-only string that changes whenever the resource is updated.
         """
-        if location and not isinstance(location, str):
-            raise TypeError("Expected argument 'location' to be a str")
-        __self__.location = location
+        return pulumi.get(self, "etag")
+
+    @property
+    @pulumi.getter
+    def location(self) -> str:
         """
         Resource location.
         """
-        if name and not isinstance(name, str):
-            raise TypeError("Expected argument 'name' to be a str")
-        __self__.name = name
+        return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
         """
         Resource name.
         """
-        if p2_s_vpn_server_configuration and not isinstance(p2_s_vpn_server_configuration, dict):
-            raise TypeError("Expected argument 'p2_s_vpn_server_configuration' to be a dict")
-        __self__.p2_s_vpn_server_configuration = p2_s_vpn_server_configuration
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="p2SVpnServerConfiguration")
+    def p2_s_vpn_server_configuration(self) -> Optional['outputs.SubResourceResponse']:
         """
         The P2SVpnServerConfiguration to which the p2sVpnGateway is attached to.
         """
-        if provisioning_state and not isinstance(provisioning_state, str):
-            raise TypeError("Expected argument 'provisioning_state' to be a str")
-        __self__.provisioning_state = provisioning_state
+        return pulumi.get(self, "p2_s_vpn_server_configuration")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> Optional[str]:
         """
         The provisioning state of the resource.
         """
-        if tags and not isinstance(tags, dict):
-            raise TypeError("Expected argument 'tags' to be a dict")
-        __self__.tags = tags
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Mapping[str, str]]:
         """
         Resource tags.
         """
-        if type and not isinstance(type, str):
-            raise TypeError("Expected argument 'type' to be a str")
-        __self__.type = type
+        return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
         """
         Resource type.
         """
-        if virtual_hub and not isinstance(virtual_hub, dict):
-            raise TypeError("Expected argument 'virtual_hub' to be a dict")
-        __self__.virtual_hub = virtual_hub
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="virtualHub")
+    def virtual_hub(self) -> Optional['outputs.SubResourceResponse']:
         """
         The VirtualHub to which the gateway belongs
         """
-        if vpn_client_address_pool and not isinstance(vpn_client_address_pool, dict):
-            raise TypeError("Expected argument 'vpn_client_address_pool' to be a dict")
-        __self__.vpn_client_address_pool = vpn_client_address_pool
+        return pulumi.get(self, "virtual_hub")
+
+    @property
+    @pulumi.getter(name="vpnClientAddressPool")
+    def vpn_client_address_pool(self) -> Optional['outputs.AddressSpaceResponse']:
         """
         The reference of the address space resource which represents Address space for P2S VpnClient.
         """
-        if vpn_client_connection_health and not isinstance(vpn_client_connection_health, dict):
-            raise TypeError("Expected argument 'vpn_client_connection_health' to be a dict")
-        __self__.vpn_client_connection_health = vpn_client_connection_health
+        return pulumi.get(self, "vpn_client_address_pool")
+
+    @property
+    @pulumi.getter(name="vpnClientConnectionHealth")
+    def vpn_client_connection_health(self) -> 'outputs.VpnClientConnectionHealthResponse':
         """
         All P2S VPN clients' connection health status.
         """
-        if vpn_gateway_scale_unit and not isinstance(vpn_gateway_scale_unit, float):
-            raise TypeError("Expected argument 'vpn_gateway_scale_unit' to be a float")
-        __self__.vpn_gateway_scale_unit = vpn_gateway_scale_unit
+        return pulumi.get(self, "vpn_client_connection_health")
+
+    @property
+    @pulumi.getter(name="vpnGatewayScaleUnit")
+    def vpn_gateway_scale_unit(self) -> Optional[float]:
         """
         The scale unit for this p2s vpn gateway.
         """
+        return pulumi.get(self, "vpn_gateway_scale_unit")
 
 
 class AwaitableGetP2sVpnGatewayResult(GetP2sVpnGatewayResult):
@@ -101,7 +163,9 @@ class AwaitableGetP2sVpnGatewayResult(GetP2sVpnGatewayResult):
             vpn_gateway_scale_unit=self.vpn_gateway_scale_unit)
 
 
-def get_p2s_vpn_gateway(name=None, resource_group_name=None, opts=None):
+def get_p2s_vpn_gateway(name: Optional[str] = None,
+                        resource_group_name: Optional[str] = None,
+                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetP2sVpnGatewayResult:
     """
     Use this data source to access information about an existing resource.
 
@@ -115,17 +179,17 @@ def get_p2s_vpn_gateway(name=None, resource_group_name=None, opts=None):
         opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = _utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('azurerm:network/v20181001:getP2sVpnGateway', __args__, opts=opts).value
+    __ret__ = pulumi.runtime.invoke('azurerm:network/v20181001:getP2sVpnGateway', __args__, opts=opts, typ=GetP2sVpnGatewayResult).value
 
     return AwaitableGetP2sVpnGatewayResult(
-        etag=__ret__.get('etag'),
-        location=__ret__.get('location'),
-        name=__ret__.get('name'),
-        p2_s_vpn_server_configuration=__ret__.get('p2SVpnServerConfiguration'),
-        provisioning_state=__ret__.get('provisioningState'),
-        tags=__ret__.get('tags'),
-        type=__ret__.get('type'),
-        virtual_hub=__ret__.get('virtualHub'),
-        vpn_client_address_pool=__ret__.get('vpnClientAddressPool'),
-        vpn_client_connection_health=__ret__.get('vpnClientConnectionHealth'),
-        vpn_gateway_scale_unit=__ret__.get('vpnGatewayScaleUnit'))
+        etag=__ret__.etag,
+        location=__ret__.location,
+        name=__ret__.name,
+        p2_s_vpn_server_configuration=__ret__.p2_s_vpn_server_configuration,
+        provisioning_state=__ret__.provisioning_state,
+        tags=__ret__.tags,
+        type=__ret__.type,
+        virtual_hub=__ret__.virtual_hub,
+        vpn_client_address_pool=__ret__.vpn_client_address_pool,
+        vpn_client_connection_health=__ret__.vpn_client_connection_health,
+        vpn_gateway_scale_unit=__ret__.vpn_gateway_scale_unit)

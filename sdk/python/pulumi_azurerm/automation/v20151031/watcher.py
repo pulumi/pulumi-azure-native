@@ -5,68 +5,30 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+
+__all__ = ['Watcher']
 
 
 class Watcher(pulumi.CustomResource):
-    creation_time: pulumi.Output[str]
-    """
-    Gets or sets the creation time.
-    """
-    description: pulumi.Output[str]
-    """
-    Gets or sets the description.
-    """
-    etag: pulumi.Output[str]
-    """
-    Gets or sets the etag of the resource.
-    """
-    execution_frequency_in_seconds: pulumi.Output[float]
-    """
-    Gets or sets the frequency at which the watcher is invoked.
-    """
-    last_modified_by: pulumi.Output[str]
-    """
-    Details of the user who last modified the watcher.
-    """
-    last_modified_time: pulumi.Output[str]
-    """
-    Gets or sets the last modified time.
-    """
-    location: pulumi.Output[str]
-    """
-    The Azure Region where the resource lives
-    """
-    name: pulumi.Output[str]
-    """
-    The name of the resource
-    """
-    script_name: pulumi.Output[str]
-    """
-    Gets or sets the name of the script the watcher is attached to, i.e. the name of an existing runbook.
-    """
-    script_parameters: pulumi.Output[dict]
-    """
-    Gets or sets the parameters of the script.
-    """
-    script_run_on: pulumi.Output[str]
-    """
-    Gets or sets the name of the hybrid worker group the watcher will run on.
-    """
-    status: pulumi.Output[str]
-    """
-    Gets the current status of the watcher.
-    """
-    tags: pulumi.Output[dict]
-    """
-    Resource tags.
-    """
-    type: pulumi.Output[str]
-    """
-    The type of the resource.
-    """
-    def __init__(__self__, resource_name, opts=None, automation_account_name=None, description=None, etag=None, execution_frequency_in_seconds=None, location=None, name=None, resource_group_name=None, script_name=None, script_parameters=None, script_run_on=None, tags=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 automation_account_name: Optional[pulumi.Input[str]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 etag: Optional[pulumi.Input[str]] = None,
+                 execution_frequency_in_seconds: Optional[pulumi.Input[float]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 script_name: Optional[pulumi.Input[str]] = None,
+                 script_parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 script_run_on: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         Definition of the watcher type.
 
@@ -80,9 +42,9 @@ class Watcher(pulumi.CustomResource):
         :param pulumi.Input[str] name: The watcher name.
         :param pulumi.Input[str] resource_group_name: Name of an Azure Resource group.
         :param pulumi.Input[str] script_name: Gets or sets the name of the script the watcher is attached to, i.e. the name of an existing runbook.
-        :param pulumi.Input[dict] script_parameters: Gets or sets the parameters of the script.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] script_parameters: Gets or sets the parameters of the script.
         :param pulumi.Input[str] script_run_on: Gets or sets the name of the hybrid worker group the watcher will run on.
-        :param pulumi.Input[dict] tags: Resource tags.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -130,13 +92,15 @@ class Watcher(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None) -> 'Watcher':
         """
         Get an existing Watcher resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -145,8 +109,121 @@ class Watcher(pulumi.CustomResource):
 
         return Watcher(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter(name="creationTime")
+    def creation_time(self) -> str:
+        """
+        Gets or sets the creation time.
+        """
+        return pulumi.get(self, "creation_time")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        """
+        Gets or sets the description.
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def etag(self) -> Optional[str]:
+        """
+        Gets or sets the etag of the resource.
+        """
+        return pulumi.get(self, "etag")
+
+    @property
+    @pulumi.getter(name="executionFrequencyInSeconds")
+    def execution_frequency_in_seconds(self) -> Optional[float]:
+        """
+        Gets or sets the frequency at which the watcher is invoked.
+        """
+        return pulumi.get(self, "execution_frequency_in_seconds")
+
+    @property
+    @pulumi.getter(name="lastModifiedBy")
+    def last_modified_by(self) -> str:
+        """
+        Details of the user who last modified the watcher.
+        """
+        return pulumi.get(self, "last_modified_by")
+
+    @property
+    @pulumi.getter(name="lastModifiedTime")
+    def last_modified_time(self) -> str:
+        """
+        Gets or sets the last modified time.
+        """
+        return pulumi.get(self, "last_modified_time")
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[str]:
+        """
+        The Azure Region where the resource lives
+        """
+        return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the resource
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="scriptName")
+    def script_name(self) -> Optional[str]:
+        """
+        Gets or sets the name of the script the watcher is attached to, i.e. the name of an existing runbook.
+        """
+        return pulumi.get(self, "script_name")
+
+    @property
+    @pulumi.getter(name="scriptParameters")
+    def script_parameters(self) -> Optional[Mapping[str, str]]:
+        """
+        Gets or sets the parameters of the script.
+        """
+        return pulumi.get(self, "script_parameters")
+
+    @property
+    @pulumi.getter(name="scriptRunOn")
+    def script_run_on(self) -> Optional[str]:
+        """
+        Gets or sets the name of the hybrid worker group the watcher will run on.
+        """
+        return pulumi.get(self, "script_run_on")
+
+    @property
+    @pulumi.getter
+    def status(self) -> str:
+        """
+        Gets the current status of the watcher.
+        """
+        return pulumi.get(self, "status")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Mapping[str, str]]:
+        """
+        Resource tags.
+        """
+        return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        The type of the resource.
+        """
+        return pulumi.get(self, "type")
+
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

@@ -5,10 +5,17 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+from . import outputs
 
+__all__ = [
+    'GetChapSettingResult',
+    'AwaitableGetChapSettingResult',
+    'get_chap_setting',
+]
 
+@pulumi.output_type
 class GetChapSettingResult:
     """
     Challenge-Handshake Authentication Protocol (CHAP) setting
@@ -16,22 +23,37 @@ class GetChapSettingResult:
     def __init__(__self__, name=None, password=None, type=None):
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
-        __self__.name = name
+        pulumi.set(__self__, "name", name)
+        if password and not isinstance(password, dict):
+            raise TypeError("Expected argument 'password' to be a dict")
+        pulumi.set(__self__, "password", password)
+        if type and not isinstance(type, str):
+            raise TypeError("Expected argument 'type' to be a str")
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
         """
         The name.
         """
-        if password and not isinstance(password, dict):
-            raise TypeError("Expected argument 'password' to be a dict")
-        __self__.password = password
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def password(self) -> 'outputs.AsymmetricEncryptedSecretResponse':
         """
         The chap password.
         """
-        if type and not isinstance(type, str):
-            raise TypeError("Expected argument 'type' to be a str")
-        __self__.type = type
+        return pulumi.get(self, "password")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
         """
         The type.
         """
+        return pulumi.get(self, "type")
 
 
 class AwaitableGetChapSettingResult(GetChapSettingResult):
@@ -45,7 +67,11 @@ class AwaitableGetChapSettingResult(GetChapSettingResult):
             type=self.type)
 
 
-def get_chap_setting(device_name=None, manager_name=None, name=None, resource_group_name=None, opts=None):
+def get_chap_setting(device_name: Optional[str] = None,
+                     manager_name: Optional[str] = None,
+                     name: Optional[str] = None,
+                     resource_group_name: Optional[str] = None,
+                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetChapSettingResult:
     """
     Use this data source to access information about an existing resource.
 
@@ -63,9 +89,9 @@ def get_chap_setting(device_name=None, manager_name=None, name=None, resource_gr
         opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = _utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('azurerm:storsimple/v20161001:getChapSetting', __args__, opts=opts).value
+    __ret__ = pulumi.runtime.invoke('azurerm:storsimple/v20161001:getChapSetting', __args__, opts=opts, typ=GetChapSettingResult).value
 
     return AwaitableGetChapSettingResult(
-        name=__ret__.get('name'),
-        password=__ret__.get('password'),
-        type=__ret__.get('type'))
+        name=__ret__.name,
+        password=__ret__.password,
+        type=__ret__.type)

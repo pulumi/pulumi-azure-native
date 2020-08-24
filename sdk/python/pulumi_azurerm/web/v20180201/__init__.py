@@ -92,3 +92,5 @@ from .web_app_swift_virtual_network_connection import *
 from .web_app_swift_virtual_network_connection_slot import *
 from .web_app_vnet_connection import *
 from .web_app_vnet_connection_slot import *
+from ._inputs import *
+from . import outputs

@@ -5,10 +5,18 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+from . import outputs
+from ._inputs import *
 
+__all__ = [
+    'ListCustomApiWsdlInterfacesResult',
+    'AwaitableListCustomApiWsdlInterfacesResult',
+    'list_custom_api_wsdl_interfaces',
+]
 
+@pulumi.output_type
 class ListCustomApiWsdlInterfacesResult:
     """
     A list of custom API WSDL interfaces
@@ -16,10 +24,15 @@ class ListCustomApiWsdlInterfacesResult:
     def __init__(__self__, value=None):
         if value and not isinstance(value, list):
             raise TypeError("Expected argument 'value' to be a list")
-        __self__.value = value
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[List['outputs.WsdlServiceResponse']]:
         """
         Collection of WSDL interfaces
         """
+        return pulumi.get(self, "value")
 
 
 class AwaitableListCustomApiWsdlInterfacesResult(ListCustomApiWsdlInterfacesResult):
@@ -31,20 +44,20 @@ class AwaitableListCustomApiWsdlInterfacesResult(ListCustomApiWsdlInterfacesResu
             value=self.value)
 
 
-def list_custom_api_wsdl_interfaces(content=None, import_method=None, location=None, service=None, url=None, opts=None):
+def list_custom_api_wsdl_interfaces(content: Optional[str] = None,
+                                    import_method: Optional[str] = None,
+                                    location: Optional[str] = None,
+                                    service: Optional[pulumi.InputType['WsdlServiceArgs']] = None,
+                                    url: Optional[str] = None,
+                                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListCustomApiWsdlInterfacesResult:
     """
     Use this data source to access information about an existing resource.
 
     :param str content: The WSDL content
     :param str import_method: The WSDL import method
     :param str location: The location
-    :param dict service: The service with name and endpoint names
+    :param pulumi.InputType['WsdlServiceArgs'] service: The service with name and endpoint names
     :param str url: The WSDL URL
-
-    The **service** object supports the following:
-
-      * `endpoint_qualified_names` (`list`) - List of the endpoints' qualified names
-      * `qualified_name` (`str`) - The service's qualified name
     """
     __args__ = dict()
     __args__['content'] = content
@@ -56,7 +69,7 @@ def list_custom_api_wsdl_interfaces(content=None, import_method=None, location=N
         opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = _utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('azurerm:web/v20160601:listCustomApiWsdlInterfaces', __args__, opts=opts).value
+    __ret__ = pulumi.runtime.invoke('azurerm:web/v20160601:listCustomApiWsdlInterfaces', __args__, opts=opts, typ=ListCustomApiWsdlInterfacesResult).value
 
     return AwaitableListCustomApiWsdlInterfacesResult(
-        value=__ret__.get('value'))
+        value=__ret__.value)

@@ -5,66 +5,38 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+from . import outputs
+from ._inputs import *
+
+__all__ = ['ADCCatalog']
 
 
 class ADCCatalog(pulumi.CustomResource):
-    admins: pulumi.Output[list]
-    """
-    Azure data catalog admin list.
-      * `object_id` (`str`) - Object Id for the user
-      * `upn` (`str`) - UPN of the user.
-    """
-    enable_automatic_unit_adjustment: pulumi.Output[bool]
-    """
-    Automatic unit adjustment enabled or not.
-    """
-    etag: pulumi.Output[str]
-    """
-    Resource etag
-    """
-    location: pulumi.Output[str]
-    """
-    Resource location
-    """
-    name: pulumi.Output[str]
-    """
-    Resource name
-    """
-    sku: pulumi.Output[str]
-    """
-    Azure data catalog SKU.
-    """
-    successfully_provisioned: pulumi.Output[bool]
-    """
-    Azure data catalog provision status.
-    """
-    tags: pulumi.Output[dict]
-    """
-    Resource tags
-    """
-    type: pulumi.Output[str]
-    """
-    Resource type
-    """
-    units: pulumi.Output[float]
-    """
-    Azure data catalog units.
-    """
-    users: pulumi.Output[list]
-    """
-    Azure data catalog user list.
-      * `object_id` (`str`) - Object Id for the user
-      * `upn` (`str`) - UPN of the user.
-    """
-    def __init__(__self__, resource_name, opts=None, admins=None, enable_automatic_unit_adjustment=None, etag=None, location=None, name=None, resource_group_name=None, sku=None, successfully_provisioned=None, tags=None, units=None, users=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 admins: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['PrincipalsArgs']]]]] = None,
+                 enable_automatic_unit_adjustment: Optional[pulumi.Input[bool]] = None,
+                 etag: Optional[pulumi.Input[str]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 sku: Optional[pulumi.Input[str]] = None,
+                 successfully_provisioned: Optional[pulumi.Input[bool]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 units: Optional[pulumi.Input[float]] = None,
+                 users: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['PrincipalsArgs']]]]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         Azure Data Catalog.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[list] admins: Azure data catalog admin list.
+        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['PrincipalsArgs']]]] admins: Azure data catalog admin list.
         :param pulumi.Input[bool] enable_automatic_unit_adjustment: Automatic unit adjustment enabled or not.
         :param pulumi.Input[str] etag: Resource etag
         :param pulumi.Input[str] location: Resource location
@@ -72,14 +44,9 @@ class ADCCatalog(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.
         :param pulumi.Input[str] sku: Azure data catalog SKU.
         :param pulumi.Input[bool] successfully_provisioned: Azure data catalog provision status.
-        :param pulumi.Input[dict] tags: Resource tags
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags
         :param pulumi.Input[float] units: Azure data catalog units.
-        :param pulumi.Input[list] users: Azure data catalog user list.
-
-        The **admins** object supports the following:
-
-          * `object_id` (`pulumi.Input[str]`) - Object Id for the user
-          * `upn` (`pulumi.Input[str]`) - UPN of the user.
+        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['PrincipalsArgs']]]] users: Azure data catalog user list.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -121,13 +88,15 @@ class ADCCatalog(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None) -> 'ADCCatalog':
         """
         Get an existing ADCCatalog resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -136,8 +105,97 @@ class ADCCatalog(pulumi.CustomResource):
 
         return ADCCatalog(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter
+    def admins(self) -> Optional[List['outputs.PrincipalsResponse']]:
+        """
+        Azure data catalog admin list.
+        """
+        return pulumi.get(self, "admins")
+
+    @property
+    @pulumi.getter(name="enableAutomaticUnitAdjustment")
+    def enable_automatic_unit_adjustment(self) -> Optional[bool]:
+        """
+        Automatic unit adjustment enabled or not.
+        """
+        return pulumi.get(self, "enable_automatic_unit_adjustment")
+
+    @property
+    @pulumi.getter
+    def etag(self) -> Optional[str]:
+        """
+        Resource etag
+        """
+        return pulumi.get(self, "etag")
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[str]:
+        """
+        Resource location
+        """
+        return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Resource name
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def sku(self) -> Optional[str]:
+        """
+        Azure data catalog SKU.
+        """
+        return pulumi.get(self, "sku")
+
+    @property
+    @pulumi.getter(name="successfullyProvisioned")
+    def successfully_provisioned(self) -> Optional[bool]:
+        """
+        Azure data catalog provision status.
+        """
+        return pulumi.get(self, "successfully_provisioned")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Mapping[str, str]]:
+        """
+        Resource tags
+        """
+        return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Resource type
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def units(self) -> Optional[float]:
+        """
+        Azure data catalog units.
+        """
+        return pulumi.get(self, "units")
+
+    @property
+    @pulumi.getter
+    def users(self) -> Optional[List['outputs.PrincipalsResponse']]:
+        """
+        Azure data catalog user list.
+        """
+        return pulumi.get(self, "users")
+
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

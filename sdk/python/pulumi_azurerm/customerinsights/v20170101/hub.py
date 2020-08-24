@@ -5,68 +5,38 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+from . import outputs
+from ._inputs import *
+
+__all__ = ['Hub']
 
 
 class Hub(pulumi.CustomResource):
-    api_endpoint: pulumi.Output[str]
-    """
-    API endpoint URL of the hub.
-    """
-    hub_billing_info: pulumi.Output[dict]
-    """
-    Billing settings of the hub.
-      * `max_units` (`float`) - The maximum number of units can be used.  One unit is 10,000 Profiles and 100,000 Interactions.
-      * `min_units` (`float`) - The minimum number of units will be billed. One unit is 10,000 Profiles and 100,000 Interactions.
-      * `sku_name` (`str`) - The sku name.
-    """
-    location: pulumi.Output[str]
-    """
-    Resource location.
-    """
-    name: pulumi.Output[str]
-    """
-    Resource name.
-    """
-    provisioning_state: pulumi.Output[str]
-    """
-    Provisioning state of the hub.
-    """
-    tags: pulumi.Output[dict]
-    """
-    Resource tags.
-    """
-    tenant_features: pulumi.Output[float]
-    """
-    The bit flags for enabled hub features. Bit 0 is set to 1 indicates graph is enabled, or disabled if set to 0. Bit 1 is set to 1 indicates the hub is disabled, or enabled if set to 0.
-    """
-    type: pulumi.Output[str]
-    """
-    Resource type.
-    """
-    web_endpoint: pulumi.Output[str]
-    """
-    Web endpoint URL of the hub.
-    """
-    def __init__(__self__, resource_name, opts=None, hub_billing_info=None, location=None, name=None, resource_group_name=None, tags=None, tenant_features=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 hub_billing_info: Optional[pulumi.Input[pulumi.InputType['HubBillingInfoFormatArgs']]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tenant_features: Optional[pulumi.Input[float]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         Hub resource.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[dict] hub_billing_info: Billing settings of the hub.
+        :param pulumi.Input[pulumi.InputType['HubBillingInfoFormatArgs']] hub_billing_info: Billing settings of the hub.
         :param pulumi.Input[str] location: Resource location.
         :param pulumi.Input[str] name: The name of the Hub.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
-        :param pulumi.Input[dict] tags: Resource tags.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         :param pulumi.Input[float] tenant_features: The bit flags for enabled hub features. Bit 0 is set to 1 indicates graph is enabled, or disabled if set to 0. Bit 1 is set to 1 indicates the hub is disabled, or enabled if set to 0.
-
-        The **hub_billing_info** object supports the following:
-
-          * `max_units` (`pulumi.Input[float]`) - The maximum number of units can be used.  One unit is 10,000 Profiles and 100,000 Interactions.
-          * `min_units` (`pulumi.Input[float]`) - The minimum number of units will be billed. One unit is 10,000 Profiles and 100,000 Interactions.
-          * `sku_name` (`pulumi.Input[str]`) - The sku name.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -108,13 +78,15 @@ class Hub(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None) -> 'Hub':
         """
         Get an existing Hub resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -123,8 +95,81 @@ class Hub(pulumi.CustomResource):
 
         return Hub(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter(name="apiEndpoint")
+    def api_endpoint(self) -> str:
+        """
+        API endpoint URL of the hub.
+        """
+        return pulumi.get(self, "api_endpoint")
+
+    @property
+    @pulumi.getter(name="hubBillingInfo")
+    def hub_billing_info(self) -> Optional['outputs.HubBillingInfoFormatResponse']:
+        """
+        Billing settings of the hub.
+        """
+        return pulumi.get(self, "hub_billing_info")
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[str]:
+        """
+        Resource location.
+        """
+        return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Resource name.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        Provisioning state of the hub.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Mapping[str, str]]:
+        """
+        Resource tags.
+        """
+        return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter(name="tenantFeatures")
+    def tenant_features(self) -> Optional[float]:
+        """
+        The bit flags for enabled hub features. Bit 0 is set to 1 indicates graph is enabled, or disabled if set to 0. Bit 1 is set to 1 indicates the hub is disabled, or enabled if set to 0.
+        """
+        return pulumi.get(self, "tenant_features")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Resource type.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="webEndpoint")
+    def web_endpoint(self) -> str:
+        """
+        Web endpoint URL of the hub.
+        """
+        return pulumi.get(self, "web_endpoint")
+
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

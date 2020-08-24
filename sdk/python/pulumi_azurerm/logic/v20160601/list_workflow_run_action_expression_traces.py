@@ -5,15 +5,27 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+from . import outputs
 
+__all__ = [
+    'ListWorkflowRunActionExpressionTracesResult',
+    'AwaitableListWorkflowRunActionExpressionTracesResult',
+    'list_workflow_run_action_expression_traces',
+]
 
+@pulumi.output_type
 class ListWorkflowRunActionExpressionTracesResult:
     def __init__(__self__, inputs=None):
         if inputs and not isinstance(inputs, list):
             raise TypeError("Expected argument 'inputs' to be a list")
-        __self__.inputs = inputs
+        pulumi.set(__self__, "inputs", inputs)
+
+    @property
+    @pulumi.getter
+    def inputs(self) -> Optional[List['outputs.ExpressionRootResponseResult']]:
+        return pulumi.get(self, "inputs")
 
 
 class AwaitableListWorkflowRunActionExpressionTracesResult(ListWorkflowRunActionExpressionTracesResult):
@@ -25,7 +37,11 @@ class AwaitableListWorkflowRunActionExpressionTracesResult(ListWorkflowRunAction
             inputs=self.inputs)
 
 
-def list_workflow_run_action_expression_traces(action_name=None, resource_group_name=None, run_name=None, workflow_name=None, opts=None):
+def list_workflow_run_action_expression_traces(action_name: Optional[str] = None,
+                                               resource_group_name: Optional[str] = None,
+                                               run_name: Optional[str] = None,
+                                               workflow_name: Optional[str] = None,
+                                               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListWorkflowRunActionExpressionTracesResult:
     """
     Use this data source to access information about an existing resource.
 
@@ -43,7 +59,7 @@ def list_workflow_run_action_expression_traces(action_name=None, resource_group_
         opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = _utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('azurerm:logic/v20160601:listWorkflowRunActionExpressionTraces', __args__, opts=opts).value
+    __ret__ = pulumi.runtime.invoke('azurerm:logic/v20160601:listWorkflowRunActionExpressionTraces', __args__, opts=opts, typ=ListWorkflowRunActionExpressionTracesResult).value
 
     return AwaitableListWorkflowRunActionExpressionTracesResult(
-        inputs=__ret__.get('inputs'))
+        inputs=__ret__.inputs)

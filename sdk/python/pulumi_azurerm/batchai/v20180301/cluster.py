@@ -5,157 +5,32 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+from . import outputs
+from ._inputs import *
+
+__all__ = ['Cluster']
 
 
 class Cluster(pulumi.CustomResource):
-    allocation_state: pulumi.Output[str]
-    """
-    Possible values are: steady and resizing. steady state indicates that the cluster is not resizing. There are no changes to the number of compute nodes in the cluster in progress. A cluster enters this state when it is created and when no operations are being performed on the cluster to change the number of compute nodes. resizing state indicates that the cluster is resizing; that is, compute nodes are being added to or removed from the cluster.
-    """
-    allocation_state_transition_time: pulumi.Output[str]
-    creation_time: pulumi.Output[str]
-    current_node_count: pulumi.Output[float]
-    errors: pulumi.Output[list]
-    """
-    This element contains all the errors encountered by various compute nodes during node setup.
-      * `code` (`str`) - An identifier for the error. Codes are invariant and are intended to be consumed programmatically.
-      * `details` (`list`) - A list of additional details about the error.
-        * `name` (`str`)
-        * `value` (`str`)
-
-      * `message` (`str`) - A message describing the error, intended to be suitable for display in a user interface.
-    """
-    location: pulumi.Output[str]
-    """
-    The location of the resource
-    """
-    name: pulumi.Output[str]
-    """
-    The name of the resource
-    """
-    node_setup: pulumi.Output[dict]
-    """
-    Use this to prepare the VM. NOTE: The volumes specified in mountVolumes are mounted first and then the setupTask is run. Therefore the setup task can use local mountPaths in its execution.
-      * `mount_volumes` (`dict`) - Specified mount volumes will be available to all jobs executing on the cluster. The volumes will be mounted at location specified by $AZ_BATCHAI_MOUNT_ROOT environment variable.
-        * `azure_blob_file_systems` (`list`) - References to Azure Blob FUSE that are to be mounted to the cluster nodes.
-          * `account_name` (`str`)
-          * `container_name` (`str`)
-          * `credentials` (`dict`) - Credentials to access Azure File Share.
-            * `account_key` (`str`) - One of accountKey or accountKeySecretReference must be specified.
-            * `account_key_secret_reference` (`dict`) - Users can store their secrets in Azure KeyVault and pass it to the Batch AI Service to integrate with KeyVault. One of accountKey or accountKeySecretReference must be specified.
-              * `secret_url` (`str`)
-              * `source_vault` (`dict`) - Represents a resource ID. For example, for a subnet, it is the resource URL for the subnet.
-                * `id` (`str`) - The ID of the resource
-
-          * `mount_options` (`str`)
-          * `relative_mount_path` (`str`) - Note that all cluster level blob file systems will be mounted under $AZ_BATCHAI_MOUNT_ROOT location and all job level blob file systems will be mounted under $AZ_BATCHAI_JOB_MOUNT_ROOT.
-
-        * `azure_file_shares` (`list`) - References to Azure File Shares that are to be mounted to the cluster nodes.
-          * `account_name` (`str`)
-          * `azure_file_url` (`str`)
-          * `credentials` (`dict`) - Credentials to access Azure File Share.
-          * `directory_mode` (`str`) - Default value is 0777. Valid only if OS is linux.
-          * `file_mode` (`str`) - Default value is 0777. Valid only if OS is linux.
-          * `relative_mount_path` (`str`) - Note that all cluster level file shares will be mounted under $AZ_BATCHAI_MOUNT_ROOT location and all job level file shares will be mounted under $AZ_BATCHAI_JOB_MOUNT_ROOT.
-
-        * `file_servers` (`list`)
-          * `file_server` (`dict`) - Represents a resource ID. For example, for a subnet, it is the resource URL for the subnet.
-          * `mount_options` (`str`)
-          * `relative_mount_path` (`str`) - Note that all cluster level file servers will be mounted under $AZ_BATCHAI_MOUNT_ROOT location and job level file servers will be mounted under $AZ_BATCHAI_JOB_MOUNT_ROOT.
-          * `source_directory` (`str`) - If this property is not specified, the entire File Server will be mounted.
-
-        * `unmanaged_file_systems` (`list`)
-          * `mount_command` (`str`)
-          * `relative_mount_path` (`str`) - Note that all cluster level unmanaged file system will be mounted under $AZ_BATCHAI_MOUNT_ROOT location and job level unmanaged file system will be mounted under $AZ_BATCHAI_JOB_MOUNT_ROOT.
-
-      * `performance_counters_settings` (`dict`) - Performance counters reporting settings.
-        * `app_insights_reference` (`dict`) - If provided, Batch AI will upload node performance counters to the corresponding Azure Application Insights account.
-          * `component` (`dict`) - Represents a resource ID. For example, for a subnet, it is the resource URL for the subnet.
-          * `instrumentation_key` (`str`)
-          * `instrumentation_key_secret_reference` (`dict`) - Specifies KeyVault Store and Secret which contains Azure Application Insights instrumentation key. One of instrumentationKey or instrumentationKeySecretReference must be specified.
-
-      * `setup_task` (`dict`) - Specifies a setup task which can be used to customize the compute nodes of the cluster.
-        * `command_line` (`str`)
-        * `environment_variables` (`list`)
-          * `name` (`str`)
-          * `value` (`str`)
-
-        * `run_elevated` (`bool`) - Note. Non-elevated tasks are run under an account added into sudoer list and can perform sudo when required.
-        * `secrets` (`list`) - Server will never report values of these variables back.
-          * `name` (`str`)
-          * `value` (`str`)
-          * `value_secret_reference` (`dict`) - Specifies KeyVault Store and Secret which contains the value for the environment variable. One of value or valueSecretReference must be provided.
-
-        * `std_out_err_path_prefix` (`str`) - The prefix of a path where the Batch AI service will upload the stdout and stderr of the setup task.
-        * `std_out_err_path_suffix` (`str`) - Batch AI creates the setup task output directories under an unique path to avoid conflicts between different clusters. You can concatenate stdOutErrPathPrefix and stdOutErrPathSuffix to get the full path to the output directory.
-    """
-    node_state_counts: pulumi.Output[dict]
-    """
-    Counts of various compute node states on the cluster.
-      * `idle_node_count` (`float`)
-      * `leaving_node_count` (`float`)
-      * `preparing_node_count` (`float`)
-      * `running_node_count` (`float`)
-      * `unusable_node_count` (`float`)
-    """
-    provisioning_state: pulumi.Output[str]
-    """
-    Possible value are: creating - Specifies that the cluster is being created. succeeded - Specifies that the cluster has been created successfully. failed - Specifies that the cluster creation has failed. deleting - Specifies that the cluster is being deleted.
-    """
-    provisioning_state_transition_time: pulumi.Output[str]
-    scale_settings: pulumi.Output[dict]
-    """
-    At least one of manual or autoScale settings must be specified. Only one of manual or autoScale settings can be specified. If autoScale settings are specified, the system automatically scales the cluster up and down (within the supplied limits) based on the pending jobs on the cluster.
-      * `auto_scale` (`dict`) - The system automatically scales the cluster up and down (within minimumNodeCount and maximumNodeCount) based on the pending and running jobs on the cluster.
-        * `initial_node_count` (`float`)
-        * `maximum_node_count` (`float`)
-        * `minimum_node_count` (`float`)
-
-      * `manual` (`dict`) - Manual scale settings for the cluster.
-        * `node_deallocation_option` (`str`) - The default value is requeue.
-        * `target_node_count` (`float`) - Default is 0. If autoScaleSettings are not specified, then the Cluster starts with this target.
-    """
-    subnet: pulumi.Output[dict]
-    """
-    Represents a resource ID. For example, for a subnet, it is the resource URL for the subnet.
-      * `id` (`str`) - The ID of the resource
-    """
-    tags: pulumi.Output[dict]
-    """
-    The tags of the resource
-    """
-    type: pulumi.Output[str]
-    """
-    The type of the resource
-    """
-    user_account_settings: pulumi.Output[dict]
-    """
-    Settings for user account that gets created on each on the nodes of a cluster.
-      * `admin_user_name` (`str`)
-      * `admin_user_password` (`str`)
-      * `admin_user_ssh_public_key` (`str`)
-    """
-    virtual_machine_configuration: pulumi.Output[dict]
-    """
-    Settings for OS image.
-      * `image_reference` (`dict`) - The image reference.
-        * `offer` (`str`)
-        * `publisher` (`str`)
-        * `sku` (`str`)
-        * `version` (`str`)
-        * `virtual_machine_image_id` (`str`) - The virtual machine image must be in the same region and subscription as the cluster. For information about the firewall settings for the Batch node agent to communicate with the Batch service see https://docs.microsoft.com/en-us/azure/batch/batch-api-basics#virtual-network-vnet-and-firewall-configuration. Note, you need to provide publisher, offer and sku of the base OS image of which the custom image has been derived from.
-    """
-    vm_priority: pulumi.Output[str]
-    """
-    The default value is dedicated. The node can get preempted while the task is running if lowpriority is chosen. This is best suited if the workload is checkpointing and can be restarted.
-    """
-    vm_size: pulumi.Output[str]
-    """
-    All virtual machines in a cluster are the same size. For information about available VM sizes for clusters using images from the Virtual Machines Marketplace (see Sizes for Virtual Machines (Linux) or Sizes for Virtual Machines (Windows). Batch AI service supports all Azure VM sizes except STANDARD_A0 and those with premium storage (STANDARD_GS, STANDARD_DS, and STANDARD_DSV2 series).
-    """
-    def __init__(__self__, resource_name, opts=None, location=None, name=None, node_setup=None, resource_group_name=None, scale_settings=None, subnet=None, tags=None, user_account_settings=None, virtual_machine_configuration=None, vm_priority=None, vm_size=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 node_setup: Optional[pulumi.Input[pulumi.InputType['NodeSetupArgs']]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 scale_settings: Optional[pulumi.Input[pulumi.InputType['ScaleSettingsArgs']]] = None,
+                 subnet: Optional[pulumi.Input[pulumi.InputType['ResourceIdArgs']]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 user_account_settings: Optional[pulumi.Input[pulumi.InputType['UserAccountSettingsArgs']]] = None,
+                 virtual_machine_configuration: Optional[pulumi.Input[pulumi.InputType['VirtualMachineConfigurationArgs']]] = None,
+                 vm_priority: Optional[pulumi.Input[str]] = None,
+                 vm_size: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         Contains information about a Cluster.
 
@@ -163,95 +38,15 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] location: The region in which to create the cluster.
         :param pulumi.Input[str] name: The name of the cluster within the specified resource group. Cluster names can only contain a combination of alphanumeric characters along with dash (-) and underscore (_). The name must be from 1 through 64 characters long.
-        :param pulumi.Input[dict] node_setup: Use this to prepare the VM. NOTE: The volumes specified in mountVolumes are mounted first and then the setupTask is run. Therefore the setup task can use local mountPaths in its execution.
+        :param pulumi.Input[pulumi.InputType['NodeSetupArgs']] node_setup: Use this to prepare the VM. NOTE: The volumes specified in mountVolumes are mounted first and then the setupTask is run. Therefore the setup task can use local mountPaths in its execution.
         :param pulumi.Input[str] resource_group_name: Name of the resource group to which the resource belongs.
-        :param pulumi.Input[dict] scale_settings: At least one of manual or autoScale settings must be specified. Only one of manual or autoScale settings can be specified. If autoScale settings are specified, the system automatically scales the cluster up and down (within the supplied limits) based on the pending jobs on the cluster.
-        :param pulumi.Input[dict] subnet: Represents a resource ID. For example, for a subnet, it is the resource URL for the subnet.
-        :param pulumi.Input[dict] tags: The user specified tags associated with the Cluster.
-        :param pulumi.Input[dict] user_account_settings: Settings for user account that gets created on each on the nodes of a cluster.
-        :param pulumi.Input[dict] virtual_machine_configuration: Settings for OS image.
+        :param pulumi.Input[pulumi.InputType['ScaleSettingsArgs']] scale_settings: At least one of manual or autoScale settings must be specified. Only one of manual or autoScale settings can be specified. If autoScale settings are specified, the system automatically scales the cluster up and down (within the supplied limits) based on the pending jobs on the cluster.
+        :param pulumi.Input[pulumi.InputType['ResourceIdArgs']] subnet: Represents a resource ID. For example, for a subnet, it is the resource URL for the subnet.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The user specified tags associated with the Cluster.
+        :param pulumi.Input[pulumi.InputType['UserAccountSettingsArgs']] user_account_settings: Settings for user account that gets created on each on the nodes of a cluster.
+        :param pulumi.Input[pulumi.InputType['VirtualMachineConfigurationArgs']] virtual_machine_configuration: Settings for OS image.
         :param pulumi.Input[str] vm_priority: Default is dedicated.
         :param pulumi.Input[str] vm_size: All virtual machines in a cluster are the same size. For information about available VM sizes for clusters using images from the Virtual Machines Marketplace (see Sizes for Virtual Machines (Linux) or Sizes for Virtual Machines (Windows). Batch AI service supports all Azure VM sizes except STANDARD_A0 and those with premium storage (STANDARD_GS, STANDARD_DS, and STANDARD_DSV2 series).
-
-        The **node_setup** object supports the following:
-
-          * `mount_volumes` (`pulumi.Input[dict]`) - Specified mount volumes will be available to all jobs executing on the cluster. The volumes will be mounted at location specified by $AZ_BATCHAI_MOUNT_ROOT environment variable.
-            * `azure_blob_file_systems` (`pulumi.Input[list]`) - References to Azure Blob FUSE that are to be mounted to the cluster nodes.
-              * `account_name` (`pulumi.Input[str]`)
-              * `container_name` (`pulumi.Input[str]`)
-              * `credentials` (`pulumi.Input[dict]`) - Credentials to access Azure File Share.
-                * `account_key` (`pulumi.Input[str]`) - One of accountKey or accountKeySecretReference must be specified.
-                * `account_key_secret_reference` (`pulumi.Input[dict]`) - Users can store their secrets in Azure KeyVault and pass it to the Batch AI Service to integrate with KeyVault. One of accountKey or accountKeySecretReference must be specified.
-                  * `secret_url` (`pulumi.Input[str]`)
-                  * `source_vault` (`pulumi.Input[dict]`) - Represents a resource ID. For example, for a subnet, it is the resource URL for the subnet.
-                    * `id` (`pulumi.Input[str]`) - The ID of the resource
-
-              * `mount_options` (`pulumi.Input[str]`)
-              * `relative_mount_path` (`pulumi.Input[str]`) - Note that all cluster level blob file systems will be mounted under $AZ_BATCHAI_MOUNT_ROOT location and all job level blob file systems will be mounted under $AZ_BATCHAI_JOB_MOUNT_ROOT.
-
-            * `azure_file_shares` (`pulumi.Input[list]`) - References to Azure File Shares that are to be mounted to the cluster nodes.
-              * `account_name` (`pulumi.Input[str]`)
-              * `azure_file_url` (`pulumi.Input[str]`)
-              * `credentials` (`pulumi.Input[dict]`) - Credentials to access Azure File Share.
-              * `directory_mode` (`pulumi.Input[str]`) - Default value is 0777. Valid only if OS is linux.
-              * `file_mode` (`pulumi.Input[str]`) - Default value is 0777. Valid only if OS is linux.
-              * `relative_mount_path` (`pulumi.Input[str]`) - Note that all cluster level file shares will be mounted under $AZ_BATCHAI_MOUNT_ROOT location and all job level file shares will be mounted under $AZ_BATCHAI_JOB_MOUNT_ROOT.
-
-            * `file_servers` (`pulumi.Input[list]`)
-              * `file_server` (`pulumi.Input[dict]`) - Represents a resource ID. For example, for a subnet, it is the resource URL for the subnet.
-              * `mount_options` (`pulumi.Input[str]`)
-              * `relative_mount_path` (`pulumi.Input[str]`) - Note that all cluster level file servers will be mounted under $AZ_BATCHAI_MOUNT_ROOT location and job level file servers will be mounted under $AZ_BATCHAI_JOB_MOUNT_ROOT.
-              * `source_directory` (`pulumi.Input[str]`) - If this property is not specified, the entire File Server will be mounted.
-
-            * `unmanaged_file_systems` (`pulumi.Input[list]`)
-              * `mount_command` (`pulumi.Input[str]`)
-              * `relative_mount_path` (`pulumi.Input[str]`) - Note that all cluster level unmanaged file system will be mounted under $AZ_BATCHAI_MOUNT_ROOT location and job level unmanaged file system will be mounted under $AZ_BATCHAI_JOB_MOUNT_ROOT.
-
-          * `performance_counters_settings` (`pulumi.Input[dict]`) - Performance counters reporting settings.
-            * `app_insights_reference` (`pulumi.Input[dict]`) - If provided, Batch AI will upload node performance counters to the corresponding Azure Application Insights account.
-              * `component` (`pulumi.Input[dict]`) - Represents a resource ID. For example, for a subnet, it is the resource URL for the subnet.
-              * `instrumentation_key` (`pulumi.Input[str]`)
-              * `instrumentation_key_secret_reference` (`pulumi.Input[dict]`) - Specifies KeyVault Store and Secret which contains Azure Application Insights instrumentation key. One of instrumentationKey or instrumentationKeySecretReference must be specified.
-
-          * `setup_task` (`pulumi.Input[dict]`) - Specifies a setup task which can be used to customize the compute nodes of the cluster.
-            * `command_line` (`pulumi.Input[str]`)
-            * `environment_variables` (`pulumi.Input[list]`)
-              * `name` (`pulumi.Input[str]`)
-              * `value` (`pulumi.Input[str]`)
-
-            * `run_elevated` (`pulumi.Input[bool]`) - Note. Non-elevated tasks are run under an account added into sudoer list and can perform sudo when required.
-            * `secrets` (`pulumi.Input[list]`) - Server will never report values of these variables back.
-              * `name` (`pulumi.Input[str]`)
-              * `value` (`pulumi.Input[str]`)
-              * `value_secret_reference` (`pulumi.Input[dict]`) - Specifies KeyVault Store and Secret which contains the value for the environment variable. One of value or valueSecretReference must be provided.
-
-            * `std_out_err_path_prefix` (`pulumi.Input[str]`) - The prefix of a path where the Batch AI service will upload the stdout and stderr of the setup task.
-
-        The **scale_settings** object supports the following:
-
-          * `auto_scale` (`pulumi.Input[dict]`) - The system automatically scales the cluster up and down (within minimumNodeCount and maximumNodeCount) based on the pending and running jobs on the cluster.
-            * `initial_node_count` (`pulumi.Input[float]`)
-            * `maximum_node_count` (`pulumi.Input[float]`)
-            * `minimum_node_count` (`pulumi.Input[float]`)
-
-          * `manual` (`pulumi.Input[dict]`) - Manual scale settings for the cluster.
-            * `node_deallocation_option` (`pulumi.Input[str]`) - The default value is requeue.
-            * `target_node_count` (`pulumi.Input[float]`) - Default is 0. If autoScaleSettings are not specified, then the Cluster starts with this target.
-
-        The **user_account_settings** object supports the following:
-
-          * `admin_user_name` (`pulumi.Input[str]`)
-          * `admin_user_password` (`pulumi.Input[str]`)
-          * `admin_user_ssh_public_key` (`pulumi.Input[str]`)
-
-        The **virtual_machine_configuration** object supports the following:
-
-          * `image_reference` (`pulumi.Input[dict]`) - The image reference.
-            * `offer` (`pulumi.Input[str]`)
-            * `publisher` (`pulumi.Input[str]`)
-            * `sku` (`pulumi.Input[str]`)
-            * `version` (`pulumi.Input[str]`)
-            * `virtual_machine_image_id` (`pulumi.Input[str]`) - The virtual machine image must be in the same region and subscription as the cluster. For information about the firewall settings for the Batch node agent to communicate with the Batch service see https://docs.microsoft.com/en-us/azure/batch/batch-api-basics#virtual-network-vnet-and-firewall-configuration. Note, you need to provide publisher, offer and sku of the base OS image of which the custom image has been derived from.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -307,13 +102,15 @@ class Cluster(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None) -> 'Cluster':
         """
         Get an existing Cluster resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -322,8 +119,149 @@ class Cluster(pulumi.CustomResource):
 
         return Cluster(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter(name="allocationState")
+    def allocation_state(self) -> str:
+        """
+        Possible values are: steady and resizing. steady state indicates that the cluster is not resizing. There are no changes to the number of compute nodes in the cluster in progress. A cluster enters this state when it is created and when no operations are being performed on the cluster to change the number of compute nodes. resizing state indicates that the cluster is resizing; that is, compute nodes are being added to or removed from the cluster.
+        """
+        return pulumi.get(self, "allocation_state")
+
+    @property
+    @pulumi.getter(name="allocationStateTransitionTime")
+    def allocation_state_transition_time(self) -> str:
+        return pulumi.get(self, "allocation_state_transition_time")
+
+    @property
+    @pulumi.getter(name="creationTime")
+    def creation_time(self) -> str:
+        return pulumi.get(self, "creation_time")
+
+    @property
+    @pulumi.getter(name="currentNodeCount")
+    def current_node_count(self) -> float:
+        return pulumi.get(self, "current_node_count")
+
+    @property
+    @pulumi.getter
+    def errors(self) -> Optional[List['outputs.BatchAIErrorResponse']]:
+        """
+        This element contains all the errors encountered by various compute nodes during node setup.
+        """
+        return pulumi.get(self, "errors")
+
+    @property
+    @pulumi.getter
+    def location(self) -> str:
+        """
+        The location of the resource
+        """
+        return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the resource
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="nodeSetup")
+    def node_setup(self) -> Optional['outputs.NodeSetupResponse']:
+        """
+        Use this to prepare the VM. NOTE: The volumes specified in mountVolumes are mounted first and then the setupTask is run. Therefore the setup task can use local mountPaths in its execution.
+        """
+        return pulumi.get(self, "node_setup")
+
+    @property
+    @pulumi.getter(name="nodeStateCounts")
+    def node_state_counts(self) -> 'outputs.NodeStateCountsResponse':
+        """
+        Counts of various compute node states on the cluster.
+        """
+        return pulumi.get(self, "node_state_counts")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        Possible value are: creating - Specifies that the cluster is being created. succeeded - Specifies that the cluster has been created successfully. failed - Specifies that the cluster creation has failed. deleting - Specifies that the cluster is being deleted.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="provisioningStateTransitionTime")
+    def provisioning_state_transition_time(self) -> str:
+        return pulumi.get(self, "provisioning_state_transition_time")
+
+    @property
+    @pulumi.getter(name="scaleSettings")
+    def scale_settings(self) -> Optional['outputs.ScaleSettingsResponse']:
+        """
+        At least one of manual or autoScale settings must be specified. Only one of manual or autoScale settings can be specified. If autoScale settings are specified, the system automatically scales the cluster up and down (within the supplied limits) based on the pending jobs on the cluster.
+        """
+        return pulumi.get(self, "scale_settings")
+
+    @property
+    @pulumi.getter
+    def subnet(self) -> Optional['outputs.ResourceIdResponse']:
+        """
+        Represents a resource ID. For example, for a subnet, it is the resource URL for the subnet.
+        """
+        return pulumi.get(self, "subnet")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Mapping[str, str]:
+        """
+        The tags of the resource
+        """
+        return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        The type of the resource
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="userAccountSettings")
+    def user_account_settings(self) -> Optional['outputs.UserAccountSettingsResponse']:
+        """
+        Settings for user account that gets created on each on the nodes of a cluster.
+        """
+        return pulumi.get(self, "user_account_settings")
+
+    @property
+    @pulumi.getter(name="virtualMachineConfiguration")
+    def virtual_machine_configuration(self) -> Optional['outputs.VirtualMachineConfigurationResponse']:
+        """
+        Settings for OS image.
+        """
+        return pulumi.get(self, "virtual_machine_configuration")
+
+    @property
+    @pulumi.getter(name="vmPriority")
+    def vm_priority(self) -> Optional[str]:
+        """
+        The default value is dedicated. The node can get preempted while the task is running if lowpriority is chosen. This is best suited if the workload is checkpointing and can be restarted.
+        """
+        return pulumi.get(self, "vm_priority")
+
+    @property
+    @pulumi.getter(name="vmSize")
+    def vm_size(self) -> Optional[str]:
+        """
+        All virtual machines in a cluster are the same size. For information about available VM sizes for clusters using images from the Virtual Machines Marketplace (see Sizes for Virtual Machines (Linux) or Sizes for Virtual Machines (Windows). Batch AI service supports all Azure VM sizes except STANDARD_A0 and those with premium storage (STANDARD_GS, STANDARD_DS, and STANDARD_DSV2 series).
+        """
+        return pulumi.get(self, "vm_size")
+
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

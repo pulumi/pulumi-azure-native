@@ -5,100 +5,48 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+from . import outputs
+from ._inputs import *
+
+__all__ = ['Pipeline']
 
 
 class Pipeline(pulumi.CustomResource):
-    activities: pulumi.Output[list]
-    """
-    List of activities in pipeline.
-      * `depends_on` (`list`) - Activity depends on condition.
-        * `activity` (`str`) - Activity name.
-        * `dependency_conditions` (`list`) - Match-Condition for the dependency.
-
-      * `description` (`str`) - Activity description.
-      * `name` (`str`) - Activity name.
-      * `type` (`str`) - Type of activity.
-      * `user_properties` (`list`) - Activity user properties.
-        * `name` (`str`) - User property name.
-        * `value` (`dict`) - User property value. Type: string (or Expression with resultType string).
-    """
-    annotations: pulumi.Output[list]
-    """
-    List of tags that can be used for describing the Pipeline.
-    """
-    concurrency: pulumi.Output[float]
-    """
-    The max number of concurrent runs for the pipeline.
-    """
-    description: pulumi.Output[str]
-    """
-    The description of the pipeline.
-    """
-    etag: pulumi.Output[str]
-    """
-    Etag identifies change in the resource.
-    """
-    folder: pulumi.Output[dict]
-    """
-    The folder that this Pipeline is in. If not specified, Pipeline will appear at the root level.
-      * `name` (`str`) - The name of the folder that this Pipeline is in.
-    """
-    name: pulumi.Output[str]
-    """
-    The resource name.
-    """
-    parameters: pulumi.Output[dict]
-    """
-    List of parameters for pipeline.
-    """
-    run_dimensions: pulumi.Output[dict]
-    """
-    Dimensions emitted by Pipeline.
-    """
-    type: pulumi.Output[str]
-    """
-    The resource type.
-    """
-    variables: pulumi.Output[dict]
-    """
-    List of variables for pipeline.
-    """
-    def __init__(__self__, resource_name, opts=None, activities=None, annotations=None, concurrency=None, description=None, factory_name=None, folder=None, name=None, parameters=None, resource_group_name=None, run_dimensions=None, variables=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 activities: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['ActivityArgs']]]]] = None,
+                 annotations: Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]] = None,
+                 concurrency: Optional[pulumi.Input[float]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 factory_name: Optional[pulumi.Input[str]] = None,
+                 folder: Optional[pulumi.Input[pulumi.InputType['PipelineFolderArgs']]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[pulumi.InputType['ParameterSpecificationArgs']]]]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 run_dimensions: Optional[pulumi.Input[Mapping[str, pulumi.Input[Mapping[str, Any]]]]] = None,
+                 variables: Optional[pulumi.Input[Mapping[str, pulumi.Input[pulumi.InputType['VariableSpecificationArgs']]]]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         Pipeline resource type.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[list] activities: List of activities in pipeline.
-        :param pulumi.Input[list] annotations: List of tags that can be used for describing the Pipeline.
+        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['ActivityArgs']]]] activities: List of activities in pipeline.
+        :param pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the Pipeline.
         :param pulumi.Input[float] concurrency: The max number of concurrent runs for the pipeline.
         :param pulumi.Input[str] description: The description of the pipeline.
         :param pulumi.Input[str] factory_name: The factory name.
-        :param pulumi.Input[dict] folder: The folder that this Pipeline is in. If not specified, Pipeline will appear at the root level.
+        :param pulumi.Input[pulumi.InputType['PipelineFolderArgs']] folder: The folder that this Pipeline is in. If not specified, Pipeline will appear at the root level.
         :param pulumi.Input[str] name: The pipeline name.
-        :param pulumi.Input[dict] parameters: List of parameters for pipeline.
+        :param pulumi.Input[Mapping[str, pulumi.Input[pulumi.InputType['ParameterSpecificationArgs']]]] parameters: List of parameters for pipeline.
         :param pulumi.Input[str] resource_group_name: The resource group name.
-        :param pulumi.Input[dict] run_dimensions: Dimensions emitted by Pipeline.
-        :param pulumi.Input[dict] variables: List of variables for pipeline.
-
-        The **activities** object supports the following:
-
-          * `depends_on` (`pulumi.Input[list]`) - Activity depends on condition.
-            * `activity` (`pulumi.Input[str]`) - Activity name.
-            * `dependency_conditions` (`pulumi.Input[list]`) - Match-Condition for the dependency.
-
-          * `description` (`pulumi.Input[str]`) - Activity description.
-          * `name` (`pulumi.Input[str]`) - Activity name.
-          * `type` (`pulumi.Input[str]`) - Type of activity.
-          * `user_properties` (`pulumi.Input[list]`) - Activity user properties.
-            * `name` (`pulumi.Input[str]`) - User property name.
-            * `value` (`pulumi.Input[dict]`) - User property value. Type: string (or Expression with resultType string).
-
-        The **folder** object supports the following:
-
-          * `name` (`pulumi.Input[str]`) - The name of the folder that this Pipeline is in.
+        :param pulumi.Input[Mapping[str, pulumi.Input[Mapping[str, Any]]]] run_dimensions: Dimensions emitted by Pipeline.
+        :param pulumi.Input[Mapping[str, pulumi.Input[pulumi.InputType['VariableSpecificationArgs']]]] variables: List of variables for pipeline.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -143,13 +91,15 @@ class Pipeline(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None) -> 'Pipeline':
         """
         Get an existing Pipeline resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -158,8 +108,97 @@ class Pipeline(pulumi.CustomResource):
 
         return Pipeline(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter
+    def activities(self) -> Optional[List['outputs.ActivityResponse']]:
+        """
+        List of activities in pipeline.
+        """
+        return pulumi.get(self, "activities")
+
+    @property
+    @pulumi.getter
+    def annotations(self) -> Optional[List[Mapping[str, Any]]]:
+        """
+        List of tags that can be used for describing the Pipeline.
+        """
+        return pulumi.get(self, "annotations")
+
+    @property
+    @pulumi.getter
+    def concurrency(self) -> Optional[float]:
+        """
+        The max number of concurrent runs for the pipeline.
+        """
+        return pulumi.get(self, "concurrency")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        """
+        The description of the pipeline.
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def etag(self) -> str:
+        """
+        Etag identifies change in the resource.
+        """
+        return pulumi.get(self, "etag")
+
+    @property
+    @pulumi.getter
+    def folder(self) -> Optional['outputs.PipelineResponseFolder']:
+        """
+        The folder that this Pipeline is in. If not specified, Pipeline will appear at the root level.
+        """
+        return pulumi.get(self, "folder")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The resource name.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def parameters(self) -> Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']]:
+        """
+        List of parameters for pipeline.
+        """
+        return pulumi.get(self, "parameters")
+
+    @property
+    @pulumi.getter(name="runDimensions")
+    def run_dimensions(self) -> Optional[Mapping[str, Mapping[str, Any]]]:
+        """
+        Dimensions emitted by Pipeline.
+        """
+        return pulumi.get(self, "run_dimensions")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        The resource type.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def variables(self) -> Optional[Mapping[str, 'outputs.VariableSpecificationResponse']]:
+        """
+        List of variables for pipeline.
+        """
+        return pulumi.get(self, "variables")
+
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

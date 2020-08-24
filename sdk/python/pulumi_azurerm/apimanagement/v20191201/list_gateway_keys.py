@@ -5,10 +5,16 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
 
+__all__ = [
+    'ListGatewayKeysResult',
+    'AwaitableListGatewayKeysResult',
+    'list_gateway_keys',
+]
 
+@pulumi.output_type
 class ListGatewayKeysResult:
     """
     Gateway authentication keys.
@@ -16,16 +22,26 @@ class ListGatewayKeysResult:
     def __init__(__self__, primary=None, secondary=None):
         if primary and not isinstance(primary, str):
             raise TypeError("Expected argument 'primary' to be a str")
-        __self__.primary = primary
+        pulumi.set(__self__, "primary", primary)
+        if secondary and not isinstance(secondary, str):
+            raise TypeError("Expected argument 'secondary' to be a str")
+        pulumi.set(__self__, "secondary", secondary)
+
+    @property
+    @pulumi.getter
+    def primary(self) -> Optional[str]:
         """
         Primary gateway key.
         """
-        if secondary and not isinstance(secondary, str):
-            raise TypeError("Expected argument 'secondary' to be a str")
-        __self__.secondary = secondary
+        return pulumi.get(self, "primary")
+
+    @property
+    @pulumi.getter
+    def secondary(self) -> Optional[str]:
         """
         Secondary gateway key.
         """
+        return pulumi.get(self, "secondary")
 
 
 class AwaitableListGatewayKeysResult(ListGatewayKeysResult):
@@ -38,7 +54,10 @@ class AwaitableListGatewayKeysResult(ListGatewayKeysResult):
             secondary=self.secondary)
 
 
-def list_gateway_keys(gateway_id=None, resource_group_name=None, service_name=None, opts=None):
+def list_gateway_keys(gateway_id: Optional[str] = None,
+                      resource_group_name: Optional[str] = None,
+                      service_name: Optional[str] = None,
+                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListGatewayKeysResult:
     """
     Use this data source to access information about an existing resource.
 
@@ -54,8 +73,8 @@ def list_gateway_keys(gateway_id=None, resource_group_name=None, service_name=No
         opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = _utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('azurerm:apimanagement/v20191201:listGatewayKeys', __args__, opts=opts).value
+    __ret__ = pulumi.runtime.invoke('azurerm:apimanagement/v20191201:listGatewayKeys', __args__, opts=opts, typ=ListGatewayKeysResult).value
 
     return AwaitableListGatewayKeysResult(
-        primary=__ret__.get('primary'),
-        secondary=__ret__.get('secondary'))
+        primary=__ret__.primary,
+        secondary=__ret__.secondary)

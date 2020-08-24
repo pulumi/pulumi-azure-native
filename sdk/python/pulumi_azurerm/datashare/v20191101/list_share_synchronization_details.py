@@ -5,10 +5,17 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+from . import outputs
 
+__all__ = [
+    'ListShareSynchronizationDetailsResult',
+    'AwaitableListShareSynchronizationDetailsResult',
+    'list_share_synchronization_details',
+]
 
+@pulumi.output_type
 class ListShareSynchronizationDetailsResult:
     """
     details of synchronization
@@ -16,16 +23,26 @@ class ListShareSynchronizationDetailsResult:
     def __init__(__self__, next_link=None, value=None):
         if next_link and not isinstance(next_link, str):
             raise TypeError("Expected argument 'next_link' to be a str")
-        __self__.next_link = next_link
+        pulumi.set(__self__, "next_link", next_link)
+        if value and not isinstance(value, list):
+            raise TypeError("Expected argument 'value' to be a list")
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter(name="nextLink")
+    def next_link(self) -> Optional[str]:
         """
         The Url of next result page.
         """
-        if value and not isinstance(value, list):
-            raise TypeError("Expected argument 'value' to be a list")
-        __self__.value = value
+        return pulumi.get(self, "next_link")
+
+    @property
+    @pulumi.getter
+    def value(self) -> List['outputs.SynchronizationDetailsResponseResult']:
         """
         Collection of items of type DataTransferObjects.
         """
+        return pulumi.get(self, "value")
 
 
 class AwaitableListShareSynchronizationDetailsResult(ListShareSynchronizationDetailsResult):
@@ -38,7 +55,22 @@ class AwaitableListShareSynchronizationDetailsResult(ListShareSynchronizationDet
             value=self.value)
 
 
-def list_share_synchronization_details(account_name=None, consumer_email=None, consumer_name=None, consumer_tenant_name=None, duration_ms=None, end_time=None, filter=None, message=None, orderby=None, resource_group_name=None, share_name=None, skip_token=None, start_time=None, status=None, synchronization_id=None, opts=None):
+def list_share_synchronization_details(account_name: Optional[str] = None,
+                                       consumer_email: Optional[str] = None,
+                                       consumer_name: Optional[str] = None,
+                                       consumer_tenant_name: Optional[str] = None,
+                                       duration_ms: Optional[float] = None,
+                                       end_time: Optional[str] = None,
+                                       filter: Optional[str] = None,
+                                       message: Optional[str] = None,
+                                       orderby: Optional[str] = None,
+                                       resource_group_name: Optional[str] = None,
+                                       share_name: Optional[str] = None,
+                                       skip_token: Optional[str] = None,
+                                       start_time: Optional[str] = None,
+                                       status: Optional[str] = None,
+                                       synchronization_id: Optional[str] = None,
+                                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListShareSynchronizationDetailsResult:
     """
     Use this data source to access information about an existing resource.
 
@@ -78,8 +110,8 @@ def list_share_synchronization_details(account_name=None, consumer_email=None, c
         opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = _utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('azurerm:datashare/v20191101:listShareSynchronizationDetails', __args__, opts=opts).value
+    __ret__ = pulumi.runtime.invoke('azurerm:datashare/v20191101:listShareSynchronizationDetails', __args__, opts=opts, typ=ListShareSynchronizationDetailsResult).value
 
     return AwaitableListShareSynchronizationDetailsResult(
-        next_link=__ret__.get('nextLink'),
-        value=__ret__.get('value'))
+        next_link=__ret__.next_link,
+        value=__ret__.value)

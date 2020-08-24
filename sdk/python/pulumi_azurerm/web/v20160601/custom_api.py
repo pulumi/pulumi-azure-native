@@ -5,60 +5,27 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+from . import outputs
+from ._inputs import *
+
+__all__ = ['CustomApi']
 
 
 class CustomApi(pulumi.CustomResource):
-    etag: pulumi.Output[str]
-    """
-    Resource ETag
-    """
-    location: pulumi.Output[str]
-    """
-    Resource location
-    """
-    name: pulumi.Output[str]
-    """
-    Resource name
-    """
-    properties: pulumi.Output[dict]
-    """
-    Custom API properties
-      * `api_definitions` (`dict`) - API Definitions
-        * `modified_swagger_url` (`str`) - The modified swagger URL
-        * `original_swagger_url` (`str`) - The original swagger URL
-
-      * `api_type` (`str`) - The API type
-      * `backend_service` (`dict`) - The API backend service
-        * `service_url` (`str`) - The service URL
-
-      * `brand_color` (`str`) - Brand color
-      * `capabilities` (`list`) - The custom API capabilities
-      * `connection_parameters` (`dict`) - Connection parameters
-      * `description` (`str`) - The custom API description
-      * `display_name` (`str`) - The display name
-      * `icon_uri` (`str`) - The icon URI
-      * `runtime_urls` (`list`) - Runtime URLs
-      * `swagger` (`dict`) - The JSON representation of the swagger
-      * `wsdl_definition` (`dict`) - The WSDL definition
-        * `content` (`str`) - The WSDL content
-        * `import_method` (`str`) - The WSDL import method
-        * `service` (`dict`) - The service with name and endpoint names
-          * `endpoint_qualified_names` (`list`) - List of the endpoints' qualified names
-          * `qualified_name` (`str`) - The service's qualified name
-
-        * `url` (`str`) - The WSDL URL
-    """
-    tags: pulumi.Output[dict]
-    """
-    Resource tags
-    """
-    type: pulumi.Output[str]
-    """
-    Resource type
-    """
-    def __init__(__self__, resource_name, opts=None, etag=None, location=None, name=None, properties=None, resource_group_name=None, tags=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 etag: Optional[pulumi.Input[str]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 properties: Optional[pulumi.Input[pulumi.InputType['CustomApiPropertiesDefinitionArgs']]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         A custom API
 
@@ -67,36 +34,9 @@ class CustomApi(pulumi.CustomResource):
         :param pulumi.Input[str] etag: Resource ETag
         :param pulumi.Input[str] location: Resource location
         :param pulumi.Input[str] name: API name
-        :param pulumi.Input[dict] properties: Custom API properties
+        :param pulumi.Input[pulumi.InputType['CustomApiPropertiesDefinitionArgs']] properties: Custom API properties
         :param pulumi.Input[str] resource_group_name: The resource group
-        :param pulumi.Input[dict] tags: Resource tags
-
-        The **properties** object supports the following:
-
-          * `api_definitions` (`pulumi.Input[dict]`) - API Definitions
-            * `modified_swagger_url` (`pulumi.Input[str]`) - The modified swagger URL
-            * `original_swagger_url` (`pulumi.Input[str]`) - The original swagger URL
-
-          * `api_type` (`pulumi.Input[str]`) - The API type
-          * `backend_service` (`pulumi.Input[dict]`) - The API backend service
-            * `service_url` (`pulumi.Input[str]`) - The service URL
-
-          * `brand_color` (`pulumi.Input[str]`) - Brand color
-          * `capabilities` (`pulumi.Input[list]`) - The custom API capabilities
-          * `connection_parameters` (`pulumi.Input[dict]`) - Connection parameters
-          * `description` (`pulumi.Input[str]`) - The custom API description
-          * `display_name` (`pulumi.Input[str]`) - The display name
-          * `icon_uri` (`pulumi.Input[str]`) - The icon URI
-          * `runtime_urls` (`pulumi.Input[list]`) - Runtime URLs
-          * `swagger` (`pulumi.Input[dict]`) - The JSON representation of the swagger
-          * `wsdl_definition` (`pulumi.Input[dict]`) - The WSDL definition
-            * `content` (`pulumi.Input[str]`) - The WSDL content
-            * `import_method` (`pulumi.Input[str]`) - The WSDL import method
-            * `service` (`pulumi.Input[dict]`) - The service with name and endpoint names
-              * `endpoint_qualified_names` (`pulumi.Input[list]`) - List of the endpoints' qualified names
-              * `qualified_name` (`pulumi.Input[str]`) - The service's qualified name
-
-            * `url` (`pulumi.Input[str]`) - The WSDL URL
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -133,13 +73,15 @@ class CustomApi(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None) -> 'CustomApi':
         """
         Get an existing CustomApi resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -148,8 +90,57 @@ class CustomApi(pulumi.CustomResource):
 
         return CustomApi(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter
+    def etag(self) -> Optional[str]:
+        """
+        Resource ETag
+        """
+        return pulumi.get(self, "etag")
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[str]:
+        """
+        Resource location
+        """
+        return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Resource name
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def properties(self) -> 'outputs.CustomApiPropertiesDefinitionResponse':
+        """
+        Custom API properties
+        """
+        return pulumi.get(self, "properties")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Mapping[str, str]]:
+        """
+        Resource tags
+        """
+        return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Resource type
+        """
+        return pulumi.get(self, "type")
+
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

@@ -5,3 +5,5 @@
 # Export this package's modules as members:
 from .get_server_details import *
 from .server_details import *
+from ._inputs import *
+from . import outputs

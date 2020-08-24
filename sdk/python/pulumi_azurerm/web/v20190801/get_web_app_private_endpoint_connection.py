@@ -5,10 +5,17 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+from . import outputs
 
+__all__ = [
+    'GetWebAppPrivateEndpointConnectionResult',
+    'AwaitableGetWebAppPrivateEndpointConnectionResult',
+    'get_web_app_private_endpoint_connection',
+]
 
+@pulumi.output_type
 class GetWebAppPrivateEndpointConnectionResult:
     """
     Private Endpoint Connection ARM resource.
@@ -16,37 +23,67 @@ class GetWebAppPrivateEndpointConnectionResult:
     def __init__(__self__, kind=None, name=None, private_endpoint=None, private_link_service_connection_state=None, provisioning_state=None, type=None):
         if kind and not isinstance(kind, str):
             raise TypeError("Expected argument 'kind' to be a str")
-        __self__.kind = kind
+        pulumi.set(__self__, "kind", kind)
+        if name and not isinstance(name, str):
+            raise TypeError("Expected argument 'name' to be a str")
+        pulumi.set(__self__, "name", name)
+        if private_endpoint and not isinstance(private_endpoint, dict):
+            raise TypeError("Expected argument 'private_endpoint' to be a dict")
+        pulumi.set(__self__, "private_endpoint", private_endpoint)
+        if private_link_service_connection_state and not isinstance(private_link_service_connection_state, dict):
+            raise TypeError("Expected argument 'private_link_service_connection_state' to be a dict")
+        pulumi.set(__self__, "private_link_service_connection_state", private_link_service_connection_state)
+        if provisioning_state and not isinstance(provisioning_state, str):
+            raise TypeError("Expected argument 'provisioning_state' to be a str")
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if type and not isinstance(type, str):
+            raise TypeError("Expected argument 'type' to be a str")
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def kind(self) -> Optional[str]:
         """
         Kind of resource.
         """
-        if name and not isinstance(name, str):
-            raise TypeError("Expected argument 'name' to be a str")
-        __self__.name = name
+        return pulumi.get(self, "kind")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
         """
         Resource Name.
         """
-        if private_endpoint and not isinstance(private_endpoint, dict):
-            raise TypeError("Expected argument 'private_endpoint' to be a dict")
-        __self__.private_endpoint = private_endpoint
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="privateEndpoint")
+    def private_endpoint(self) -> Optional['outputs.ArmIdWrapperResponse']:
         """
         PrivateEndpoint of a remote private endpoint connection
         """
-        if private_link_service_connection_state and not isinstance(private_link_service_connection_state, dict):
-            raise TypeError("Expected argument 'private_link_service_connection_state' to be a dict")
-        __self__.private_link_service_connection_state = private_link_service_connection_state
+        return pulumi.get(self, "private_endpoint")
+
+    @property
+    @pulumi.getter(name="privateLinkServiceConnectionState")
+    def private_link_service_connection_state(self) -> Optional['outputs.PrivateLinkConnectionStateResponse']:
         """
         The state of a private link connection
         """
-        if provisioning_state and not isinstance(provisioning_state, str):
-            raise TypeError("Expected argument 'provisioning_state' to be a str")
-        __self__.provisioning_state = provisioning_state
-        if type and not isinstance(type, str):
-            raise TypeError("Expected argument 'type' to be a str")
-        __self__.type = type
+        return pulumi.get(self, "private_link_service_connection_state")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
         """
         Resource type.
         """
+        return pulumi.get(self, "type")
 
 
 class AwaitableGetWebAppPrivateEndpointConnectionResult(GetWebAppPrivateEndpointConnectionResult):
@@ -63,7 +100,9 @@ class AwaitableGetWebAppPrivateEndpointConnectionResult(GetWebAppPrivateEndpoint
             type=self.type)
 
 
-def get_web_app_private_endpoint_connection(name=None, resource_group_name=None, opts=None):
+def get_web_app_private_endpoint_connection(name: Optional[str] = None,
+                                            resource_group_name: Optional[str] = None,
+                                            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetWebAppPrivateEndpointConnectionResult:
     """
     Use this data source to access information about an existing resource.
 
@@ -76,12 +115,12 @@ def get_web_app_private_endpoint_connection(name=None, resource_group_name=None,
         opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = _utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('azurerm:web/v20190801:getWebAppPrivateEndpointConnection', __args__, opts=opts).value
+    __ret__ = pulumi.runtime.invoke('azurerm:web/v20190801:getWebAppPrivateEndpointConnection', __args__, opts=opts, typ=GetWebAppPrivateEndpointConnectionResult).value
 
     return AwaitableGetWebAppPrivateEndpointConnectionResult(
-        kind=__ret__.get('kind'),
-        name=__ret__.get('name'),
-        private_endpoint=__ret__.get('privateEndpoint'),
-        private_link_service_connection_state=__ret__.get('privateLinkServiceConnectionState'),
-        provisioning_state=__ret__.get('provisioningState'),
-        type=__ret__.get('type'))
+        kind=__ret__.kind,
+        name=__ret__.name,
+        private_endpoint=__ret__.private_endpoint,
+        private_link_service_connection_state=__ret__.private_link_service_connection_state,
+        provisioning_state=__ret__.provisioning_state,
+        type=__ret__.type)

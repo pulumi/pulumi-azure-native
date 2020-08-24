@@ -5,10 +5,16 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
 
+__all__ = [
+    'GetPolicyResult',
+    'AwaitableGetPolicyResult',
+    'get_policy',
+]
 
+@pulumi.output_type
 class GetPolicyResult:
     """
     A Policy.
@@ -16,82 +22,147 @@ class GetPolicyResult:
     def __init__(__self__, created_date=None, description=None, evaluator_type=None, fact_data=None, fact_name=None, location=None, name=None, provisioning_state=None, status=None, tags=None, threshold=None, type=None, unique_identifier=None):
         if created_date and not isinstance(created_date, str):
             raise TypeError("Expected argument 'created_date' to be a str")
-        __self__.created_date = created_date
+        pulumi.set(__self__, "created_date", created_date)
+        if description and not isinstance(description, str):
+            raise TypeError("Expected argument 'description' to be a str")
+        pulumi.set(__self__, "description", description)
+        if evaluator_type and not isinstance(evaluator_type, str):
+            raise TypeError("Expected argument 'evaluator_type' to be a str")
+        pulumi.set(__self__, "evaluator_type", evaluator_type)
+        if fact_data and not isinstance(fact_data, str):
+            raise TypeError("Expected argument 'fact_data' to be a str")
+        pulumi.set(__self__, "fact_data", fact_data)
+        if fact_name and not isinstance(fact_name, str):
+            raise TypeError("Expected argument 'fact_name' to be a str")
+        pulumi.set(__self__, "fact_name", fact_name)
+        if location and not isinstance(location, str):
+            raise TypeError("Expected argument 'location' to be a str")
+        pulumi.set(__self__, "location", location)
+        if name and not isinstance(name, str):
+            raise TypeError("Expected argument 'name' to be a str")
+        pulumi.set(__self__, "name", name)
+        if provisioning_state and not isinstance(provisioning_state, str):
+            raise TypeError("Expected argument 'provisioning_state' to be a str")
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if status and not isinstance(status, str):
+            raise TypeError("Expected argument 'status' to be a str")
+        pulumi.set(__self__, "status", status)
+        if tags and not isinstance(tags, dict):
+            raise TypeError("Expected argument 'tags' to be a dict")
+        pulumi.set(__self__, "tags", tags)
+        if threshold and not isinstance(threshold, str):
+            raise TypeError("Expected argument 'threshold' to be a str")
+        pulumi.set(__self__, "threshold", threshold)
+        if type and not isinstance(type, str):
+            raise TypeError("Expected argument 'type' to be a str")
+        pulumi.set(__self__, "type", type)
+        if unique_identifier and not isinstance(unique_identifier, str):
+            raise TypeError("Expected argument 'unique_identifier' to be a str")
+        pulumi.set(__self__, "unique_identifier", unique_identifier)
+
+    @property
+    @pulumi.getter(name="createdDate")
+    def created_date(self) -> str:
         """
         The creation date of the policy.
         """
-        if description and not isinstance(description, str):
-            raise TypeError("Expected argument 'description' to be a str")
-        __self__.description = description
+        return pulumi.get(self, "created_date")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
         """
         The description of the policy.
         """
-        if evaluator_type and not isinstance(evaluator_type, str):
-            raise TypeError("Expected argument 'evaluator_type' to be a str")
-        __self__.evaluator_type = evaluator_type
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="evaluatorType")
+    def evaluator_type(self) -> Optional[str]:
         """
         The evaluator type of the policy (i.e. AllowedValuesPolicy, MaxValuePolicy).
         """
-        if fact_data and not isinstance(fact_data, str):
-            raise TypeError("Expected argument 'fact_data' to be a str")
-        __self__.fact_data = fact_data
+        return pulumi.get(self, "evaluator_type")
+
+    @property
+    @pulumi.getter(name="factData")
+    def fact_data(self) -> Optional[str]:
         """
         The fact data of the policy.
         """
-        if fact_name and not isinstance(fact_name, str):
-            raise TypeError("Expected argument 'fact_name' to be a str")
-        __self__.fact_name = fact_name
+        return pulumi.get(self, "fact_data")
+
+    @property
+    @pulumi.getter(name="factName")
+    def fact_name(self) -> Optional[str]:
         """
         The fact name of the policy (e.g. LabVmCount, LabVmSize, MaxVmsAllowedPerLab, etc.
         """
-        if location and not isinstance(location, str):
-            raise TypeError("Expected argument 'location' to be a str")
-        __self__.location = location
+        return pulumi.get(self, "fact_name")
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[str]:
         """
         The location of the resource.
         """
-        if name and not isinstance(name, str):
-            raise TypeError("Expected argument 'name' to be a str")
-        __self__.name = name
+        return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
         """
         The name of the resource.
         """
-        if provisioning_state and not isinstance(provisioning_state, str):
-            raise TypeError("Expected argument 'provisioning_state' to be a str")
-        __self__.provisioning_state = provisioning_state
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
         """
         The provisioning status of the resource.
         """
-        if status and not isinstance(status, str):
-            raise TypeError("Expected argument 'status' to be a str")
-        __self__.status = status
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter
+    def status(self) -> Optional[str]:
         """
         The status of the policy.
         """
-        if tags and not isinstance(tags, dict):
-            raise TypeError("Expected argument 'tags' to be a dict")
-        __self__.tags = tags
+        return pulumi.get(self, "status")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Mapping[str, str]]:
         """
         The tags of the resource.
         """
-        if threshold and not isinstance(threshold, str):
-            raise TypeError("Expected argument 'threshold' to be a str")
-        __self__.threshold = threshold
+        return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter
+    def threshold(self) -> Optional[str]:
         """
         The threshold of the policy (i.e. a number for MaxValuePolicy, and a JSON array of values for AllowedValuesPolicy).
         """
-        if type and not isinstance(type, str):
-            raise TypeError("Expected argument 'type' to be a str")
-        __self__.type = type
+        return pulumi.get(self, "threshold")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
         """
         The type of the resource.
         """
-        if unique_identifier and not isinstance(unique_identifier, str):
-            raise TypeError("Expected argument 'unique_identifier' to be a str")
-        __self__.unique_identifier = unique_identifier
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="uniqueIdentifier")
+    def unique_identifier(self) -> str:
         """
         The unique immutable identifier of a resource (Guid).
         """
+        return pulumi.get(self, "unique_identifier")
 
 
 class AwaitableGetPolicyResult(GetPolicyResult):
@@ -115,7 +186,12 @@ class AwaitableGetPolicyResult(GetPolicyResult):
             unique_identifier=self.unique_identifier)
 
 
-def get_policy(expand=None, lab_name=None, name=None, policy_set_name=None, resource_group_name=None, opts=None):
+def get_policy(expand: Optional[str] = None,
+               lab_name: Optional[str] = None,
+               name: Optional[str] = None,
+               policy_set_name: Optional[str] = None,
+               resource_group_name: Optional[str] = None,
+               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPolicyResult:
     """
     Use this data source to access information about an existing resource.
 
@@ -135,19 +211,19 @@ def get_policy(expand=None, lab_name=None, name=None, policy_set_name=None, reso
         opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = _utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('azurerm:devtestlab/v20180915:getPolicy', __args__, opts=opts).value
+    __ret__ = pulumi.runtime.invoke('azurerm:devtestlab/v20180915:getPolicy', __args__, opts=opts, typ=GetPolicyResult).value
 
     return AwaitableGetPolicyResult(
-        created_date=__ret__.get('createdDate'),
-        description=__ret__.get('description'),
-        evaluator_type=__ret__.get('evaluatorType'),
-        fact_data=__ret__.get('factData'),
-        fact_name=__ret__.get('factName'),
-        location=__ret__.get('location'),
-        name=__ret__.get('name'),
-        provisioning_state=__ret__.get('provisioningState'),
-        status=__ret__.get('status'),
-        tags=__ret__.get('tags'),
-        threshold=__ret__.get('threshold'),
-        type=__ret__.get('type'),
-        unique_identifier=__ret__.get('uniqueIdentifier'))
+        created_date=__ret__.created_date,
+        description=__ret__.description,
+        evaluator_type=__ret__.evaluator_type,
+        fact_data=__ret__.fact_data,
+        fact_name=__ret__.fact_name,
+        location=__ret__.location,
+        name=__ret__.name,
+        provisioning_state=__ret__.provisioning_state,
+        status=__ret__.status,
+        tags=__ret__.tags,
+        threshold=__ret__.threshold,
+        type=__ret__.type,
+        unique_identifier=__ret__.unique_identifier)

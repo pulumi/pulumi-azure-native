@@ -5,10 +5,16 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
 
+__all__ = [
+    'GetServiceResult',
+    'AwaitableGetServiceResult',
+    'get_service',
+]
 
+@pulumi.output_type
 class GetServiceResult:
     """
     The description of the Windows IoT Device Service.
@@ -16,64 +22,114 @@ class GetServiceResult:
     def __init__(__self__, admin_domain_name=None, billing_domain_name=None, etag=None, location=None, name=None, notes=None, quantity=None, start_date=None, tags=None, type=None):
         if admin_domain_name and not isinstance(admin_domain_name, str):
             raise TypeError("Expected argument 'admin_domain_name' to be a str")
-        __self__.admin_domain_name = admin_domain_name
+        pulumi.set(__self__, "admin_domain_name", admin_domain_name)
+        if billing_domain_name and not isinstance(billing_domain_name, str):
+            raise TypeError("Expected argument 'billing_domain_name' to be a str")
+        pulumi.set(__self__, "billing_domain_name", billing_domain_name)
+        if etag and not isinstance(etag, str):
+            raise TypeError("Expected argument 'etag' to be a str")
+        pulumi.set(__self__, "etag", etag)
+        if location and not isinstance(location, str):
+            raise TypeError("Expected argument 'location' to be a str")
+        pulumi.set(__self__, "location", location)
+        if name and not isinstance(name, str):
+            raise TypeError("Expected argument 'name' to be a str")
+        pulumi.set(__self__, "name", name)
+        if notes and not isinstance(notes, str):
+            raise TypeError("Expected argument 'notes' to be a str")
+        pulumi.set(__self__, "notes", notes)
+        if quantity and not isinstance(quantity, float):
+            raise TypeError("Expected argument 'quantity' to be a float")
+        pulumi.set(__self__, "quantity", quantity)
+        if start_date and not isinstance(start_date, str):
+            raise TypeError("Expected argument 'start_date' to be a str")
+        pulumi.set(__self__, "start_date", start_date)
+        if tags and not isinstance(tags, dict):
+            raise TypeError("Expected argument 'tags' to be a dict")
+        pulumi.set(__self__, "tags", tags)
+        if type and not isinstance(type, str):
+            raise TypeError("Expected argument 'type' to be a str")
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="adminDomainName")
+    def admin_domain_name(self) -> Optional[str]:
         """
         Windows IoT Device Service OEM AAD domain
         """
-        if billing_domain_name and not isinstance(billing_domain_name, str):
-            raise TypeError("Expected argument 'billing_domain_name' to be a str")
-        __self__.billing_domain_name = billing_domain_name
+        return pulumi.get(self, "admin_domain_name")
+
+    @property
+    @pulumi.getter(name="billingDomainName")
+    def billing_domain_name(self) -> Optional[str]:
         """
         Windows IoT Device Service ODM AAD domain
         """
-        if etag and not isinstance(etag, str):
-            raise TypeError("Expected argument 'etag' to be a str")
-        __self__.etag = etag
+        return pulumi.get(self, "billing_domain_name")
+
+    @property
+    @pulumi.getter
+    def etag(self) -> Optional[str]:
         """
         The Etag field is *not* required. If it is provided in the response body, it must also be provided as a header per the normal ETag convention.
         """
-        if location and not isinstance(location, str):
-            raise TypeError("Expected argument 'location' to be a str")
-        __self__.location = location
+        return pulumi.get(self, "etag")
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[str]:
         """
         The Azure Region where the resource lives
         """
-        if name and not isinstance(name, str):
-            raise TypeError("Expected argument 'name' to be a str")
-        __self__.name = name
+        return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
         """
         The name of the resource
         """
-        if notes and not isinstance(notes, str):
-            raise TypeError("Expected argument 'notes' to be a str")
-        __self__.notes = notes
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def notes(self) -> Optional[str]:
         """
         Windows IoT Device Service notes.
         """
-        if quantity and not isinstance(quantity, float):
-            raise TypeError("Expected argument 'quantity' to be a float")
-        __self__.quantity = quantity
+        return pulumi.get(self, "notes")
+
+    @property
+    @pulumi.getter
+    def quantity(self) -> Optional[float]:
         """
         Windows IoT Device Service device allocation,
         """
-        if start_date and not isinstance(start_date, str):
-            raise TypeError("Expected argument 'start_date' to be a str")
-        __self__.start_date = start_date
+        return pulumi.get(self, "quantity")
+
+    @property
+    @pulumi.getter(name="startDate")
+    def start_date(self) -> str:
         """
         Windows IoT Device Service start date,
         """
-        if tags and not isinstance(tags, dict):
-            raise TypeError("Expected argument 'tags' to be a dict")
-        __self__.tags = tags
+        return pulumi.get(self, "start_date")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Mapping[str, str]]:
         """
         Resource tags.
         """
-        if type and not isinstance(type, str):
-            raise TypeError("Expected argument 'type' to be a str")
-        __self__.type = type
+        return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
         """
         The type of the resource.
         """
+        return pulumi.get(self, "type")
 
 
 class AwaitableGetServiceResult(GetServiceResult):
@@ -94,7 +150,9 @@ class AwaitableGetServiceResult(GetServiceResult):
             type=self.type)
 
 
-def get_service(name=None, resource_group_name=None, opts=None):
+def get_service(name: Optional[str] = None,
+                resource_group_name: Optional[str] = None,
+                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetServiceResult:
     """
     Use this data source to access information about an existing resource.
 
@@ -108,16 +166,16 @@ def get_service(name=None, resource_group_name=None, opts=None):
         opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = _utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('azurerm:windowsiot/v20190601:getService', __args__, opts=opts).value
+    __ret__ = pulumi.runtime.invoke('azurerm:windowsiot/v20190601:getService', __args__, opts=opts, typ=GetServiceResult).value
 
     return AwaitableGetServiceResult(
-        admin_domain_name=__ret__.get('adminDomainName'),
-        billing_domain_name=__ret__.get('billingDomainName'),
-        etag=__ret__.get('etag'),
-        location=__ret__.get('location'),
-        name=__ret__.get('name'),
-        notes=__ret__.get('notes'),
-        quantity=__ret__.get('quantity'),
-        start_date=__ret__.get('startDate'),
-        tags=__ret__.get('tags'),
-        type=__ret__.get('type'))
+        admin_domain_name=__ret__.admin_domain_name,
+        billing_domain_name=__ret__.billing_domain_name,
+        etag=__ret__.etag,
+        location=__ret__.location,
+        name=__ret__.name,
+        notes=__ret__.notes,
+        quantity=__ret__.quantity,
+        start_date=__ret__.start_date,
+        tags=__ret__.tags,
+        type=__ret__.type)

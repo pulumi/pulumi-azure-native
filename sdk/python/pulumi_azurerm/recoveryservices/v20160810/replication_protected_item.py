@@ -5,73 +5,27 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+from . import outputs
+from ._inputs import *
+
+__all__ = ['ReplicationProtectedItem']
 
 
 class ReplicationProtectedItem(pulumi.CustomResource):
-    location: pulumi.Output[str]
-    """
-    Resource Location
-    """
-    name: pulumi.Output[str]
-    """
-    Resource Name
-    """
-    properties: pulumi.Output[dict]
-    """
-    The custom data.
-      * `active_location` (`str`) - The Current active location of the PE.
-      * `allowed_operations` (`list`) - The allowed operations on the Replication protected item.
-      * `current_scenario` (`dict`) - The current scenario.
-        * `job_id` (`str`) - ARM Id of the job being executed.
-        * `scenario_name` (`str`) - Scenario name.
-        * `start_time` (`str`) - Start time of the workflow.
-
-      * `failover_health` (`str`) - The consolidated failover health for the VM.
-      * `failover_health_errors` (`list`) - List of failover health errors.
-        * `child_errors` (`list`) - The child health errors.
-        * `creation_time_utc` (`str`) - Error creation time (UTC)
-        * `entity_id` (`str`) - ID of the entity.
-        * `error_code` (`str`) - Error code.
-        * `error_level` (`str`) - Level of error.
-        * `error_message` (`str`) - Error message.
-        * `error_source` (`str`) - Source of error.
-        * `error_type` (`str`) - Type of error.
-        * `possible_causes` (`str`) - Possible causes of error.
-        * `recommended_action` (`str`) - Recommended action to resolve error.
-        * `recovery_provider_error_message` (`str`) - DRA error message.
-
-      * `failover_recovery_point_id` (`str`) - The recovery point ARM Id to which the Vm was failed over.
-      * `friendly_name` (`str`) - The name.
-      * `last_successful_failover_time` (`str`) - The Last successful failover time.
-      * `last_successful_test_failover_time` (`str`) - The Last successful test failover time.
-      * `policy_friendly_name` (`str`) - The name of Policy governing this PE.
-      * `policy_id` (`str`) - The ID of Policy governing this PE.
-      * `primary_fabric_friendly_name` (`str`) - The friendly name of the primary fabric.
-      * `primary_protection_container_friendly_name` (`str`) - The name of primary protection container friendly name.
-      * `protectable_item_id` (`str`) - The protected item ARM Id.
-      * `protected_item_type` (`str`) - The type of protected item type.
-      * `protection_state` (`str`) - The protection status.
-      * `protection_state_description` (`str`) - The protection state description.
-      * `provider_specific_details` (`dict`) - The Replication provider custom settings.
-        * `instance_type` (`str`) - Gets the Instance type.
-
-      * `recovery_container_id` (`str`) - The recovery container Id.
-      * `recovery_fabric_friendly_name` (`str`) - The friendly name of recovery fabric.
-      * `recovery_fabric_id` (`str`) - The Arm Id of recovery fabric.
-      * `recovery_protection_container_friendly_name` (`str`) - The name of recovery container friendly name.
-      * `recovery_services_provider_id` (`str`) - The recovery provider ARM Id.
-      * `replication_health` (`str`) - The consolidated protection health for the VM taking any issues with SRS as well as all the replication units associated with the VM's replication group into account. This is a string representation of the ProtectionHealth enumeration.
-      * `replication_health_errors` (`list`) - List of replication health errors.
-      * `test_failover_state` (`str`) - The Test failover state.
-      * `test_failover_state_description` (`str`) - The Test failover state description.
-    """
-    type: pulumi.Output[str]
-    """
-    Resource Type
-    """
-    def __init__(__self__, resource_name, opts=None, fabric_name=None, name=None, properties=None, protection_container_name=None, resource_group_name=None, resource_name_=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 fabric_name: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 properties: Optional[pulumi.Input[pulumi.InputType['EnableProtectionInputPropertiesArgs']]] = None,
+                 protection_container_name: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 resource_name_: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         Replication protected item.
 
@@ -79,17 +33,10 @@ class ReplicationProtectedItem(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] fabric_name: Name of the fabric.
         :param pulumi.Input[str] name: A name for the replication protected item.
-        :param pulumi.Input[dict] properties: Enable protection input properties.
+        :param pulumi.Input[pulumi.InputType['EnableProtectionInputPropertiesArgs']] properties: Enable protection input properties.
         :param pulumi.Input[str] protection_container_name: Protection container name.
         :param pulumi.Input[str] resource_group_name: The name of the resource group where the recovery services vault is present.
         :param pulumi.Input[str] resource_name_: The name of the recovery services vault.
-
-        The **properties** object supports the following:
-
-          * `policy_id` (`pulumi.Input[str]`) - The Policy Id.
-          * `protectable_item_id` (`pulumi.Input[str]`) - The protectable item Id.
-          * `provider_specific_details` (`pulumi.Input[dict]`) - The ReplicationProviderInput. For HyperVReplicaAzure provider, it will be AzureEnableProtectionInput object. For San provider, it will be SanEnableProtectionInput object. For HyperVReplicaAzure provider, it can be null.
-            * `instance_type` (`pulumi.Input[str]`) - The class type.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -135,13 +82,15 @@ class ReplicationProtectedItem(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None) -> 'ReplicationProtectedItem':
         """
         Get an existing ReplicationProtectedItem resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -150,8 +99,41 @@ class ReplicationProtectedItem(pulumi.CustomResource):
 
         return ReplicationProtectedItem(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[str]:
+        """
+        Resource Location
+        """
+        return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Resource Name
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def properties(self) -> 'outputs.ReplicationProtectedItemPropertiesResponse':
+        """
+        The custom data.
+        """
+        return pulumi.get(self, "properties")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Resource Type
+        """
+        return pulumi.get(self, "type")
+
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

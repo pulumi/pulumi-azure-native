@@ -5,106 +5,27 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+from . import outputs
+
+__all__ = ['BlobContainer']
 
 
 class BlobContainer(pulumi.CustomResource):
-    default_encryption_scope: pulumi.Output[str]
-    """
-    Default the container to use specified encryption scope for all writes.
-    """
-    deleted: pulumi.Output[bool]
-    """
-    Indicates whether the blob container was deleted.
-    """
-    deleted_time: pulumi.Output[str]
-    """
-    Blob container deletion time.
-    """
-    deny_encryption_scope_override: pulumi.Output[bool]
-    """
-    Block override of encryption scope from the container default.
-    """
-    etag: pulumi.Output[str]
-    """
-    Resource Etag.
-    """
-    has_immutability_policy: pulumi.Output[bool]
-    """
-    The hasImmutabilityPolicy public property is set to true by SRP if ImmutabilityPolicy has been created for this container. The hasImmutabilityPolicy public property is set to false by SRP if ImmutabilityPolicy has not been created for this container.
-    """
-    has_legal_hold: pulumi.Output[bool]
-    """
-    The hasLegalHold public property is set to true by SRP if there are at least one existing tag. The hasLegalHold public property is set to false by SRP if all existing legal hold tags are cleared out. There can be a maximum of 1000 blob containers with hasLegalHold=true for a given account.
-    """
-    immutability_policy: pulumi.Output[dict]
-    """
-    The ImmutabilityPolicy property of the container.
-      * `allow_protected_append_writes` (`bool`) - This property can only be changed for unlocked time-based retention policies. When enabled, new blocks can be written to an append blob while maintaining immutability protection and compliance. Only new blocks can be added and any existing blocks cannot be modified or deleted. This property cannot be changed with ExtendImmutabilityPolicy API
-      * `etag` (`str`) - ImmutabilityPolicy Etag.
-      * `immutability_period_since_creation_in_days` (`float`) - The immutability period for the blobs in the container since the policy creation, in days.
-      * `state` (`str`) - The ImmutabilityPolicy state of a blob container, possible values include: Locked and Unlocked.
-      * `update_history` (`list`) - The ImmutabilityPolicy update history of the blob container.
-        * `immutability_period_since_creation_in_days` (`float`) - The immutability period for the blobs in the container since the policy creation, in days.
-        * `object_identifier` (`str`) - Returns the Object ID of the user who updated the ImmutabilityPolicy.
-        * `tenant_id` (`str`) - Returns the Tenant ID that issued the token for the user who updated the ImmutabilityPolicy.
-        * `timestamp` (`str`) - Returns the date and time the ImmutabilityPolicy was updated.
-        * `update` (`str`) - The ImmutabilityPolicy update type of a blob container, possible values include: put, lock and extend.
-        * `upn` (`str`) - Returns the User Principal Name of the user who updated the ImmutabilityPolicy.
-    """
-    last_modified_time: pulumi.Output[str]
-    """
-    Returns the date and time the container was last modified.
-    """
-    lease_duration: pulumi.Output[str]
-    """
-    Specifies whether the lease on a container is of infinite or fixed duration, only when the container is leased.
-    """
-    lease_state: pulumi.Output[str]
-    """
-    Lease state of the container.
-    """
-    lease_status: pulumi.Output[str]
-    """
-    The lease status of the container.
-    """
-    legal_hold: pulumi.Output[dict]
-    """
-    The LegalHold property of the container.
-      * `has_legal_hold` (`bool`) - The hasLegalHold public property is set to true by SRP if there are at least one existing tag. The hasLegalHold public property is set to false by SRP if all existing legal hold tags are cleared out. There can be a maximum of 1000 blob containers with hasLegalHold=true for a given account.
-      * `tags` (`list`) - The list of LegalHold tags of a blob container.
-        * `object_identifier` (`str`) - Returns the Object ID of the user who added the tag.
-        * `tag` (`str`) - The tag value.
-        * `tenant_id` (`str`) - Returns the Tenant ID that issued the token for the user who added the tag.
-        * `timestamp` (`str`) - Returns the date and time the tag was added.
-        * `upn` (`str`) - Returns the User Principal Name of the user who added the tag.
-    """
-    metadata: pulumi.Output[dict]
-    """
-    A name-value pair to associate with the container as metadata.
-    """
-    name: pulumi.Output[str]
-    """
-    The name of the resource
-    """
-    public_access: pulumi.Output[str]
-    """
-    Specifies whether data in the container may be accessed publicly and the level of access.
-    """
-    remaining_retention_days: pulumi.Output[float]
-    """
-    Remaining retention days for soft deleted blob container.
-    """
-    type: pulumi.Output[str]
-    """
-    The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
-    """
-    version: pulumi.Output[str]
-    """
-    The version of the deleted blob container.
-    """
-    def __init__(__self__, resource_name, opts=None, account_name=None, default_encryption_scope=None, deny_encryption_scope_override=None, metadata=None, name=None, public_access=None, resource_group_name=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 account_name: Optional[pulumi.Input[str]] = None,
+                 default_encryption_scope: Optional[pulumi.Input[str]] = None,
+                 deny_encryption_scope_override: Optional[pulumi.Input[bool]] = None,
+                 metadata: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 public_access: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         Properties of the blob container, including Id, resource name, resource type, Etag.
 
@@ -113,7 +34,7 @@ class BlobContainer(pulumi.CustomResource):
         :param pulumi.Input[str] account_name: The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.
         :param pulumi.Input[str] default_encryption_scope: Default the container to use specified encryption scope for all writes.
         :param pulumi.Input[bool] deny_encryption_scope_override: Block override of encryption scope from the container default.
-        :param pulumi.Input[dict] metadata: A name-value pair to associate with the container as metadata.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] metadata: A name-value pair to associate with the container as metadata.
         :param pulumi.Input[str] name: The name of the blob container within the specified storage account. Blob container names must be between 3 and 63 characters in length and use numbers, lower-case letters and dash (-) only. Every dash (-) character must be immediately preceded and followed by a letter or number.
         :param pulumi.Input[str] public_access: Specifies whether data in the container may be accessed publicly and the level of access.
         :param pulumi.Input[str] resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.
@@ -171,13 +92,15 @@ class BlobContainer(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None) -> 'BlobContainer':
         """
         Get an existing BlobContainer resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -186,8 +109,161 @@ class BlobContainer(pulumi.CustomResource):
 
         return BlobContainer(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter(name="defaultEncryptionScope")
+    def default_encryption_scope(self) -> Optional[str]:
+        """
+        Default the container to use specified encryption scope for all writes.
+        """
+        return pulumi.get(self, "default_encryption_scope")
+
+    @property
+    @pulumi.getter
+    def deleted(self) -> bool:
+        """
+        Indicates whether the blob container was deleted.
+        """
+        return pulumi.get(self, "deleted")
+
+    @property
+    @pulumi.getter(name="deletedTime")
+    def deleted_time(self) -> str:
+        """
+        Blob container deletion time.
+        """
+        return pulumi.get(self, "deleted_time")
+
+    @property
+    @pulumi.getter(name="denyEncryptionScopeOverride")
+    def deny_encryption_scope_override(self) -> Optional[bool]:
+        """
+        Block override of encryption scope from the container default.
+        """
+        return pulumi.get(self, "deny_encryption_scope_override")
+
+    @property
+    @pulumi.getter
+    def etag(self) -> str:
+        """
+        Resource Etag.
+        """
+        return pulumi.get(self, "etag")
+
+    @property
+    @pulumi.getter(name="hasImmutabilityPolicy")
+    def has_immutability_policy(self) -> bool:
+        """
+        The hasImmutabilityPolicy public property is set to true by SRP if ImmutabilityPolicy has been created for this container. The hasImmutabilityPolicy public property is set to false by SRP if ImmutabilityPolicy has not been created for this container.
+        """
+        return pulumi.get(self, "has_immutability_policy")
+
+    @property
+    @pulumi.getter(name="hasLegalHold")
+    def has_legal_hold(self) -> bool:
+        """
+        The hasLegalHold public property is set to true by SRP if there are at least one existing tag. The hasLegalHold public property is set to false by SRP if all existing legal hold tags are cleared out. There can be a maximum of 1000 blob containers with hasLegalHold=true for a given account.
+        """
+        return pulumi.get(self, "has_legal_hold")
+
+    @property
+    @pulumi.getter(name="immutabilityPolicy")
+    def immutability_policy(self) -> 'outputs.ImmutabilityPolicyPropertiesResponse':
+        """
+        The ImmutabilityPolicy property of the container.
+        """
+        return pulumi.get(self, "immutability_policy")
+
+    @property
+    @pulumi.getter(name="lastModifiedTime")
+    def last_modified_time(self) -> str:
+        """
+        Returns the date and time the container was last modified.
+        """
+        return pulumi.get(self, "last_modified_time")
+
+    @property
+    @pulumi.getter(name="leaseDuration")
+    def lease_duration(self) -> str:
+        """
+        Specifies whether the lease on a container is of infinite or fixed duration, only when the container is leased.
+        """
+        return pulumi.get(self, "lease_duration")
+
+    @property
+    @pulumi.getter(name="leaseState")
+    def lease_state(self) -> str:
+        """
+        Lease state of the container.
+        """
+        return pulumi.get(self, "lease_state")
+
+    @property
+    @pulumi.getter(name="leaseStatus")
+    def lease_status(self) -> str:
+        """
+        The lease status of the container.
+        """
+        return pulumi.get(self, "lease_status")
+
+    @property
+    @pulumi.getter(name="legalHold")
+    def legal_hold(self) -> 'outputs.LegalHoldPropertiesResponse':
+        """
+        The LegalHold property of the container.
+        """
+        return pulumi.get(self, "legal_hold")
+
+    @property
+    @pulumi.getter
+    def metadata(self) -> Optional[Mapping[str, str]]:
+        """
+        A name-value pair to associate with the container as metadata.
+        """
+        return pulumi.get(self, "metadata")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the resource
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="publicAccess")
+    def public_access(self) -> Optional[str]:
+        """
+        Specifies whether data in the container may be accessed publicly and the level of access.
+        """
+        return pulumi.get(self, "public_access")
+
+    @property
+    @pulumi.getter(name="remainingRetentionDays")
+    def remaining_retention_days(self) -> float:
+        """
+        Remaining retention days for soft deleted blob container.
+        """
+        return pulumi.get(self, "remaining_retention_days")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def version(self) -> str:
+        """
+        The version of the deleted blob container.
+        """
+        return pulumi.get(self, "version")
+
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

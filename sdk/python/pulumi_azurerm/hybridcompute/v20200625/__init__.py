@@ -3,5 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 # Export this package's modules as members:
-from .get_guest_configuration_hcrp_assignment import *
-from .guest_configuration_hcrp_assignment import *
+from .get_guest_configuration_hcrpassignment import *
+from .guest_configuration_hcrpassignment import *
+from ._inputs import *
+from . import outputs

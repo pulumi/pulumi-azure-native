@@ -15,3 +15,5 @@ from .list_domain_shared_access_keys import *
 from .list_topic_shared_access_keys import *
 from .private_endpoint_connection import *
 from .topic import *
+from ._inputs import *
+from . import outputs

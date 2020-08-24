@@ -5,10 +5,16 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
 
+__all__ = [
+    'GetCertificateCsrResult',
+    'AwaitableGetCertificateCsrResult',
+    'get_certificate_csr',
+]
 
+@pulumi.output_type
 class GetCertificateCsrResult:
     """
     Certificate signing request object
@@ -16,70 +22,125 @@ class GetCertificateCsrResult:
     def __init__(__self__, csr_string=None, distinguished_name=None, hosting_environment=None, kind=None, location=None, name=None, password=None, pfx_blob=None, public_key_hash=None, tags=None, type=None):
         if csr_string and not isinstance(csr_string, str):
             raise TypeError("Expected argument 'csr_string' to be a str")
-        __self__.csr_string = csr_string
+        pulumi.set(__self__, "csr_string", csr_string)
+        if distinguished_name and not isinstance(distinguished_name, str):
+            raise TypeError("Expected argument 'distinguished_name' to be a str")
+        pulumi.set(__self__, "distinguished_name", distinguished_name)
+        if hosting_environment and not isinstance(hosting_environment, str):
+            raise TypeError("Expected argument 'hosting_environment' to be a str")
+        pulumi.set(__self__, "hosting_environment", hosting_environment)
+        if kind and not isinstance(kind, str):
+            raise TypeError("Expected argument 'kind' to be a str")
+        pulumi.set(__self__, "kind", kind)
+        if location and not isinstance(location, str):
+            raise TypeError("Expected argument 'location' to be a str")
+        pulumi.set(__self__, "location", location)
+        if name and not isinstance(name, str):
+            raise TypeError("Expected argument 'name' to be a str")
+        pulumi.set(__self__, "name", name)
+        if password and not isinstance(password, str):
+            raise TypeError("Expected argument 'password' to be a str")
+        pulumi.set(__self__, "password", password)
+        if pfx_blob and not isinstance(pfx_blob, str):
+            raise TypeError("Expected argument 'pfx_blob' to be a str")
+        pulumi.set(__self__, "pfx_blob", pfx_blob)
+        if public_key_hash and not isinstance(public_key_hash, str):
+            raise TypeError("Expected argument 'public_key_hash' to be a str")
+        pulumi.set(__self__, "public_key_hash", public_key_hash)
+        if tags and not isinstance(tags, dict):
+            raise TypeError("Expected argument 'tags' to be a dict")
+        pulumi.set(__self__, "tags", tags)
+        if type and not isinstance(type, str):
+            raise TypeError("Expected argument 'type' to be a str")
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="csrString")
+    def csr_string(self) -> Optional[str]:
         """
         Actual CSR string created
         """
-        if distinguished_name and not isinstance(distinguished_name, str):
-            raise TypeError("Expected argument 'distinguished_name' to be a str")
-        __self__.distinguished_name = distinguished_name
+        return pulumi.get(self, "csr_string")
+
+    @property
+    @pulumi.getter(name="distinguishedName")
+    def distinguished_name(self) -> Optional[str]:
         """
         Distinguished name of certificate to be created
         """
-        if hosting_environment and not isinstance(hosting_environment, str):
-            raise TypeError("Expected argument 'hosting_environment' to be a str")
-        __self__.hosting_environment = hosting_environment
+        return pulumi.get(self, "distinguished_name")
+
+    @property
+    @pulumi.getter(name="hostingEnvironment")
+    def hosting_environment(self) -> Optional[str]:
         """
         Hosting environment
         """
-        if kind and not isinstance(kind, str):
-            raise TypeError("Expected argument 'kind' to be a str")
-        __self__.kind = kind
+        return pulumi.get(self, "hosting_environment")
+
+    @property
+    @pulumi.getter
+    def kind(self) -> Optional[str]:
         """
         Kind of resource
         """
-        if location and not isinstance(location, str):
-            raise TypeError("Expected argument 'location' to be a str")
-        __self__.location = location
+        return pulumi.get(self, "kind")
+
+    @property
+    @pulumi.getter
+    def location(self) -> str:
         """
         Resource Location
         """
-        if name and not isinstance(name, str):
-            raise TypeError("Expected argument 'name' to be a str")
-        __self__.name = name
+        return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
         """
         Resource Name
         """
-        if password and not isinstance(password, str):
-            raise TypeError("Expected argument 'password' to be a str")
-        __self__.password = password
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def password(self) -> Optional[str]:
         """
         PFX password
         """
-        if pfx_blob and not isinstance(pfx_blob, str):
-            raise TypeError("Expected argument 'pfx_blob' to be a str")
-        __self__.pfx_blob = pfx_blob
+        return pulumi.get(self, "password")
+
+    @property
+    @pulumi.getter(name="pfxBlob")
+    def pfx_blob(self) -> Optional[str]:
         """
         PFX certificate of created certificate
         """
-        if public_key_hash and not isinstance(public_key_hash, str):
-            raise TypeError("Expected argument 'public_key_hash' to be a str")
-        __self__.public_key_hash = public_key_hash
+        return pulumi.get(self, "pfx_blob")
+
+    @property
+    @pulumi.getter(name="publicKeyHash")
+    def public_key_hash(self) -> Optional[str]:
         """
         Hash of the certificates public key
         """
-        if tags and not isinstance(tags, dict):
-            raise TypeError("Expected argument 'tags' to be a dict")
-        __self__.tags = tags
+        return pulumi.get(self, "public_key_hash")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Mapping[str, str]]:
         """
         Resource tags
         """
-        if type and not isinstance(type, str):
-            raise TypeError("Expected argument 'type' to be a str")
-        __self__.type = type
+        return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[str]:
         """
         Resource type
         """
+        return pulumi.get(self, "type")
 
 
 class AwaitableGetCertificateCsrResult(GetCertificateCsrResult):
@@ -101,7 +162,9 @@ class AwaitableGetCertificateCsrResult(GetCertificateCsrResult):
             type=self.type)
 
 
-def get_certificate_csr(name=None, resource_group_name=None, opts=None):
+def get_certificate_csr(name: Optional[str] = None,
+                        resource_group_name: Optional[str] = None,
+                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetCertificateCsrResult:
     """
     Use this data source to access information about an existing resource.
 
@@ -115,17 +178,17 @@ def get_certificate_csr(name=None, resource_group_name=None, opts=None):
         opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = _utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('azurerm:web/v20150801:getCertificateCsr', __args__, opts=opts).value
+    __ret__ = pulumi.runtime.invoke('azurerm:web/v20150801:getCertificateCsr', __args__, opts=opts, typ=GetCertificateCsrResult).value
 
     return AwaitableGetCertificateCsrResult(
-        csr_string=__ret__.get('csrString'),
-        distinguished_name=__ret__.get('distinguishedName'),
-        hosting_environment=__ret__.get('hostingEnvironment'),
-        kind=__ret__.get('kind'),
-        location=__ret__.get('location'),
-        name=__ret__.get('name'),
-        password=__ret__.get('password'),
-        pfx_blob=__ret__.get('pfxBlob'),
-        public_key_hash=__ret__.get('publicKeyHash'),
-        tags=__ret__.get('tags'),
-        type=__ret__.get('type'))
+        csr_string=__ret__.csr_string,
+        distinguished_name=__ret__.distinguished_name,
+        hosting_environment=__ret__.hosting_environment,
+        kind=__ret__.kind,
+        location=__ret__.location,
+        name=__ret__.name,
+        password=__ret__.password,
+        pfx_blob=__ret__.pfx_blob,
+        public_key_hash=__ret__.public_key_hash,
+        tags=__ret__.tags,
+        type=__ret__.type)

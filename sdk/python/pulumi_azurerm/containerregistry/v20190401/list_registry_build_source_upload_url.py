@@ -5,10 +5,16 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
 
+__all__ = [
+    'ListRegistryBuildSourceUploadUrlResult',
+    'AwaitableListRegistryBuildSourceUploadUrlResult',
+    'list_registry_build_source_upload_url',
+]
 
+@pulumi.output_type
 class ListRegistryBuildSourceUploadUrlResult:
     """
     The properties of a response to source upload request.
@@ -16,16 +22,26 @@ class ListRegistryBuildSourceUploadUrlResult:
     def __init__(__self__, relative_path=None, upload_url=None):
         if relative_path and not isinstance(relative_path, str):
             raise TypeError("Expected argument 'relative_path' to be a str")
-        __self__.relative_path = relative_path
+        pulumi.set(__self__, "relative_path", relative_path)
+        if upload_url and not isinstance(upload_url, str):
+            raise TypeError("Expected argument 'upload_url' to be a str")
+        pulumi.set(__self__, "upload_url", upload_url)
+
+    @property
+    @pulumi.getter(name="relativePath")
+    def relative_path(self) -> Optional[str]:
         """
         The relative path to the source. This is used to submit the subsequent queue build request.
         """
-        if upload_url and not isinstance(upload_url, str):
-            raise TypeError("Expected argument 'upload_url' to be a str")
-        __self__.upload_url = upload_url
+        return pulumi.get(self, "relative_path")
+
+    @property
+    @pulumi.getter(name="uploadUrl")
+    def upload_url(self) -> Optional[str]:
         """
         The URL where the client can upload the source.
         """
+        return pulumi.get(self, "upload_url")
 
 
 class AwaitableListRegistryBuildSourceUploadUrlResult(ListRegistryBuildSourceUploadUrlResult):
@@ -38,7 +54,9 @@ class AwaitableListRegistryBuildSourceUploadUrlResult(ListRegistryBuildSourceUpl
             upload_url=self.upload_url)
 
 
-def list_registry_build_source_upload_url(registry_name=None, resource_group_name=None, opts=None):
+def list_registry_build_source_upload_url(registry_name: Optional[str] = None,
+                                          resource_group_name: Optional[str] = None,
+                                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListRegistryBuildSourceUploadUrlResult:
     """
     Use this data source to access information about an existing resource.
 
@@ -52,8 +70,8 @@ def list_registry_build_source_upload_url(registry_name=None, resource_group_nam
         opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = _utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('azurerm:containerregistry/v20190401:listRegistryBuildSourceUploadUrl', __args__, opts=opts).value
+    __ret__ = pulumi.runtime.invoke('azurerm:containerregistry/v20190401:listRegistryBuildSourceUploadUrl', __args__, opts=opts, typ=ListRegistryBuildSourceUploadUrlResult).value
 
     return AwaitableListRegistryBuildSourceUploadUrlResult(
-        relative_path=__ret__.get('relativePath'),
-        upload_url=__ret__.get('uploadUrl'))
+        relative_path=__ret__.relative_path,
+        upload_url=__ret__.upload_url)

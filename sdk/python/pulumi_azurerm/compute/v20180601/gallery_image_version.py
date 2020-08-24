@@ -5,69 +5,28 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+from . import outputs
+from ._inputs import *
+
+__all__ = ['GalleryImageVersion']
 
 
 class GalleryImageVersion(pulumi.CustomResource):
-    location: pulumi.Output[str]
-    """
-    Resource location
-    """
-    name: pulumi.Output[str]
-    """
-    Resource name
-    """
-    provisioning_state: pulumi.Output[str]
-    """
-    The provisioning state, which only appears in the response.
-    """
-    publishing_profile: pulumi.Output[dict]
-    """
-    The publishing profile of a gallery Image Version.
-      * `end_of_life_date` (`str`) - The end of life date of the gallery Image Version. This property can be used for decommissioning purposes. This property is updatable.
-      * `exclude_from_latest` (`bool`) - If set to true, Virtual Machines deployed from the latest version of the Image Definition won't use this Image Version.
-      * `published_date` (`str`) - The timestamp for when the gallery Image Version is published.
-      * `replica_count` (`float`) - The number of replicas of the Image Version to be created per region. This property would take effect for a region when regionalReplicaCount is not specified. This property is updatable.
-      * `source` (`dict`) - The source image from which the Image Version is going to be created.
-        * `managed_image` (`dict`) - The managed artifact.
-          * `id` (`str`) - The managed artifact id.
-
-      * `target_regions` (`list`) - The target regions where the Image Version is going to be replicated to. This property is updatable.
-        * `name` (`str`) - The name of the region.
-        * `regional_replica_count` (`float`) - The number of replicas of the Image Version to be created per region. This property is updatable.
-    """
-    replication_status: pulumi.Output[dict]
-    """
-    This is the replication status of the gallery Image Version.
-      * `aggregated_state` (`str`) - This is the aggregated replication status based on all the regional replication status flags.
-      * `summary` (`list`) - This is a summary of replication status for each region.
-        * `details` (`str`) - The details of the replication status.
-        * `progress` (`float`) - It indicates progress of the replication job.
-        * `region` (`str`) - The region to which the gallery Image Version is being replicated to.
-        * `state` (`str`) - This is the regional replication state.
-    """
-    storage_profile: pulumi.Output[dict]
-    """
-    This is the storage profile of a gallery Image Version.
-      * `data_disk_images` (`list`) - A list of data disk images.
-        * `host_caching` (`str`) - The host caching of the disk. Valid values are 'None', 'ReadOnly', and 'ReadWrite'
-        * `lun` (`float`) - This property specifies the logical unit number of the data disk. This value is used to identify data disks within the Virtual Machine and therefore must be unique for each data disk attached to the Virtual Machine.
-        * `size_in_gb` (`float`) - This property indicates the size of the VHD to be created.
-
-      * `os_disk_image` (`dict`) - This is the OS disk image.
-        * `host_caching` (`str`) - The host caching of the disk. Valid values are 'None', 'ReadOnly', and 'ReadWrite'
-        * `size_in_gb` (`float`) - This property indicates the size of the VHD to be created.
-    """
-    tags: pulumi.Output[dict]
-    """
-    Resource tags
-    """
-    type: pulumi.Output[str]
-    """
-    Resource type
-    """
-    def __init__(__self__, resource_name, opts=None, gallery_image_name=None, gallery_name=None, location=None, name=None, publishing_profile=None, resource_group_name=None, tags=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 gallery_image_name: Optional[pulumi.Input[str]] = None,
+                 gallery_name: Optional[pulumi.Input[str]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 publishing_profile: Optional[pulumi.Input[pulumi.InputType['GalleryImageVersionPublishingProfileArgs']]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         Specifies information about the gallery Image Version that you want to create or update.
 
@@ -77,22 +36,9 @@ class GalleryImageVersion(pulumi.CustomResource):
         :param pulumi.Input[str] gallery_name: The name of the Shared Image Gallery in which the Image Definition resides.
         :param pulumi.Input[str] location: Resource location
         :param pulumi.Input[str] name: The name of the gallery Image Version to be created. Needs to follow semantic version name pattern: The allowed characters are digit and period. Digits must be within the range of a 32-bit integer. Format: <MajorVersion>.<MinorVersion>.<Patch>
-        :param pulumi.Input[dict] publishing_profile: The publishing profile of a gallery Image Version.
+        :param pulumi.Input[pulumi.InputType['GalleryImageVersionPublishingProfileArgs']] publishing_profile: The publishing profile of a gallery Image Version.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
-        :param pulumi.Input[dict] tags: Resource tags
-
-        The **publishing_profile** object supports the following:
-
-          * `end_of_life_date` (`pulumi.Input[str]`) - The end of life date of the gallery Image Version. This property can be used for decommissioning purposes. This property is updatable.
-          * `exclude_from_latest` (`pulumi.Input[bool]`) - If set to true, Virtual Machines deployed from the latest version of the Image Definition won't use this Image Version.
-          * `replica_count` (`pulumi.Input[float]`) - The number of replicas of the Image Version to be created per region. This property would take effect for a region when regionalReplicaCount is not specified. This property is updatable.
-          * `source` (`pulumi.Input[dict]`) - The source image from which the Image Version is going to be created.
-            * `managed_image` (`pulumi.Input[dict]`) - The managed artifact.
-              * `id` (`pulumi.Input[str]`) - The managed artifact id.
-
-          * `target_regions` (`pulumi.Input[list]`) - The target regions where the Image Version is going to be replicated to. This property is updatable.
-            * `name` (`pulumi.Input[str]`) - The name of the region.
-            * `regional_replica_count` (`pulumi.Input[float]`) - The number of replicas of the Image Version to be created per region. This property is updatable.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -143,13 +89,15 @@ class GalleryImageVersion(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None) -> 'GalleryImageVersion':
         """
         Get an existing GalleryImageVersion resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -158,8 +106,73 @@ class GalleryImageVersion(pulumi.CustomResource):
 
         return GalleryImageVersion(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter
+    def location(self) -> str:
+        """
+        Resource location
+        """
+        return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Resource name
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        The provisioning state, which only appears in the response.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="publishingProfile")
+    def publishing_profile(self) -> 'outputs.GalleryImageVersionPublishingProfileResponse':
+        """
+        The publishing profile of a gallery Image Version.
+        """
+        return pulumi.get(self, "publishing_profile")
+
+    @property
+    @pulumi.getter(name="replicationStatus")
+    def replication_status(self) -> 'outputs.ReplicationStatusResponse':
+        """
+        This is the replication status of the gallery Image Version.
+        """
+        return pulumi.get(self, "replication_status")
+
+    @property
+    @pulumi.getter(name="storageProfile")
+    def storage_profile(self) -> 'outputs.GalleryImageVersionStorageProfileResponse':
+        """
+        This is the storage profile of a gallery Image Version.
+        """
+        return pulumi.get(self, "storage_profile")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Mapping[str, str]]:
+        """
+        Resource tags
+        """
+        return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Resource type
+        """
+        return pulumi.get(self, "type")
+
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

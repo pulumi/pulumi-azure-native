@@ -5,171 +5,36 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+from . import outputs
+from ._inputs import *
+
+__all__ = ['ExpressRouteCrossConnectionPeering']
 
 
 class ExpressRouteCrossConnectionPeering(pulumi.CustomResource):
-    azure_asn: pulumi.Output[float]
-    """
-    The Azure ASN.
-    """
-    etag: pulumi.Output[str]
-    """
-    A unique read-only string that changes whenever the resource is updated.
-    """
-    gateway_manager_etag: pulumi.Output[str]
-    """
-    The GatewayManager Etag.
-    """
-    ipv6_peering_config: pulumi.Output[dict]
-    """
-    The IPv6 peering configuration.
-      * `microsoft_peering_config` (`dict`) - The Microsoft peering configuration.
-        * `advertised_communities` (`list`) - The communities of bgp peering. Specified for microsoft peering
-        * `advertised_public_prefixes` (`list`) - The reference of AdvertisedPublicPrefixes.
-        * `advertised_public_prefixes_state` (`str`) - AdvertisedPublicPrefixState of the Peering resource. Possible values are 'NotConfigured', 'Configuring', 'Configured', and 'ValidationNeeded'.
-        * `customer_asn` (`float`) - The CustomerASN of the peering.
-        * `legacy_mode` (`float`) - The legacy mode of the peering.
-        * `routing_registry_name` (`str`) - The RoutingRegistryName of the configuration.
-
-      * `primary_peer_address_prefix` (`str`) - The primary address prefix.
-      * `route_filter` (`dict`) - The reference of the RouteFilter resource.
-        * `etag` (`str`) - Gets a unique read-only string that changes whenever the resource is updated.
-        * `id` (`str`) - Resource ID.
-        * `location` (`str`) - Resource location.
-        * `name` (`str`) - Resource name.
-        * `peerings` (`list`) - A collection of references to express route circuit peerings.
-          * `azure_asn` (`float`) - The Azure ASN.
-          * `connections` (`list`) - The list of circuit connections associated with Azure Private Peering for this circuit.
-            * `address_prefix` (`str`) - /29 IP address space to carve out Customer addresses for tunnels.
-            * `authorization_key` (`str`) - The authorization key.
-            * `circuit_connection_status` (`str`) - Express Route Circuit Connection State. Possible values are: 'Connected' and 'Disconnected'.
-            * `etag` (`str`) - A unique read-only string that changes whenever the resource is updated.
-            * `express_route_circuit_peering` (`dict`) - Reference to Express Route Circuit Private Peering Resource of the circuit initiating connection.
-              * `id` (`str`) - Resource ID.
-
-            * `id` (`str`) - Resource ID.
-            * `name` (`str`) - Gets name of the resource that is unique within a resource group. This name can be used to access the resource.
-            * `peer_express_route_circuit_peering` (`dict`) - Reference to Express Route Circuit Private Peering Resource of the peered circuit.
-            * `provisioning_state` (`str`) - Provisioning state of the circuit connection resource. Possible values are: 'Succeeded', 'Updating', 'Deleting', and 'Failed'.
-
-          * `etag` (`str`) - A unique read-only string that changes whenever the resource is updated.
-          * `express_route_connection` (`dict`) - The ExpressRoute connection.
-            * `id` (`str`) - The ID of the ExpressRouteConnection.
-
-          * `gateway_manager_etag` (`str`) - The GatewayManager Etag.
-          * `id` (`str`) - Resource ID.
-          * `ipv6_peering_config` (`dict`) - The IPv6 peering configuration.
-          * `last_modified_by` (`str`) - Gets whether the provider or the customer last modified the peering.
-          * `microsoft_peering_config` (`dict`) - The Microsoft peering configuration.
-          * `name` (`str`) - Gets name of the resource that is unique within a resource group. This name can be used to access the resource.
-          * `peer_asn` (`float`) - The peer ASN.
-          * `peered_connections` (`list`) - The list of peered circuit connections associated with Azure Private Peering for this circuit.
-            * `address_prefix` (`str`) - /29 IP address space to carve out Customer addresses for tunnels.
-            * `auth_resource_guid` (`str`) - The resource guid of the authorization used for the express route circuit connection.
-            * `circuit_connection_status` (`str`) - Express Route Circuit Connection State. Possible values are: 'Connected' and 'Disconnected'.
-            * `connection_name` (`str`) - The name of the express route circuit connection resource.
-            * `etag` (`str`) - A unique read-only string that changes whenever the resource is updated.
-            * `express_route_circuit_peering` (`dict`) - Reference to Express Route Circuit Private Peering Resource of the circuit.
-            * `id` (`str`) - Resource ID.
-            * `name` (`str`) - Gets name of the resource that is unique within a resource group. This name can be used to access the resource.
-            * `peer_express_route_circuit_peering` (`dict`) - Reference to Express Route Circuit Private Peering Resource of the peered circuit.
-            * `provisioning_state` (`str`) - Provisioning state of the peer express route circuit connection resource. Possible values are: 'Succeeded', 'Updating', 'Deleting', and 'Failed'.
-
-          * `peering_type` (`str`) - The peering type.
-          * `primary_azure_port` (`str`) - The primary port.
-          * `primary_peer_address_prefix` (`str`) - The primary address prefix.
-          * `provisioning_state` (`str`) - Gets the provisioning state of the public IP resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
-          * `route_filter` (`dict`) - The reference of the RouteFilter resource.
-          * `secondary_azure_port` (`str`) - The secondary port.
-          * `secondary_peer_address_prefix` (`str`) - The secondary address prefix.
-          * `shared_key` (`str`) - The shared key.
-          * `state` (`str`) - The peering state.
-          * `stats` (`dict`) - Gets peering stats.
-            * `primarybytes_in` (`float`) - Gets BytesIn of the peering.
-            * `primarybytes_out` (`float`) - Gets BytesOut of the peering.
-            * `secondarybytes_in` (`float`) - Gets BytesIn of the peering.
-            * `secondarybytes_out` (`float`) - Gets BytesOut of the peering.
-
-          * `vlan_id` (`float`) - The VLAN ID.
-
-        * `provisioning_state` (`str`) - The provisioning state of the resource. Possible values are: 'Updating', 'Deleting', 'Succeeded' and 'Failed'.
-        * `rules` (`list`) - Collection of RouteFilterRules contained within a route filter.
-          * `access` (`str`) - The access type of the rule. Valid values are: 'Allow', 'Deny'
-          * `communities` (`list`) - The collection for bgp community values to filter on. e.g. ['12076:5010','12076:5020']
-          * `etag` (`str`) - A unique read-only string that changes whenever the resource is updated.
-          * `id` (`str`) - Resource ID.
-          * `location` (`str`) - Resource location.
-          * `name` (`str`) - The name of the resource that is unique within a resource group. This name can be used to access the resource.
-          * `provisioning_state` (`str`) - The provisioning state of the resource. Possible values are: 'Updating', 'Deleting', 'Succeeded' and 'Failed'.
-          * `route_filter_rule_type` (`str`) - The rule type of the rule. Valid value is: 'Community'
-
-        * `tags` (`dict`) - Resource tags.
-        * `type` (`str`) - Resource type.
-
-      * `secondary_peer_address_prefix` (`str`) - The secondary address prefix.
-      * `state` (`str`) - The state of peering. Possible values are: 'Disabled' and 'Enabled'
-    """
-    last_modified_by: pulumi.Output[str]
-    """
-    Gets whether the provider or the customer last modified the peering.
-    """
-    microsoft_peering_config: pulumi.Output[dict]
-    """
-    The Microsoft peering configuration.
-      * `advertised_communities` (`list`) - The communities of bgp peering. Specified for microsoft peering
-      * `advertised_public_prefixes` (`list`) - The reference of AdvertisedPublicPrefixes.
-      * `advertised_public_prefixes_state` (`str`) - AdvertisedPublicPrefixState of the Peering resource. Possible values are 'NotConfigured', 'Configuring', 'Configured', and 'ValidationNeeded'.
-      * `customer_asn` (`float`) - The CustomerASN of the peering.
-      * `legacy_mode` (`float`) - The legacy mode of the peering.
-      * `routing_registry_name` (`str`) - The RoutingRegistryName of the configuration.
-    """
-    name: pulumi.Output[str]
-    """
-    Gets name of the resource that is unique within a resource group. This name can be used to access the resource.
-    """
-    peer_asn: pulumi.Output[float]
-    """
-    The peer ASN.
-    """
-    peering_type: pulumi.Output[str]
-    """
-    The peering type.
-    """
-    primary_azure_port: pulumi.Output[str]
-    """
-    The primary port.
-    """
-    primary_peer_address_prefix: pulumi.Output[str]
-    """
-    The primary address prefix.
-    """
-    provisioning_state: pulumi.Output[str]
-    """
-    Gets the provisioning state of the public IP resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
-    """
-    secondary_azure_port: pulumi.Output[str]
-    """
-    The secondary port.
-    """
-    secondary_peer_address_prefix: pulumi.Output[str]
-    """
-    The secondary address prefix.
-    """
-    shared_key: pulumi.Output[str]
-    """
-    The shared key.
-    """
-    state: pulumi.Output[str]
-    """
-    The peering state.
-    """
-    vlan_id: pulumi.Output[float]
-    """
-    The VLAN ID.
-    """
-    def __init__(__self__, resource_name, opts=None, cross_connection_name=None, gateway_manager_etag=None, id=None, ipv6_peering_config=None, last_modified_by=None, microsoft_peering_config=None, name=None, peer_asn=None, peering_type=None, primary_peer_address_prefix=None, resource_group_name=None, secondary_peer_address_prefix=None, shared_key=None, state=None, vlan_id=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 cross_connection_name: Optional[pulumi.Input[str]] = None,
+                 gateway_manager_etag: Optional[pulumi.Input[str]] = None,
+                 id: Optional[pulumi.Input[str]] = None,
+                 ipv6_peering_config: Optional[pulumi.Input[pulumi.InputType['Ipv6ExpressRouteCircuitPeeringConfigArgs']]] = None,
+                 last_modified_by: Optional[pulumi.Input[str]] = None,
+                 microsoft_peering_config: Optional[pulumi.Input[pulumi.InputType['ExpressRouteCircuitPeeringConfigArgs']]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 peer_asn: Optional[pulumi.Input[float]] = None,
+                 peering_type: Optional[pulumi.Input[str]] = None,
+                 primary_peer_address_prefix: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 secondary_peer_address_prefix: Optional[pulumi.Input[str]] = None,
+                 shared_key: Optional[pulumi.Input[str]] = None,
+                 state: Optional[pulumi.Input[str]] = None,
+                 vlan_id: Optional[pulumi.Input[float]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         Peering in an ExpressRoute Cross Connection resource.
 
@@ -178,9 +43,9 @@ class ExpressRouteCrossConnectionPeering(pulumi.CustomResource):
         :param pulumi.Input[str] cross_connection_name: The name of the ExpressRouteCrossConnection.
         :param pulumi.Input[str] gateway_manager_etag: The GatewayManager Etag.
         :param pulumi.Input[str] id: Resource ID.
-        :param pulumi.Input[dict] ipv6_peering_config: The IPv6 peering configuration.
+        :param pulumi.Input[pulumi.InputType['Ipv6ExpressRouteCircuitPeeringConfigArgs']] ipv6_peering_config: The IPv6 peering configuration.
         :param pulumi.Input[str] last_modified_by: Gets whether the provider or the customer last modified the peering.
-        :param pulumi.Input[dict] microsoft_peering_config: The Microsoft peering configuration.
+        :param pulumi.Input[pulumi.InputType['ExpressRouteCircuitPeeringConfigArgs']] microsoft_peering_config: The Microsoft peering configuration.
         :param pulumi.Input[str] name: The name of the peering.
         :param pulumi.Input[float] peer_asn: The peer ASN.
         :param pulumi.Input[str] peering_type: The peering type.
@@ -190,69 +55,6 @@ class ExpressRouteCrossConnectionPeering(pulumi.CustomResource):
         :param pulumi.Input[str] shared_key: The shared key.
         :param pulumi.Input[str] state: The peering state.
         :param pulumi.Input[float] vlan_id: The VLAN ID.
-
-        The **ipv6_peering_config** object supports the following:
-
-          * `microsoft_peering_config` (`pulumi.Input[dict]`) - The Microsoft peering configuration.
-            * `advertised_communities` (`pulumi.Input[list]`) - The communities of bgp peering. Specified for microsoft peering
-            * `advertised_public_prefixes` (`pulumi.Input[list]`) - The reference of AdvertisedPublicPrefixes.
-            * `advertised_public_prefixes_state` (`pulumi.Input[str]`) - AdvertisedPublicPrefixState of the Peering resource. Possible values are 'NotConfigured', 'Configuring', 'Configured', and 'ValidationNeeded'.
-            * `customer_asn` (`pulumi.Input[float]`) - The CustomerASN of the peering.
-            * `legacy_mode` (`pulumi.Input[float]`) - The legacy mode of the peering.
-            * `routing_registry_name` (`pulumi.Input[str]`) - The RoutingRegistryName of the configuration.
-
-          * `primary_peer_address_prefix` (`pulumi.Input[str]`) - The primary address prefix.
-          * `route_filter` (`pulumi.Input[dict]`) - The reference of the RouteFilter resource.
-            * `id` (`pulumi.Input[str]`) - Resource ID.
-            * `location` (`pulumi.Input[str]`) - Resource location.
-            * `peerings` (`pulumi.Input[list]`) - A collection of references to express route circuit peerings.
-              * `azure_asn` (`pulumi.Input[float]`) - The Azure ASN.
-              * `connections` (`pulumi.Input[list]`) - The list of circuit connections associated with Azure Private Peering for this circuit.
-                * `address_prefix` (`pulumi.Input[str]`) - /29 IP address space to carve out Customer addresses for tunnels.
-                * `authorization_key` (`pulumi.Input[str]`) - The authorization key.
-                * `express_route_circuit_peering` (`pulumi.Input[dict]`) - Reference to Express Route Circuit Private Peering Resource of the circuit initiating connection.
-                  * `id` (`pulumi.Input[str]`) - Resource ID.
-
-                * `id` (`pulumi.Input[str]`) - Resource ID.
-                * `name` (`pulumi.Input[str]`) - Gets name of the resource that is unique within a resource group. This name can be used to access the resource.
-                * `peer_express_route_circuit_peering` (`pulumi.Input[dict]`) - Reference to Express Route Circuit Private Peering Resource of the peered circuit.
-
-              * `gateway_manager_etag` (`pulumi.Input[str]`) - The GatewayManager Etag.
-              * `id` (`pulumi.Input[str]`) - Resource ID.
-              * `ipv6_peering_config` (`pulumi.Input[dict]`) - The IPv6 peering configuration.
-              * `last_modified_by` (`pulumi.Input[str]`) - Gets whether the provider or the customer last modified the peering.
-              * `microsoft_peering_config` (`pulumi.Input[dict]`) - The Microsoft peering configuration.
-              * `name` (`pulumi.Input[str]`) - Gets name of the resource that is unique within a resource group. This name can be used to access the resource.
-              * `peer_asn` (`pulumi.Input[float]`) - The peer ASN.
-              * `peering_type` (`pulumi.Input[str]`) - The peering type.
-              * `primary_azure_port` (`pulumi.Input[str]`) - The primary port.
-              * `primary_peer_address_prefix` (`pulumi.Input[str]`) - The primary address prefix.
-              * `provisioning_state` (`pulumi.Input[str]`) - Gets the provisioning state of the public IP resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
-              * `route_filter` (`pulumi.Input[dict]`) - The reference of the RouteFilter resource.
-              * `secondary_azure_port` (`pulumi.Input[str]`) - The secondary port.
-              * `secondary_peer_address_prefix` (`pulumi.Input[str]`) - The secondary address prefix.
-              * `shared_key` (`pulumi.Input[str]`) - The shared key.
-              * `state` (`pulumi.Input[str]`) - The peering state.
-              * `stats` (`pulumi.Input[dict]`) - Gets peering stats.
-                * `primarybytes_in` (`pulumi.Input[float]`) - Gets BytesIn of the peering.
-                * `primarybytes_out` (`pulumi.Input[float]`) - Gets BytesOut of the peering.
-                * `secondarybytes_in` (`pulumi.Input[float]`) - Gets BytesIn of the peering.
-                * `secondarybytes_out` (`pulumi.Input[float]`) - Gets BytesOut of the peering.
-
-              * `vlan_id` (`pulumi.Input[float]`) - The VLAN ID.
-
-            * `rules` (`pulumi.Input[list]`) - Collection of RouteFilterRules contained within a route filter.
-              * `access` (`pulumi.Input[str]`) - The access type of the rule. Valid values are: 'Allow', 'Deny'
-              * `communities` (`pulumi.Input[list]`) - The collection for bgp community values to filter on. e.g. ['12076:5010','12076:5020']
-              * `id` (`pulumi.Input[str]`) - Resource ID.
-              * `location` (`pulumi.Input[str]`) - Resource location.
-              * `name` (`pulumi.Input[str]`) - The name of the resource that is unique within a resource group. This name can be used to access the resource.
-              * `route_filter_rule_type` (`pulumi.Input[str]`) - The rule type of the rule. Valid value is: 'Community'
-
-            * `tags` (`pulumi.Input[dict]`) - Resource tags.
-
-          * `secondary_peer_address_prefix` (`pulumi.Input[str]`) - The secondary address prefix.
-          * `state` (`pulumi.Input[str]`) - The state of peering. Possible values are: 'Disabled' and 'Enabled'
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -306,13 +108,15 @@ class ExpressRouteCrossConnectionPeering(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None) -> 'ExpressRouteCrossConnectionPeering':
         """
         Get an existing ExpressRouteCrossConnectionPeering resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -321,8 +125,145 @@ class ExpressRouteCrossConnectionPeering(pulumi.CustomResource):
 
         return ExpressRouteCrossConnectionPeering(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter(name="azureASN")
+    def azure_asn(self) -> float:
+        """
+        The Azure ASN.
+        """
+        return pulumi.get(self, "azure_asn")
+
+    @property
+    @pulumi.getter
+    def etag(self) -> str:
+        """
+        A unique read-only string that changes whenever the resource is updated.
+        """
+        return pulumi.get(self, "etag")
+
+    @property
+    @pulumi.getter(name="gatewayManagerEtag")
+    def gateway_manager_etag(self) -> Optional[str]:
+        """
+        The GatewayManager Etag.
+        """
+        return pulumi.get(self, "gateway_manager_etag")
+
+    @property
+    @pulumi.getter(name="ipv6PeeringConfig")
+    def ipv6_peering_config(self) -> Optional['outputs.Ipv6ExpressRouteCircuitPeeringConfigResponse']:
+        """
+        The IPv6 peering configuration.
+        """
+        return pulumi.get(self, "ipv6_peering_config")
+
+    @property
+    @pulumi.getter(name="lastModifiedBy")
+    def last_modified_by(self) -> Optional[str]:
+        """
+        Gets whether the provider or the customer last modified the peering.
+        """
+        return pulumi.get(self, "last_modified_by")
+
+    @property
+    @pulumi.getter(name="microsoftPeeringConfig")
+    def microsoft_peering_config(self) -> Optional['outputs.ExpressRouteCircuitPeeringConfigResponse']:
+        """
+        The Microsoft peering configuration.
+        """
+        return pulumi.get(self, "microsoft_peering_config")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        Gets name of the resource that is unique within a resource group. This name can be used to access the resource.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="peerASN")
+    def peer_asn(self) -> Optional[float]:
+        """
+        The peer ASN.
+        """
+        return pulumi.get(self, "peer_asn")
+
+    @property
+    @pulumi.getter(name="peeringType")
+    def peering_type(self) -> Optional[str]:
+        """
+        The peering type.
+        """
+        return pulumi.get(self, "peering_type")
+
+    @property
+    @pulumi.getter(name="primaryAzurePort")
+    def primary_azure_port(self) -> str:
+        """
+        The primary port.
+        """
+        return pulumi.get(self, "primary_azure_port")
+
+    @property
+    @pulumi.getter(name="primaryPeerAddressPrefix")
+    def primary_peer_address_prefix(self) -> Optional[str]:
+        """
+        The primary address prefix.
+        """
+        return pulumi.get(self, "primary_peer_address_prefix")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        Gets the provisioning state of the public IP resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="secondaryAzurePort")
+    def secondary_azure_port(self) -> str:
+        """
+        The secondary port.
+        """
+        return pulumi.get(self, "secondary_azure_port")
+
+    @property
+    @pulumi.getter(name="secondaryPeerAddressPrefix")
+    def secondary_peer_address_prefix(self) -> Optional[str]:
+        """
+        The secondary address prefix.
+        """
+        return pulumi.get(self, "secondary_peer_address_prefix")
+
+    @property
+    @pulumi.getter(name="sharedKey")
+    def shared_key(self) -> Optional[str]:
+        """
+        The shared key.
+        """
+        return pulumi.get(self, "shared_key")
+
+    @property
+    @pulumi.getter
+    def state(self) -> Optional[str]:
+        """
+        The peering state.
+        """
+        return pulumi.get(self, "state")
+
+    @property
+    @pulumi.getter(name="vlanId")
+    def vlan_id(self) -> Optional[float]:
+        """
+        The VLAN ID.
+        """
+        return pulumi.get(self, "vlan_id")
+
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

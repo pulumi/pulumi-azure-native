@@ -5,165 +5,66 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+from . import outputs
+from ._inputs import *
+
+__all__ = ['RoleAssignment']
 
 
 class RoleAssignment(pulumi.CustomResource):
-    assignment_name: pulumi.Output[str]
-    """
-    The name of the metadata object.
-    """
-    conflation_policies: pulumi.Output[dict]
-    """
-    Widget types set for the assignment.
-      * `elements` (`list`) - The elements included in the set.
-      * `exceptions` (`list`) - The elements that are not included in the set, in case elements contains '*' indicating 'all'.
-    """
-    connectors: pulumi.Output[dict]
-    """
-    Connectors set for the assignment.
-      * `elements` (`list`) - The elements included in the set.
-      * `exceptions` (`list`) - The elements that are not included in the set, in case elements contains '*' indicating 'all'.
-    """
-    description: pulumi.Output[dict]
-    """
-    Localized description for the metadata.
-    """
-    display_name: pulumi.Output[dict]
-    """
-    Localized display names for the metadata.
-    """
-    interactions: pulumi.Output[dict]
-    """
-    Interactions set for the assignment.
-      * `elements` (`list`) - The elements included in the set.
-      * `exceptions` (`list`) - The elements that are not included in the set, in case elements contains '*' indicating 'all'.
-    """
-    kpis: pulumi.Output[dict]
-    """
-    Kpis set for the assignment.
-      * `elements` (`list`) - The elements included in the set.
-      * `exceptions` (`list`) - The elements that are not included in the set, in case elements contains '*' indicating 'all'.
-    """
-    links: pulumi.Output[dict]
-    """
-    Links set for the assignment.
-      * `elements` (`list`) - The elements included in the set.
-      * `exceptions` (`list`) - The elements that are not included in the set, in case elements contains '*' indicating 'all'.
-    """
-    name: pulumi.Output[str]
-    """
-    Resource name.
-    """
-    principals: pulumi.Output[list]
-    """
-    The principals being assigned to.
-      * `principal_id` (`str`) - The principal id being assigned to.
-      * `principal_metadata` (`dict`) - Other metadata for the principal.
-      * `principal_type` (`str`) - The Type of the principal ID.
-    """
-    profiles: pulumi.Output[dict]
-    """
-    Profiles set for the assignment.
-      * `elements` (`list`) - The elements included in the set.
-      * `exceptions` (`list`) - The elements that are not included in the set, in case elements contains '*' indicating 'all'.
-    """
-    provisioning_state: pulumi.Output[str]
-    """
-    Provisioning state.
-    """
-    relationship_links: pulumi.Output[dict]
-    """
-    The Role assignments set for the relationship links.
-      * `elements` (`list`) - The elements included in the set.
-      * `exceptions` (`list`) - The elements that are not included in the set, in case elements contains '*' indicating 'all'.
-    """
-    relationships: pulumi.Output[dict]
-    """
-    The Role assignments set for the relationships.
-      * `elements` (`list`) - The elements included in the set.
-      * `exceptions` (`list`) - The elements that are not included in the set, in case elements contains '*' indicating 'all'.
-    """
-    role: pulumi.Output[str]
-    """
-    Type of roles.
-    """
-    role_assignments: pulumi.Output[dict]
-    """
-    The Role assignments set for the assignment.
-      * `elements` (`list`) - The elements included in the set.
-      * `exceptions` (`list`) - The elements that are not included in the set, in case elements contains '*' indicating 'all'.
-    """
-    sas_policies: pulumi.Output[dict]
-    """
-    Sas Policies set for the assignment.
-      * `elements` (`list`) - The elements included in the set.
-      * `exceptions` (`list`) - The elements that are not included in the set, in case elements contains '*' indicating 'all'.
-    """
-    segments: pulumi.Output[dict]
-    """
-    The Role assignments set for the assignment.
-      * `elements` (`list`) - The elements included in the set.
-      * `exceptions` (`list`) - The elements that are not included in the set, in case elements contains '*' indicating 'all'.
-    """
-    tenant_id: pulumi.Output[str]
-    """
-    The hub name.
-    """
-    type: pulumi.Output[str]
-    """
-    Resource type.
-    """
-    views: pulumi.Output[dict]
-    """
-    Views set for the assignment.
-      * `elements` (`list`) - The elements included in the set.
-      * `exceptions` (`list`) - The elements that are not included in the set, in case elements contains '*' indicating 'all'.
-    """
-    widget_types: pulumi.Output[dict]
-    """
-    Widget types set for the assignment.
-      * `elements` (`list`) - The elements included in the set.
-      * `exceptions` (`list`) - The elements that are not included in the set, in case elements contains '*' indicating 'all'.
-    """
-    def __init__(__self__, resource_name, opts=None, conflation_policies=None, connectors=None, description=None, display_name=None, hub_name=None, interactions=None, kpis=None, links=None, name=None, principals=None, profiles=None, relationship_links=None, relationships=None, resource_group_name=None, role=None, role_assignments=None, sas_policies=None, segments=None, views=None, widget_types=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 conflation_policies: Optional[pulumi.Input[pulumi.InputType['ResourceSetDescriptionArgs']]] = None,
+                 connectors: Optional[pulumi.Input[pulumi.InputType['ResourceSetDescriptionArgs']]] = None,
+                 description: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 display_name: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 hub_name: Optional[pulumi.Input[str]] = None,
+                 interactions: Optional[pulumi.Input[pulumi.InputType['ResourceSetDescriptionArgs']]] = None,
+                 kpis: Optional[pulumi.Input[pulumi.InputType['ResourceSetDescriptionArgs']]] = None,
+                 links: Optional[pulumi.Input[pulumi.InputType['ResourceSetDescriptionArgs']]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 principals: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['AssignmentPrincipalArgs']]]]] = None,
+                 profiles: Optional[pulumi.Input[pulumi.InputType['ResourceSetDescriptionArgs']]] = None,
+                 relationship_links: Optional[pulumi.Input[pulumi.InputType['ResourceSetDescriptionArgs']]] = None,
+                 relationships: Optional[pulumi.Input[pulumi.InputType['ResourceSetDescriptionArgs']]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 role: Optional[pulumi.Input[str]] = None,
+                 role_assignments: Optional[pulumi.Input[pulumi.InputType['ResourceSetDescriptionArgs']]] = None,
+                 sas_policies: Optional[pulumi.Input[pulumi.InputType['ResourceSetDescriptionArgs']]] = None,
+                 segments: Optional[pulumi.Input[pulumi.InputType['ResourceSetDescriptionArgs']]] = None,
+                 views: Optional[pulumi.Input[pulumi.InputType['ResourceSetDescriptionArgs']]] = None,
+                 widget_types: Optional[pulumi.Input[pulumi.InputType['ResourceSetDescriptionArgs']]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         The Role Assignment resource format.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[dict] conflation_policies: Widget types set for the assignment.
-        :param pulumi.Input[dict] connectors: Connectors set for the assignment.
-        :param pulumi.Input[dict] description: Localized description for the metadata.
-        :param pulumi.Input[dict] display_name: Localized display names for the metadata.
+        :param pulumi.Input[pulumi.InputType['ResourceSetDescriptionArgs']] conflation_policies: Widget types set for the assignment.
+        :param pulumi.Input[pulumi.InputType['ResourceSetDescriptionArgs']] connectors: Connectors set for the assignment.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] description: Localized description for the metadata.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] display_name: Localized display names for the metadata.
         :param pulumi.Input[str] hub_name: The name of the hub.
-        :param pulumi.Input[dict] interactions: Interactions set for the assignment.
-        :param pulumi.Input[dict] kpis: Kpis set for the assignment.
-        :param pulumi.Input[dict] links: Links set for the assignment.
+        :param pulumi.Input[pulumi.InputType['ResourceSetDescriptionArgs']] interactions: Interactions set for the assignment.
+        :param pulumi.Input[pulumi.InputType['ResourceSetDescriptionArgs']] kpis: Kpis set for the assignment.
+        :param pulumi.Input[pulumi.InputType['ResourceSetDescriptionArgs']] links: Links set for the assignment.
         :param pulumi.Input[str] name: The assignment name
-        :param pulumi.Input[list] principals: The principals being assigned to.
-        :param pulumi.Input[dict] profiles: Profiles set for the assignment.
-        :param pulumi.Input[dict] relationship_links: The Role assignments set for the relationship links.
-        :param pulumi.Input[dict] relationships: The Role assignments set for the relationships.
+        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['AssignmentPrincipalArgs']]]] principals: The principals being assigned to.
+        :param pulumi.Input[pulumi.InputType['ResourceSetDescriptionArgs']] profiles: Profiles set for the assignment.
+        :param pulumi.Input[pulumi.InputType['ResourceSetDescriptionArgs']] relationship_links: The Role assignments set for the relationship links.
+        :param pulumi.Input[pulumi.InputType['ResourceSetDescriptionArgs']] relationships: The Role assignments set for the relationships.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[str] role: Type of roles.
-        :param pulumi.Input[dict] role_assignments: The Role assignments set for the assignment.
-        :param pulumi.Input[dict] sas_policies: Sas Policies set for the assignment.
-        :param pulumi.Input[dict] segments: The Role assignments set for the assignment.
-        :param pulumi.Input[dict] views: Views set for the assignment.
-        :param pulumi.Input[dict] widget_types: Widget types set for the assignment.
-
-        The **conflation_policies** object supports the following:
-
-          * `elements` (`pulumi.Input[list]`) - The elements included in the set.
-          * `exceptions` (`pulumi.Input[list]`) - The elements that are not included in the set, in case elements contains '*' indicating 'all'.
-
-        The **principals** object supports the following:
-
-          * `principal_id` (`pulumi.Input[str]`) - The principal id being assigned to.
-          * `principal_metadata` (`pulumi.Input[dict]`) - Other metadata for the principal.
-          * `principal_type` (`pulumi.Input[str]`) - The Type of the principal ID.
+        :param pulumi.Input[pulumi.InputType['ResourceSetDescriptionArgs']] role_assignments: The Role assignments set for the assignment.
+        :param pulumi.Input[pulumi.InputType['ResourceSetDescriptionArgs']] sas_policies: Sas Policies set for the assignment.
+        :param pulumi.Input[pulumi.InputType['ResourceSetDescriptionArgs']] segments: The Role assignments set for the assignment.
+        :param pulumi.Input[pulumi.InputType['ResourceSetDescriptionArgs']] views: Views set for the assignment.
+        :param pulumi.Input[pulumi.InputType['ResourceSetDescriptionArgs']] widget_types: Widget types set for the assignment.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -225,13 +126,15 @@ class RoleAssignment(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None) -> 'RoleAssignment':
         """
         Get an existing RoleAssignment resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -240,8 +143,185 @@ class RoleAssignment(pulumi.CustomResource):
 
         return RoleAssignment(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter(name="assignmentName")
+    def assignment_name(self) -> str:
+        """
+        The name of the metadata object.
+        """
+        return pulumi.get(self, "assignment_name")
+
+    @property
+    @pulumi.getter(name="conflationPolicies")
+    def conflation_policies(self) -> Optional['outputs.ResourceSetDescriptionResponse']:
+        """
+        Widget types set for the assignment.
+        """
+        return pulumi.get(self, "conflation_policies")
+
+    @property
+    @pulumi.getter
+    def connectors(self) -> Optional['outputs.ResourceSetDescriptionResponse']:
+        """
+        Connectors set for the assignment.
+        """
+        return pulumi.get(self, "connectors")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[Mapping[str, str]]:
+        """
+        Localized description for the metadata.
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="displayName")
+    def display_name(self) -> Optional[Mapping[str, str]]:
+        """
+        Localized display names for the metadata.
+        """
+        return pulumi.get(self, "display_name")
+
+    @property
+    @pulumi.getter
+    def interactions(self) -> Optional['outputs.ResourceSetDescriptionResponse']:
+        """
+        Interactions set for the assignment.
+        """
+        return pulumi.get(self, "interactions")
+
+    @property
+    @pulumi.getter
+    def kpis(self) -> Optional['outputs.ResourceSetDescriptionResponse']:
+        """
+        Kpis set for the assignment.
+        """
+        return pulumi.get(self, "kpis")
+
+    @property
+    @pulumi.getter
+    def links(self) -> Optional['outputs.ResourceSetDescriptionResponse']:
+        """
+        Links set for the assignment.
+        """
+        return pulumi.get(self, "links")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Resource name.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def principals(self) -> List['outputs.AssignmentPrincipalResponse']:
+        """
+        The principals being assigned to.
+        """
+        return pulumi.get(self, "principals")
+
+    @property
+    @pulumi.getter
+    def profiles(self) -> Optional['outputs.ResourceSetDescriptionResponse']:
+        """
+        Profiles set for the assignment.
+        """
+        return pulumi.get(self, "profiles")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        Provisioning state.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="relationshipLinks")
+    def relationship_links(self) -> Optional['outputs.ResourceSetDescriptionResponse']:
+        """
+        The Role assignments set for the relationship links.
+        """
+        return pulumi.get(self, "relationship_links")
+
+    @property
+    @pulumi.getter
+    def relationships(self) -> Optional['outputs.ResourceSetDescriptionResponse']:
+        """
+        The Role assignments set for the relationships.
+        """
+        return pulumi.get(self, "relationships")
+
+    @property
+    @pulumi.getter
+    def role(self) -> str:
+        """
+        Type of roles.
+        """
+        return pulumi.get(self, "role")
+
+    @property
+    @pulumi.getter(name="roleAssignments")
+    def role_assignments(self) -> Optional['outputs.ResourceSetDescriptionResponse']:
+        """
+        The Role assignments set for the assignment.
+        """
+        return pulumi.get(self, "role_assignments")
+
+    @property
+    @pulumi.getter(name="sasPolicies")
+    def sas_policies(self) -> Optional['outputs.ResourceSetDescriptionResponse']:
+        """
+        Sas Policies set for the assignment.
+        """
+        return pulumi.get(self, "sas_policies")
+
+    @property
+    @pulumi.getter
+    def segments(self) -> Optional['outputs.ResourceSetDescriptionResponse']:
+        """
+        The Role assignments set for the assignment.
+        """
+        return pulumi.get(self, "segments")
+
+    @property
+    @pulumi.getter(name="tenantId")
+    def tenant_id(self) -> str:
+        """
+        The hub name.
+        """
+        return pulumi.get(self, "tenant_id")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Resource type.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def views(self) -> Optional['outputs.ResourceSetDescriptionResponse']:
+        """
+        Views set for the assignment.
+        """
+        return pulumi.get(self, "views")
+
+    @property
+    @pulumi.getter(name="widgetTypes")
+    def widget_types(self) -> Optional['outputs.ResourceSetDescriptionResponse']:
+        """
+        Widget types set for the assignment.
+        """
+        return pulumi.get(self, "widget_types")
+
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

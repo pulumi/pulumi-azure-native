@@ -11,3 +11,5 @@ from .get_connection_gateway import *
 from .get_custom_api import *
 from .list_connection_consent_links import *
 from .list_custom_api_wsdl_interfaces import *
+from ._inputs import *
+from . import outputs

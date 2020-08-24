@@ -5,10 +5,17 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+from . import outputs
 
+__all__ = [
+    'GetBackendResult',
+    'AwaitableGetBackendResult',
+    'get_backend',
+]
 
+@pulumi.output_type
 class GetBackendResult:
     """
     Backend details.
@@ -16,70 +23,125 @@ class GetBackendResult:
     def __init__(__self__, credentials=None, description=None, name=None, properties=None, protocol=None, proxy=None, resource_id=None, title=None, tls=None, type=None, url=None):
         if credentials and not isinstance(credentials, dict):
             raise TypeError("Expected argument 'credentials' to be a dict")
-        __self__.credentials = credentials
+        pulumi.set(__self__, "credentials", credentials)
+        if description and not isinstance(description, str):
+            raise TypeError("Expected argument 'description' to be a str")
+        pulumi.set(__self__, "description", description)
+        if name and not isinstance(name, str):
+            raise TypeError("Expected argument 'name' to be a str")
+        pulumi.set(__self__, "name", name)
+        if properties and not isinstance(properties, dict):
+            raise TypeError("Expected argument 'properties' to be a dict")
+        pulumi.set(__self__, "properties", properties)
+        if protocol and not isinstance(protocol, str):
+            raise TypeError("Expected argument 'protocol' to be a str")
+        pulumi.set(__self__, "protocol", protocol)
+        if proxy and not isinstance(proxy, dict):
+            raise TypeError("Expected argument 'proxy' to be a dict")
+        pulumi.set(__self__, "proxy", proxy)
+        if resource_id and not isinstance(resource_id, str):
+            raise TypeError("Expected argument 'resource_id' to be a str")
+        pulumi.set(__self__, "resource_id", resource_id)
+        if title and not isinstance(title, str):
+            raise TypeError("Expected argument 'title' to be a str")
+        pulumi.set(__self__, "title", title)
+        if tls and not isinstance(tls, dict):
+            raise TypeError("Expected argument 'tls' to be a dict")
+        pulumi.set(__self__, "tls", tls)
+        if type and not isinstance(type, str):
+            raise TypeError("Expected argument 'type' to be a str")
+        pulumi.set(__self__, "type", type)
+        if url and not isinstance(url, str):
+            raise TypeError("Expected argument 'url' to be a str")
+        pulumi.set(__self__, "url", url)
+
+    @property
+    @pulumi.getter
+    def credentials(self) -> Optional['outputs.BackendCredentialsContractResponse']:
         """
         Backend Credentials Contract Properties
         """
-        if description and not isinstance(description, str):
-            raise TypeError("Expected argument 'description' to be a str")
-        __self__.description = description
+        return pulumi.get(self, "credentials")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
         """
         Backend Description.
         """
-        if name and not isinstance(name, str):
-            raise TypeError("Expected argument 'name' to be a str")
-        __self__.name = name
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
         """
         Resource name.
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def properties(self) -> 'outputs.BackendPropertiesResponse':
         """
         Backend Properties contract
         """
-        if protocol and not isinstance(protocol, str):
-            raise TypeError("Expected argument 'protocol' to be a str")
-        __self__.protocol = protocol
+        return pulumi.get(self, "properties")
+
+    @property
+    @pulumi.getter
+    def protocol(self) -> str:
         """
         Backend communication protocol.
         """
-        if proxy and not isinstance(proxy, dict):
-            raise TypeError("Expected argument 'proxy' to be a dict")
-        __self__.proxy = proxy
+        return pulumi.get(self, "protocol")
+
+    @property
+    @pulumi.getter
+    def proxy(self) -> Optional['outputs.BackendProxyContractResponse']:
         """
         Backend Proxy Contract Properties
         """
-        if resource_id and not isinstance(resource_id, str):
-            raise TypeError("Expected argument 'resource_id' to be a str")
-        __self__.resource_id = resource_id
+        return pulumi.get(self, "proxy")
+
+    @property
+    @pulumi.getter(name="resourceId")
+    def resource_id(self) -> Optional[str]:
         """
         Management Uri of the Resource in External System. This url can be the Arm Resource Id of Logic Apps, Function Apps or Api Apps.
         """
-        if title and not isinstance(title, str):
-            raise TypeError("Expected argument 'title' to be a str")
-        __self__.title = title
+        return pulumi.get(self, "resource_id")
+
+    @property
+    @pulumi.getter
+    def title(self) -> Optional[str]:
         """
         Backend Title.
         """
-        if tls and not isinstance(tls, dict):
-            raise TypeError("Expected argument 'tls' to be a dict")
-        __self__.tls = tls
+        return pulumi.get(self, "title")
+
+    @property
+    @pulumi.getter
+    def tls(self) -> Optional['outputs.BackendTlsPropertiesResponse']:
         """
         Backend TLS Properties
         """
-        if type and not isinstance(type, str):
-            raise TypeError("Expected argument 'type' to be a str")
-        __self__.type = type
+        return pulumi.get(self, "tls")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
         """
         Resource type for API Management resource.
         """
-        if url and not isinstance(url, str):
-            raise TypeError("Expected argument 'url' to be a str")
-        __self__.url = url
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def url(self) -> str:
         """
         Runtime Url of the Backend.
         """
+        return pulumi.get(self, "url")
 
 
 class AwaitableGetBackendResult(GetBackendResult):
@@ -101,7 +163,10 @@ class AwaitableGetBackendResult(GetBackendResult):
             url=self.url)
 
 
-def get_backend(name=None, resource_group_name=None, service_name=None, opts=None):
+def get_backend(name: Optional[str] = None,
+                resource_group_name: Optional[str] = None,
+                service_name: Optional[str] = None,
+                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetBackendResult:
     """
     Use this data source to access information about an existing resource.
 
@@ -117,17 +182,17 @@ def get_backend(name=None, resource_group_name=None, service_name=None, opts=Non
         opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = _utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('azurerm:apimanagement/v20191201:getBackend', __args__, opts=opts).value
+    __ret__ = pulumi.runtime.invoke('azurerm:apimanagement/v20191201:getBackend', __args__, opts=opts, typ=GetBackendResult).value
 
     return AwaitableGetBackendResult(
-        credentials=__ret__.get('credentials'),
-        description=__ret__.get('description'),
-        name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
-        protocol=__ret__.get('protocol'),
-        proxy=__ret__.get('proxy'),
-        resource_id=__ret__.get('resourceId'),
-        title=__ret__.get('title'),
-        tls=__ret__.get('tls'),
-        type=__ret__.get('type'),
-        url=__ret__.get('url'))
+        credentials=__ret__.credentials,
+        description=__ret__.description,
+        name=__ret__.name,
+        properties=__ret__.properties,
+        protocol=__ret__.protocol,
+        proxy=__ret__.proxy,
+        resource_id=__ret__.resource_id,
+        title=__ret__.title,
+        tls=__ret__.tls,
+        type=__ret__.type,
+        url=__ret__.url)

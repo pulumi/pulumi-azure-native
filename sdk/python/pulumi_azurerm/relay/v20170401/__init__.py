@@ -18,3 +18,5 @@ from .namespace import *
 from .namespace_authorization_rule import *
 from .wcf_relay import *
 from .wcf_relay_authorization_rule import *
+from ._inputs import *
+from . import outputs

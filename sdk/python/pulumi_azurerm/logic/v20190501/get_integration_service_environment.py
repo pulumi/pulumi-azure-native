@@ -5,10 +5,17 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+from . import outputs
 
+__all__ = [
+    'GetIntegrationServiceEnvironmentResult',
+    'AwaitableGetIntegrationServiceEnvironmentResult',
+    'get_integration_service_environment',
+]
 
+@pulumi.output_type
 class GetIntegrationServiceEnvironmentResult:
     """
     The integration service environment.
@@ -16,40 +23,70 @@ class GetIntegrationServiceEnvironmentResult:
     def __init__(__self__, location=None, name=None, properties=None, sku=None, tags=None, type=None):
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
-        __self__.location = location
+        pulumi.set(__self__, "location", location)
+        if name and not isinstance(name, str):
+            raise TypeError("Expected argument 'name' to be a str")
+        pulumi.set(__self__, "name", name)
+        if properties and not isinstance(properties, dict):
+            raise TypeError("Expected argument 'properties' to be a dict")
+        pulumi.set(__self__, "properties", properties)
+        if sku and not isinstance(sku, dict):
+            raise TypeError("Expected argument 'sku' to be a dict")
+        pulumi.set(__self__, "sku", sku)
+        if tags and not isinstance(tags, dict):
+            raise TypeError("Expected argument 'tags' to be a dict")
+        pulumi.set(__self__, "tags", tags)
+        if type and not isinstance(type, str):
+            raise TypeError("Expected argument 'type' to be a str")
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[str]:
         """
         The resource location.
         """
-        if name and not isinstance(name, str):
-            raise TypeError("Expected argument 'name' to be a str")
-        __self__.name = name
+        return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
         """
         Gets the resource name.
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def properties(self) -> 'outputs.IntegrationServiceEnvironmentPropertiesResponse':
         """
         The integration service environment properties.
         """
-        if sku and not isinstance(sku, dict):
-            raise TypeError("Expected argument 'sku' to be a dict")
-        __self__.sku = sku
+        return pulumi.get(self, "properties")
+
+    @property
+    @pulumi.getter
+    def sku(self) -> Optional['outputs.IntegrationServiceEnvironmentSkuResponse']:
         """
         The sku.
         """
-        if tags and not isinstance(tags, dict):
-            raise TypeError("Expected argument 'tags' to be a dict")
-        __self__.tags = tags
+        return pulumi.get(self, "sku")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Mapping[str, str]]:
         """
         The resource tags.
         """
-        if type and not isinstance(type, str):
-            raise TypeError("Expected argument 'type' to be a str")
-        __self__.type = type
+        return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
         """
         Gets the resource type.
         """
+        return pulumi.get(self, "type")
 
 
 class AwaitableGetIntegrationServiceEnvironmentResult(GetIntegrationServiceEnvironmentResult):
@@ -66,7 +103,9 @@ class AwaitableGetIntegrationServiceEnvironmentResult(GetIntegrationServiceEnvir
             type=self.type)
 
 
-def get_integration_service_environment(name=None, resource_group=None, opts=None):
+def get_integration_service_environment(name: Optional[str] = None,
+                                        resource_group: Optional[str] = None,
+                                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetIntegrationServiceEnvironmentResult:
     """
     Use this data source to access information about an existing resource.
 
@@ -80,12 +119,12 @@ def get_integration_service_environment(name=None, resource_group=None, opts=Non
         opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = _utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('azurerm:logic/v20190501:getIntegrationServiceEnvironment', __args__, opts=opts).value
+    __ret__ = pulumi.runtime.invoke('azurerm:logic/v20190501:getIntegrationServiceEnvironment', __args__, opts=opts, typ=GetIntegrationServiceEnvironmentResult).value
 
     return AwaitableGetIntegrationServiceEnvironmentResult(
-        location=__ret__.get('location'),
-        name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
-        sku=__ret__.get('sku'),
-        tags=__ret__.get('tags'),
-        type=__ret__.get('type'))
+        location=__ret__.location,
+        name=__ret__.name,
+        properties=__ret__.properties,
+        sku=__ret__.sku,
+        tags=__ret__.tags,
+        type=__ret__.type)

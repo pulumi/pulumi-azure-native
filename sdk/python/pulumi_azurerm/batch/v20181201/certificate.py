@@ -5,55 +5,28 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+from . import outputs
+
+__all__ = ['Certificate']
 
 
 class Certificate(pulumi.CustomResource):
-    delete_certificate_error: pulumi.Output[dict]
-    """
-    This is only returned when the certificate provisioningState is 'Failed'.
-      * `code` (`str`) - An identifier for the error. Codes are invariant and are intended to be consumed programmatically.
-      * `details` (`list`) - A list of additional details about the error.
-      * `message` (`str`) - A message describing the error, intended to be suitable for display in a user interface.
-      * `target` (`str`) - The target of the particular error. For example, the name of the property in error.
-    """
-    etag: pulumi.Output[str]
-    """
-    The ETag of the resource, used for concurrency statements.
-    """
-    format: pulumi.Output[str]
-    """
-    The format of the certificate - either Pfx or Cer. If omitted, the default is Pfx.
-    """
-    name: pulumi.Output[str]
-    """
-    The name of the resource.
-    """
-    previous_provisioning_state: pulumi.Output[str]
-    """
-    The previous provisioned state of the resource
-    """
-    previous_provisioning_state_transition_time: pulumi.Output[str]
-    provisioning_state: pulumi.Output[str]
-    provisioning_state_transition_time: pulumi.Output[str]
-    public_data: pulumi.Output[str]
-    """
-    The public key of the certificate.
-    """
-    thumbprint: pulumi.Output[str]
-    """
-    This must match the thumbprint from the name.
-    """
-    thumbprint_algorithm: pulumi.Output[str]
-    """
-    This must match the first portion of the certificate name. Currently required to be 'SHA1'.
-    """
-    type: pulumi.Output[str]
-    """
-    The type of the resource.
-    """
-    def __init__(__self__, resource_name, opts=None, account_name=None, data=None, format=None, name=None, password=None, resource_group_name=None, thumbprint=None, thumbprint_algorithm=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 account_name: Optional[pulumi.Input[str]] = None,
+                 data: Optional[pulumi.Input[str]] = None,
+                 format: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 password: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 thumbprint: Optional[pulumi.Input[str]] = None,
+                 thumbprint_algorithm: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         Contains information about a certificate.
 
@@ -118,13 +91,15 @@ class Certificate(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None) -> 'Certificate':
         """
         Get an existing Certificate resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -133,8 +108,96 @@ class Certificate(pulumi.CustomResource):
 
         return Certificate(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter(name="deleteCertificateError")
+    def delete_certificate_error(self) -> 'outputs.DeleteCertificateErrorResponse':
+        """
+        This is only returned when the certificate provisioningState is 'Failed'.
+        """
+        return pulumi.get(self, "delete_certificate_error")
+
+    @property
+    @pulumi.getter
+    def etag(self) -> str:
+        """
+        The ETag of the resource, used for concurrency statements.
+        """
+        return pulumi.get(self, "etag")
+
+    @property
+    @pulumi.getter
+    def format(self) -> Optional[str]:
+        """
+        The format of the certificate - either Pfx or Cer. If omitted, the default is Pfx.
+        """
+        return pulumi.get(self, "format")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the resource.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="previousProvisioningState")
+    def previous_provisioning_state(self) -> str:
+        """
+        The previous provisioned state of the resource
+        """
+        return pulumi.get(self, "previous_provisioning_state")
+
+    @property
+    @pulumi.getter(name="previousProvisioningStateTransitionTime")
+    def previous_provisioning_state_transition_time(self) -> str:
+        return pulumi.get(self, "previous_provisioning_state_transition_time")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="provisioningStateTransitionTime")
+    def provisioning_state_transition_time(self) -> str:
+        return pulumi.get(self, "provisioning_state_transition_time")
+
+    @property
+    @pulumi.getter(name="publicData")
+    def public_data(self) -> str:
+        """
+        The public key of the certificate.
+        """
+        return pulumi.get(self, "public_data")
+
+    @property
+    @pulumi.getter
+    def thumbprint(self) -> Optional[str]:
+        """
+        This must match the thumbprint from the name.
+        """
+        return pulumi.get(self, "thumbprint")
+
+    @property
+    @pulumi.getter(name="thumbprintAlgorithm")
+    def thumbprint_algorithm(self) -> Optional[str]:
+        """
+        This must match the first portion of the certificate name. Currently required to be 'SHA1'.
+        """
+        return pulumi.get(self, "thumbprint_algorithm")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        The type of the resource.
+        """
+        return pulumi.get(self, "type")
+
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

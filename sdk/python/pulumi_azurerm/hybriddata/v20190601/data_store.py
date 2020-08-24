@@ -5,62 +5,42 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+from . import outputs
+from ._inputs import *
+
+__all__ = ['DataStore']
 
 
 class DataStore(pulumi.CustomResource):
-    customer_secrets: pulumi.Output[list]
-    """
-    List of customer secrets containing a key identifier and key value. The key identifier is a way for the specific data source to understand the key. Value contains customer secret encrypted by the encryptionKeys.
-      * `algorithm` (`str`) - The encryption algorithm used to encrypt data.
-      * `key_identifier` (`str`) - The identifier to the data service input object which this secret corresponds to.
-      * `key_value` (`str`) - It contains the encrypted customer secret.
-    """
-    data_store_type_id: pulumi.Output[str]
-    """
-    The arm id of the data store type.
-    """
-    extended_properties: pulumi.Output[dict]
-    """
-    A generic json used differently by each data source type.
-    """
-    name: pulumi.Output[str]
-    """
-    Name of the object.
-    """
-    repository_id: pulumi.Output[str]
-    """
-    Arm Id for the manager resource to which the data source is associated. This is optional.
-    """
-    state: pulumi.Output[str]
-    """
-    State of the data source.
-    """
-    type: pulumi.Output[str]
-    """
-    Type of the object.
-    """
-    def __init__(__self__, resource_name, opts=None, customer_secrets=None, data_manager_name=None, data_store_type_id=None, extended_properties=None, name=None, repository_id=None, resource_group_name=None, state=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 customer_secrets: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['CustomerSecretArgs']]]]] = None,
+                 data_manager_name: Optional[pulumi.Input[str]] = None,
+                 data_store_type_id: Optional[pulumi.Input[str]] = None,
+                 extended_properties: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 repository_id: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 state: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         Data store.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[list] customer_secrets: List of customer secrets containing a key identifier and key value. The key identifier is a way for the specific data source to understand the key. Value contains customer secret encrypted by the encryptionKeys.
+        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['CustomerSecretArgs']]]] customer_secrets: List of customer secrets containing a key identifier and key value. The key identifier is a way for the specific data source to understand the key. Value contains customer secret encrypted by the encryptionKeys.
         :param pulumi.Input[str] data_manager_name: The name of the DataManager Resource within the specified resource group. DataManager names must be between 3 and 24 characters in length and use any alphanumeric and underscore only
         :param pulumi.Input[str] data_store_type_id: The arm id of the data store type.
-        :param pulumi.Input[dict] extended_properties: A generic json used differently by each data source type.
+        :param pulumi.Input[Mapping[str, Any]] extended_properties: A generic json used differently by each data source type.
         :param pulumi.Input[str] name: The data store/repository name to be created or updated.
         :param pulumi.Input[str] repository_id: Arm Id for the manager resource to which the data source is associated. This is optional.
         :param pulumi.Input[str] resource_group_name: The Resource Group Name
         :param pulumi.Input[str] state: State of the data source.
-
-        The **customer_secrets** object supports the following:
-
-          * `algorithm` (`pulumi.Input[str]`) - The encryption algorithm used to encrypt data.
-          * `key_identifier` (`pulumi.Input[str]`) - The identifier to the data service input object which this secret corresponds to.
-          * `key_value` (`pulumi.Input[str]`) - It contains the encrypted customer secret.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -107,13 +87,15 @@ class DataStore(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None) -> 'DataStore':
         """
         Get an existing DataStore resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -122,8 +104,65 @@ class DataStore(pulumi.CustomResource):
 
         return DataStore(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter(name="customerSecrets")
+    def customer_secrets(self) -> Optional[List['outputs.CustomerSecretResponse']]:
+        """
+        List of customer secrets containing a key identifier and key value. The key identifier is a way for the specific data source to understand the key. Value contains customer secret encrypted by the encryptionKeys.
+        """
+        return pulumi.get(self, "customer_secrets")
+
+    @property
+    @pulumi.getter(name="dataStoreTypeId")
+    def data_store_type_id(self) -> str:
+        """
+        The arm id of the data store type.
+        """
+        return pulumi.get(self, "data_store_type_id")
+
+    @property
+    @pulumi.getter(name="extendedProperties")
+    def extended_properties(self) -> Optional[Mapping[str, Any]]:
+        """
+        A generic json used differently by each data source type.
+        """
+        return pulumi.get(self, "extended_properties")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Name of the object.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="repositoryId")
+    def repository_id(self) -> Optional[str]:
+        """
+        Arm Id for the manager resource to which the data source is associated. This is optional.
+        """
+        return pulumi.get(self, "repository_id")
+
+    @property
+    @pulumi.getter
+    def state(self) -> str:
+        """
+        State of the data source.
+        """
+        return pulumi.get(self, "state")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Type of the object.
+        """
+        return pulumi.get(self, "type")
+
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

@@ -5,10 +5,17 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+from . import outputs
 
+__all__ = [
+    'ListStreamingLocatorPathsResult',
+    'AwaitableListStreamingLocatorPathsResult',
+    'list_streaming_locator_paths',
+]
 
+@pulumi.output_type
 class ListStreamingLocatorPathsResult:
     """
     Class of response for listPaths action
@@ -16,16 +23,26 @@ class ListStreamingLocatorPathsResult:
     def __init__(__self__, download_paths=None, streaming_paths=None):
         if download_paths and not isinstance(download_paths, list):
             raise TypeError("Expected argument 'download_paths' to be a list")
-        __self__.download_paths = download_paths
+        pulumi.set(__self__, "download_paths", download_paths)
+        if streaming_paths and not isinstance(streaming_paths, list):
+            raise TypeError("Expected argument 'streaming_paths' to be a list")
+        pulumi.set(__self__, "streaming_paths", streaming_paths)
+
+    @property
+    @pulumi.getter(name="downloadPaths")
+    def download_paths(self) -> Optional[List[str]]:
         """
         Download Paths supported by current Streaming Locator
         """
-        if streaming_paths and not isinstance(streaming_paths, list):
-            raise TypeError("Expected argument 'streaming_paths' to be a list")
-        __self__.streaming_paths = streaming_paths
+        return pulumi.get(self, "download_paths")
+
+    @property
+    @pulumi.getter(name="streamingPaths")
+    def streaming_paths(self) -> Optional[List['outputs.StreamingPathResponseResult']]:
         """
         Streaming Paths supported by current Streaming Locator
         """
+        return pulumi.get(self, "streaming_paths")
 
 
 class AwaitableListStreamingLocatorPathsResult(ListStreamingLocatorPathsResult):
@@ -38,7 +55,10 @@ class AwaitableListStreamingLocatorPathsResult(ListStreamingLocatorPathsResult):
             streaming_paths=self.streaming_paths)
 
 
-def list_streaming_locator_paths(account_name=None, resource_group_name=None, streaming_locator_name=None, opts=None):
+def list_streaming_locator_paths(account_name: Optional[str] = None,
+                                 resource_group_name: Optional[str] = None,
+                                 streaming_locator_name: Optional[str] = None,
+                                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListStreamingLocatorPathsResult:
     """
     Use this data source to access information about an existing resource.
 
@@ -54,8 +74,8 @@ def list_streaming_locator_paths(account_name=None, resource_group_name=None, st
         opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = _utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('azurerm:media/v20180701:listStreamingLocatorPaths', __args__, opts=opts).value
+    __ret__ = pulumi.runtime.invoke('azurerm:media/v20180701:listStreamingLocatorPaths', __args__, opts=opts, typ=ListStreamingLocatorPathsResult).value
 
     return AwaitableListStreamingLocatorPathsResult(
-        download_paths=__ret__.get('downloadPaths'),
-        streaming_paths=__ret__.get('streamingPaths'))
+        download_paths=__ret__.download_paths,
+        streaming_paths=__ret__.streaming_paths)

@@ -5,10 +5,16 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
 
+__all__ = [
+    'GetSnapshotResult',
+    'AwaitableGetSnapshotResult',
+    'get_snapshot',
+]
 
+@pulumi.output_type
 class GetSnapshotResult:
     """
     Snapshot of a Volume
@@ -16,46 +22,81 @@ class GetSnapshotResult:
     def __init__(__self__, created=None, file_system_id=None, location=None, name=None, provisioning_state=None, snapshot_id=None, type=None):
         if created and not isinstance(created, str):
             raise TypeError("Expected argument 'created' to be a str")
-        __self__.created = created
+        pulumi.set(__self__, "created", created)
+        if file_system_id and not isinstance(file_system_id, str):
+            raise TypeError("Expected argument 'file_system_id' to be a str")
+        pulumi.set(__self__, "file_system_id", file_system_id)
+        if location and not isinstance(location, str):
+            raise TypeError("Expected argument 'location' to be a str")
+        pulumi.set(__self__, "location", location)
+        if name and not isinstance(name, str):
+            raise TypeError("Expected argument 'name' to be a str")
+        pulumi.set(__self__, "name", name)
+        if provisioning_state and not isinstance(provisioning_state, str):
+            raise TypeError("Expected argument 'provisioning_state' to be a str")
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if snapshot_id and not isinstance(snapshot_id, str):
+            raise TypeError("Expected argument 'snapshot_id' to be a str")
+        pulumi.set(__self__, "snapshot_id", snapshot_id)
+        if type and not isinstance(type, str):
+            raise TypeError("Expected argument 'type' to be a str")
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def created(self) -> str:
         """
         The creation date of the snapshot
         """
-        if file_system_id and not isinstance(file_system_id, str):
-            raise TypeError("Expected argument 'file_system_id' to be a str")
-        __self__.file_system_id = file_system_id
+        return pulumi.get(self, "created")
+
+    @property
+    @pulumi.getter(name="fileSystemId")
+    def file_system_id(self) -> Optional[str]:
         """
         UUID v4 used to identify the FileSystem
         """
-        if location and not isinstance(location, str):
-            raise TypeError("Expected argument 'location' to be a str")
-        __self__.location = location
+        return pulumi.get(self, "file_system_id")
+
+    @property
+    @pulumi.getter
+    def location(self) -> str:
         """
         Resource location
         """
-        if name and not isinstance(name, str):
-            raise TypeError("Expected argument 'name' to be a str")
-        __self__.name = name
+        return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
         """
         Resource name
         """
-        if provisioning_state and not isinstance(provisioning_state, str):
-            raise TypeError("Expected argument 'provisioning_state' to be a str")
-        __self__.provisioning_state = provisioning_state
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
         """
         Azure lifecycle management
         """
-        if snapshot_id and not isinstance(snapshot_id, str):
-            raise TypeError("Expected argument 'snapshot_id' to be a str")
-        __self__.snapshot_id = snapshot_id
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="snapshotId")
+    def snapshot_id(self) -> str:
         """
         UUID v4 used to identify the Snapshot
         """
-        if type and not isinstance(type, str):
-            raise TypeError("Expected argument 'type' to be a str")
-        __self__.type = type
+        return pulumi.get(self, "snapshot_id")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
         """
         Resource type
         """
+        return pulumi.get(self, "type")
 
 
 class AwaitableGetSnapshotResult(GetSnapshotResult):
@@ -73,7 +114,12 @@ class AwaitableGetSnapshotResult(GetSnapshotResult):
             type=self.type)
 
 
-def get_snapshot(account_name=None, name=None, pool_name=None, resource_group_name=None, volume_name=None, opts=None):
+def get_snapshot(account_name: Optional[str] = None,
+                 name: Optional[str] = None,
+                 pool_name: Optional[str] = None,
+                 resource_group_name: Optional[str] = None,
+                 volume_name: Optional[str] = None,
+                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSnapshotResult:
     """
     Use this data source to access information about an existing resource.
 
@@ -93,13 +139,13 @@ def get_snapshot(account_name=None, name=None, pool_name=None, resource_group_na
         opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = _utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('azurerm:netapp/v20191101:getSnapshot', __args__, opts=opts).value
+    __ret__ = pulumi.runtime.invoke('azurerm:netapp/v20191101:getSnapshot', __args__, opts=opts, typ=GetSnapshotResult).value
 
     return AwaitableGetSnapshotResult(
-        created=__ret__.get('created'),
-        file_system_id=__ret__.get('fileSystemId'),
-        location=__ret__.get('location'),
-        name=__ret__.get('name'),
-        provisioning_state=__ret__.get('provisioningState'),
-        snapshot_id=__ret__.get('snapshotId'),
-        type=__ret__.get('type'))
+        created=__ret__.created,
+        file_system_id=__ret__.file_system_id,
+        location=__ret__.location,
+        name=__ret__.name,
+        provisioning_state=__ret__.provisioning_state,
+        snapshot_id=__ret__.snapshot_id,
+        type=__ret__.type)

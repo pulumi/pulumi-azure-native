@@ -5,155 +5,52 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+from . import outputs
+from ._inputs import *
+
+__all__ = ['RosettaNetProcessConfiguration']
 
 
 class RosettaNetProcessConfiguration(pulumi.CustomResource):
-    activity_settings: pulumi.Output[dict]
-    """
-    The RosettaNet process configuration activity settings.
-      * `acknowledgment_of_receipt_settings` (`dict`) - The RosettaNet ProcessConfiguration acknowledgement settings.
-        * `is_non_repudiation_required` (`bool`) - The non-repudiation is required or not.
-        * `time_to_acknowledge_in_seconds` (`float`) - The time to acknowledge in seconds.
-
-      * `activity_behavior` (`dict`) - The RosettaNet ProcessConfiguration activity behavior.
-        * `action_type` (`str`) - The value indicating whether the RosettaNet PIP is used for a single action.
-        * `is_authorization_required` (`bool`) - The value indicating whether authorization is required.
-        * `is_secured_transport_required` (`bool`) - The value indicating whether secured transport is required.
-        * `non_repudiation_of_origin_and_content` (`bool`) - The value indicating whether non-repudiation is for origin and content.
-        * `persistent_confidentiality_scope` (`str`) - The persistent confidentiality encryption scope.
-        * `response_type` (`str`) - The value indicating whether the RosettaNet PIP communication is synchronous.
-        * `retry_count` (`float`) - The value indicating retry count.
-        * `time_to_perform_in_seconds` (`float`) - The time to perform in seconds.
-
-      * `activity_type` (`str`) - The RosettaNet ProcessConfiguration activity type.
-    """
-    changed_time: pulumi.Output[str]
-    """
-    The changed time.
-    """
-    created_time: pulumi.Output[str]
-    """
-    The created time.
-    """
-    description: pulumi.Output[str]
-    """
-    The integration account RosettaNet ProcessConfiguration properties.
-    """
-    initiator_role_settings: pulumi.Output[dict]
-    """
-    The RosettaNet initiator role settings.
-      * `action` (`str`) - The action name.
-      * `business_document` (`dict`) - The RosettaNet ProcessConfiguration business document.
-        * `description` (`str`) - The business document description.
-        * `name` (`str`) - The business document name.
-        * `version` (`str`) - The business document version.
-
-      * `description` (`str`) - The description.
-      * `role` (`str`) - The role name.
-      * `role_type` (`str`) - The RosettaNet ProcessConfiguration role type.
-      * `service` (`str`) - The service name.
-      * `service_classification` (`str`) - The service classification name.
-    """
-    location: pulumi.Output[str]
-    """
-    The resource location.
-    """
-    metadata: pulumi.Output[dict]
-    """
-    The metadata.
-    """
-    name: pulumi.Output[str]
-    """
-    Gets the resource name.
-    """
-    process_code: pulumi.Output[str]
-    """
-    The integration account RosettaNet process code.
-    """
-    process_name: pulumi.Output[str]
-    """
-    The integration account RosettaNet process name.
-    """
-    process_version: pulumi.Output[str]
-    """
-    The integration account RosettaNet process version.
-    """
-    responder_role_settings: pulumi.Output[dict]
-    """
-    The RosettaNet responder role settings.
-      * `action` (`str`) - The action name.
-      * `business_document` (`dict`) - The RosettaNet ProcessConfiguration business document.
-        * `description` (`str`) - The business document description.
-        * `name` (`str`) - The business document name.
-        * `version` (`str`) - The business document version.
-
-      * `description` (`str`) - The description.
-      * `role` (`str`) - The role name.
-      * `role_type` (`str`) - The RosettaNet ProcessConfiguration role type.
-      * `service` (`str`) - The service name.
-      * `service_classification` (`str`) - The service classification name.
-    """
-    tags: pulumi.Output[dict]
-    """
-    The resource tags.
-    """
-    type: pulumi.Output[str]
-    """
-    Gets the resource type.
-    """
-    def __init__(__self__, resource_name, opts=None, activity_settings=None, description=None, initiator_role_settings=None, integration_account_name=None, location=None, metadata=None, name=None, process_code=None, process_name=None, process_version=None, resource_group_name=None, responder_role_settings=None, tags=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 activity_settings: Optional[pulumi.Input[pulumi.InputType['RosettaNetPipActivitySettingsArgs']]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 initiator_role_settings: Optional[pulumi.Input[pulumi.InputType['RosettaNetPipRoleSettingsArgs']]] = None,
+                 integration_account_name: Optional[pulumi.Input[str]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 metadata: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 process_code: Optional[pulumi.Input[str]] = None,
+                 process_name: Optional[pulumi.Input[str]] = None,
+                 process_version: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 responder_role_settings: Optional[pulumi.Input[pulumi.InputType['RosettaNetPipRoleSettingsArgs']]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         The integration account RosettaNet process configuration.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[dict] activity_settings: The RosettaNet process configuration activity settings.
+        :param pulumi.Input[pulumi.InputType['RosettaNetPipActivitySettingsArgs']] activity_settings: The RosettaNet process configuration activity settings.
         :param pulumi.Input[str] description: The integration account RosettaNet ProcessConfiguration properties.
-        :param pulumi.Input[dict] initiator_role_settings: The RosettaNet initiator role settings.
+        :param pulumi.Input[pulumi.InputType['RosettaNetPipRoleSettingsArgs']] initiator_role_settings: The RosettaNet initiator role settings.
         :param pulumi.Input[str] integration_account_name: The integration account name.
         :param pulumi.Input[str] location: The resource location.
-        :param pulumi.Input[dict] metadata: The metadata.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] metadata: The metadata.
         :param pulumi.Input[str] name: The integration account RosettaNet ProcessConfiguration name.
         :param pulumi.Input[str] process_code: The integration account RosettaNet process code.
         :param pulumi.Input[str] process_name: The integration account RosettaNet process name.
         :param pulumi.Input[str] process_version: The integration account RosettaNet process version.
         :param pulumi.Input[str] resource_group_name: The resource group name.
-        :param pulumi.Input[dict] responder_role_settings: The RosettaNet responder role settings.
-        :param pulumi.Input[dict] tags: The resource tags.
-
-        The **activity_settings** object supports the following:
-
-          * `acknowledgment_of_receipt_settings` (`pulumi.Input[dict]`) - The RosettaNet ProcessConfiguration acknowledgement settings.
-            * `is_non_repudiation_required` (`pulumi.Input[bool]`) - The non-repudiation is required or not.
-            * `time_to_acknowledge_in_seconds` (`pulumi.Input[float]`) - The time to acknowledge in seconds.
-
-          * `activity_behavior` (`pulumi.Input[dict]`) - The RosettaNet ProcessConfiguration activity behavior.
-            * `action_type` (`pulumi.Input[str]`) - The value indicating whether the RosettaNet PIP is used for a single action.
-            * `is_authorization_required` (`pulumi.Input[bool]`) - The value indicating whether authorization is required.
-            * `is_secured_transport_required` (`pulumi.Input[bool]`) - The value indicating whether secured transport is required.
-            * `non_repudiation_of_origin_and_content` (`pulumi.Input[bool]`) - The value indicating whether non-repudiation is for origin and content.
-            * `persistent_confidentiality_scope` (`pulumi.Input[str]`) - The persistent confidentiality encryption scope.
-            * `response_type` (`pulumi.Input[str]`) - The value indicating whether the RosettaNet PIP communication is synchronous.
-            * `retry_count` (`pulumi.Input[float]`) - The value indicating retry count.
-            * `time_to_perform_in_seconds` (`pulumi.Input[float]`) - The time to perform in seconds.
-
-          * `activity_type` (`pulumi.Input[str]`) - The RosettaNet ProcessConfiguration activity type.
-
-        The **initiator_role_settings** object supports the following:
-
-          * `action` (`pulumi.Input[str]`) - The action name.
-          * `business_document` (`pulumi.Input[dict]`) - The RosettaNet ProcessConfiguration business document.
-            * `description` (`pulumi.Input[str]`) - The business document description.
-            * `name` (`pulumi.Input[str]`) - The business document name.
-            * `version` (`pulumi.Input[str]`) - The business document version.
-
-          * `description` (`pulumi.Input[str]`) - The description.
-          * `role` (`pulumi.Input[str]`) - The role name.
-          * `role_type` (`pulumi.Input[str]`) - The RosettaNet ProcessConfiguration role type.
-          * `service` (`pulumi.Input[str]`) - The service name.
-          * `service_classification` (`pulumi.Input[str]`) - The service classification name.
+        :param pulumi.Input[pulumi.InputType['RosettaNetPipRoleSettingsArgs']] responder_role_settings: The RosettaNet responder role settings.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The resource tags.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -213,13 +110,15 @@ class RosettaNetProcessConfiguration(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None) -> 'RosettaNetProcessConfiguration':
         """
         Get an existing RosettaNetProcessConfiguration resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -228,8 +127,121 @@ class RosettaNetProcessConfiguration(pulumi.CustomResource):
 
         return RosettaNetProcessConfiguration(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter(name="activitySettings")
+    def activity_settings(self) -> 'outputs.RosettaNetPipActivitySettingsResponse':
+        """
+        The RosettaNet process configuration activity settings.
+        """
+        return pulumi.get(self, "activity_settings")
+
+    @property
+    @pulumi.getter(name="changedTime")
+    def changed_time(self) -> str:
+        """
+        The changed time.
+        """
+        return pulumi.get(self, "changed_time")
+
+    @property
+    @pulumi.getter(name="createdTime")
+    def created_time(self) -> str:
+        """
+        The created time.
+        """
+        return pulumi.get(self, "created_time")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        """
+        The integration account RosettaNet ProcessConfiguration properties.
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="initiatorRoleSettings")
+    def initiator_role_settings(self) -> 'outputs.RosettaNetPipRoleSettingsResponse':
+        """
+        The RosettaNet initiator role settings.
+        """
+        return pulumi.get(self, "initiator_role_settings")
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[str]:
+        """
+        The resource location.
+        """
+        return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter
+    def metadata(self) -> Optional[Mapping[str, str]]:
+        """
+        The metadata.
+        """
+        return pulumi.get(self, "metadata")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Gets the resource name.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="processCode")
+    def process_code(self) -> str:
+        """
+        The integration account RosettaNet process code.
+        """
+        return pulumi.get(self, "process_code")
+
+    @property
+    @pulumi.getter(name="processName")
+    def process_name(self) -> str:
+        """
+        The integration account RosettaNet process name.
+        """
+        return pulumi.get(self, "process_name")
+
+    @property
+    @pulumi.getter(name="processVersion")
+    def process_version(self) -> str:
+        """
+        The integration account RosettaNet process version.
+        """
+        return pulumi.get(self, "process_version")
+
+    @property
+    @pulumi.getter(name="responderRoleSettings")
+    def responder_role_settings(self) -> 'outputs.RosettaNetPipRoleSettingsResponse':
+        """
+        The RosettaNet responder role settings.
+        """
+        return pulumi.get(self, "responder_role_settings")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Mapping[str, str]]:
+        """
+        The resource tags.
+        """
+        return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Gets the resource type.
+        """
+        return pulumi.get(self, "type")
+
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

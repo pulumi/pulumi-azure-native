@@ -5,10 +5,16 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
 
+__all__ = [
+    'GetExperimentResult',
+    'AwaitableGetExperimentResult',
+    'get_experiment',
+]
 
+@pulumi.output_type
 class GetExperimentResult:
     """
     Experiment information.
@@ -16,34 +22,59 @@ class GetExperimentResult:
     def __init__(__self__, creation_time=None, name=None, provisioning_state=None, provisioning_state_transition_time=None, type=None):
         if creation_time and not isinstance(creation_time, str):
             raise TypeError("Expected argument 'creation_time' to be a str")
-        __self__.creation_time = creation_time
+        pulumi.set(__self__, "creation_time", creation_time)
+        if name and not isinstance(name, str):
+            raise TypeError("Expected argument 'name' to be a str")
+        pulumi.set(__self__, "name", name)
+        if provisioning_state and not isinstance(provisioning_state, str):
+            raise TypeError("Expected argument 'provisioning_state' to be a str")
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if provisioning_state_transition_time and not isinstance(provisioning_state_transition_time, str):
+            raise TypeError("Expected argument 'provisioning_state_transition_time' to be a str")
+        pulumi.set(__self__, "provisioning_state_transition_time", provisioning_state_transition_time)
+        if type and not isinstance(type, str):
+            raise TypeError("Expected argument 'type' to be a str")
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="creationTime")
+    def creation_time(self) -> str:
         """
         Time when the Experiment was created.
         """
-        if name and not isinstance(name, str):
-            raise TypeError("Expected argument 'name' to be a str")
-        __self__.name = name
+        return pulumi.get(self, "creation_time")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
         """
         The name of the resource.
         """
-        if provisioning_state and not isinstance(provisioning_state, str):
-            raise TypeError("Expected argument 'provisioning_state' to be a str")
-        __self__.provisioning_state = provisioning_state
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
         """
         The provisioned state of the experiment
         """
-        if provisioning_state_transition_time and not isinstance(provisioning_state_transition_time, str):
-            raise TypeError("Expected argument 'provisioning_state_transition_time' to be a str")
-        __self__.provisioning_state_transition_time = provisioning_state_transition_time
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="provisioningStateTransitionTime")
+    def provisioning_state_transition_time(self) -> str:
         """
         The time at which the experiment entered its current provisioning state.
         """
-        if type and not isinstance(type, str):
-            raise TypeError("Expected argument 'type' to be a str")
-        __self__.type = type
+        return pulumi.get(self, "provisioning_state_transition_time")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
         """
         The type of the resource.
         """
+        return pulumi.get(self, "type")
 
 
 class AwaitableGetExperimentResult(GetExperimentResult):
@@ -59,7 +90,10 @@ class AwaitableGetExperimentResult(GetExperimentResult):
             type=self.type)
 
 
-def get_experiment(name=None, resource_group_name=None, workspace_name=None, opts=None):
+def get_experiment(name: Optional[str] = None,
+                   resource_group_name: Optional[str] = None,
+                   workspace_name: Optional[str] = None,
+                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetExperimentResult:
     """
     Use this data source to access information about an existing resource.
 
@@ -75,11 +109,11 @@ def get_experiment(name=None, resource_group_name=None, workspace_name=None, opt
         opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = _utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('azurerm:batchai/v20180501:getExperiment', __args__, opts=opts).value
+    __ret__ = pulumi.runtime.invoke('azurerm:batchai/v20180501:getExperiment', __args__, opts=opts, typ=GetExperimentResult).value
 
     return AwaitableGetExperimentResult(
-        creation_time=__ret__.get('creationTime'),
-        name=__ret__.get('name'),
-        provisioning_state=__ret__.get('provisioningState'),
-        provisioning_state_transition_time=__ret__.get('provisioningStateTransitionTime'),
-        type=__ret__.get('type'))
+        creation_time=__ret__.creation_time,
+        name=__ret__.name,
+        provisioning_state=__ret__.provisioning_state,
+        provisioning_state_transition_time=__ret__.provisioning_state_transition_time,
+        type=__ret__.type)

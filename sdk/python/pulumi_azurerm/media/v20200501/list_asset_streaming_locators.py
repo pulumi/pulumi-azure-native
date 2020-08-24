@@ -5,10 +5,17 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+from . import outputs
 
+__all__ = [
+    'ListAssetStreamingLocatorsResult',
+    'AwaitableListAssetStreamingLocatorsResult',
+    'list_asset_streaming_locators',
+]
 
+@pulumi.output_type
 class ListAssetStreamingLocatorsResult:
     """
     The Streaming Locators associated with this Asset.
@@ -16,10 +23,15 @@ class ListAssetStreamingLocatorsResult:
     def __init__(__self__, streaming_locators=None):
         if streaming_locators and not isinstance(streaming_locators, list):
             raise TypeError("Expected argument 'streaming_locators' to be a list")
-        __self__.streaming_locators = streaming_locators
+        pulumi.set(__self__, "streaming_locators", streaming_locators)
+
+    @property
+    @pulumi.getter(name="streamingLocators")
+    def streaming_locators(self) -> List['outputs.AssetStreamingLocatorResponseResult']:
         """
         The list of Streaming Locators.
         """
+        return pulumi.get(self, "streaming_locators")
 
 
 class AwaitableListAssetStreamingLocatorsResult(ListAssetStreamingLocatorsResult):
@@ -31,7 +43,10 @@ class AwaitableListAssetStreamingLocatorsResult(ListAssetStreamingLocatorsResult
             streaming_locators=self.streaming_locators)
 
 
-def list_asset_streaming_locators(account_name=None, asset_name=None, resource_group_name=None, opts=None):
+def list_asset_streaming_locators(account_name: Optional[str] = None,
+                                  asset_name: Optional[str] = None,
+                                  resource_group_name: Optional[str] = None,
+                                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListAssetStreamingLocatorsResult:
     """
     Use this data source to access information about an existing resource.
 
@@ -47,7 +62,7 @@ def list_asset_streaming_locators(account_name=None, asset_name=None, resource_g
         opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = _utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('azurerm:media/v20200501:listAssetStreamingLocators', __args__, opts=opts).value
+    __ret__ = pulumi.runtime.invoke('azurerm:media/v20200501:listAssetStreamingLocators', __args__, opts=opts, typ=ListAssetStreamingLocatorsResult).value
 
     return AwaitableListAssetStreamingLocatorsResult(
-        streaming_locators=__ret__.get('streamingLocators'))
+        streaming_locators=__ret__.streaming_locators)

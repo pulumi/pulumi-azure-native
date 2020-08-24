@@ -5,109 +5,38 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+from . import outputs
+
+__all__ = ['Queue']
 
 
 class Queue(pulumi.CustomResource):
-    accessed_at: pulumi.Output[str]
-    """
-    Last time a message was sent, or the last time there was a receive request to this queue.
-    """
-    auto_delete_on_idle: pulumi.Output[str]
-    """
-    ISO 8061 timeSpan idle interval after which the queue is automatically deleted. The minimum duration is 5 minutes.
-    """
-    count_details: pulumi.Output[dict]
-    """
-    Message Count Details.
-      * `active_message_count` (`float`) - Number of active messages in the queue, topic, or subscription.
-      * `dead_letter_message_count` (`float`) - Number of messages that are dead lettered.
-      * `scheduled_message_count` (`float`) - Number of scheduled messages.
-      * `transfer_dead_letter_message_count` (`float`) - Number of messages transferred into dead letters.
-      * `transfer_message_count` (`float`) - Number of messages transferred to another queue, topic, or subscription.
-    """
-    created_at: pulumi.Output[str]
-    """
-    The exact time the message was created.
-    """
-    dead_lettering_on_message_expiration: pulumi.Output[bool]
-    """
-    A value that indicates whether this queue has dead letter support when a message expires.
-    """
-    default_message_time_to_live: pulumi.Output[str]
-    """
-    ISO 8601 default message timespan to live value. This is the duration after which the message expires, starting from when the message is sent to Service Bus. This is the default value used when TimeToLive is not set on a message itself.
-    """
-    duplicate_detection_history_time_window: pulumi.Output[str]
-    """
-    ISO 8601 timeSpan structure that defines the duration of the duplicate detection history. The default value is 10 minutes.
-    """
-    enable_batched_operations: pulumi.Output[bool]
-    """
-    Value that indicates whether server-side batched operations are enabled.
-    """
-    enable_express: pulumi.Output[bool]
-    """
-    A value that indicates whether Express Entities are enabled. An express queue holds a message in memory temporarily before writing it to persistent storage.
-    """
-    enable_partitioning: pulumi.Output[bool]
-    """
-    A value that indicates whether the queue is to be partitioned across multiple message brokers.
-    """
-    forward_dead_lettered_messages_to: pulumi.Output[str]
-    """
-    Queue/Topic name to forward the Dead Letter message
-    """
-    forward_to: pulumi.Output[str]
-    """
-    Queue/Topic name to forward the messages
-    """
-    lock_duration: pulumi.Output[str]
-    """
-    ISO 8601 timespan duration of a peek-lock; that is, the amount of time that the message is locked for other receivers. The maximum value for LockDuration is 5 minutes; the default value is 1 minute.
-    """
-    max_delivery_count: pulumi.Output[float]
-    """
-    The maximum delivery count. A message is automatically deadlettered after this number of deliveries. default value is 10.
-    """
-    max_size_in_megabytes: pulumi.Output[float]
-    """
-    The maximum size of the queue in megabytes, which is the size of memory allocated for the queue. Default is 1024.
-    """
-    message_count: pulumi.Output[float]
-    """
-    The number of messages in the queue.
-    """
-    name: pulumi.Output[str]
-    """
-    Resource name
-    """
-    requires_duplicate_detection: pulumi.Output[bool]
-    """
-    A value indicating if this queue requires duplicate detection.
-    """
-    requires_session: pulumi.Output[bool]
-    """
-    A value that indicates whether the queue supports the concept of sessions.
-    """
-    size_in_bytes: pulumi.Output[float]
-    """
-    The size of the queue, in bytes.
-    """
-    status: pulumi.Output[str]
-    """
-    Enumerates the possible values for the status of a messaging entity.
-    """
-    type: pulumi.Output[str]
-    """
-    Resource type
-    """
-    updated_at: pulumi.Output[str]
-    """
-    The exact time the message was updated.
-    """
-    def __init__(__self__, resource_name, opts=None, auto_delete_on_idle=None, dead_lettering_on_message_expiration=None, default_message_time_to_live=None, duplicate_detection_history_time_window=None, enable_batched_operations=None, enable_express=None, enable_partitioning=None, forward_dead_lettered_messages_to=None, forward_to=None, lock_duration=None, max_delivery_count=None, max_size_in_megabytes=None, name=None, namespace_name=None, requires_duplicate_detection=None, requires_session=None, resource_group_name=None, status=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 auto_delete_on_idle: Optional[pulumi.Input[str]] = None,
+                 dead_lettering_on_message_expiration: Optional[pulumi.Input[bool]] = None,
+                 default_message_time_to_live: Optional[pulumi.Input[str]] = None,
+                 duplicate_detection_history_time_window: Optional[pulumi.Input[str]] = None,
+                 enable_batched_operations: Optional[pulumi.Input[bool]] = None,
+                 enable_express: Optional[pulumi.Input[bool]] = None,
+                 enable_partitioning: Optional[pulumi.Input[bool]] = None,
+                 forward_dead_lettered_messages_to: Optional[pulumi.Input[str]] = None,
+                 forward_to: Optional[pulumi.Input[str]] = None,
+                 lock_duration: Optional[pulumi.Input[str]] = None,
+                 max_delivery_count: Optional[pulumi.Input[float]] = None,
+                 max_size_in_megabytes: Optional[pulumi.Input[float]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 namespace_name: Optional[pulumi.Input[str]] = None,
+                 requires_duplicate_detection: Optional[pulumi.Input[bool]] = None,
+                 requires_session: Optional[pulumi.Input[bool]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 status: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         Description of queue Resource.
 
@@ -189,13 +118,15 @@ class Queue(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None) -> 'Queue':
         """
         Get an existing Queue resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -204,8 +135,193 @@ class Queue(pulumi.CustomResource):
 
         return Queue(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter(name="accessedAt")
+    def accessed_at(self) -> str:
+        """
+        Last time a message was sent, or the last time there was a receive request to this queue.
+        """
+        return pulumi.get(self, "accessed_at")
+
+    @property
+    @pulumi.getter(name="autoDeleteOnIdle")
+    def auto_delete_on_idle(self) -> Optional[str]:
+        """
+        ISO 8061 timeSpan idle interval after which the queue is automatically deleted. The minimum duration is 5 minutes.
+        """
+        return pulumi.get(self, "auto_delete_on_idle")
+
+    @property
+    @pulumi.getter(name="countDetails")
+    def count_details(self) -> 'outputs.MessageCountDetailsResponse':
+        """
+        Message Count Details.
+        """
+        return pulumi.get(self, "count_details")
+
+    @property
+    @pulumi.getter(name="createdAt")
+    def created_at(self) -> str:
+        """
+        The exact time the message was created.
+        """
+        return pulumi.get(self, "created_at")
+
+    @property
+    @pulumi.getter(name="deadLetteringOnMessageExpiration")
+    def dead_lettering_on_message_expiration(self) -> Optional[bool]:
+        """
+        A value that indicates whether this queue has dead letter support when a message expires.
+        """
+        return pulumi.get(self, "dead_lettering_on_message_expiration")
+
+    @property
+    @pulumi.getter(name="defaultMessageTimeToLive")
+    def default_message_time_to_live(self) -> Optional[str]:
+        """
+        ISO 8601 default message timespan to live value. This is the duration after which the message expires, starting from when the message is sent to Service Bus. This is the default value used when TimeToLive is not set on a message itself.
+        """
+        return pulumi.get(self, "default_message_time_to_live")
+
+    @property
+    @pulumi.getter(name="duplicateDetectionHistoryTimeWindow")
+    def duplicate_detection_history_time_window(self) -> Optional[str]:
+        """
+        ISO 8601 timeSpan structure that defines the duration of the duplicate detection history. The default value is 10 minutes.
+        """
+        return pulumi.get(self, "duplicate_detection_history_time_window")
+
+    @property
+    @pulumi.getter(name="enableBatchedOperations")
+    def enable_batched_operations(self) -> Optional[bool]:
+        """
+        Value that indicates whether server-side batched operations are enabled.
+        """
+        return pulumi.get(self, "enable_batched_operations")
+
+    @property
+    @pulumi.getter(name="enableExpress")
+    def enable_express(self) -> Optional[bool]:
+        """
+        A value that indicates whether Express Entities are enabled. An express queue holds a message in memory temporarily before writing it to persistent storage.
+        """
+        return pulumi.get(self, "enable_express")
+
+    @property
+    @pulumi.getter(name="enablePartitioning")
+    def enable_partitioning(self) -> Optional[bool]:
+        """
+        A value that indicates whether the queue is to be partitioned across multiple message brokers.
+        """
+        return pulumi.get(self, "enable_partitioning")
+
+    @property
+    @pulumi.getter(name="forwardDeadLetteredMessagesTo")
+    def forward_dead_lettered_messages_to(self) -> Optional[str]:
+        """
+        Queue/Topic name to forward the Dead Letter message
+        """
+        return pulumi.get(self, "forward_dead_lettered_messages_to")
+
+    @property
+    @pulumi.getter(name="forwardTo")
+    def forward_to(self) -> Optional[str]:
+        """
+        Queue/Topic name to forward the messages
+        """
+        return pulumi.get(self, "forward_to")
+
+    @property
+    @pulumi.getter(name="lockDuration")
+    def lock_duration(self) -> Optional[str]:
+        """
+        ISO 8601 timespan duration of a peek-lock; that is, the amount of time that the message is locked for other receivers. The maximum value for LockDuration is 5 minutes; the default value is 1 minute.
+        """
+        return pulumi.get(self, "lock_duration")
+
+    @property
+    @pulumi.getter(name="maxDeliveryCount")
+    def max_delivery_count(self) -> Optional[float]:
+        """
+        The maximum delivery count. A message is automatically deadlettered after this number of deliveries. default value is 10.
+        """
+        return pulumi.get(self, "max_delivery_count")
+
+    @property
+    @pulumi.getter(name="maxSizeInMegabytes")
+    def max_size_in_megabytes(self) -> Optional[float]:
+        """
+        The maximum size of the queue in megabytes, which is the size of memory allocated for the queue. Default is 1024.
+        """
+        return pulumi.get(self, "max_size_in_megabytes")
+
+    @property
+    @pulumi.getter(name="messageCount")
+    def message_count(self) -> float:
+        """
+        The number of messages in the queue.
+        """
+        return pulumi.get(self, "message_count")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Resource name
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="requiresDuplicateDetection")
+    def requires_duplicate_detection(self) -> Optional[bool]:
+        """
+        A value indicating if this queue requires duplicate detection.
+        """
+        return pulumi.get(self, "requires_duplicate_detection")
+
+    @property
+    @pulumi.getter(name="requiresSession")
+    def requires_session(self) -> Optional[bool]:
+        """
+        A value that indicates whether the queue supports the concept of sessions.
+        """
+        return pulumi.get(self, "requires_session")
+
+    @property
+    @pulumi.getter(name="sizeInBytes")
+    def size_in_bytes(self) -> float:
+        """
+        The size of the queue, in bytes.
+        """
+        return pulumi.get(self, "size_in_bytes")
+
+    @property
+    @pulumi.getter
+    def status(self) -> Optional[str]:
+        """
+        Enumerates the possible values for the status of a messaging entity.
+        """
+        return pulumi.get(self, "status")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Resource type
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="updatedAt")
+    def updated_at(self) -> str:
+        """
+        The exact time the message was updated.
+        """
+        return pulumi.get(self, "updated_at")
+
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

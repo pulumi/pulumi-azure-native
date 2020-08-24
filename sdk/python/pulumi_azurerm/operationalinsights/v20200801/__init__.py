@@ -19,3 +19,5 @@ from .linked_storage_account import *
 from .saved_search import *
 from .storage_insight_config import *
 from .workspace import *
+from ._inputs import *
+from . import outputs

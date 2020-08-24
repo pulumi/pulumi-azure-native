@@ -5,68 +5,25 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+from . import outputs
+
+__all__ = ['StorageSyncService']
 
 
 class StorageSyncService(pulumi.CustomResource):
-    incoming_traffic_policy: pulumi.Output[str]
-    """
-    Incoming Traffic Policy
-    """
-    last_operation_name: pulumi.Output[str]
-    """
-    Resource Last Operation Name
-    """
-    last_workflow_id: pulumi.Output[str]
-    """
-    StorageSyncService lastWorkflowId
-    """
-    location: pulumi.Output[str]
-    """
-    The geo-location where the resource lives
-    """
-    name: pulumi.Output[str]
-    """
-    The name of the resource
-    """
-    private_endpoint_connections: pulumi.Output[list]
-    """
-    List of private endpoint connection associated with the specified storage sync service
-      * `id` (`str`) - Fully qualified resource Id for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
-      * `name` (`str`) - The name of the resource
-      * `private_endpoint` (`dict`) - The resource of private end point.
-        * `id` (`str`) - The ARM identifier for Private Endpoint
-
-      * `private_link_service_connection_state` (`dict`) - A collection of information about the state of the connection between service consumer and provider.
-        * `actions_required` (`str`) - A message indicating if changes on the service provider require any updates on the consumer.
-        * `description` (`str`) - The reason for approval/rejection of the connection.
-        * `status` (`str`) - Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
-
-      * `provisioning_state` (`str`) - The provisioning state of the private endpoint connection resource.
-      * `type` (`str`) - The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
-    """
-    provisioning_state: pulumi.Output[str]
-    """
-    StorageSyncService Provisioning State
-    """
-    storage_sync_service_status: pulumi.Output[float]
-    """
-    Storage Sync service status.
-    """
-    storage_sync_service_uid: pulumi.Output[str]
-    """
-    Storage Sync service Uid
-    """
-    tags: pulumi.Output[dict]
-    """
-    Resource tags.
-    """
-    type: pulumi.Output[str]
-    """
-    The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
-    """
-    def __init__(__self__, resource_name, opts=None, incoming_traffic_policy=None, location=None, name=None, resource_group_name=None, tags=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 incoming_traffic_policy: Optional[pulumi.Input[str]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         Storage Sync Service object.
 
@@ -76,7 +33,7 @@ class StorageSyncService(pulumi.CustomResource):
         :param pulumi.Input[str] location: Required. Gets or sets the location of the resource. This will be one of the supported and registered Azure Geo Regions (e.g. West US, East US, Southeast Asia, etc.). The geo region of a resource cannot be changed once it is created, but if an identical geo region is specified on update, the request will succeed.
         :param pulumi.Input[str] name: Name of Storage Sync Service resource.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input[dict] tags: Gets or sets a list of key value pairs that describe the resource. These tags can be used for viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key with a length no greater than 128 characters and a value with a length no greater than 256 characters.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Gets or sets a list of key value pairs that describe the resource. These tags can be used for viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key with a length no greater than 128 characters and a value with a length no greater than 256 characters.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -122,13 +79,15 @@ class StorageSyncService(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None) -> 'StorageSyncService':
         """
         Get an existing StorageSyncService resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -137,8 +96,97 @@ class StorageSyncService(pulumi.CustomResource):
 
         return StorageSyncService(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter(name="incomingTrafficPolicy")
+    def incoming_traffic_policy(self) -> Optional[str]:
+        """
+        Incoming Traffic Policy
+        """
+        return pulumi.get(self, "incoming_traffic_policy")
+
+    @property
+    @pulumi.getter(name="lastOperationName")
+    def last_operation_name(self) -> str:
+        """
+        Resource Last Operation Name
+        """
+        return pulumi.get(self, "last_operation_name")
+
+    @property
+    @pulumi.getter(name="lastWorkflowId")
+    def last_workflow_id(self) -> str:
+        """
+        StorageSyncService lastWorkflowId
+        """
+        return pulumi.get(self, "last_workflow_id")
+
+    @property
+    @pulumi.getter
+    def location(self) -> str:
+        """
+        The geo-location where the resource lives
+        """
+        return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the resource
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="privateEndpointConnections")
+    def private_endpoint_connections(self) -> List['outputs.PrivateEndpointConnectionResponse']:
+        """
+        List of private endpoint connection associated with the specified storage sync service
+        """
+        return pulumi.get(self, "private_endpoint_connections")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        StorageSyncService Provisioning State
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="storageSyncServiceStatus")
+    def storage_sync_service_status(self) -> float:
+        """
+        Storage Sync service status.
+        """
+        return pulumi.get(self, "storage_sync_service_status")
+
+    @property
+    @pulumi.getter(name="storageSyncServiceUid")
+    def storage_sync_service_uid(self) -> str:
+        """
+        Storage Sync service Uid
+        """
+        return pulumi.get(self, "storage_sync_service_uid")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Mapping[str, str]]:
+        """
+        Resource tags.
+        """
+        return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+        """
+        return pulumi.get(self, "type")
+
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

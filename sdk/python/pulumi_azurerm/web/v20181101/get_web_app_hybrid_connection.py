@@ -5,10 +5,16 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
 
+__all__ = [
+    'GetWebAppHybridConnectionResult',
+    'AwaitableGetWebAppHybridConnectionResult',
+    'get_web_app_hybrid_connection',
+]
 
+@pulumi.output_type
 class GetWebAppHybridConnectionResult:
     """
     Hybrid Connection contract. This is used to configure a Hybrid Connection.
@@ -16,71 +22,126 @@ class GetWebAppHybridConnectionResult:
     def __init__(__self__, hostname=None, kind=None, name=None, port=None, relay_arm_uri=None, relay_name=None, send_key_name=None, send_key_value=None, service_bus_namespace=None, service_bus_suffix=None, type=None):
         if hostname and not isinstance(hostname, str):
             raise TypeError("Expected argument 'hostname' to be a str")
-        __self__.hostname = hostname
+        pulumi.set(__self__, "hostname", hostname)
+        if kind and not isinstance(kind, str):
+            raise TypeError("Expected argument 'kind' to be a str")
+        pulumi.set(__self__, "kind", kind)
+        if name and not isinstance(name, str):
+            raise TypeError("Expected argument 'name' to be a str")
+        pulumi.set(__self__, "name", name)
+        if port and not isinstance(port, float):
+            raise TypeError("Expected argument 'port' to be a float")
+        pulumi.set(__self__, "port", port)
+        if relay_arm_uri and not isinstance(relay_arm_uri, str):
+            raise TypeError("Expected argument 'relay_arm_uri' to be a str")
+        pulumi.set(__self__, "relay_arm_uri", relay_arm_uri)
+        if relay_name and not isinstance(relay_name, str):
+            raise TypeError("Expected argument 'relay_name' to be a str")
+        pulumi.set(__self__, "relay_name", relay_name)
+        if send_key_name and not isinstance(send_key_name, str):
+            raise TypeError("Expected argument 'send_key_name' to be a str")
+        pulumi.set(__self__, "send_key_name", send_key_name)
+        if send_key_value and not isinstance(send_key_value, str):
+            raise TypeError("Expected argument 'send_key_value' to be a str")
+        pulumi.set(__self__, "send_key_value", send_key_value)
+        if service_bus_namespace and not isinstance(service_bus_namespace, str):
+            raise TypeError("Expected argument 'service_bus_namespace' to be a str")
+        pulumi.set(__self__, "service_bus_namespace", service_bus_namespace)
+        if service_bus_suffix and not isinstance(service_bus_suffix, str):
+            raise TypeError("Expected argument 'service_bus_suffix' to be a str")
+        pulumi.set(__self__, "service_bus_suffix", service_bus_suffix)
+        if type and not isinstance(type, str):
+            raise TypeError("Expected argument 'type' to be a str")
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def hostname(self) -> Optional[str]:
         """
         The hostname of the endpoint.
         """
-        if kind and not isinstance(kind, str):
-            raise TypeError("Expected argument 'kind' to be a str")
-        __self__.kind = kind
+        return pulumi.get(self, "hostname")
+
+    @property
+    @pulumi.getter
+    def kind(self) -> Optional[str]:
         """
         Kind of resource.
         """
-        if name and not isinstance(name, str):
-            raise TypeError("Expected argument 'name' to be a str")
-        __self__.name = name
+        return pulumi.get(self, "kind")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
         """
         Resource Name.
         """
-        if port and not isinstance(port, float):
-            raise TypeError("Expected argument 'port' to be a float")
-        __self__.port = port
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def port(self) -> Optional[float]:
         """
         The port of the endpoint.
         """
-        if relay_arm_uri and not isinstance(relay_arm_uri, str):
-            raise TypeError("Expected argument 'relay_arm_uri' to be a str")
-        __self__.relay_arm_uri = relay_arm_uri
+        return pulumi.get(self, "port")
+
+    @property
+    @pulumi.getter(name="relayArmUri")
+    def relay_arm_uri(self) -> Optional[str]:
         """
         The ARM URI to the Service Bus relay.
         """
-        if relay_name and not isinstance(relay_name, str):
-            raise TypeError("Expected argument 'relay_name' to be a str")
-        __self__.relay_name = relay_name
+        return pulumi.get(self, "relay_arm_uri")
+
+    @property
+    @pulumi.getter(name="relayName")
+    def relay_name(self) -> Optional[str]:
         """
         The name of the Service Bus relay.
         """
-        if send_key_name and not isinstance(send_key_name, str):
-            raise TypeError("Expected argument 'send_key_name' to be a str")
-        __self__.send_key_name = send_key_name
+        return pulumi.get(self, "relay_name")
+
+    @property
+    @pulumi.getter(name="sendKeyName")
+    def send_key_name(self) -> Optional[str]:
         """
         The name of the Service Bus key which has Send permissions. This is used to authenticate to Service Bus.
         """
-        if send_key_value and not isinstance(send_key_value, str):
-            raise TypeError("Expected argument 'send_key_value' to be a str")
-        __self__.send_key_value = send_key_value
+        return pulumi.get(self, "send_key_name")
+
+    @property
+    @pulumi.getter(name="sendKeyValue")
+    def send_key_value(self) -> Optional[str]:
         """
         The value of the Service Bus key. This is used to authenticate to Service Bus. In ARM this key will not be returned
         normally, use the POST /listKeys API instead.
         """
-        if service_bus_namespace and not isinstance(service_bus_namespace, str):
-            raise TypeError("Expected argument 'service_bus_namespace' to be a str")
-        __self__.service_bus_namespace = service_bus_namespace
+        return pulumi.get(self, "send_key_value")
+
+    @property
+    @pulumi.getter(name="serviceBusNamespace")
+    def service_bus_namespace(self) -> Optional[str]:
         """
         The name of the Service Bus namespace.
         """
-        if service_bus_suffix and not isinstance(service_bus_suffix, str):
-            raise TypeError("Expected argument 'service_bus_suffix' to be a str")
-        __self__.service_bus_suffix = service_bus_suffix
+        return pulumi.get(self, "service_bus_namespace")
+
+    @property
+    @pulumi.getter(name="serviceBusSuffix")
+    def service_bus_suffix(self) -> Optional[str]:
         """
         The suffix for the service bus endpoint. By default this is .servicebus.windows.net
         """
-        if type and not isinstance(type, str):
-            raise TypeError("Expected argument 'type' to be a str")
-        __self__.type = type
+        return pulumi.get(self, "service_bus_suffix")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
         """
         Resource type.
         """
+        return pulumi.get(self, "type")
 
 
 class AwaitableGetWebAppHybridConnectionResult(GetWebAppHybridConnectionResult):
@@ -102,7 +163,10 @@ class AwaitableGetWebAppHybridConnectionResult(GetWebAppHybridConnectionResult):
             type=self.type)
 
 
-def get_web_app_hybrid_connection(name=None, namespace_name=None, resource_group_name=None, opts=None):
+def get_web_app_hybrid_connection(name: Optional[str] = None,
+                                  namespace_name: Optional[str] = None,
+                                  resource_group_name: Optional[str] = None,
+                                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetWebAppHybridConnectionResult:
     """
     Use this data source to access information about an existing resource.
 
@@ -118,17 +182,17 @@ def get_web_app_hybrid_connection(name=None, namespace_name=None, resource_group
         opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = _utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('azurerm:web/v20181101:getWebAppHybridConnection', __args__, opts=opts).value
+    __ret__ = pulumi.runtime.invoke('azurerm:web/v20181101:getWebAppHybridConnection', __args__, opts=opts, typ=GetWebAppHybridConnectionResult).value
 
     return AwaitableGetWebAppHybridConnectionResult(
-        hostname=__ret__.get('hostname'),
-        kind=__ret__.get('kind'),
-        name=__ret__.get('name'),
-        port=__ret__.get('port'),
-        relay_arm_uri=__ret__.get('relayArmUri'),
-        relay_name=__ret__.get('relayName'),
-        send_key_name=__ret__.get('sendKeyName'),
-        send_key_value=__ret__.get('sendKeyValue'),
-        service_bus_namespace=__ret__.get('serviceBusNamespace'),
-        service_bus_suffix=__ret__.get('serviceBusSuffix'),
-        type=__ret__.get('type'))
+        hostname=__ret__.hostname,
+        kind=__ret__.kind,
+        name=__ret__.name,
+        port=__ret__.port,
+        relay_arm_uri=__ret__.relay_arm_uri,
+        relay_name=__ret__.relay_name,
+        send_key_name=__ret__.send_key_name,
+        send_key_value=__ret__.send_key_value,
+        service_bus_namespace=__ret__.service_bus_namespace,
+        service_bus_suffix=__ret__.service_bus_suffix,
+        type=__ret__.type)

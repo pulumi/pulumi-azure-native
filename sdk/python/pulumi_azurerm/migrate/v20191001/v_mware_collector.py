@@ -5,16 +5,26 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+from . import outputs
+from ._inputs import *
+
+__all__ = ['VMwareCollector']
 
 
 class VMwareCollector(pulumi.CustomResource):
-    e_tag: pulumi.Output[str]
-    name: pulumi.Output[str]
-    properties: pulumi.Output[dict]
-    type: pulumi.Output[str]
-    def __init__(__self__, resource_name, opts=None, e_tag=None, name=None, project_name=None, properties=None, resource_group_name=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 e_tag: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 project_name: Optional[pulumi.Input[str]] = None,
+                 properties: Optional[pulumi.Input[pulumi.InputType['CollectorPropertiesArgs']]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         Create a VMwareCollector resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
@@ -22,18 +32,6 @@ class VMwareCollector(pulumi.CustomResource):
         :param pulumi.Input[str] name: Unique name of a VMware collector within a project.
         :param pulumi.Input[str] project_name: Name of the Azure Migrate project.
         :param pulumi.Input[str] resource_group_name: Name of the Azure Resource Group that project is part of.
-
-        The **properties** object supports the following:
-
-          * `agent_properties` (`pulumi.Input[dict]`)
-            * `spn_details` (`pulumi.Input[dict]`)
-              * `application_id` (`pulumi.Input[str]`) - Application/client Id for the service principal with which the on-premise management/data plane components would communicate with our Azure services.
-              * `audience` (`pulumi.Input[str]`) - Intended audience for the service principal.
-              * `authority` (`pulumi.Input[str]`) - AAD Authority URL which was used to request the token for the service principal.
-              * `object_id` (`pulumi.Input[str]`) - Object Id of the service principal with which the on-premise management/data plane components would communicate with our Azure services.
-              * `tenant_id` (`pulumi.Input[str]`) - Tenant Id for the service principal with which the on-premise management/data plane components would communicate with our Azure services.
-
-          * `discovery_site_id` (`pulumi.Input[str]`) - The ARM id of the discovery service site.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -71,13 +69,15 @@ class VMwareCollector(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None) -> 'VMwareCollector':
         """
         Get an existing VMwareCollector resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -86,8 +86,29 @@ class VMwareCollector(pulumi.CustomResource):
 
         return VMwareCollector(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter(name="eTag")
+    def e_tag(self) -> Optional[str]:
+        return pulumi.get(self, "e_tag")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def properties(self) -> 'outputs.CollectorPropertiesResponse':
+        return pulumi.get(self, "properties")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        return pulumi.get(self, "type")
+
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

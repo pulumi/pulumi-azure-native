@@ -10,3 +10,5 @@ from .list_machine_learning_compute_nodes import *
 from .list_workspace_keys import *
 from .machine_learning_compute import *
 from .workspace import *
+from ._inputs import *
+from . import outputs

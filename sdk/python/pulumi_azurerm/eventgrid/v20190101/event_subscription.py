@@ -5,98 +5,40 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+from . import outputs
+from ._inputs import *
+
+__all__ = ['EventSubscription']
 
 
 class EventSubscription(pulumi.CustomResource):
-    dead_letter_destination: pulumi.Output[dict]
-    """
-    The DeadLetter destination of the event subscription.
-      * `endpoint_type` (`str`) - Type of the endpoint for the dead letter destination
-    """
-    destination: pulumi.Output[dict]
-    """
-    Information about the destination where events have to be delivered for the event subscription.
-      * `endpoint_type` (`str`) - Type of the endpoint for the event subscription destination
-    """
-    filter: pulumi.Output[dict]
-    """
-    Information about the filter for the event subscription.
-      * `included_event_types` (`list`) - A list of applicable event types that need to be part of the event subscription. 
-        If it is desired to subscribe to all event types, the string "all" needs to be specified as an element in this list.
-      * `is_subject_case_sensitive` (`bool`) - Specifies if the SubjectBeginsWith and SubjectEndsWith properties of the filter 
-        should be compared in a case sensitive manner.
-      * `subject_begins_with` (`str`) - An optional string to filter events for an event subscription based on a resource path prefix.
-        The format of this depends on the publisher of the events. 
-        Wildcard characters are not supported in this path.
-      * `subject_ends_with` (`str`) - An optional string to filter events for an event subscription based on a resource path suffix.
-        Wildcard characters are not supported in this path.
-    """
-    labels: pulumi.Output[list]
-    """
-    List of user defined labels.
-    """
-    name: pulumi.Output[str]
-    """
-    Name of the resource
-    """
-    provisioning_state: pulumi.Output[str]
-    """
-    Provisioning state of the event subscription.
-    """
-    retry_policy: pulumi.Output[dict]
-    """
-    The retry policy for events. This can be used to configure maximum number of delivery attempts and time to live for events.
-      * `event_time_to_live_in_minutes` (`float`) - Time To Live (in minutes) for events.
-      * `max_delivery_attempts` (`float`) - Maximum number of delivery retry attempts for events.
-    """
-    topic: pulumi.Output[str]
-    """
-    Name of the topic of the event subscription.
-    """
-    type: pulumi.Output[str]
-    """
-    Type of the resource
-    """
-    def __init__(__self__, resource_name, opts=None, dead_letter_destination=None, destination=None, filter=None, labels=None, name=None, retry_policy=None, scope=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 dead_letter_destination: Optional[pulumi.Input[pulumi.InputType['DeadLetterDestinationArgs']]] = None,
+                 destination: Optional[pulumi.Input[pulumi.InputType['EventSubscriptionDestinationArgs']]] = None,
+                 filter: Optional[pulumi.Input[pulumi.InputType['EventSubscriptionFilterArgs']]] = None,
+                 labels: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 retry_policy: Optional[pulumi.Input[pulumi.InputType['RetryPolicyArgs']]] = None,
+                 scope: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         Event Subscription
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[dict] dead_letter_destination: The DeadLetter destination of the event subscription.
-        :param pulumi.Input[dict] destination: Information about the destination where events have to be delivered for the event subscription.
-        :param pulumi.Input[dict] filter: Information about the filter for the event subscription.
-        :param pulumi.Input[list] labels: List of user defined labels.
+        :param pulumi.Input[pulumi.InputType['DeadLetterDestinationArgs']] dead_letter_destination: The DeadLetter destination of the event subscription.
+        :param pulumi.Input[pulumi.InputType['EventSubscriptionDestinationArgs']] destination: Information about the destination where events have to be delivered for the event subscription.
+        :param pulumi.Input[pulumi.InputType['EventSubscriptionFilterArgs']] filter: Information about the filter for the event subscription.
+        :param pulumi.Input[List[pulumi.Input[str]]] labels: List of user defined labels.
         :param pulumi.Input[str] name: Name of the event subscription. Event subscription names must be between 3 and 64 characters in length and should use alphanumeric letters only.
-        :param pulumi.Input[dict] retry_policy: The retry policy for events. This can be used to configure maximum number of delivery attempts and time to live for events.
+        :param pulumi.Input[pulumi.InputType['RetryPolicyArgs']] retry_policy: The retry policy for events. This can be used to configure maximum number of delivery attempts and time to live for events.
         :param pulumi.Input[str] scope: The identifier of the resource to which the event subscription needs to be created or updated. The scope can be a subscription, or a resource group, or a top level resource belonging to a resource provider namespace, or an EventGrid topic. For example, use '/subscriptions/{subscriptionId}/' for a subscription, '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}' for a resource group, and '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}' for a resource, and '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.EventGrid/topics/{topicName}' for an EventGrid topic.
-
-        The **dead_letter_destination** object supports the following:
-
-          * `endpoint_type` (`pulumi.Input[str]`) - Type of the endpoint for the dead letter destination
-
-        The **destination** object supports the following:
-
-          * `endpoint_type` (`pulumi.Input[str]`) - Type of the endpoint for the event subscription destination
-
-        The **filter** object supports the following:
-
-          * `included_event_types` (`pulumi.Input[list]`) - A list of applicable event types that need to be part of the event subscription. 
-            If it is desired to subscribe to all event types, the string "all" needs to be specified as an element in this list.
-          * `is_subject_case_sensitive` (`pulumi.Input[bool]`) - Specifies if the SubjectBeginsWith and SubjectEndsWith properties of the filter 
-            should be compared in a case sensitive manner.
-          * `subject_begins_with` (`pulumi.Input[str]`) - An optional string to filter events for an event subscription based on a resource path prefix.
-            The format of this depends on the publisher of the events. 
-            Wildcard characters are not supported in this path.
-          * `subject_ends_with` (`pulumi.Input[str]`) - An optional string to filter events for an event subscription based on a resource path suffix.
-            Wildcard characters are not supported in this path.
-
-        The **retry_policy** object supports the following:
-
-          * `event_time_to_live_in_minutes` (`pulumi.Input[float]`) - Time To Live (in minutes) for events.
-          * `max_delivery_attempts` (`pulumi.Input[float]`) - Maximum number of delivery retry attempts for events.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -138,13 +80,15 @@ class EventSubscription(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None) -> 'EventSubscription':
         """
         Get an existing EventSubscription resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -153,8 +97,81 @@ class EventSubscription(pulumi.CustomResource):
 
         return EventSubscription(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter(name="deadLetterDestination")
+    def dead_letter_destination(self) -> Optional['outputs.DeadLetterDestinationResponse']:
+        """
+        The DeadLetter destination of the event subscription.
+        """
+        return pulumi.get(self, "dead_letter_destination")
+
+    @property
+    @pulumi.getter
+    def destination(self) -> Optional['outputs.EventSubscriptionDestinationResponse']:
+        """
+        Information about the destination where events have to be delivered for the event subscription.
+        """
+        return pulumi.get(self, "destination")
+
+    @property
+    @pulumi.getter
+    def filter(self) -> Optional['outputs.EventSubscriptionFilterResponse']:
+        """
+        Information about the filter for the event subscription.
+        """
+        return pulumi.get(self, "filter")
+
+    @property
+    @pulumi.getter
+    def labels(self) -> Optional[List[str]]:
+        """
+        List of user defined labels.
+        """
+        return pulumi.get(self, "labels")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Name of the resource
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        Provisioning state of the event subscription.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="retryPolicy")
+    def retry_policy(self) -> Optional['outputs.RetryPolicyResponse']:
+        """
+        The retry policy for events. This can be used to configure maximum number of delivery attempts and time to live for events.
+        """
+        return pulumi.get(self, "retry_policy")
+
+    @property
+    @pulumi.getter
+    def topic(self) -> str:
+        """
+        Name of the topic of the event subscription.
+        """
+        return pulumi.get(self, "topic")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Type of the resource
+        """
+        return pulumi.get(self, "type")
+
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

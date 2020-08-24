@@ -10,3 +10,5 @@ from .list_redis_keys import *
 from .patch_schedule import *
 from .redis import *
 from .redis_firewall_rule import *
+from ._inputs import *
+from . import outputs

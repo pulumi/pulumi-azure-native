@@ -9,3 +9,5 @@ from .list_namespace_keys import *
 from .list_notification_hub_keys import *
 from .namespace import *
 from .notification_hub import *
+from ._inputs import *
+from . import outputs

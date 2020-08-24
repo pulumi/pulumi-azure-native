@@ -5,18 +5,30 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+from . import outputs
 
+__all__ = [
+    'ListControllerConnectionDetailsResult',
+    'AwaitableListControllerConnectionDetailsResult',
+    'list_controller_connection_details',
+]
 
+@pulumi.output_type
 class ListControllerConnectionDetailsResult:
     def __init__(__self__, connection_details_list=None):
         if connection_details_list and not isinstance(connection_details_list, list):
             raise TypeError("Expected argument 'connection_details_list' to be a list")
-        __self__.connection_details_list = connection_details_list
+        pulumi.set(__self__, "connection_details_list", connection_details_list)
+
+    @property
+    @pulumi.getter(name="connectionDetailsList")
+    def connection_details_list(self) -> Optional[List['outputs.ControllerConnectionDetailsResponseResult']]:
         """
         List of Azure Dev Spaces Controller connection details.
         """
+        return pulumi.get(self, "connection_details_list")
 
 
 class AwaitableListControllerConnectionDetailsResult(ListControllerConnectionDetailsResult):
@@ -28,7 +40,10 @@ class AwaitableListControllerConnectionDetailsResult(ListControllerConnectionDet
             connection_details_list=self.connection_details_list)
 
 
-def list_controller_connection_details(name=None, resource_group_name=None, target_container_host_resource_id=None, opts=None):
+def list_controller_connection_details(name: Optional[str] = None,
+                                       resource_group_name: Optional[str] = None,
+                                       target_container_host_resource_id: Optional[str] = None,
+                                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListControllerConnectionDetailsResult:
     """
     Use this data source to access information about an existing resource.
 
@@ -44,7 +59,7 @@ def list_controller_connection_details(name=None, resource_group_name=None, targ
         opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = _utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('azurerm:devspaces/v20190401:listControllerConnectionDetails', __args__, opts=opts).value
+    __ret__ = pulumi.runtime.invoke('azurerm:devspaces/v20190401:listControllerConnectionDetails', __args__, opts=opts, typ=ListControllerConnectionDetailsResult).value
 
     return AwaitableListControllerConnectionDetailsResult(
-        connection_details_list=__ret__.get('connectionDetailsList'))
+        connection_details_list=__ret__.connection_details_list)

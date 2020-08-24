@@ -5,80 +5,27 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+
+__all__ = ['Project']
 
 
 class Project(pulumi.CustomResource):
-    created_timestamp: pulumi.Output[str]
-    """
-    Time when this project was created. Date-Time represented in ISO-8601 format.
-    """
-    customer_workspace_id: pulumi.Output[str]
-    """
-    ARM ID of the Service Map workspace created by user.
-    """
-    customer_workspace_location: pulumi.Output[str]
-    """
-    Location of the Service Map workspace created by user.
-    """
-    discovery_status: pulumi.Output[str]
-    """
-    Reports whether project is under discovery.
-    """
-    e_tag: pulumi.Output[str]
-    """
-    For optimistic concurrency control.
-    """
-    last_assessment_timestamp: pulumi.Output[str]
-    """
-    Time when last assessment was created. Date-Time represented in ISO-8601 format. This value will be null until assessment is created.
-    """
-    last_discovery_session_id: pulumi.Output[str]
-    """
-    Session id of the last discovery.
-    """
-    last_discovery_timestamp: pulumi.Output[str]
-    """
-    Time when this project was created. Date-Time represented in ISO-8601 format. This value will be null until discovery is complete.
-    """
-    location: pulumi.Output[str]
-    """
-    Azure location in which project is created.
-    """
-    name: pulumi.Output[str]
-    """
-    Name of the project.
-    """
-    number_of_assessments: pulumi.Output[float]
-    """
-    Number of assessments created in the project.
-    """
-    number_of_groups: pulumi.Output[float]
-    """
-    Number of groups created in the project.
-    """
-    number_of_machines: pulumi.Output[float]
-    """
-    Number of machines in the project.
-    """
-    provisioning_state: pulumi.Output[str]
-    """
-    Provisioning state of the project.
-    """
-    tags: pulumi.Output[dict]
-    """
-    Tags provided by Azure Tagging service.
-    """
-    type: pulumi.Output[str]
-    """
-    Type of the object = [Microsoft.Migrate/projects].
-    """
-    updated_timestamp: pulumi.Output[str]
-    """
-    Time when this project was last updated. Date-Time represented in ISO-8601 format.
-    """
-    def __init__(__self__, resource_name, opts=None, customer_workspace_id=None, customer_workspace_location=None, e_tag=None, location=None, name=None, provisioning_state=None, resource_group_name=None, tags=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 customer_workspace_id: Optional[pulumi.Input[str]] = None,
+                 customer_workspace_location: Optional[pulumi.Input[str]] = None,
+                 e_tag: Optional[pulumi.Input[str]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 provisioning_state: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         Azure Migrate Project.
 
@@ -91,7 +38,7 @@ class Project(pulumi.CustomResource):
         :param pulumi.Input[str] name: Name of the Azure Migrate project.
         :param pulumi.Input[str] provisioning_state: Provisioning state of the project.
         :param pulumi.Input[str] resource_group_name: Name of the Azure Resource Group that project is part of.
-        :param pulumi.Input[dict] tags: Tags provided by Azure Tagging service.
+        :param pulumi.Input[Mapping[str, Any]] tags: Tags provided by Azure Tagging service.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -139,13 +86,15 @@ class Project(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None) -> 'Project':
         """
         Get an existing Project resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -154,8 +103,145 @@ class Project(pulumi.CustomResource):
 
         return Project(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter(name="createdTimestamp")
+    def created_timestamp(self) -> str:
+        """
+        Time when this project was created. Date-Time represented in ISO-8601 format.
+        """
+        return pulumi.get(self, "created_timestamp")
+
+    @property
+    @pulumi.getter(name="customerWorkspaceId")
+    def customer_workspace_id(self) -> Optional[str]:
+        """
+        ARM ID of the Service Map workspace created by user.
+        """
+        return pulumi.get(self, "customer_workspace_id")
+
+    @property
+    @pulumi.getter(name="customerWorkspaceLocation")
+    def customer_workspace_location(self) -> Optional[str]:
+        """
+        Location of the Service Map workspace created by user.
+        """
+        return pulumi.get(self, "customer_workspace_location")
+
+    @property
+    @pulumi.getter(name="discoveryStatus")
+    def discovery_status(self) -> str:
+        """
+        Reports whether project is under discovery.
+        """
+        return pulumi.get(self, "discovery_status")
+
+    @property
+    @pulumi.getter(name="eTag")
+    def e_tag(self) -> Optional[str]:
+        """
+        For optimistic concurrency control.
+        """
+        return pulumi.get(self, "e_tag")
+
+    @property
+    @pulumi.getter(name="lastAssessmentTimestamp")
+    def last_assessment_timestamp(self) -> str:
+        """
+        Time when last assessment was created. Date-Time represented in ISO-8601 format. This value will be null until assessment is created.
+        """
+        return pulumi.get(self, "last_assessment_timestamp")
+
+    @property
+    @pulumi.getter(name="lastDiscoverySessionId")
+    def last_discovery_session_id(self) -> str:
+        """
+        Session id of the last discovery.
+        """
+        return pulumi.get(self, "last_discovery_session_id")
+
+    @property
+    @pulumi.getter(name="lastDiscoveryTimestamp")
+    def last_discovery_timestamp(self) -> str:
+        """
+        Time when this project was created. Date-Time represented in ISO-8601 format. This value will be null until discovery is complete.
+        """
+        return pulumi.get(self, "last_discovery_timestamp")
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[str]:
+        """
+        Azure location in which project is created.
+        """
+        return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Name of the project.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="numberOfAssessments")
+    def number_of_assessments(self) -> float:
+        """
+        Number of assessments created in the project.
+        """
+        return pulumi.get(self, "number_of_assessments")
+
+    @property
+    @pulumi.getter(name="numberOfGroups")
+    def number_of_groups(self) -> float:
+        """
+        Number of groups created in the project.
+        """
+        return pulumi.get(self, "number_of_groups")
+
+    @property
+    @pulumi.getter(name="numberOfMachines")
+    def number_of_machines(self) -> float:
+        """
+        Number of machines in the project.
+        """
+        return pulumi.get(self, "number_of_machines")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> Optional[str]:
+        """
+        Provisioning state of the project.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Mapping[str, Any]]:
+        """
+        Tags provided by Azure Tagging service.
+        """
+        return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Type of the object = [Microsoft.Migrate/projects].
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="updatedTimestamp")
+    def updated_timestamp(self) -> str:
+        """
+        Time when this project was last updated. Date-Time represented in ISO-8601 format.
+        """
+        return pulumi.get(self, "updated_timestamp")
+
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

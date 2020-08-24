@@ -5,10 +5,16 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
 
+__all__ = [
+    'GetWorkspaceConnectionResult',
+    'AwaitableGetWorkspaceConnectionResult',
+    'get_workspace_connection',
+]
 
+@pulumi.output_type
 class GetWorkspaceConnectionResult:
     """
     Workspace connection.
@@ -16,40 +22,70 @@ class GetWorkspaceConnectionResult:
     def __init__(__self__, auth_type=None, category=None, name=None, target=None, type=None, value=None):
         if auth_type and not isinstance(auth_type, str):
             raise TypeError("Expected argument 'auth_type' to be a str")
-        __self__.auth_type = auth_type
+        pulumi.set(__self__, "auth_type", auth_type)
+        if category and not isinstance(category, str):
+            raise TypeError("Expected argument 'category' to be a str")
+        pulumi.set(__self__, "category", category)
+        if name and not isinstance(name, str):
+            raise TypeError("Expected argument 'name' to be a str")
+        pulumi.set(__self__, "name", name)
+        if target and not isinstance(target, str):
+            raise TypeError("Expected argument 'target' to be a str")
+        pulumi.set(__self__, "target", target)
+        if type and not isinstance(type, str):
+            raise TypeError("Expected argument 'type' to be a str")
+        pulumi.set(__self__, "type", type)
+        if value and not isinstance(value, str):
+            raise TypeError("Expected argument 'value' to be a str")
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter(name="authType")
+    def auth_type(self) -> Optional[str]:
         """
         Authorization type of the workspace connection.
         """
-        if category and not isinstance(category, str):
-            raise TypeError("Expected argument 'category' to be a str")
-        __self__.category = category
+        return pulumi.get(self, "auth_type")
+
+    @property
+    @pulumi.getter
+    def category(self) -> Optional[str]:
         """
         Category of the workspace connection.
         """
-        if name and not isinstance(name, str):
-            raise TypeError("Expected argument 'name' to be a str")
-        __self__.name = name
+        return pulumi.get(self, "category")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
         """
         Friendly name of the workspace connection.
         """
-        if target and not isinstance(target, str):
-            raise TypeError("Expected argument 'target' to be a str")
-        __self__.target = target
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def target(self) -> Optional[str]:
         """
         Target of the workspace connection.
         """
-        if type and not isinstance(type, str):
-            raise TypeError("Expected argument 'type' to be a str")
-        __self__.type = type
+        return pulumi.get(self, "target")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
         """
         Resource type of workspace connection.
         """
-        if value and not isinstance(value, str):
-            raise TypeError("Expected argument 'value' to be a str")
-        __self__.value = value
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[str]:
         """
         Value details of the workspace connection.
         """
+        return pulumi.get(self, "value")
 
 
 class AwaitableGetWorkspaceConnectionResult(GetWorkspaceConnectionResult):
@@ -66,7 +102,10 @@ class AwaitableGetWorkspaceConnectionResult(GetWorkspaceConnectionResult):
             value=self.value)
 
 
-def get_workspace_connection(name=None, resource_group_name=None, workspace_name=None, opts=None):
+def get_workspace_connection(name: Optional[str] = None,
+                             resource_group_name: Optional[str] = None,
+                             workspace_name: Optional[str] = None,
+                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetWorkspaceConnectionResult:
     """
     Use this data source to access information about an existing resource.
 
@@ -82,12 +121,12 @@ def get_workspace_connection(name=None, resource_group_name=None, workspace_name
         opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = _utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('azurerm:machinelearningservices/v20200601:getWorkspaceConnection', __args__, opts=opts).value
+    __ret__ = pulumi.runtime.invoke('azurerm:machinelearningservices/v20200601:getWorkspaceConnection', __args__, opts=opts, typ=GetWorkspaceConnectionResult).value
 
     return AwaitableGetWorkspaceConnectionResult(
-        auth_type=__ret__.get('authType'),
-        category=__ret__.get('category'),
-        name=__ret__.get('name'),
-        target=__ret__.get('target'),
-        type=__ret__.get('type'),
-        value=__ret__.get('value'))
+        auth_type=__ret__.auth_type,
+        category=__ret__.category,
+        name=__ret__.name,
+        target=__ret__.target,
+        type=__ret__.type,
+        value=__ret__.value)

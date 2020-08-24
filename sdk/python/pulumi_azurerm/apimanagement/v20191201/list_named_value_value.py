@@ -5,10 +5,16 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
 
+__all__ = [
+    'ListNamedValueValueResult',
+    'AwaitableListNamedValueValueResult',
+    'list_named_value_value',
+]
 
+@pulumi.output_type
 class ListNamedValueValueResult:
     """
     Client or app secret used in IdentityProviders, Aad, OpenID or OAuth.
@@ -16,10 +22,15 @@ class ListNamedValueValueResult:
     def __init__(__self__, value=None):
         if value and not isinstance(value, str):
             raise TypeError("Expected argument 'value' to be a str")
-        __self__.value = value
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[str]:
         """
         This is secret value of the NamedValue entity.
         """
+        return pulumi.get(self, "value")
 
 
 class AwaitableListNamedValueValueResult(ListNamedValueValueResult):
@@ -31,7 +42,10 @@ class AwaitableListNamedValueValueResult(ListNamedValueValueResult):
             value=self.value)
 
 
-def list_named_value_value(named_value_id=None, resource_group_name=None, service_name=None, opts=None):
+def list_named_value_value(named_value_id: Optional[str] = None,
+                           resource_group_name: Optional[str] = None,
+                           service_name: Optional[str] = None,
+                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListNamedValueValueResult:
     """
     Use this data source to access information about an existing resource.
 
@@ -47,7 +61,7 @@ def list_named_value_value(named_value_id=None, resource_group_name=None, servic
         opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = _utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('azurerm:apimanagement/v20191201:listNamedValueValue', __args__, opts=opts).value
+    __ret__ = pulumi.runtime.invoke('azurerm:apimanagement/v20191201:listNamedValueValue', __args__, opts=opts, typ=ListNamedValueValueResult).value
 
     return AwaitableListNamedValueValueResult(
-        value=__ret__.get('value'))
+        value=__ret__.value)

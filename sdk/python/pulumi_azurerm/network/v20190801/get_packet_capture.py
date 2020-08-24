@@ -5,10 +5,17 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+from . import outputs
 
+__all__ = [
+    'GetPacketCaptureResult',
+    'AwaitableGetPacketCaptureResult',
+    'get_packet_capture',
+]
 
+@pulumi.output_type
 class GetPacketCaptureResult:
     """
     Information about packet capture session.
@@ -16,58 +23,103 @@ class GetPacketCaptureResult:
     def __init__(__self__, bytes_to_capture_per_packet=None, etag=None, filters=None, name=None, provisioning_state=None, storage_location=None, target=None, time_limit_in_seconds=None, total_bytes_per_session=None):
         if bytes_to_capture_per_packet and not isinstance(bytes_to_capture_per_packet, float):
             raise TypeError("Expected argument 'bytes_to_capture_per_packet' to be a float")
-        __self__.bytes_to_capture_per_packet = bytes_to_capture_per_packet
+        pulumi.set(__self__, "bytes_to_capture_per_packet", bytes_to_capture_per_packet)
+        if etag and not isinstance(etag, str):
+            raise TypeError("Expected argument 'etag' to be a str")
+        pulumi.set(__self__, "etag", etag)
+        if filters and not isinstance(filters, list):
+            raise TypeError("Expected argument 'filters' to be a list")
+        pulumi.set(__self__, "filters", filters)
+        if name and not isinstance(name, str):
+            raise TypeError("Expected argument 'name' to be a str")
+        pulumi.set(__self__, "name", name)
+        if provisioning_state and not isinstance(provisioning_state, str):
+            raise TypeError("Expected argument 'provisioning_state' to be a str")
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if storage_location and not isinstance(storage_location, dict):
+            raise TypeError("Expected argument 'storage_location' to be a dict")
+        pulumi.set(__self__, "storage_location", storage_location)
+        if target and not isinstance(target, str):
+            raise TypeError("Expected argument 'target' to be a str")
+        pulumi.set(__self__, "target", target)
+        if time_limit_in_seconds and not isinstance(time_limit_in_seconds, float):
+            raise TypeError("Expected argument 'time_limit_in_seconds' to be a float")
+        pulumi.set(__self__, "time_limit_in_seconds", time_limit_in_seconds)
+        if total_bytes_per_session and not isinstance(total_bytes_per_session, float):
+            raise TypeError("Expected argument 'total_bytes_per_session' to be a float")
+        pulumi.set(__self__, "total_bytes_per_session", total_bytes_per_session)
+
+    @property
+    @pulumi.getter(name="bytesToCapturePerPacket")
+    def bytes_to_capture_per_packet(self) -> Optional[float]:
         """
         Number of bytes captured per packet, the remaining bytes are truncated.
         """
-        if etag and not isinstance(etag, str):
-            raise TypeError("Expected argument 'etag' to be a str")
-        __self__.etag = etag
+        return pulumi.get(self, "bytes_to_capture_per_packet")
+
+    @property
+    @pulumi.getter
+    def etag(self) -> Optional[str]:
         """
         A unique read-only string that changes whenever the resource is updated.
         """
-        if filters and not isinstance(filters, list):
-            raise TypeError("Expected argument 'filters' to be a list")
-        __self__.filters = filters
+        return pulumi.get(self, "etag")
+
+    @property
+    @pulumi.getter
+    def filters(self) -> Optional[List['outputs.PacketCaptureFilterResponse']]:
         """
         A list of packet capture filters.
         """
-        if name and not isinstance(name, str):
-            raise TypeError("Expected argument 'name' to be a str")
-        __self__.name = name
+        return pulumi.get(self, "filters")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
         """
         Name of the packet capture session.
         """
-        if provisioning_state and not isinstance(provisioning_state, str):
-            raise TypeError("Expected argument 'provisioning_state' to be a str")
-        __self__.provisioning_state = provisioning_state
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> Optional[str]:
         """
         The provisioning state of the packet capture session.
         """
-        if storage_location and not isinstance(storage_location, dict):
-            raise TypeError("Expected argument 'storage_location' to be a dict")
-        __self__.storage_location = storage_location
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="storageLocation")
+    def storage_location(self) -> 'outputs.PacketCaptureStorageLocationResponse':
         """
         Describes the storage location for a packet capture session.
         """
-        if target and not isinstance(target, str):
-            raise TypeError("Expected argument 'target' to be a str")
-        __self__.target = target
+        return pulumi.get(self, "storage_location")
+
+    @property
+    @pulumi.getter
+    def target(self) -> str:
         """
         The ID of the targeted resource, only VM is currently supported.
         """
-        if time_limit_in_seconds and not isinstance(time_limit_in_seconds, float):
-            raise TypeError("Expected argument 'time_limit_in_seconds' to be a float")
-        __self__.time_limit_in_seconds = time_limit_in_seconds
+        return pulumi.get(self, "target")
+
+    @property
+    @pulumi.getter(name="timeLimitInSeconds")
+    def time_limit_in_seconds(self) -> Optional[float]:
         """
         Maximum duration of the capture session in seconds.
         """
-        if total_bytes_per_session and not isinstance(total_bytes_per_session, float):
-            raise TypeError("Expected argument 'total_bytes_per_session' to be a float")
-        __self__.total_bytes_per_session = total_bytes_per_session
+        return pulumi.get(self, "time_limit_in_seconds")
+
+    @property
+    @pulumi.getter(name="totalBytesPerSession")
+    def total_bytes_per_session(self) -> Optional[float]:
         """
         Maximum size of the capture output.
         """
+        return pulumi.get(self, "total_bytes_per_session")
 
 
 class AwaitableGetPacketCaptureResult(GetPacketCaptureResult):
@@ -87,7 +139,10 @@ class AwaitableGetPacketCaptureResult(GetPacketCaptureResult):
             total_bytes_per_session=self.total_bytes_per_session)
 
 
-def get_packet_capture(name=None, network_watcher_name=None, resource_group_name=None, opts=None):
+def get_packet_capture(name: Optional[str] = None,
+                       network_watcher_name: Optional[str] = None,
+                       resource_group_name: Optional[str] = None,
+                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPacketCaptureResult:
     """
     Use this data source to access information about an existing resource.
 
@@ -103,15 +158,15 @@ def get_packet_capture(name=None, network_watcher_name=None, resource_group_name
         opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = _utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('azurerm:network/v20190801:getPacketCapture', __args__, opts=opts).value
+    __ret__ = pulumi.runtime.invoke('azurerm:network/v20190801:getPacketCapture', __args__, opts=opts, typ=GetPacketCaptureResult).value
 
     return AwaitableGetPacketCaptureResult(
-        bytes_to_capture_per_packet=__ret__.get('bytesToCapturePerPacket'),
-        etag=__ret__.get('etag'),
-        filters=__ret__.get('filters'),
-        name=__ret__.get('name'),
-        provisioning_state=__ret__.get('provisioningState'),
-        storage_location=__ret__.get('storageLocation'),
-        target=__ret__.get('target'),
-        time_limit_in_seconds=__ret__.get('timeLimitInSeconds'),
-        total_bytes_per_session=__ret__.get('totalBytesPerSession'))
+        bytes_to_capture_per_packet=__ret__.bytes_to_capture_per_packet,
+        etag=__ret__.etag,
+        filters=__ret__.filters,
+        name=__ret__.name,
+        provisioning_state=__ret__.provisioning_state,
+        storage_location=__ret__.storage_location,
+        target=__ret__.target,
+        time_limit_in_seconds=__ret__.time_limit_in_seconds,
+        total_bytes_per_session=__ret__.total_bytes_per_session)

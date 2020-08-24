@@ -5,66 +5,40 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+from . import outputs
+from ._inputs import *
+
+__all__ = ['Manager']
 
 
 class Manager(pulumi.CustomResource):
-    cis_intrinsic_settings: pulumi.Output[dict]
-    """
-    Specifies if the Manager is Garda or Helsinki
-      * `type` (`str`) - Refers to the type of the StorSimple Manager
-    """
-    etag: pulumi.Output[str]
-    """
-    ETag of the Manager
-    """
-    location: pulumi.Output[str]
-    """
-    The Geo location of the Manager
-    """
-    name: pulumi.Output[str]
-    """
-    The Resource Name
-    """
-    provisioning_state: pulumi.Output[str]
-    """
-    Specifies the state of the resource as it is getting provisioned. Value of "Succeeded" means the Manager was successfully created
-    """
-    sku: pulumi.Output[dict]
-    """
-    Specifies the Sku
-      * `name` (`str`) - Refers to the sku name which should be "Standard"
-    """
-    tags: pulumi.Output[dict]
-    """
-    Tags attached to the Manager
-    """
-    type: pulumi.Output[str]
-    """
-    The Resource type
-    """
-    def __init__(__self__, resource_name, opts=None, cis_intrinsic_settings=None, etag=None, location=None, name=None, resource_group_name=None, sku=None, tags=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 cis_intrinsic_settings: Optional[pulumi.Input[pulumi.InputType['ManagerIntrinsicSettingsArgs']]] = None,
+                 etag: Optional[pulumi.Input[str]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 sku: Optional[pulumi.Input[pulumi.InputType['ManagerSkuArgs']]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         The StorSimple Manager
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[dict] cis_intrinsic_settings: Specifies if the Manager is Garda or Helsinki
+        :param pulumi.Input[pulumi.InputType['ManagerIntrinsicSettingsArgs']] cis_intrinsic_settings: Specifies if the Manager is Garda or Helsinki
         :param pulumi.Input[str] etag: ETag of the Manager
         :param pulumi.Input[str] location: The Geo location of the Manager
         :param pulumi.Input[str] name: The manager name
         :param pulumi.Input[str] resource_group_name: The resource group name
-        :param pulumi.Input[dict] sku: Specifies the Sku
-        :param pulumi.Input[dict] tags: Tags attached to the Manager
-
-        The **cis_intrinsic_settings** object supports the following:
-
-          * `type` (`pulumi.Input[str]`) - Refers to the type of the StorSimple Manager
-
-        The **sku** object supports the following:
-
-          * `name` (`pulumi.Input[str]`) - Refers to the sku name which should be "Standard"
+        :param pulumi.Input[pulumi.InputType['ManagerSkuArgs']] sku: Specifies the Sku
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Tags attached to the Manager
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -107,13 +81,15 @@ class Manager(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None) -> 'Manager':
         """
         Get an existing Manager resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -122,8 +98,73 @@ class Manager(pulumi.CustomResource):
 
         return Manager(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter(name="cisIntrinsicSettings")
+    def cis_intrinsic_settings(self) -> Optional['outputs.ManagerIntrinsicSettingsResponse']:
+        """
+        Specifies if the Manager is Garda or Helsinki
+        """
+        return pulumi.get(self, "cis_intrinsic_settings")
+
+    @property
+    @pulumi.getter
+    def etag(self) -> Optional[str]:
+        """
+        ETag of the Manager
+        """
+        return pulumi.get(self, "etag")
+
+    @property
+    @pulumi.getter
+    def location(self) -> str:
+        """
+        The Geo location of the Manager
+        """
+        return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The Resource Name
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        Specifies the state of the resource as it is getting provisioned. Value of "Succeeded" means the Manager was successfully created
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter
+    def sku(self) -> Optional['outputs.ManagerSkuResponse']:
+        """
+        Specifies the Sku
+        """
+        return pulumi.get(self, "sku")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Mapping[str, str]]:
+        """
+        Tags attached to the Manager
+        """
+        return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        The Resource type
+        """
+        return pulumi.get(self, "type")
+
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

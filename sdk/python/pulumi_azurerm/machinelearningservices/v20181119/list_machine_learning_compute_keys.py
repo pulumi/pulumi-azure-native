@@ -5,10 +5,16 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
 
+__all__ = [
+    'ListMachineLearningComputeKeysResult',
+    'AwaitableListMachineLearningComputeKeysResult',
+    'list_machine_learning_compute_keys',
+]
 
+@pulumi.output_type
 class ListMachineLearningComputeKeysResult:
     """
     Secrets related to a Machine Learning compute. Might differ for every type of compute.
@@ -16,10 +22,15 @@ class ListMachineLearningComputeKeysResult:
     def __init__(__self__, compute_type=None):
         if compute_type and not isinstance(compute_type, str):
             raise TypeError("Expected argument 'compute_type' to be a str")
-        __self__.compute_type = compute_type
+        pulumi.set(__self__, "compute_type", compute_type)
+
+    @property
+    @pulumi.getter(name="computeType")
+    def compute_type(self) -> str:
         """
         The type of compute
         """
+        return pulumi.get(self, "compute_type")
 
 
 class AwaitableListMachineLearningComputeKeysResult(ListMachineLearningComputeKeysResult):
@@ -31,7 +42,10 @@ class AwaitableListMachineLearningComputeKeysResult(ListMachineLearningComputeKe
             compute_type=self.compute_type)
 
 
-def list_machine_learning_compute_keys(compute_name=None, resource_group_name=None, workspace_name=None, opts=None):
+def list_machine_learning_compute_keys(compute_name: Optional[str] = None,
+                                       resource_group_name: Optional[str] = None,
+                                       workspace_name: Optional[str] = None,
+                                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListMachineLearningComputeKeysResult:
     """
     Use this data source to access information about an existing resource.
 
@@ -47,7 +61,7 @@ def list_machine_learning_compute_keys(compute_name=None, resource_group_name=No
         opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = _utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('azurerm:machinelearningservices/v20181119:listMachineLearningComputeKeys', __args__, opts=opts).value
+    __ret__ = pulumi.runtime.invoke('azurerm:machinelearningservices/v20181119:listMachineLearningComputeKeys', __args__, opts=opts, typ=ListMachineLearningComputeKeysResult).value
 
     return AwaitableListMachineLearningComputeKeysResult(
-        compute_type=__ret__.get('computeType'))
+        compute_type=__ret__.compute_type)

@@ -5,63 +5,31 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+from . import outputs
+from ._inputs import *
+
+__all__ = ['P2sVpnGateway']
 
 
 class P2sVpnGateway(pulumi.CustomResource):
-    etag: pulumi.Output[str]
-    """
-    Gets a unique read-only string that changes whenever the resource is updated.
-    """
-    location: pulumi.Output[str]
-    """
-    Resource location.
-    """
-    name: pulumi.Output[str]
-    """
-    Resource name.
-    """
-    p2_s_vpn_server_configuration: pulumi.Output[dict]
-    """
-    The P2SVpnServerConfiguration to which the p2sVpnGateway is attached to.
-      * `id` (`str`) - Resource ID.
-    """
-    provisioning_state: pulumi.Output[str]
-    """
-    The provisioning state of the resource.
-    """
-    tags: pulumi.Output[dict]
-    """
-    Resource tags.
-    """
-    type: pulumi.Output[str]
-    """
-    Resource type.
-    """
-    virtual_hub: pulumi.Output[dict]
-    """
-    The VirtualHub to which the gateway belongs
-      * `id` (`str`) - Resource ID.
-    """
-    vpn_client_address_pool: pulumi.Output[dict]
-    """
-    The reference of the address space resource which represents Address space for P2S VpnClient.
-      * `address_prefixes` (`list`) - A list of address blocks reserved for this virtual network in CIDR notation.
-    """
-    vpn_client_connection_health: pulumi.Output[dict]
-    """
-    All P2S VPN clients' connection health status.
-      * `allocated_ip_addresses` (`list`) - List of allocated ip addresses to the connected p2s vpn clients.
-      * `total_egress_bytes_transferred` (`float`) - Total of the Egress Bytes Transferred in this connection
-      * `total_ingress_bytes_transferred` (`float`) - Total of the Ingress Bytes Transferred in this P2S Vpn connection
-      * `vpn_client_connections_count` (`float`) - The total of p2s vpn clients connected at this time to this P2SVpnGateway.
-    """
-    vpn_gateway_scale_unit: pulumi.Output[float]
-    """
-    The scale unit for this p2s vpn gateway.
-    """
-    def __init__(__self__, resource_name, opts=None, id=None, location=None, name=None, p2_s_vpn_server_configuration=None, provisioning_state=None, resource_group_name=None, tags=None, virtual_hub=None, vpn_client_address_pool=None, vpn_gateway_scale_unit=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 id: Optional[pulumi.Input[str]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 p2_s_vpn_server_configuration: Optional[pulumi.Input[pulumi.InputType['SubResourceArgs']]] = None,
+                 provisioning_state: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 virtual_hub: Optional[pulumi.Input[pulumi.InputType['SubResourceArgs']]] = None,
+                 vpn_client_address_pool: Optional[pulumi.Input[pulumi.InputType['AddressSpaceArgs']]] = None,
+                 vpn_gateway_scale_unit: Optional[pulumi.Input[float]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         P2SVpnGateway Resource.
 
@@ -70,21 +38,13 @@ class P2sVpnGateway(pulumi.CustomResource):
         :param pulumi.Input[str] id: Resource ID.
         :param pulumi.Input[str] location: Resource location.
         :param pulumi.Input[str] name: The name of the gateway.
-        :param pulumi.Input[dict] p2_s_vpn_server_configuration: The P2SVpnServerConfiguration to which the p2sVpnGateway is attached to.
+        :param pulumi.Input[pulumi.InputType['SubResourceArgs']] p2_s_vpn_server_configuration: The P2SVpnServerConfiguration to which the p2sVpnGateway is attached to.
         :param pulumi.Input[str] provisioning_state: The provisioning state of the resource.
         :param pulumi.Input[str] resource_group_name: The resource group name of the P2SVpnGateway.
-        :param pulumi.Input[dict] tags: Resource tags.
-        :param pulumi.Input[dict] virtual_hub: The VirtualHub to which the gateway belongs
-        :param pulumi.Input[dict] vpn_client_address_pool: The reference of the address space resource which represents Address space for P2S VpnClient.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
+        :param pulumi.Input[pulumi.InputType['SubResourceArgs']] virtual_hub: The VirtualHub to which the gateway belongs
+        :param pulumi.Input[pulumi.InputType['AddressSpaceArgs']] vpn_client_address_pool: The reference of the address space resource which represents Address space for P2S VpnClient.
         :param pulumi.Input[float] vpn_gateway_scale_unit: The scale unit for this p2s vpn gateway.
-
-        The **p2_s_vpn_server_configuration** object supports the following:
-
-          * `id` (`pulumi.Input[str]`) - Resource ID.
-
-        The **vpn_client_address_pool** object supports the following:
-
-          * `address_prefixes` (`pulumi.Input[list]`) - A list of address blocks reserved for this virtual network in CIDR notation.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -131,13 +91,15 @@ class P2sVpnGateway(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None) -> 'P2sVpnGateway':
         """
         Get an existing P2sVpnGateway resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -146,8 +108,97 @@ class P2sVpnGateway(pulumi.CustomResource):
 
         return P2sVpnGateway(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter
+    def etag(self) -> str:
+        """
+        Gets a unique read-only string that changes whenever the resource is updated.
+        """
+        return pulumi.get(self, "etag")
+
+    @property
+    @pulumi.getter
+    def location(self) -> str:
+        """
+        Resource location.
+        """
+        return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Resource name.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="p2SVpnServerConfiguration")
+    def p2_s_vpn_server_configuration(self) -> Optional['outputs.SubResourceResponse']:
+        """
+        The P2SVpnServerConfiguration to which the p2sVpnGateway is attached to.
+        """
+        return pulumi.get(self, "p2_s_vpn_server_configuration")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> Optional[str]:
+        """
+        The provisioning state of the resource.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Mapping[str, str]]:
+        """
+        Resource tags.
+        """
+        return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Resource type.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="virtualHub")
+    def virtual_hub(self) -> Optional['outputs.SubResourceResponse']:
+        """
+        The VirtualHub to which the gateway belongs
+        """
+        return pulumi.get(self, "virtual_hub")
+
+    @property
+    @pulumi.getter(name="vpnClientAddressPool")
+    def vpn_client_address_pool(self) -> Optional['outputs.AddressSpaceResponse']:
+        """
+        The reference of the address space resource which represents Address space for P2S VpnClient.
+        """
+        return pulumi.get(self, "vpn_client_address_pool")
+
+    @property
+    @pulumi.getter(name="vpnClientConnectionHealth")
+    def vpn_client_connection_health(self) -> 'outputs.VpnClientConnectionHealthResponse':
+        """
+        All P2S VPN clients' connection health status.
+        """
+        return pulumi.get(self, "vpn_client_connection_health")
+
+    @property
+    @pulumi.getter(name="vpnGatewayScaleUnit")
+    def vpn_gateway_scale_unit(self) -> Optional[float]:
+        """
+        The scale unit for this p2s vpn gateway.
+        """
+        return pulumi.get(self, "vpn_gateway_scale_unit")
+
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

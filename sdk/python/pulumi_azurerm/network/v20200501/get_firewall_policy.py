@@ -5,10 +5,17 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+from . import outputs
 
+__all__ = [
+    'GetFirewallPolicyResult',
+    'AwaitableGetFirewallPolicyResult',
+    'get_firewall_policy',
+]
 
+@pulumi.output_type
 class GetFirewallPolicyResult:
     """
     FirewallPolicy Resource.
@@ -16,82 +23,147 @@ class GetFirewallPolicyResult:
     def __init__(__self__, base_policy=None, child_policies=None, dns_settings=None, etag=None, firewalls=None, location=None, name=None, provisioning_state=None, rule_collection_groups=None, tags=None, threat_intel_mode=None, threat_intel_whitelist=None, type=None):
         if base_policy and not isinstance(base_policy, dict):
             raise TypeError("Expected argument 'base_policy' to be a dict")
-        __self__.base_policy = base_policy
+        pulumi.set(__self__, "base_policy", base_policy)
+        if child_policies and not isinstance(child_policies, list):
+            raise TypeError("Expected argument 'child_policies' to be a list")
+        pulumi.set(__self__, "child_policies", child_policies)
+        if dns_settings and not isinstance(dns_settings, dict):
+            raise TypeError("Expected argument 'dns_settings' to be a dict")
+        pulumi.set(__self__, "dns_settings", dns_settings)
+        if etag and not isinstance(etag, str):
+            raise TypeError("Expected argument 'etag' to be a str")
+        pulumi.set(__self__, "etag", etag)
+        if firewalls and not isinstance(firewalls, list):
+            raise TypeError("Expected argument 'firewalls' to be a list")
+        pulumi.set(__self__, "firewalls", firewalls)
+        if location and not isinstance(location, str):
+            raise TypeError("Expected argument 'location' to be a str")
+        pulumi.set(__self__, "location", location)
+        if name and not isinstance(name, str):
+            raise TypeError("Expected argument 'name' to be a str")
+        pulumi.set(__self__, "name", name)
+        if provisioning_state and not isinstance(provisioning_state, str):
+            raise TypeError("Expected argument 'provisioning_state' to be a str")
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if rule_collection_groups and not isinstance(rule_collection_groups, list):
+            raise TypeError("Expected argument 'rule_collection_groups' to be a list")
+        pulumi.set(__self__, "rule_collection_groups", rule_collection_groups)
+        if tags and not isinstance(tags, dict):
+            raise TypeError("Expected argument 'tags' to be a dict")
+        pulumi.set(__self__, "tags", tags)
+        if threat_intel_mode and not isinstance(threat_intel_mode, str):
+            raise TypeError("Expected argument 'threat_intel_mode' to be a str")
+        pulumi.set(__self__, "threat_intel_mode", threat_intel_mode)
+        if threat_intel_whitelist and not isinstance(threat_intel_whitelist, dict):
+            raise TypeError("Expected argument 'threat_intel_whitelist' to be a dict")
+        pulumi.set(__self__, "threat_intel_whitelist", threat_intel_whitelist)
+        if type and not isinstance(type, str):
+            raise TypeError("Expected argument 'type' to be a str")
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="basePolicy")
+    def base_policy(self) -> Optional['outputs.SubResourceResponse']:
         """
         The parent firewall policy from which rules are inherited.
         """
-        if child_policies and not isinstance(child_policies, list):
-            raise TypeError("Expected argument 'child_policies' to be a list")
-        __self__.child_policies = child_policies
+        return pulumi.get(self, "base_policy")
+
+    @property
+    @pulumi.getter(name="childPolicies")
+    def child_policies(self) -> List['outputs.SubResourceResponse']:
         """
         List of references to Child Firewall Policies.
         """
-        if dns_settings and not isinstance(dns_settings, dict):
-            raise TypeError("Expected argument 'dns_settings' to be a dict")
-        __self__.dns_settings = dns_settings
+        return pulumi.get(self, "child_policies")
+
+    @property
+    @pulumi.getter(name="dnsSettings")
+    def dns_settings(self) -> Optional['outputs.DnsSettingsResponse']:
         """
         DNS Proxy Settings definition.
         """
-        if etag and not isinstance(etag, str):
-            raise TypeError("Expected argument 'etag' to be a str")
-        __self__.etag = etag
+        return pulumi.get(self, "dns_settings")
+
+    @property
+    @pulumi.getter
+    def etag(self) -> str:
         """
         A unique read-only string that changes whenever the resource is updated.
         """
-        if firewalls and not isinstance(firewalls, list):
-            raise TypeError("Expected argument 'firewalls' to be a list")
-        __self__.firewalls = firewalls
+        return pulumi.get(self, "etag")
+
+    @property
+    @pulumi.getter
+    def firewalls(self) -> List['outputs.SubResourceResponse']:
         """
         List of references to Azure Firewalls that this Firewall Policy is associated with.
         """
-        if location and not isinstance(location, str):
-            raise TypeError("Expected argument 'location' to be a str")
-        __self__.location = location
+        return pulumi.get(self, "firewalls")
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[str]:
         """
         Resource location.
         """
-        if name and not isinstance(name, str):
-            raise TypeError("Expected argument 'name' to be a str")
-        __self__.name = name
+        return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
         """
         Resource name.
         """
-        if provisioning_state and not isinstance(provisioning_state, str):
-            raise TypeError("Expected argument 'provisioning_state' to be a str")
-        __self__.provisioning_state = provisioning_state
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
         """
         The provisioning state of the firewall policy resource.
         """
-        if rule_collection_groups and not isinstance(rule_collection_groups, list):
-            raise TypeError("Expected argument 'rule_collection_groups' to be a list")
-        __self__.rule_collection_groups = rule_collection_groups
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="ruleCollectionGroups")
+    def rule_collection_groups(self) -> List['outputs.SubResourceResponse']:
         """
         List of references to FirewallPolicyRuleCollectionGroups.
         """
-        if tags and not isinstance(tags, dict):
-            raise TypeError("Expected argument 'tags' to be a dict")
-        __self__.tags = tags
+        return pulumi.get(self, "rule_collection_groups")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Mapping[str, str]]:
         """
         Resource tags.
         """
-        if threat_intel_mode and not isinstance(threat_intel_mode, str):
-            raise TypeError("Expected argument 'threat_intel_mode' to be a str")
-        __self__.threat_intel_mode = threat_intel_mode
+        return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter(name="threatIntelMode")
+    def threat_intel_mode(self) -> Optional[str]:
         """
         The operation mode for Threat Intelligence.
         """
-        if threat_intel_whitelist and not isinstance(threat_intel_whitelist, dict):
-            raise TypeError("Expected argument 'threat_intel_whitelist' to be a dict")
-        __self__.threat_intel_whitelist = threat_intel_whitelist
+        return pulumi.get(self, "threat_intel_mode")
+
+    @property
+    @pulumi.getter(name="threatIntelWhitelist")
+    def threat_intel_whitelist(self) -> Optional['outputs.FirewallPolicyThreatIntelWhitelistResponse']:
         """
         ThreatIntel Whitelist for Firewall Policy.
         """
-        if type and not isinstance(type, str):
-            raise TypeError("Expected argument 'type' to be a str")
-        __self__.type = type
+        return pulumi.get(self, "threat_intel_whitelist")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
         """
         Resource type.
         """
+        return pulumi.get(self, "type")
 
 
 class AwaitableGetFirewallPolicyResult(GetFirewallPolicyResult):
@@ -115,7 +187,10 @@ class AwaitableGetFirewallPolicyResult(GetFirewallPolicyResult):
             type=self.type)
 
 
-def get_firewall_policy(expand=None, name=None, resource_group_name=None, opts=None):
+def get_firewall_policy(expand: Optional[str] = None,
+                        name: Optional[str] = None,
+                        resource_group_name: Optional[str] = None,
+                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetFirewallPolicyResult:
     """
     Use this data source to access information about an existing resource.
 
@@ -131,19 +206,19 @@ def get_firewall_policy(expand=None, name=None, resource_group_name=None, opts=N
         opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = _utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('azurerm:network/v20200501:getFirewallPolicy', __args__, opts=opts).value
+    __ret__ = pulumi.runtime.invoke('azurerm:network/v20200501:getFirewallPolicy', __args__, opts=opts, typ=GetFirewallPolicyResult).value
 
     return AwaitableGetFirewallPolicyResult(
-        base_policy=__ret__.get('basePolicy'),
-        child_policies=__ret__.get('childPolicies'),
-        dns_settings=__ret__.get('dnsSettings'),
-        etag=__ret__.get('etag'),
-        firewalls=__ret__.get('firewalls'),
-        location=__ret__.get('location'),
-        name=__ret__.get('name'),
-        provisioning_state=__ret__.get('provisioningState'),
-        rule_collection_groups=__ret__.get('ruleCollectionGroups'),
-        tags=__ret__.get('tags'),
-        threat_intel_mode=__ret__.get('threatIntelMode'),
-        threat_intel_whitelist=__ret__.get('threatIntelWhitelist'),
-        type=__ret__.get('type'))
+        base_policy=__ret__.base_policy,
+        child_policies=__ret__.child_policies,
+        dns_settings=__ret__.dns_settings,
+        etag=__ret__.etag,
+        firewalls=__ret__.firewalls,
+        location=__ret__.location,
+        name=__ret__.name,
+        provisioning_state=__ret__.provisioning_state,
+        rule_collection_groups=__ret__.rule_collection_groups,
+        tags=__ret__.tags,
+        threat_intel_mode=__ret__.threat_intel_mode,
+        threat_intel_whitelist=__ret__.threat_intel_whitelist,
+        type=__ret__.type)

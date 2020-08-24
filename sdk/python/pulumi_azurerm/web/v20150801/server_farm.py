@@ -5,89 +5,36 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+from . import outputs
+from ._inputs import *
+
+__all__ = ['ServerFarm']
 
 
 class ServerFarm(pulumi.CustomResource):
-    admin_site_name: pulumi.Output[str]
-    """
-    App Service Plan administration site
-    """
-    geo_region: pulumi.Output[str]
-    """
-    Geographical location for the App Service Plan
-    """
-    hosting_environment_profile: pulumi.Output[dict]
-    """
-    Specification for the hosting environment (App Service Environment) to use for the App Service Plan
-      * `id` (`str`) - Resource id of the hostingEnvironment (App Service Environment)
-      * `name` (`str`) - Name of the hostingEnvironment (App Service Environment) (read only)
-      * `type` (`str`) - Resource type of the hostingEnvironment (App Service Environment) (read only)
-    """
-    kind: pulumi.Output[str]
-    """
-    Kind of resource
-    """
-    location: pulumi.Output[str]
-    """
-    Resource Location
-    """
-    maximum_number_of_workers: pulumi.Output[float]
-    """
-    Maximum number of instances that can be assigned to this App Service Plan
-    """
-    name: pulumi.Output[str]
-    """
-    Resource Name
-    """
-    number_of_sites: pulumi.Output[float]
-    """
-    Number of web apps assigned to this App Service Plan
-    """
-    per_site_scaling: pulumi.Output[bool]
-    """
-    If True apps assigned to this App Service Plan can be scaled independently
-                If False apps assigned to this App Service Plan will scale to all instances of the plan
-    """
-    reserved: pulumi.Output[bool]
-    """
-    Enables creation of a Linux App Service Plan
-    """
-    resource_group: pulumi.Output[str]
-    """
-    Resource group of the server farm
-    """
-    sku: pulumi.Output[dict]
-    """
-    Describes a sku for a scalable resource
-      * `capacity` (`float`) - Current number of instances assigned to the resource
-      * `family` (`str`) - Family code of the resource sku
-      * `name` (`str`) - Name of the resource sku
-      * `size` (`str`) - Size specifier of the resource sku
-      * `tier` (`str`) - Service Tier of the resource sku
-    """
-    status: pulumi.Output[str]
-    """
-    App Service Plan Status
-    """
-    subscription: pulumi.Output[str]
-    """
-    App Service Plan Subscription
-    """
-    tags: pulumi.Output[dict]
-    """
-    Resource tags
-    """
-    type: pulumi.Output[str]
-    """
-    Resource type
-    """
-    worker_tier_name: pulumi.Output[str]
-    """
-    Target worker tier assigned to the App Service Plan
-    """
-    def __init__(__self__, resource_name, opts=None, admin_site_name=None, allow_pending_state=None, hosting_environment_profile=None, id=None, kind=None, location=None, maximum_number_of_workers=None, name=None, per_site_scaling=None, reserved=None, resource_group_name=None, sku=None, tags=None, type=None, worker_tier_name=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 admin_site_name: Optional[pulumi.Input[str]] = None,
+                 allow_pending_state: Optional[pulumi.Input[bool]] = None,
+                 hosting_environment_profile: Optional[pulumi.Input[pulumi.InputType['HostingEnvironmentProfileArgs']]] = None,
+                 id: Optional[pulumi.Input[str]] = None,
+                 kind: Optional[pulumi.Input[str]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 maximum_number_of_workers: Optional[pulumi.Input[float]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 per_site_scaling: Optional[pulumi.Input[bool]] = None,
+                 reserved: Optional[pulumi.Input[bool]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 sku: Optional[pulumi.Input[pulumi.InputType['SkuDescriptionArgs']]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 type: Optional[pulumi.Input[str]] = None,
+                 worker_tier_name: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         App Service Plan Model
 
@@ -95,7 +42,7 @@ class ServerFarm(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] admin_site_name: App Service Plan administration site
         :param pulumi.Input[bool] allow_pending_state: OBSOLETE: If true, allow pending state for App Service Plan
-        :param pulumi.Input[dict] hosting_environment_profile: Specification for the hosting environment (App Service Environment) to use for the App Service Plan
+        :param pulumi.Input[pulumi.InputType['HostingEnvironmentProfileArgs']] hosting_environment_profile: Specification for the hosting environment (App Service Environment) to use for the App Service Plan
         :param pulumi.Input[str] id: Resource Id
         :param pulumi.Input[str] kind: Kind of resource
         :param pulumi.Input[str] location: Resource Location
@@ -105,24 +52,10 @@ class ServerFarm(pulumi.CustomResource):
                            If False apps assigned to this App Service Plan will scale to all instances of the plan
         :param pulumi.Input[bool] reserved: Enables creation of a Linux App Service Plan
         :param pulumi.Input[str] resource_group_name: Name of resource group
-        :param pulumi.Input[dict] sku: Describes a sku for a scalable resource
-        :param pulumi.Input[dict] tags: Resource tags
+        :param pulumi.Input[pulumi.InputType['SkuDescriptionArgs']] sku: Describes a sku for a scalable resource
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags
         :param pulumi.Input[str] type: Resource type
         :param pulumi.Input[str] worker_tier_name: Target worker tier assigned to the App Service Plan
-
-        The **hosting_environment_profile** object supports the following:
-
-          * `id` (`pulumi.Input[str]`) - Resource id of the hostingEnvironment (App Service Environment)
-          * `name` (`pulumi.Input[str]`) - Name of the hostingEnvironment (App Service Environment) (read only)
-          * `type` (`pulumi.Input[str]`) - Resource type of the hostingEnvironment (App Service Environment) (read only)
-
-        The **sku** object supports the following:
-
-          * `capacity` (`pulumi.Input[float]`) - Current number of instances assigned to the resource
-          * `family` (`pulumi.Input[str]`) - Family code of the resource sku
-          * `name` (`pulumi.Input[str]`) - Name of the resource sku
-          * `size` (`pulumi.Input[str]`) - Size specifier of the resource sku
-          * `tier` (`pulumi.Input[str]`) - Service Tier of the resource sku
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -176,13 +109,15 @@ class ServerFarm(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None) -> 'ServerFarm':
         """
         Get an existing ServerFarm resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -191,8 +126,146 @@ class ServerFarm(pulumi.CustomResource):
 
         return ServerFarm(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter(name="adminSiteName")
+    def admin_site_name(self) -> Optional[str]:
+        """
+        App Service Plan administration site
+        """
+        return pulumi.get(self, "admin_site_name")
+
+    @property
+    @pulumi.getter(name="geoRegion")
+    def geo_region(self) -> str:
+        """
+        Geographical location for the App Service Plan
+        """
+        return pulumi.get(self, "geo_region")
+
+    @property
+    @pulumi.getter(name="hostingEnvironmentProfile")
+    def hosting_environment_profile(self) -> Optional['outputs.HostingEnvironmentProfileResponse']:
+        """
+        Specification for the hosting environment (App Service Environment) to use for the App Service Plan
+        """
+        return pulumi.get(self, "hosting_environment_profile")
+
+    @property
+    @pulumi.getter
+    def kind(self) -> Optional[str]:
+        """
+        Kind of resource
+        """
+        return pulumi.get(self, "kind")
+
+    @property
+    @pulumi.getter
+    def location(self) -> str:
+        """
+        Resource Location
+        """
+        return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter(name="maximumNumberOfWorkers")
+    def maximum_number_of_workers(self) -> Optional[float]:
+        """
+        Maximum number of instances that can be assigned to this App Service Plan
+        """
+        return pulumi.get(self, "maximum_number_of_workers")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        Resource Name
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="numberOfSites")
+    def number_of_sites(self) -> float:
+        """
+        Number of web apps assigned to this App Service Plan
+        """
+        return pulumi.get(self, "number_of_sites")
+
+    @property
+    @pulumi.getter(name="perSiteScaling")
+    def per_site_scaling(self) -> Optional[bool]:
+        """
+        If True apps assigned to this App Service Plan can be scaled independently
+                    If False apps assigned to this App Service Plan will scale to all instances of the plan
+        """
+        return pulumi.get(self, "per_site_scaling")
+
+    @property
+    @pulumi.getter
+    def reserved(self) -> Optional[bool]:
+        """
+        Enables creation of a Linux App Service Plan
+        """
+        return pulumi.get(self, "reserved")
+
+    @property
+    @pulumi.getter(name="resourceGroup")
+    def resource_group(self) -> str:
+        """
+        Resource group of the server farm
+        """
+        return pulumi.get(self, "resource_group")
+
+    @property
+    @pulumi.getter
+    def sku(self) -> Optional['outputs.SkuDescriptionResponse']:
+        """
+        Describes a sku for a scalable resource
+        """
+        return pulumi.get(self, "sku")
+
+    @property
+    @pulumi.getter
+    def status(self) -> str:
+        """
+        App Service Plan Status
+        """
+        return pulumi.get(self, "status")
+
+    @property
+    @pulumi.getter
+    def subscription(self) -> str:
+        """
+        App Service Plan Subscription
+        """
+        return pulumi.get(self, "subscription")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Mapping[str, str]]:
+        """
+        Resource tags
+        """
+        return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[str]:
+        """
+        Resource type
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="workerTierName")
+    def worker_tier_name(self) -> Optional[str]:
+        """
+        Target worker tier assigned to the App Service Plan
+        """
+        return pulumi.get(self, "worker_tier_name")
+
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

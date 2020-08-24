@@ -12,3 +12,5 @@ from .list_workspace_keys import *
 from .machine_learning_compute import *
 from .private_endpoint_connection import *
 from .workspace import *
+from ._inputs import *
+from . import outputs

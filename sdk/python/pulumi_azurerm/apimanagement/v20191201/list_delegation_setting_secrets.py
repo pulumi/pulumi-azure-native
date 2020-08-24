@@ -5,10 +5,16 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
 
+__all__ = [
+    'ListDelegationSettingSecretsResult',
+    'AwaitableListDelegationSettingSecretsResult',
+    'list_delegation_setting_secrets',
+]
 
+@pulumi.output_type
 class ListDelegationSettingSecretsResult:
     """
     Client or app secret used in IdentityProviders, Aad, OpenID or OAuth.
@@ -16,10 +22,15 @@ class ListDelegationSettingSecretsResult:
     def __init__(__self__, validation_key=None):
         if validation_key and not isinstance(validation_key, str):
             raise TypeError("Expected argument 'validation_key' to be a str")
-        __self__.validation_key = validation_key
+        pulumi.set(__self__, "validation_key", validation_key)
+
+    @property
+    @pulumi.getter(name="validationKey")
+    def validation_key(self) -> Optional[str]:
         """
         This is secret value of the validation key in portal settings.
         """
+        return pulumi.get(self, "validation_key")
 
 
 class AwaitableListDelegationSettingSecretsResult(ListDelegationSettingSecretsResult):
@@ -31,7 +42,9 @@ class AwaitableListDelegationSettingSecretsResult(ListDelegationSettingSecretsRe
             validation_key=self.validation_key)
 
 
-def list_delegation_setting_secrets(resource_group_name=None, service_name=None, opts=None):
+def list_delegation_setting_secrets(resource_group_name: Optional[str] = None,
+                                    service_name: Optional[str] = None,
+                                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListDelegationSettingSecretsResult:
     """
     Use this data source to access information about an existing resource.
 
@@ -45,7 +58,7 @@ def list_delegation_setting_secrets(resource_group_name=None, service_name=None,
         opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = _utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('azurerm:apimanagement/v20191201:listDelegationSettingSecrets', __args__, opts=opts).value
+    __ret__ = pulumi.runtime.invoke('azurerm:apimanagement/v20191201:listDelegationSettingSecrets', __args__, opts=opts, typ=ListDelegationSettingSecretsResult).value
 
     return AwaitableListDelegationSettingSecretsResult(
-        validation_key=__ret__.get('validationKey'))
+        validation_key=__ret__.validation_key)

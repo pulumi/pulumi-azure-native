@@ -5,10 +5,16 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
 
+__all__ = [
+    'GetIotHubResourceEventHubConsumerGroupResult',
+    'AwaitableGetIotHubResourceEventHubConsumerGroupResult',
+    'get_iot_hub_resource_event_hub_consumer_group',
+]
 
+@pulumi.output_type
 class GetIotHubResourceEventHubConsumerGroupResult:
     """
     The properties of the EventHubConsumerGroupInfo object.
@@ -16,28 +22,48 @@ class GetIotHubResourceEventHubConsumerGroupResult:
     def __init__(__self__, etag=None, name=None, properties=None, type=None):
         if etag and not isinstance(etag, str):
             raise TypeError("Expected argument 'etag' to be a str")
-        __self__.etag = etag
+        pulumi.set(__self__, "etag", etag)
+        if name and not isinstance(name, str):
+            raise TypeError("Expected argument 'name' to be a str")
+        pulumi.set(__self__, "name", name)
+        if properties and not isinstance(properties, dict):
+            raise TypeError("Expected argument 'properties' to be a dict")
+        pulumi.set(__self__, "properties", properties)
+        if type and not isinstance(type, str):
+            raise TypeError("Expected argument 'type' to be a str")
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def etag(self) -> str:
         """
         The etag.
         """
-        if name and not isinstance(name, str):
-            raise TypeError("Expected argument 'name' to be a str")
-        __self__.name = name
+        return pulumi.get(self, "etag")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
         """
         The Event Hub-compatible consumer group name.
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def properties(self) -> Mapping[str, str]:
         """
         The tags.
         """
-        if type and not isinstance(type, str):
-            raise TypeError("Expected argument 'type' to be a str")
-        __self__.type = type
+        return pulumi.get(self, "properties")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
         """
         the resource type.
         """
+        return pulumi.get(self, "type")
 
 
 class AwaitableGetIotHubResourceEventHubConsumerGroupResult(GetIotHubResourceEventHubConsumerGroupResult):
@@ -52,7 +78,11 @@ class AwaitableGetIotHubResourceEventHubConsumerGroupResult(GetIotHubResourceEve
             type=self.type)
 
 
-def get_iot_hub_resource_event_hub_consumer_group(event_hub_endpoint_name=None, name=None, resource_group_name=None, resource_name=None, opts=None):
+def get_iot_hub_resource_event_hub_consumer_group(event_hub_endpoint_name: Optional[str] = None,
+                                                  name: Optional[str] = None,
+                                                  resource_group_name: Optional[str] = None,
+                                                  resource_name: Optional[str] = None,
+                                                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetIotHubResourceEventHubConsumerGroupResult:
     """
     Use this data source to access information about an existing resource.
 
@@ -70,10 +100,10 @@ def get_iot_hub_resource_event_hub_consumer_group(event_hub_endpoint_name=None, 
         opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = _utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('azurerm:devices/v20200401:getIotHubResourceEventHubConsumerGroup', __args__, opts=opts).value
+    __ret__ = pulumi.runtime.invoke('azurerm:devices/v20200401:getIotHubResourceEventHubConsumerGroup', __args__, opts=opts, typ=GetIotHubResourceEventHubConsumerGroupResult).value
 
     return AwaitableGetIotHubResourceEventHubConsumerGroupResult(
-        etag=__ret__.get('etag'),
-        name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
-        type=__ret__.get('type'))
+        etag=__ret__.etag,
+        name=__ret__.name,
+        properties=__ret__.properties,
+        type=__ret__.type)

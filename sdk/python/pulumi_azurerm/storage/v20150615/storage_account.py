@@ -5,82 +5,25 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+from . import outputs
+
+__all__ = ['StorageAccount']
 
 
 class StorageAccount(pulumi.CustomResource):
-    account_type: pulumi.Output[str]
-    """
-    The type of the storage account.
-    """
-    creation_time: pulumi.Output[str]
-    """
-    The creation date and time of the storage account in UTC.
-    """
-    custom_domain: pulumi.Output[dict]
-    """
-    The custom domain the user assigned to this storage account.
-      * `name` (`str`) - The custom domain name. Name is the CNAME source.
-      * `use_sub_domain_name` (`bool`) - Indicates whether indirect CName validation is enabled. Default value is false. This should only be set on updates
-    """
-    last_geo_failover_time: pulumi.Output[str]
-    """
-    The timestamp of the most recent instance of a failover to the secondary location. Only the most recent timestamp is retained. This element is not returned if there has never been a failover instance. Only available if the accountType is Standard_GRS or Standard_RAGRS.
-    """
-    location: pulumi.Output[str]
-    """
-    Resource location
-    """
-    name: pulumi.Output[str]
-    """
-    Resource name
-    """
-    primary_endpoints: pulumi.Output[dict]
-    """
-    The URLs that are used to perform a retrieval of a public blob, queue, or table object. Note that Standard_ZRS and Premium_LRS accounts only return the blob endpoint.
-      * `blob` (`str`) - The blob endpoint.
-      * `file` (`str`) - The file endpoint.
-      * `queue` (`str`) - The queue endpoint.
-      * `table` (`str`) - The table endpoint.
-    """
-    primary_location: pulumi.Output[str]
-    """
-    The location of the primary data center for the storage account.
-    """
-    provisioning_state: pulumi.Output[str]
-    """
-    The status of the storage account at the time the operation was called.
-    """
-    secondary_endpoints: pulumi.Output[dict]
-    """
-    The URLs that are used to perform a retrieval of a public blob, queue, or table object from the secondary location of the storage account. Only available if the SKU name is Standard_RAGRS.
-      * `blob` (`str`) - The blob endpoint.
-      * `file` (`str`) - The file endpoint.
-      * `queue` (`str`) - The queue endpoint.
-      * `table` (`str`) - The table endpoint.
-    """
-    secondary_location: pulumi.Output[str]
-    """
-    The location of the geo-replicated secondary for the storage account. Only available if the accountType is Standard_GRS or Standard_RAGRS.
-    """
-    status_of_primary: pulumi.Output[str]
-    """
-    The status indicating whether the primary location of the storage account is available or unavailable.
-    """
-    status_of_secondary: pulumi.Output[str]
-    """
-    The status indicating whether the secondary location of the storage account is available or unavailable. Only available if the SKU name is Standard_GRS or Standard_RAGRS.
-    """
-    tags: pulumi.Output[dict]
-    """
-    Resource tags
-    """
-    type: pulumi.Output[str]
-    """
-    Resource type
-    """
-    def __init__(__self__, resource_name, opts=None, account_type=None, location=None, name=None, resource_group_name=None, tags=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 account_type: Optional[pulumi.Input[str]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         The storage account.
 
@@ -90,7 +33,7 @@ class StorageAccount(pulumi.CustomResource):
         :param pulumi.Input[str] location: The location of the resource. This will be one of the supported and registered Azure Geo Regions (e.g. West US, East US, Southeast Asia, etc.). The geo region of a resource cannot be changed once it is created, but if an identical geo region is specified on update, the request will succeed.
         :param pulumi.Input[str] name: The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.
         :param pulumi.Input[str] resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.
-        :param pulumi.Input[dict] tags: A list of key value pairs that describe the resource. These tags can be used for viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key with a length no greater than 128 characters and a value with a length no greater than 256 characters.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A list of key value pairs that describe the resource. These tags can be used for viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key with a length no greater than 128 characters and a value with a length no greater than 256 characters.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -142,13 +85,15 @@ class StorageAccount(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None) -> 'StorageAccount':
         """
         Get an existing StorageAccount resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -157,8 +102,129 @@ class StorageAccount(pulumi.CustomResource):
 
         return StorageAccount(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter(name="accountType")
+    def account_type(self) -> Optional[str]:
+        """
+        The type of the storage account.
+        """
+        return pulumi.get(self, "account_type")
+
+    @property
+    @pulumi.getter(name="creationTime")
+    def creation_time(self) -> Optional[str]:
+        """
+        The creation date and time of the storage account in UTC.
+        """
+        return pulumi.get(self, "creation_time")
+
+    @property
+    @pulumi.getter(name="customDomain")
+    def custom_domain(self) -> Optional['outputs.CustomDomainResponse']:
+        """
+        The custom domain the user assigned to this storage account.
+        """
+        return pulumi.get(self, "custom_domain")
+
+    @property
+    @pulumi.getter(name="lastGeoFailoverTime")
+    def last_geo_failover_time(self) -> Optional[str]:
+        """
+        The timestamp of the most recent instance of a failover to the secondary location. Only the most recent timestamp is retained. This element is not returned if there has never been a failover instance. Only available if the accountType is Standard_GRS or Standard_RAGRS.
+        """
+        return pulumi.get(self, "last_geo_failover_time")
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[str]:
+        """
+        Resource location
+        """
+        return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Resource name
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="primaryEndpoints")
+    def primary_endpoints(self) -> Optional['outputs.EndpointsResponse']:
+        """
+        The URLs that are used to perform a retrieval of a public blob, queue, or table object. Note that Standard_ZRS and Premium_LRS accounts only return the blob endpoint.
+        """
+        return pulumi.get(self, "primary_endpoints")
+
+    @property
+    @pulumi.getter(name="primaryLocation")
+    def primary_location(self) -> Optional[str]:
+        """
+        The location of the primary data center for the storage account.
+        """
+        return pulumi.get(self, "primary_location")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> Optional[str]:
+        """
+        The status of the storage account at the time the operation was called.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="secondaryEndpoints")
+    def secondary_endpoints(self) -> Optional['outputs.EndpointsResponse']:
+        """
+        The URLs that are used to perform a retrieval of a public blob, queue, or table object from the secondary location of the storage account. Only available if the SKU name is Standard_RAGRS.
+        """
+        return pulumi.get(self, "secondary_endpoints")
+
+    @property
+    @pulumi.getter(name="secondaryLocation")
+    def secondary_location(self) -> Optional[str]:
+        """
+        The location of the geo-replicated secondary for the storage account. Only available if the accountType is Standard_GRS or Standard_RAGRS.
+        """
+        return pulumi.get(self, "secondary_location")
+
+    @property
+    @pulumi.getter(name="statusOfPrimary")
+    def status_of_primary(self) -> Optional[str]:
+        """
+        The status indicating whether the primary location of the storage account is available or unavailable.
+        """
+        return pulumi.get(self, "status_of_primary")
+
+    @property
+    @pulumi.getter(name="statusOfSecondary")
+    def status_of_secondary(self) -> Optional[str]:
+        """
+        The status indicating whether the secondary location of the storage account is available or unavailable. Only available if the SKU name is Standard_GRS or Standard_RAGRS.
+        """
+        return pulumi.get(self, "status_of_secondary")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Mapping[str, str]]:
+        """
+        Resource tags
+        """
+        return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Resource type
+        """
+        return pulumi.get(self, "type")
+
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

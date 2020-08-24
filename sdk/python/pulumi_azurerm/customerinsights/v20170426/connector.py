@@ -5,70 +5,33 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+
+__all__ = ['Connector']
 
 
 class Connector(pulumi.CustomResource):
-    connector_id: pulumi.Output[float]
-    """
-    ID of the connector.
-    """
-    connector_name: pulumi.Output[str]
-    """
-    Name of the connector.
-    """
-    connector_properties: pulumi.Output[dict]
-    """
-    The connector properties.
-    """
-    connector_type: pulumi.Output[str]
-    """
-    Type of connector.
-    """
-    created: pulumi.Output[str]
-    """
-    The created time.
-    """
-    description: pulumi.Output[str]
-    """
-    Description of the connector.
-    """
-    display_name: pulumi.Output[str]
-    """
-    Display name of the connector.
-    """
-    is_internal: pulumi.Output[bool]
-    """
-    If this is an internal connector.
-    """
-    last_modified: pulumi.Output[str]
-    """
-    The last modified time.
-    """
-    name: pulumi.Output[str]
-    """
-    Resource name.
-    """
-    state: pulumi.Output[str]
-    """
-    State of connector.
-    """
-    tenant_id: pulumi.Output[str]
-    """
-    The hub name.
-    """
-    type: pulumi.Output[str]
-    """
-    Resource type.
-    """
-    def __init__(__self__, resource_name, opts=None, connector_properties=None, connector_type=None, description=None, display_name=None, hub_name=None, is_internal=None, name=None, resource_group_name=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 connector_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[Mapping[str, Any]]]]] = None,
+                 connector_type: Optional[pulumi.Input[str]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 display_name: Optional[pulumi.Input[str]] = None,
+                 hub_name: Optional[pulumi.Input[str]] = None,
+                 is_internal: Optional[pulumi.Input[bool]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         The connector resource format.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[dict] connector_properties: The connector properties.
+        :param pulumi.Input[Mapping[str, pulumi.Input[Mapping[str, Any]]]] connector_properties: The connector properties.
         :param pulumi.Input[str] connector_type: Type of connector.
         :param pulumi.Input[str] description: Description of the connector.
         :param pulumi.Input[str] display_name: Display name of the connector.
@@ -128,13 +91,15 @@ class Connector(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None) -> 'Connector':
         """
         Get an existing Connector resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -143,8 +108,113 @@ class Connector(pulumi.CustomResource):
 
         return Connector(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter(name="connectorId")
+    def connector_id(self) -> float:
+        """
+        ID of the connector.
+        """
+        return pulumi.get(self, "connector_id")
+
+    @property
+    @pulumi.getter(name="connectorName")
+    def connector_name(self) -> Optional[str]:
+        """
+        Name of the connector.
+        """
+        return pulumi.get(self, "connector_name")
+
+    @property
+    @pulumi.getter(name="connectorProperties")
+    def connector_properties(self) -> Mapping[str, Mapping[str, Any]]:
+        """
+        The connector properties.
+        """
+        return pulumi.get(self, "connector_properties")
+
+    @property
+    @pulumi.getter(name="connectorType")
+    def connector_type(self) -> str:
+        """
+        Type of connector.
+        """
+        return pulumi.get(self, "connector_type")
+
+    @property
+    @pulumi.getter
+    def created(self) -> str:
+        """
+        The created time.
+        """
+        return pulumi.get(self, "created")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        """
+        Description of the connector.
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="displayName")
+    def display_name(self) -> Optional[str]:
+        """
+        Display name of the connector.
+        """
+        return pulumi.get(self, "display_name")
+
+    @property
+    @pulumi.getter(name="isInternal")
+    def is_internal(self) -> Optional[bool]:
+        """
+        If this is an internal connector.
+        """
+        return pulumi.get(self, "is_internal")
+
+    @property
+    @pulumi.getter(name="lastModified")
+    def last_modified(self) -> str:
+        """
+        The last modified time.
+        """
+        return pulumi.get(self, "last_modified")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Resource name.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def state(self) -> str:
+        """
+        State of connector.
+        """
+        return pulumi.get(self, "state")
+
+    @property
+    @pulumi.getter(name="tenantId")
+    def tenant_id(self) -> str:
+        """
+        The hub name.
+        """
+        return pulumi.get(self, "tenant_id")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Resource type.
+        """
+        return pulumi.get(self, "type")
+
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

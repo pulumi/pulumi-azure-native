@@ -5,10 +5,17 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+from . import outputs
 
+__all__ = [
+    'GetCertificateResult',
+    'AwaitableGetCertificateResult',
+    'get_certificate',
+]
 
+@pulumi.output_type
 class GetCertificateResult:
     """
     SSL certificate for an app.
@@ -16,148 +23,268 @@ class GetCertificateResult:
     def __init__(__self__, cer_blob=None, expiration_date=None, friendly_name=None, host_names=None, hosting_environment_profile=None, issue_date=None, issuer=None, key_vault_id=None, key_vault_secret_name=None, key_vault_secret_status=None, kind=None, location=None, name=None, password=None, pfx_blob=None, public_key_hash=None, self_link=None, server_farm_id=None, site_name=None, subject_name=None, tags=None, thumbprint=None, type=None, valid=None):
         if cer_blob and not isinstance(cer_blob, str):
             raise TypeError("Expected argument 'cer_blob' to be a str")
-        __self__.cer_blob = cer_blob
+        pulumi.set(__self__, "cer_blob", cer_blob)
+        if expiration_date and not isinstance(expiration_date, str):
+            raise TypeError("Expected argument 'expiration_date' to be a str")
+        pulumi.set(__self__, "expiration_date", expiration_date)
+        if friendly_name and not isinstance(friendly_name, str):
+            raise TypeError("Expected argument 'friendly_name' to be a str")
+        pulumi.set(__self__, "friendly_name", friendly_name)
+        if host_names and not isinstance(host_names, list):
+            raise TypeError("Expected argument 'host_names' to be a list")
+        pulumi.set(__self__, "host_names", host_names)
+        if hosting_environment_profile and not isinstance(hosting_environment_profile, dict):
+            raise TypeError("Expected argument 'hosting_environment_profile' to be a dict")
+        pulumi.set(__self__, "hosting_environment_profile", hosting_environment_profile)
+        if issue_date and not isinstance(issue_date, str):
+            raise TypeError("Expected argument 'issue_date' to be a str")
+        pulumi.set(__self__, "issue_date", issue_date)
+        if issuer and not isinstance(issuer, str):
+            raise TypeError("Expected argument 'issuer' to be a str")
+        pulumi.set(__self__, "issuer", issuer)
+        if key_vault_id and not isinstance(key_vault_id, str):
+            raise TypeError("Expected argument 'key_vault_id' to be a str")
+        pulumi.set(__self__, "key_vault_id", key_vault_id)
+        if key_vault_secret_name and not isinstance(key_vault_secret_name, str):
+            raise TypeError("Expected argument 'key_vault_secret_name' to be a str")
+        pulumi.set(__self__, "key_vault_secret_name", key_vault_secret_name)
+        if key_vault_secret_status and not isinstance(key_vault_secret_status, str):
+            raise TypeError("Expected argument 'key_vault_secret_status' to be a str")
+        pulumi.set(__self__, "key_vault_secret_status", key_vault_secret_status)
+        if kind and not isinstance(kind, str):
+            raise TypeError("Expected argument 'kind' to be a str")
+        pulumi.set(__self__, "kind", kind)
+        if location and not isinstance(location, str):
+            raise TypeError("Expected argument 'location' to be a str")
+        pulumi.set(__self__, "location", location)
+        if name and not isinstance(name, str):
+            raise TypeError("Expected argument 'name' to be a str")
+        pulumi.set(__self__, "name", name)
+        if password and not isinstance(password, str):
+            raise TypeError("Expected argument 'password' to be a str")
+        pulumi.set(__self__, "password", password)
+        if pfx_blob and not isinstance(pfx_blob, str):
+            raise TypeError("Expected argument 'pfx_blob' to be a str")
+        pulumi.set(__self__, "pfx_blob", pfx_blob)
+        if public_key_hash and not isinstance(public_key_hash, str):
+            raise TypeError("Expected argument 'public_key_hash' to be a str")
+        pulumi.set(__self__, "public_key_hash", public_key_hash)
+        if self_link and not isinstance(self_link, str):
+            raise TypeError("Expected argument 'self_link' to be a str")
+        pulumi.set(__self__, "self_link", self_link)
+        if server_farm_id and not isinstance(server_farm_id, str):
+            raise TypeError("Expected argument 'server_farm_id' to be a str")
+        pulumi.set(__self__, "server_farm_id", server_farm_id)
+        if site_name and not isinstance(site_name, str):
+            raise TypeError("Expected argument 'site_name' to be a str")
+        pulumi.set(__self__, "site_name", site_name)
+        if subject_name and not isinstance(subject_name, str):
+            raise TypeError("Expected argument 'subject_name' to be a str")
+        pulumi.set(__self__, "subject_name", subject_name)
+        if tags and not isinstance(tags, dict):
+            raise TypeError("Expected argument 'tags' to be a dict")
+        pulumi.set(__self__, "tags", tags)
+        if thumbprint and not isinstance(thumbprint, str):
+            raise TypeError("Expected argument 'thumbprint' to be a str")
+        pulumi.set(__self__, "thumbprint", thumbprint)
+        if type and not isinstance(type, str):
+            raise TypeError("Expected argument 'type' to be a str")
+        pulumi.set(__self__, "type", type)
+        if valid and not isinstance(valid, bool):
+            raise TypeError("Expected argument 'valid' to be a bool")
+        pulumi.set(__self__, "valid", valid)
+
+    @property
+    @pulumi.getter(name="cerBlob")
+    def cer_blob(self) -> str:
         """
         Raw bytes of .cer file
         """
-        if expiration_date and not isinstance(expiration_date, str):
-            raise TypeError("Expected argument 'expiration_date' to be a str")
-        __self__.expiration_date = expiration_date
+        return pulumi.get(self, "cer_blob")
+
+    @property
+    @pulumi.getter(name="expirationDate")
+    def expiration_date(self) -> str:
         """
         Certificate expiration date.
         """
-        if friendly_name and not isinstance(friendly_name, str):
-            raise TypeError("Expected argument 'friendly_name' to be a str")
-        __self__.friendly_name = friendly_name
+        return pulumi.get(self, "expiration_date")
+
+    @property
+    @pulumi.getter(name="friendlyName")
+    def friendly_name(self) -> str:
         """
         Friendly name of the certificate.
         """
-        if host_names and not isinstance(host_names, list):
-            raise TypeError("Expected argument 'host_names' to be a list")
-        __self__.host_names = host_names
+        return pulumi.get(self, "friendly_name")
+
+    @property
+    @pulumi.getter(name="hostNames")
+    def host_names(self) -> Optional[List[str]]:
         """
         Host names the certificate applies to.
         """
-        if hosting_environment_profile and not isinstance(hosting_environment_profile, dict):
-            raise TypeError("Expected argument 'hosting_environment_profile' to be a dict")
-        __self__.hosting_environment_profile = hosting_environment_profile
+        return pulumi.get(self, "host_names")
+
+    @property
+    @pulumi.getter(name="hostingEnvironmentProfile")
+    def hosting_environment_profile(self) -> 'outputs.HostingEnvironmentProfileResponse':
         """
         Specification for the App Service Environment to use for the certificate.
         """
-        if issue_date and not isinstance(issue_date, str):
-            raise TypeError("Expected argument 'issue_date' to be a str")
-        __self__.issue_date = issue_date
+        return pulumi.get(self, "hosting_environment_profile")
+
+    @property
+    @pulumi.getter(name="issueDate")
+    def issue_date(self) -> str:
         """
         Certificate issue Date.
         """
-        if issuer and not isinstance(issuer, str):
-            raise TypeError("Expected argument 'issuer' to be a str")
-        __self__.issuer = issuer
+        return pulumi.get(self, "issue_date")
+
+    @property
+    @pulumi.getter
+    def issuer(self) -> str:
         """
         Certificate issuer.
         """
-        if key_vault_id and not isinstance(key_vault_id, str):
-            raise TypeError("Expected argument 'key_vault_id' to be a str")
-        __self__.key_vault_id = key_vault_id
+        return pulumi.get(self, "issuer")
+
+    @property
+    @pulumi.getter(name="keyVaultId")
+    def key_vault_id(self) -> Optional[str]:
         """
         Key Vault Csm resource Id.
         """
-        if key_vault_secret_name and not isinstance(key_vault_secret_name, str):
-            raise TypeError("Expected argument 'key_vault_secret_name' to be a str")
-        __self__.key_vault_secret_name = key_vault_secret_name
+        return pulumi.get(self, "key_vault_id")
+
+    @property
+    @pulumi.getter(name="keyVaultSecretName")
+    def key_vault_secret_name(self) -> Optional[str]:
         """
         Key Vault secret name.
         """
-        if key_vault_secret_status and not isinstance(key_vault_secret_status, str):
-            raise TypeError("Expected argument 'key_vault_secret_status' to be a str")
-        __self__.key_vault_secret_status = key_vault_secret_status
+        return pulumi.get(self, "key_vault_secret_name")
+
+    @property
+    @pulumi.getter(name="keyVaultSecretStatus")
+    def key_vault_secret_status(self) -> str:
         """
         Status of the Key Vault secret.
         """
-        if kind and not isinstance(kind, str):
-            raise TypeError("Expected argument 'kind' to be a str")
-        __self__.kind = kind
+        return pulumi.get(self, "key_vault_secret_status")
+
+    @property
+    @pulumi.getter
+    def kind(self) -> Optional[str]:
         """
         Kind of resource.
         """
-        if location and not isinstance(location, str):
-            raise TypeError("Expected argument 'location' to be a str")
-        __self__.location = location
+        return pulumi.get(self, "kind")
+
+    @property
+    @pulumi.getter
+    def location(self) -> str:
         """
         Resource Location.
         """
-        if name and not isinstance(name, str):
-            raise TypeError("Expected argument 'name' to be a str")
-        __self__.name = name
+        return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
         """
         Resource Name.
         """
-        if password and not isinstance(password, str):
-            raise TypeError("Expected argument 'password' to be a str")
-        __self__.password = password
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def password(self) -> str:
         """
         Certificate password.
         """
-        if pfx_blob and not isinstance(pfx_blob, str):
-            raise TypeError("Expected argument 'pfx_blob' to be a str")
-        __self__.pfx_blob = pfx_blob
+        return pulumi.get(self, "password")
+
+    @property
+    @pulumi.getter(name="pfxBlob")
+    def pfx_blob(self) -> Optional[str]:
         """
         Pfx blob.
         """
-        if public_key_hash and not isinstance(public_key_hash, str):
-            raise TypeError("Expected argument 'public_key_hash' to be a str")
-        __self__.public_key_hash = public_key_hash
+        return pulumi.get(self, "pfx_blob")
+
+    @property
+    @pulumi.getter(name="publicKeyHash")
+    def public_key_hash(self) -> str:
         """
         Public key hash.
         """
-        if self_link and not isinstance(self_link, str):
-            raise TypeError("Expected argument 'self_link' to be a str")
-        __self__.self_link = self_link
+        return pulumi.get(self, "public_key_hash")
+
+    @property
+    @pulumi.getter(name="selfLink")
+    def self_link(self) -> str:
         """
         Self link.
         """
-        if server_farm_id and not isinstance(server_farm_id, str):
-            raise TypeError("Expected argument 'server_farm_id' to be a str")
-        __self__.server_farm_id = server_farm_id
+        return pulumi.get(self, "self_link")
+
+    @property
+    @pulumi.getter(name="serverFarmId")
+    def server_farm_id(self) -> Optional[str]:
         """
         Resource ID of the associated App Service plan, formatted as: "/subscriptions/{subscriptionID}/resourceGroups/{groupName}/providers/Microsoft.Web/serverfarms/{appServicePlanName}".
         """
-        if site_name and not isinstance(site_name, str):
-            raise TypeError("Expected argument 'site_name' to be a str")
-        __self__.site_name = site_name
+        return pulumi.get(self, "server_farm_id")
+
+    @property
+    @pulumi.getter(name="siteName")
+    def site_name(self) -> str:
         """
         App name.
         """
-        if subject_name and not isinstance(subject_name, str):
-            raise TypeError("Expected argument 'subject_name' to be a str")
-        __self__.subject_name = subject_name
+        return pulumi.get(self, "site_name")
+
+    @property
+    @pulumi.getter(name="subjectName")
+    def subject_name(self) -> str:
         """
         Subject name of the certificate.
         """
-        if tags and not isinstance(tags, dict):
-            raise TypeError("Expected argument 'tags' to be a dict")
-        __self__.tags = tags
+        return pulumi.get(self, "subject_name")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Mapping[str, str]]:
         """
         Resource tags.
         """
-        if thumbprint and not isinstance(thumbprint, str):
-            raise TypeError("Expected argument 'thumbprint' to be a str")
-        __self__.thumbprint = thumbprint
+        return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter
+    def thumbprint(self) -> str:
         """
         Certificate thumbprint.
         """
-        if type and not isinstance(type, str):
-            raise TypeError("Expected argument 'type' to be a str")
-        __self__.type = type
+        return pulumi.get(self, "thumbprint")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
         """
         Resource type.
         """
-        if valid and not isinstance(valid, bool):
-            raise TypeError("Expected argument 'valid' to be a bool")
-        __self__.valid = valid
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def valid(self) -> bool:
         """
         Is the certificate valid?.
         """
+        return pulumi.get(self, "valid")
 
 
 class AwaitableGetCertificateResult(GetCertificateResult):
@@ -192,7 +319,9 @@ class AwaitableGetCertificateResult(GetCertificateResult):
             valid=self.valid)
 
 
-def get_certificate(name=None, resource_group_name=None, opts=None):
+def get_certificate(name: Optional[str] = None,
+                    resource_group_name: Optional[str] = None,
+                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetCertificateResult:
     """
     Use this data source to access information about an existing resource.
 
@@ -206,30 +335,30 @@ def get_certificate(name=None, resource_group_name=None, opts=None):
         opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = _utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('azurerm:web/v20181101:getCertificate', __args__, opts=opts).value
+    __ret__ = pulumi.runtime.invoke('azurerm:web/v20181101:getCertificate', __args__, opts=opts, typ=GetCertificateResult).value
 
     return AwaitableGetCertificateResult(
-        cer_blob=__ret__.get('cerBlob'),
-        expiration_date=__ret__.get('expirationDate'),
-        friendly_name=__ret__.get('friendlyName'),
-        host_names=__ret__.get('hostNames'),
-        hosting_environment_profile=__ret__.get('hostingEnvironmentProfile'),
-        issue_date=__ret__.get('issueDate'),
-        issuer=__ret__.get('issuer'),
-        key_vault_id=__ret__.get('keyVaultId'),
-        key_vault_secret_name=__ret__.get('keyVaultSecretName'),
-        key_vault_secret_status=__ret__.get('keyVaultSecretStatus'),
-        kind=__ret__.get('kind'),
-        location=__ret__.get('location'),
-        name=__ret__.get('name'),
-        password=__ret__.get('password'),
-        pfx_blob=__ret__.get('pfxBlob'),
-        public_key_hash=__ret__.get('publicKeyHash'),
-        self_link=__ret__.get('selfLink'),
-        server_farm_id=__ret__.get('serverFarmId'),
-        site_name=__ret__.get('siteName'),
-        subject_name=__ret__.get('subjectName'),
-        tags=__ret__.get('tags'),
-        thumbprint=__ret__.get('thumbprint'),
-        type=__ret__.get('type'),
-        valid=__ret__.get('valid'))
+        cer_blob=__ret__.cer_blob,
+        expiration_date=__ret__.expiration_date,
+        friendly_name=__ret__.friendly_name,
+        host_names=__ret__.host_names,
+        hosting_environment_profile=__ret__.hosting_environment_profile,
+        issue_date=__ret__.issue_date,
+        issuer=__ret__.issuer,
+        key_vault_id=__ret__.key_vault_id,
+        key_vault_secret_name=__ret__.key_vault_secret_name,
+        key_vault_secret_status=__ret__.key_vault_secret_status,
+        kind=__ret__.kind,
+        location=__ret__.location,
+        name=__ret__.name,
+        password=__ret__.password,
+        pfx_blob=__ret__.pfx_blob,
+        public_key_hash=__ret__.public_key_hash,
+        self_link=__ret__.self_link,
+        server_farm_id=__ret__.server_farm_id,
+        site_name=__ret__.site_name,
+        subject_name=__ret__.subject_name,
+        tags=__ret__.tags,
+        thumbprint=__ret__.thumbprint,
+        type=__ret__.type,
+        valid=__ret__.valid)

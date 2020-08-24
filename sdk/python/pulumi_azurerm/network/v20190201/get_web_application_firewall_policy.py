@@ -5,10 +5,17 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+from . import outputs
 
+__all__ = [
+    'GetWebApplicationFirewallPolicyResult',
+    'AwaitableGetWebApplicationFirewallPolicyResult',
+    'get_web_application_firewall_policy',
+]
 
+@pulumi.output_type
 class GetWebApplicationFirewallPolicyResult:
     """
     Defines web application firewall policy.
@@ -16,64 +23,114 @@ class GetWebApplicationFirewallPolicyResult:
     def __init__(__self__, application_gateways=None, custom_rules=None, etag=None, location=None, name=None, policy_settings=None, provisioning_state=None, resource_state=None, tags=None, type=None):
         if application_gateways and not isinstance(application_gateways, list):
             raise TypeError("Expected argument 'application_gateways' to be a list")
-        __self__.application_gateways = application_gateways
+        pulumi.set(__self__, "application_gateways", application_gateways)
+        if custom_rules and not isinstance(custom_rules, list):
+            raise TypeError("Expected argument 'custom_rules' to be a list")
+        pulumi.set(__self__, "custom_rules", custom_rules)
+        if etag and not isinstance(etag, str):
+            raise TypeError("Expected argument 'etag' to be a str")
+        pulumi.set(__self__, "etag", etag)
+        if location and not isinstance(location, str):
+            raise TypeError("Expected argument 'location' to be a str")
+        pulumi.set(__self__, "location", location)
+        if name and not isinstance(name, str):
+            raise TypeError("Expected argument 'name' to be a str")
+        pulumi.set(__self__, "name", name)
+        if policy_settings and not isinstance(policy_settings, dict):
+            raise TypeError("Expected argument 'policy_settings' to be a dict")
+        pulumi.set(__self__, "policy_settings", policy_settings)
+        if provisioning_state and not isinstance(provisioning_state, str):
+            raise TypeError("Expected argument 'provisioning_state' to be a str")
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if resource_state and not isinstance(resource_state, str):
+            raise TypeError("Expected argument 'resource_state' to be a str")
+        pulumi.set(__self__, "resource_state", resource_state)
+        if tags and not isinstance(tags, dict):
+            raise TypeError("Expected argument 'tags' to be a dict")
+        pulumi.set(__self__, "tags", tags)
+        if type and not isinstance(type, str):
+            raise TypeError("Expected argument 'type' to be a str")
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="applicationGateways")
+    def application_gateways(self) -> List['outputs.ApplicationGatewayResponse']:
         """
         A collection of references to application gateways.
         """
-        if custom_rules and not isinstance(custom_rules, list):
-            raise TypeError("Expected argument 'custom_rules' to be a list")
-        __self__.custom_rules = custom_rules
+        return pulumi.get(self, "application_gateways")
+
+    @property
+    @pulumi.getter(name="customRules")
+    def custom_rules(self) -> Optional[List['outputs.WebApplicationFirewallCustomRuleResponse']]:
         """
         Describes custom rules inside the policy
         """
-        if etag and not isinstance(etag, str):
-            raise TypeError("Expected argument 'etag' to be a str")
-        __self__.etag = etag
+        return pulumi.get(self, "custom_rules")
+
+    @property
+    @pulumi.getter
+    def etag(self) -> Optional[str]:
         """
         Gets a unique read-only string that changes whenever the resource is updated.
         """
-        if location and not isinstance(location, str):
-            raise TypeError("Expected argument 'location' to be a str")
-        __self__.location = location
+        return pulumi.get(self, "etag")
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[str]:
         """
         Resource location.
         """
-        if name and not isinstance(name, str):
-            raise TypeError("Expected argument 'name' to be a str")
-        __self__.name = name
+        return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
         """
         Resource name.
         """
-        if policy_settings and not isinstance(policy_settings, dict):
-            raise TypeError("Expected argument 'policy_settings' to be a dict")
-        __self__.policy_settings = policy_settings
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="policySettings")
+    def policy_settings(self) -> Optional['outputs.PolicySettingsResponse']:
         """
         Describes  policySettings for policy
         """
-        if provisioning_state and not isinstance(provisioning_state, str):
-            raise TypeError("Expected argument 'provisioning_state' to be a str")
-        __self__.provisioning_state = provisioning_state
+        return pulumi.get(self, "policy_settings")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
         """
         Provisioning state of the WebApplicationFirewallPolicy.
         """
-        if resource_state and not isinstance(resource_state, str):
-            raise TypeError("Expected argument 'resource_state' to be a str")
-        __self__.resource_state = resource_state
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="resourceState")
+    def resource_state(self) -> str:
         """
         Resource status of the policy.
         """
-        if tags and not isinstance(tags, dict):
-            raise TypeError("Expected argument 'tags' to be a dict")
-        __self__.tags = tags
+        return pulumi.get(self, "resource_state")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Mapping[str, str]]:
         """
         Resource tags.
         """
-        if type and not isinstance(type, str):
-            raise TypeError("Expected argument 'type' to be a str")
-        __self__.type = type
+        return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
         """
         Resource type.
         """
+        return pulumi.get(self, "type")
 
 
 class AwaitableGetWebApplicationFirewallPolicyResult(GetWebApplicationFirewallPolicyResult):
@@ -94,7 +151,9 @@ class AwaitableGetWebApplicationFirewallPolicyResult(GetWebApplicationFirewallPo
             type=self.type)
 
 
-def get_web_application_firewall_policy(name=None, resource_group_name=None, opts=None):
+def get_web_application_firewall_policy(name: Optional[str] = None,
+                                        resource_group_name: Optional[str] = None,
+                                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetWebApplicationFirewallPolicyResult:
     """
     Use this data source to access information about an existing resource.
 
@@ -108,16 +167,16 @@ def get_web_application_firewall_policy(name=None, resource_group_name=None, opt
         opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = _utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('azurerm:network/v20190201:getWebApplicationFirewallPolicy', __args__, opts=opts).value
+    __ret__ = pulumi.runtime.invoke('azurerm:network/v20190201:getWebApplicationFirewallPolicy', __args__, opts=opts, typ=GetWebApplicationFirewallPolicyResult).value
 
     return AwaitableGetWebApplicationFirewallPolicyResult(
-        application_gateways=__ret__.get('applicationGateways'),
-        custom_rules=__ret__.get('customRules'),
-        etag=__ret__.get('etag'),
-        location=__ret__.get('location'),
-        name=__ret__.get('name'),
-        policy_settings=__ret__.get('policySettings'),
-        provisioning_state=__ret__.get('provisioningState'),
-        resource_state=__ret__.get('resourceState'),
-        tags=__ret__.get('tags'),
-        type=__ret__.get('type'))
+        application_gateways=__ret__.application_gateways,
+        custom_rules=__ret__.custom_rules,
+        etag=__ret__.etag,
+        location=__ret__.location,
+        name=__ret__.name,
+        policy_settings=__ret__.policy_settings,
+        provisioning_state=__ret__.provisioning_state,
+        resource_state=__ret__.resource_state,
+        tags=__ret__.tags,
+        type=__ret__.type)

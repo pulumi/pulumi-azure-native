@@ -5,125 +5,45 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+from . import outputs
+from ._inputs import *
+
+__all__ = ['Snapshot']
 
 
 class Snapshot(pulumi.CustomResource):
-    creation_data: pulumi.Output[dict]
-    """
-    Disk source information. CreationData information cannot be changed after the disk has been created.
-      * `create_option` (`str`) - This enumerates the possible sources of a disk's creation.
-      * `gallery_image_reference` (`dict`) - Required if creating from a Gallery Image. The id of the ImageDiskReference will be the ARM id of the shared galley image version from which to create a disk.
-        * `id` (`str`) - A relative uri containing either a Platform Image Repository or user image reference.
-        * `lun` (`float`) - If the disk is created from an image's data disk, this is an index that indicates which of the data disks in the image to use. For OS disks, this field is null.
-
-      * `image_reference` (`dict`) - Disk source information.
-      * `source_resource_id` (`str`) - If createOption is Copy, this is the ARM id of the source snapshot or disk.
-      * `source_unique_id` (`str`) - If this field is set, this is the unique id identifying the source of this resource.
-      * `source_uri` (`str`) - If createOption is Import, this is the URI of a blob to be imported into a managed disk.
-      * `storage_account_id` (`str`) - Required if createOption is Import. The Azure Resource Manager identifier of the storage account containing the blob to import as a disk.
-      * `upload_size_bytes` (`float`) - If createOption is Upload, this is the size of the contents of the upload including the VHD footer. This value should be between 20972032 (20 MiB + 512 bytes for the VHD footer) and 35183298347520 bytes (32 TiB + 512 bytes for the VHD footer).
-    """
-    disk_access_id: pulumi.Output[str]
-    """
-    ARM id of the DiskAccess resource for using private endpoints on disks.
-    """
-    disk_size_bytes: pulumi.Output[float]
-    """
-    The size of the disk in bytes. This field is read only.
-    """
-    disk_size_gb: pulumi.Output[float]
-    """
-    If creationData.createOption is Empty, this field is mandatory and it indicates the size of the disk to create. If this field is present for updates or creation with other options, it indicates a resize. Resizes are only allowed if the disk is not attached to a running VM, and can only increase the disk's size.
-    """
-    encryption: pulumi.Output[dict]
-    """
-    Encryption property can be used to encrypt data at rest with customer managed keys or platform managed keys.
-      * `disk_encryption_set_id` (`str`) - ResourceId of the disk encryption set to use for enabling encryption at rest.
-      * `type` (`str`) - The type of key used to encrypt the data of the disk.
-    """
-    encryption_settings_collection: pulumi.Output[dict]
-    """
-    Encryption settings collection used be Azure Disk Encryption, can contain multiple encryption settings per disk or snapshot.
-      * `enabled` (`bool`) - Set this flag to true and provide DiskEncryptionKey and optional KeyEncryptionKey to enable encryption. Set this flag to false and remove DiskEncryptionKey and KeyEncryptionKey to disable encryption. If EncryptionSettings is null in the request object, the existing settings remain unchanged.
-      * `encryption_settings` (`list`) - A collection of encryption settings, one for each disk volume.
-        * `disk_encryption_key` (`dict`) - Key Vault Secret Url and vault id of the disk encryption key
-          * `secret_url` (`str`) - Url pointing to a key or secret in KeyVault
-          * `source_vault` (`dict`) - Resource id of the KeyVault containing the key or secret
-            * `id` (`str`) - Resource Id
-
-        * `key_encryption_key` (`dict`) - Key Vault Key Url and vault id of the key encryption key. KeyEncryptionKey is optional and when provided is used to unwrap the disk encryption key.
-          * `key_url` (`str`) - Url pointing to a key or secret in KeyVault
-          * `source_vault` (`dict`) - Resource id of the KeyVault containing the key or secret
-
-      * `encryption_settings_version` (`str`) - Describes what type of encryption is used for the disks. Once this field is set, it cannot be overwritten. '1.0' corresponds to Azure Disk Encryption with AAD app.'1.1' corresponds to Azure Disk Encryption.
-    """
-    hyper_v_generation: pulumi.Output[str]
-    """
-    The hypervisor generation of the Virtual Machine. Applicable to OS disks only.
-    """
-    incremental: pulumi.Output[bool]
-    """
-    Whether a snapshot is incremental. Incremental snapshots on the same disk occupy less space than full snapshots and can be diffed.
-    """
-    location: pulumi.Output[str]
-    """
-    Resource location
-    """
-    managed_by: pulumi.Output[str]
-    """
-    Unused. Always Null.
-    """
-    name: pulumi.Output[str]
-    """
-    Resource name
-    """
-    network_access_policy: pulumi.Output[str]
-    """
-    Policy for accessing the disk via network.
-    """
-    os_type: pulumi.Output[str]
-    """
-    The Operating System type.
-    """
-    provisioning_state: pulumi.Output[str]
-    """
-    The disk provisioning state.
-    """
-    sku: pulumi.Output[dict]
-    """
-    The snapshots sku name. Can be Standard_LRS, Premium_LRS, or Standard_ZRS.
-      * `name` (`str`) - The sku name.
-      * `tier` (`str`) - The sku tier.
-    """
-    tags: pulumi.Output[dict]
-    """
-    Resource tags
-    """
-    time_created: pulumi.Output[str]
-    """
-    The time when the snapshot was created.
-    """
-    type: pulumi.Output[str]
-    """
-    Resource type
-    """
-    unique_id: pulumi.Output[str]
-    """
-    Unique Guid identifying the resource.
-    """
-    def __init__(__self__, resource_name, opts=None, creation_data=None, disk_access_id=None, disk_size_gb=None, encryption=None, encryption_settings_collection=None, hyper_v_generation=None, incremental=None, location=None, name=None, network_access_policy=None, os_type=None, resource_group_name=None, sku=None, tags=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 creation_data: Optional[pulumi.Input[pulumi.InputType['CreationDataArgs']]] = None,
+                 disk_access_id: Optional[pulumi.Input[str]] = None,
+                 disk_size_gb: Optional[pulumi.Input[float]] = None,
+                 encryption: Optional[pulumi.Input[pulumi.InputType['EncryptionArgs']]] = None,
+                 encryption_settings_collection: Optional[pulumi.Input[pulumi.InputType['EncryptionSettingsCollectionArgs']]] = None,
+                 hyper_v_generation: Optional[pulumi.Input[str]] = None,
+                 incremental: Optional[pulumi.Input[bool]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 network_access_policy: Optional[pulumi.Input[str]] = None,
+                 os_type: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 sku: Optional[pulumi.Input[pulumi.InputType['SnapshotSkuArgs']]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         Snapshot resource.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[dict] creation_data: Disk source information. CreationData information cannot be changed after the disk has been created.
+        :param pulumi.Input[pulumi.InputType['CreationDataArgs']] creation_data: Disk source information. CreationData information cannot be changed after the disk has been created.
         :param pulumi.Input[str] disk_access_id: ARM id of the DiskAccess resource for using private endpoints on disks.
         :param pulumi.Input[float] disk_size_gb: If creationData.createOption is Empty, this field is mandatory and it indicates the size of the disk to create. If this field is present for updates or creation with other options, it indicates a resize. Resizes are only allowed if the disk is not attached to a running VM, and can only increase the disk's size.
-        :param pulumi.Input[dict] encryption: Encryption property can be used to encrypt data at rest with customer managed keys or platform managed keys.
-        :param pulumi.Input[dict] encryption_settings_collection: Encryption settings collection used be Azure Disk Encryption, can contain multiple encryption settings per disk or snapshot.
+        :param pulumi.Input[pulumi.InputType['EncryptionArgs']] encryption: Encryption property can be used to encrypt data at rest with customer managed keys or platform managed keys.
+        :param pulumi.Input[pulumi.InputType['EncryptionSettingsCollectionArgs']] encryption_settings_collection: Encryption settings collection used be Azure Disk Encryption, can contain multiple encryption settings per disk or snapshot.
         :param pulumi.Input[str] hyper_v_generation: The hypervisor generation of the Virtual Machine. Applicable to OS disks only.
         :param pulumi.Input[bool] incremental: Whether a snapshot is incremental. Incremental snapshots on the same disk occupy less space than full snapshots and can be diffed.
         :param pulumi.Input[str] location: Resource location
@@ -131,45 +51,8 @@ class Snapshot(pulumi.CustomResource):
         :param pulumi.Input[str] network_access_policy: Policy for accessing the disk via network.
         :param pulumi.Input[str] os_type: The Operating System type.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
-        :param pulumi.Input[dict] sku: The snapshots sku name. Can be Standard_LRS, Premium_LRS, or Standard_ZRS.
-        :param pulumi.Input[dict] tags: Resource tags
-
-        The **creation_data** object supports the following:
-
-          * `create_option` (`pulumi.Input[str]`) - This enumerates the possible sources of a disk's creation.
-          * `gallery_image_reference` (`pulumi.Input[dict]`) - Required if creating from a Gallery Image. The id of the ImageDiskReference will be the ARM id of the shared galley image version from which to create a disk.
-            * `id` (`pulumi.Input[str]`) - A relative uri containing either a Platform Image Repository or user image reference.
-            * `lun` (`pulumi.Input[float]`) - If the disk is created from an image's data disk, this is an index that indicates which of the data disks in the image to use. For OS disks, this field is null.
-
-          * `image_reference` (`pulumi.Input[dict]`) - Disk source information.
-          * `source_resource_id` (`pulumi.Input[str]`) - If createOption is Copy, this is the ARM id of the source snapshot or disk.
-          * `source_uri` (`pulumi.Input[str]`) - If createOption is Import, this is the URI of a blob to be imported into a managed disk.
-          * `storage_account_id` (`pulumi.Input[str]`) - Required if createOption is Import. The Azure Resource Manager identifier of the storage account containing the blob to import as a disk.
-          * `upload_size_bytes` (`pulumi.Input[float]`) - If createOption is Upload, this is the size of the contents of the upload including the VHD footer. This value should be between 20972032 (20 MiB + 512 bytes for the VHD footer) and 35183298347520 bytes (32 TiB + 512 bytes for the VHD footer).
-
-        The **encryption** object supports the following:
-
-          * `disk_encryption_set_id` (`pulumi.Input[str]`) - ResourceId of the disk encryption set to use for enabling encryption at rest.
-          * `type` (`pulumi.Input[str]`) - The type of key used to encrypt the data of the disk.
-
-        The **encryption_settings_collection** object supports the following:
-
-          * `enabled` (`pulumi.Input[bool]`) - Set this flag to true and provide DiskEncryptionKey and optional KeyEncryptionKey to enable encryption. Set this flag to false and remove DiskEncryptionKey and KeyEncryptionKey to disable encryption. If EncryptionSettings is null in the request object, the existing settings remain unchanged.
-          * `encryption_settings` (`pulumi.Input[list]`) - A collection of encryption settings, one for each disk volume.
-            * `disk_encryption_key` (`pulumi.Input[dict]`) - Key Vault Secret Url and vault id of the disk encryption key
-              * `secret_url` (`pulumi.Input[str]`) - Url pointing to a key or secret in KeyVault
-              * `source_vault` (`pulumi.Input[dict]`) - Resource id of the KeyVault containing the key or secret
-                * `id` (`pulumi.Input[str]`) - Resource Id
-
-            * `key_encryption_key` (`pulumi.Input[dict]`) - Key Vault Key Url and vault id of the key encryption key. KeyEncryptionKey is optional and when provided is used to unwrap the disk encryption key.
-              * `key_url` (`pulumi.Input[str]`) - Url pointing to a key or secret in KeyVault
-              * `source_vault` (`pulumi.Input[dict]`) - Resource id of the KeyVault containing the key or secret
-
-          * `encryption_settings_version` (`pulumi.Input[str]`) - Describes what type of encryption is used for the disks. Once this field is set, it cannot be overwritten. '1.0' corresponds to Azure Disk Encryption with AAD app.'1.1' corresponds to Azure Disk Encryption.
-
-        The **sku** object supports the following:
-
-          * `name` (`pulumi.Input[str]`) - The sku name.
+        :param pulumi.Input[pulumi.InputType['SnapshotSkuArgs']] sku: The snapshots sku name. Can be Standard_LRS, Premium_LRS, or Standard_ZRS.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -225,13 +108,15 @@ class Snapshot(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None) -> 'Snapshot':
         """
         Get an existing Snapshot resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -240,8 +125,161 @@ class Snapshot(pulumi.CustomResource):
 
         return Snapshot(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter(name="creationData")
+    def creation_data(self) -> 'outputs.CreationDataResponse':
+        """
+        Disk source information. CreationData information cannot be changed after the disk has been created.
+        """
+        return pulumi.get(self, "creation_data")
+
+    @property
+    @pulumi.getter(name="diskAccessId")
+    def disk_access_id(self) -> Optional[str]:
+        """
+        ARM id of the DiskAccess resource for using private endpoints on disks.
+        """
+        return pulumi.get(self, "disk_access_id")
+
+    @property
+    @pulumi.getter(name="diskSizeBytes")
+    def disk_size_bytes(self) -> float:
+        """
+        The size of the disk in bytes. This field is read only.
+        """
+        return pulumi.get(self, "disk_size_bytes")
+
+    @property
+    @pulumi.getter(name="diskSizeGB")
+    def disk_size_gb(self) -> Optional[float]:
+        """
+        If creationData.createOption is Empty, this field is mandatory and it indicates the size of the disk to create. If this field is present for updates or creation with other options, it indicates a resize. Resizes are only allowed if the disk is not attached to a running VM, and can only increase the disk's size.
+        """
+        return pulumi.get(self, "disk_size_gb")
+
+    @property
+    @pulumi.getter
+    def encryption(self) -> Optional['outputs.EncryptionResponse']:
+        """
+        Encryption property can be used to encrypt data at rest with customer managed keys or platform managed keys.
+        """
+        return pulumi.get(self, "encryption")
+
+    @property
+    @pulumi.getter(name="encryptionSettingsCollection")
+    def encryption_settings_collection(self) -> Optional['outputs.EncryptionSettingsCollectionResponse']:
+        """
+        Encryption settings collection used be Azure Disk Encryption, can contain multiple encryption settings per disk or snapshot.
+        """
+        return pulumi.get(self, "encryption_settings_collection")
+
+    @property
+    @pulumi.getter(name="hyperVGeneration")
+    def hyper_v_generation(self) -> Optional[str]:
+        """
+        The hypervisor generation of the Virtual Machine. Applicable to OS disks only.
+        """
+        return pulumi.get(self, "hyper_v_generation")
+
+    @property
+    @pulumi.getter
+    def incremental(self) -> Optional[bool]:
+        """
+        Whether a snapshot is incremental. Incremental snapshots on the same disk occupy less space than full snapshots and can be diffed.
+        """
+        return pulumi.get(self, "incremental")
+
+    @property
+    @pulumi.getter
+    def location(self) -> str:
+        """
+        Resource location
+        """
+        return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter(name="managedBy")
+    def managed_by(self) -> str:
+        """
+        Unused. Always Null.
+        """
+        return pulumi.get(self, "managed_by")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Resource name
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="networkAccessPolicy")
+    def network_access_policy(self) -> Optional[str]:
+        """
+        Policy for accessing the disk via network.
+        """
+        return pulumi.get(self, "network_access_policy")
+
+    @property
+    @pulumi.getter(name="osType")
+    def os_type(self) -> Optional[str]:
+        """
+        The Operating System type.
+        """
+        return pulumi.get(self, "os_type")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        The disk provisioning state.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter
+    def sku(self) -> Optional['outputs.SnapshotSkuResponse']:
+        """
+        The snapshots sku name. Can be Standard_LRS, Premium_LRS, or Standard_ZRS.
+        """
+        return pulumi.get(self, "sku")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Mapping[str, str]]:
+        """
+        Resource tags
+        """
+        return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter(name="timeCreated")
+    def time_created(self) -> str:
+        """
+        The time when the snapshot was created.
+        """
+        return pulumi.get(self, "time_created")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Resource type
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="uniqueId")
+    def unique_id(self) -> str:
+        """
+        Unique Guid identifying the resource.
+        """
+        return pulumi.get(self, "unique_id")
+
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

@@ -5,10 +5,17 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+from . import outputs
 
+__all__ = [
+    'ListNamespaceKeysResult',
+    'AwaitableListNamespaceKeysResult',
+    'list_namespace_keys',
+]
 
+@pulumi.output_type
 class ListNamespaceKeysResult:
     """
     The response of the List Namespace operation.
@@ -16,16 +23,26 @@ class ListNamespaceKeysResult:
     def __init__(__self__, next_link=None, value=None):
         if next_link and not isinstance(next_link, str):
             raise TypeError("Expected argument 'next_link' to be a str")
-        __self__.next_link = next_link
+        pulumi.set(__self__, "next_link", next_link)
+        if value and not isinstance(value, list):
+            raise TypeError("Expected argument 'value' to be a list")
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter(name="nextLink")
+    def next_link(self) -> Optional[str]:
         """
         Link to the next set of results. Not empty if Value contains incomplete list of AuthorizationRules
         """
-        if value and not isinstance(value, list):
-            raise TypeError("Expected argument 'value' to be a list")
-        __self__.value = value
+        return pulumi.get(self, "next_link")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[List['outputs.SharedAccessAuthorizationRuleResourceResponseResult']]:
         """
         Result of the List AuthorizationRules operation.
         """
+        return pulumi.get(self, "value")
 
 
 class AwaitableListNamespaceKeysResult(ListNamespaceKeysResult):
@@ -38,7 +55,10 @@ class AwaitableListNamespaceKeysResult(ListNamespaceKeysResult):
             value=self.value)
 
 
-def list_namespace_keys(authorization_rule_name=None, namespace_name=None, resource_group_name=None, opts=None):
+def list_namespace_keys(authorization_rule_name: Optional[str] = None,
+                        namespace_name: Optional[str] = None,
+                        resource_group_name: Optional[str] = None,
+                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListNamespaceKeysResult:
     """
     Use this data source to access information about an existing resource.
 
@@ -54,8 +74,8 @@ def list_namespace_keys(authorization_rule_name=None, namespace_name=None, resou
         opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = _utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('azurerm:notificationhubs/v20170401:listNamespaceKeys', __args__, opts=opts).value
+    __ret__ = pulumi.runtime.invoke('azurerm:notificationhubs/v20170401:listNamespaceKeys', __args__, opts=opts, typ=ListNamespaceKeysResult).value
 
     return AwaitableListNamespaceKeysResult(
-        next_link=__ret__.get('nextLink'),
-        value=__ret__.get('value'))
+        next_link=__ret__.next_link,
+        value=__ret__.value)

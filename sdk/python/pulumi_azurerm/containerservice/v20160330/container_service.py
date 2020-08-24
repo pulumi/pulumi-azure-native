@@ -5,122 +5,46 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+from . import outputs
+from ._inputs import *
+
+__all__ = ['ContainerService']
 
 
 class ContainerService(pulumi.CustomResource):
-    agent_pool_profiles: pulumi.Output[list]
-    """
-    Properties of the agent pool.
-      * `count` (`float`) - Number of agents (VMs) to host docker containers. Allowed values must be in the range of 1 to 100 (inclusive). The default value is 1. 
-      * `dns_prefix` (`str`) - DNS prefix to be used to create the FQDN for the agent pool.
-      * `fqdn` (`str`) - FQDN for the agent pool.
-      * `name` (`str`) - Unique name of the agent pool profile in the context of the subscription and resource group.
-      * `vm_size` (`str`) - Size of agent VMs.
-    """
-    diagnostics_profile: pulumi.Output[dict]
-    """
-    Properties of the diagnostic agent.
-      * `vm_diagnostics` (`dict`) - Profile for the container service VM diagnostic agent.
-        * `enabled` (`bool`) - Whether the VM diagnostic agent is provisioned on the VM.
-        * `storage_uri` (`str`) - The URI of the storage account where diagnostics are stored.
-    """
-    linux_profile: pulumi.Output[dict]
-    """
-    Properties of Linux VMs.
-      * `admin_username` (`str`) - The administrator username to use for all Linux VMs
-      * `ssh` (`dict`) - The ssh key configuration for Linux VMs.
-        * `public_keys` (`list`) - the list of SSH public keys used to authenticate with Linux-based VMs.
-          * `key_data` (`str`) - Certificate public key used to authenticate with VMs through SSH. The certificate must be in PEM format with or without headers.
-    """
-    location: pulumi.Output[str]
-    """
-    Resource location
-    """
-    master_profile: pulumi.Output[dict]
-    """
-    Properties of master agents.
-      * `count` (`float`) - Number of masters (VMs) in the container service cluster. Allowed values are 1, 3, and 5. The default value is 1.
-      * `dns_prefix` (`str`) - DNS prefix to be used to create the FQDN for master.
-      * `fqdn` (`str`) - FQDN for the master.
-    """
-    name: pulumi.Output[str]
-    """
-    Resource name
-    """
-    orchestrator_profile: pulumi.Output[dict]
-    """
-    Properties of the orchestrator.
-      * `orchestrator_type` (`str`) - The orchestrator to use to manage container service cluster resources. Valid values are Swarm, DCOS, and Custom.
-    """
-    provisioning_state: pulumi.Output[str]
-    """
-    the current deployment or provisioning state, which only appears in the response.
-    """
-    tags: pulumi.Output[dict]
-    """
-    Resource tags
-    """
-    type: pulumi.Output[str]
-    """
-    Resource type
-    """
-    windows_profile: pulumi.Output[dict]
-    """
-    Properties of Windows VMs.
-      * `admin_password` (`str`) - The administrator password to use for Windows VMs
-      * `admin_username` (`str`) - The administrator username to use for Windows VMs
-    """
-    def __init__(__self__, resource_name, opts=None, agent_pool_profiles=None, diagnostics_profile=None, linux_profile=None, location=None, master_profile=None, name=None, orchestrator_profile=None, resource_group_name=None, tags=None, windows_profile=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 agent_pool_profiles: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['ContainerServiceAgentPoolProfileArgs']]]]] = None,
+                 diagnostics_profile: Optional[pulumi.Input[pulumi.InputType['ContainerServiceDiagnosticsProfileArgs']]] = None,
+                 linux_profile: Optional[pulumi.Input[pulumi.InputType['ContainerServiceLinuxProfileArgs']]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 master_profile: Optional[pulumi.Input[pulumi.InputType['ContainerServiceMasterProfileArgs']]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 orchestrator_profile: Optional[pulumi.Input[pulumi.InputType['ContainerServiceOrchestratorProfileArgs']]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 windows_profile: Optional[pulumi.Input[pulumi.InputType['ContainerServiceWindowsProfileArgs']]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         Container service.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[list] agent_pool_profiles: Properties of the agent pool.
-        :param pulumi.Input[dict] diagnostics_profile: Properties of the diagnostic agent.
-        :param pulumi.Input[dict] linux_profile: Properties of Linux VMs.
+        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['ContainerServiceAgentPoolProfileArgs']]]] agent_pool_profiles: Properties of the agent pool.
+        :param pulumi.Input[pulumi.InputType['ContainerServiceDiagnosticsProfileArgs']] diagnostics_profile: Properties of the diagnostic agent.
+        :param pulumi.Input[pulumi.InputType['ContainerServiceLinuxProfileArgs']] linux_profile: Properties of Linux VMs.
         :param pulumi.Input[str] location: Resource location
-        :param pulumi.Input[dict] master_profile: Properties of master agents.
+        :param pulumi.Input[pulumi.InputType['ContainerServiceMasterProfileArgs']] master_profile: Properties of master agents.
         :param pulumi.Input[str] name: The name of the container service in the specified subscription and resource group.
-        :param pulumi.Input[dict] orchestrator_profile: Properties of the orchestrator.
+        :param pulumi.Input[pulumi.InputType['ContainerServiceOrchestratorProfileArgs']] orchestrator_profile: Properties of the orchestrator.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
-        :param pulumi.Input[dict] tags: Resource tags
-        :param pulumi.Input[dict] windows_profile: Properties of Windows VMs.
-
-        The **agent_pool_profiles** object supports the following:
-
-          * `count` (`pulumi.Input[float]`) - Number of agents (VMs) to host docker containers. Allowed values must be in the range of 1 to 100 (inclusive). The default value is 1. 
-          * `dns_prefix` (`pulumi.Input[str]`) - DNS prefix to be used to create the FQDN for the agent pool.
-          * `name` (`pulumi.Input[str]`) - Unique name of the agent pool profile in the context of the subscription and resource group.
-          * `vm_size` (`pulumi.Input[str]`) - Size of agent VMs.
-
-        The **diagnostics_profile** object supports the following:
-
-          * `vm_diagnostics` (`pulumi.Input[dict]`) - Profile for the container service VM diagnostic agent.
-            * `enabled` (`pulumi.Input[bool]`) - Whether the VM diagnostic agent is provisioned on the VM.
-
-        The **linux_profile** object supports the following:
-
-          * `admin_username` (`pulumi.Input[str]`) - The administrator username to use for all Linux VMs
-          * `ssh` (`pulumi.Input[dict]`) - The ssh key configuration for Linux VMs.
-            * `public_keys` (`pulumi.Input[list]`) - the list of SSH public keys used to authenticate with Linux-based VMs.
-              * `key_data` (`pulumi.Input[str]`) - Certificate public key used to authenticate with VMs through SSH. The certificate must be in PEM format with or without headers.
-
-        The **master_profile** object supports the following:
-
-          * `count` (`pulumi.Input[float]`) - Number of masters (VMs) in the container service cluster. Allowed values are 1, 3, and 5. The default value is 1.
-          * `dns_prefix` (`pulumi.Input[str]`) - DNS prefix to be used to create the FQDN for master.
-
-        The **orchestrator_profile** object supports the following:
-
-          * `orchestrator_type` (`pulumi.Input[str]`) - The orchestrator to use to manage container service cluster resources. Valid values are Swarm, DCOS, and Custom.
-
-        The **windows_profile** object supports the following:
-
-          * `admin_password` (`pulumi.Input[str]`) - The administrator password to use for Windows VMs
-          * `admin_username` (`pulumi.Input[str]`) - The administrator username to use for Windows VMs
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags
+        :param pulumi.Input[pulumi.InputType['ContainerServiceWindowsProfileArgs']] windows_profile: Properties of Windows VMs.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -172,13 +96,15 @@ class ContainerService(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None) -> 'ContainerService':
         """
         Get an existing ContainerService resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -187,8 +113,97 @@ class ContainerService(pulumi.CustomResource):
 
         return ContainerService(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter(name="agentPoolProfiles")
+    def agent_pool_profiles(self) -> List['outputs.ContainerServiceAgentPoolProfileResponse']:
+        """
+        Properties of the agent pool.
+        """
+        return pulumi.get(self, "agent_pool_profiles")
+
+    @property
+    @pulumi.getter(name="diagnosticsProfile")
+    def diagnostics_profile(self) -> Optional['outputs.ContainerServiceDiagnosticsProfileResponse']:
+        """
+        Properties of the diagnostic agent.
+        """
+        return pulumi.get(self, "diagnostics_profile")
+
+    @property
+    @pulumi.getter(name="linuxProfile")
+    def linux_profile(self) -> 'outputs.ContainerServiceLinuxProfileResponse':
+        """
+        Properties of Linux VMs.
+        """
+        return pulumi.get(self, "linux_profile")
+
+    @property
+    @pulumi.getter
+    def location(self) -> str:
+        """
+        Resource location
+        """
+        return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter(name="masterProfile")
+    def master_profile(self) -> 'outputs.ContainerServiceMasterProfileResponse':
+        """
+        Properties of master agents.
+        """
+        return pulumi.get(self, "master_profile")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Resource name
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="orchestratorProfile")
+    def orchestrator_profile(self) -> Optional['outputs.ContainerServiceOrchestratorProfileResponse']:
+        """
+        Properties of the orchestrator.
+        """
+        return pulumi.get(self, "orchestrator_profile")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        the current deployment or provisioning state, which only appears in the response.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Mapping[str, str]]:
+        """
+        Resource tags
+        """
+        return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Resource type
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="windowsProfile")
+    def windows_profile(self) -> Optional['outputs.ContainerServiceWindowsProfileResponse']:
+        """
+        Properties of Windows VMs.
+        """
+        return pulumi.get(self, "windows_profile")
+
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

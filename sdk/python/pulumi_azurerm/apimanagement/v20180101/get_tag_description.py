@@ -5,10 +5,16 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
 
+__all__ = [
+    'GetTagDescriptionResult',
+    'AwaitableGetTagDescriptionResult',
+    'get_tag_description',
+]
 
+@pulumi.output_type
 class GetTagDescriptionResult:
     """
     Contract details.
@@ -16,40 +22,70 @@ class GetTagDescriptionResult:
     def __init__(__self__, description=None, display_name=None, external_docs_description=None, external_docs_url=None, name=None, type=None):
         if description and not isinstance(description, str):
             raise TypeError("Expected argument 'description' to be a str")
-        __self__.description = description
+        pulumi.set(__self__, "description", description)
+        if display_name and not isinstance(display_name, str):
+            raise TypeError("Expected argument 'display_name' to be a str")
+        pulumi.set(__self__, "display_name", display_name)
+        if external_docs_description and not isinstance(external_docs_description, str):
+            raise TypeError("Expected argument 'external_docs_description' to be a str")
+        pulumi.set(__self__, "external_docs_description", external_docs_description)
+        if external_docs_url and not isinstance(external_docs_url, str):
+            raise TypeError("Expected argument 'external_docs_url' to be a str")
+        pulumi.set(__self__, "external_docs_url", external_docs_url)
+        if name and not isinstance(name, str):
+            raise TypeError("Expected argument 'name' to be a str")
+        pulumi.set(__self__, "name", name)
+        if type and not isinstance(type, str):
+            raise TypeError("Expected argument 'type' to be a str")
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
         """
         Description of the Tag.
         """
-        if display_name and not isinstance(display_name, str):
-            raise TypeError("Expected argument 'display_name' to be a str")
-        __self__.display_name = display_name
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="displayName")
+    def display_name(self) -> Optional[str]:
         """
         Tag name.
         """
-        if external_docs_description and not isinstance(external_docs_description, str):
-            raise TypeError("Expected argument 'external_docs_description' to be a str")
-        __self__.external_docs_description = external_docs_description
+        return pulumi.get(self, "display_name")
+
+    @property
+    @pulumi.getter(name="externalDocsDescription")
+    def external_docs_description(self) -> Optional[str]:
         """
         Description of the external resources describing the tag.
         """
-        if external_docs_url and not isinstance(external_docs_url, str):
-            raise TypeError("Expected argument 'external_docs_url' to be a str")
-        __self__.external_docs_url = external_docs_url
+        return pulumi.get(self, "external_docs_description")
+
+    @property
+    @pulumi.getter(name="externalDocsUrl")
+    def external_docs_url(self) -> Optional[str]:
         """
         Absolute URL of external resources describing the tag.
         """
-        if name and not isinstance(name, str):
-            raise TypeError("Expected argument 'name' to be a str")
-        __self__.name = name
+        return pulumi.get(self, "external_docs_url")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
         """
         Resource name.
         """
-        if type and not isinstance(type, str):
-            raise TypeError("Expected argument 'type' to be a str")
-        __self__.type = type
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
         """
         Resource type for API Management resource.
         """
+        return pulumi.get(self, "type")
 
 
 class AwaitableGetTagDescriptionResult(GetTagDescriptionResult):
@@ -66,7 +102,11 @@ class AwaitableGetTagDescriptionResult(GetTagDescriptionResult):
             type=self.type)
 
 
-def get_tag_description(api_id=None, name=None, resource_group_name=None, service_name=None, opts=None):
+def get_tag_description(api_id: Optional[str] = None,
+                        name: Optional[str] = None,
+                        resource_group_name: Optional[str] = None,
+                        service_name: Optional[str] = None,
+                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetTagDescriptionResult:
     """
     Use this data source to access information about an existing resource.
 
@@ -84,12 +124,12 @@ def get_tag_description(api_id=None, name=None, resource_group_name=None, servic
         opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = _utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('azurerm:apimanagement/v20180101:getTagDescription', __args__, opts=opts).value
+    __ret__ = pulumi.runtime.invoke('azurerm:apimanagement/v20180101:getTagDescription', __args__, opts=opts, typ=GetTagDescriptionResult).value
 
     return AwaitableGetTagDescriptionResult(
-        description=__ret__.get('description'),
-        display_name=__ret__.get('displayName'),
-        external_docs_description=__ret__.get('externalDocsDescription'),
-        external_docs_url=__ret__.get('externalDocsUrl'),
-        name=__ret__.get('name'),
-        type=__ret__.get('type'))
+        description=__ret__.description,
+        display_name=__ret__.display_name,
+        external_docs_description=__ret__.external_docs_description,
+        external_docs_url=__ret__.external_docs_url,
+        name=__ret__.name,
+        type=__ret__.type)

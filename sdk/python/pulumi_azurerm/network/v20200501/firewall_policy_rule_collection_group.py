@@ -5,39 +5,27 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+from . import outputs
+from ._inputs import *
+
+__all__ = ['FirewallPolicyRuleCollectionGroup']
 
 
 class FirewallPolicyRuleCollectionGroup(pulumi.CustomResource):
-    etag: pulumi.Output[str]
-    """
-    A unique read-only string that changes whenever the resource is updated.
-    """
-    name: pulumi.Output[str]
-    """
-    The name of the resource that is unique within a resource group. This name can be used to access the resource.
-    """
-    priority: pulumi.Output[float]
-    """
-    Priority of the Firewall Policy Rule Collection Group resource.
-    """
-    provisioning_state: pulumi.Output[str]
-    """
-    The provisioning state of the firewall policy rule collection group resource.
-    """
-    rule_collections: pulumi.Output[list]
-    """
-    Group of Firewall Policy rule collections.
-      * `name` (`str`) - The name of the rule collection.
-      * `priority` (`float`) - Priority of the Firewall Policy Rule Collection resource.
-      * `rule_collection_type` (`str`) - The type of the rule collection.
-    """
-    type: pulumi.Output[str]
-    """
-    Rule Group type.
-    """
-    def __init__(__self__, resource_name, opts=None, firewall_policy_name=None, id=None, name=None, priority=None, resource_group_name=None, rule_collections=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 firewall_policy_name: Optional[pulumi.Input[str]] = None,
+                 id: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 priority: Optional[pulumi.Input[float]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 rule_collections: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['FirewallPolicyRuleCollectionArgs']]]]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         Rule Collection Group resource.
 
@@ -48,13 +36,7 @@ class FirewallPolicyRuleCollectionGroup(pulumi.CustomResource):
         :param pulumi.Input[str] name: The name of the FirewallPolicyRuleCollectionGroup.
         :param pulumi.Input[float] priority: Priority of the Firewall Policy Rule Collection Group resource.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
-        :param pulumi.Input[list] rule_collections: Group of Firewall Policy rule collections.
-
-        The **rule_collections** object supports the following:
-
-          * `name` (`pulumi.Input[str]`) - The name of the rule collection.
-          * `priority` (`pulumi.Input[float]`) - Priority of the Firewall Policy Rule Collection resource.
-          * `rule_collection_type` (`pulumi.Input[str]`) - The type of the rule collection.
+        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['FirewallPolicyRuleCollectionArgs']]]] rule_collections: Group of Firewall Policy rule collections.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -97,13 +79,15 @@ class FirewallPolicyRuleCollectionGroup(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None) -> 'FirewallPolicyRuleCollectionGroup':
         """
         Get an existing FirewallPolicyRuleCollectionGroup resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -112,8 +96,57 @@ class FirewallPolicyRuleCollectionGroup(pulumi.CustomResource):
 
         return FirewallPolicyRuleCollectionGroup(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter
+    def etag(self) -> str:
+        """
+        A unique read-only string that changes whenever the resource is updated.
+        """
+        return pulumi.get(self, "etag")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        The name of the resource that is unique within a resource group. This name can be used to access the resource.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def priority(self) -> Optional[float]:
+        """
+        Priority of the Firewall Policy Rule Collection Group resource.
+        """
+        return pulumi.get(self, "priority")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        The provisioning state of the firewall policy rule collection group resource.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="ruleCollections")
+    def rule_collections(self) -> Optional[List['outputs.FirewallPolicyRuleCollectionResponse']]:
+        """
+        Group of Firewall Policy rule collections.
+        """
+        return pulumi.get(self, "rule_collections")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Rule Group type.
+        """
+        return pulumi.get(self, "type")
+
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

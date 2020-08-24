@@ -5,105 +5,54 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+from . import outputs
+from ._inputs import *
+
+__all__ = ['WebTest']
 
 
 class WebTest(pulumi.CustomResource):
-    configuration: pulumi.Output[dict]
-    """
-    An XML configuration specification for a WebTest.
-      * `web_test` (`str`) - The XML specification of a WebTest to run against an application.
-    """
-    description: pulumi.Output[str]
-    """
-    Purpose/user defined descriptive test for this WebTest.
-    """
-    enabled: pulumi.Output[bool]
-    """
-    Is the test actively being monitored.
-    """
-    frequency: pulumi.Output[float]
-    """
-    Interval in seconds between test runs for this WebTest. Default value is 300.
-    """
-    kind: pulumi.Output[str]
-    """
-    The kind of web test that this web test watches. Choices are ping and multistep.
-    """
-    location: pulumi.Output[str]
-    """
-    Resource location
-    """
-    locations: pulumi.Output[list]
-    """
-    A list of where to physically run the tests from to give global coverage for accessibility of your application.
-      * `location` (`str`) - Location ID for the webtest to run from.
-    """
-    name: pulumi.Output[str]
-    """
-    Azure resource name
-    """
-    provisioning_state: pulumi.Output[str]
-    """
-    Current state of this component, whether or not is has been provisioned within the resource group it is defined. Users cannot change this value but are able to read from it. Values will include Succeeded, Deploying, Canceled, and Failed.
-    """
-    retry_enabled: pulumi.Output[bool]
-    """
-    Allow for retries should this WebTest fail.
-    """
-    synthetic_monitor_id: pulumi.Output[str]
-    """
-    Unique ID of this WebTest. This is typically the same value as the Name field.
-    """
-    tags: pulumi.Output[dict]
-    """
-    Resource tags
-    """
-    timeout: pulumi.Output[float]
-    """
-    Seconds until this WebTest will timeout and fail. Default value is 30.
-    """
-    type: pulumi.Output[str]
-    """
-    Azure resource type
-    """
-    web_test_kind: pulumi.Output[str]
-    """
-    The kind of web test this is, valid choices are ping and multistep.
-    """
-    web_test_name: pulumi.Output[str]
-    """
-    User defined name if this WebTest.
-    """
-    def __init__(__self__, resource_name, opts=None, configuration=None, description=None, enabled=None, frequency=None, kind=None, location=None, locations=None, name=None, resource_group_name=None, retry_enabled=None, synthetic_monitor_id=None, tags=None, timeout=None, web_test_kind=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 configuration: Optional[pulumi.Input[pulumi.InputType['WebTestPropertiesConfigurationArgs']]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 enabled: Optional[pulumi.Input[bool]] = None,
+                 frequency: Optional[pulumi.Input[float]] = None,
+                 kind: Optional[pulumi.Input[str]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 locations: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['WebTestGeolocationArgs']]]]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 retry_enabled: Optional[pulumi.Input[bool]] = None,
+                 synthetic_monitor_id: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 timeout: Optional[pulumi.Input[float]] = None,
+                 web_test_kind: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         An Application Insights web test definition.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[dict] configuration: An XML configuration specification for a WebTest.
+        :param pulumi.Input[pulumi.InputType['WebTestPropertiesConfigurationArgs']] configuration: An XML configuration specification for a WebTest.
         :param pulumi.Input[str] description: Purpose/user defined descriptive test for this WebTest.
         :param pulumi.Input[bool] enabled: Is the test actively being monitored.
         :param pulumi.Input[float] frequency: Interval in seconds between test runs for this WebTest. Default value is 300.
         :param pulumi.Input[str] kind: The kind of web test that this web test watches. Choices are ping and multistep.
         :param pulumi.Input[str] location: Resource location
-        :param pulumi.Input[list] locations: A list of where to physically run the tests from to give global coverage for accessibility of your application.
+        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['WebTestGeolocationArgs']]]] locations: A list of where to physically run the tests from to give global coverage for accessibility of your application.
         :param pulumi.Input[str] name: User defined name if this WebTest.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[bool] retry_enabled: Allow for retries should this WebTest fail.
         :param pulumi.Input[str] synthetic_monitor_id: Unique ID of this WebTest. This is typically the same value as the Name field.
-        :param pulumi.Input[dict] tags: Resource tags
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags
         :param pulumi.Input[float] timeout: Seconds until this WebTest will timeout and fail. Default value is 30.
         :param pulumi.Input[str] web_test_kind: The kind of web test this is, valid choices are ping and multistep.
-
-        The **configuration** object supports the following:
-
-          * `web_test` (`pulumi.Input[str]`) - The XML specification of a WebTest to run against an application.
-
-        The **locations** object supports the following:
-
-          * `location` (`pulumi.Input[str]`) - Location ID for the webtest to run from.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -158,13 +107,15 @@ class WebTest(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None) -> 'WebTest':
         """
         Get an existing WebTest resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -173,8 +124,137 @@ class WebTest(pulumi.CustomResource):
 
         return WebTest(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter
+    def configuration(self) -> Optional['outputs.WebTestPropertiesResponseConfiguration']:
+        """
+        An XML configuration specification for a WebTest.
+        """
+        return pulumi.get(self, "configuration")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        """
+        Purpose/user defined descriptive test for this WebTest.
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[bool]:
+        """
+        Is the test actively being monitored.
+        """
+        return pulumi.get(self, "enabled")
+
+    @property
+    @pulumi.getter
+    def frequency(self) -> Optional[float]:
+        """
+        Interval in seconds between test runs for this WebTest. Default value is 300.
+        """
+        return pulumi.get(self, "frequency")
+
+    @property
+    @pulumi.getter
+    def kind(self) -> Optional[str]:
+        """
+        The kind of web test that this web test watches. Choices are ping and multistep.
+        """
+        return pulumi.get(self, "kind")
+
+    @property
+    @pulumi.getter
+    def location(self) -> str:
+        """
+        Resource location
+        """
+        return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter
+    def locations(self) -> List['outputs.WebTestGeolocationResponse']:
+        """
+        A list of where to physically run the tests from to give global coverage for accessibility of your application.
+        """
+        return pulumi.get(self, "locations")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Azure resource name
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        Current state of this component, whether or not is has been provisioned within the resource group it is defined. Users cannot change this value but are able to read from it. Values will include Succeeded, Deploying, Canceled, and Failed.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="retryEnabled")
+    def retry_enabled(self) -> Optional[bool]:
+        """
+        Allow for retries should this WebTest fail.
+        """
+        return pulumi.get(self, "retry_enabled")
+
+    @property
+    @pulumi.getter(name="syntheticMonitorId")
+    def synthetic_monitor_id(self) -> str:
+        """
+        Unique ID of this WebTest. This is typically the same value as the Name field.
+        """
+        return pulumi.get(self, "synthetic_monitor_id")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Mapping[str, str]]:
+        """
+        Resource tags
+        """
+        return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter
+    def timeout(self) -> Optional[float]:
+        """
+        Seconds until this WebTest will timeout and fail. Default value is 30.
+        """
+        return pulumi.get(self, "timeout")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Azure resource type
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="webTestKind")
+    def web_test_kind(self) -> str:
+        """
+        The kind of web test this is, valid choices are ping and multistep.
+        """
+        return pulumi.get(self, "web_test_kind")
+
+    @property
+    @pulumi.getter(name="webTestName")
+    def web_test_name(self) -> str:
+        """
+        User defined name if this WebTest.
+        """
+        return pulumi.get(self, "web_test_name")
+
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

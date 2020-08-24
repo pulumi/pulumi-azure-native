@@ -5,10 +5,17 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+from . import outputs
 
+__all__ = [
+    'GetDatabaseResult',
+    'AwaitableGetDatabaseResult',
+    'get_database',
+]
 
+@pulumi.output_type
 class GetDatabaseResult:
     """
     Class representing a Kusto database.
@@ -16,46 +23,81 @@ class GetDatabaseResult:
     def __init__(__self__, hot_cache_period=None, location=None, name=None, provisioning_state=None, soft_delete_period=None, statistics=None, type=None):
         if hot_cache_period and not isinstance(hot_cache_period, str):
             raise TypeError("Expected argument 'hot_cache_period' to be a str")
-        __self__.hot_cache_period = hot_cache_period
+        pulumi.set(__self__, "hot_cache_period", hot_cache_period)
+        if location and not isinstance(location, str):
+            raise TypeError("Expected argument 'location' to be a str")
+        pulumi.set(__self__, "location", location)
+        if name and not isinstance(name, str):
+            raise TypeError("Expected argument 'name' to be a str")
+        pulumi.set(__self__, "name", name)
+        if provisioning_state and not isinstance(provisioning_state, str):
+            raise TypeError("Expected argument 'provisioning_state' to be a str")
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if soft_delete_period and not isinstance(soft_delete_period, str):
+            raise TypeError("Expected argument 'soft_delete_period' to be a str")
+        pulumi.set(__self__, "soft_delete_period", soft_delete_period)
+        if statistics and not isinstance(statistics, dict):
+            raise TypeError("Expected argument 'statistics' to be a dict")
+        pulumi.set(__self__, "statistics", statistics)
+        if type and not isinstance(type, str):
+            raise TypeError("Expected argument 'type' to be a str")
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="hotCachePeriod")
+    def hot_cache_period(self) -> Optional[str]:
         """
         The time the data that should be kept in cache for fast queries in TimeSpan.
         """
-        if location and not isinstance(location, str):
-            raise TypeError("Expected argument 'location' to be a str")
-        __self__.location = location
+        return pulumi.get(self, "hot_cache_period")
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[str]:
         """
         Resource location.
         """
-        if name and not isinstance(name, str):
-            raise TypeError("Expected argument 'name' to be a str")
-        __self__.name = name
+        return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
         """
         The name of the resource
         """
-        if provisioning_state and not isinstance(provisioning_state, str):
-            raise TypeError("Expected argument 'provisioning_state' to be a str")
-        __self__.provisioning_state = provisioning_state
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
         """
         The provisioned state of the resource.
         """
-        if soft_delete_period and not isinstance(soft_delete_period, str):
-            raise TypeError("Expected argument 'soft_delete_period' to be a str")
-        __self__.soft_delete_period = soft_delete_period
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="softDeletePeriod")
+    def soft_delete_period(self) -> Optional[str]:
         """
         The time the data should be kept before it stops being accessible to queries in TimeSpan.
         """
-        if statistics and not isinstance(statistics, dict):
-            raise TypeError("Expected argument 'statistics' to be a dict")
-        __self__.statistics = statistics
+        return pulumi.get(self, "soft_delete_period")
+
+    @property
+    @pulumi.getter
+    def statistics(self) -> Optional['outputs.DatabaseStatisticsResponse']:
         """
         The statistics of the database.
         """
-        if type and not isinstance(type, str):
-            raise TypeError("Expected argument 'type' to be a str")
-        __self__.type = type
+        return pulumi.get(self, "statistics")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
         """
         The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
         """
+        return pulumi.get(self, "type")
 
 
 class AwaitableGetDatabaseResult(GetDatabaseResult):
@@ -73,7 +115,10 @@ class AwaitableGetDatabaseResult(GetDatabaseResult):
             type=self.type)
 
 
-def get_database(cluster_name=None, name=None, resource_group_name=None, opts=None):
+def get_database(cluster_name: Optional[str] = None,
+                 name: Optional[str] = None,
+                 resource_group_name: Optional[str] = None,
+                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDatabaseResult:
     """
     Use this data source to access information about an existing resource.
 
@@ -89,13 +134,13 @@ def get_database(cluster_name=None, name=None, resource_group_name=None, opts=No
         opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = _utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('azurerm:kusto/v20190121:getDatabase', __args__, opts=opts).value
+    __ret__ = pulumi.runtime.invoke('azurerm:kusto/v20190121:getDatabase', __args__, opts=opts, typ=GetDatabaseResult).value
 
     return AwaitableGetDatabaseResult(
-        hot_cache_period=__ret__.get('hotCachePeriod'),
-        location=__ret__.get('location'),
-        name=__ret__.get('name'),
-        provisioning_state=__ret__.get('provisioningState'),
-        soft_delete_period=__ret__.get('softDeletePeriod'),
-        statistics=__ret__.get('statistics'),
-        type=__ret__.get('type'))
+        hot_cache_period=__ret__.hot_cache_period,
+        location=__ret__.location,
+        name=__ret__.name,
+        provisioning_state=__ret__.provisioning_state,
+        soft_delete_period=__ret__.soft_delete_period,
+        statistics=__ret__.statistics,
+        type=__ret__.type)

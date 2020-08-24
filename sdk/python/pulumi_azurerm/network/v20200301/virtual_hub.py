@@ -5,164 +5,60 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+from . import outputs
+from ._inputs import *
+
+__all__ = ['VirtualHub']
 
 
 class VirtualHub(pulumi.CustomResource):
-    address_prefix: pulumi.Output[str]
-    """
-    Address-prefix for this VirtualHub.
-    """
-    azure_firewall: pulumi.Output[dict]
-    """
-    The azureFirewall associated with this VirtualHub.
-      * `id` (`str`) - Resource ID.
-    """
-    etag: pulumi.Output[str]
-    """
-    A unique read-only string that changes whenever the resource is updated.
-    """
-    express_route_gateway: pulumi.Output[dict]
-    """
-    The expressRouteGateway associated with this VirtualHub.
-      * `id` (`str`) - Resource ID.
-    """
-    location: pulumi.Output[str]
-    """
-    Resource location.
-    """
-    name: pulumi.Output[str]
-    """
-    Resource name.
-    """
-    p2_s_vpn_gateway: pulumi.Output[dict]
-    """
-    The P2SVpnGateway associated with this VirtualHub.
-      * `id` (`str`) - Resource ID.
-    """
-    provisioning_state: pulumi.Output[str]
-    """
-    The provisioning state of the virtual hub resource.
-    """
-    route_table: pulumi.Output[dict]
-    """
-    The routeTable associated with this virtual hub.
-      * `routes` (`list`) - List of all routes.
-        * `address_prefixes` (`list`) - List of all addressPrefixes.
-        * `next_hop_ip_address` (`str`) - NextHop ip address.
-    """
-    security_partner_provider: pulumi.Output[dict]
-    """
-    The securityPartnerProvider associated with this VirtualHub.
-      * `id` (`str`) - Resource ID.
-    """
-    security_provider_name: pulumi.Output[str]
-    """
-    The Security Provider name.
-    """
-    sku: pulumi.Output[str]
-    """
-    The sku of this VirtualHub.
-    """
-    tags: pulumi.Output[dict]
-    """
-    Resource tags.
-    """
-    type: pulumi.Output[str]
-    """
-    Resource type.
-    """
-    virtual_hub_route_table_v2s: pulumi.Output[list]
-    """
-    List of all virtual hub route table v2s associated with this VirtualHub.
-      * `attached_connections` (`list`) - List of all connections attached to this route table v2.
-      * `etag` (`str`) - A unique read-only string that changes whenever the resource is updated.
-      * `id` (`str`) - Resource ID.
-      * `name` (`str`) - The name of the resource that is unique within a resource group. This name can be used to access the resource.
-      * `provisioning_state` (`str`) - The provisioning state of the virtual hub route table v2 resource.
-      * `routes` (`list`) - List of all routes.
-        * `destination_type` (`str`) - The type of destinations.
-        * `destinations` (`list`) - List of all destinations.
-        * `next_hop_type` (`str`) - The type of next hops.
-        * `next_hops` (`list`) - NextHops ip address.
-    """
-    virtual_network_connections: pulumi.Output[list]
-    """
-    List of all vnet connections with this VirtualHub.
-      * `allow_hub_to_remote_vnet_transit` (`bool`) - VirtualHub to RemoteVnet transit to enabled or not.
-      * `allow_remote_vnet_to_use_hub_vnet_gateways` (`bool`) - Allow RemoteVnet to use Virtual Hub's gateways.
-      * `enable_internet_security` (`bool`) - Enable internet security.
-      * `etag` (`str`) - A unique read-only string that changes whenever the resource is updated.
-      * `id` (`str`) - Resource ID.
-      * `name` (`str`) - The name of the resource that is unique within a resource group. This name can be used to access the resource.
-      * `provisioning_state` (`str`) - The provisioning state of the hub virtual network connection resource.
-      * `remote_virtual_network` (`dict`) - Reference to the remote virtual network.
-        * `id` (`str`) - Resource ID.
-    """
-    virtual_wan: pulumi.Output[dict]
-    """
-    The VirtualWAN to which the VirtualHub belongs.
-      * `id` (`str`) - Resource ID.
-    """
-    vpn_gateway: pulumi.Output[dict]
-    """
-    The VpnGateway associated with this VirtualHub.
-      * `id` (`str`) - Resource ID.
-    """
-    def __init__(__self__, resource_name, opts=None, address_prefix=None, azure_firewall=None, express_route_gateway=None, id=None, location=None, name=None, p2_s_vpn_gateway=None, resource_group_name=None, route_table=None, security_partner_provider=None, security_provider_name=None, sku=None, tags=None, virtual_hub_route_table_v2s=None, virtual_network_connections=None, virtual_wan=None, vpn_gateway=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 address_prefix: Optional[pulumi.Input[str]] = None,
+                 azure_firewall: Optional[pulumi.Input[pulumi.InputType['SubResourceArgs']]] = None,
+                 express_route_gateway: Optional[pulumi.Input[pulumi.InputType['SubResourceArgs']]] = None,
+                 id: Optional[pulumi.Input[str]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 p2_s_vpn_gateway: Optional[pulumi.Input[pulumi.InputType['SubResourceArgs']]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 route_table: Optional[pulumi.Input[pulumi.InputType['VirtualHubRouteTableArgs']]] = None,
+                 security_partner_provider: Optional[pulumi.Input[pulumi.InputType['SubResourceArgs']]] = None,
+                 security_provider_name: Optional[pulumi.Input[str]] = None,
+                 sku: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 virtual_hub_route_table_v2s: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['VirtualHubRouteTableV2Args']]]]] = None,
+                 virtual_network_connections: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['HubVirtualNetworkConnectionArgs']]]]] = None,
+                 virtual_wan: Optional[pulumi.Input[pulumi.InputType['SubResourceArgs']]] = None,
+                 vpn_gateway: Optional[pulumi.Input[pulumi.InputType['SubResourceArgs']]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         VirtualHub Resource.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] address_prefix: Address-prefix for this VirtualHub.
-        :param pulumi.Input[dict] azure_firewall: The azureFirewall associated with this VirtualHub.
-        :param pulumi.Input[dict] express_route_gateway: The expressRouteGateway associated with this VirtualHub.
+        :param pulumi.Input[pulumi.InputType['SubResourceArgs']] azure_firewall: The azureFirewall associated with this VirtualHub.
+        :param pulumi.Input[pulumi.InputType['SubResourceArgs']] express_route_gateway: The expressRouteGateway associated with this VirtualHub.
         :param pulumi.Input[str] id: Resource ID.
         :param pulumi.Input[str] location: Resource location.
         :param pulumi.Input[str] name: The name of the VirtualHub.
-        :param pulumi.Input[dict] p2_s_vpn_gateway: The P2SVpnGateway associated with this VirtualHub.
+        :param pulumi.Input[pulumi.InputType['SubResourceArgs']] p2_s_vpn_gateway: The P2SVpnGateway associated with this VirtualHub.
         :param pulumi.Input[str] resource_group_name: The resource group name of the VirtualHub.
-        :param pulumi.Input[dict] route_table: The routeTable associated with this virtual hub.
-        :param pulumi.Input[dict] security_partner_provider: The securityPartnerProvider associated with this VirtualHub.
+        :param pulumi.Input[pulumi.InputType['VirtualHubRouteTableArgs']] route_table: The routeTable associated with this virtual hub.
+        :param pulumi.Input[pulumi.InputType['SubResourceArgs']] security_partner_provider: The securityPartnerProvider associated with this VirtualHub.
         :param pulumi.Input[str] security_provider_name: The Security Provider name.
         :param pulumi.Input[str] sku: The sku of this VirtualHub.
-        :param pulumi.Input[dict] tags: Resource tags.
-        :param pulumi.Input[list] virtual_hub_route_table_v2s: List of all virtual hub route table v2s associated with this VirtualHub.
-        :param pulumi.Input[list] virtual_network_connections: List of all vnet connections with this VirtualHub.
-        :param pulumi.Input[dict] virtual_wan: The VirtualWAN to which the VirtualHub belongs.
-        :param pulumi.Input[dict] vpn_gateway: The VpnGateway associated with this VirtualHub.
-
-        The **azure_firewall** object supports the following:
-
-          * `id` (`pulumi.Input[str]`) - Resource ID.
-
-        The **route_table** object supports the following:
-
-          * `routes` (`pulumi.Input[list]`) - List of all routes.
-            * `address_prefixes` (`pulumi.Input[list]`) - List of all addressPrefixes.
-            * `next_hop_ip_address` (`pulumi.Input[str]`) - NextHop ip address.
-
-        The **virtual_hub_route_table_v2s** object supports the following:
-
-          * `attached_connections` (`pulumi.Input[list]`) - List of all connections attached to this route table v2.
-          * `id` (`pulumi.Input[str]`) - Resource ID.
-          * `name` (`pulumi.Input[str]`) - The name of the resource that is unique within a resource group. This name can be used to access the resource.
-          * `routes` (`pulumi.Input[list]`) - List of all routes.
-            * `destination_type` (`pulumi.Input[str]`) - The type of destinations.
-            * `destinations` (`pulumi.Input[list]`) - List of all destinations.
-            * `next_hop_type` (`pulumi.Input[str]`) - The type of next hops.
-            * `next_hops` (`pulumi.Input[list]`) - NextHops ip address.
-
-        The **virtual_network_connections** object supports the following:
-
-          * `allow_hub_to_remote_vnet_transit` (`pulumi.Input[bool]`) - VirtualHub to RemoteVnet transit to enabled or not.
-          * `allow_remote_vnet_to_use_hub_vnet_gateways` (`pulumi.Input[bool]`) - Allow RemoteVnet to use Virtual Hub's gateways.
-          * `enable_internet_security` (`pulumi.Input[bool]`) - Enable internet security.
-          * `id` (`pulumi.Input[str]`) - Resource ID.
-          * `name` (`pulumi.Input[str]`) - The name of the resource that is unique within a resource group. This name can be used to access the resource.
-          * `remote_virtual_network` (`pulumi.Input[dict]`) - Reference to the remote virtual network.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
+        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['VirtualHubRouteTableV2Args']]]] virtual_hub_route_table_v2s: List of all virtual hub route table v2s associated with this VirtualHub.
+        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['HubVirtualNetworkConnectionArgs']]]] virtual_network_connections: List of all vnet connections with this VirtualHub.
+        :param pulumi.Input[pulumi.InputType['SubResourceArgs']] virtual_wan: The VirtualWAN to which the VirtualHub belongs.
+        :param pulumi.Input[pulumi.InputType['SubResourceArgs']] vpn_gateway: The VpnGateway associated with this VirtualHub.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -216,13 +112,15 @@ class VirtualHub(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None) -> 'VirtualHub':
         """
         Get an existing VirtualHub resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -231,8 +129,153 @@ class VirtualHub(pulumi.CustomResource):
 
         return VirtualHub(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter(name="addressPrefix")
+    def address_prefix(self) -> Optional[str]:
+        """
+        Address-prefix for this VirtualHub.
+        """
+        return pulumi.get(self, "address_prefix")
+
+    @property
+    @pulumi.getter(name="azureFirewall")
+    def azure_firewall(self) -> Optional['outputs.SubResourceResponse']:
+        """
+        The azureFirewall associated with this VirtualHub.
+        """
+        return pulumi.get(self, "azure_firewall")
+
+    @property
+    @pulumi.getter
+    def etag(self) -> str:
+        """
+        A unique read-only string that changes whenever the resource is updated.
+        """
+        return pulumi.get(self, "etag")
+
+    @property
+    @pulumi.getter(name="expressRouteGateway")
+    def express_route_gateway(self) -> Optional['outputs.SubResourceResponse']:
+        """
+        The expressRouteGateway associated with this VirtualHub.
+        """
+        return pulumi.get(self, "express_route_gateway")
+
+    @property
+    @pulumi.getter
+    def location(self) -> str:
+        """
+        Resource location.
+        """
+        return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Resource name.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="p2SVpnGateway")
+    def p2_s_vpn_gateway(self) -> Optional['outputs.SubResourceResponse']:
+        """
+        The P2SVpnGateway associated with this VirtualHub.
+        """
+        return pulumi.get(self, "p2_s_vpn_gateway")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        The provisioning state of the virtual hub resource.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="routeTable")
+    def route_table(self) -> Optional['outputs.VirtualHubRouteTableResponse']:
+        """
+        The routeTable associated with this virtual hub.
+        """
+        return pulumi.get(self, "route_table")
+
+    @property
+    @pulumi.getter(name="securityPartnerProvider")
+    def security_partner_provider(self) -> Optional['outputs.SubResourceResponse']:
+        """
+        The securityPartnerProvider associated with this VirtualHub.
+        """
+        return pulumi.get(self, "security_partner_provider")
+
+    @property
+    @pulumi.getter(name="securityProviderName")
+    def security_provider_name(self) -> Optional[str]:
+        """
+        The Security Provider name.
+        """
+        return pulumi.get(self, "security_provider_name")
+
+    @property
+    @pulumi.getter
+    def sku(self) -> Optional[str]:
+        """
+        The sku of this VirtualHub.
+        """
+        return pulumi.get(self, "sku")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Mapping[str, str]]:
+        """
+        Resource tags.
+        """
+        return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Resource type.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="virtualHubRouteTableV2s")
+    def virtual_hub_route_table_v2s(self) -> Optional[List['outputs.VirtualHubRouteTableV2Response']]:
+        """
+        List of all virtual hub route table v2s associated with this VirtualHub.
+        """
+        return pulumi.get(self, "virtual_hub_route_table_v2s")
+
+    @property
+    @pulumi.getter(name="virtualNetworkConnections")
+    def virtual_network_connections(self) -> Optional[List['outputs.HubVirtualNetworkConnectionResponse']]:
+        """
+        List of all vnet connections with this VirtualHub.
+        """
+        return pulumi.get(self, "virtual_network_connections")
+
+    @property
+    @pulumi.getter(name="virtualWan")
+    def virtual_wan(self) -> Optional['outputs.SubResourceResponse']:
+        """
+        The VirtualWAN to which the VirtualHub belongs.
+        """
+        return pulumi.get(self, "virtual_wan")
+
+    @property
+    @pulumi.getter(name="vpnGateway")
+    def vpn_gateway(self) -> Optional['outputs.SubResourceResponse']:
+        """
+        The VpnGateway associated with this VirtualHub.
+        """
+        return pulumi.get(self, "vpn_gateway")
+
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

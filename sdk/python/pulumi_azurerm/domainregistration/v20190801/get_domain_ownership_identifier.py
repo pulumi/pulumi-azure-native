@@ -5,10 +5,16 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
 
+__all__ = [
+    'GetDomainOwnershipIdentifierResult',
+    'AwaitableGetDomainOwnershipIdentifierResult',
+    'get_domain_ownership_identifier',
+]
 
+@pulumi.output_type
 class GetDomainOwnershipIdentifierResult:
     """
     Domain ownership Identifier.
@@ -16,28 +22,48 @@ class GetDomainOwnershipIdentifierResult:
     def __init__(__self__, kind=None, name=None, ownership_id=None, type=None):
         if kind and not isinstance(kind, str):
             raise TypeError("Expected argument 'kind' to be a str")
-        __self__.kind = kind
+        pulumi.set(__self__, "kind", kind)
+        if name and not isinstance(name, str):
+            raise TypeError("Expected argument 'name' to be a str")
+        pulumi.set(__self__, "name", name)
+        if ownership_id and not isinstance(ownership_id, str):
+            raise TypeError("Expected argument 'ownership_id' to be a str")
+        pulumi.set(__self__, "ownership_id", ownership_id)
+        if type and not isinstance(type, str):
+            raise TypeError("Expected argument 'type' to be a str")
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def kind(self) -> Optional[str]:
         """
         Kind of resource.
         """
-        if name and not isinstance(name, str):
-            raise TypeError("Expected argument 'name' to be a str")
-        __self__.name = name
+        return pulumi.get(self, "kind")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
         """
         Resource Name.
         """
-        if ownership_id and not isinstance(ownership_id, str):
-            raise TypeError("Expected argument 'ownership_id' to be a str")
-        __self__.ownership_id = ownership_id
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="ownershipId")
+    def ownership_id(self) -> Optional[str]:
         """
         Ownership Id.
         """
-        if type and not isinstance(type, str):
-            raise TypeError("Expected argument 'type' to be a str")
-        __self__.type = type
+        return pulumi.get(self, "ownership_id")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
         """
         Resource type.
         """
+        return pulumi.get(self, "type")
 
 
 class AwaitableGetDomainOwnershipIdentifierResult(GetDomainOwnershipIdentifierResult):
@@ -52,7 +78,10 @@ class AwaitableGetDomainOwnershipIdentifierResult(GetDomainOwnershipIdentifierRe
             type=self.type)
 
 
-def get_domain_ownership_identifier(domain_name=None, name=None, resource_group_name=None, opts=None):
+def get_domain_ownership_identifier(domain_name: Optional[str] = None,
+                                    name: Optional[str] = None,
+                                    resource_group_name: Optional[str] = None,
+                                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDomainOwnershipIdentifierResult:
     """
     Use this data source to access information about an existing resource.
 
@@ -68,10 +97,10 @@ def get_domain_ownership_identifier(domain_name=None, name=None, resource_group_
         opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = _utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('azurerm:domainregistration/v20190801:getDomainOwnershipIdentifier', __args__, opts=opts).value
+    __ret__ = pulumi.runtime.invoke('azurerm:domainregistration/v20190801:getDomainOwnershipIdentifier', __args__, opts=opts, typ=GetDomainOwnershipIdentifierResult).value
 
     return AwaitableGetDomainOwnershipIdentifierResult(
-        kind=__ret__.get('kind'),
-        name=__ret__.get('name'),
-        ownership_id=__ret__.get('ownershipId'),
-        type=__ret__.get('type'))
+        kind=__ret__.kind,
+        name=__ret__.name,
+        ownership_id=__ret__.ownership_id,
+        type=__ret__.type)

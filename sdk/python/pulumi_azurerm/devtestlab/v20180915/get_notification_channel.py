@@ -5,10 +5,17 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+from . import outputs
 
+__all__ = [
+    'GetNotificationChannelResult',
+    'AwaitableGetNotificationChannelResult',
+    'get_notification_channel',
+]
 
+@pulumi.output_type
 class GetNotificationChannelResult:
     """
     A notification.
@@ -16,76 +23,136 @@ class GetNotificationChannelResult:
     def __init__(__self__, created_date=None, description=None, email_recipient=None, events=None, location=None, name=None, notification_locale=None, provisioning_state=None, tags=None, type=None, unique_identifier=None, web_hook_url=None):
         if created_date and not isinstance(created_date, str):
             raise TypeError("Expected argument 'created_date' to be a str")
-        __self__.created_date = created_date
+        pulumi.set(__self__, "created_date", created_date)
+        if description and not isinstance(description, str):
+            raise TypeError("Expected argument 'description' to be a str")
+        pulumi.set(__self__, "description", description)
+        if email_recipient and not isinstance(email_recipient, str):
+            raise TypeError("Expected argument 'email_recipient' to be a str")
+        pulumi.set(__self__, "email_recipient", email_recipient)
+        if events and not isinstance(events, list):
+            raise TypeError("Expected argument 'events' to be a list")
+        pulumi.set(__self__, "events", events)
+        if location and not isinstance(location, str):
+            raise TypeError("Expected argument 'location' to be a str")
+        pulumi.set(__self__, "location", location)
+        if name and not isinstance(name, str):
+            raise TypeError("Expected argument 'name' to be a str")
+        pulumi.set(__self__, "name", name)
+        if notification_locale and not isinstance(notification_locale, str):
+            raise TypeError("Expected argument 'notification_locale' to be a str")
+        pulumi.set(__self__, "notification_locale", notification_locale)
+        if provisioning_state and not isinstance(provisioning_state, str):
+            raise TypeError("Expected argument 'provisioning_state' to be a str")
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if tags and not isinstance(tags, dict):
+            raise TypeError("Expected argument 'tags' to be a dict")
+        pulumi.set(__self__, "tags", tags)
+        if type and not isinstance(type, str):
+            raise TypeError("Expected argument 'type' to be a str")
+        pulumi.set(__self__, "type", type)
+        if unique_identifier and not isinstance(unique_identifier, str):
+            raise TypeError("Expected argument 'unique_identifier' to be a str")
+        pulumi.set(__self__, "unique_identifier", unique_identifier)
+        if web_hook_url and not isinstance(web_hook_url, str):
+            raise TypeError("Expected argument 'web_hook_url' to be a str")
+        pulumi.set(__self__, "web_hook_url", web_hook_url)
+
+    @property
+    @pulumi.getter(name="createdDate")
+    def created_date(self) -> str:
         """
         The creation date of the notification channel.
         """
-        if description and not isinstance(description, str):
-            raise TypeError("Expected argument 'description' to be a str")
-        __self__.description = description
+        return pulumi.get(self, "created_date")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
         """
         Description of notification.
         """
-        if email_recipient and not isinstance(email_recipient, str):
-            raise TypeError("Expected argument 'email_recipient' to be a str")
-        __self__.email_recipient = email_recipient
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="emailRecipient")
+    def email_recipient(self) -> Optional[str]:
         """
         The email recipient to send notifications to (can be a list of semi-colon separated email addresses).
         """
-        if events and not isinstance(events, list):
-            raise TypeError("Expected argument 'events' to be a list")
-        __self__.events = events
+        return pulumi.get(self, "email_recipient")
+
+    @property
+    @pulumi.getter
+    def events(self) -> Optional[List['outputs.EventResponse']]:
         """
         The list of event for which this notification is enabled.
         """
-        if location and not isinstance(location, str):
-            raise TypeError("Expected argument 'location' to be a str")
-        __self__.location = location
+        return pulumi.get(self, "events")
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[str]:
         """
         The location of the resource.
         """
-        if name and not isinstance(name, str):
-            raise TypeError("Expected argument 'name' to be a str")
-        __self__.name = name
+        return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
         """
         The name of the resource.
         """
-        if notification_locale and not isinstance(notification_locale, str):
-            raise TypeError("Expected argument 'notification_locale' to be a str")
-        __self__.notification_locale = notification_locale
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="notificationLocale")
+    def notification_locale(self) -> Optional[str]:
         """
         The locale to use when sending a notification (fallback for unsupported languages is EN).
         """
-        if provisioning_state and not isinstance(provisioning_state, str):
-            raise TypeError("Expected argument 'provisioning_state' to be a str")
-        __self__.provisioning_state = provisioning_state
+        return pulumi.get(self, "notification_locale")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
         """
         The provisioning status of the resource.
         """
-        if tags and not isinstance(tags, dict):
-            raise TypeError("Expected argument 'tags' to be a dict")
-        __self__.tags = tags
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Mapping[str, str]]:
         """
         The tags of the resource.
         """
-        if type and not isinstance(type, str):
-            raise TypeError("Expected argument 'type' to be a str")
-        __self__.type = type
+        return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
         """
         The type of the resource.
         """
-        if unique_identifier and not isinstance(unique_identifier, str):
-            raise TypeError("Expected argument 'unique_identifier' to be a str")
-        __self__.unique_identifier = unique_identifier
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="uniqueIdentifier")
+    def unique_identifier(self) -> str:
         """
         The unique immutable identifier of a resource (Guid).
         """
-        if web_hook_url and not isinstance(web_hook_url, str):
-            raise TypeError("Expected argument 'web_hook_url' to be a str")
-        __self__.web_hook_url = web_hook_url
+        return pulumi.get(self, "unique_identifier")
+
+    @property
+    @pulumi.getter(name="webHookUrl")
+    def web_hook_url(self) -> Optional[str]:
         """
         The webhook URL to send notifications to.
         """
+        return pulumi.get(self, "web_hook_url")
 
 
 class AwaitableGetNotificationChannelResult(GetNotificationChannelResult):
@@ -108,7 +175,11 @@ class AwaitableGetNotificationChannelResult(GetNotificationChannelResult):
             web_hook_url=self.web_hook_url)
 
 
-def get_notification_channel(expand=None, lab_name=None, name=None, resource_group_name=None, opts=None):
+def get_notification_channel(expand: Optional[str] = None,
+                             lab_name: Optional[str] = None,
+                             name: Optional[str] = None,
+                             resource_group_name: Optional[str] = None,
+                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetNotificationChannelResult:
     """
     Use this data source to access information about an existing resource.
 
@@ -126,18 +197,18 @@ def get_notification_channel(expand=None, lab_name=None, name=None, resource_gro
         opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = _utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('azurerm:devtestlab/v20180915:getNotificationChannel', __args__, opts=opts).value
+    __ret__ = pulumi.runtime.invoke('azurerm:devtestlab/v20180915:getNotificationChannel', __args__, opts=opts, typ=GetNotificationChannelResult).value
 
     return AwaitableGetNotificationChannelResult(
-        created_date=__ret__.get('createdDate'),
-        description=__ret__.get('description'),
-        email_recipient=__ret__.get('emailRecipient'),
-        events=__ret__.get('events'),
-        location=__ret__.get('location'),
-        name=__ret__.get('name'),
-        notification_locale=__ret__.get('notificationLocale'),
-        provisioning_state=__ret__.get('provisioningState'),
-        tags=__ret__.get('tags'),
-        type=__ret__.get('type'),
-        unique_identifier=__ret__.get('uniqueIdentifier'),
-        web_hook_url=__ret__.get('webHookUrl'))
+        created_date=__ret__.created_date,
+        description=__ret__.description,
+        email_recipient=__ret__.email_recipient,
+        events=__ret__.events,
+        location=__ret__.location,
+        name=__ret__.name,
+        notification_locale=__ret__.notification_locale,
+        provisioning_state=__ret__.provisioning_state,
+        tags=__ret__.tags,
+        type=__ret__.type,
+        unique_identifier=__ret__.unique_identifier,
+        web_hook_url=__ret__.web_hook_url)

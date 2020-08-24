@@ -5,10 +5,16 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
 
+__all__ = [
+    'GetServerResult',
+    'AwaitableGetServerResult',
+    'get_server',
+]
 
+@pulumi.output_type
 class GetServerResult:
     """
     Represents a server.
@@ -16,76 +22,136 @@ class GetServerResult:
     def __init__(__self__, administrator_login=None, administrator_login_password=None, external_administrator_login=None, external_administrator_sid=None, fully_qualified_domain_name=None, kind=None, location=None, name=None, state=None, tags=None, type=None, version=None):
         if administrator_login and not isinstance(administrator_login, str):
             raise TypeError("Expected argument 'administrator_login' to be a str")
-        __self__.administrator_login = administrator_login
+        pulumi.set(__self__, "administrator_login", administrator_login)
+        if administrator_login_password and not isinstance(administrator_login_password, str):
+            raise TypeError("Expected argument 'administrator_login_password' to be a str")
+        pulumi.set(__self__, "administrator_login_password", administrator_login_password)
+        if external_administrator_login and not isinstance(external_administrator_login, str):
+            raise TypeError("Expected argument 'external_administrator_login' to be a str")
+        pulumi.set(__self__, "external_administrator_login", external_administrator_login)
+        if external_administrator_sid and not isinstance(external_administrator_sid, str):
+            raise TypeError("Expected argument 'external_administrator_sid' to be a str")
+        pulumi.set(__self__, "external_administrator_sid", external_administrator_sid)
+        if fully_qualified_domain_name and not isinstance(fully_qualified_domain_name, str):
+            raise TypeError("Expected argument 'fully_qualified_domain_name' to be a str")
+        pulumi.set(__self__, "fully_qualified_domain_name", fully_qualified_domain_name)
+        if kind and not isinstance(kind, str):
+            raise TypeError("Expected argument 'kind' to be a str")
+        pulumi.set(__self__, "kind", kind)
+        if location and not isinstance(location, str):
+            raise TypeError("Expected argument 'location' to be a str")
+        pulumi.set(__self__, "location", location)
+        if name and not isinstance(name, str):
+            raise TypeError("Expected argument 'name' to be a str")
+        pulumi.set(__self__, "name", name)
+        if state and not isinstance(state, str):
+            raise TypeError("Expected argument 'state' to be a str")
+        pulumi.set(__self__, "state", state)
+        if tags and not isinstance(tags, dict):
+            raise TypeError("Expected argument 'tags' to be a dict")
+        pulumi.set(__self__, "tags", tags)
+        if type and not isinstance(type, str):
+            raise TypeError("Expected argument 'type' to be a str")
+        pulumi.set(__self__, "type", type)
+        if version and not isinstance(version, str):
+            raise TypeError("Expected argument 'version' to be a str")
+        pulumi.set(__self__, "version", version)
+
+    @property
+    @pulumi.getter(name="administratorLogin")
+    def administrator_login(self) -> Optional[str]:
         """
         Administrator username for the server. Can only be specified when the server is being created (and is required for creation).
         """
-        if administrator_login_password and not isinstance(administrator_login_password, str):
-            raise TypeError("Expected argument 'administrator_login_password' to be a str")
-        __self__.administrator_login_password = administrator_login_password
+        return pulumi.get(self, "administrator_login")
+
+    @property
+    @pulumi.getter(name="administratorLoginPassword")
+    def administrator_login_password(self) -> Optional[str]:
         """
         The administrator login password (required for server creation).
         """
-        if external_administrator_login and not isinstance(external_administrator_login, str):
-            raise TypeError("Expected argument 'external_administrator_login' to be a str")
-        __self__.external_administrator_login = external_administrator_login
+        return pulumi.get(self, "administrator_login_password")
+
+    @property
+    @pulumi.getter(name="externalAdministratorLogin")
+    def external_administrator_login(self) -> str:
         """
         The display name of the Azure Active Directory object with admin permissions on this server. Legacy parameter, always null. To check for Active Directory admin, query .../servers/{serverName}/administrators
         """
-        if external_administrator_sid and not isinstance(external_administrator_sid, str):
-            raise TypeError("Expected argument 'external_administrator_sid' to be a str")
-        __self__.external_administrator_sid = external_administrator_sid
+        return pulumi.get(self, "external_administrator_login")
+
+    @property
+    @pulumi.getter(name="externalAdministratorSid")
+    def external_administrator_sid(self) -> str:
         """
         The ID of the Active Azure Directory object with admin permissions on this server. Legacy parameter, always null. To check for Active Directory admin, query .../servers/{serverName}/administrators.
         """
-        if fully_qualified_domain_name and not isinstance(fully_qualified_domain_name, str):
-            raise TypeError("Expected argument 'fully_qualified_domain_name' to be a str")
-        __self__.fully_qualified_domain_name = fully_qualified_domain_name
+        return pulumi.get(self, "external_administrator_sid")
+
+    @property
+    @pulumi.getter(name="fullyQualifiedDomainName")
+    def fully_qualified_domain_name(self) -> str:
         """
         The fully qualified domain name of the server.
         """
-        if kind and not isinstance(kind, str):
-            raise TypeError("Expected argument 'kind' to be a str")
-        __self__.kind = kind
+        return pulumi.get(self, "fully_qualified_domain_name")
+
+    @property
+    @pulumi.getter
+    def kind(self) -> str:
         """
         Kind of sql server.  This is metadata used for the Azure portal experience.
         """
-        if location and not isinstance(location, str):
-            raise TypeError("Expected argument 'location' to be a str")
-        __self__.location = location
+        return pulumi.get(self, "kind")
+
+    @property
+    @pulumi.getter
+    def location(self) -> str:
         """
         Resource location.
         """
-        if name and not isinstance(name, str):
-            raise TypeError("Expected argument 'name' to be a str")
-        __self__.name = name
+        return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
         """
         Resource name.
         """
-        if state and not isinstance(state, str):
-            raise TypeError("Expected argument 'state' to be a str")
-        __self__.state = state
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def state(self) -> str:
         """
         The state of the server.
         """
-        if tags and not isinstance(tags, dict):
-            raise TypeError("Expected argument 'tags' to be a dict")
-        __self__.tags = tags
+        return pulumi.get(self, "state")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Mapping[str, str]]:
         """
         Resource tags.
         """
-        if type and not isinstance(type, str):
-            raise TypeError("Expected argument 'type' to be a str")
-        __self__.type = type
+        return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
         """
         Resource type.
         """
-        if version and not isinstance(version, str):
-            raise TypeError("Expected argument 'version' to be a str")
-        __self__.version = version
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def version(self) -> Optional[str]:
         """
         The version of the server.
         """
+        return pulumi.get(self, "version")
 
 
 class AwaitableGetServerResult(GetServerResult):
@@ -108,7 +174,9 @@ class AwaitableGetServerResult(GetServerResult):
             version=self.version)
 
 
-def get_server(name=None, resource_group_name=None, opts=None):
+def get_server(name: Optional[str] = None,
+               resource_group_name: Optional[str] = None,
+               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetServerResult:
     """
     Use this data source to access information about an existing resource.
 
@@ -122,18 +190,18 @@ def get_server(name=None, resource_group_name=None, opts=None):
         opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = _utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('azurerm:sql/v20140401:getServer', __args__, opts=opts).value
+    __ret__ = pulumi.runtime.invoke('azurerm:sql/v20140401:getServer', __args__, opts=opts, typ=GetServerResult).value
 
     return AwaitableGetServerResult(
-        administrator_login=__ret__.get('administratorLogin'),
-        administrator_login_password=__ret__.get('administratorLoginPassword'),
-        external_administrator_login=__ret__.get('externalAdministratorLogin'),
-        external_administrator_sid=__ret__.get('externalAdministratorSid'),
-        fully_qualified_domain_name=__ret__.get('fullyQualifiedDomainName'),
-        kind=__ret__.get('kind'),
-        location=__ret__.get('location'),
-        name=__ret__.get('name'),
-        state=__ret__.get('state'),
-        tags=__ret__.get('tags'),
-        type=__ret__.get('type'),
-        version=__ret__.get('version'))
+        administrator_login=__ret__.administrator_login,
+        administrator_login_password=__ret__.administrator_login_password,
+        external_administrator_login=__ret__.external_administrator_login,
+        external_administrator_sid=__ret__.external_administrator_sid,
+        fully_qualified_domain_name=__ret__.fully_qualified_domain_name,
+        kind=__ret__.kind,
+        location=__ret__.location,
+        name=__ret__.name,
+        state=__ret__.state,
+        tags=__ret__.tags,
+        type=__ret__.type,
+        version=__ret__.version)

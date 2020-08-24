@@ -5,47 +5,29 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+from . import outputs
+from ._inputs import *
+
+__all__ = ['EmailTemplate']
 
 
 class EmailTemplate(pulumi.CustomResource):
-    body: pulumi.Output[str]
-    """
-    Email Template Body. This should be a valid XDocument
-    """
-    description: pulumi.Output[str]
-    """
-    Description of the Email Template.
-    """
-    is_default: pulumi.Output[bool]
-    """
-    Whether the template is the default template provided by Api Management or has been edited.
-    """
-    name: pulumi.Output[str]
-    """
-    Resource name.
-    """
-    parameters: pulumi.Output[list]
-    """
-    Email Template Parameter values.
-      * `description` (`str`) - Template parameter description.
-      * `name` (`str`) - Template parameter name.
-      * `title` (`str`) - Template parameter title.
-    """
-    subject: pulumi.Output[str]
-    """
-    Subject of the Template.
-    """
-    title: pulumi.Output[str]
-    """
-    Title of the Template.
-    """
-    type: pulumi.Output[str]
-    """
-    Resource type for API Management resource.
-    """
-    def __init__(__self__, resource_name, opts=None, body=None, description=None, name=None, parameters=None, resource_group_name=None, service_name=None, subject=None, title=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 body: Optional[pulumi.Input[str]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 parameters: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['EmailTemplateParametersContractPropertiesArgs']]]]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 service_name: Optional[pulumi.Input[str]] = None,
+                 subject: Optional[pulumi.Input[str]] = None,
+                 title: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         Email Template details.
 
@@ -54,17 +36,11 @@ class EmailTemplate(pulumi.CustomResource):
         :param pulumi.Input[str] body: Email Template Body. This should be a valid XDocument
         :param pulumi.Input[str] description: Description of the Email Template.
         :param pulumi.Input[str] name: Email Template Name Identifier.
-        :param pulumi.Input[list] parameters: Email Template Parameter values.
+        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['EmailTemplateParametersContractPropertiesArgs']]]] parameters: Email Template Parameter values.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[str] service_name: The name of the API Management service.
         :param pulumi.Input[str] subject: Subject of the Template.
         :param pulumi.Input[str] title: Title of the Template.
-
-        The **parameters** object supports the following:
-
-          * `description` (`pulumi.Input[str]`) - Template parameter description.
-          * `name` (`pulumi.Input[str]`) - Template parameter name.
-          * `title` (`pulumi.Input[str]`) - Template parameter title.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -108,13 +84,15 @@ class EmailTemplate(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None) -> 'EmailTemplate':
         """
         Get an existing EmailTemplate resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -123,8 +101,73 @@ class EmailTemplate(pulumi.CustomResource):
 
         return EmailTemplate(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter
+    def body(self) -> str:
+        """
+        Email Template Body. This should be a valid XDocument
+        """
+        return pulumi.get(self, "body")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        """
+        Description of the Email Template.
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="isDefault")
+    def is_default(self) -> bool:
+        """
+        Whether the template is the default template provided by Api Management or has been edited.
+        """
+        return pulumi.get(self, "is_default")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Resource name.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def parameters(self) -> Optional[List['outputs.EmailTemplateParametersContractPropertiesResponse']]:
+        """
+        Email Template Parameter values.
+        """
+        return pulumi.get(self, "parameters")
+
+    @property
+    @pulumi.getter
+    def subject(self) -> str:
+        """
+        Subject of the Template.
+        """
+        return pulumi.get(self, "subject")
+
+    @property
+    @pulumi.getter
+    def title(self) -> Optional[str]:
+        """
+        Title of the Template.
+        """
+        return pulumi.get(self, "title")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Resource type for API Management resource.
+        """
+        return pulumi.get(self, "type")
+
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

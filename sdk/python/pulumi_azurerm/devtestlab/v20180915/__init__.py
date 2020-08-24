@@ -43,3 +43,5 @@ from .user import *
 from .virtual_machine import *
 from .virtual_machine_schedule import *
 from .virtual_network import *
+from ._inputs import *
+from . import outputs

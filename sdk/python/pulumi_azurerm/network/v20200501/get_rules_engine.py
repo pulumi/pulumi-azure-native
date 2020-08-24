@@ -5,10 +5,17 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+from . import outputs
 
+__all__ = [
+    'GetRulesEngineResult',
+    'AwaitableGetRulesEngineResult',
+    'get_rules_engine',
+]
 
+@pulumi.output_type
 class GetRulesEngineResult:
     """
     A rules engine configuration containing a list of rules that will run to modify the runtime behavior of the request and response.
@@ -16,28 +23,48 @@ class GetRulesEngineResult:
     def __init__(__self__, name=None, resource_state=None, rules=None, type=None):
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
-        __self__.name = name
+        pulumi.set(__self__, "name", name)
+        if resource_state and not isinstance(resource_state, str):
+            raise TypeError("Expected argument 'resource_state' to be a str")
+        pulumi.set(__self__, "resource_state", resource_state)
+        if rules and not isinstance(rules, list):
+            raise TypeError("Expected argument 'rules' to be a list")
+        pulumi.set(__self__, "rules", rules)
+        if type and not isinstance(type, str):
+            raise TypeError("Expected argument 'type' to be a str")
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
         """
         Resource name.
         """
-        if resource_state and not isinstance(resource_state, str):
-            raise TypeError("Expected argument 'resource_state' to be a str")
-        __self__.resource_state = resource_state
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="resourceState")
+    def resource_state(self) -> Optional[str]:
         """
         Resource status.
         """
-        if rules and not isinstance(rules, list):
-            raise TypeError("Expected argument 'rules' to be a list")
-        __self__.rules = rules
+        return pulumi.get(self, "resource_state")
+
+    @property
+    @pulumi.getter
+    def rules(self) -> Optional[List['outputs.RulesEngineRuleResponse']]:
         """
         A list of rules that define a particular Rules Engine Configuration.
         """
-        if type and not isinstance(type, str):
-            raise TypeError("Expected argument 'type' to be a str")
-        __self__.type = type
+        return pulumi.get(self, "rules")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
         """
         Resource type.
         """
+        return pulumi.get(self, "type")
 
 
 class AwaitableGetRulesEngineResult(GetRulesEngineResult):
@@ -52,7 +79,10 @@ class AwaitableGetRulesEngineResult(GetRulesEngineResult):
             type=self.type)
 
 
-def get_rules_engine(front_door_name=None, name=None, resource_group_name=None, opts=None):
+def get_rules_engine(front_door_name: Optional[str] = None,
+                     name: Optional[str] = None,
+                     resource_group_name: Optional[str] = None,
+                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetRulesEngineResult:
     """
     Use this data source to access information about an existing resource.
 
@@ -68,10 +98,10 @@ def get_rules_engine(front_door_name=None, name=None, resource_group_name=None, 
         opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = _utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('azurerm:network/v20200501:getRulesEngine', __args__, opts=opts).value
+    __ret__ = pulumi.runtime.invoke('azurerm:network/v20200501:getRulesEngine', __args__, opts=opts, typ=GetRulesEngineResult).value
 
     return AwaitableGetRulesEngineResult(
-        name=__ret__.get('name'),
-        resource_state=__ret__.get('resourceState'),
-        rules=__ret__.get('rules'),
-        type=__ret__.get('type'))
+        name=__ret__.name,
+        resource_state=__ret__.resource_state,
+        rules=__ret__.rules,
+        type=__ret__.type)

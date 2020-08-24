@@ -5,10 +5,17 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+from . import outputs
 
+__all__ = [
+    'GetAutomationAccountResult',
+    'AwaitableGetAutomationAccountResult',
+    'get_automation_account',
+]
 
+@pulumi.output_type
 class GetAutomationAccountResult:
     """
     Definition of the automation account type.
@@ -16,70 +23,125 @@ class GetAutomationAccountResult:
     def __init__(__self__, creation_time=None, description=None, etag=None, last_modified_by=None, last_modified_time=None, location=None, name=None, sku=None, state=None, tags=None, type=None):
         if creation_time and not isinstance(creation_time, str):
             raise TypeError("Expected argument 'creation_time' to be a str")
-        __self__.creation_time = creation_time
+        pulumi.set(__self__, "creation_time", creation_time)
+        if description and not isinstance(description, str):
+            raise TypeError("Expected argument 'description' to be a str")
+        pulumi.set(__self__, "description", description)
+        if etag and not isinstance(etag, str):
+            raise TypeError("Expected argument 'etag' to be a str")
+        pulumi.set(__self__, "etag", etag)
+        if last_modified_by and not isinstance(last_modified_by, str):
+            raise TypeError("Expected argument 'last_modified_by' to be a str")
+        pulumi.set(__self__, "last_modified_by", last_modified_by)
+        if last_modified_time and not isinstance(last_modified_time, str):
+            raise TypeError("Expected argument 'last_modified_time' to be a str")
+        pulumi.set(__self__, "last_modified_time", last_modified_time)
+        if location and not isinstance(location, str):
+            raise TypeError("Expected argument 'location' to be a str")
+        pulumi.set(__self__, "location", location)
+        if name and not isinstance(name, str):
+            raise TypeError("Expected argument 'name' to be a str")
+        pulumi.set(__self__, "name", name)
+        if sku and not isinstance(sku, dict):
+            raise TypeError("Expected argument 'sku' to be a dict")
+        pulumi.set(__self__, "sku", sku)
+        if state and not isinstance(state, str):
+            raise TypeError("Expected argument 'state' to be a str")
+        pulumi.set(__self__, "state", state)
+        if tags and not isinstance(tags, dict):
+            raise TypeError("Expected argument 'tags' to be a dict")
+        pulumi.set(__self__, "tags", tags)
+        if type and not isinstance(type, str):
+            raise TypeError("Expected argument 'type' to be a str")
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="creationTime")
+    def creation_time(self) -> str:
         """
         Gets the creation time.
         """
-        if description and not isinstance(description, str):
-            raise TypeError("Expected argument 'description' to be a str")
-        __self__.description = description
+        return pulumi.get(self, "creation_time")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
         """
         Gets or sets the description.
         """
-        if etag and not isinstance(etag, str):
-            raise TypeError("Expected argument 'etag' to be a str")
-        __self__.etag = etag
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def etag(self) -> Optional[str]:
         """
         Gets or sets the etag of the resource.
         """
-        if last_modified_by and not isinstance(last_modified_by, str):
-            raise TypeError("Expected argument 'last_modified_by' to be a str")
-        __self__.last_modified_by = last_modified_by
+        return pulumi.get(self, "etag")
+
+    @property
+    @pulumi.getter(name="lastModifiedBy")
+    def last_modified_by(self) -> Optional[str]:
         """
         Gets or sets the last modified by.
         """
-        if last_modified_time and not isinstance(last_modified_time, str):
-            raise TypeError("Expected argument 'last_modified_time' to be a str")
-        __self__.last_modified_time = last_modified_time
+        return pulumi.get(self, "last_modified_by")
+
+    @property
+    @pulumi.getter(name="lastModifiedTime")
+    def last_modified_time(self) -> str:
         """
         Gets the last modified time.
         """
-        if location and not isinstance(location, str):
-            raise TypeError("Expected argument 'location' to be a str")
-        __self__.location = location
+        return pulumi.get(self, "last_modified_time")
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[str]:
         """
         The Azure Region where the resource lives
         """
-        if name and not isinstance(name, str):
-            raise TypeError("Expected argument 'name' to be a str")
-        __self__.name = name
+        return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
         """
         The name of the resource
         """
-        if sku and not isinstance(sku, dict):
-            raise TypeError("Expected argument 'sku' to be a dict")
-        __self__.sku = sku
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def sku(self) -> Optional['outputs.SkuResponse']:
         """
         Gets or sets the SKU of account.
         """
-        if state and not isinstance(state, str):
-            raise TypeError("Expected argument 'state' to be a str")
-        __self__.state = state
+        return pulumi.get(self, "sku")
+
+    @property
+    @pulumi.getter
+    def state(self) -> str:
         """
         Gets status of account.
         """
-        if tags and not isinstance(tags, dict):
-            raise TypeError("Expected argument 'tags' to be a dict")
-        __self__.tags = tags
+        return pulumi.get(self, "state")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Mapping[str, str]]:
         """
         Resource tags.
         """
-        if type and not isinstance(type, str):
-            raise TypeError("Expected argument 'type' to be a str")
-        __self__.type = type
+        return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
         """
         The type of the resource.
         """
+        return pulumi.get(self, "type")
 
 
 class AwaitableGetAutomationAccountResult(GetAutomationAccountResult):
@@ -101,7 +163,9 @@ class AwaitableGetAutomationAccountResult(GetAutomationAccountResult):
             type=self.type)
 
 
-def get_automation_account(name=None, resource_group_name=None, opts=None):
+def get_automation_account(name: Optional[str] = None,
+                           resource_group_name: Optional[str] = None,
+                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAutomationAccountResult:
     """
     Use this data source to access information about an existing resource.
 
@@ -115,17 +179,17 @@ def get_automation_account(name=None, resource_group_name=None, opts=None):
         opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = _utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('azurerm:automation/v20151031:getAutomationAccount', __args__, opts=opts).value
+    __ret__ = pulumi.runtime.invoke('azurerm:automation/v20151031:getAutomationAccount', __args__, opts=opts, typ=GetAutomationAccountResult).value
 
     return AwaitableGetAutomationAccountResult(
-        creation_time=__ret__.get('creationTime'),
-        description=__ret__.get('description'),
-        etag=__ret__.get('etag'),
-        last_modified_by=__ret__.get('lastModifiedBy'),
-        last_modified_time=__ret__.get('lastModifiedTime'),
-        location=__ret__.get('location'),
-        name=__ret__.get('name'),
-        sku=__ret__.get('sku'),
-        state=__ret__.get('state'),
-        tags=__ret__.get('tags'),
-        type=__ret__.get('type'))
+        creation_time=__ret__.creation_time,
+        description=__ret__.description,
+        etag=__ret__.etag,
+        last_modified_by=__ret__.last_modified_by,
+        last_modified_time=__ret__.last_modified_time,
+        location=__ret__.location,
+        name=__ret__.name,
+        sku=__ret__.sku,
+        state=__ret__.state,
+        tags=__ret__.tags,
+        type=__ret__.type)

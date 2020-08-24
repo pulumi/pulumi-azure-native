@@ -5,106 +5,52 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+from . import outputs
+from ._inputs import *
+
+__all__ = ['Link']
 
 
 class Link(pulumi.CustomResource):
-    description: pulumi.Output[dict]
-    """
-    Localized descriptions for the Link.
-    """
-    display_name: pulumi.Output[dict]
-    """
-    Localized display name for the Link.
-    """
-    link_name: pulumi.Output[str]
-    """
-    The link name.
-    """
-    mappings: pulumi.Output[list]
-    """
-    The set of properties mappings between the source and target Types.
-      * `link_type` (`str`) - Link type.
-      * `source_property_name` (`str`) -  Property name on the source Entity Type.
-      * `target_property_name` (`str`) - Property name on the target Entity Type.
-    """
-    name: pulumi.Output[str]
-    """
-    Resource name.
-    """
-    operation_type: pulumi.Output[str]
-    """
-    Determines whether this link is supposed to create or delete instances if Link is NOT Reference Only.
-    """
-    participant_property_references: pulumi.Output[list]
-    """
-    The properties that represent the participating profile.
-      * `source_property_name` (`str`) - The source property that maps to the target property.
-      * `target_property_name` (`str`) - The target property that maps to the source property.
-    """
-    provisioning_state: pulumi.Output[str]
-    """
-    Provisioning state.
-    """
-    reference_only: pulumi.Output[bool]
-    """
-    Indicating whether the link is reference only link. This flag is ignored if the Mappings are defined. If the mappings are not defined and it is set to true, links processing will not create or update profiles.
-    """
-    source_entity_type: pulumi.Output[str]
-    """
-    Type of source entity.
-    """
-    source_entity_type_name: pulumi.Output[str]
-    """
-    Name of the source Entity Type.
-    """
-    target_entity_type: pulumi.Output[str]
-    """
-    Type of target entity.
-    """
-    target_entity_type_name: pulumi.Output[str]
-    """
-    Name of the target Entity Type.
-    """
-    tenant_id: pulumi.Output[str]
-    """
-    The hub name.
-    """
-    type: pulumi.Output[str]
-    """
-    Resource type.
-    """
-    def __init__(__self__, resource_name, opts=None, description=None, display_name=None, hub_name=None, mappings=None, name=None, operation_type=None, participant_property_references=None, reference_only=None, resource_group_name=None, source_entity_type=None, source_entity_type_name=None, target_entity_type=None, target_entity_type_name=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 description: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 display_name: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 hub_name: Optional[pulumi.Input[str]] = None,
+                 mappings: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['TypePropertiesMappingArgs']]]]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 operation_type: Optional[pulumi.Input[str]] = None,
+                 participant_property_references: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['ParticipantPropertyReferenceArgs']]]]] = None,
+                 reference_only: Optional[pulumi.Input[bool]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 source_entity_type: Optional[pulumi.Input[str]] = None,
+                 source_entity_type_name: Optional[pulumi.Input[str]] = None,
+                 target_entity_type: Optional[pulumi.Input[str]] = None,
+                 target_entity_type_name: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         The link resource format.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[dict] description: Localized descriptions for the Link.
-        :param pulumi.Input[dict] display_name: Localized display name for the Link.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] description: Localized descriptions for the Link.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] display_name: Localized display name for the Link.
         :param pulumi.Input[str] hub_name: The name of the hub.
-        :param pulumi.Input[list] mappings: The set of properties mappings between the source and target Types.
+        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['TypePropertiesMappingArgs']]]] mappings: The set of properties mappings between the source and target Types.
         :param pulumi.Input[str] name: The name of the link.
         :param pulumi.Input[str] operation_type: Determines whether this link is supposed to create or delete instances if Link is NOT Reference Only.
-        :param pulumi.Input[list] participant_property_references: The properties that represent the participating profile.
+        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['ParticipantPropertyReferenceArgs']]]] participant_property_references: The properties that represent the participating profile.
         :param pulumi.Input[bool] reference_only: Indicating whether the link is reference only link. This flag is ignored if the Mappings are defined. If the mappings are not defined and it is set to true, links processing will not create or update profiles.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[str] source_entity_type: Type of source entity.
         :param pulumi.Input[str] source_entity_type_name: Name of the source Entity Type.
         :param pulumi.Input[str] target_entity_type: Type of target entity.
         :param pulumi.Input[str] target_entity_type_name: Name of the target Entity Type.
-
-        The **mappings** object supports the following:
-
-          * `link_type` (`pulumi.Input[str]`) - Link type.
-          * `source_property_name` (`pulumi.Input[str]`) -  Property name on the source Entity Type.
-          * `target_property_name` (`pulumi.Input[str]`) - Property name on the target Entity Type.
-
-        The **participant_property_references** object supports the following:
-
-          * `source_property_name` (`pulumi.Input[str]`) - The source property that maps to the target property.
-          * `target_property_name` (`pulumi.Input[str]`) - The target property that maps to the source property.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -165,13 +111,15 @@ class Link(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None) -> 'Link':
         """
         Get an existing Link resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -180,8 +128,129 @@ class Link(pulumi.CustomResource):
 
         return Link(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[Mapping[str, str]]:
+        """
+        Localized descriptions for the Link.
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="displayName")
+    def display_name(self) -> Optional[Mapping[str, str]]:
+        """
+        Localized display name for the Link.
+        """
+        return pulumi.get(self, "display_name")
+
+    @property
+    @pulumi.getter(name="linkName")
+    def link_name(self) -> str:
+        """
+        The link name.
+        """
+        return pulumi.get(self, "link_name")
+
+    @property
+    @pulumi.getter
+    def mappings(self) -> Optional[List['outputs.TypePropertiesMappingResponse']]:
+        """
+        The set of properties mappings between the source and target Types.
+        """
+        return pulumi.get(self, "mappings")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Resource name.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="operationType")
+    def operation_type(self) -> Optional[str]:
+        """
+        Determines whether this link is supposed to create or delete instances if Link is NOT Reference Only.
+        """
+        return pulumi.get(self, "operation_type")
+
+    @property
+    @pulumi.getter(name="participantPropertyReferences")
+    def participant_property_references(self) -> List['outputs.ParticipantPropertyReferenceResponse']:
+        """
+        The properties that represent the participating profile.
+        """
+        return pulumi.get(self, "participant_property_references")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        Provisioning state.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="referenceOnly")
+    def reference_only(self) -> Optional[bool]:
+        """
+        Indicating whether the link is reference only link. This flag is ignored if the Mappings are defined. If the mappings are not defined and it is set to true, links processing will not create or update profiles.
+        """
+        return pulumi.get(self, "reference_only")
+
+    @property
+    @pulumi.getter(name="sourceEntityType")
+    def source_entity_type(self) -> str:
+        """
+        Type of source entity.
+        """
+        return pulumi.get(self, "source_entity_type")
+
+    @property
+    @pulumi.getter(name="sourceEntityTypeName")
+    def source_entity_type_name(self) -> str:
+        """
+        Name of the source Entity Type.
+        """
+        return pulumi.get(self, "source_entity_type_name")
+
+    @property
+    @pulumi.getter(name="targetEntityType")
+    def target_entity_type(self) -> str:
+        """
+        Type of target entity.
+        """
+        return pulumi.get(self, "target_entity_type")
+
+    @property
+    @pulumi.getter(name="targetEntityTypeName")
+    def target_entity_type_name(self) -> str:
+        """
+        Name of the target Entity Type.
+        """
+        return pulumi.get(self, "target_entity_type_name")
+
+    @property
+    @pulumi.getter(name="tenantId")
+    def tenant_id(self) -> str:
+        """
+        The hub name.
+        """
+        return pulumi.get(self, "tenant_id")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Resource type.
+        """
+        return pulumi.get(self, "type")
+
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

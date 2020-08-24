@@ -5,10 +5,16 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
 
+__all__ = [
+    'GetGatewayHostnameConfigurationResult',
+    'AwaitableGetGatewayHostnameConfigurationResult',
+    'get_gateway_hostname_configuration',
+]
 
+@pulumi.output_type
 class GetGatewayHostnameConfigurationResult:
     """
     Gateway hostname configuration details.
@@ -16,34 +22,59 @@ class GetGatewayHostnameConfigurationResult:
     def __init__(__self__, certificate_id=None, hostname=None, name=None, negotiate_client_certificate=None, type=None):
         if certificate_id and not isinstance(certificate_id, str):
             raise TypeError("Expected argument 'certificate_id' to be a str")
-        __self__.certificate_id = certificate_id
+        pulumi.set(__self__, "certificate_id", certificate_id)
+        if hostname and not isinstance(hostname, str):
+            raise TypeError("Expected argument 'hostname' to be a str")
+        pulumi.set(__self__, "hostname", hostname)
+        if name and not isinstance(name, str):
+            raise TypeError("Expected argument 'name' to be a str")
+        pulumi.set(__self__, "name", name)
+        if negotiate_client_certificate and not isinstance(negotiate_client_certificate, bool):
+            raise TypeError("Expected argument 'negotiate_client_certificate' to be a bool")
+        pulumi.set(__self__, "negotiate_client_certificate", negotiate_client_certificate)
+        if type and not isinstance(type, str):
+            raise TypeError("Expected argument 'type' to be a str")
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="certificateId")
+    def certificate_id(self) -> Optional[str]:
         """
         Identifier of Certificate entity that will be used for TLS connection establishment
         """
-        if hostname and not isinstance(hostname, str):
-            raise TypeError("Expected argument 'hostname' to be a str")
-        __self__.hostname = hostname
+        return pulumi.get(self, "certificate_id")
+
+    @property
+    @pulumi.getter
+    def hostname(self) -> Optional[str]:
         """
         Hostname value. Supports valid domain name, partial or full wildcard
         """
-        if name and not isinstance(name, str):
-            raise TypeError("Expected argument 'name' to be a str")
-        __self__.name = name
+        return pulumi.get(self, "hostname")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
         """
         Resource name.
         """
-        if negotiate_client_certificate and not isinstance(negotiate_client_certificate, bool):
-            raise TypeError("Expected argument 'negotiate_client_certificate' to be a bool")
-        __self__.negotiate_client_certificate = negotiate_client_certificate
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="negotiateClientCertificate")
+    def negotiate_client_certificate(self) -> Optional[bool]:
         """
         Determines whether gateway requests client certificate
         """
-        if type and not isinstance(type, str):
-            raise TypeError("Expected argument 'type' to be a str")
-        __self__.type = type
+        return pulumi.get(self, "negotiate_client_certificate")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
         """
         Resource type for API Management resource.
         """
+        return pulumi.get(self, "type")
 
 
 class AwaitableGetGatewayHostnameConfigurationResult(GetGatewayHostnameConfigurationResult):
@@ -59,7 +90,11 @@ class AwaitableGetGatewayHostnameConfigurationResult(GetGatewayHostnameConfigura
             type=self.type)
 
 
-def get_gateway_hostname_configuration(gateway_id=None, name=None, resource_group_name=None, service_name=None, opts=None):
+def get_gateway_hostname_configuration(gateway_id: Optional[str] = None,
+                                       name: Optional[str] = None,
+                                       resource_group_name: Optional[str] = None,
+                                       service_name: Optional[str] = None,
+                                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetGatewayHostnameConfigurationResult:
     """
     Use this data source to access information about an existing resource.
 
@@ -77,11 +112,11 @@ def get_gateway_hostname_configuration(gateway_id=None, name=None, resource_grou
         opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = _utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('azurerm:apimanagement/v20191201:getGatewayHostnameConfiguration', __args__, opts=opts).value
+    __ret__ = pulumi.runtime.invoke('azurerm:apimanagement/v20191201:getGatewayHostnameConfiguration', __args__, opts=opts, typ=GetGatewayHostnameConfigurationResult).value
 
     return AwaitableGetGatewayHostnameConfigurationResult(
-        certificate_id=__ret__.get('certificateId'),
-        hostname=__ret__.get('hostname'),
-        name=__ret__.get('name'),
-        negotiate_client_certificate=__ret__.get('negotiateClientCertificate'),
-        type=__ret__.get('type'))
+        certificate_id=__ret__.certificate_id,
+        hostname=__ret__.hostname,
+        name=__ret__.name,
+        negotiate_client_certificate=__ret__.negotiate_client_certificate,
+        type=__ret__.type)

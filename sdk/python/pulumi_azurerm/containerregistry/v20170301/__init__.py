@@ -6,3 +6,5 @@
 from .get_registry import *
 from .list_registry_credentials import *
 from .registry import *
+from ._inputs import *
+from . import outputs

@@ -5,10 +5,17 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+from . import outputs
 
+__all__ = [
+    'GetDeploymentResult',
+    'AwaitableGetDeploymentResult',
+    'get_deployment',
+]
 
+@pulumi.output_type
 class GetDeploymentResult:
     """
     Deployment information.
@@ -16,16 +23,26 @@ class GetDeploymentResult:
     def __init__(__self__, name=None, properties=None):
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
-        __self__.name = name
+        pulumi.set(__self__, "name", name)
+        if properties and not isinstance(properties, dict):
+            raise TypeError("Expected argument 'properties' to be a dict")
+        pulumi.set(__self__, "properties", properties)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
         """
         The name of the deployment.
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def properties(self) -> 'outputs.DeploymentPropertiesExtendedResponse':
         """
         Deployment properties.
         """
+        return pulumi.get(self, "properties")
 
 
 class AwaitableGetDeploymentResult(GetDeploymentResult):
@@ -38,7 +55,9 @@ class AwaitableGetDeploymentResult(GetDeploymentResult):
             properties=self.properties)
 
 
-def get_deployment(name=None, resource_group_name=None, opts=None):
+def get_deployment(name: Optional[str] = None,
+                   resource_group_name: Optional[str] = None,
+                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDeploymentResult:
     """
     Use this data source to access information about an existing resource.
 
@@ -52,8 +71,8 @@ def get_deployment(name=None, resource_group_name=None, opts=None):
         opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = _utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('azurerm:resources/v20160201:getDeployment', __args__, opts=opts).value
+    __ret__ = pulumi.runtime.invoke('azurerm:resources/v20160201:getDeployment', __args__, opts=opts, typ=GetDeploymentResult).value
 
     return AwaitableGetDeploymentResult(
-        name=__ret__.get('name'),
-        properties=__ret__.get('properties'))
+        name=__ret__.name,
+        properties=__ret__.properties)

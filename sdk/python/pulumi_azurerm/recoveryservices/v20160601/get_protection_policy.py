@@ -5,10 +5,17 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+from . import outputs
 
+__all__ = [
+    'GetProtectionPolicyResult',
+    'AwaitableGetProtectionPolicyResult',
+    'get_protection_policy',
+]
 
+@pulumi.output_type
 class GetProtectionPolicyResult:
     """
     The base class for backup policy. Workload-specific backup policies are derived from this class.
@@ -16,40 +23,70 @@ class GetProtectionPolicyResult:
     def __init__(__self__, e_tag=None, location=None, name=None, properties=None, tags=None, type=None):
         if e_tag and not isinstance(e_tag, str):
             raise TypeError("Expected argument 'e_tag' to be a str")
-        __self__.e_tag = e_tag
+        pulumi.set(__self__, "e_tag", e_tag)
+        if location and not isinstance(location, str):
+            raise TypeError("Expected argument 'location' to be a str")
+        pulumi.set(__self__, "location", location)
+        if name and not isinstance(name, str):
+            raise TypeError("Expected argument 'name' to be a str")
+        pulumi.set(__self__, "name", name)
+        if properties and not isinstance(properties, dict):
+            raise TypeError("Expected argument 'properties' to be a dict")
+        pulumi.set(__self__, "properties", properties)
+        if tags and not isinstance(tags, dict):
+            raise TypeError("Expected argument 'tags' to be a dict")
+        pulumi.set(__self__, "tags", tags)
+        if type and not isinstance(type, str):
+            raise TypeError("Expected argument 'type' to be a str")
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="eTag")
+    def e_tag(self) -> Optional[str]:
         """
         Optional ETag.
         """
-        if location and not isinstance(location, str):
-            raise TypeError("Expected argument 'location' to be a str")
-        __self__.location = location
+        return pulumi.get(self, "e_tag")
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[str]:
         """
         Resource location.
         """
-        if name and not isinstance(name, str):
-            raise TypeError("Expected argument 'name' to be a str")
-        __self__.name = name
+        return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
         """
         Resource name associated with the resource.
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def properties(self) -> 'outputs.ProtectionPolicyResponse':
         """
         The base class for a backup policy. Workload-specific backup policies are derived from this class.
         """
-        if tags and not isinstance(tags, dict):
-            raise TypeError("Expected argument 'tags' to be a dict")
-        __self__.tags = tags
+        return pulumi.get(self, "properties")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Mapping[str, str]]:
         """
         Resource tags.
         """
-        if type and not isinstance(type, str):
-            raise TypeError("Expected argument 'type' to be a str")
-        __self__.type = type
+        return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[str]:
         """
         Resource type represents the complete path of the form Namespace/ResourceType/ResourceType/...
         """
+        return pulumi.get(self, "type")
 
 
 class AwaitableGetProtectionPolicyResult(GetProtectionPolicyResult):
@@ -66,7 +103,10 @@ class AwaitableGetProtectionPolicyResult(GetProtectionPolicyResult):
             type=self.type)
 
 
-def get_protection_policy(name=None, resource_group_name=None, vault_name=None, opts=None):
+def get_protection_policy(name: Optional[str] = None,
+                          resource_group_name: Optional[str] = None,
+                          vault_name: Optional[str] = None,
+                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetProtectionPolicyResult:
     """
     Use this data source to access information about an existing resource.
 
@@ -82,12 +122,12 @@ def get_protection_policy(name=None, resource_group_name=None, vault_name=None, 
         opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = _utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('azurerm:recoveryservices/v20160601:getProtectionPolicy', __args__, opts=opts).value
+    __ret__ = pulumi.runtime.invoke('azurerm:recoveryservices/v20160601:getProtectionPolicy', __args__, opts=opts, typ=GetProtectionPolicyResult).value
 
     return AwaitableGetProtectionPolicyResult(
-        e_tag=__ret__.get('eTag'),
-        location=__ret__.get('location'),
-        name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
-        tags=__ret__.get('tags'),
-        type=__ret__.get('type'))
+        e_tag=__ret__.e_tag,
+        location=__ret__.location,
+        name=__ret__.name,
+        properties=__ret__.properties,
+        tags=__ret__.tags,
+        type=__ret__.type)

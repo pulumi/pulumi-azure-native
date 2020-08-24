@@ -5,140 +5,48 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+from . import outputs
+from ._inputs import *
+
+__all__ = ['Relationship']
 
 
 class Relationship(pulumi.CustomResource):
-    cardinality: pulumi.Output[str]
-    """
-    The Relationship Cardinality.
-    """
-    description: pulumi.Output[dict]
-    """
-    Localized descriptions for the Relationship.
-    """
-    display_name: pulumi.Output[dict]
-    """
-    Localized display name for the Relationship.
-    """
-    expiry_date_time_utc: pulumi.Output[str]
-    """
-    The expiry date time in UTC.
-    """
-    fields: pulumi.Output[list]
-    """
-    The properties of the Relationship.
-      * `array_value_separator` (`str`) - Array value separator for properties with isArray set.
-      * `data_source_precedence_rules` (`list`) - This is specific to interactions modeled as activities. Data sources are used to determine where data is stored and also in precedence rules.
-        * `data_source_reference_id` (`str`) - The data source reference id.
-        * `data_source_type` (`str`) - The data source type.
-        * `id` (`float`) - The data source ID.
-        * `name` (`str`) - The data source name
-        * `precedence` (`float`) - the precedence value.
-        * `status` (`str`) - The data source status.
-
-      * `enum_valid_values` (`list`) - Describes valid values for an enum property.
-        * `localized_value_names` (`dict`) - Localized names of the enum member.
-        * `value` (`float`) - The integer value of the enum member.
-
-      * `field_name` (`str`) - Name of the property.
-      * `field_type` (`str`) - Type of the property.
-      * `is_array` (`bool`) - Indicates if the property is actually an array of the fieldType above on the data api.
-      * `is_available_in_graph` (`bool`) - Whether property is available in graph or not.
-      * `is_enum` (`bool`) - Indicates if the property is an enum.
-      * `is_flag_enum` (`bool`) - Indicates if the property is an flag enum.
-      * `is_image` (`bool`) - Whether the property is an Image.
-      * `is_localized_string` (`bool`) - Whether the property is a localized string.
-      * `is_name` (`bool`) - Whether the property is a name or a part of name.
-      * `is_required` (`bool`) - Whether property value is required on instances, IsRequired field only for Interaction. Profile Instance will not check for required field.
-      * `max_length` (`float`) - Max length of string. Used only if type is string.
-      * `property_id` (`str`) - The ID associated with the property.
-      * `schema_item_prop_link` (`str`) - URL encoded schema.org item prop link for the property.
-    """
-    lookup_mappings: pulumi.Output[list]
-    """
-    Optional property to be used to map fields in profile to their strong ids in related profile.
-      * `field_mappings` (`list`) - Maps a profile property with the StrongId of related profile. This is an array to support StrongIds that are composite key as well.
-        * `profile_field_name` (`str`) - Specifies the fieldName in profile.
-        * `related_profile_key_property` (`str`) - Specifies the KeyProperty (from StrongId) of the related profile.
-    """
-    name: pulumi.Output[str]
-    """
-    Resource name.
-    """
-    profile_type: pulumi.Output[str]
-    """
-    Profile type.
-    """
-    provisioning_state: pulumi.Output[str]
-    """
-    Provisioning state.
-    """
-    related_profile_type: pulumi.Output[str]
-    """
-    Related profile being referenced.
-    """
-    relationship_guid_id: pulumi.Output[str]
-    """
-    The relationship guid id.
-    """
-    relationship_name: pulumi.Output[str]
-    """
-    The Relationship name.
-    """
-    tenant_id: pulumi.Output[str]
-    """
-    The hub name.
-    """
-    type: pulumi.Output[str]
-    """
-    Resource type.
-    """
-    def __init__(__self__, resource_name, opts=None, cardinality=None, description=None, display_name=None, expiry_date_time_utc=None, fields=None, hub_name=None, lookup_mappings=None, name=None, profile_type=None, related_profile_type=None, resource_group_name=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 cardinality: Optional[pulumi.Input[str]] = None,
+                 description: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 display_name: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 expiry_date_time_utc: Optional[pulumi.Input[str]] = None,
+                 fields: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['PropertyDefinitionArgs']]]]] = None,
+                 hub_name: Optional[pulumi.Input[str]] = None,
+                 lookup_mappings: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['RelationshipTypeMappingArgs']]]]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 profile_type: Optional[pulumi.Input[str]] = None,
+                 related_profile_type: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         The relationship resource format.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] cardinality: The Relationship Cardinality.
-        :param pulumi.Input[dict] description: Localized descriptions for the Relationship.
-        :param pulumi.Input[dict] display_name: Localized display name for the Relationship.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] description: Localized descriptions for the Relationship.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] display_name: Localized display name for the Relationship.
         :param pulumi.Input[str] expiry_date_time_utc: The expiry date time in UTC.
-        :param pulumi.Input[list] fields: The properties of the Relationship.
+        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['PropertyDefinitionArgs']]]] fields: The properties of the Relationship.
         :param pulumi.Input[str] hub_name: The name of the hub.
-        :param pulumi.Input[list] lookup_mappings: Optional property to be used to map fields in profile to their strong ids in related profile.
+        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['RelationshipTypeMappingArgs']]]] lookup_mappings: Optional property to be used to map fields in profile to their strong ids in related profile.
         :param pulumi.Input[str] name: The name of the Relationship.
         :param pulumi.Input[str] profile_type: Profile type.
         :param pulumi.Input[str] related_profile_type: Related profile being referenced.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
-
-        The **fields** object supports the following:
-
-          * `array_value_separator` (`pulumi.Input[str]`) - Array value separator for properties with isArray set.
-          * `enum_valid_values` (`pulumi.Input[list]`) - Describes valid values for an enum property.
-            * `localized_value_names` (`pulumi.Input[dict]`) - Localized names of the enum member.
-            * `value` (`pulumi.Input[float]`) - The integer value of the enum member.
-
-          * `field_name` (`pulumi.Input[str]`) - Name of the property.
-          * `field_type` (`pulumi.Input[str]`) - Type of the property.
-          * `is_array` (`pulumi.Input[bool]`) - Indicates if the property is actually an array of the fieldType above on the data api.
-          * `is_available_in_graph` (`pulumi.Input[bool]`) - Whether property is available in graph or not.
-          * `is_enum` (`pulumi.Input[bool]`) - Indicates if the property is an enum.
-          * `is_flag_enum` (`pulumi.Input[bool]`) - Indicates if the property is an flag enum.
-          * `is_image` (`pulumi.Input[bool]`) - Whether the property is an Image.
-          * `is_localized_string` (`pulumi.Input[bool]`) - Whether the property is a localized string.
-          * `is_name` (`pulumi.Input[bool]`) - Whether the property is a name or a part of name.
-          * `is_required` (`pulumi.Input[bool]`) - Whether property value is required on instances, IsRequired field only for Interaction. Profile Instance will not check for required field.
-          * `max_length` (`pulumi.Input[float]`) - Max length of string. Used only if type is string.
-          * `property_id` (`pulumi.Input[str]`) - The ID associated with the property.
-          * `schema_item_prop_link` (`pulumi.Input[str]`) - URL encoded schema.org item prop link for the property.
-
-        The **lookup_mappings** object supports the following:
-
-          * `field_mappings` (`pulumi.Input[list]`) - Maps a profile property with the StrongId of related profile. This is an array to support StrongIds that are composite key as well.
-            * `profile_field_name` (`pulumi.Input[str]`) - Specifies the fieldName in profile.
-            * `related_profile_key_property` (`pulumi.Input[str]`) - Specifies the KeyProperty (from StrongId) of the related profile.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -192,13 +100,15 @@ class Relationship(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None) -> 'Relationship':
         """
         Get an existing Relationship resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -207,8 +117,121 @@ class Relationship(pulumi.CustomResource):
 
         return Relationship(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter
+    def cardinality(self) -> Optional[str]:
+        """
+        The Relationship Cardinality.
+        """
+        return pulumi.get(self, "cardinality")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[Mapping[str, str]]:
+        """
+        Localized descriptions for the Relationship.
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="displayName")
+    def display_name(self) -> Optional[Mapping[str, str]]:
+        """
+        Localized display name for the Relationship.
+        """
+        return pulumi.get(self, "display_name")
+
+    @property
+    @pulumi.getter(name="expiryDateTimeUtc")
+    def expiry_date_time_utc(self) -> Optional[str]:
+        """
+        The expiry date time in UTC.
+        """
+        return pulumi.get(self, "expiry_date_time_utc")
+
+    @property
+    @pulumi.getter
+    def fields(self) -> Optional[List['outputs.PropertyDefinitionResponse']]:
+        """
+        The properties of the Relationship.
+        """
+        return pulumi.get(self, "fields")
+
+    @property
+    @pulumi.getter(name="lookupMappings")
+    def lookup_mappings(self) -> Optional[List['outputs.RelationshipTypeMappingResponse']]:
+        """
+        Optional property to be used to map fields in profile to their strong ids in related profile.
+        """
+        return pulumi.get(self, "lookup_mappings")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Resource name.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="profileType")
+    def profile_type(self) -> str:
+        """
+        Profile type.
+        """
+        return pulumi.get(self, "profile_type")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        Provisioning state.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="relatedProfileType")
+    def related_profile_type(self) -> str:
+        """
+        Related profile being referenced.
+        """
+        return pulumi.get(self, "related_profile_type")
+
+    @property
+    @pulumi.getter(name="relationshipGuidId")
+    def relationship_guid_id(self) -> str:
+        """
+        The relationship guid id.
+        """
+        return pulumi.get(self, "relationship_guid_id")
+
+    @property
+    @pulumi.getter(name="relationshipName")
+    def relationship_name(self) -> str:
+        """
+        The Relationship name.
+        """
+        return pulumi.get(self, "relationship_name")
+
+    @property
+    @pulumi.getter(name="tenantId")
+    def tenant_id(self) -> str:
+        """
+        The hub name.
+        """
+        return pulumi.get(self, "tenant_id")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Resource type.
+        """
+        return pulumi.get(self, "type")
+
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

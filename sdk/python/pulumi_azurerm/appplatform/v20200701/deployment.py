@@ -5,56 +5,27 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+from . import outputs
+from ._inputs import *
+
+__all__ = ['Deployment']
 
 
 class Deployment(pulumi.CustomResource):
-    name: pulumi.Output[str]
-    """
-    The name of the resource.
-    """
-    properties: pulumi.Output[dict]
-    """
-    Properties of the Deployment resource
-      * `active` (`bool`) - Indicates whether the Deployment is active
-      * `app_name` (`str`) - App name of the deployment
-      * `created_time` (`str`) - Date time when the resource is created
-      * `deployment_settings` (`dict`) - Deployment settings of the Deployment
-        * `cpu` (`float`) - Required CPU, basic tier should be 1, standard tier should be in range (1, 4)
-        * `environment_variables` (`dict`) - Collection of environment variables
-        * `jvm_options` (`str`) - JVM parameter
-        * `memory_in_gb` (`float`) - Required Memory size in GB, basic tier should be in range (1, 2), standard tier should be in range (1, 8)
-        * `runtime_version` (`str`) - Runtime version
-
-      * `instances` (`list`) - Collection of instances belong to the Deployment
-        * `discovery_status` (`str`) - Discovery status of the deployment instance
-        * `name` (`str`) - Name of the deployment instance
-        * `reason` (`str`) - Failed reason of the deployment instance
-        * `status` (`str`) - Status of the deployment instance
-
-      * `provisioning_state` (`str`) - Provisioning state of the Deployment
-      * `source` (`dict`) - Uploaded source information of the deployment.
-        * `artifact_selector` (`str`) - Selector for the artifact to be used for the deployment for multi-module projects. This should be
-          the relative path to the target module/project.
-        * `relative_path` (`str`) - Relative path of the storage which stores the source
-        * `type` (`str`) - Type of the source uploaded
-        * `version` (`str`) - Version of the source
-
-      * `status` (`str`) - Status of the Deployment
-    """
-    sku: pulumi.Output[dict]
-    """
-    Sku of the Deployment resource
-      * `capacity` (`float`) - Current capacity of the target resource
-      * `name` (`str`) - Name of the Sku
-      * `tier` (`str`) - Tier of the Sku
-    """
-    type: pulumi.Output[str]
-    """
-    The type of the resource.
-    """
-    def __init__(__self__, resource_name, opts=None, app_name=None, name=None, properties=None, resource_group_name=None, service_name=None, sku=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 app_name: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 properties: Optional[pulumi.Input[pulumi.InputType['DeploymentResourcePropertiesArgs']]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 service_name: Optional[pulumi.Input[str]] = None,
+                 sku: Optional[pulumi.Input[pulumi.InputType['SkuArgs']]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         Deployment resource payload
 
@@ -62,32 +33,10 @@ class Deployment(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] app_name: The name of the App resource.
         :param pulumi.Input[str] name: The name of the Deployment resource.
-        :param pulumi.Input[dict] properties: Properties of the Deployment resource
+        :param pulumi.Input[pulumi.InputType['DeploymentResourcePropertiesArgs']] properties: Properties of the Deployment resource
         :param pulumi.Input[str] resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
         :param pulumi.Input[str] service_name: The name of the Service resource.
-        :param pulumi.Input[dict] sku: Sku of the Deployment resource
-
-        The **properties** object supports the following:
-
-          * `deployment_settings` (`pulumi.Input[dict]`) - Deployment settings of the Deployment
-            * `cpu` (`pulumi.Input[float]`) - Required CPU, basic tier should be 1, standard tier should be in range (1, 4)
-            * `environment_variables` (`pulumi.Input[dict]`) - Collection of environment variables
-            * `jvm_options` (`pulumi.Input[str]`) - JVM parameter
-            * `memory_in_gb` (`pulumi.Input[float]`) - Required Memory size in GB, basic tier should be in range (1, 2), standard tier should be in range (1, 8)
-            * `runtime_version` (`pulumi.Input[str]`) - Runtime version
-
-          * `source` (`pulumi.Input[dict]`) - Uploaded source information of the deployment.
-            * `artifact_selector` (`pulumi.Input[str]`) - Selector for the artifact to be used for the deployment for multi-module projects. This should be
-              the relative path to the target module/project.
-            * `relative_path` (`pulumi.Input[str]`) - Relative path of the storage which stores the source
-            * `type` (`pulumi.Input[str]`) - Type of the source uploaded
-            * `version` (`pulumi.Input[str]`) - Version of the source
-
-        The **sku** object supports the following:
-
-          * `capacity` (`pulumi.Input[float]`) - Current capacity of the target resource
-          * `name` (`pulumi.Input[str]`) - Name of the Sku
-          * `tier` (`pulumi.Input[str]`) - Tier of the Sku
+        :param pulumi.Input[pulumi.InputType['SkuArgs']] sku: Sku of the Deployment resource
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -128,13 +77,15 @@ class Deployment(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None) -> 'Deployment':
         """
         Get an existing Deployment resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -143,8 +94,41 @@ class Deployment(pulumi.CustomResource):
 
         return Deployment(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the resource.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def properties(self) -> 'outputs.DeploymentResourcePropertiesResponse':
+        """
+        Properties of the Deployment resource
+        """
+        return pulumi.get(self, "properties")
+
+    @property
+    @pulumi.getter
+    def sku(self) -> Optional['outputs.SkuResponse']:
+        """
+        Sku of the Deployment resource
+        """
+        return pulumi.get(self, "sku")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        The type of the resource.
+        """
+        return pulumi.get(self, "type")
+
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

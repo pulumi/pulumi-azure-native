@@ -5,72 +5,42 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+from . import outputs
+from ._inputs import *
+
+__all__ = ['IntegrationAccountPartner']
 
 
 class IntegrationAccountPartner(pulumi.CustomResource):
-    changed_time: pulumi.Output[str]
-    """
-    The changed time.
-    """
-    content: pulumi.Output[dict]
-    """
-    The partner content.
-      * `b2b` (`dict`) - The B2B partner content.
-        * `business_identities` (`list`) - The list of partner business identities.
-          * `qualifier` (`str`) - The business identity qualifier e.g. as2identity, ZZ, ZZZ, 31, 32
-          * `value` (`str`) - The user defined business identity value.
-    """
-    created_time: pulumi.Output[str]
-    """
-    The created time.
-    """
-    location: pulumi.Output[str]
-    """
-    The resource location.
-    """
-    metadata: pulumi.Output[dict]
-    """
-    The metadata.
-    """
-    name: pulumi.Output[str]
-    """
-    Gets the resource name.
-    """
-    partner_type: pulumi.Output[str]
-    """
-    The partner type.
-    """
-    tags: pulumi.Output[dict]
-    """
-    The resource tags.
-    """
-    type: pulumi.Output[str]
-    """
-    Gets the resource type.
-    """
-    def __init__(__self__, resource_name, opts=None, content=None, integration_account_name=None, location=None, metadata=None, name=None, partner_type=None, resource_group_name=None, tags=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 content: Optional[pulumi.Input[pulumi.InputType['PartnerContentArgs']]] = None,
+                 integration_account_name: Optional[pulumi.Input[str]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 metadata: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 partner_type: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         The integration account partner.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[dict] content: The partner content.
+        :param pulumi.Input[pulumi.InputType['PartnerContentArgs']] content: The partner content.
         :param pulumi.Input[str] integration_account_name: The integration account name.
         :param pulumi.Input[str] location: The resource location.
-        :param pulumi.Input[dict] metadata: The metadata.
+        :param pulumi.Input[Mapping[str, Any]] metadata: The metadata.
         :param pulumi.Input[str] name: The integration account partner name.
         :param pulumi.Input[str] partner_type: The partner type.
         :param pulumi.Input[str] resource_group_name: The resource group name.
-        :param pulumi.Input[dict] tags: The resource tags.
-
-        The **content** object supports the following:
-
-          * `b2b` (`pulumi.Input[dict]`) - The B2B partner content.
-            * `business_identities` (`pulumi.Input[list]`) - The list of partner business identities.
-              * `qualifier` (`pulumi.Input[str]`) - The business identity qualifier e.g. as2identity, ZZ, ZZZ, 31, 32
-              * `value` (`pulumi.Input[str]`) - The user defined business identity value.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The resource tags.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -119,13 +89,15 @@ class IntegrationAccountPartner(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None) -> 'IntegrationAccountPartner':
         """
         Get an existing IntegrationAccountPartner resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -134,8 +106,81 @@ class IntegrationAccountPartner(pulumi.CustomResource):
 
         return IntegrationAccountPartner(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter(name="changedTime")
+    def changed_time(self) -> str:
+        """
+        The changed time.
+        """
+        return pulumi.get(self, "changed_time")
+
+    @property
+    @pulumi.getter
+    def content(self) -> 'outputs.PartnerContentResponse':
+        """
+        The partner content.
+        """
+        return pulumi.get(self, "content")
+
+    @property
+    @pulumi.getter(name="createdTime")
+    def created_time(self) -> str:
+        """
+        The created time.
+        """
+        return pulumi.get(self, "created_time")
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[str]:
+        """
+        The resource location.
+        """
+        return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter
+    def metadata(self) -> Optional[Mapping[str, Any]]:
+        """
+        The metadata.
+        """
+        return pulumi.get(self, "metadata")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Gets the resource name.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="partnerType")
+    def partner_type(self) -> str:
+        """
+        The partner type.
+        """
+        return pulumi.get(self, "partner_type")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Mapping[str, str]]:
+        """
+        The resource tags.
+        """
+        return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Gets the resource type.
+        """
+        return pulumi.get(self, "type")
+
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

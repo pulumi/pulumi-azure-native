@@ -19,3 +19,5 @@ from .replication_protection_container_mapping import *
 from .replication_recovery_plan import *
 from .replication_storage_classification_mapping import *
 from .replicationv_center import *
+from ._inputs import *
+from . import outputs

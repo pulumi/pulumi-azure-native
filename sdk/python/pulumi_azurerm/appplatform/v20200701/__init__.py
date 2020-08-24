@@ -16,3 +16,5 @@ from .get_deployment import *
 from .get_service import *
 from .list_service_test_keys import *
 from .service import *
+from ._inputs import *
+from . import outputs

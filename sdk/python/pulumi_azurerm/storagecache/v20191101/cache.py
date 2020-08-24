@@ -5,64 +5,29 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+from . import outputs
+from ._inputs import *
+
+__all__ = ['Cache']
 
 
 class Cache(pulumi.CustomResource):
-    cache_size_gb: pulumi.Output[float]
-    """
-    The size of this Cache, in GB.
-    """
-    health: pulumi.Output[dict]
-    """
-    Health of the Cache.
-      * `state` (`str`) - List of Cache health states.
-      * `status_description` (`str`) - Describes explanation of state.
-    """
-    location: pulumi.Output[str]
-    """
-    Region name string.
-    """
-    mount_addresses: pulumi.Output[list]
-    """
-    Array of IP addresses that can be used by clients mounting this Cache.
-    """
-    name: pulumi.Output[str]
-    """
-    Name of Cache.
-    """
-    provisioning_state: pulumi.Output[str]
-    """
-    ARM provisioning state, see https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/Addendum.md#provisioningstate-property
-    """
-    sku: pulumi.Output[dict]
-    """
-    SKU for the Cache.
-      * `name` (`str`) - SKU name for this Cache.
-    """
-    subnet: pulumi.Output[str]
-    """
-    Subnet used for the Cache.
-    """
-    tags: pulumi.Output[dict]
-    """
-    ARM tags as name/value pairs.
-    """
-    type: pulumi.Output[str]
-    """
-    Type of the Cache; Microsoft.StorageCache/Cache
-    """
-    upgrade_status: pulumi.Output[dict]
-    """
-    Upgrade status of the Cache.
-      * `current_firmware_version` (`str`) - Version string of the firmware currently installed on this Cache.
-      * `firmware_update_deadline` (`str`) - Time at which the pending firmware update will automatically be installed on the Cache.
-      * `firmware_update_status` (`str`) - True if there is a firmware update ready to install on this Cache. The firmware will automatically be installed after firmwareUpdateDeadline if not triggered earlier via the upgrade operation.
-      * `last_firmware_update` (`str`) - Time of the last successful firmware update.
-      * `pending_firmware_version` (`str`) - When firmwareUpdateAvailable is true, this field holds the version string for the update.
-    """
-    def __init__(__self__, resource_name, opts=None, cache_size_gb=None, location=None, name=None, provisioning_state=None, resource_group_name=None, sku=None, subnet=None, tags=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 cache_size_gb: Optional[pulumi.Input[float]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 provisioning_state: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 sku: Optional[pulumi.Input[pulumi.InputType['CacheSkuArgs']]] = None,
+                 subnet: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         A Cache instance. Follows Azure Resource Manager standards: https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/resource-api-reference.md
 
@@ -73,13 +38,9 @@ class Cache(pulumi.CustomResource):
         :param pulumi.Input[str] name: Name of Cache.
         :param pulumi.Input[str] provisioning_state: ARM provisioning state, see https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/Addendum.md#provisioningstate-property
         :param pulumi.Input[str] resource_group_name: Target resource group.
-        :param pulumi.Input[dict] sku: SKU for the Cache.
+        :param pulumi.Input[pulumi.InputType['CacheSkuArgs']] sku: SKU for the Cache.
         :param pulumi.Input[str] subnet: Subnet used for the Cache.
-        :param pulumi.Input[dict] tags: ARM tags as name/value pairs.
-
-        The **sku** object supports the following:
-
-          * `name` (`pulumi.Input[str]`) - SKU name for this Cache.
+        :param pulumi.Input[Mapping[str, Any]] tags: ARM tags as name/value pairs.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -123,13 +84,15 @@ class Cache(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None) -> 'Cache':
         """
         Get an existing Cache resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -138,8 +101,97 @@ class Cache(pulumi.CustomResource):
 
         return Cache(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter(name="cacheSizeGB")
+    def cache_size_gb(self) -> Optional[float]:
+        """
+        The size of this Cache, in GB.
+        """
+        return pulumi.get(self, "cache_size_gb")
+
+    @property
+    @pulumi.getter
+    def health(self) -> 'outputs.CacheHealthResponse':
+        """
+        Health of the Cache.
+        """
+        return pulumi.get(self, "health")
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[str]:
+        """
+        Region name string.
+        """
+        return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter(name="mountAddresses")
+    def mount_addresses(self) -> List[str]:
+        """
+        Array of IP addresses that can be used by clients mounting this Cache.
+        """
+        return pulumi.get(self, "mount_addresses")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Name of Cache.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> Optional[str]:
+        """
+        ARM provisioning state, see https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/Addendum.md#provisioningstate-property
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter
+    def sku(self) -> Optional['outputs.CacheResponseSku']:
+        """
+        SKU for the Cache.
+        """
+        return pulumi.get(self, "sku")
+
+    @property
+    @pulumi.getter
+    def subnet(self) -> Optional[str]:
+        """
+        Subnet used for the Cache.
+        """
+        return pulumi.get(self, "subnet")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Mapping[str, Any]]:
+        """
+        ARM tags as name/value pairs.
+        """
+        return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Type of the Cache; Microsoft.StorageCache/Cache
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="upgradeStatus")
+    def upgrade_status(self) -> Optional['outputs.CacheUpgradeStatusResponse']:
+        """
+        Upgrade status of the Cache.
+        """
+        return pulumi.get(self, "upgrade_status")
+
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

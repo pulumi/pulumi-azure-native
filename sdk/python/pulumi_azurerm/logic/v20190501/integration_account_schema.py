@@ -5,76 +5,32 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+from . import outputs
+
+__all__ = ['IntegrationAccountSchema']
 
 
 class IntegrationAccountSchema(pulumi.CustomResource):
-    changed_time: pulumi.Output[str]
-    """
-    The changed time.
-    """
-    content: pulumi.Output[str]
-    """
-    The content.
-    """
-    content_link: pulumi.Output[dict]
-    """
-    The content link.
-      * `content_hash` (`dict`) - The content hash.
-        * `algorithm` (`str`) - The algorithm of the content hash.
-        * `value` (`str`) - The value of the content hash.
-
-      * `content_size` (`float`) - The content size.
-      * `content_version` (`str`) - The content version.
-      * `metadata` (`dict`) - The metadata.
-      * `uri` (`str`) - The content link URI.
-    """
-    content_type: pulumi.Output[str]
-    """
-    The content type.
-    """
-    created_time: pulumi.Output[str]
-    """
-    The created time.
-    """
-    document_name: pulumi.Output[str]
-    """
-    The document name.
-    """
-    file_name: pulumi.Output[str]
-    """
-    The file name.
-    """
-    location: pulumi.Output[str]
-    """
-    The resource location.
-    """
-    metadata: pulumi.Output[dict]
-    """
-    The metadata.
-    """
-    name: pulumi.Output[str]
-    """
-    Gets the resource name.
-    """
-    schema_type: pulumi.Output[str]
-    """
-    The schema type.
-    """
-    tags: pulumi.Output[dict]
-    """
-    The resource tags.
-    """
-    target_namespace: pulumi.Output[str]
-    """
-    The target namespace of the schema.
-    """
-    type: pulumi.Output[str]
-    """
-    Gets the resource type.
-    """
-    def __init__(__self__, resource_name, opts=None, content=None, content_type=None, document_name=None, file_name=None, integration_account_name=None, location=None, metadata=None, name=None, resource_group_name=None, schema_type=None, tags=None, target_namespace=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 content: Optional[pulumi.Input[str]] = None,
+                 content_type: Optional[pulumi.Input[str]] = None,
+                 document_name: Optional[pulumi.Input[str]] = None,
+                 file_name: Optional[pulumi.Input[str]] = None,
+                 integration_account_name: Optional[pulumi.Input[str]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 metadata: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 schema_type: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 target_namespace: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         The integration account schema.
 
@@ -86,11 +42,11 @@ class IntegrationAccountSchema(pulumi.CustomResource):
         :param pulumi.Input[str] file_name: The file name.
         :param pulumi.Input[str] integration_account_name: The integration account name.
         :param pulumi.Input[str] location: The resource location.
-        :param pulumi.Input[dict] metadata: The metadata.
+        :param pulumi.Input[Mapping[str, Any]] metadata: The metadata.
         :param pulumi.Input[str] name: The integration account schema name.
         :param pulumi.Input[str] resource_group_name: The resource group name.
         :param pulumi.Input[str] schema_type: The schema type.
-        :param pulumi.Input[dict] tags: The resource tags.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The resource tags.
         :param pulumi.Input[str] target_namespace: The target namespace of the schema.
         """
         if __name__ is not None:
@@ -143,13 +99,15 @@ class IntegrationAccountSchema(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None) -> 'IntegrationAccountSchema':
         """
         Get an existing IntegrationAccountSchema resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -158,8 +116,121 @@ class IntegrationAccountSchema(pulumi.CustomResource):
 
         return IntegrationAccountSchema(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter(name="changedTime")
+    def changed_time(self) -> str:
+        """
+        The changed time.
+        """
+        return pulumi.get(self, "changed_time")
+
+    @property
+    @pulumi.getter
+    def content(self) -> Optional[str]:
+        """
+        The content.
+        """
+        return pulumi.get(self, "content")
+
+    @property
+    @pulumi.getter(name="contentLink")
+    def content_link(self) -> 'outputs.ContentLinkResponse':
+        """
+        The content link.
+        """
+        return pulumi.get(self, "content_link")
+
+    @property
+    @pulumi.getter(name="contentType")
+    def content_type(self) -> Optional[str]:
+        """
+        The content type.
+        """
+        return pulumi.get(self, "content_type")
+
+    @property
+    @pulumi.getter(name="createdTime")
+    def created_time(self) -> str:
+        """
+        The created time.
+        """
+        return pulumi.get(self, "created_time")
+
+    @property
+    @pulumi.getter(name="documentName")
+    def document_name(self) -> Optional[str]:
+        """
+        The document name.
+        """
+        return pulumi.get(self, "document_name")
+
+    @property
+    @pulumi.getter(name="fileName")
+    def file_name(self) -> Optional[str]:
+        """
+        The file name.
+        """
+        return pulumi.get(self, "file_name")
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[str]:
+        """
+        The resource location.
+        """
+        return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter
+    def metadata(self) -> Optional[Mapping[str, Any]]:
+        """
+        The metadata.
+        """
+        return pulumi.get(self, "metadata")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Gets the resource name.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="schemaType")
+    def schema_type(self) -> str:
+        """
+        The schema type.
+        """
+        return pulumi.get(self, "schema_type")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Mapping[str, str]]:
+        """
+        The resource tags.
+        """
+        return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter(name="targetNamespace")
+    def target_namespace(self) -> Optional[str]:
+        """
+        The target namespace of the schema.
+        """
+        return pulumi.get(self, "target_namespace")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Gets the resource type.
+        """
+        return pulumi.get(self, "type")
+
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

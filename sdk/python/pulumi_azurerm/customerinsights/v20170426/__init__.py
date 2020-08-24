@@ -25,3 +25,5 @@ from .relationship import *
 from .relationship_link import *
 from .role_assignment import *
 from .view import *
+from ._inputs import *
+from . import outputs

@@ -15,3 +15,5 @@ from .remediation_at_management_group import *
 from .remediation_at_resource import *
 from .remediation_at_resource_group import *
 from .remediation_at_subscription import *
+from ._inputs import *
+from . import outputs

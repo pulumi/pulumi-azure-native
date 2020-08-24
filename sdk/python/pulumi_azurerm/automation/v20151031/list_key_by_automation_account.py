@@ -5,18 +5,30 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+from . import outputs
 
+__all__ = [
+    'ListKeyByAutomationAccountResult',
+    'AwaitableListKeyByAutomationAccountResult',
+    'list_key_by_automation_account',
+]
 
+@pulumi.output_type
 class ListKeyByAutomationAccountResult:
     def __init__(__self__, keys=None):
         if keys and not isinstance(keys, list):
             raise TypeError("Expected argument 'keys' to be a list")
-        __self__.keys = keys
+        pulumi.set(__self__, "keys", keys)
+
+    @property
+    @pulumi.getter
+    def keys(self) -> Optional[List['outputs.KeyResponseResult']]:
         """
         Lists the automation keys.
         """
+        return pulumi.get(self, "keys")
 
 
 class AwaitableListKeyByAutomationAccountResult(ListKeyByAutomationAccountResult):
@@ -28,7 +40,9 @@ class AwaitableListKeyByAutomationAccountResult(ListKeyByAutomationAccountResult
             keys=self.keys)
 
 
-def list_key_by_automation_account(automation_account_name=None, resource_group_name=None, opts=None):
+def list_key_by_automation_account(automation_account_name: Optional[str] = None,
+                                   resource_group_name: Optional[str] = None,
+                                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListKeyByAutomationAccountResult:
     """
     Use this data source to access information about an existing resource.
 
@@ -42,7 +56,7 @@ def list_key_by_automation_account(automation_account_name=None, resource_group_
         opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = _utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('azurerm:automation/v20151031:listKeyByAutomationAccount', __args__, opts=opts).value
+    __ret__ = pulumi.runtime.invoke('azurerm:automation/v20151031:listKeyByAutomationAccount', __args__, opts=opts, typ=ListKeyByAutomationAccountResult).value
 
     return AwaitableListKeyByAutomationAccountResult(
-        keys=__ret__.get('keys'))
+        keys=__ret__.keys)

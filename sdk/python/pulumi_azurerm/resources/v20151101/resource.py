@@ -5,40 +5,30 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+from . import outputs
+from ._inputs import *
+
+__all__ = ['Resource']
 
 
 class Resource(pulumi.CustomResource):
-    location: pulumi.Output[str]
-    """
-    Resource location
-    """
-    name: pulumi.Output[str]
-    """
-    Resource name
-    """
-    plan: pulumi.Output[dict]
-    """
-    Gets or sets the plan of the resource.
-      * `name` (`str`) - Gets or sets the plan ID.
-      * `product` (`str`) - Gets or sets the offer ID.
-      * `promotion_code` (`str`) - Gets or sets the promotion code.
-      * `publisher` (`str`) - Gets or sets the publisher ID.
-    """
-    properties: pulumi.Output[dict]
-    """
-    Gets or sets the resource properties.
-    """
-    tags: pulumi.Output[dict]
-    """
-    Resource tags
-    """
-    type: pulumi.Output[str]
-    """
-    Resource type
-    """
-    def __init__(__self__, resource_name, opts=None, location=None, name=None, parent_resource_path=None, plan=None, properties=None, resource_group_name=None, resource_provider_namespace=None, resource_type=None, tags=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 parent_resource_path: Optional[pulumi.Input[str]] = None,
+                 plan: Optional[pulumi.Input[pulumi.InputType['PlanArgs']]] = None,
+                 properties: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 resource_provider_namespace: Optional[pulumi.Input[str]] = None,
+                 resource_type: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         Resource information.
 
@@ -47,19 +37,12 @@ class Resource(pulumi.CustomResource):
         :param pulumi.Input[str] location: Resource location
         :param pulumi.Input[str] name: Resource identity.
         :param pulumi.Input[str] parent_resource_path: Resource identity.
-        :param pulumi.Input[dict] plan: Gets or sets the plan of the resource.
-        :param pulumi.Input[dict] properties: Gets or sets the resource properties.
+        :param pulumi.Input[pulumi.InputType['PlanArgs']] plan: Gets or sets the plan of the resource.
+        :param pulumi.Input[Mapping[str, Any]] properties: Gets or sets the resource properties.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] resource_provider_namespace: Resource identity.
         :param pulumi.Input[str] resource_type: Resource identity.
-        :param pulumi.Input[dict] tags: Resource tags
-
-        The **plan** object supports the following:
-
-          * `name` (`pulumi.Input[str]`) - Gets or sets the plan ID.
-          * `product` (`pulumi.Input[str]`) - Gets or sets the offer ID.
-          * `promotion_code` (`pulumi.Input[str]`) - Gets or sets the promotion code.
-          * `publisher` (`pulumi.Input[str]`) - Gets or sets the publisher ID.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -109,13 +92,15 @@ class Resource(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None) -> 'Resource':
         """
         Get an existing Resource resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -124,8 +109,57 @@ class Resource(pulumi.CustomResource):
 
         return Resource(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter
+    def location(self) -> str:
+        """
+        Resource location
+        """
+        return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Resource name
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def plan(self) -> Optional['outputs.PlanResponse']:
+        """
+        Gets or sets the plan of the resource.
+        """
+        return pulumi.get(self, "plan")
+
+    @property
+    @pulumi.getter
+    def properties(self) -> Mapping[str, Any]:
+        """
+        Gets or sets the resource properties.
+        """
+        return pulumi.get(self, "properties")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Mapping[str, str]]:
+        """
+        Resource tags
+        """
+        return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Resource type
+        """
+        return pulumi.get(self, "type")
+
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

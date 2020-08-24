@@ -5,150 +5,52 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+from . import outputs
+from ._inputs import *
+
+__all__ = ['OpenShiftCluster']
 
 
 class OpenShiftCluster(pulumi.CustomResource):
-    apiserver_profile: pulumi.Output[dict]
-    """
-    The cluster API server profile.
-      * `ip` (`str`) - The IP of the cluster API server (immutable).
-      * `url` (`str`) - The URL to access the cluster API server (immutable).
-      * `visibility` (`str`) - API server visibility (immutable).
-    """
-    cluster_profile: pulumi.Output[dict]
-    """
-    The cluster profile.
-      * `domain` (`str`) - The domain for the cluster (immutable).
-      * `pull_secret` (`str`) - The pull secret for the cluster (immutable).
-      * `resource_group_id` (`str`) - The ID of the cluster resource group (immutable).
-      * `version` (`str`) - The version of the cluster (immutable).
-    """
-    console_profile: pulumi.Output[dict]
-    """
-    The console profile.
-      * `url` (`str`) - The URL to access the cluster console (immutable).
-    """
-    ingress_profiles: pulumi.Output[list]
-    """
-    The cluster ingress profiles.
-      * `ip` (`str`) - The IP of the ingress (immutable).
-      * `name` (`str`) - The ingress profile name.  Must be "default" (immutable).
-      * `visibility` (`str`) - Ingress visibility (immutable).
-    """
-    location: pulumi.Output[str]
-    """
-    The geo-location where the resource lives
-    """
-    master_profile: pulumi.Output[dict]
-    """
-    The cluster master profile.
-      * `subnet_id` (`str`) - The Azure resource ID of the master subnet (immutable).
-      * `vm_size` (`str`) - The size of the master VMs (immutable).
-    """
-    name: pulumi.Output[str]
-    """
-    The name of the resource
-    """
-    network_profile: pulumi.Output[dict]
-    """
-    The cluster network profile.
-      * `pod_cidr` (`str`) - The CIDR used for OpenShift/Kubernetes Pods (immutable).
-      * `service_cidr` (`str`) - The CIDR used for OpenShift/Kubernetes Services (immutable).
-    """
-    provisioning_state: pulumi.Output[str]
-    """
-    The cluster provisioning state (immutable).
-    """
-    service_principal_profile: pulumi.Output[dict]
-    """
-    The cluster service principal profile.
-      * `client_id` (`str`) - The client ID used for the cluster (immutable).
-      * `client_secret` (`str`) - The client secret used for the cluster (immutable).
-    """
-    tags: pulumi.Output[dict]
-    """
-    Resource tags.
-    """
-    type: pulumi.Output[str]
-    """
-    The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
-    """
-    worker_profiles: pulumi.Output[list]
-    """
-    The cluster worker profiles.
-      * `count` (`float`) - The number of worker VMs.  Must be between 3 and 20 (immutable).
-      * `disk_size_gb` (`float`) - The disk size of the worker VMs.  Must be 128 or greater (immutable).
-      * `name` (`str`) - The worker profile name.  Must be "worker" (immutable).
-      * `subnet_id` (`str`) - The Azure resource ID of the worker subnet (immutable).
-      * `vm_size` (`str`) - The size of the worker VMs (immutable).
-    """
-    def __init__(__self__, resource_name, opts=None, apiserver_profile=None, cluster_profile=None, console_profile=None, ingress_profiles=None, location=None, master_profile=None, name=None, network_profile=None, provisioning_state=None, resource_group_name=None, service_principal_profile=None, tags=None, worker_profiles=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 apiserver_profile: Optional[pulumi.Input[pulumi.InputType['APIServerProfileArgs']]] = None,
+                 cluster_profile: Optional[pulumi.Input[pulumi.InputType['ClusterProfileArgs']]] = None,
+                 console_profile: Optional[pulumi.Input[pulumi.InputType['ConsoleProfileArgs']]] = None,
+                 ingress_profiles: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['IngressProfileArgs']]]]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 master_profile: Optional[pulumi.Input[pulumi.InputType['MasterProfileArgs']]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 network_profile: Optional[pulumi.Input[pulumi.InputType['NetworkProfileArgs']]] = None,
+                 provisioning_state: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 service_principal_profile: Optional[pulumi.Input[pulumi.InputType['ServicePrincipalProfileArgs']]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 worker_profiles: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['WorkerProfileArgs']]]]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         OpenShiftCluster represents an Azure Red Hat OpenShift cluster.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[dict] apiserver_profile: The cluster API server profile.
-        :param pulumi.Input[dict] cluster_profile: The cluster profile.
-        :param pulumi.Input[dict] console_profile: The console profile.
-        :param pulumi.Input[list] ingress_profiles: The cluster ingress profiles.
+        :param pulumi.Input[pulumi.InputType['APIServerProfileArgs']] apiserver_profile: The cluster API server profile.
+        :param pulumi.Input[pulumi.InputType['ClusterProfileArgs']] cluster_profile: The cluster profile.
+        :param pulumi.Input[pulumi.InputType['ConsoleProfileArgs']] console_profile: The console profile.
+        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['IngressProfileArgs']]]] ingress_profiles: The cluster ingress profiles.
         :param pulumi.Input[str] location: The geo-location where the resource lives
-        :param pulumi.Input[dict] master_profile: The cluster master profile.
+        :param pulumi.Input[pulumi.InputType['MasterProfileArgs']] master_profile: The cluster master profile.
         :param pulumi.Input[str] name: The name of the OpenShift cluster resource.
-        :param pulumi.Input[dict] network_profile: The cluster network profile.
+        :param pulumi.Input[pulumi.InputType['NetworkProfileArgs']] network_profile: The cluster network profile.
         :param pulumi.Input[str] provisioning_state: The cluster provisioning state (immutable).
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input[dict] service_principal_profile: The cluster service principal profile.
-        :param pulumi.Input[dict] tags: Resource tags.
-        :param pulumi.Input[list] worker_profiles: The cluster worker profiles.
-
-        The **apiserver_profile** object supports the following:
-
-          * `ip` (`pulumi.Input[str]`) - The IP of the cluster API server (immutable).
-          * `url` (`pulumi.Input[str]`) - The URL to access the cluster API server (immutable).
-          * `visibility` (`pulumi.Input[str]`) - API server visibility (immutable).
-
-        The **cluster_profile** object supports the following:
-
-          * `domain` (`pulumi.Input[str]`) - The domain for the cluster (immutable).
-          * `pull_secret` (`pulumi.Input[str]`) - The pull secret for the cluster (immutable).
-          * `resource_group_id` (`pulumi.Input[str]`) - The ID of the cluster resource group (immutable).
-          * `version` (`pulumi.Input[str]`) - The version of the cluster (immutable).
-
-        The **console_profile** object supports the following:
-
-          * `url` (`pulumi.Input[str]`) - The URL to access the cluster console (immutable).
-
-        The **ingress_profiles** object supports the following:
-
-          * `ip` (`pulumi.Input[str]`) - The IP of the ingress (immutable).
-          * `name` (`pulumi.Input[str]`) - The ingress profile name.  Must be "default" (immutable).
-          * `visibility` (`pulumi.Input[str]`) - Ingress visibility (immutable).
-
-        The **master_profile** object supports the following:
-
-          * `subnet_id` (`pulumi.Input[str]`) - The Azure resource ID of the master subnet (immutable).
-          * `vm_size` (`pulumi.Input[str]`) - The size of the master VMs (immutable).
-
-        The **network_profile** object supports the following:
-
-          * `pod_cidr` (`pulumi.Input[str]`) - The CIDR used for OpenShift/Kubernetes Pods (immutable).
-          * `service_cidr` (`pulumi.Input[str]`) - The CIDR used for OpenShift/Kubernetes Services (immutable).
-
-        The **service_principal_profile** object supports the following:
-
-          * `client_id` (`pulumi.Input[str]`) - The client ID used for the cluster (immutable).
-          * `client_secret` (`pulumi.Input[str]`) - The client secret used for the cluster (immutable).
-
-        The **worker_profiles** object supports the following:
-
-          * `count` (`pulumi.Input[float]`) - The number of worker VMs.  Must be between 3 and 20 (immutable).
-          * `disk_size_gb` (`pulumi.Input[float]`) - The disk size of the worker VMs.  Must be 128 or greater (immutable).
-          * `name` (`pulumi.Input[str]`) - The worker profile name.  Must be "worker" (immutable).
-          * `subnet_id` (`pulumi.Input[str]`) - The Azure resource ID of the worker subnet (immutable).
-          * `vm_size` (`pulumi.Input[str]`) - The size of the worker VMs (immutable).
+        :param pulumi.Input[pulumi.InputType['ServicePrincipalProfileArgs']] service_principal_profile: The cluster service principal profile.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
+        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['WorkerProfileArgs']]]] worker_profiles: The cluster worker profiles.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -194,13 +96,15 @@ class OpenShiftCluster(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None) -> 'OpenShiftCluster':
         """
         Get an existing OpenShiftCluster resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -209,8 +113,113 @@ class OpenShiftCluster(pulumi.CustomResource):
 
         return OpenShiftCluster(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter(name="apiserverProfile")
+    def apiserver_profile(self) -> Optional['outputs.APIServerProfileResponse']:
+        """
+        The cluster API server profile.
+        """
+        return pulumi.get(self, "apiserver_profile")
+
+    @property
+    @pulumi.getter(name="clusterProfile")
+    def cluster_profile(self) -> Optional['outputs.ClusterProfileResponse']:
+        """
+        The cluster profile.
+        """
+        return pulumi.get(self, "cluster_profile")
+
+    @property
+    @pulumi.getter(name="consoleProfile")
+    def console_profile(self) -> Optional['outputs.ConsoleProfileResponse']:
+        """
+        The console profile.
+        """
+        return pulumi.get(self, "console_profile")
+
+    @property
+    @pulumi.getter(name="ingressProfiles")
+    def ingress_profiles(self) -> Optional[List['outputs.IngressProfileResponse']]:
+        """
+        The cluster ingress profiles.
+        """
+        return pulumi.get(self, "ingress_profiles")
+
+    @property
+    @pulumi.getter
+    def location(self) -> str:
+        """
+        The geo-location where the resource lives
+        """
+        return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter(name="masterProfile")
+    def master_profile(self) -> Optional['outputs.MasterProfileResponse']:
+        """
+        The cluster master profile.
+        """
+        return pulumi.get(self, "master_profile")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the resource
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="networkProfile")
+    def network_profile(self) -> Optional['outputs.NetworkProfileResponse']:
+        """
+        The cluster network profile.
+        """
+        return pulumi.get(self, "network_profile")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> Optional[str]:
+        """
+        The cluster provisioning state (immutable).
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="servicePrincipalProfile")
+    def service_principal_profile(self) -> Optional['outputs.ServicePrincipalProfileResponse']:
+        """
+        The cluster service principal profile.
+        """
+        return pulumi.get(self, "service_principal_profile")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Mapping[str, str]]:
+        """
+        Resource tags.
+        """
+        return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="workerProfiles")
+    def worker_profiles(self) -> Optional[List['outputs.WorkerProfileResponse']]:
+        """
+        The cluster worker profiles.
+        """
+        return pulumi.get(self, "worker_profiles")
+
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

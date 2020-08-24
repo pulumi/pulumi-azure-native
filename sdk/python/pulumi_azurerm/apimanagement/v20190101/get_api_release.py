@@ -5,10 +5,16 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
 
+__all__ = [
+    'GetApiReleaseResult',
+    'AwaitableGetApiReleaseResult',
+    'get_api_release',
+]
 
+@pulumi.output_type
 class GetApiReleaseResult:
     """
     ApiRelease details.
@@ -16,40 +22,70 @@ class GetApiReleaseResult:
     def __init__(__self__, api_id=None, created_date_time=None, name=None, notes=None, type=None, updated_date_time=None):
         if api_id and not isinstance(api_id, str):
             raise TypeError("Expected argument 'api_id' to be a str")
-        __self__.api_id = api_id
+        pulumi.set(__self__, "api_id", api_id)
+        if created_date_time and not isinstance(created_date_time, str):
+            raise TypeError("Expected argument 'created_date_time' to be a str")
+        pulumi.set(__self__, "created_date_time", created_date_time)
+        if name and not isinstance(name, str):
+            raise TypeError("Expected argument 'name' to be a str")
+        pulumi.set(__self__, "name", name)
+        if notes and not isinstance(notes, str):
+            raise TypeError("Expected argument 'notes' to be a str")
+        pulumi.set(__self__, "notes", notes)
+        if type and not isinstance(type, str):
+            raise TypeError("Expected argument 'type' to be a str")
+        pulumi.set(__self__, "type", type)
+        if updated_date_time and not isinstance(updated_date_time, str):
+            raise TypeError("Expected argument 'updated_date_time' to be a str")
+        pulumi.set(__self__, "updated_date_time", updated_date_time)
+
+    @property
+    @pulumi.getter(name="apiId")
+    def api_id(self) -> Optional[str]:
         """
         Identifier of the API the release belongs to.
         """
-        if created_date_time and not isinstance(created_date_time, str):
-            raise TypeError("Expected argument 'created_date_time' to be a str")
-        __self__.created_date_time = created_date_time
+        return pulumi.get(self, "api_id")
+
+    @property
+    @pulumi.getter(name="createdDateTime")
+    def created_date_time(self) -> str:
         """
         The time the API was released. The date conforms to the following format: yyyy-MM-ddTHH:mm:ssZ as specified by the ISO 8601 standard.
         """
-        if name and not isinstance(name, str):
-            raise TypeError("Expected argument 'name' to be a str")
-        __self__.name = name
+        return pulumi.get(self, "created_date_time")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
         """
         Resource name.
         """
-        if notes and not isinstance(notes, str):
-            raise TypeError("Expected argument 'notes' to be a str")
-        __self__.notes = notes
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def notes(self) -> Optional[str]:
         """
         Release Notes
         """
-        if type and not isinstance(type, str):
-            raise TypeError("Expected argument 'type' to be a str")
-        __self__.type = type
+        return pulumi.get(self, "notes")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
         """
         Resource type for API Management resource.
         """
-        if updated_date_time and not isinstance(updated_date_time, str):
-            raise TypeError("Expected argument 'updated_date_time' to be a str")
-        __self__.updated_date_time = updated_date_time
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="updatedDateTime")
+    def updated_date_time(self) -> str:
         """
         The time the API release was updated.
         """
+        return pulumi.get(self, "updated_date_time")
 
 
 class AwaitableGetApiReleaseResult(GetApiReleaseResult):
@@ -66,7 +102,11 @@ class AwaitableGetApiReleaseResult(GetApiReleaseResult):
             updated_date_time=self.updated_date_time)
 
 
-def get_api_release(api_id=None, name=None, resource_group_name=None, service_name=None, opts=None):
+def get_api_release(api_id: Optional[str] = None,
+                    name: Optional[str] = None,
+                    resource_group_name: Optional[str] = None,
+                    service_name: Optional[str] = None,
+                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetApiReleaseResult:
     """
     Use this data source to access information about an existing resource.
 
@@ -84,12 +124,12 @@ def get_api_release(api_id=None, name=None, resource_group_name=None, service_na
         opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = _utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('azurerm:apimanagement/v20190101:getApiRelease', __args__, opts=opts).value
+    __ret__ = pulumi.runtime.invoke('azurerm:apimanagement/v20190101:getApiRelease', __args__, opts=opts, typ=GetApiReleaseResult).value
 
     return AwaitableGetApiReleaseResult(
-        api_id=__ret__.get('apiId'),
-        created_date_time=__ret__.get('createdDateTime'),
-        name=__ret__.get('name'),
-        notes=__ret__.get('notes'),
-        type=__ret__.get('type'),
-        updated_date_time=__ret__.get('updatedDateTime'))
+        api_id=__ret__.api_id,
+        created_date_time=__ret__.created_date_time,
+        name=__ret__.name,
+        notes=__ret__.notes,
+        type=__ret__.type,
+        updated_date_time=__ret__.updated_date_time)

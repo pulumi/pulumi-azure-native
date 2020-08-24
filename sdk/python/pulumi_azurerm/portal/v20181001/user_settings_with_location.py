@@ -5,49 +5,32 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+from . import outputs
+from ._inputs import *
+
+__all__ = ['UserSettingsWithLocation']
 
 
 class UserSettingsWithLocation(pulumi.CustomResource):
-    properties: pulumi.Output[dict]
-    """
-    The cloud shell user settings properties.
-      * `preferred_location` (`str`) - The preferred location of the cloud shell.
-      * `preferred_os_type` (`str`) - The operating system type of the cloud shell. Deprecated, use preferredShellType.
-      * `preferred_shell_type` (`str`) - The shell type of the cloud shell.
-      * `storage_profile` (`dict`) - The storage profile of the user settings.
-        * `disk_size_in_gb` (`float`) - Size of file share
-        * `file_share_name` (`str`) - Name of the mounted file share. 63 characters or less, lowercase alphabet, numbers, and -
-        * `storage_account_resource_id` (`str`) - Full resource ID of storage account.
-
-      * `terminal_settings` (`dict`) - Settings for terminal appearance.
-        * `font_size` (`str`) - Size of terminal font.
-        * `font_style` (`str`) - Style of terminal font.
-    """
-    def __init__(__self__, resource_name, opts=None, location=None, properties=None, user_settings_name=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 properties: Optional[pulumi.Input[pulumi.InputType['UserPropertiesArgs']]] = None,
+                 user_settings_name: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         Response to get user settings
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] location: The provider location
-        :param pulumi.Input[dict] properties: The cloud shell user settings properties.
+        :param pulumi.Input[pulumi.InputType['UserPropertiesArgs']] properties: The cloud shell user settings properties.
         :param pulumi.Input[str] user_settings_name: The name of the user settings
-
-        The **properties** object supports the following:
-
-          * `preferred_location` (`pulumi.Input[str]`) - The preferred location of the cloud shell.
-          * `preferred_os_type` (`pulumi.Input[str]`) - The operating system type of the cloud shell. Deprecated, use preferredShellType.
-          * `preferred_shell_type` (`pulumi.Input[str]`) - The shell type of the cloud shell.
-          * `storage_profile` (`pulumi.Input[dict]`) - The storage profile of the user settings.
-            * `disk_size_in_gb` (`pulumi.Input[float]`) - Size of file share
-            * `file_share_name` (`pulumi.Input[str]`) - Name of the mounted file share. 63 characters or less, lowercase alphabet, numbers, and -
-            * `storage_account_resource_id` (`pulumi.Input[str]`) - Full resource ID of storage account.
-
-          * `terminal_settings` (`pulumi.Input[dict]`) - Settings for terminal appearance.
-            * `font_size` (`pulumi.Input[str]`) - Size of terminal font.
-            * `font_style` (`pulumi.Input[str]`) - Style of terminal font.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -82,13 +65,15 @@ class UserSettingsWithLocation(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None) -> 'UserSettingsWithLocation':
         """
         Get an existing UserSettingsWithLocation resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -97,8 +82,17 @@ class UserSettingsWithLocation(pulumi.CustomResource):
 
         return UserSettingsWithLocation(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter
+    def properties(self) -> 'outputs.UserPropertiesResponse':
+        """
+        The cloud shell user settings properties.
+        """
+        return pulumi.get(self, "properties")
+
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

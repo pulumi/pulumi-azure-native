@@ -5,10 +5,17 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+from . import outputs
 
+__all__ = [
+    'GetCustomDomainResult',
+    'AwaitableGetCustomDomainResult',
+    'get_custom_domain',
+]
 
+@pulumi.output_type
 class GetCustomDomainResult:
     """
     Custom domain resource payload.
@@ -16,22 +23,37 @@ class GetCustomDomainResult:
     def __init__(__self__, name=None, properties=None, type=None):
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
-        __self__.name = name
+        pulumi.set(__self__, "name", name)
+        if properties and not isinstance(properties, dict):
+            raise TypeError("Expected argument 'properties' to be a dict")
+        pulumi.set(__self__, "properties", properties)
+        if type and not isinstance(type, str):
+            raise TypeError("Expected argument 'type' to be a str")
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
         """
         The name of the resource.
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def properties(self) -> 'outputs.CustomDomainPropertiesResponse':
         """
         Properties of the custom domain resource.
         """
-        if type and not isinstance(type, str):
-            raise TypeError("Expected argument 'type' to be a str")
-        __self__.type = type
+        return pulumi.get(self, "properties")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
         """
         The type of the resource.
         """
+        return pulumi.get(self, "type")
 
 
 class AwaitableGetCustomDomainResult(GetCustomDomainResult):
@@ -45,7 +67,11 @@ class AwaitableGetCustomDomainResult(GetCustomDomainResult):
             type=self.type)
 
 
-def get_custom_domain(app_name=None, name=None, resource_group_name=None, service_name=None, opts=None):
+def get_custom_domain(app_name: Optional[str] = None,
+                      name: Optional[str] = None,
+                      resource_group_name: Optional[str] = None,
+                      service_name: Optional[str] = None,
+                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetCustomDomainResult:
     """
     Use this data source to access information about an existing resource.
 
@@ -63,9 +89,9 @@ def get_custom_domain(app_name=None, name=None, resource_group_name=None, servic
         opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = _utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('azurerm:appplatform/v20200701:getCustomDomain', __args__, opts=opts).value
+    __ret__ = pulumi.runtime.invoke('azurerm:appplatform/v20200701:getCustomDomain', __args__, opts=opts, typ=GetCustomDomainResult).value
 
     return AwaitableGetCustomDomainResult(
-        name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
-        type=__ret__.get('type'))
+        name=__ret__.name,
+        properties=__ret__.properties,
+        type=__ret__.type)

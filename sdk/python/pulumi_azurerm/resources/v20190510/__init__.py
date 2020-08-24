@@ -11,3 +11,5 @@ from .get_resource import *
 from .get_resource_group import *
 from .resource import *
 from .resource_group import *
+from ._inputs import *
+from . import outputs

@@ -5,10 +5,16 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
 
+__all__ = [
+    'GetWatcherResult',
+    'AwaitableGetWatcherResult',
+    'get_watcher',
+]
 
+@pulumi.output_type
 class GetWatcherResult:
     """
     Definition of the watcher type.
@@ -16,88 +22,158 @@ class GetWatcherResult:
     def __init__(__self__, creation_time=None, description=None, etag=None, execution_frequency_in_seconds=None, last_modified_by=None, last_modified_time=None, location=None, name=None, script_name=None, script_parameters=None, script_run_on=None, status=None, tags=None, type=None):
         if creation_time and not isinstance(creation_time, str):
             raise TypeError("Expected argument 'creation_time' to be a str")
-        __self__.creation_time = creation_time
+        pulumi.set(__self__, "creation_time", creation_time)
+        if description and not isinstance(description, str):
+            raise TypeError("Expected argument 'description' to be a str")
+        pulumi.set(__self__, "description", description)
+        if etag and not isinstance(etag, str):
+            raise TypeError("Expected argument 'etag' to be a str")
+        pulumi.set(__self__, "etag", etag)
+        if execution_frequency_in_seconds and not isinstance(execution_frequency_in_seconds, float):
+            raise TypeError("Expected argument 'execution_frequency_in_seconds' to be a float")
+        pulumi.set(__self__, "execution_frequency_in_seconds", execution_frequency_in_seconds)
+        if last_modified_by and not isinstance(last_modified_by, str):
+            raise TypeError("Expected argument 'last_modified_by' to be a str")
+        pulumi.set(__self__, "last_modified_by", last_modified_by)
+        if last_modified_time and not isinstance(last_modified_time, str):
+            raise TypeError("Expected argument 'last_modified_time' to be a str")
+        pulumi.set(__self__, "last_modified_time", last_modified_time)
+        if location and not isinstance(location, str):
+            raise TypeError("Expected argument 'location' to be a str")
+        pulumi.set(__self__, "location", location)
+        if name and not isinstance(name, str):
+            raise TypeError("Expected argument 'name' to be a str")
+        pulumi.set(__self__, "name", name)
+        if script_name and not isinstance(script_name, str):
+            raise TypeError("Expected argument 'script_name' to be a str")
+        pulumi.set(__self__, "script_name", script_name)
+        if script_parameters and not isinstance(script_parameters, dict):
+            raise TypeError("Expected argument 'script_parameters' to be a dict")
+        pulumi.set(__self__, "script_parameters", script_parameters)
+        if script_run_on and not isinstance(script_run_on, str):
+            raise TypeError("Expected argument 'script_run_on' to be a str")
+        pulumi.set(__self__, "script_run_on", script_run_on)
+        if status and not isinstance(status, str):
+            raise TypeError("Expected argument 'status' to be a str")
+        pulumi.set(__self__, "status", status)
+        if tags and not isinstance(tags, dict):
+            raise TypeError("Expected argument 'tags' to be a dict")
+        pulumi.set(__self__, "tags", tags)
+        if type and not isinstance(type, str):
+            raise TypeError("Expected argument 'type' to be a str")
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="creationTime")
+    def creation_time(self) -> str:
         """
         Gets or sets the creation time.
         """
-        if description and not isinstance(description, str):
-            raise TypeError("Expected argument 'description' to be a str")
-        __self__.description = description
+        return pulumi.get(self, "creation_time")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
         """
         Gets or sets the description.
         """
-        if etag and not isinstance(etag, str):
-            raise TypeError("Expected argument 'etag' to be a str")
-        __self__.etag = etag
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def etag(self) -> Optional[str]:
         """
         Gets or sets the etag of the resource.
         """
-        if execution_frequency_in_seconds and not isinstance(execution_frequency_in_seconds, float):
-            raise TypeError("Expected argument 'execution_frequency_in_seconds' to be a float")
-        __self__.execution_frequency_in_seconds = execution_frequency_in_seconds
+        return pulumi.get(self, "etag")
+
+    @property
+    @pulumi.getter(name="executionFrequencyInSeconds")
+    def execution_frequency_in_seconds(self) -> Optional[float]:
         """
         Gets or sets the frequency at which the watcher is invoked.
         """
-        if last_modified_by and not isinstance(last_modified_by, str):
-            raise TypeError("Expected argument 'last_modified_by' to be a str")
-        __self__.last_modified_by = last_modified_by
+        return pulumi.get(self, "execution_frequency_in_seconds")
+
+    @property
+    @pulumi.getter(name="lastModifiedBy")
+    def last_modified_by(self) -> str:
         """
         Details of the user who last modified the watcher.
         """
-        if last_modified_time and not isinstance(last_modified_time, str):
-            raise TypeError("Expected argument 'last_modified_time' to be a str")
-        __self__.last_modified_time = last_modified_time
+        return pulumi.get(self, "last_modified_by")
+
+    @property
+    @pulumi.getter(name="lastModifiedTime")
+    def last_modified_time(self) -> str:
         """
         Gets or sets the last modified time.
         """
-        if location and not isinstance(location, str):
-            raise TypeError("Expected argument 'location' to be a str")
-        __self__.location = location
+        return pulumi.get(self, "last_modified_time")
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[str]:
         """
         The Azure Region where the resource lives
         """
-        if name and not isinstance(name, str):
-            raise TypeError("Expected argument 'name' to be a str")
-        __self__.name = name
+        return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
         """
         The name of the resource
         """
-        if script_name and not isinstance(script_name, str):
-            raise TypeError("Expected argument 'script_name' to be a str")
-        __self__.script_name = script_name
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="scriptName")
+    def script_name(self) -> Optional[str]:
         """
         Gets or sets the name of the script the watcher is attached to, i.e. the name of an existing runbook.
         """
-        if script_parameters and not isinstance(script_parameters, dict):
-            raise TypeError("Expected argument 'script_parameters' to be a dict")
-        __self__.script_parameters = script_parameters
+        return pulumi.get(self, "script_name")
+
+    @property
+    @pulumi.getter(name="scriptParameters")
+    def script_parameters(self) -> Optional[Mapping[str, str]]:
         """
         Gets or sets the parameters of the script.
         """
-        if script_run_on and not isinstance(script_run_on, str):
-            raise TypeError("Expected argument 'script_run_on' to be a str")
-        __self__.script_run_on = script_run_on
+        return pulumi.get(self, "script_parameters")
+
+    @property
+    @pulumi.getter(name="scriptRunOn")
+    def script_run_on(self) -> Optional[str]:
         """
         Gets or sets the name of the hybrid worker group the watcher will run on.
         """
-        if status and not isinstance(status, str):
-            raise TypeError("Expected argument 'status' to be a str")
-        __self__.status = status
+        return pulumi.get(self, "script_run_on")
+
+    @property
+    @pulumi.getter
+    def status(self) -> str:
         """
         Gets the current status of the watcher.
         """
-        if tags and not isinstance(tags, dict):
-            raise TypeError("Expected argument 'tags' to be a dict")
-        __self__.tags = tags
+        return pulumi.get(self, "status")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Mapping[str, str]]:
         """
         Resource tags.
         """
-        if type and not isinstance(type, str):
-            raise TypeError("Expected argument 'type' to be a str")
-        __self__.type = type
+        return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
         """
         The type of the resource.
         """
+        return pulumi.get(self, "type")
 
 
 class AwaitableGetWatcherResult(GetWatcherResult):
@@ -122,7 +198,10 @@ class AwaitableGetWatcherResult(GetWatcherResult):
             type=self.type)
 
 
-def get_watcher(automation_account_name=None, name=None, resource_group_name=None, opts=None):
+def get_watcher(automation_account_name: Optional[str] = None,
+                name: Optional[str] = None,
+                resource_group_name: Optional[str] = None,
+                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetWatcherResult:
     """
     Use this data source to access information about an existing resource.
 
@@ -138,20 +217,20 @@ def get_watcher(automation_account_name=None, name=None, resource_group_name=Non
         opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = _utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('azurerm:automation/v20151031:getWatcher', __args__, opts=opts).value
+    __ret__ = pulumi.runtime.invoke('azurerm:automation/v20151031:getWatcher', __args__, opts=opts, typ=GetWatcherResult).value
 
     return AwaitableGetWatcherResult(
-        creation_time=__ret__.get('creationTime'),
-        description=__ret__.get('description'),
-        etag=__ret__.get('etag'),
-        execution_frequency_in_seconds=__ret__.get('executionFrequencyInSeconds'),
-        last_modified_by=__ret__.get('lastModifiedBy'),
-        last_modified_time=__ret__.get('lastModifiedTime'),
-        location=__ret__.get('location'),
-        name=__ret__.get('name'),
-        script_name=__ret__.get('scriptName'),
-        script_parameters=__ret__.get('scriptParameters'),
-        script_run_on=__ret__.get('scriptRunOn'),
-        status=__ret__.get('status'),
-        tags=__ret__.get('tags'),
-        type=__ret__.get('type'))
+        creation_time=__ret__.creation_time,
+        description=__ret__.description,
+        etag=__ret__.etag,
+        execution_frequency_in_seconds=__ret__.execution_frequency_in_seconds,
+        last_modified_by=__ret__.last_modified_by,
+        last_modified_time=__ret__.last_modified_time,
+        location=__ret__.location,
+        name=__ret__.name,
+        script_name=__ret__.script_name,
+        script_parameters=__ret__.script_parameters,
+        script_run_on=__ret__.script_run_on,
+        status=__ret__.status,
+        tags=__ret__.tags,
+        type=__ret__.type)

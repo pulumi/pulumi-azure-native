@@ -5,175 +5,56 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+from . import outputs
+from ._inputs import *
+
+__all__ = ['Account']
 
 
 class Account(pulumi.CustomResource):
-    account_id: pulumi.Output[str]
-    """
-    The unique identifier associated with this Data Lake Store account.
-    """
-    creation_time: pulumi.Output[str]
-    """
-    The account creation time.
-    """
-    current_tier: pulumi.Output[str]
-    """
-    The commitment tier in use for the current month.
-    """
-    default_group: pulumi.Output[str]
-    """
-    The default owner group for all new folders and files created in the Data Lake Store account.
-    """
-    encryption_config: pulumi.Output[dict]
-    """
-    The Key Vault encryption configuration.
-      * `key_vault_meta_info` (`dict`) - The Key Vault information for connecting to user managed encryption keys.
-        * `encryption_key_name` (`str`) - The name of the user managed encryption key.
-        * `encryption_key_version` (`str`) - The version of the user managed encryption key.
-        * `key_vault_resource_id` (`str`) - The resource identifier for the user managed Key Vault being used to encrypt.
-
-      * `type` (`str`) - The type of encryption configuration being used. Currently the only supported types are 'UserManaged' and 'ServiceManaged'.
-    """
-    encryption_provisioning_state: pulumi.Output[str]
-    """
-    The current state of encryption provisioning for this Data Lake Store account.
-    """
-    encryption_state: pulumi.Output[str]
-    """
-    The current state of encryption for this Data Lake Store account.
-    """
-    endpoint: pulumi.Output[str]
-    """
-    The full CName endpoint for this account.
-    """
-    firewall_allow_azure_ips: pulumi.Output[str]
-    """
-    The current state of allowing or disallowing IPs originating within Azure through the firewall. If the firewall is disabled, this is not enforced.
-    """
-    firewall_rules: pulumi.Output[list]
-    """
-    The list of firewall rules associated with this Data Lake Store account.
-      * `end_ip_address` (`str`) - The end IP address for the firewall rule. This can be either ipv4 or ipv6. Start and End should be in the same protocol.
-      * `id` (`str`) - The resource identifier.
-      * `name` (`str`) - The resource name.
-      * `start_ip_address` (`str`) - The start IP address for the firewall rule. This can be either ipv4 or ipv6. Start and End should be in the same protocol.
-      * `type` (`str`) - The resource type.
-    """
-    firewall_state: pulumi.Output[str]
-    """
-    The current state of the IP address firewall for this Data Lake Store account.
-    """
-    identity: pulumi.Output[dict]
-    """
-    The Key Vault encryption identity, if any.
-      * `principal_id` (`str`) - The principal identifier associated with the encryption.
-      * `tenant_id` (`str`) - The tenant identifier associated with the encryption.
-      * `type` (`str`) - The type of encryption being used. Currently the only supported type is 'SystemAssigned'.
-    """
-    last_modified_time: pulumi.Output[str]
-    """
-    The account last modified time.
-    """
-    location: pulumi.Output[str]
-    """
-    The resource location.
-    """
-    name: pulumi.Output[str]
-    """
-    The resource name.
-    """
-    new_tier: pulumi.Output[str]
-    """
-    The commitment tier to use for next month.
-    """
-    provisioning_state: pulumi.Output[str]
-    """
-    The provisioning status of the Data Lake Store account.
-    """
-    state: pulumi.Output[str]
-    """
-    The state of the Data Lake Store account.
-    """
-    tags: pulumi.Output[dict]
-    """
-    The resource tags.
-    """
-    trusted_id_provider_state: pulumi.Output[str]
-    """
-    The current state of the trusted identity provider feature for this Data Lake Store account.
-    """
-    trusted_id_providers: pulumi.Output[list]
-    """
-    The list of trusted identity providers associated with this Data Lake Store account.
-      * `id` (`str`) - The resource identifier.
-      * `id_provider` (`str`) - The URL of this trusted identity provider.
-      * `name` (`str`) - The resource name.
-      * `type` (`str`) - The resource type.
-    """
-    type: pulumi.Output[str]
-    """
-    The resource type.
-    """
-    virtual_network_rules: pulumi.Output[list]
-    """
-    The list of virtual network rules associated with this Data Lake Store account.
-      * `id` (`str`) - The resource identifier.
-      * `name` (`str`) - The resource name.
-      * `subnet_id` (`str`) - The resource identifier for the subnet.
-      * `type` (`str`) - The resource type.
-    """
-    def __init__(__self__, resource_name, opts=None, default_group=None, encryption_config=None, encryption_state=None, firewall_allow_azure_ips=None, firewall_rules=None, firewall_state=None, identity=None, location=None, name=None, new_tier=None, resource_group_name=None, tags=None, trusted_id_provider_state=None, trusted_id_providers=None, virtual_network_rules=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 default_group: Optional[pulumi.Input[str]] = None,
+                 encryption_config: Optional[pulumi.Input[pulumi.InputType['EncryptionConfigArgs']]] = None,
+                 encryption_state: Optional[pulumi.Input[str]] = None,
+                 firewall_allow_azure_ips: Optional[pulumi.Input[str]] = None,
+                 firewall_rules: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['CreateFirewallRuleWithAccountParametersArgs']]]]] = None,
+                 firewall_state: Optional[pulumi.Input[str]] = None,
+                 identity: Optional[pulumi.Input[pulumi.InputType['EncryptionIdentityArgs']]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 new_tier: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 trusted_id_provider_state: Optional[pulumi.Input[str]] = None,
+                 trusted_id_providers: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['CreateTrustedIdProviderWithAccountParametersArgs']]]]] = None,
+                 virtual_network_rules: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['CreateVirtualNetworkRuleWithAccountParametersArgs']]]]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         Data Lake Store account information.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] default_group: The default owner group for all new folders and files created in the Data Lake Store account.
-        :param pulumi.Input[dict] encryption_config: The Key Vault encryption configuration.
+        :param pulumi.Input[pulumi.InputType['EncryptionConfigArgs']] encryption_config: The Key Vault encryption configuration.
         :param pulumi.Input[str] encryption_state: The current state of encryption for this Data Lake Store account.
         :param pulumi.Input[str] firewall_allow_azure_ips: The current state of allowing or disallowing IPs originating within Azure through the firewall. If the firewall is disabled, this is not enforced.
-        :param pulumi.Input[list] firewall_rules: The list of firewall rules associated with this Data Lake Store account.
+        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['CreateFirewallRuleWithAccountParametersArgs']]]] firewall_rules: The list of firewall rules associated with this Data Lake Store account.
         :param pulumi.Input[str] firewall_state: The current state of the IP address firewall for this Data Lake Store account.
-        :param pulumi.Input[dict] identity: The Key Vault encryption identity, if any.
+        :param pulumi.Input[pulumi.InputType['EncryptionIdentityArgs']] identity: The Key Vault encryption identity, if any.
         :param pulumi.Input[str] location: The resource location.
         :param pulumi.Input[str] name: The name of the Data Lake Store account.
         :param pulumi.Input[str] new_tier: The commitment tier to use for next month.
         :param pulumi.Input[str] resource_group_name: The name of the Azure resource group.
-        :param pulumi.Input[dict] tags: The resource tags.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The resource tags.
         :param pulumi.Input[str] trusted_id_provider_state: The current state of the trusted identity provider feature for this Data Lake Store account.
-        :param pulumi.Input[list] trusted_id_providers: The list of trusted identity providers associated with this Data Lake Store account.
-        :param pulumi.Input[list] virtual_network_rules: The list of virtual network rules associated with this Data Lake Store account.
-
-        The **encryption_config** object supports the following:
-
-          * `key_vault_meta_info` (`pulumi.Input[dict]`) - The Key Vault information for connecting to user managed encryption keys.
-            * `encryption_key_name` (`pulumi.Input[str]`) - The name of the user managed encryption key.
-            * `encryption_key_version` (`pulumi.Input[str]`) - The version of the user managed encryption key.
-            * `key_vault_resource_id` (`pulumi.Input[str]`) - The resource identifier for the user managed Key Vault being used to encrypt.
-
-          * `type` (`pulumi.Input[str]`) - The type of encryption configuration being used. Currently the only supported types are 'UserManaged' and 'ServiceManaged'.
-
-        The **firewall_rules** object supports the following:
-
-          * `end_ip_address` (`pulumi.Input[str]`) - The end IP address for the firewall rule. This can be either ipv4 or ipv6. Start and End should be in the same protocol.
-          * `name` (`pulumi.Input[str]`) - The unique name of the firewall rule to create.
-          * `start_ip_address` (`pulumi.Input[str]`) - The start IP address for the firewall rule. This can be either ipv4 or ipv6. Start and End should be in the same protocol.
-
-        The **identity** object supports the following:
-
-          * `type` (`pulumi.Input[str]`) - The type of encryption being used. Currently the only supported type is 'SystemAssigned'.
-
-        The **trusted_id_providers** object supports the following:
-
-          * `id_provider` (`pulumi.Input[str]`) - The URL of this trusted identity provider.
-          * `name` (`pulumi.Input[str]`) - The unique name of the trusted identity provider to create.
-
-        The **virtual_network_rules** object supports the following:
-
-          * `name` (`pulumi.Input[str]`) - The unique name of the virtual network rule to create.
-          * `subnet_id` (`pulumi.Input[str]`) - The resource identifier for the subnet.
+        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['CreateTrustedIdProviderWithAccountParametersArgs']]]] trusted_id_providers: The list of trusted identity providers associated with this Data Lake Store account.
+        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['CreateVirtualNetworkRuleWithAccountParametersArgs']]]] virtual_network_rules: The list of virtual network rules associated with this Data Lake Store account.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -229,13 +110,15 @@ class Account(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None) -> 'Account':
         """
         Get an existing Account resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -244,8 +127,193 @@ class Account(pulumi.CustomResource):
 
         return Account(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter(name="accountId")
+    def account_id(self) -> str:
+        """
+        The unique identifier associated with this Data Lake Store account.
+        """
+        return pulumi.get(self, "account_id")
+
+    @property
+    @pulumi.getter(name="creationTime")
+    def creation_time(self) -> str:
+        """
+        The account creation time.
+        """
+        return pulumi.get(self, "creation_time")
+
+    @property
+    @pulumi.getter(name="currentTier")
+    def current_tier(self) -> str:
+        """
+        The commitment tier in use for the current month.
+        """
+        return pulumi.get(self, "current_tier")
+
+    @property
+    @pulumi.getter(name="defaultGroup")
+    def default_group(self) -> str:
+        """
+        The default owner group for all new folders and files created in the Data Lake Store account.
+        """
+        return pulumi.get(self, "default_group")
+
+    @property
+    @pulumi.getter(name="encryptionConfig")
+    def encryption_config(self) -> 'outputs.EncryptionConfigResponse':
+        """
+        The Key Vault encryption configuration.
+        """
+        return pulumi.get(self, "encryption_config")
+
+    @property
+    @pulumi.getter(name="encryptionProvisioningState")
+    def encryption_provisioning_state(self) -> str:
+        """
+        The current state of encryption provisioning for this Data Lake Store account.
+        """
+        return pulumi.get(self, "encryption_provisioning_state")
+
+    @property
+    @pulumi.getter(name="encryptionState")
+    def encryption_state(self) -> str:
+        """
+        The current state of encryption for this Data Lake Store account.
+        """
+        return pulumi.get(self, "encryption_state")
+
+    @property
+    @pulumi.getter
+    def endpoint(self) -> str:
+        """
+        The full CName endpoint for this account.
+        """
+        return pulumi.get(self, "endpoint")
+
+    @property
+    @pulumi.getter(name="firewallAllowAzureIps")
+    def firewall_allow_azure_ips(self) -> str:
+        """
+        The current state of allowing or disallowing IPs originating within Azure through the firewall. If the firewall is disabled, this is not enforced.
+        """
+        return pulumi.get(self, "firewall_allow_azure_ips")
+
+    @property
+    @pulumi.getter(name="firewallRules")
+    def firewall_rules(self) -> List['outputs.FirewallRuleResponse']:
+        """
+        The list of firewall rules associated with this Data Lake Store account.
+        """
+        return pulumi.get(self, "firewall_rules")
+
+    @property
+    @pulumi.getter(name="firewallState")
+    def firewall_state(self) -> str:
+        """
+        The current state of the IP address firewall for this Data Lake Store account.
+        """
+        return pulumi.get(self, "firewall_state")
+
+    @property
+    @pulumi.getter
+    def identity(self) -> 'outputs.EncryptionIdentityResponse':
+        """
+        The Key Vault encryption identity, if any.
+        """
+        return pulumi.get(self, "identity")
+
+    @property
+    @pulumi.getter(name="lastModifiedTime")
+    def last_modified_time(self) -> str:
+        """
+        The account last modified time.
+        """
+        return pulumi.get(self, "last_modified_time")
+
+    @property
+    @pulumi.getter
+    def location(self) -> str:
+        """
+        The resource location.
+        """
+        return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The resource name.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="newTier")
+    def new_tier(self) -> str:
+        """
+        The commitment tier to use for next month.
+        """
+        return pulumi.get(self, "new_tier")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        The provisioning status of the Data Lake Store account.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter
+    def state(self) -> str:
+        """
+        The state of the Data Lake Store account.
+        """
+        return pulumi.get(self, "state")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Mapping[str, str]:
+        """
+        The resource tags.
+        """
+        return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter(name="trustedIdProviderState")
+    def trusted_id_provider_state(self) -> str:
+        """
+        The current state of the trusted identity provider feature for this Data Lake Store account.
+        """
+        return pulumi.get(self, "trusted_id_provider_state")
+
+    @property
+    @pulumi.getter(name="trustedIdProviders")
+    def trusted_id_providers(self) -> List['outputs.TrustedIdProviderResponse']:
+        """
+        The list of trusted identity providers associated with this Data Lake Store account.
+        """
+        return pulumi.get(self, "trusted_id_providers")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        The resource type.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="virtualNetworkRules")
+    def virtual_network_rules(self) -> List['outputs.VirtualNetworkRuleResponse']:
+        """
+        The list of virtual network rules associated with this Data Lake Store account.
+        """
+        return pulumi.get(self, "virtual_network_rules")
+
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

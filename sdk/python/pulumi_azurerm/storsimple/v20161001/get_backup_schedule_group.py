@@ -5,10 +5,17 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+from . import outputs
 
+__all__ = [
+    'GetBackupScheduleGroupResult',
+    'AwaitableGetBackupScheduleGroupResult',
+    'get_backup_schedule_group',
+]
 
+@pulumi.output_type
 class GetBackupScheduleGroupResult:
     """
     The Backup Schedule Group
@@ -16,22 +23,37 @@ class GetBackupScheduleGroupResult:
     def __init__(__self__, name=None, start_time=None, type=None):
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
-        __self__.name = name
+        pulumi.set(__self__, "name", name)
+        if start_time and not isinstance(start_time, dict):
+            raise TypeError("Expected argument 'start_time' to be a dict")
+        pulumi.set(__self__, "start_time", start_time)
+        if type and not isinstance(type, str):
+            raise TypeError("Expected argument 'type' to be a str")
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
         """
         The name.
         """
-        if start_time and not isinstance(start_time, dict):
-            raise TypeError("Expected argument 'start_time' to be a dict")
-        __self__.start_time = start_time
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="startTime")
+    def start_time(self) -> 'outputs.TimeResponse':
         """
         The start time. When this field is specified we will generate Default GrandFather Father Son Backup Schedules.
         """
-        if type and not isinstance(type, str):
-            raise TypeError("Expected argument 'type' to be a str")
-        __self__.type = type
+        return pulumi.get(self, "start_time")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
         """
         The type.
         """
+        return pulumi.get(self, "type")
 
 
 class AwaitableGetBackupScheduleGroupResult(GetBackupScheduleGroupResult):
@@ -45,7 +67,11 @@ class AwaitableGetBackupScheduleGroupResult(GetBackupScheduleGroupResult):
             type=self.type)
 
 
-def get_backup_schedule_group(device_name=None, manager_name=None, name=None, resource_group_name=None, opts=None):
+def get_backup_schedule_group(device_name: Optional[str] = None,
+                              manager_name: Optional[str] = None,
+                              name: Optional[str] = None,
+                              resource_group_name: Optional[str] = None,
+                              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetBackupScheduleGroupResult:
     """
     Use this data source to access information about an existing resource.
 
@@ -63,9 +89,9 @@ def get_backup_schedule_group(device_name=None, manager_name=None, name=None, re
         opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = _utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('azurerm:storsimple/v20161001:getBackupScheduleGroup', __args__, opts=opts).value
+    __ret__ = pulumi.runtime.invoke('azurerm:storsimple/v20161001:getBackupScheduleGroup', __args__, opts=opts, typ=GetBackupScheduleGroupResult).value
 
     return AwaitableGetBackupScheduleGroupResult(
-        name=__ret__.get('name'),
-        start_time=__ret__.get('startTime'),
-        type=__ret__.get('type'))
+        name=__ret__.name,
+        start_time=__ret__.start_time,
+        type=__ret__.type)

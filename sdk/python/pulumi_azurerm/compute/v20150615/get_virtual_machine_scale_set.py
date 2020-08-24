@@ -5,10 +5,17 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+from . import outputs
 
+__all__ = [
+    'GetVirtualMachineScaleSetResult',
+    'AwaitableGetVirtualMachineScaleSetResult',
+    'get_virtual_machine_scale_set',
+]
 
+@pulumi.output_type
 class GetVirtualMachineScaleSetResult:
     """
     Describes a Virtual Machine Scale Set.
@@ -16,58 +23,103 @@ class GetVirtualMachineScaleSetResult:
     def __init__(__self__, location=None, name=None, over_provision=None, provisioning_state=None, sku=None, tags=None, type=None, upgrade_policy=None, virtual_machine_profile=None):
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
-        __self__.location = location
+        pulumi.set(__self__, "location", location)
+        if name and not isinstance(name, str):
+            raise TypeError("Expected argument 'name' to be a str")
+        pulumi.set(__self__, "name", name)
+        if over_provision and not isinstance(over_provision, bool):
+            raise TypeError("Expected argument 'over_provision' to be a bool")
+        pulumi.set(__self__, "over_provision", over_provision)
+        if provisioning_state and not isinstance(provisioning_state, str):
+            raise TypeError("Expected argument 'provisioning_state' to be a str")
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if sku and not isinstance(sku, dict):
+            raise TypeError("Expected argument 'sku' to be a dict")
+        pulumi.set(__self__, "sku", sku)
+        if tags and not isinstance(tags, dict):
+            raise TypeError("Expected argument 'tags' to be a dict")
+        pulumi.set(__self__, "tags", tags)
+        if type and not isinstance(type, str):
+            raise TypeError("Expected argument 'type' to be a str")
+        pulumi.set(__self__, "type", type)
+        if upgrade_policy and not isinstance(upgrade_policy, dict):
+            raise TypeError("Expected argument 'upgrade_policy' to be a dict")
+        pulumi.set(__self__, "upgrade_policy", upgrade_policy)
+        if virtual_machine_profile and not isinstance(virtual_machine_profile, dict):
+            raise TypeError("Expected argument 'virtual_machine_profile' to be a dict")
+        pulumi.set(__self__, "virtual_machine_profile", virtual_machine_profile)
+
+    @property
+    @pulumi.getter
+    def location(self) -> str:
         """
         Resource location
         """
-        if name and not isinstance(name, str):
-            raise TypeError("Expected argument 'name' to be a str")
-        __self__.name = name
+        return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
         """
         Resource name
         """
-        if over_provision and not isinstance(over_provision, bool):
-            raise TypeError("Expected argument 'over_provision' to be a bool")
-        __self__.over_provision = over_provision
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="overProvision")
+    def over_provision(self) -> Optional[bool]:
         """
         Specifies whether the Virtual Machine Scale Set should be overprovisioned.
         """
-        if provisioning_state and not isinstance(provisioning_state, str):
-            raise TypeError("Expected argument 'provisioning_state' to be a str")
-        __self__.provisioning_state = provisioning_state
+        return pulumi.get(self, "over_provision")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> Optional[str]:
         """
         The provisioning state, which only appears in the response.
         """
-        if sku and not isinstance(sku, dict):
-            raise TypeError("Expected argument 'sku' to be a dict")
-        __self__.sku = sku
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter
+    def sku(self) -> Optional['outputs.SkuResponse']:
         """
         The virtual machine scale set sku.
         """
-        if tags and not isinstance(tags, dict):
-            raise TypeError("Expected argument 'tags' to be a dict")
-        __self__.tags = tags
+        return pulumi.get(self, "sku")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Mapping[str, str]]:
         """
         Resource tags
         """
-        if type and not isinstance(type, str):
-            raise TypeError("Expected argument 'type' to be a str")
-        __self__.type = type
+        return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
         """
         Resource type
         """
-        if upgrade_policy and not isinstance(upgrade_policy, dict):
-            raise TypeError("Expected argument 'upgrade_policy' to be a dict")
-        __self__.upgrade_policy = upgrade_policy
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="upgradePolicy")
+    def upgrade_policy(self) -> Optional['outputs.UpgradePolicyResponse']:
         """
         The upgrade policy.
         """
-        if virtual_machine_profile and not isinstance(virtual_machine_profile, dict):
-            raise TypeError("Expected argument 'virtual_machine_profile' to be a dict")
-        __self__.virtual_machine_profile = virtual_machine_profile
+        return pulumi.get(self, "upgrade_policy")
+
+    @property
+    @pulumi.getter(name="virtualMachineProfile")
+    def virtual_machine_profile(self) -> Optional['outputs.VirtualMachineScaleSetVMProfileResponse']:
         """
         The virtual machine profile.
         """
+        return pulumi.get(self, "virtual_machine_profile")
 
 
 class AwaitableGetVirtualMachineScaleSetResult(GetVirtualMachineScaleSetResult):
@@ -87,7 +139,9 @@ class AwaitableGetVirtualMachineScaleSetResult(GetVirtualMachineScaleSetResult):
             virtual_machine_profile=self.virtual_machine_profile)
 
 
-def get_virtual_machine_scale_set(name=None, resource_group_name=None, opts=None):
+def get_virtual_machine_scale_set(name: Optional[str] = None,
+                                  resource_group_name: Optional[str] = None,
+                                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVirtualMachineScaleSetResult:
     """
     Use this data source to access information about an existing resource.
 
@@ -101,15 +155,15 @@ def get_virtual_machine_scale_set(name=None, resource_group_name=None, opts=None
         opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = _utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('azurerm:compute/v20150615:getVirtualMachineScaleSet', __args__, opts=opts).value
+    __ret__ = pulumi.runtime.invoke('azurerm:compute/v20150615:getVirtualMachineScaleSet', __args__, opts=opts, typ=GetVirtualMachineScaleSetResult).value
 
     return AwaitableGetVirtualMachineScaleSetResult(
-        location=__ret__.get('location'),
-        name=__ret__.get('name'),
-        over_provision=__ret__.get('overProvision'),
-        provisioning_state=__ret__.get('provisioningState'),
-        sku=__ret__.get('sku'),
-        tags=__ret__.get('tags'),
-        type=__ret__.get('type'),
-        upgrade_policy=__ret__.get('upgradePolicy'),
-        virtual_machine_profile=__ret__.get('virtualMachineProfile'))
+        location=__ret__.location,
+        name=__ret__.name,
+        over_provision=__ret__.over_provision,
+        provisioning_state=__ret__.provisioning_state,
+        sku=__ret__.sku,
+        tags=__ret__.tags,
+        type=__ret__.type,
+        upgrade_policy=__ret__.upgrade_policy,
+        virtual_machine_profile=__ret__.virtual_machine_profile)

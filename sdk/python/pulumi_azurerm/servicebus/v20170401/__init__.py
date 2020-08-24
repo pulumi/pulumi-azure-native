@@ -25,3 +25,5 @@ from .rule import *
 from .subscription import *
 from .topic import *
 from .topic_authorization_rule import *
+from ._inputs import *
+from . import outputs

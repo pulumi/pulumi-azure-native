@@ -5,10 +5,17 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+from . import outputs
 
+__all__ = [
+    'GetResourceGroupResult',
+    'AwaitableGetResourceGroupResult',
+    'get_resource_group',
+]
 
+@pulumi.output_type
 class GetResourceGroupResult:
     """
     Resource group information.
@@ -16,40 +23,70 @@ class GetResourceGroupResult:
     def __init__(__self__, location=None, managed_by=None, name=None, properties=None, tags=None, type=None):
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
-        __self__.location = location
+        pulumi.set(__self__, "location", location)
+        if managed_by and not isinstance(managed_by, str):
+            raise TypeError("Expected argument 'managed_by' to be a str")
+        pulumi.set(__self__, "managed_by", managed_by)
+        if name and not isinstance(name, str):
+            raise TypeError("Expected argument 'name' to be a str")
+        pulumi.set(__self__, "name", name)
+        if properties and not isinstance(properties, dict):
+            raise TypeError("Expected argument 'properties' to be a dict")
+        pulumi.set(__self__, "properties", properties)
+        if tags and not isinstance(tags, dict):
+            raise TypeError("Expected argument 'tags' to be a dict")
+        pulumi.set(__self__, "tags", tags)
+        if type and not isinstance(type, str):
+            raise TypeError("Expected argument 'type' to be a str")
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def location(self) -> str:
         """
         The location of the resource group. It cannot be changed after the resource group has been created. It must be one of the supported Azure locations.
         """
-        if managed_by and not isinstance(managed_by, str):
-            raise TypeError("Expected argument 'managed_by' to be a str")
-        __self__.managed_by = managed_by
+        return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter(name="managedBy")
+    def managed_by(self) -> Optional[str]:
         """
         The ID of the resource that manages this resource group.
         """
-        if name and not isinstance(name, str):
-            raise TypeError("Expected argument 'name' to be a str")
-        __self__.name = name
+        return pulumi.get(self, "managed_by")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
         """
         The name of the resource group.
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def properties(self) -> 'outputs.ResourceGroupPropertiesResponse':
         """
         The resource group properties.
         """
-        if tags and not isinstance(tags, dict):
-            raise TypeError("Expected argument 'tags' to be a dict")
-        __self__.tags = tags
+        return pulumi.get(self, "properties")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Mapping[str, str]]:
         """
         The tags attached to the resource group.
         """
-        if type and not isinstance(type, str):
-            raise TypeError("Expected argument 'type' to be a str")
-        __self__.type = type
+        return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
         """
         The type of the resource group.
         """
+        return pulumi.get(self, "type")
 
 
 class AwaitableGetResourceGroupResult(GetResourceGroupResult):
@@ -66,7 +103,8 @@ class AwaitableGetResourceGroupResult(GetResourceGroupResult):
             type=self.type)
 
 
-def get_resource_group(name=None, opts=None):
+def get_resource_group(name: Optional[str] = None,
+                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetResourceGroupResult:
     """
     Use this data source to access information about an existing resource.
 
@@ -78,12 +116,12 @@ def get_resource_group(name=None, opts=None):
         opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = _utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('azurerm:resources/v20191001:getResourceGroup', __args__, opts=opts).value
+    __ret__ = pulumi.runtime.invoke('azurerm:resources/v20191001:getResourceGroup', __args__, opts=opts, typ=GetResourceGroupResult).value
 
     return AwaitableGetResourceGroupResult(
-        location=__ret__.get('location'),
-        managed_by=__ret__.get('managedBy'),
-        name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
-        tags=__ret__.get('tags'),
-        type=__ret__.get('type'))
+        location=__ret__.location,
+        managed_by=__ret__.managed_by,
+        name=__ret__.name,
+        properties=__ret__.properties,
+        tags=__ret__.tags,
+        type=__ret__.type)

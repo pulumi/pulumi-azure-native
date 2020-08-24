@@ -5,47 +5,31 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+
+__all__ = ['Group']
 
 
 class Group(pulumi.CustomResource):
-    assessments: pulumi.Output[list]
-    """
-    List of References to Assessments created on this group.
-    """
-    created_timestamp: pulumi.Output[str]
-    """
-    Time when this project was created. Date-Time represented in ISO-8601 format.
-    """
-    e_tag: pulumi.Output[str]
-    """
-    For optimistic concurrency control.
-    """
-    machines: pulumi.Output[list]
-    """
-    List of machine names that are part of this group.
-    """
-    name: pulumi.Output[str]
-    """
-    Name of the group.
-    """
-    type: pulumi.Output[str]
-    """
-    Type of the object = [Microsoft.Migrate/projects/groups].
-    """
-    updated_timestamp: pulumi.Output[str]
-    """
-    Time when this project was last updated. Date-Time represented in ISO-8601 format.
-    """
-    def __init__(__self__, resource_name, opts=None, e_tag=None, machines=None, name=None, project_name=None, resource_group_name=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 e_tag: Optional[pulumi.Input[str]] = None,
+                 machines: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 project_name: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         A group created in a Migration project.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] e_tag: For optimistic concurrency control.
-        :param pulumi.Input[list] machines: List of machine names that are part of this group.
+        :param pulumi.Input[List[pulumi.Input[str]]] machines: List of machine names that are part of this group.
         :param pulumi.Input[str] name: Unique name of a group within a project.
         :param pulumi.Input[str] project_name: Name of the Azure Migrate project.
         :param pulumi.Input[str] resource_group_name: Name of the Azure Resource Group that project is part of.
@@ -91,13 +75,15 @@ class Group(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None) -> 'Group':
         """
         Get an existing Group resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -106,8 +92,65 @@ class Group(pulumi.CustomResource):
 
         return Group(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter
+    def assessments(self) -> List[str]:
+        """
+        List of References to Assessments created on this group.
+        """
+        return pulumi.get(self, "assessments")
+
+    @property
+    @pulumi.getter(name="createdTimestamp")
+    def created_timestamp(self) -> str:
+        """
+        Time when this project was created. Date-Time represented in ISO-8601 format.
+        """
+        return pulumi.get(self, "created_timestamp")
+
+    @property
+    @pulumi.getter(name="eTag")
+    def e_tag(self) -> Optional[str]:
+        """
+        For optimistic concurrency control.
+        """
+        return pulumi.get(self, "e_tag")
+
+    @property
+    @pulumi.getter
+    def machines(self) -> List[str]:
+        """
+        List of machine names that are part of this group.
+        """
+        return pulumi.get(self, "machines")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Name of the group.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Type of the object = [Microsoft.Migrate/projects/groups].
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="updatedTimestamp")
+    def updated_timestamp(self) -> str:
+        """
+        Time when this project was last updated. Date-Time represented in ISO-8601 format.
+        """
+        return pulumi.get(self, "updated_timestamp")
+
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

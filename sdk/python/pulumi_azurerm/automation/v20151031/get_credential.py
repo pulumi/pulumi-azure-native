@@ -5,10 +5,16 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
 
+__all__ = [
+    'GetCredentialResult',
+    'AwaitableGetCredentialResult',
+    'get_credential',
+]
 
+@pulumi.output_type
 class GetCredentialResult:
     """
     Definition of the credential.
@@ -16,40 +22,70 @@ class GetCredentialResult:
     def __init__(__self__, creation_time=None, description=None, last_modified_time=None, name=None, type=None, user_name=None):
         if creation_time and not isinstance(creation_time, str):
             raise TypeError("Expected argument 'creation_time' to be a str")
-        __self__.creation_time = creation_time
+        pulumi.set(__self__, "creation_time", creation_time)
+        if description and not isinstance(description, str):
+            raise TypeError("Expected argument 'description' to be a str")
+        pulumi.set(__self__, "description", description)
+        if last_modified_time and not isinstance(last_modified_time, str):
+            raise TypeError("Expected argument 'last_modified_time' to be a str")
+        pulumi.set(__self__, "last_modified_time", last_modified_time)
+        if name and not isinstance(name, str):
+            raise TypeError("Expected argument 'name' to be a str")
+        pulumi.set(__self__, "name", name)
+        if type and not isinstance(type, str):
+            raise TypeError("Expected argument 'type' to be a str")
+        pulumi.set(__self__, "type", type)
+        if user_name and not isinstance(user_name, str):
+            raise TypeError("Expected argument 'user_name' to be a str")
+        pulumi.set(__self__, "user_name", user_name)
+
+    @property
+    @pulumi.getter(name="creationTime")
+    def creation_time(self) -> str:
         """
         Gets the creation time.
         """
-        if description and not isinstance(description, str):
-            raise TypeError("Expected argument 'description' to be a str")
-        __self__.description = description
+        return pulumi.get(self, "creation_time")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
         """
         Gets or sets the description.
         """
-        if last_modified_time and not isinstance(last_modified_time, str):
-            raise TypeError("Expected argument 'last_modified_time' to be a str")
-        __self__.last_modified_time = last_modified_time
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="lastModifiedTime")
+    def last_modified_time(self) -> str:
         """
         Gets the last modified time.
         """
-        if name and not isinstance(name, str):
-            raise TypeError("Expected argument 'name' to be a str")
-        __self__.name = name
+        return pulumi.get(self, "last_modified_time")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
         """
         The name of the resource
         """
-        if type and not isinstance(type, str):
-            raise TypeError("Expected argument 'type' to be a str")
-        __self__.type = type
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
         """
         The type of the resource.
         """
-        if user_name and not isinstance(user_name, str):
-            raise TypeError("Expected argument 'user_name' to be a str")
-        __self__.user_name = user_name
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="userName")
+    def user_name(self) -> str:
         """
         Gets the user name of the credential.
         """
+        return pulumi.get(self, "user_name")
 
 
 class AwaitableGetCredentialResult(GetCredentialResult):
@@ -66,7 +102,10 @@ class AwaitableGetCredentialResult(GetCredentialResult):
             user_name=self.user_name)
 
 
-def get_credential(automation_account_name=None, name=None, resource_group_name=None, opts=None):
+def get_credential(automation_account_name: Optional[str] = None,
+                   name: Optional[str] = None,
+                   resource_group_name: Optional[str] = None,
+                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetCredentialResult:
     """
     Use this data source to access information about an existing resource.
 
@@ -82,12 +121,12 @@ def get_credential(automation_account_name=None, name=None, resource_group_name=
         opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = _utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('azurerm:automation/v20151031:getCredential', __args__, opts=opts).value
+    __ret__ = pulumi.runtime.invoke('azurerm:automation/v20151031:getCredential', __args__, opts=opts, typ=GetCredentialResult).value
 
     return AwaitableGetCredentialResult(
-        creation_time=__ret__.get('creationTime'),
-        description=__ret__.get('description'),
-        last_modified_time=__ret__.get('lastModifiedTime'),
-        name=__ret__.get('name'),
-        type=__ret__.get('type'),
-        user_name=__ret__.get('userName'))
+        creation_time=__ret__.creation_time,
+        description=__ret__.description,
+        last_modified_time=__ret__.last_modified_time,
+        name=__ret__.name,
+        type=__ret__.type,
+        user_name=__ret__.user_name)

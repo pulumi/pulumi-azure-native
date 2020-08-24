@@ -5,10 +5,16 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
 
+__all__ = [
+    'ListPrivateCloudAdminCredentialsResult',
+    'AwaitableListPrivateCloudAdminCredentialsResult',
+    'list_private_cloud_admin_credentials',
+]
 
+@pulumi.output_type
 class ListPrivateCloudAdminCredentialsResult:
     """
     Administrative credentials for accessing vCenter and NSX-T
@@ -16,28 +22,48 @@ class ListPrivateCloudAdminCredentialsResult:
     def __init__(__self__, nsxt_password=None, nsxt_username=None, vcenter_password=None, vcenter_username=None):
         if nsxt_password and not isinstance(nsxt_password, str):
             raise TypeError("Expected argument 'nsxt_password' to be a str")
-        __self__.nsxt_password = nsxt_password
+        pulumi.set(__self__, "nsxt_password", nsxt_password)
+        if nsxt_username and not isinstance(nsxt_username, str):
+            raise TypeError("Expected argument 'nsxt_username' to be a str")
+        pulumi.set(__self__, "nsxt_username", nsxt_username)
+        if vcenter_password and not isinstance(vcenter_password, str):
+            raise TypeError("Expected argument 'vcenter_password' to be a str")
+        pulumi.set(__self__, "vcenter_password", vcenter_password)
+        if vcenter_username and not isinstance(vcenter_username, str):
+            raise TypeError("Expected argument 'vcenter_username' to be a str")
+        pulumi.set(__self__, "vcenter_username", vcenter_username)
+
+    @property
+    @pulumi.getter(name="nsxtPassword")
+    def nsxt_password(self) -> str:
         """
         NSX-T Manager password
         """
-        if nsxt_username and not isinstance(nsxt_username, str):
-            raise TypeError("Expected argument 'nsxt_username' to be a str")
-        __self__.nsxt_username = nsxt_username
+        return pulumi.get(self, "nsxt_password")
+
+    @property
+    @pulumi.getter(name="nsxtUsername")
+    def nsxt_username(self) -> str:
         """
         NSX-T Manager username
         """
-        if vcenter_password and not isinstance(vcenter_password, str):
-            raise TypeError("Expected argument 'vcenter_password' to be a str")
-        __self__.vcenter_password = vcenter_password
+        return pulumi.get(self, "nsxt_username")
+
+    @property
+    @pulumi.getter(name="vcenterPassword")
+    def vcenter_password(self) -> str:
         """
         vCenter admin password
         """
-        if vcenter_username and not isinstance(vcenter_username, str):
-            raise TypeError("Expected argument 'vcenter_username' to be a str")
-        __self__.vcenter_username = vcenter_username
+        return pulumi.get(self, "vcenter_password")
+
+    @property
+    @pulumi.getter(name="vcenterUsername")
+    def vcenter_username(self) -> str:
         """
         vCenter admin username
         """
+        return pulumi.get(self, "vcenter_username")
 
 
 class AwaitableListPrivateCloudAdminCredentialsResult(ListPrivateCloudAdminCredentialsResult):
@@ -52,7 +78,9 @@ class AwaitableListPrivateCloudAdminCredentialsResult(ListPrivateCloudAdminCrede
             vcenter_username=self.vcenter_username)
 
 
-def list_private_cloud_admin_credentials(private_cloud_name=None, resource_group_name=None, opts=None):
+def list_private_cloud_admin_credentials(private_cloud_name: Optional[str] = None,
+                                         resource_group_name: Optional[str] = None,
+                                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListPrivateCloudAdminCredentialsResult:
     """
     Use this data source to access information about an existing resource.
 
@@ -66,10 +94,10 @@ def list_private_cloud_admin_credentials(private_cloud_name=None, resource_group
         opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = _utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('azurerm:avs/v20200320:listPrivateCloudAdminCredentials', __args__, opts=opts).value
+    __ret__ = pulumi.runtime.invoke('azurerm:avs/v20200320:listPrivateCloudAdminCredentials', __args__, opts=opts, typ=ListPrivateCloudAdminCredentialsResult).value
 
     return AwaitableListPrivateCloudAdminCredentialsResult(
-        nsxt_password=__ret__.get('nsxtPassword'),
-        nsxt_username=__ret__.get('nsxtUsername'),
-        vcenter_password=__ret__.get('vcenterPassword'),
-        vcenter_username=__ret__.get('vcenterUsername'))
+        nsxt_password=__ret__.nsxt_password,
+        nsxt_username=__ret__.nsxt_username,
+        vcenter_password=__ret__.vcenter_password,
+        vcenter_username=__ret__.vcenter_username)

@@ -5,10 +5,17 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+from . import outputs
 
+__all__ = [
+    'GetTagAtScopeResult',
+    'AwaitableGetTagAtScopeResult',
+    'get_tag_at_scope',
+]
 
+@pulumi.output_type
 class GetTagAtScopeResult:
     """
     Wrapper resource for tags API requests and responses.
@@ -16,22 +23,37 @@ class GetTagAtScopeResult:
     def __init__(__self__, name=None, properties=None, type=None):
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
-        __self__.name = name
+        pulumi.set(__self__, "name", name)
+        if properties and not isinstance(properties, dict):
+            raise TypeError("Expected argument 'properties' to be a dict")
+        pulumi.set(__self__, "properties", properties)
+        if type and not isinstance(type, str):
+            raise TypeError("Expected argument 'type' to be a str")
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
         """
         The name of the tags wrapper resource.
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def properties(self) -> 'outputs.TagsResponse':
         """
         The set of tags.
         """
-        if type and not isinstance(type, str):
-            raise TypeError("Expected argument 'type' to be a str")
-        __self__.type = type
+        return pulumi.get(self, "properties")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
         """
         The type of the tags wrapper resource.
         """
+        return pulumi.get(self, "type")
 
 
 class AwaitableGetTagAtScopeResult(GetTagAtScopeResult):
@@ -45,7 +67,8 @@ class AwaitableGetTagAtScopeResult(GetTagAtScopeResult):
             type=self.type)
 
 
-def get_tag_at_scope(scope=None, opts=None):
+def get_tag_at_scope(scope: Optional[str] = None,
+                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetTagAtScopeResult:
     """
     Use this data source to access information about an existing resource.
 
@@ -57,9 +80,9 @@ def get_tag_at_scope(scope=None, opts=None):
         opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = _utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('azurerm:resources/v20200601:getTagAtScope', __args__, opts=opts).value
+    __ret__ = pulumi.runtime.invoke('azurerm:resources/v20200601:getTagAtScope', __args__, opts=opts, typ=GetTagAtScopeResult).value
 
     return AwaitableGetTagAtScopeResult(
-        name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
-        type=__ret__.get('type'))
+        name=__ret__.name,
+        properties=__ret__.properties,
+        type=__ret__.type)

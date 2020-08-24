@@ -13,3 +13,5 @@ from .get_jit_network_access_policy import *
 from .get_server_vulnerability_assessment import *
 from .jit_network_access_policy import *
 from .server_vulnerability_assessment import *
+from ._inputs import *
+from . import outputs

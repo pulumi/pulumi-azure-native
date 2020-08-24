@@ -5,42 +5,27 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+from . import outputs
+from ._inputs import *
+
+__all__ = ['DatabaseAccountMongoDBCollection']
 
 
 class DatabaseAccountMongoDBCollection(pulumi.CustomResource):
-    indexes: pulumi.Output[list]
-    """
-    List of index keys
-      * `key` (`dict`) - Cosmos DB MongoDB collection index keys
-        * `keys` (`list`) - List of keys for each MongoDB collection in the Azure Cosmos DB service
-
-      * `options` (`dict`) - Cosmos DB MongoDB collection index key options
-        * `expire_after_seconds` (`float`) - Expire after seconds
-        * `unique` (`bool`) - Is unique or not
-    """
-    location: pulumi.Output[str]
-    """
-    The location of the resource group to which the resource belongs.
-    """
-    name: pulumi.Output[str]
-    """
-    The name of the database account.
-    """
-    shard_key: pulumi.Output[dict]
-    """
-    A key-value pair of shard keys to be applied for the request.
-    """
-    tags: pulumi.Output[dict]
-    """
-    Tags are a list of key-value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters. For example, the default experience for a template type is set with "defaultExperience": "Cassandra". Current "defaultExperience" values also include "Table", "Graph", "DocumentDB", and "MongoDB".
-    """
-    type: pulumi.Output[str]
-    """
-    The type of Azure resource.
-    """
-    def __init__(__self__, resource_name, opts=None, account_name=None, database_name=None, name=None, options=None, resource=None, resource_group_name=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 account_name: Optional[pulumi.Input[str]] = None,
+                 database_name: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 options: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 resource: Optional[pulumi.Input[pulumi.InputType['MongoDBCollectionResourceArgs']]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         An Azure Cosmos DB MongoDB collection.
 
@@ -49,22 +34,9 @@ class DatabaseAccountMongoDBCollection(pulumi.CustomResource):
         :param pulumi.Input[str] account_name: Cosmos DB database account name.
         :param pulumi.Input[str] database_name: Cosmos DB database name.
         :param pulumi.Input[str] name: Cosmos DB collection name.
-        :param pulumi.Input[dict] options: A key-value pair of options to be applied for the request. This corresponds to the headers sent with the request.
-        :param pulumi.Input[dict] resource: The standard JSON format of a MongoDB collection
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] options: A key-value pair of options to be applied for the request. This corresponds to the headers sent with the request.
+        :param pulumi.Input[pulumi.InputType['MongoDBCollectionResourceArgs']] resource: The standard JSON format of a MongoDB collection
         :param pulumi.Input[str] resource_group_name: Name of an Azure resource group.
-
-        The **resource** object supports the following:
-
-          * `id` (`pulumi.Input[str]`) - Name of the Cosmos DB MongoDB collection
-          * `indexes` (`pulumi.Input[list]`) - List of index keys
-            * `key` (`pulumi.Input[dict]`) - Cosmos DB MongoDB collection index keys
-              * `keys` (`pulumi.Input[list]`) - List of keys for each MongoDB collection in the Azure Cosmos DB service
-
-            * `options` (`pulumi.Input[dict]`) - Cosmos DB MongoDB collection index key options
-              * `expire_after_seconds` (`pulumi.Input[float]`) - Expire after seconds
-              * `unique` (`pulumi.Input[bool]`) - Is unique or not
-
-          * `shard_key` (`pulumi.Input[dict]`) - A key-value pair of shard keys to be applied for the request.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -115,13 +87,15 @@ class DatabaseAccountMongoDBCollection(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None) -> 'DatabaseAccountMongoDBCollection':
         """
         Get an existing DatabaseAccountMongoDBCollection resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -130,8 +104,57 @@ class DatabaseAccountMongoDBCollection(pulumi.CustomResource):
 
         return DatabaseAccountMongoDBCollection(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter
+    def indexes(self) -> Optional[List['outputs.MongoIndexResponse']]:
+        """
+        List of index keys
+        """
+        return pulumi.get(self, "indexes")
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[str]:
+        """
+        The location of the resource group to which the resource belongs.
+        """
+        return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the database account.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="shardKey")
+    def shard_key(self) -> Optional[Mapping[str, str]]:
+        """
+        A key-value pair of shard keys to be applied for the request.
+        """
+        return pulumi.get(self, "shard_key")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Mapping[str, str]]:
+        """
+        Tags are a list of key-value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters. For example, the default experience for a template type is set with "defaultExperience": "Cassandra". Current "defaultExperience" values also include "Table", "Graph", "DocumentDB", and "MongoDB".
+        """
+        return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        The type of Azure resource.
+        """
+        return pulumi.get(self, "type")
+
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

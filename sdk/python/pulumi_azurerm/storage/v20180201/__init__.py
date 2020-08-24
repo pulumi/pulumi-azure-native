@@ -10,3 +10,5 @@ from .get_blob_container_immutability_policy import *
 from .get_storage_account import *
 from .list_storage_account_keys import *
 from .storage_account import *
+from ._inputs import *
+from . import outputs

@@ -5,73 +5,26 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+from . import outputs
+from ._inputs import *
+
+__all__ = ['NotificationHubAuthorizationRule']
 
 
 class NotificationHubAuthorizationRule(pulumi.CustomResource):
-    claim_type: pulumi.Output[str]
-    """
-    A string that describes the claim type
-    """
-    claim_value: pulumi.Output[str]
-    """
-    A string that describes the claim value
-    """
-    created_time: pulumi.Output[str]
-    """
-    The created time for this rule
-    """
-    key_name: pulumi.Output[str]
-    """
-    A string that describes the authorization rule.
-    """
-    location: pulumi.Output[str]
-    """
-    Resource location
-    """
-    modified_time: pulumi.Output[str]
-    """
-    The last modified time for this rule
-    """
-    name: pulumi.Output[str]
-    """
-    Resource name
-    """
-    primary_key: pulumi.Output[str]
-    """
-    A base64-encoded 256-bit primary key for signing and validating the SAS token.
-    """
-    revision: pulumi.Output[float]
-    """
-    The revision number for the rule
-    """
-    rights: pulumi.Output[list]
-    """
-    The rights associated with the rule.
-    """
-    secondary_key: pulumi.Output[str]
-    """
-    A base64-encoded 256-bit primary key for signing and validating the SAS token.
-    """
-    sku: pulumi.Output[dict]
-    """
-    The sku of the created namespace
-      * `capacity` (`float`) - The capacity of the resource
-      * `family` (`str`) - The Sku Family
-      * `name` (`str`) - Name of the notification hub sku
-      * `size` (`str`) - The Sku size
-      * `tier` (`str`) - The tier of particular sku
-    """
-    tags: pulumi.Output[dict]
-    """
-    Resource tags
-    """
-    type: pulumi.Output[str]
-    """
-    Resource type
-    """
-    def __init__(__self__, resource_name, opts=None, name=None, namespace_name=None, notification_hub_name=None, properties=None, resource_group_name=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 namespace_name: Optional[pulumi.Input[str]] = None,
+                 notification_hub_name: Optional[pulumi.Input[str]] = None,
+                 properties: Optional[pulumi.Input[pulumi.InputType['SharedAccessAuthorizationRulePropertiesArgs']]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         Description of a Namespace AuthorizationRules.
 
@@ -80,12 +33,8 @@ class NotificationHubAuthorizationRule(pulumi.CustomResource):
         :param pulumi.Input[str] name: Authorization Rule Name.
         :param pulumi.Input[str] namespace_name: The namespace name.
         :param pulumi.Input[str] notification_hub_name: The notification hub name.
-        :param pulumi.Input[dict] properties: Properties of the Namespace AuthorizationRules.
+        :param pulumi.Input[pulumi.InputType['SharedAccessAuthorizationRulePropertiesArgs']] properties: Properties of the Namespace AuthorizationRules.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
-
-        The **properties** object supports the following:
-
-          * `rights` (`pulumi.Input[list]`) - The rights associated with the rule.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -141,13 +90,15 @@ class NotificationHubAuthorizationRule(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None) -> 'NotificationHubAuthorizationRule':
         """
         Get an existing NotificationHubAuthorizationRule resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -156,8 +107,121 @@ class NotificationHubAuthorizationRule(pulumi.CustomResource):
 
         return NotificationHubAuthorizationRule(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter(name="claimType")
+    def claim_type(self) -> str:
+        """
+        A string that describes the claim type
+        """
+        return pulumi.get(self, "claim_type")
+
+    @property
+    @pulumi.getter(name="claimValue")
+    def claim_value(self) -> str:
+        """
+        A string that describes the claim value
+        """
+        return pulumi.get(self, "claim_value")
+
+    @property
+    @pulumi.getter(name="createdTime")
+    def created_time(self) -> str:
+        """
+        The created time for this rule
+        """
+        return pulumi.get(self, "created_time")
+
+    @property
+    @pulumi.getter(name="keyName")
+    def key_name(self) -> str:
+        """
+        A string that describes the authorization rule.
+        """
+        return pulumi.get(self, "key_name")
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[str]:
+        """
+        Resource location
+        """
+        return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter(name="modifiedTime")
+    def modified_time(self) -> str:
+        """
+        The last modified time for this rule
+        """
+        return pulumi.get(self, "modified_time")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Resource name
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="primaryKey")
+    def primary_key(self) -> str:
+        """
+        A base64-encoded 256-bit primary key for signing and validating the SAS token.
+        """
+        return pulumi.get(self, "primary_key")
+
+    @property
+    @pulumi.getter
+    def revision(self) -> float:
+        """
+        The revision number for the rule
+        """
+        return pulumi.get(self, "revision")
+
+    @property
+    @pulumi.getter
+    def rights(self) -> Optional[List[str]]:
+        """
+        The rights associated with the rule.
+        """
+        return pulumi.get(self, "rights")
+
+    @property
+    @pulumi.getter(name="secondaryKey")
+    def secondary_key(self) -> str:
+        """
+        A base64-encoded 256-bit primary key for signing and validating the SAS token.
+        """
+        return pulumi.get(self, "secondary_key")
+
+    @property
+    @pulumi.getter
+    def sku(self) -> Optional['outputs.SkuResponse']:
+        """
+        The sku of the created namespace
+        """
+        return pulumi.get(self, "sku")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Mapping[str, str]]:
+        """
+        Resource tags
+        """
+        return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Resource type
+        """
+        return pulumi.get(self, "type")
+
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

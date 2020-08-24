@@ -5,44 +5,23 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+
+__all__ = ['Registration']
 
 
 class Registration(pulumi.CustomResource):
-    billing_model: pulumi.Output[str]
-    """
-    Specifies the billing mode for the Azure Stack registration.
-    """
-    cloud_id: pulumi.Output[str]
-    """
-    The identifier of the registered Azure Stack.
-    """
-    etag: pulumi.Output[str]
-    """
-    The entity tag used for optimistic concurrency when modifying the resource.
-    """
-    location: pulumi.Output[str]
-    """
-    Location of the resource.
-    """
-    name: pulumi.Output[str]
-    """
-    Name of the resource.
-    """
-    object_id: pulumi.Output[str]
-    """
-    The object identifier associated with the Azure Stack connecting to Azure.
-    """
-    tags: pulumi.Output[dict]
-    """
-    Custom tags for the resource.
-    """
-    type: pulumi.Output[str]
-    """
-    Type of Resource.
-    """
-    def __init__(__self__, resource_name, opts=None, location=None, name=None, registration_token=None, resource_group=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 registration_token: Optional[pulumi.Input[str]] = None,
+                 resource_group: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         Registration information.
 
@@ -95,13 +74,15 @@ class Registration(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None) -> 'Registration':
         """
         Get an existing Registration resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -110,8 +91,73 @@ class Registration(pulumi.CustomResource):
 
         return Registration(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter(name="billingModel")
+    def billing_model(self) -> Optional[str]:
+        """
+        Specifies the billing mode for the Azure Stack registration.
+        """
+        return pulumi.get(self, "billing_model")
+
+    @property
+    @pulumi.getter(name="cloudId")
+    def cloud_id(self) -> Optional[str]:
+        """
+        The identifier of the registered Azure Stack.
+        """
+        return pulumi.get(self, "cloud_id")
+
+    @property
+    @pulumi.getter
+    def etag(self) -> Optional[str]:
+        """
+        The entity tag used for optimistic concurrency when modifying the resource.
+        """
+        return pulumi.get(self, "etag")
+
+    @property
+    @pulumi.getter
+    def location(self) -> str:
+        """
+        Location of the resource.
+        """
+        return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Name of the resource.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="objectId")
+    def object_id(self) -> Optional[str]:
+        """
+        The object identifier associated with the Azure Stack connecting to Azure.
+        """
+        return pulumi.get(self, "object_id")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Mapping[str, str]]:
+        """
+        Custom tags for the resource.
+        """
+        return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Type of Resource.
+        """
+        return pulumi.get(self, "type")
+
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

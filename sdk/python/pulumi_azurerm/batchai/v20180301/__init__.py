@@ -12,3 +12,5 @@ from .job import *
 from .list_cluster_remote_login_information import *
 from .list_job_output_files import *
 from .list_job_remote_login_information import *
+from ._inputs import *
+from . import outputs

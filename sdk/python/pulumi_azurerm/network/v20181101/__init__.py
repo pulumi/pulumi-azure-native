@@ -95,3 +95,5 @@ from .virtual_wan import *
 from .vpn_connection import *
 from .vpn_gateway import *
 from .vpn_site import *
+from ._inputs import *
+from . import outputs

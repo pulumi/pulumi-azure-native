@@ -5,54 +5,36 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+
+__all__ = ['IdentityProvider']
 
 
 class IdentityProvider(pulumi.CustomResource):
-    allowed_tenants: pulumi.Output[list]
-    """
-    List of Allowed Tenants when configuring Azure Active Directory login.
-    """
-    client_id: pulumi.Output[str]
-    """
-    Client Id of the Application in the external Identity Provider. It is App ID for Facebook login, Client ID for Google login, App ID for Microsoft.
-    """
-    client_secret: pulumi.Output[str]
-    """
-    Client secret of the Application in external Identity Provider, used to authenticate login request. For example, it is App Secret for Facebook login, API Key for Google login, Public Key for Microsoft.
-    """
-    name: pulumi.Output[str]
-    """
-    Resource name.
-    """
-    password_reset_policy_name: pulumi.Output[str]
-    """
-    Password Reset Policy Name. Only applies to AAD B2C Identity Provider.
-    """
-    profile_editing_policy_name: pulumi.Output[str]
-    """
-    Profile Editing Policy Name. Only applies to AAD B2C Identity Provider.
-    """
-    signin_policy_name: pulumi.Output[str]
-    """
-    Signin Policy Name. Only applies to AAD B2C Identity Provider.
-    """
-    signup_policy_name: pulumi.Output[str]
-    """
-    Signup Policy Name. Only applies to AAD B2C Identity Provider.
-    """
-    type: pulumi.Output[str]
-    """
-    Resource type for API Management resource.
-    """
-    def __init__(__self__, resource_name, opts=None, allowed_tenants=None, client_id=None, client_secret=None, name=None, password_reset_policy_name=None, profile_editing_policy_name=None, resource_group_name=None, service_name=None, signin_policy_name=None, signup_policy_name=None, type=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 allowed_tenants: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 client_id: Optional[pulumi.Input[str]] = None,
+                 client_secret: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 password_reset_policy_name: Optional[pulumi.Input[str]] = None,
+                 profile_editing_policy_name: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 service_name: Optional[pulumi.Input[str]] = None,
+                 signin_policy_name: Optional[pulumi.Input[str]] = None,
+                 signup_policy_name: Optional[pulumi.Input[str]] = None,
+                 type: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         Identity Provider details.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[list] allowed_tenants: List of Allowed Tenants when configuring Azure Active Directory login.
+        :param pulumi.Input[List[pulumi.Input[str]]] allowed_tenants: List of Allowed Tenants when configuring Azure Active Directory login.
         :param pulumi.Input[str] client_id: Client Id of the Application in the external Identity Provider. It is App ID for Facebook login, Client ID for Google login, App ID for Microsoft.
         :param pulumi.Input[str] client_secret: Client secret of the Application in external Identity Provider, used to authenticate login request. For example, it is App Secret for Facebook login, API Key for Google login, Public Key for Microsoft.
         :param pulumi.Input[str] name: Identity Provider Type identifier.
@@ -111,13 +93,15 @@ class IdentityProvider(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None) -> 'IdentityProvider':
         """
         Get an existing IdentityProvider resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -126,8 +110,81 @@ class IdentityProvider(pulumi.CustomResource):
 
         return IdentityProvider(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter(name="allowedTenants")
+    def allowed_tenants(self) -> Optional[List[str]]:
+        """
+        List of Allowed Tenants when configuring Azure Active Directory login.
+        """
+        return pulumi.get(self, "allowed_tenants")
+
+    @property
+    @pulumi.getter(name="clientId")
+    def client_id(self) -> str:
+        """
+        Client Id of the Application in the external Identity Provider. It is App ID for Facebook login, Client ID for Google login, App ID for Microsoft.
+        """
+        return pulumi.get(self, "client_id")
+
+    @property
+    @pulumi.getter(name="clientSecret")
+    def client_secret(self) -> str:
+        """
+        Client secret of the Application in external Identity Provider, used to authenticate login request. For example, it is App Secret for Facebook login, API Key for Google login, Public Key for Microsoft.
+        """
+        return pulumi.get(self, "client_secret")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Resource name.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="passwordResetPolicyName")
+    def password_reset_policy_name(self) -> Optional[str]:
+        """
+        Password Reset Policy Name. Only applies to AAD B2C Identity Provider.
+        """
+        return pulumi.get(self, "password_reset_policy_name")
+
+    @property
+    @pulumi.getter(name="profileEditingPolicyName")
+    def profile_editing_policy_name(self) -> Optional[str]:
+        """
+        Profile Editing Policy Name. Only applies to AAD B2C Identity Provider.
+        """
+        return pulumi.get(self, "profile_editing_policy_name")
+
+    @property
+    @pulumi.getter(name="signinPolicyName")
+    def signin_policy_name(self) -> Optional[str]:
+        """
+        Signin Policy Name. Only applies to AAD B2C Identity Provider.
+        """
+        return pulumi.get(self, "signin_policy_name")
+
+    @property
+    @pulumi.getter(name="signupPolicyName")
+    def signup_policy_name(self) -> Optional[str]:
+        """
+        Signup Policy Name. Only applies to AAD B2C Identity Provider.
+        """
+        return pulumi.get(self, "signup_policy_name")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Resource type for API Management resource.
+        """
+        return pulumi.get(self, "type")
+
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

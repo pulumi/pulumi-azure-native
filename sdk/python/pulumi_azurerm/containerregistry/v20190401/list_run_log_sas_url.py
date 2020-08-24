@@ -5,10 +5,16 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
 
+__all__ = [
+    'ListRunLogSasUrlResult',
+    'AwaitableListRunLogSasUrlResult',
+    'list_run_log_sas_url',
+]
 
+@pulumi.output_type
 class ListRunLogSasUrlResult:
     """
     The result of get log link operation.
@@ -16,10 +22,15 @@ class ListRunLogSasUrlResult:
     def __init__(__self__, log_link=None):
         if log_link and not isinstance(log_link, str):
             raise TypeError("Expected argument 'log_link' to be a str")
-        __self__.log_link = log_link
+        pulumi.set(__self__, "log_link", log_link)
+
+    @property
+    @pulumi.getter(name="logLink")
+    def log_link(self) -> Optional[str]:
         """
         The link to logs for a run on a azure container registry.
         """
+        return pulumi.get(self, "log_link")
 
 
 class AwaitableListRunLogSasUrlResult(ListRunLogSasUrlResult):
@@ -31,7 +42,10 @@ class AwaitableListRunLogSasUrlResult(ListRunLogSasUrlResult):
             log_link=self.log_link)
 
 
-def list_run_log_sas_url(registry_name=None, resource_group_name=None, run_id=None, opts=None):
+def list_run_log_sas_url(registry_name: Optional[str] = None,
+                         resource_group_name: Optional[str] = None,
+                         run_id: Optional[str] = None,
+                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListRunLogSasUrlResult:
     """
     Use this data source to access information about an existing resource.
 
@@ -47,7 +61,7 @@ def list_run_log_sas_url(registry_name=None, resource_group_name=None, run_id=No
         opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = _utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('azurerm:containerregistry/v20190401:listRunLogSasUrl', __args__, opts=opts).value
+    __ret__ = pulumi.runtime.invoke('azurerm:containerregistry/v20190401:listRunLogSasUrl', __args__, opts=opts, typ=ListRunLogSasUrlResult).value
 
     return AwaitableListRunLogSasUrlResult(
-        log_link=__ret__.get('logLink'))
+        log_link=__ret__.log_link)

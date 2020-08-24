@@ -5,80 +5,27 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+from . import outputs
+from ._inputs import *
+
+__all__ = ['DatabaseAccountSqlContainer']
 
 
 class DatabaseAccountSqlContainer(pulumi.CustomResource):
-    conflict_resolution_policy: pulumi.Output[dict]
-    """
-    The conflict resolution policy for the container.
-      * `conflict_resolution_path` (`str`) - The conflict resolution path in the case of LastWriterWins mode.
-      * `conflict_resolution_procedure` (`str`) - The procedure to resolve conflicts in the case of custom mode.
-      * `mode` (`str`) - Indicates the conflict resolution mode.
-    """
-    default_ttl: pulumi.Output[float]
-    """
-    Default time to live
-    """
-    etag: pulumi.Output[str]
-    """
-    A system generated property representing the resource etag required for optimistic concurrency control.
-    """
-    indexing_policy: pulumi.Output[dict]
-    """
-    The configuration of the indexing policy. By default, the indexing is automatic for all document paths within the container
-      * `automatic` (`bool`) - Indicates if the indexing policy is automatic
-      * `excluded_paths` (`list`) - List of paths to exclude from indexing
-        * `path` (`str`) - The path for which the indexing behavior applies to. Index paths typically start with root and end with wildcard (/path/*)
-
-      * `included_paths` (`list`) - List of paths to include in the indexing
-        * `indexes` (`list`) - List of indexes for this path
-          * `data_type` (`str`) - The datatype for which the indexing behavior is applied to.
-          * `kind` (`str`) - Indicates the type of index.
-          * `precision` (`float`) - The precision of the index. -1 is maximum precision.
-
-        * `path` (`str`) - The path for which the indexing behavior applies to. Index paths typically start with root and end with wildcard (/path/*)
-
-      * `indexing_mode` (`str`) - Indicates the indexing mode.
-    """
-    location: pulumi.Output[str]
-    """
-    The location of the resource group to which the resource belongs.
-    """
-    name: pulumi.Output[str]
-    """
-    The name of the database account.
-    """
-    partition_key: pulumi.Output[dict]
-    """
-    The configuration of the partition key to be used for partitioning data into multiple partitions
-      * `kind` (`str`) - Indicates the kind of algorithm used for partitioning
-      * `paths` (`list`) - List of paths using which data within the container can be partitioned
-    """
-    rid: pulumi.Output[str]
-    """
-    A system generated property. A unique identifier.
-    """
-    tags: pulumi.Output[dict]
-    """
-    Tags are a list of key-value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters. For example, the default experience for a template type is set with "defaultExperience": "Cassandra". Current "defaultExperience" values also include "Table", "Graph", "DocumentDB", and "MongoDB".
-    """
-    ts: pulumi.Output[dict]
-    """
-    A system generated property that denotes the last updated timestamp of the resource.
-    """
-    type: pulumi.Output[str]
-    """
-    The type of Azure resource.
-    """
-    unique_key_policy: pulumi.Output[dict]
-    """
-    The unique key policy configuration for specifying uniqueness constraints on documents in the collection in the Azure Cosmos DB service.
-      * `unique_keys` (`list`) - List of unique keys on that enforces uniqueness constraint on documents in the collection in the Azure Cosmos DB service.
-        * `paths` (`list`) - List of paths must be unique for each document in the Azure Cosmos DB service
-    """
-    def __init__(__self__, resource_name, opts=None, account_name=None, database_name=None, name=None, options=None, resource=None, resource_group_name=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 account_name: Optional[pulumi.Input[str]] = None,
+                 database_name: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 options: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 resource: Optional[pulumi.Input[pulumi.InputType['SqlContainerResourceArgs']]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         An Azure Cosmos DB container.
 
@@ -87,41 +34,9 @@ class DatabaseAccountSqlContainer(pulumi.CustomResource):
         :param pulumi.Input[str] account_name: Cosmos DB database account name.
         :param pulumi.Input[str] database_name: Cosmos DB database name.
         :param pulumi.Input[str] name: Cosmos DB container name.
-        :param pulumi.Input[dict] options: A key-value pair of options to be applied for the request. This corresponds to the headers sent with the request.
-        :param pulumi.Input[dict] resource: The standard JSON format of a container
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] options: A key-value pair of options to be applied for the request. This corresponds to the headers sent with the request.
+        :param pulumi.Input[pulumi.InputType['SqlContainerResourceArgs']] resource: The standard JSON format of a container
         :param pulumi.Input[str] resource_group_name: Name of an Azure resource group.
-
-        The **resource** object supports the following:
-
-          * `conflict_resolution_policy` (`pulumi.Input[dict]`) - The conflict resolution policy for the container.
-            * `conflict_resolution_path` (`pulumi.Input[str]`) - The conflict resolution path in the case of LastWriterWins mode.
-            * `conflict_resolution_procedure` (`pulumi.Input[str]`) - The procedure to resolve conflicts in the case of custom mode.
-            * `mode` (`pulumi.Input[str]`) - Indicates the conflict resolution mode.
-
-          * `default_ttl` (`pulumi.Input[float]`) - Default time to live
-          * `id` (`pulumi.Input[str]`) - Name of the Cosmos DB SQL container
-          * `indexing_policy` (`pulumi.Input[dict]`) - The configuration of the indexing policy. By default, the indexing is automatic for all document paths within the container
-            * `automatic` (`pulumi.Input[bool]`) - Indicates if the indexing policy is automatic
-            * `excluded_paths` (`pulumi.Input[list]`) - List of paths to exclude from indexing
-              * `path` (`pulumi.Input[str]`) - The path for which the indexing behavior applies to. Index paths typically start with root and end with wildcard (/path/*)
-
-            * `included_paths` (`pulumi.Input[list]`) - List of paths to include in the indexing
-              * `indexes` (`pulumi.Input[list]`) - List of indexes for this path
-                * `data_type` (`pulumi.Input[str]`) - The datatype for which the indexing behavior is applied to.
-                * `kind` (`pulumi.Input[str]`) - Indicates the type of index.
-                * `precision` (`pulumi.Input[float]`) - The precision of the index. -1 is maximum precision.
-
-              * `path` (`pulumi.Input[str]`) - The path for which the indexing behavior applies to. Index paths typically start with root and end with wildcard (/path/*)
-
-            * `indexing_mode` (`pulumi.Input[str]`) - Indicates the indexing mode.
-
-          * `partition_key` (`pulumi.Input[dict]`) - The configuration of the partition key to be used for partitioning data into multiple partitions
-            * `kind` (`pulumi.Input[str]`) - Indicates the kind of algorithm used for partitioning
-            * `paths` (`pulumi.Input[list]`) - List of paths using which data within the container can be partitioned
-
-          * `unique_key_policy` (`pulumi.Input[dict]`) - The unique key policy configuration for specifying uniqueness constraints on documents in the collection in the Azure Cosmos DB service.
-            * `unique_keys` (`pulumi.Input[list]`) - List of unique keys on that enforces uniqueness constraint on documents in the collection in the Azure Cosmos DB service.
-              * `paths` (`pulumi.Input[list]`) - List of paths must be unique for each document in the Azure Cosmos DB service
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -178,13 +93,15 @@ class DatabaseAccountSqlContainer(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None) -> 'DatabaseAccountSqlContainer':
         """
         Get an existing DatabaseAccountSqlContainer resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -193,8 +110,105 @@ class DatabaseAccountSqlContainer(pulumi.CustomResource):
 
         return DatabaseAccountSqlContainer(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter(name="conflictResolutionPolicy")
+    def conflict_resolution_policy(self) -> Optional['outputs.ConflictResolutionPolicyResponse']:
+        """
+        The conflict resolution policy for the container.
+        """
+        return pulumi.get(self, "conflict_resolution_policy")
+
+    @property
+    @pulumi.getter(name="defaultTtl")
+    def default_ttl(self) -> Optional[float]:
+        """
+        Default time to live
+        """
+        return pulumi.get(self, "default_ttl")
+
+    @property
+    @pulumi.getter
+    def etag(self) -> Optional[str]:
+        """
+        A system generated property representing the resource etag required for optimistic concurrency control.
+        """
+        return pulumi.get(self, "etag")
+
+    @property
+    @pulumi.getter(name="indexingPolicy")
+    def indexing_policy(self) -> Optional['outputs.IndexingPolicyResponse']:
+        """
+        The configuration of the indexing policy. By default, the indexing is automatic for all document paths within the container
+        """
+        return pulumi.get(self, "indexing_policy")
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[str]:
+        """
+        The location of the resource group to which the resource belongs.
+        """
+        return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the database account.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="partitionKey")
+    def partition_key(self) -> Optional['outputs.ContainerPartitionKeyResponse']:
+        """
+        The configuration of the partition key to be used for partitioning data into multiple partitions
+        """
+        return pulumi.get(self, "partition_key")
+
+    @property
+    @pulumi.getter
+    def rid(self) -> Optional[str]:
+        """
+        A system generated property. A unique identifier.
+        """
+        return pulumi.get(self, "rid")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Mapping[str, str]]:
+        """
+        Tags are a list of key-value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters. For example, the default experience for a template type is set with "defaultExperience": "Cassandra". Current "defaultExperience" values also include "Table", "Graph", "DocumentDB", and "MongoDB".
+        """
+        return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter
+    def ts(self) -> Optional[Mapping[str, Any]]:
+        """
+        A system generated property that denotes the last updated timestamp of the resource.
+        """
+        return pulumi.get(self, "ts")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        The type of Azure resource.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="uniqueKeyPolicy")
+    def unique_key_policy(self) -> Optional['outputs.UniqueKeyPolicyResponse']:
+        """
+        The unique key policy configuration for specifying uniqueness constraints on documents in the collection in the Azure Cosmos DB service.
+        """
+        return pulumi.get(self, "unique_key_policy")
+
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

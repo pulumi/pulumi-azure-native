@@ -5,46 +5,27 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+from . import outputs
+from ._inputs import *
+
+__all__ = ['JitNetworkAccessPolicy']
 
 
 class JitNetworkAccessPolicy(pulumi.CustomResource):
-    kind: pulumi.Output[str]
-    """
-    Kind of the resource
-    """
-    location: pulumi.Output[str]
-    """
-    Location where the resource is stored
-    """
-    name: pulumi.Output[str]
-    """
-    Resource name
-    """
-    provisioning_state: pulumi.Output[str]
-    """
-    Gets the provisioning state of the Just-in-Time policy.
-    """
-    requests: pulumi.Output[list]
-    type: pulumi.Output[str]
-    """
-    Resource type
-    """
-    virtual_machines: pulumi.Output[list]
-    """
-    Configurations for Microsoft.Compute/virtualMachines resource type.
-      * `id` (`str`) - Resource ID of the virtual machine that is linked to this policy
-      * `ports` (`list`) - Port configurations for the virtual machine
-        * `allowed_source_address_prefix` (`str`) - Mutually exclusive with the "allowedSourceAddressPrefixes" parameter. Should be an IP address or CIDR, for example "192.168.0.3" or "192.168.0.0/16".
-        * `allowed_source_address_prefixes` (`list`) - Mutually exclusive with the "allowedSourceAddressPrefix" parameter.
-        * `max_request_access_duration` (`str`) - Maximum duration requests can be made for. In ISO 8601 duration format. Minimum 5 minutes, maximum 1 day
-        * `number` (`float`)
-        * `protocol` (`str`)
-
-      * `public_ip_address` (`str`) - Public IP address of the Azure Firewall that is linked to this policy, if applicable
-    """
-    def __init__(__self__, resource_name, opts=None, asc_location=None, kind=None, name=None, requests=None, resource_group_name=None, virtual_machines=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 asc_location: Optional[pulumi.Input[str]] = None,
+                 kind: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 requests: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['JitNetworkAccessRequestArgs']]]]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 virtual_machines: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['JitNetworkAccessPolicyVirtualMachineArgs']]]]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         Create a JitNetworkAccessPolicy resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
@@ -53,35 +34,7 @@ class JitNetworkAccessPolicy(pulumi.CustomResource):
         :param pulumi.Input[str] kind: Kind of the resource
         :param pulumi.Input[str] name: Name of a Just-in-Time access configuration policy.
         :param pulumi.Input[str] resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.
-        :param pulumi.Input[list] virtual_machines: Configurations for Microsoft.Compute/virtualMachines resource type.
-
-        The **requests** object supports the following:
-
-          * `justification` (`pulumi.Input[str]`) - The justification for making the initiate request
-          * `requestor` (`pulumi.Input[str]`) - The identity of the person who made the request
-          * `start_time_utc` (`pulumi.Input[str]`) - The start time of the request in UTC
-          * `virtual_machines` (`pulumi.Input[list]`)
-            * `id` (`pulumi.Input[str]`) - Resource ID of the virtual machine that is linked to this policy
-            * `ports` (`pulumi.Input[list]`) - The ports that were opened for the virtual machine
-              * `allowed_source_address_prefix` (`pulumi.Input[str]`) - Mutually exclusive with the "allowedSourceAddressPrefixes" parameter. Should be an IP address or CIDR, for example "192.168.0.3" or "192.168.0.0/16".
-              * `allowed_source_address_prefixes` (`pulumi.Input[list]`) - Mutually exclusive with the "allowedSourceAddressPrefix" parameter.
-              * `end_time_utc` (`pulumi.Input[str]`) - The date & time at which the request ends in UTC
-              * `mapped_port` (`pulumi.Input[float]`) - The port which is mapped to this port's `number` in the Azure Firewall, if applicable
-              * `number` (`pulumi.Input[float]`)
-              * `status` (`pulumi.Input[str]`) - The status of the port
-              * `status_reason` (`pulumi.Input[str]`) - A description of why the `status` has its value
-
-        The **virtual_machines** object supports the following:
-
-          * `id` (`pulumi.Input[str]`) - Resource ID of the virtual machine that is linked to this policy
-          * `ports` (`pulumi.Input[list]`) - Port configurations for the virtual machine
-            * `allowed_source_address_prefix` (`pulumi.Input[str]`) - Mutually exclusive with the "allowedSourceAddressPrefixes" parameter. Should be an IP address or CIDR, for example "192.168.0.3" or "192.168.0.0/16".
-            * `allowed_source_address_prefixes` (`pulumi.Input[list]`) - Mutually exclusive with the "allowedSourceAddressPrefix" parameter.
-            * `max_request_access_duration` (`pulumi.Input[str]`) - Maximum duration requests can be made for. In ISO 8601 duration format. Minimum 5 minutes, maximum 1 day
-            * `number` (`pulumi.Input[float]`)
-            * `protocol` (`pulumi.Input[str]`)
-
-          * `public_ip_address` (`pulumi.Input[str]`) - Public IP address of the Azure Firewall that is linked to this policy, if applicable
+        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['JitNetworkAccessPolicyVirtualMachineArgs']]]] virtual_machines: Configurations for Microsoft.Compute/virtualMachines resource type.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -124,13 +77,15 @@ class JitNetworkAccessPolicy(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None) -> 'JitNetworkAccessPolicy':
         """
         Get an existing JitNetworkAccessPolicy resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -139,8 +94,62 @@ class JitNetworkAccessPolicy(pulumi.CustomResource):
 
         return JitNetworkAccessPolicy(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter
+    def kind(self) -> Optional[str]:
+        """
+        Kind of the resource
+        """
+        return pulumi.get(self, "kind")
+
+    @property
+    @pulumi.getter
+    def location(self) -> str:
+        """
+        Location where the resource is stored
+        """
+        return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Resource name
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        Gets the provisioning state of the Just-in-Time policy.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter
+    def requests(self) -> Optional[List['outputs.JitNetworkAccessRequestResponse']]:
+        return pulumi.get(self, "requests")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Resource type
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="virtualMachines")
+    def virtual_machines(self) -> List['outputs.JitNetworkAccessPolicyVirtualMachineResponse']:
+        """
+        Configurations for Microsoft.Compute/virtualMachines resource type.
+        """
+        return pulumi.get(self, "virtual_machines")
+
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

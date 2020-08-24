@@ -5,100 +5,27 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+from . import outputs
+from ._inputs import *
+
+__all__ = ['Server']
 
 
 class Server(pulumi.CustomResource):
-    administrator_login: pulumi.Output[str]
-    """
-    The administrator's login name of a server. Can only be specified when the server is being created (and is required for creation).
-    """
-    earliest_restore_date: pulumi.Output[str]
-    """
-    Earliest restore point creation time (ISO8601 format)
-    """
-    fully_qualified_domain_name: pulumi.Output[str]
-    """
-    The fully qualified domain name of a server.
-    """
-    location: pulumi.Output[str]
-    """
-    The location the resource resides in.
-    """
-    master_server_id: pulumi.Output[str]
-    """
-    The master server id of a replica server.
-    """
-    name: pulumi.Output[str]
-    """
-    The name of the resource
-    """
-    private_endpoint_connections: pulumi.Output[list]
-    """
-    List of private endpoint connections on a server
-      * `id` (`str`) - Resource Id of the private endpoint connection.
-      * `properties` (`dict`) - Private endpoint connection properties
-        * `private_endpoint` (`dict`) - Private endpoint which the connection belongs to.
-          * `id` (`str`) - Resource id of the private endpoint.
-
-        * `private_link_service_connection_state` (`dict`) - Connection state of the private endpoint connection.
-          * `actions_required` (`str`) - The actions required for private link service connection.
-          * `description` (`str`) - The private link service connection description.
-          * `status` (`str`) - The private link service connection status.
-
-        * `provisioning_state` (`str`) - State of the private endpoint connection.
-    """
-    public_network_access: pulumi.Output[str]
-    """
-    Whether or not public network access is allowed for this server. Value is optional but if passed in, must be 'Enabled' or 'Disabled'
-    """
-    replica_capacity: pulumi.Output[float]
-    """
-    The maximum number of replicas that a master server can have.
-    """
-    replication_role: pulumi.Output[str]
-    """
-    The replication role of the server.
-    """
-    sku: pulumi.Output[dict]
-    """
-    The SKU (pricing tier) of the server.
-      * `capacity` (`float`) - The scale up/out capacity, representing server's compute units.
-      * `family` (`str`) - The family of hardware.
-      * `name` (`str`) - The name of the sku, typically, tier + family + cores, e.g. B_Gen4_1, GP_Gen5_8.
-      * `size` (`str`) - The size code, to be interpreted by resource as appropriate.
-      * `tier` (`str`) - The tier of the particular SKU, e.g. Basic.
-    """
-    ssl_enforcement: pulumi.Output[str]
-    """
-    Enable ssl enforcement or not when connect to server.
-    """
-    storage_profile: pulumi.Output[dict]
-    """
-    Storage profile of a server.
-      * `backup_retention_days` (`float`) - Backup retention days for the server.
-      * `geo_redundant_backup` (`str`) - Enable Geo-redundant or not for server backup.
-      * `storage_autogrow` (`str`) - Enable Storage Auto Grow.
-      * `storage_mb` (`float`) - Max storage allowed for a server.
-    """
-    tags: pulumi.Output[dict]
-    """
-    Application-specific metadata in the form of key-value pairs.
-    """
-    type: pulumi.Output[str]
-    """
-    The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
-    """
-    user_visible_state: pulumi.Output[str]
-    """
-    A state of a server that is visible to user.
-    """
-    version: pulumi.Output[str]
-    """
-    Server version.
-    """
-    def __init__(__self__, resource_name, opts=None, location=None, name=None, properties=None, resource_group_name=None, sku=None, tags=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 properties: Optional[pulumi.Input[pulumi.InputType['ServerPropertiesForCreateArgs']]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 sku: Optional[pulumi.Input[pulumi.InputType['SkuArgs']]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         Represents a server.
 
@@ -106,31 +33,10 @@ class Server(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] location: The location the resource resides in.
         :param pulumi.Input[str] name: The name of the server.
-        :param pulumi.Input[dict] properties: Properties of the server.
+        :param pulumi.Input[pulumi.InputType['ServerPropertiesForCreateArgs']] properties: Properties of the server.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input[dict] sku: The SKU (pricing tier) of the server.
-        :param pulumi.Input[dict] tags: Application-specific metadata in the form of key-value pairs.
-
-        The **properties** object supports the following:
-
-          * `create_mode` (`pulumi.Input[str]`) - The mode to create a new server.
-          * `public_network_access` (`pulumi.Input[str]`) - Whether or not public network access is allowed for this server. Value is optional but if passed in, must be 'Enabled' or 'Disabled'
-          * `ssl_enforcement` (`pulumi.Input[str]`) - Enable ssl enforcement or not when connect to server.
-          * `storage_profile` (`pulumi.Input[dict]`) - Storage profile of a server.
-            * `backup_retention_days` (`pulumi.Input[float]`) - Backup retention days for the server.
-            * `geo_redundant_backup` (`pulumi.Input[str]`) - Enable Geo-redundant or not for server backup.
-            * `storage_autogrow` (`pulumi.Input[str]`) - Enable Storage Auto Grow.
-            * `storage_mb` (`pulumi.Input[float]`) - Max storage allowed for a server.
-
-          * `version` (`pulumi.Input[str]`) - Server version.
-
-        The **sku** object supports the following:
-
-          * `capacity` (`pulumi.Input[float]`) - The scale up/out capacity, representing server's compute units.
-          * `family` (`pulumi.Input[str]`) - The family of hardware.
-          * `name` (`pulumi.Input[str]`) - The name of the sku, typically, tier + family + cores, e.g. B_Gen4_1, GP_Gen5_8.
-          * `size` (`pulumi.Input[str]`) - The size code, to be interpreted by resource as appropriate.
-          * `tier` (`pulumi.Input[str]`) - The tier of the particular SKU, e.g. Basic.
+        :param pulumi.Input[pulumi.InputType['SkuArgs']] sku: The SKU (pricing tier) of the server.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Application-specific metadata in the form of key-value pairs.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -183,13 +89,15 @@ class Server(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None) -> 'Server':
         """
         Get an existing Server resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -198,8 +106,145 @@ class Server(pulumi.CustomResource):
 
         return Server(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter(name="administratorLogin")
+    def administrator_login(self) -> Optional[str]:
+        """
+        The administrator's login name of a server. Can only be specified when the server is being created (and is required for creation).
+        """
+        return pulumi.get(self, "administrator_login")
+
+    @property
+    @pulumi.getter(name="earliestRestoreDate")
+    def earliest_restore_date(self) -> Optional[str]:
+        """
+        Earliest restore point creation time (ISO8601 format)
+        """
+        return pulumi.get(self, "earliest_restore_date")
+
+    @property
+    @pulumi.getter(name="fullyQualifiedDomainName")
+    def fully_qualified_domain_name(self) -> Optional[str]:
+        """
+        The fully qualified domain name of a server.
+        """
+        return pulumi.get(self, "fully_qualified_domain_name")
+
+    @property
+    @pulumi.getter
+    def location(self) -> str:
+        """
+        The location the resource resides in.
+        """
+        return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter(name="masterServerId")
+    def master_server_id(self) -> Optional[str]:
+        """
+        The master server id of a replica server.
+        """
+        return pulumi.get(self, "master_server_id")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the resource
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="privateEndpointConnections")
+    def private_endpoint_connections(self) -> List['outputs.ServerPrivateEndpointConnectionResponse']:
+        """
+        List of private endpoint connections on a server
+        """
+        return pulumi.get(self, "private_endpoint_connections")
+
+    @property
+    @pulumi.getter(name="publicNetworkAccess")
+    def public_network_access(self) -> Optional[str]:
+        """
+        Whether or not public network access is allowed for this server. Value is optional but if passed in, must be 'Enabled' or 'Disabled'
+        """
+        return pulumi.get(self, "public_network_access")
+
+    @property
+    @pulumi.getter(name="replicaCapacity")
+    def replica_capacity(self) -> Optional[float]:
+        """
+        The maximum number of replicas that a master server can have.
+        """
+        return pulumi.get(self, "replica_capacity")
+
+    @property
+    @pulumi.getter(name="replicationRole")
+    def replication_role(self) -> Optional[str]:
+        """
+        The replication role of the server.
+        """
+        return pulumi.get(self, "replication_role")
+
+    @property
+    @pulumi.getter
+    def sku(self) -> Optional['outputs.SkuResponse']:
+        """
+        The SKU (pricing tier) of the server.
+        """
+        return pulumi.get(self, "sku")
+
+    @property
+    @pulumi.getter(name="sslEnforcement")
+    def ssl_enforcement(self) -> Optional[str]:
+        """
+        Enable ssl enforcement or not when connect to server.
+        """
+        return pulumi.get(self, "ssl_enforcement")
+
+    @property
+    @pulumi.getter(name="storageProfile")
+    def storage_profile(self) -> Optional['outputs.StorageProfileResponse']:
+        """
+        Storage profile of a server.
+        """
+        return pulumi.get(self, "storage_profile")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Mapping[str, str]]:
+        """
+        Application-specific metadata in the form of key-value pairs.
+        """
+        return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="userVisibleState")
+    def user_visible_state(self) -> Optional[str]:
+        """
+        A state of a server that is visible to user.
+        """
+        return pulumi.get(self, "user_visible_state")
+
+    @property
+    @pulumi.getter
+    def version(self) -> Optional[str]:
+        """
+        Server version.
+        """
+        return pulumi.get(self, "version")
+
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

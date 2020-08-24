@@ -5,10 +5,18 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+from . import outputs
+from ._inputs import *
 
+__all__ = [
+    'ListIntegrationAccountKeyVaultKeysResult',
+    'AwaitableListIntegrationAccountKeyVaultKeysResult',
+    'list_integration_account_key_vault_keys',
+]
 
+@pulumi.output_type
 class ListIntegrationAccountKeyVaultKeysResult:
     """
     Collection of key vault keys.
@@ -16,16 +24,26 @@ class ListIntegrationAccountKeyVaultKeysResult:
     def __init__(__self__, skip_token=None, value=None):
         if skip_token and not isinstance(skip_token, str):
             raise TypeError("Expected argument 'skip_token' to be a str")
-        __self__.skip_token = skip_token
+        pulumi.set(__self__, "skip_token", skip_token)
+        if value and not isinstance(value, list):
+            raise TypeError("Expected argument 'value' to be a list")
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter(name="skipToken")
+    def skip_token(self) -> Optional[str]:
         """
         The skip token.
         """
-        if value and not isinstance(value, list):
-            raise TypeError("Expected argument 'value' to be a list")
-        __self__.value = value
+        return pulumi.get(self, "skip_token")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[List['outputs.KeyVaultKeyResponseResult']]:
         """
         The key vault keys.
         """
+        return pulumi.get(self, "value")
 
 
 class AwaitableListIntegrationAccountKeyVaultKeysResult(ListIntegrationAccountKeyVaultKeysResult):
@@ -38,18 +56,18 @@ class AwaitableListIntegrationAccountKeyVaultKeysResult(ListIntegrationAccountKe
             value=self.value)
 
 
-def list_integration_account_key_vault_keys(integration_account_name=None, key_vault=None, resource_group_name=None, skip_token=None, opts=None):
+def list_integration_account_key_vault_keys(integration_account_name: Optional[str] = None,
+                                            key_vault: Optional[pulumi.InputType['KeyVaultReferenceArgs']] = None,
+                                            resource_group_name: Optional[str] = None,
+                                            skip_token: Optional[str] = None,
+                                            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListIntegrationAccountKeyVaultKeysResult:
     """
     Use this data source to access information about an existing resource.
 
     :param str integration_account_name: The integration account name.
-    :param dict key_vault: The key vault reference.
+    :param pulumi.InputType['KeyVaultReferenceArgs'] key_vault: The key vault reference.
     :param str resource_group_name: The resource group name.
     :param str skip_token: The skip token.
-
-    The **key_vault** object supports the following:
-
-      * `name` (`str`) - The key vault name.
     """
     __args__ = dict()
     __args__['integrationAccountName'] = integration_account_name
@@ -60,8 +78,8 @@ def list_integration_account_key_vault_keys(integration_account_name=None, key_v
         opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = _utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('azurerm:logic/v20160601:listIntegrationAccountKeyVaultKeys', __args__, opts=opts).value
+    __ret__ = pulumi.runtime.invoke('azurerm:logic/v20160601:listIntegrationAccountKeyVaultKeys', __args__, opts=opts, typ=ListIntegrationAccountKeyVaultKeysResult).value
 
     return AwaitableListIntegrationAccountKeyVaultKeysResult(
-        skip_token=__ret__.get('skipToken'),
-        value=__ret__.get('value'))
+        skip_token=__ret__.skip_token,
+        value=__ret__.value)

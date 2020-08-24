@@ -5,10 +5,16 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
 
+__all__ = [
+    'GetAppServiceCertificateOrderCertificateResult',
+    'AwaitableGetAppServiceCertificateOrderCertificateResult',
+    'get_app_service_certificate_order_certificate',
+]
 
+@pulumi.output_type
 class GetAppServiceCertificateOrderCertificateResult:
     """
     Key Vault container ARM resource for a certificate that is purchased through Azure.
@@ -16,52 +22,92 @@ class GetAppServiceCertificateOrderCertificateResult:
     def __init__(__self__, key_vault_id=None, key_vault_secret_name=None, kind=None, location=None, name=None, provisioning_state=None, tags=None, type=None):
         if key_vault_id and not isinstance(key_vault_id, str):
             raise TypeError("Expected argument 'key_vault_id' to be a str")
-        __self__.key_vault_id = key_vault_id
+        pulumi.set(__self__, "key_vault_id", key_vault_id)
+        if key_vault_secret_name and not isinstance(key_vault_secret_name, str):
+            raise TypeError("Expected argument 'key_vault_secret_name' to be a str")
+        pulumi.set(__self__, "key_vault_secret_name", key_vault_secret_name)
+        if kind and not isinstance(kind, str):
+            raise TypeError("Expected argument 'kind' to be a str")
+        pulumi.set(__self__, "kind", kind)
+        if location and not isinstance(location, str):
+            raise TypeError("Expected argument 'location' to be a str")
+        pulumi.set(__self__, "location", location)
+        if name and not isinstance(name, str):
+            raise TypeError("Expected argument 'name' to be a str")
+        pulumi.set(__self__, "name", name)
+        if provisioning_state and not isinstance(provisioning_state, str):
+            raise TypeError("Expected argument 'provisioning_state' to be a str")
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if tags and not isinstance(tags, dict):
+            raise TypeError("Expected argument 'tags' to be a dict")
+        pulumi.set(__self__, "tags", tags)
+        if type and not isinstance(type, str):
+            raise TypeError("Expected argument 'type' to be a str")
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="keyVaultId")
+    def key_vault_id(self) -> Optional[str]:
         """
         Key Vault resource Id.
         """
-        if key_vault_secret_name and not isinstance(key_vault_secret_name, str):
-            raise TypeError("Expected argument 'key_vault_secret_name' to be a str")
-        __self__.key_vault_secret_name = key_vault_secret_name
+        return pulumi.get(self, "key_vault_id")
+
+    @property
+    @pulumi.getter(name="keyVaultSecretName")
+    def key_vault_secret_name(self) -> Optional[str]:
         """
         Key Vault secret name.
         """
-        if kind and not isinstance(kind, str):
-            raise TypeError("Expected argument 'kind' to be a str")
-        __self__.kind = kind
+        return pulumi.get(self, "key_vault_secret_name")
+
+    @property
+    @pulumi.getter
+    def kind(self) -> Optional[str]:
         """
         Kind of resource.
         """
-        if location and not isinstance(location, str):
-            raise TypeError("Expected argument 'location' to be a str")
-        __self__.location = location
+        return pulumi.get(self, "kind")
+
+    @property
+    @pulumi.getter
+    def location(self) -> str:
         """
         Resource Location.
         """
-        if name and not isinstance(name, str):
-            raise TypeError("Expected argument 'name' to be a str")
-        __self__.name = name
+        return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
         """
         Resource Name.
         """
-        if provisioning_state and not isinstance(provisioning_state, str):
-            raise TypeError("Expected argument 'provisioning_state' to be a str")
-        __self__.provisioning_state = provisioning_state
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
         """
         Status of the Key Vault secret.
         """
-        if tags and not isinstance(tags, dict):
-            raise TypeError("Expected argument 'tags' to be a dict")
-        __self__.tags = tags
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Mapping[str, str]]:
         """
         Resource tags.
         """
-        if type and not isinstance(type, str):
-            raise TypeError("Expected argument 'type' to be a str")
-        __self__.type = type
+        return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
         """
         Resource type.
         """
+        return pulumi.get(self, "type")
 
 
 class AwaitableGetAppServiceCertificateOrderCertificateResult(GetAppServiceCertificateOrderCertificateResult):
@@ -80,7 +126,10 @@ class AwaitableGetAppServiceCertificateOrderCertificateResult(GetAppServiceCerti
             type=self.type)
 
 
-def get_app_service_certificate_order_certificate(certificate_order_name=None, name=None, resource_group_name=None, opts=None):
+def get_app_service_certificate_order_certificate(certificate_order_name: Optional[str] = None,
+                                                  name: Optional[str] = None,
+                                                  resource_group_name: Optional[str] = None,
+                                                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAppServiceCertificateOrderCertificateResult:
     """
     Use this data source to access information about an existing resource.
 
@@ -96,14 +145,14 @@ def get_app_service_certificate_order_certificate(certificate_order_name=None, n
         opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = _utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('azurerm:certificateregistration/v20180201:getAppServiceCertificateOrderCertificate', __args__, opts=opts).value
+    __ret__ = pulumi.runtime.invoke('azurerm:certificateregistration/v20180201:getAppServiceCertificateOrderCertificate', __args__, opts=opts, typ=GetAppServiceCertificateOrderCertificateResult).value
 
     return AwaitableGetAppServiceCertificateOrderCertificateResult(
-        key_vault_id=__ret__.get('keyVaultId'),
-        key_vault_secret_name=__ret__.get('keyVaultSecretName'),
-        kind=__ret__.get('kind'),
-        location=__ret__.get('location'),
-        name=__ret__.get('name'),
-        provisioning_state=__ret__.get('provisioningState'),
-        tags=__ret__.get('tags'),
-        type=__ret__.get('type'))
+        key_vault_id=__ret__.key_vault_id,
+        key_vault_secret_name=__ret__.key_vault_secret_name,
+        kind=__ret__.kind,
+        location=__ret__.location,
+        name=__ret__.name,
+        provisioning_state=__ret__.provisioning_state,
+        tags=__ret__.tags,
+        type=__ret__.type)

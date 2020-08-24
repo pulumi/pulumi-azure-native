@@ -111,3 +111,5 @@ from .vpn_gateway import *
 from .vpn_server_configuration import *
 from .vpn_site import *
 from .web_application_firewall_policy import *
+from ._inputs import *
+from . import outputs

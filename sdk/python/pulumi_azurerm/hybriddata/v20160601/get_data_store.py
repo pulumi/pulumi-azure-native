@@ -5,10 +5,17 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+from . import outputs
 
+__all__ = [
+    'GetDataStoreResult',
+    'AwaitableGetDataStoreResult',
+    'get_data_store',
+]
 
+@pulumi.output_type
 class GetDataStoreResult:
     """
     Data store.
@@ -16,46 +23,81 @@ class GetDataStoreResult:
     def __init__(__self__, customer_secrets=None, data_store_type_id=None, extended_properties=None, name=None, repository_id=None, state=None, type=None):
         if customer_secrets and not isinstance(customer_secrets, list):
             raise TypeError("Expected argument 'customer_secrets' to be a list")
-        __self__.customer_secrets = customer_secrets
+        pulumi.set(__self__, "customer_secrets", customer_secrets)
+        if data_store_type_id and not isinstance(data_store_type_id, str):
+            raise TypeError("Expected argument 'data_store_type_id' to be a str")
+        pulumi.set(__self__, "data_store_type_id", data_store_type_id)
+        if extended_properties and not isinstance(extended_properties, dict):
+            raise TypeError("Expected argument 'extended_properties' to be a dict")
+        pulumi.set(__self__, "extended_properties", extended_properties)
+        if name and not isinstance(name, str):
+            raise TypeError("Expected argument 'name' to be a str")
+        pulumi.set(__self__, "name", name)
+        if repository_id and not isinstance(repository_id, str):
+            raise TypeError("Expected argument 'repository_id' to be a str")
+        pulumi.set(__self__, "repository_id", repository_id)
+        if state and not isinstance(state, str):
+            raise TypeError("Expected argument 'state' to be a str")
+        pulumi.set(__self__, "state", state)
+        if type and not isinstance(type, str):
+            raise TypeError("Expected argument 'type' to be a str")
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="customerSecrets")
+    def customer_secrets(self) -> Optional[List['outputs.CustomerSecretResponse']]:
         """
         List of customer secrets containing a key identifier and key value. The key identifier is a way for the specific data source to understand the key. Value contains customer secret encrypted by the encryptionKeys.
         """
-        if data_store_type_id and not isinstance(data_store_type_id, str):
-            raise TypeError("Expected argument 'data_store_type_id' to be a str")
-        __self__.data_store_type_id = data_store_type_id
+        return pulumi.get(self, "customer_secrets")
+
+    @property
+    @pulumi.getter(name="dataStoreTypeId")
+    def data_store_type_id(self) -> str:
         """
         The arm id of the data store type.
         """
-        if extended_properties and not isinstance(extended_properties, dict):
-            raise TypeError("Expected argument 'extended_properties' to be a dict")
-        __self__.extended_properties = extended_properties
+        return pulumi.get(self, "data_store_type_id")
+
+    @property
+    @pulumi.getter(name="extendedProperties")
+    def extended_properties(self) -> Optional[Mapping[str, Any]]:
         """
         A generic json used differently by each data source type.
         """
-        if name and not isinstance(name, str):
-            raise TypeError("Expected argument 'name' to be a str")
-        __self__.name = name
+        return pulumi.get(self, "extended_properties")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
         """
         Name of the object.
         """
-        if repository_id and not isinstance(repository_id, str):
-            raise TypeError("Expected argument 'repository_id' to be a str")
-        __self__.repository_id = repository_id
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="repositoryId")
+    def repository_id(self) -> Optional[str]:
         """
         Arm Id for the manager resource to which the data source is associated. This is optional.
         """
-        if state and not isinstance(state, str):
-            raise TypeError("Expected argument 'state' to be a str")
-        __self__.state = state
+        return pulumi.get(self, "repository_id")
+
+    @property
+    @pulumi.getter
+    def state(self) -> str:
         """
         State of the data source.
         """
-        if type and not isinstance(type, str):
-            raise TypeError("Expected argument 'type' to be a str")
-        __self__.type = type
+        return pulumi.get(self, "state")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
         """
         Type of the object.
         """
+        return pulumi.get(self, "type")
 
 
 class AwaitableGetDataStoreResult(GetDataStoreResult):
@@ -73,7 +115,10 @@ class AwaitableGetDataStoreResult(GetDataStoreResult):
             type=self.type)
 
 
-def get_data_store(data_manager_name=None, name=None, resource_group_name=None, opts=None):
+def get_data_store(data_manager_name: Optional[str] = None,
+                   name: Optional[str] = None,
+                   resource_group_name: Optional[str] = None,
+                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDataStoreResult:
     """
     Use this data source to access information about an existing resource.
 
@@ -89,13 +134,13 @@ def get_data_store(data_manager_name=None, name=None, resource_group_name=None, 
         opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = _utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('azurerm:hybriddata/v20160601:getDataStore', __args__, opts=opts).value
+    __ret__ = pulumi.runtime.invoke('azurerm:hybriddata/v20160601:getDataStore', __args__, opts=opts, typ=GetDataStoreResult).value
 
     return AwaitableGetDataStoreResult(
-        customer_secrets=__ret__.get('customerSecrets'),
-        data_store_type_id=__ret__.get('dataStoreTypeId'),
-        extended_properties=__ret__.get('extendedProperties'),
-        name=__ret__.get('name'),
-        repository_id=__ret__.get('repositoryId'),
-        state=__ret__.get('state'),
-        type=__ret__.get('type'))
+        customer_secrets=__ret__.customer_secrets,
+        data_store_type_id=__ret__.data_store_type_id,
+        extended_properties=__ret__.extended_properties,
+        name=__ret__.name,
+        repository_id=__ret__.repository_id,
+        state=__ret__.state,
+        type=__ret__.type)

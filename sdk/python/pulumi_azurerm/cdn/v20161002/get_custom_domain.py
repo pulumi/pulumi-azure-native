@@ -5,10 +5,16 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
 
+__all__ = [
+    'GetCustomDomainResult',
+    'AwaitableGetCustomDomainResult',
+    'get_custom_domain',
+]
 
+@pulumi.output_type
 class GetCustomDomainResult:
     """
     Customer provided domain for branding purposes, e.g. www.contoso.com.
@@ -16,58 +22,103 @@ class GetCustomDomainResult:
     def __init__(__self__, custom_https_provisioning_state=None, host_name=None, location=None, name=None, provisioning_state=None, resource_state=None, tags=None, type=None, validation_data=None):
         if custom_https_provisioning_state and not isinstance(custom_https_provisioning_state, str):
             raise TypeError("Expected argument 'custom_https_provisioning_state' to be a str")
-        __self__.custom_https_provisioning_state = custom_https_provisioning_state
+        pulumi.set(__self__, "custom_https_provisioning_state", custom_https_provisioning_state)
+        if host_name and not isinstance(host_name, str):
+            raise TypeError("Expected argument 'host_name' to be a str")
+        pulumi.set(__self__, "host_name", host_name)
+        if location and not isinstance(location, str):
+            raise TypeError("Expected argument 'location' to be a str")
+        pulumi.set(__self__, "location", location)
+        if name and not isinstance(name, str):
+            raise TypeError("Expected argument 'name' to be a str")
+        pulumi.set(__self__, "name", name)
+        if provisioning_state and not isinstance(provisioning_state, str):
+            raise TypeError("Expected argument 'provisioning_state' to be a str")
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if resource_state and not isinstance(resource_state, str):
+            raise TypeError("Expected argument 'resource_state' to be a str")
+        pulumi.set(__self__, "resource_state", resource_state)
+        if tags and not isinstance(tags, dict):
+            raise TypeError("Expected argument 'tags' to be a dict")
+        pulumi.set(__self__, "tags", tags)
+        if type and not isinstance(type, str):
+            raise TypeError("Expected argument 'type' to be a str")
+        pulumi.set(__self__, "type", type)
+        if validation_data and not isinstance(validation_data, str):
+            raise TypeError("Expected argument 'validation_data' to be a str")
+        pulumi.set(__self__, "validation_data", validation_data)
+
+    @property
+    @pulumi.getter(name="customHttpsProvisioningState")
+    def custom_https_provisioning_state(self) -> str:
         """
         Provisioning state of Custom Https of the custom domain.
         """
-        if host_name and not isinstance(host_name, str):
-            raise TypeError("Expected argument 'host_name' to be a str")
-        __self__.host_name = host_name
+        return pulumi.get(self, "custom_https_provisioning_state")
+
+    @property
+    @pulumi.getter(name="hostName")
+    def host_name(self) -> str:
         """
         The host name of the custom domain. Must be a domain name.
         """
-        if location and not isinstance(location, str):
-            raise TypeError("Expected argument 'location' to be a str")
-        __self__.location = location
+        return pulumi.get(self, "host_name")
+
+    @property
+    @pulumi.getter
+    def location(self) -> str:
         """
         Resource location.
         """
-        if name and not isinstance(name, str):
-            raise TypeError("Expected argument 'name' to be a str")
-        __self__.name = name
+        return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
         """
         Resource name.
         """
-        if provisioning_state and not isinstance(provisioning_state, str):
-            raise TypeError("Expected argument 'provisioning_state' to be a str")
-        __self__.provisioning_state = provisioning_state
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
         """
         Provisioning status of the custom domain.
         """
-        if resource_state and not isinstance(resource_state, str):
-            raise TypeError("Expected argument 'resource_state' to be a str")
-        __self__.resource_state = resource_state
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="resourceState")
+    def resource_state(self) -> str:
         """
         Resource status of the custom domain.
         """
-        if tags and not isinstance(tags, dict):
-            raise TypeError("Expected argument 'tags' to be a dict")
-        __self__.tags = tags
+        return pulumi.get(self, "resource_state")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Mapping[str, str]]:
         """
         Resource tags.
         """
-        if type and not isinstance(type, str):
-            raise TypeError("Expected argument 'type' to be a str")
-        __self__.type = type
+        return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
         """
         Resource type.
         """
-        if validation_data and not isinstance(validation_data, str):
-            raise TypeError("Expected argument 'validation_data' to be a str")
-        __self__.validation_data = validation_data
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="validationData")
+    def validation_data(self) -> Optional[str]:
         """
         Special validation or data may be required when delivering CDN to some regions due to local compliance reasons. E.g. ICP license number of a custom domain is required to deliver content in China.
         """
+        return pulumi.get(self, "validation_data")
 
 
 class AwaitableGetCustomDomainResult(GetCustomDomainResult):
@@ -87,7 +138,11 @@ class AwaitableGetCustomDomainResult(GetCustomDomainResult):
             validation_data=self.validation_data)
 
 
-def get_custom_domain(endpoint_name=None, name=None, profile_name=None, resource_group_name=None, opts=None):
+def get_custom_domain(endpoint_name: Optional[str] = None,
+                      name: Optional[str] = None,
+                      profile_name: Optional[str] = None,
+                      resource_group_name: Optional[str] = None,
+                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetCustomDomainResult:
     """
     Use this data source to access information about an existing resource.
 
@@ -105,15 +160,15 @@ def get_custom_domain(endpoint_name=None, name=None, profile_name=None, resource
         opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = _utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('azurerm:cdn/v20161002:getCustomDomain', __args__, opts=opts).value
+    __ret__ = pulumi.runtime.invoke('azurerm:cdn/v20161002:getCustomDomain', __args__, opts=opts, typ=GetCustomDomainResult).value
 
     return AwaitableGetCustomDomainResult(
-        custom_https_provisioning_state=__ret__.get('customHttpsProvisioningState'),
-        host_name=__ret__.get('hostName'),
-        location=__ret__.get('location'),
-        name=__ret__.get('name'),
-        provisioning_state=__ret__.get('provisioningState'),
-        resource_state=__ret__.get('resourceState'),
-        tags=__ret__.get('tags'),
-        type=__ret__.get('type'),
-        validation_data=__ret__.get('validationData'))
+        custom_https_provisioning_state=__ret__.custom_https_provisioning_state,
+        host_name=__ret__.host_name,
+        location=__ret__.location,
+        name=__ret__.name,
+        provisioning_state=__ret__.provisioning_state,
+        resource_state=__ret__.resource_state,
+        tags=__ret__.tags,
+        type=__ret__.type,
+        validation_data=__ret__.validation_data)

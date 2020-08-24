@@ -5,10 +5,17 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+from . import outputs
 
+__all__ = [
+    'GetSharedPrivateLinkResourceResult',
+    'AwaitableGetSharedPrivateLinkResourceResult',
+    'get_shared_private_link_resource',
+]
 
+@pulumi.output_type
 class GetSharedPrivateLinkResourceResult:
     """
     Describes a Shared Private Link Resource managed by the Azure Cognitive Search service.
@@ -16,22 +23,37 @@ class GetSharedPrivateLinkResourceResult:
     def __init__(__self__, name=None, properties=None, type=None):
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
-        __self__.name = name
+        pulumi.set(__self__, "name", name)
+        if properties and not isinstance(properties, dict):
+            raise TypeError("Expected argument 'properties' to be a dict")
+        pulumi.set(__self__, "properties", properties)
+        if type and not isinstance(type, str):
+            raise TypeError("Expected argument 'type' to be a str")
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
         """
         The name of the shared private link resource.
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def properties(self) -> 'outputs.SharedPrivateLinkResourcePropertiesResponse':
         """
         Describes the properties of a Shared Private Link Resource managed by the Azure Cognitive Search service.
         """
-        if type and not isinstance(type, str):
-            raise TypeError("Expected argument 'type' to be a str")
-        __self__.type = type
+        return pulumi.get(self, "properties")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
         """
         The resource type.
         """
+        return pulumi.get(self, "type")
 
 
 class AwaitableGetSharedPrivateLinkResourceResult(GetSharedPrivateLinkResourceResult):
@@ -45,7 +67,10 @@ class AwaitableGetSharedPrivateLinkResourceResult(GetSharedPrivateLinkResourceRe
             type=self.type)
 
 
-def get_shared_private_link_resource(name=None, resource_group_name=None, search_service_name=None, opts=None):
+def get_shared_private_link_resource(name: Optional[str] = None,
+                                     resource_group_name: Optional[str] = None,
+                                     search_service_name: Optional[str] = None,
+                                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSharedPrivateLinkResourceResult:
     """
     Use this data source to access information about an existing resource.
 
@@ -61,9 +86,9 @@ def get_shared_private_link_resource(name=None, resource_group_name=None, search
         opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = _utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('azurerm:search/v20200313:getSharedPrivateLinkResource', __args__, opts=opts).value
+    __ret__ = pulumi.runtime.invoke('azurerm:search/v20200313:getSharedPrivateLinkResource', __args__, opts=opts, typ=GetSharedPrivateLinkResourceResult).value
 
     return AwaitableGetSharedPrivateLinkResourceResult(
-        name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
-        type=__ret__.get('type'))
+        name=__ret__.name,
+        properties=__ret__.properties,
+        type=__ret__.type)

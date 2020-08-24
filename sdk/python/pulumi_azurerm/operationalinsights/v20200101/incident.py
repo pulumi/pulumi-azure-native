@@ -5,103 +5,36 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+from . import outputs
+from ._inputs import *
+
+__all__ = ['Incident']
 
 
 class Incident(pulumi.CustomResource):
-    additional_data: pulumi.Output[dict]
-    """
-    Additional data on the incident
-      * `alert_product_names` (`list`) - List of product names of alerts in the incident
-      * `alerts_count` (`float`) - The number of alerts in the incident
-      * `bookmarks_count` (`float`) - The number of bookmarks in the incident
-      * `comments_count` (`float`) - The number of comments in the incident
-      * `tactics` (`list`) - The tactics associated with incident
-    """
-    classification: pulumi.Output[str]
-    """
-    The reason the incident was closed
-    """
-    classification_comment: pulumi.Output[str]
-    """
-    Describes the reason the incident was closed
-    """
-    classification_reason: pulumi.Output[str]
-    """
-    The classification reason the incident was closed with
-    """
-    created_time_utc: pulumi.Output[str]
-    """
-    The time the incident was created
-    """
-    description: pulumi.Output[str]
-    """
-    The description of the incident
-    """
-    etag: pulumi.Output[str]
-    """
-    Etag of the azure resource
-    """
-    first_activity_time_utc: pulumi.Output[str]
-    """
-    The time of the first activity in the incident
-    """
-    incident_number: pulumi.Output[float]
-    """
-    A sequential number
-    """
-    incident_url: pulumi.Output[str]
-    """
-    The deep-link url to the incident in Azure portal
-    """
-    labels: pulumi.Output[list]
-    """
-    List of labels relevant to this incident
-      * `label_name` (`str`) - The name of the label
-      * `label_type` (`str`) - The type of the label
-    """
-    last_activity_time_utc: pulumi.Output[str]
-    """
-    The time of the last activity in the incident
-    """
-    last_modified_time_utc: pulumi.Output[str]
-    """
-    The last time the incident was updated
-    """
-    name: pulumi.Output[str]
-    """
-    Azure resource name
-    """
-    owner: pulumi.Output[dict]
-    """
-    Describes a user that the incident is assigned to
-      * `assigned_to` (`str`) - The name of the user the incident is assigned to.
-      * `email` (`str`) - The email of the user the incident is assigned to.
-      * `object_id` (`str`) - The object id of the user the incident is assigned to.
-      * `user_principal_name` (`str`) - The user principal name of the user the incident is assigned to.
-    """
-    related_analytic_rule_ids: pulumi.Output[list]
-    """
-    List of resource ids of Analytic rules related to the incident
-    """
-    severity: pulumi.Output[str]
-    """
-    The severity of the incident
-    """
-    status: pulumi.Output[str]
-    """
-    The status of the incident
-    """
-    title: pulumi.Output[str]
-    """
-    The title of the incident
-    """
-    type: pulumi.Output[str]
-    """
-    Azure resource type
-    """
-    def __init__(__self__, resource_name, opts=None, classification=None, classification_comment=None, classification_reason=None, description=None, etag=None, first_activity_time_utc=None, labels=None, last_activity_time_utc=None, name=None, owner=None, resource_group_name=None, severity=None, status=None, title=None, workspace_name=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 classification: Optional[pulumi.Input[str]] = None,
+                 classification_comment: Optional[pulumi.Input[str]] = None,
+                 classification_reason: Optional[pulumi.Input[str]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 etag: Optional[pulumi.Input[str]] = None,
+                 first_activity_time_utc: Optional[pulumi.Input[str]] = None,
+                 labels: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['IncidentLabelArgs']]]]] = None,
+                 last_activity_time_utc: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 owner: Optional[pulumi.Input[pulumi.InputType['IncidentOwnerInfoArgs']]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 severity: Optional[pulumi.Input[str]] = None,
+                 status: Optional[pulumi.Input[str]] = None,
+                 title: Optional[pulumi.Input[str]] = None,
+                 workspace_name: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         Represents an incident in Azure Security Insights.
 
@@ -113,26 +46,15 @@ class Incident(pulumi.CustomResource):
         :param pulumi.Input[str] description: The description of the incident
         :param pulumi.Input[str] etag: Etag of the azure resource
         :param pulumi.Input[str] first_activity_time_utc: The time of the first activity in the incident
-        :param pulumi.Input[list] labels: List of labels relevant to this incident
+        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['IncidentLabelArgs']]]] labels: List of labels relevant to this incident
         :param pulumi.Input[str] last_activity_time_utc: The time of the last activity in the incident
         :param pulumi.Input[str] name: Incident ID
-        :param pulumi.Input[dict] owner: Describes a user that the incident is assigned to
+        :param pulumi.Input[pulumi.InputType['IncidentOwnerInfoArgs']] owner: Describes a user that the incident is assigned to
         :param pulumi.Input[str] resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.
         :param pulumi.Input[str] severity: The severity of the incident
         :param pulumi.Input[str] status: The status of the incident
         :param pulumi.Input[str] title: The title of the incident
         :param pulumi.Input[str] workspace_name: The name of the workspace.
-
-        The **labels** object supports the following:
-
-          * `label_name` (`pulumi.Input[str]`) - The name of the label
-
-        The **owner** object supports the following:
-
-          * `assigned_to` (`pulumi.Input[str]`) - The name of the user the incident is assigned to.
-          * `email` (`pulumi.Input[str]`) - The email of the user the incident is assigned to.
-          * `object_id` (`pulumi.Input[str]`) - The object id of the user the incident is assigned to.
-          * `user_principal_name` (`pulumi.Input[str]`) - The user principal name of the user the incident is assigned to.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -192,13 +114,15 @@ class Incident(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None) -> 'Incident':
         """
         Get an existing Incident resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -207,8 +131,169 @@ class Incident(pulumi.CustomResource):
 
         return Incident(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter(name="additionalData")
+    def additional_data(self) -> 'outputs.IncidentAdditionalDataResponse':
+        """
+        Additional data on the incident
+        """
+        return pulumi.get(self, "additional_data")
+
+    @property
+    @pulumi.getter
+    def classification(self) -> Optional[str]:
+        """
+        The reason the incident was closed
+        """
+        return pulumi.get(self, "classification")
+
+    @property
+    @pulumi.getter(name="classificationComment")
+    def classification_comment(self) -> Optional[str]:
+        """
+        Describes the reason the incident was closed
+        """
+        return pulumi.get(self, "classification_comment")
+
+    @property
+    @pulumi.getter(name="classificationReason")
+    def classification_reason(self) -> Optional[str]:
+        """
+        The classification reason the incident was closed with
+        """
+        return pulumi.get(self, "classification_reason")
+
+    @property
+    @pulumi.getter(name="createdTimeUtc")
+    def created_time_utc(self) -> str:
+        """
+        The time the incident was created
+        """
+        return pulumi.get(self, "created_time_utc")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        """
+        The description of the incident
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def etag(self) -> Optional[str]:
+        """
+        Etag of the azure resource
+        """
+        return pulumi.get(self, "etag")
+
+    @property
+    @pulumi.getter(name="firstActivityTimeUtc")
+    def first_activity_time_utc(self) -> Optional[str]:
+        """
+        The time of the first activity in the incident
+        """
+        return pulumi.get(self, "first_activity_time_utc")
+
+    @property
+    @pulumi.getter(name="incidentNumber")
+    def incident_number(self) -> float:
+        """
+        A sequential number
+        """
+        return pulumi.get(self, "incident_number")
+
+    @property
+    @pulumi.getter(name="incidentUrl")
+    def incident_url(self) -> str:
+        """
+        The deep-link url to the incident in Azure portal
+        """
+        return pulumi.get(self, "incident_url")
+
+    @property
+    @pulumi.getter
+    def labels(self) -> Optional[List['outputs.IncidentLabelResponse']]:
+        """
+        List of labels relevant to this incident
+        """
+        return pulumi.get(self, "labels")
+
+    @property
+    @pulumi.getter(name="lastActivityTimeUtc")
+    def last_activity_time_utc(self) -> Optional[str]:
+        """
+        The time of the last activity in the incident
+        """
+        return pulumi.get(self, "last_activity_time_utc")
+
+    @property
+    @pulumi.getter(name="lastModifiedTimeUtc")
+    def last_modified_time_utc(self) -> str:
+        """
+        The last time the incident was updated
+        """
+        return pulumi.get(self, "last_modified_time_utc")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Azure resource name
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def owner(self) -> Optional['outputs.IncidentOwnerInfoResponse']:
+        """
+        Describes a user that the incident is assigned to
+        """
+        return pulumi.get(self, "owner")
+
+    @property
+    @pulumi.getter(name="relatedAnalyticRuleIds")
+    def related_analytic_rule_ids(self) -> List[str]:
+        """
+        List of resource ids of Analytic rules related to the incident
+        """
+        return pulumi.get(self, "related_analytic_rule_ids")
+
+    @property
+    @pulumi.getter
+    def severity(self) -> str:
+        """
+        The severity of the incident
+        """
+        return pulumi.get(self, "severity")
+
+    @property
+    @pulumi.getter
+    def status(self) -> str:
+        """
+        The status of the incident
+        """
+        return pulumi.get(self, "status")
+
+    @property
+    @pulumi.getter
+    def title(self) -> str:
+        """
+        The title of the incident
+        """
+        return pulumi.get(self, "title")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Azure resource type
+        """
+        return pulumi.get(self, "type")
+
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

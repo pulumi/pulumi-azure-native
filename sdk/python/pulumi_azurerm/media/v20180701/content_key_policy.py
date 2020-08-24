@@ -5,47 +5,26 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+from . import outputs
+from ._inputs import *
+
+__all__ = ['ContentKeyPolicy']
 
 
 class ContentKeyPolicy(pulumi.CustomResource):
-    created: pulumi.Output[str]
-    """
-    The creation date of the Policy
-    """
-    description: pulumi.Output[str]
-    """
-    A description for the Policy.
-    """
-    last_modified: pulumi.Output[str]
-    """
-    The last modified date of the Policy
-    """
-    name: pulumi.Output[str]
-    """
-    The name of the resource.
-    """
-    options: pulumi.Output[list]
-    """
-    The Key Policy options.
-      * `configuration` (`dict`) - The key delivery configuration.
-        * `odata_type` (`str`) - The discriminator for derived types.
-
-      * `name` (`str`) - The Policy Option description.
-      * `policy_option_id` (`str`) - The legacy Policy Option ID.
-      * `restriction` (`dict`) - The requirements that must be met to deliver keys with this configuration
-        * `odata_type` (`str`) - The discriminator for derived types.
-    """
-    policy_id: pulumi.Output[str]
-    """
-    The legacy Policy ID.
-    """
-    type: pulumi.Output[str]
-    """
-    The type of the resource.
-    """
-    def __init__(__self__, resource_name, opts=None, account_name=None, description=None, name=None, options=None, resource_group_name=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 account_name: Optional[pulumi.Input[str]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 options: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['ContentKeyPolicyOptionArgs']]]]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         A Content Key Policy resource.
 
@@ -54,17 +33,8 @@ class ContentKeyPolicy(pulumi.CustomResource):
         :param pulumi.Input[str] account_name: The Media Services account name.
         :param pulumi.Input[str] description: A description for the Policy.
         :param pulumi.Input[str] name: The Content Key Policy name.
-        :param pulumi.Input[list] options: The Key Policy options.
+        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['ContentKeyPolicyOptionArgs']]]] options: The Key Policy options.
         :param pulumi.Input[str] resource_group_name: The name of the resource group within the Azure subscription.
-
-        The **options** object supports the following:
-
-          * `configuration` (`pulumi.Input[dict]`) - The key delivery configuration.
-            * `odata_type` (`pulumi.Input[str]`) - The discriminator for derived types.
-
-          * `name` (`pulumi.Input[str]`) - The Policy Option description.
-          * `restriction` (`pulumi.Input[dict]`) - The requirements that must be met to deliver keys with this configuration
-            * `odata_type` (`pulumi.Input[str]`) - The discriminator for derived types.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -109,13 +79,15 @@ class ContentKeyPolicy(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None) -> 'ContentKeyPolicy':
         """
         Get an existing ContentKeyPolicy resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -124,8 +96,65 @@ class ContentKeyPolicy(pulumi.CustomResource):
 
         return ContentKeyPolicy(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter
+    def created(self) -> str:
+        """
+        The creation date of the Policy
+        """
+        return pulumi.get(self, "created")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        """
+        A description for the Policy.
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="lastModified")
+    def last_modified(self) -> str:
+        """
+        The last modified date of the Policy
+        """
+        return pulumi.get(self, "last_modified")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the resource.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def options(self) -> List['outputs.ContentKeyPolicyOptionResponse']:
+        """
+        The Key Policy options.
+        """
+        return pulumi.get(self, "options")
+
+    @property
+    @pulumi.getter(name="policyId")
+    def policy_id(self) -> str:
+        """
+        The legacy Policy ID.
+        """
+        return pulumi.get(self, "policy_id")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        The type of the resource.
+        """
+        return pulumi.get(self, "type")
+
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

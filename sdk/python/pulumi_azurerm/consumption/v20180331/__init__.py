@@ -7,3 +7,5 @@ from .budget import *
 from .budget_by_resource_group_name import *
 from .get_budget import *
 from .get_budget_by_resource_group_name import *
+from ._inputs import *
+from . import outputs

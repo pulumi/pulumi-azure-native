@@ -5,93 +5,27 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+from . import outputs
+from ._inputs import *
+
+__all__ = ['SignalR']
 
 
 class SignalR(pulumi.CustomResource):
-    cors: pulumi.Output[dict]
-    """
-    Cross-Origin Resource Sharing (CORS) settings.
-      * `allowed_origins` (`list`) - Gets or sets the list of origins that should be allowed to make cross-origin calls (for example: http://example.com:12345). Use "*" to allow all. If omitted, allow all by default.
-    """
-    external_ip: pulumi.Output[str]
-    """
-    The publicly accessible IP of the SignalR service.
-    """
-    features: pulumi.Output[list]
-    """
-    List of SignalR featureFlags. e.g. ServiceMode.
-    
-    FeatureFlags that are not included in the parameters for the update operation will not be modified.
-    And the response will only include featureFlags that are explicitly set. 
-    When a featureFlag is not explicitly set, SignalR service will use its globally default value. 
-    But keep in mind, the default value doesn't mean "false". It varies in terms of different FeatureFlags.
-      * `flag` (`str`) - FeatureFlags is the supported features of Azure SignalR service.
-        - ServiceMode: Flag for backend server for SignalR service. Values allowed: "Default": have your own backend server; "Serverless": your application doesn't have a backend server; "Classic": for backward compatibility. Support both Default and Serverless mode but not recommended; "PredefinedOnly": for future use.
-        - EnableConnectivityLogs: "true"/"false", to enable/disable the connectivity log category respectively.
-      * `properties` (`dict`) - Optional properties related to this feature.
-      * `value` (`str`) - Value of the feature flag. See Azure SignalR service document https://docs.microsoft.com/azure/azure-signalr/ for allowed values.
-    """
-    host_name: pulumi.Output[str]
-    """
-    FQDN of the SignalR service instance. Format: xxx.service.signalr.net
-    """
-    host_name_prefix: pulumi.Output[str]
-    """
-    Prefix for the hostName of the SignalR service. Retained for future use.
-    The hostname will be of format: &lt;hostNamePrefix&gt;.service.signalr.net.
-    """
-    location: pulumi.Output[str]
-    """
-    The GEO location of the SignalR service. e.g. West US | East US | North Central US | South Central US.
-    """
-    name: pulumi.Output[str]
-    """
-    The name of the resource.
-    """
-    provisioning_state: pulumi.Output[str]
-    """
-    Provisioning state of the resource.
-    """
-    public_port: pulumi.Output[float]
-    """
-    The publicly accessible port of the SignalR service which is designed for browser/client side usage.
-    """
-    server_port: pulumi.Output[float]
-    """
-    The publicly accessible port of the SignalR service which is designed for customer server side usage.
-    """
-    sku: pulumi.Output[dict]
-    """
-    SKU of the service.
-      * `capacity` (`float`) - Optional, integer. The unit count of SignalR resource. 1 by default.
-        
-        If present, following values are allowed:
-            Free: 1
-            Standard: 1,2,5,10,20,50,100
-      * `family` (`str`) - Optional string. For future use.
-      * `name` (`str`) - The name of the SKU. Required.
-        
-        Allowed values: Standard_S1, Free_F1
-      * `size` (`str`) - Optional string. For future use.
-      * `tier` (`str`) - Optional tier of this particular SKU. 'Standard' or 'Free'. 
-        
-        `Basic` is deprecated, use `Standard` instead.
-    """
-    tags: pulumi.Output[dict]
-    """
-    Tags of the service which is a list of key value pairs that describe the resource.
-    """
-    type: pulumi.Output[str]
-    """
-    The type of the service - e.g. "Microsoft.SignalRService/SignalR"
-    """
-    version: pulumi.Output[str]
-    """
-    Version of the SignalR resource. Probably you need the same or higher version of client SDKs.
-    """
-    def __init__(__self__, resource_name, opts=None, location=None, name=None, properties=None, resource_group_name=None, sku=None, tags=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 properties: Optional[pulumi.Input[pulumi.InputType['SignalRCreateOrUpdatePropertiesArgs']]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 sku: Optional[pulumi.Input[pulumi.InputType['ResourceSkuArgs']]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         A class represent a SignalR service resource.
 
@@ -100,46 +34,10 @@ class SignalR(pulumi.CustomResource):
         :param pulumi.Input[str] location: Azure GEO region: e.g. West US | East US | North Central US | South Central US | West Europe | North Europe | East Asia | Southeast Asia | etc. 
                The geo region of a resource never changes after it is created.
         :param pulumi.Input[str] name: The name of the SignalR resource.
-        :param pulumi.Input[dict] properties: Settings used to provision or configure the resource
+        :param pulumi.Input[pulumi.InputType['SignalRCreateOrUpdatePropertiesArgs']] properties: Settings used to provision or configure the resource
         :param pulumi.Input[str] resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
-        :param pulumi.Input[dict] sku: The billing information of the resource.(e.g. basic vs. standard)
-        :param pulumi.Input[dict] tags: A list of key value pairs that describe the resource.
-
-        The **properties** object supports the following:
-
-          * `cors` (`pulumi.Input[dict]`) - Cross-Origin Resource Sharing (CORS) settings.
-            * `allowed_origins` (`pulumi.Input[list]`) - Gets or sets the list of origins that should be allowed to make cross-origin calls (for example: http://example.com:12345). Use "*" to allow all. If omitted, allow all by default.
-
-          * `features` (`pulumi.Input[list]`) - List of SignalR featureFlags. e.g. ServiceMode.
-            
-            FeatureFlags that are not included in the parameters for the update operation will not be modified.
-            And the response will only include featureFlags that are explicitly set. 
-            When a featureFlag is not explicitly set, SignalR service will use its globally default value. 
-            But keep in mind, the default value doesn't mean "false". It varies in terms of different FeatureFlags.
-            * `flag` (`pulumi.Input[str]`) - FeatureFlags is the supported features of Azure SignalR service.
-              - ServiceMode: Flag for backend server for SignalR service. Values allowed: "Default": have your own backend server; "Serverless": your application doesn't have a backend server; "Classic": for backward compatibility. Support both Default and Serverless mode but not recommended; "PredefinedOnly": for future use.
-              - EnableConnectivityLogs: "true"/"false", to enable/disable the connectivity log category respectively.
-            * `properties` (`pulumi.Input[dict]`) - Optional properties related to this feature.
-            * `value` (`pulumi.Input[str]`) - Value of the feature flag. See Azure SignalR service document https://docs.microsoft.com/azure/azure-signalr/ for allowed values.
-
-          * `host_name_prefix` (`pulumi.Input[str]`) - Prefix for the hostName of the SignalR service. Retained for future use.
-            The hostname will be of format: &lt;hostNamePrefix&gt;.service.signalr.net.
-
-        The **sku** object supports the following:
-
-          * `capacity` (`pulumi.Input[float]`) - Optional, integer. The unit count of SignalR resource. 1 by default.
-            
-            If present, following values are allowed:
-                Free: 1
-                Standard: 1,2,5,10,20,50,100
-          * `family` (`pulumi.Input[str]`) - Optional string. For future use.
-          * `name` (`pulumi.Input[str]`) - The name of the SKU. Required.
-            
-            Allowed values: Standard_S1, Free_F1
-          * `size` (`pulumi.Input[str]`) - Optional string. For future use.
-          * `tier` (`pulumi.Input[str]`) - Optional tier of this particular SKU. 'Standard' or 'Free'. 
-            
-            `Basic` is deprecated, use `Standard` instead.
+        :param pulumi.Input[pulumi.InputType['ResourceSkuArgs']] sku: The billing information of the resource.(e.g. basic vs. standard)
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A list of key value pairs that describe the resource.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -189,13 +87,15 @@ class SignalR(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None) -> 'SignalR':
         """
         Get an existing SignalR resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -204,8 +104,127 @@ class SignalR(pulumi.CustomResource):
 
         return SignalR(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter
+    def cors(self) -> Optional['outputs.SignalRCorsSettingsResponse']:
+        """
+        Cross-Origin Resource Sharing (CORS) settings.
+        """
+        return pulumi.get(self, "cors")
+
+    @property
+    @pulumi.getter(name="externalIP")
+    def external_ip(self) -> str:
+        """
+        The publicly accessible IP of the SignalR service.
+        """
+        return pulumi.get(self, "external_ip")
+
+    @property
+    @pulumi.getter
+    def features(self) -> Optional[List['outputs.SignalRFeatureResponse']]:
+        """
+        List of SignalR featureFlags. e.g. ServiceMode.
+        
+        FeatureFlags that are not included in the parameters for the update operation will not be modified.
+        And the response will only include featureFlags that are explicitly set. 
+        When a featureFlag is not explicitly set, SignalR service will use its globally default value. 
+        But keep in mind, the default value doesn't mean "false". It varies in terms of different FeatureFlags.
+        """
+        return pulumi.get(self, "features")
+
+    @property
+    @pulumi.getter(name="hostName")
+    def host_name(self) -> str:
+        """
+        FQDN of the SignalR service instance. Format: xxx.service.signalr.net
+        """
+        return pulumi.get(self, "host_name")
+
+    @property
+    @pulumi.getter(name="hostNamePrefix")
+    def host_name_prefix(self) -> Optional[str]:
+        """
+        Prefix for the hostName of the SignalR service. Retained for future use.
+        The hostname will be of format: &lt;hostNamePrefix&gt;.service.signalr.net.
+        """
+        return pulumi.get(self, "host_name_prefix")
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[str]:
+        """
+        The GEO location of the SignalR service. e.g. West US | East US | North Central US | South Central US.
+        """
+        return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the resource.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        Provisioning state of the resource.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="publicPort")
+    def public_port(self) -> float:
+        """
+        The publicly accessible port of the SignalR service which is designed for browser/client side usage.
+        """
+        return pulumi.get(self, "public_port")
+
+    @property
+    @pulumi.getter(name="serverPort")
+    def server_port(self) -> float:
+        """
+        The publicly accessible port of the SignalR service which is designed for customer server side usage.
+        """
+        return pulumi.get(self, "server_port")
+
+    @property
+    @pulumi.getter
+    def sku(self) -> Optional['outputs.ResourceSkuResponse']:
+        """
+        SKU of the service.
+        """
+        return pulumi.get(self, "sku")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Mapping[str, str]]:
+        """
+        Tags of the service which is a list of key value pairs that describe the resource.
+        """
+        return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        The type of the service - e.g. "Microsoft.SignalRService/SignalR"
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def version(self) -> Optional[str]:
+        """
+        Version of the SignalR resource. Probably you need the same or higher version of client SDKs.
+        """
+        return pulumi.get(self, "version")
+
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

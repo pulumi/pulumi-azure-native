@@ -5,28 +5,23 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+
+__all__ = ['LinkedStorageAccount']
 
 
 class LinkedStorageAccount(pulumi.CustomResource):
-    data_source_type: pulumi.Output[str]
-    """
-    Linked storage accounts type.
-    """
-    name: pulumi.Output[str]
-    """
-    The name of the resource
-    """
-    storage_account_ids: pulumi.Output[list]
-    """
-    Linked storage accounts resources ids.
-    """
-    type: pulumi.Output[str]
-    """
-    The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
-    """
-    def __init__(__self__, resource_name, opts=None, name=None, resource_group_name=None, storage_account_ids=None, workspace_name=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 storage_account_ids: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 workspace_name: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         Linked storage accounts top level resource container.
 
@@ -34,7 +29,7 @@ class LinkedStorageAccount(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] name: Linked storage accounts type.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input[list] storage_account_ids: Linked storage accounts resources ids.
+        :param pulumi.Input[List[pulumi.Input[str]]] storage_account_ids: Linked storage accounts resources ids.
         :param pulumi.Input[str] workspace_name: The name of the workspace.
         """
         if __name__ is not None:
@@ -73,13 +68,15 @@ class LinkedStorageAccount(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None) -> 'LinkedStorageAccount':
         """
         Get an existing LinkedStorageAccount resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -88,8 +85,41 @@ class LinkedStorageAccount(pulumi.CustomResource):
 
         return LinkedStorageAccount(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter(name="dataSourceType")
+    def data_source_type(self) -> str:
+        """
+        Linked storage accounts type.
+        """
+        return pulumi.get(self, "data_source_type")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the resource
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="storageAccountIds")
+    def storage_account_ids(self) -> Optional[List[str]]:
+        """
+        Linked storage accounts resources ids.
+        """
+        return pulumi.get(self, "storage_account_ids")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+        """
+        return pulumi.get(self, "type")
+
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

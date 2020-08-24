@@ -5,55 +5,32 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+
+__all__ = ['View']
 
 
 class View(pulumi.CustomResource):
-    changed: pulumi.Output[str]
-    """
-    Date time when view was last modified.
-    """
-    created: pulumi.Output[str]
-    """
-    Date time when view was created.
-    """
-    definition: pulumi.Output[str]
-    """
-    View definition.
-    """
-    display_name: pulumi.Output[dict]
-    """
-    Localized display name for the view.
-    """
-    name: pulumi.Output[str]
-    """
-    Resource name.
-    """
-    tenant_id: pulumi.Output[str]
-    """
-    the hub name.
-    """
-    type: pulumi.Output[str]
-    """
-    Resource type.
-    """
-    user_id: pulumi.Output[str]
-    """
-    the user ID.
-    """
-    view_name: pulumi.Output[str]
-    """
-    Name of the view.
-    """
-    def __init__(__self__, resource_name, opts=None, definition=None, display_name=None, hub_name=None, name=None, resource_group_name=None, user_id=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 definition: Optional[pulumi.Input[str]] = None,
+                 display_name: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 hub_name: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 user_id: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         The view resource format.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] definition: View definition.
-        :param pulumi.Input[dict] display_name: Localized display name for the view.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] display_name: Localized display name for the view.
         :param pulumi.Input[str] hub_name: The name of the hub.
         :param pulumi.Input[str] name: The name of the view.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
@@ -104,13 +81,15 @@ class View(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None) -> 'View':
         """
         Get an existing View resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -119,8 +98,81 @@ class View(pulumi.CustomResource):
 
         return View(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter
+    def changed(self) -> str:
+        """
+        Date time when view was last modified.
+        """
+        return pulumi.get(self, "changed")
+
+    @property
+    @pulumi.getter
+    def created(self) -> str:
+        """
+        Date time when view was created.
+        """
+        return pulumi.get(self, "created")
+
+    @property
+    @pulumi.getter
+    def definition(self) -> str:
+        """
+        View definition.
+        """
+        return pulumi.get(self, "definition")
+
+    @property
+    @pulumi.getter(name="displayName")
+    def display_name(self) -> Optional[Mapping[str, str]]:
+        """
+        Localized display name for the view.
+        """
+        return pulumi.get(self, "display_name")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Resource name.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="tenantId")
+    def tenant_id(self) -> str:
+        """
+        the hub name.
+        """
+        return pulumi.get(self, "tenant_id")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Resource type.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="userId")
+    def user_id(self) -> Optional[str]:
+        """
+        the user ID.
+        """
+        return pulumi.get(self, "user_id")
+
+    @property
+    @pulumi.getter(name="viewName")
+    def view_name(self) -> str:
+        """
+        Name of the view.
+        """
+        return pulumi.get(self, "view_name")
+
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

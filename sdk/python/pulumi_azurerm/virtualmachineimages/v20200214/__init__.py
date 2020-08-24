@@ -5,3 +5,5 @@
 # Export this package's modules as members:
 from .get_virtual_machine_image_template import *
 from .virtual_machine_image_template import *
+from ._inputs import *
+from . import outputs

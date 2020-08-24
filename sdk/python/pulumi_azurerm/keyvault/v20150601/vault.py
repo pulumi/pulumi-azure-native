@@ -5,52 +5,26 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+from . import outputs
+from ._inputs import *
+
+__all__ = ['Vault']
 
 
 class Vault(pulumi.CustomResource):
-    location: pulumi.Output[str]
-    """
-    The supported Azure location where the key vault should be created.
-    """
-    name: pulumi.Output[str]
-    """
-    The name of the key vault.
-    """
-    properties: pulumi.Output[dict]
-    """
-    Properties of the vault
-      * `access_policies` (`list`) - An array of 0 to 16 identities that have access to the key vault. All identities in the array must use the same tenant ID as the key vault's tenant ID.
-        * `application_id` (`str`) -  Application ID of the client making request on behalf of a principal
-        * `object_id` (`str`) - The object ID of a user, service principal or security group in the Azure Active Directory tenant for the vault. The object ID must be unique for the list of access policies.
-        * `permissions` (`dict`) - Permissions the identity has for keys, secrets and certificates.
-          * `certificates` (`list`) - Permissions to certificates
-          * `keys` (`list`) - Permissions to keys
-          * `secrets` (`list`) - Permissions to secrets
-
-        * `tenant_id` (`str`) - The Azure Active Directory tenant ID that should be used for authenticating requests to the key vault.
-
-      * `enable_soft_delete` (`bool`) - Property to specify whether the 'soft delete' functionality is enabled for this key vault.
-      * `enabled_for_deployment` (`bool`) - Property to specify whether Azure Virtual Machines are permitted to retrieve certificates stored as secrets from the key vault.
-      * `enabled_for_disk_encryption` (`bool`) - Property to specify whether Azure Disk Encryption is permitted to retrieve secrets from the vault and unwrap keys.
-      * `enabled_for_template_deployment` (`bool`) - Property to specify whether Azure Resource Manager is permitted to retrieve secrets from the key vault.
-      * `sku` (`dict`) - SKU details
-        * `family` (`str`) - SKU family name
-        * `name` (`str`) - SKU name to specify whether the key vault is a standard vault or a premium vault.
-
-      * `tenant_id` (`str`) - The Azure Active Directory tenant ID that should be used for authenticating requests to the key vault.
-      * `vault_uri` (`str`) - The URI of the vault for performing operations on keys and secrets.
-    """
-    tags: pulumi.Output[dict]
-    """
-    The tags that will be assigned to the key vault. 
-    """
-    type: pulumi.Output[str]
-    """
-    The resource type of the key vault.
-    """
-    def __init__(__self__, resource_name, opts=None, location=None, name=None, properties=None, resource_group_name=None, tags=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 properties: Optional[pulumi.Input[pulumi.InputType['VaultPropertiesArgs']]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         Resource information with extended details.
 
@@ -58,32 +32,9 @@ class Vault(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] location: The supported Azure location where the key vault should be created.
         :param pulumi.Input[str] name: Name of the vault
-        :param pulumi.Input[dict] properties: Properties of the vault
+        :param pulumi.Input[pulumi.InputType['VaultPropertiesArgs']] properties: Properties of the vault
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group to which the server belongs.
-        :param pulumi.Input[dict] tags: The tags that will be assigned to the key vault. 
-
-        The **properties** object supports the following:
-
-          * `access_policies` (`pulumi.Input[list]`) - An array of 0 to 16 identities that have access to the key vault. All identities in the array must use the same tenant ID as the key vault's tenant ID.
-            * `application_id` (`pulumi.Input[str]`) -  Application ID of the client making request on behalf of a principal
-            * `object_id` (`pulumi.Input[str]`) - The object ID of a user, service principal or security group in the Azure Active Directory tenant for the vault. The object ID must be unique for the list of access policies.
-            * `permissions` (`pulumi.Input[dict]`) - Permissions the identity has for keys, secrets and certificates.
-              * `certificates` (`pulumi.Input[list]`) - Permissions to certificates
-              * `keys` (`pulumi.Input[list]`) - Permissions to keys
-              * `secrets` (`pulumi.Input[list]`) - Permissions to secrets
-
-            * `tenant_id` (`pulumi.Input[str]`) - The Azure Active Directory tenant ID that should be used for authenticating requests to the key vault.
-
-          * `enable_soft_delete` (`pulumi.Input[bool]`) - Property to specify whether the 'soft delete' functionality is enabled for this key vault.
-          * `enabled_for_deployment` (`pulumi.Input[bool]`) - Property to specify whether Azure Virtual Machines are permitted to retrieve certificates stored as secrets from the key vault.
-          * `enabled_for_disk_encryption` (`pulumi.Input[bool]`) - Property to specify whether Azure Disk Encryption is permitted to retrieve secrets from the vault and unwrap keys.
-          * `enabled_for_template_deployment` (`pulumi.Input[bool]`) - Property to specify whether Azure Resource Manager is permitted to retrieve secrets from the key vault.
-          * `sku` (`pulumi.Input[dict]`) - SKU details
-            * `family` (`pulumi.Input[str]`) - SKU family name
-            * `name` (`pulumi.Input[str]`) - SKU name to specify whether the key vault is a standard vault or a premium vault.
-
-          * `tenant_id` (`pulumi.Input[str]`) - The Azure Active Directory tenant ID that should be used for authenticating requests to the key vault.
-          * `vault_uri` (`pulumi.Input[str]`) - The URI of the vault for performing operations on keys and secrets.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The tags that will be assigned to the key vault. 
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -125,13 +76,15 @@ class Vault(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None) -> 'Vault':
         """
         Get an existing Vault resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -140,8 +93,49 @@ class Vault(pulumi.CustomResource):
 
         return Vault(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter
+    def location(self) -> str:
+        """
+        The supported Azure location where the key vault should be created.
+        """
+        return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the key vault.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def properties(self) -> 'outputs.VaultPropertiesResponse':
+        """
+        Properties of the vault
+        """
+        return pulumi.get(self, "properties")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Mapping[str, str]]:
+        """
+        The tags that will be assigned to the key vault. 
+        """
+        return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        The resource type of the key vault.
+        """
+        return pulumi.get(self, "type")
+
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

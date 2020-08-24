@@ -5,10 +5,17 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+from . import outputs
 
+__all__ = [
+    'GetCapacityDetailsResult',
+    'AwaitableGetCapacityDetailsResult',
+    'get_capacity_details',
+]
 
+@pulumi.output_type
 class GetCapacityDetailsResult:
     """
     Represents an instance of a Dedicated Capacity resource.
@@ -16,52 +23,92 @@ class GetCapacityDetailsResult:
     def __init__(__self__, administration=None, location=None, name=None, provisioning_state=None, sku=None, state=None, tags=None, type=None):
         if administration and not isinstance(administration, dict):
             raise TypeError("Expected argument 'administration' to be a dict")
-        __self__.administration = administration
+        pulumi.set(__self__, "administration", administration)
+        if location and not isinstance(location, str):
+            raise TypeError("Expected argument 'location' to be a str")
+        pulumi.set(__self__, "location", location)
+        if name and not isinstance(name, str):
+            raise TypeError("Expected argument 'name' to be a str")
+        pulumi.set(__self__, "name", name)
+        if provisioning_state and not isinstance(provisioning_state, str):
+            raise TypeError("Expected argument 'provisioning_state' to be a str")
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if sku and not isinstance(sku, dict):
+            raise TypeError("Expected argument 'sku' to be a dict")
+        pulumi.set(__self__, "sku", sku)
+        if state and not isinstance(state, str):
+            raise TypeError("Expected argument 'state' to be a str")
+        pulumi.set(__self__, "state", state)
+        if tags and not isinstance(tags, dict):
+            raise TypeError("Expected argument 'tags' to be a dict")
+        pulumi.set(__self__, "tags", tags)
+        if type and not isinstance(type, str):
+            raise TypeError("Expected argument 'type' to be a str")
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def administration(self) -> Optional['outputs.DedicatedCapacityAdministratorsResponse']:
         """
         A collection of Dedicated capacity administrators
         """
-        if location and not isinstance(location, str):
-            raise TypeError("Expected argument 'location' to be a str")
-        __self__.location = location
+        return pulumi.get(self, "administration")
+
+    @property
+    @pulumi.getter
+    def location(self) -> str:
         """
         Location of the PowerBI Dedicated resource.
         """
-        if name and not isinstance(name, str):
-            raise TypeError("Expected argument 'name' to be a str")
-        __self__.name = name
+        return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
         """
         The name of the PowerBI Dedicated resource.
         """
-        if provisioning_state and not isinstance(provisioning_state, str):
-            raise TypeError("Expected argument 'provisioning_state' to be a str")
-        __self__.provisioning_state = provisioning_state
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
         """
         The current deployment state of PowerBI Dedicated resource. The provisioningState is to indicate states for resource provisioning.
         """
-        if sku and not isinstance(sku, dict):
-            raise TypeError("Expected argument 'sku' to be a dict")
-        __self__.sku = sku
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter
+    def sku(self) -> 'outputs.ResourceSkuResponse':
         """
         The SKU of the PowerBI Dedicated resource.
         """
-        if state and not isinstance(state, str):
-            raise TypeError("Expected argument 'state' to be a str")
-        __self__.state = state
+        return pulumi.get(self, "sku")
+
+    @property
+    @pulumi.getter
+    def state(self) -> str:
         """
         The current state of PowerBI Dedicated resource. The state is to indicate more states outside of resource provisioning.
         """
-        if tags and not isinstance(tags, dict):
-            raise TypeError("Expected argument 'tags' to be a dict")
-        __self__.tags = tags
+        return pulumi.get(self, "state")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Mapping[str, str]]:
         """
         Key-value pairs of additional resource provisioning properties.
         """
-        if type and not isinstance(type, str):
-            raise TypeError("Expected argument 'type' to be a str")
-        __self__.type = type
+        return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
         """
         The type of the PowerBI Dedicated resource.
         """
+        return pulumi.get(self, "type")
 
 
 class AwaitableGetCapacityDetailsResult(GetCapacityDetailsResult):
@@ -80,7 +127,9 @@ class AwaitableGetCapacityDetailsResult(GetCapacityDetailsResult):
             type=self.type)
 
 
-def get_capacity_details(name=None, resource_group_name=None, opts=None):
+def get_capacity_details(name: Optional[str] = None,
+                         resource_group_name: Optional[str] = None,
+                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetCapacityDetailsResult:
     """
     Use this data source to access information about an existing resource.
 
@@ -94,14 +143,14 @@ def get_capacity_details(name=None, resource_group_name=None, opts=None):
         opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = _utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('azurerm:powerbidedicated/v20171001:getCapacityDetails', __args__, opts=opts).value
+    __ret__ = pulumi.runtime.invoke('azurerm:powerbidedicated/v20171001:getCapacityDetails', __args__, opts=opts, typ=GetCapacityDetailsResult).value
 
     return AwaitableGetCapacityDetailsResult(
-        administration=__ret__.get('administration'),
-        location=__ret__.get('location'),
-        name=__ret__.get('name'),
-        provisioning_state=__ret__.get('provisioningState'),
-        sku=__ret__.get('sku'),
-        state=__ret__.get('state'),
-        tags=__ret__.get('tags'),
-        type=__ret__.get('type'))
+        administration=__ret__.administration,
+        location=__ret__.location,
+        name=__ret__.name,
+        provisioning_state=__ret__.provisioning_state,
+        sku=__ret__.sku,
+        state=__ret__.state,
+        tags=__ret__.tags,
+        type=__ret__.type)

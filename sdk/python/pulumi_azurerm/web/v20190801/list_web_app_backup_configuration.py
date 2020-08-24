@@ -5,10 +5,17 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+from . import outputs
 
+__all__ = [
+    'ListWebAppBackupConfigurationResult',
+    'AwaitableListWebAppBackupConfigurationResult',
+    'list_web_app_backup_configuration',
+]
 
+@pulumi.output_type
 class ListWebAppBackupConfigurationResult:
     """
     Description of a backup which will be performed.
@@ -16,52 +23,92 @@ class ListWebAppBackupConfigurationResult:
     def __init__(__self__, backup_name=None, backup_schedule=None, databases=None, enabled=None, kind=None, name=None, storage_account_url=None, type=None):
         if backup_name and not isinstance(backup_name, str):
             raise TypeError("Expected argument 'backup_name' to be a str")
-        __self__.backup_name = backup_name
+        pulumi.set(__self__, "backup_name", backup_name)
+        if backup_schedule and not isinstance(backup_schedule, dict):
+            raise TypeError("Expected argument 'backup_schedule' to be a dict")
+        pulumi.set(__self__, "backup_schedule", backup_schedule)
+        if databases and not isinstance(databases, list):
+            raise TypeError("Expected argument 'databases' to be a list")
+        pulumi.set(__self__, "databases", databases)
+        if enabled and not isinstance(enabled, bool):
+            raise TypeError("Expected argument 'enabled' to be a bool")
+        pulumi.set(__self__, "enabled", enabled)
+        if kind and not isinstance(kind, str):
+            raise TypeError("Expected argument 'kind' to be a str")
+        pulumi.set(__self__, "kind", kind)
+        if name and not isinstance(name, str):
+            raise TypeError("Expected argument 'name' to be a str")
+        pulumi.set(__self__, "name", name)
+        if storage_account_url and not isinstance(storage_account_url, str):
+            raise TypeError("Expected argument 'storage_account_url' to be a str")
+        pulumi.set(__self__, "storage_account_url", storage_account_url)
+        if type and not isinstance(type, str):
+            raise TypeError("Expected argument 'type' to be a str")
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="backupName")
+    def backup_name(self) -> Optional[str]:
         """
         Name of the backup.
         """
-        if backup_schedule and not isinstance(backup_schedule, dict):
-            raise TypeError("Expected argument 'backup_schedule' to be a dict")
-        __self__.backup_schedule = backup_schedule
+        return pulumi.get(self, "backup_name")
+
+    @property
+    @pulumi.getter(name="backupSchedule")
+    def backup_schedule(self) -> Optional['outputs.BackupScheduleResponseResult']:
         """
         Schedule for the backup if it is executed periodically.
         """
-        if databases and not isinstance(databases, list):
-            raise TypeError("Expected argument 'databases' to be a list")
-        __self__.databases = databases
+        return pulumi.get(self, "backup_schedule")
+
+    @property
+    @pulumi.getter
+    def databases(self) -> Optional[List['outputs.DatabaseBackupSettingResponseResult']]:
         """
         Databases included in the backup.
         """
-        if enabled and not isinstance(enabled, bool):
-            raise TypeError("Expected argument 'enabled' to be a bool")
-        __self__.enabled = enabled
+        return pulumi.get(self, "databases")
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[bool]:
         """
         True if the backup schedule is enabled (must be included in that case), false if the backup schedule should be disabled.
         """
-        if kind and not isinstance(kind, str):
-            raise TypeError("Expected argument 'kind' to be a str")
-        __self__.kind = kind
+        return pulumi.get(self, "enabled")
+
+    @property
+    @pulumi.getter
+    def kind(self) -> Optional[str]:
         """
         Kind of resource.
         """
-        if name and not isinstance(name, str):
-            raise TypeError("Expected argument 'name' to be a str")
-        __self__.name = name
+        return pulumi.get(self, "kind")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
         """
         Resource Name.
         """
-        if storage_account_url and not isinstance(storage_account_url, str):
-            raise TypeError("Expected argument 'storage_account_url' to be a str")
-        __self__.storage_account_url = storage_account_url
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="storageAccountUrl")
+    def storage_account_url(self) -> str:
         """
         SAS URL to the container.
         """
-        if type and not isinstance(type, str):
-            raise TypeError("Expected argument 'type' to be a str")
-        __self__.type = type
+        return pulumi.get(self, "storage_account_url")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
         """
         Resource type.
         """
+        return pulumi.get(self, "type")
 
 
 class AwaitableListWebAppBackupConfigurationResult(ListWebAppBackupConfigurationResult):
@@ -80,7 +127,9 @@ class AwaitableListWebAppBackupConfigurationResult(ListWebAppBackupConfiguration
             type=self.type)
 
 
-def list_web_app_backup_configuration(name=None, resource_group_name=None, opts=None):
+def list_web_app_backup_configuration(name: Optional[str] = None,
+                                      resource_group_name: Optional[str] = None,
+                                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListWebAppBackupConfigurationResult:
     """
     Use this data source to access information about an existing resource.
 
@@ -94,14 +143,14 @@ def list_web_app_backup_configuration(name=None, resource_group_name=None, opts=
         opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = _utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('azurerm:web/v20190801:listWebAppBackupConfiguration', __args__, opts=opts).value
+    __ret__ = pulumi.runtime.invoke('azurerm:web/v20190801:listWebAppBackupConfiguration', __args__, opts=opts, typ=ListWebAppBackupConfigurationResult).value
 
     return AwaitableListWebAppBackupConfigurationResult(
-        backup_name=__ret__.get('backupName'),
-        backup_schedule=__ret__.get('backupSchedule'),
-        databases=__ret__.get('databases'),
-        enabled=__ret__.get('enabled'),
-        kind=__ret__.get('kind'),
-        name=__ret__.get('name'),
-        storage_account_url=__ret__.get('storageAccountUrl'),
-        type=__ret__.get('type'))
+        backup_name=__ret__.backup_name,
+        backup_schedule=__ret__.backup_schedule,
+        databases=__ret__.databases,
+        enabled=__ret__.enabled,
+        kind=__ret__.kind,
+        name=__ret__.name,
+        storage_account_url=__ret__.storage_account_url,
+        type=__ret__.type)

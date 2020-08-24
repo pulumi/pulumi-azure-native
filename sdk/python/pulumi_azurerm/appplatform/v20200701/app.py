@@ -5,82 +5,38 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+from . import outputs
+from ._inputs import *
+
+__all__ = ['App']
 
 
 class App(pulumi.CustomResource):
-    identity: pulumi.Output[dict]
-    """
-    The Managed Identity type of the app resource
-      * `principal_id` (`str`) - Principal Id
-      * `tenant_id` (`str`) - Tenant Id
-      * `type` (`str`) - Type of the managed identity
-    """
-    location: pulumi.Output[str]
-    """
-    The GEO location of the application, always the same with its parent resource
-    """
-    name: pulumi.Output[str]
-    """
-    The name of the resource.
-    """
-    properties: pulumi.Output[dict]
-    """
-    Properties of the App resource
-      * `active_deployment_name` (`str`) - Name of the active deployment of the App
-      * `created_time` (`str`) - Date time when the resource is created
-      * `fqdn` (`str`) - Fully qualified dns Name.
-      * `https_only` (`bool`) - Indicate if only https is allowed.
-      * `persistent_disk` (`dict`) - Persistent disk settings
-        * `mount_path` (`str`) - Mount path of the persistent disk
-        * `size_in_gb` (`float`) - Size of the persistent disk in GB
-        * `used_in_gb` (`float`) - Size of the used persistent disk in GB
-
-      * `provisioning_state` (`str`) - Provisioning state of the App
-      * `public` (`bool`) - Indicates whether the App exposes public endpoint
-      * `temporary_disk` (`dict`) - Temporary disk settings
-        * `mount_path` (`str`) - Mount path of the temporary disk
-        * `size_in_gb` (`float`) - Size of the temporary disk in GB
-
-      * `url` (`str`) - URL of the App
-    """
-    type: pulumi.Output[str]
-    """
-    The type of the resource.
-    """
-    def __init__(__self__, resource_name, opts=None, identity=None, location=None, name=None, properties=None, resource_group_name=None, service_name=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 identity: Optional[pulumi.Input[pulumi.InputType['ManagedIdentityPropertiesArgs']]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 properties: Optional[pulumi.Input[pulumi.InputType['AppResourcePropertiesArgs']]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 service_name: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         App resource payload
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[dict] identity: The Managed Identity type of the app resource
+        :param pulumi.Input[pulumi.InputType['ManagedIdentityPropertiesArgs']] identity: The Managed Identity type of the app resource
         :param pulumi.Input[str] location: The GEO location of the application, always the same with its parent resource
         :param pulumi.Input[str] name: The name of the App resource.
-        :param pulumi.Input[dict] properties: Properties of the App resource
+        :param pulumi.Input[pulumi.InputType['AppResourcePropertiesArgs']] properties: Properties of the App resource
         :param pulumi.Input[str] resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
         :param pulumi.Input[str] service_name: The name of the Service resource.
-
-        The **identity** object supports the following:
-
-          * `principal_id` (`pulumi.Input[str]`) - Principal Id
-          * `tenant_id` (`pulumi.Input[str]`) - Tenant Id
-          * `type` (`pulumi.Input[str]`) - Type of the managed identity
-
-        The **properties** object supports the following:
-
-          * `active_deployment_name` (`pulumi.Input[str]`) - Name of the active deployment of the App
-          * `fqdn` (`pulumi.Input[str]`) - Fully qualified dns Name.
-          * `https_only` (`pulumi.Input[bool]`) - Indicate if only https is allowed.
-          * `persistent_disk` (`pulumi.Input[dict]`) - Persistent disk settings
-            * `mount_path` (`pulumi.Input[str]`) - Mount path of the persistent disk
-            * `size_in_gb` (`pulumi.Input[float]`) - Size of the persistent disk in GB
-
-          * `public` (`pulumi.Input[bool]`) - Indicates whether the App exposes public endpoint
-          * `temporary_disk` (`pulumi.Input[dict]`) - Temporary disk settings
-            * `mount_path` (`pulumi.Input[str]`) - Mount path of the temporary disk
-            * `size_in_gb` (`pulumi.Input[float]`) - Size of the temporary disk in GB
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -119,13 +75,15 @@ class App(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None) -> 'App':
         """
         Get an existing App resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -134,8 +92,49 @@ class App(pulumi.CustomResource):
 
         return App(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter
+    def identity(self) -> Optional['outputs.ManagedIdentityPropertiesResponse']:
+        """
+        The Managed Identity type of the app resource
+        """
+        return pulumi.get(self, "identity")
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[str]:
+        """
+        The GEO location of the application, always the same with its parent resource
+        """
+        return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the resource.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def properties(self) -> 'outputs.AppResourcePropertiesResponse':
+        """
+        Properties of the App resource
+        """
+        return pulumi.get(self, "properties")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        The type of the resource.
+        """
+        return pulumi.get(self, "type")
+
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

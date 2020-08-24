@@ -5,10 +5,16 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
 
+__all__ = [
+    'GetSyncGroupResult',
+    'AwaitableGetSyncGroupResult',
+    'get_sync_group',
+]
 
+@pulumi.output_type
 class GetSyncGroupResult:
     """
     Sync Group object.
@@ -16,28 +22,48 @@ class GetSyncGroupResult:
     def __init__(__self__, name=None, sync_group_status=None, type=None, unique_id=None):
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
-        __self__.name = name
+        pulumi.set(__self__, "name", name)
+        if sync_group_status and not isinstance(sync_group_status, str):
+            raise TypeError("Expected argument 'sync_group_status' to be a str")
+        pulumi.set(__self__, "sync_group_status", sync_group_status)
+        if type and not isinstance(type, str):
+            raise TypeError("Expected argument 'type' to be a str")
+        pulumi.set(__self__, "type", type)
+        if unique_id and not isinstance(unique_id, str):
+            raise TypeError("Expected argument 'unique_id' to be a str")
+        pulumi.set(__self__, "unique_id", unique_id)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
         """
         The name of the resource
         """
-        if sync_group_status and not isinstance(sync_group_status, str):
-            raise TypeError("Expected argument 'sync_group_status' to be a str")
-        __self__.sync_group_status = sync_group_status
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="syncGroupStatus")
+    def sync_group_status(self) -> str:
         """
         Sync group status
         """
-        if type and not isinstance(type, str):
-            raise TypeError("Expected argument 'type' to be a str")
-        __self__.type = type
+        return pulumi.get(self, "sync_group_status")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
         """
         The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
         """
-        if unique_id and not isinstance(unique_id, str):
-            raise TypeError("Expected argument 'unique_id' to be a str")
-        __self__.unique_id = unique_id
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="uniqueId")
+    def unique_id(self) -> str:
         """
         Unique Id
         """
+        return pulumi.get(self, "unique_id")
 
 
 class AwaitableGetSyncGroupResult(GetSyncGroupResult):
@@ -52,7 +78,10 @@ class AwaitableGetSyncGroupResult(GetSyncGroupResult):
             unique_id=self.unique_id)
 
 
-def get_sync_group(name=None, resource_group_name=None, storage_sync_service_name=None, opts=None):
+def get_sync_group(name: Optional[str] = None,
+                   resource_group_name: Optional[str] = None,
+                   storage_sync_service_name: Optional[str] = None,
+                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSyncGroupResult:
     """
     Use this data source to access information about an existing resource.
 
@@ -68,10 +97,10 @@ def get_sync_group(name=None, resource_group_name=None, storage_sync_service_nam
         opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = _utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('azurerm:storagesync/v20200301:getSyncGroup', __args__, opts=opts).value
+    __ret__ = pulumi.runtime.invoke('azurerm:storagesync/v20200301:getSyncGroup', __args__, opts=opts, typ=GetSyncGroupResult).value
 
     return AwaitableGetSyncGroupResult(
-        name=__ret__.get('name'),
-        sync_group_status=__ret__.get('syncGroupStatus'),
-        type=__ret__.get('type'),
-        unique_id=__ret__.get('uniqueId'))
+        name=__ret__.name,
+        sync_group_status=__ret__.sync_group_status,
+        type=__ret__.type,
+        unique_id=__ret__.unique_id)

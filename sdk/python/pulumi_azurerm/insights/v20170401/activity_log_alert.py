@@ -5,80 +5,44 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+from . import outputs
+from ._inputs import *
+
+__all__ = ['ActivityLogAlert']
 
 
 class ActivityLogAlert(pulumi.CustomResource):
-    actions: pulumi.Output[dict]
-    """
-    The actions that will activate when the condition is met.
-      * `action_groups` (`list`) - The list of activity log alerts.
-        * `action_group_id` (`str`) - The resourceId of the action group. This cannot be null or empty.
-        * `webhook_properties` (`dict`) - the dictionary of custom properties to include with the post operation. These data are appended to the webhook payload.
-    """
-    condition: pulumi.Output[dict]
-    """
-    The condition that will cause this alert to activate.
-      * `all_of` (`list`) - The list of activity log alert conditions.
-        * `equals` (`str`) - The field value will be compared to this value (case-insensitive) to determine if the condition is met.
-        * `field` (`str`) - The name of the field that this condition will examine. The possible values for this field are (case-insensitive): 'resourceId', 'category', 'caller', 'level', 'operationName', 'resourceGroup', 'resourceProvider', 'status', 'subStatus', 'resourceType', or anything beginning with 'properties.'.
-    """
-    description: pulumi.Output[str]
-    """
-    A description of this activity log alert.
-    """
-    enabled: pulumi.Output[bool]
-    """
-    Indicates whether this activity log alert is enabled. If an activity log alert is not enabled, then none of its actions will be activated.
-    """
-    location: pulumi.Output[str]
-    """
-    Resource location
-    """
-    name: pulumi.Output[str]
-    """
-    Azure resource name
-    """
-    scopes: pulumi.Output[list]
-    """
-    A list of resourceIds that will be used as prefixes. The alert will only apply to activityLogs with resourceIds that fall under one of these prefixes. This list must include at least one item.
-    """
-    tags: pulumi.Output[dict]
-    """
-    Resource tags
-    """
-    type: pulumi.Output[str]
-    """
-    Azure resource type
-    """
-    def __init__(__self__, resource_name, opts=None, actions=None, condition=None, description=None, enabled=None, location=None, name=None, resource_group_name=None, scopes=None, tags=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 actions: Optional[pulumi.Input[pulumi.InputType['ActivityLogAlertActionListArgs']]] = None,
+                 condition: Optional[pulumi.Input[pulumi.InputType['ActivityLogAlertAllOfConditionArgs']]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 enabled: Optional[pulumi.Input[bool]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 scopes: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         An activity log alert resource.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[dict] actions: The actions that will activate when the condition is met.
-        :param pulumi.Input[dict] condition: The condition that will cause this alert to activate.
+        :param pulumi.Input[pulumi.InputType['ActivityLogAlertActionListArgs']] actions: The actions that will activate when the condition is met.
+        :param pulumi.Input[pulumi.InputType['ActivityLogAlertAllOfConditionArgs']] condition: The condition that will cause this alert to activate.
         :param pulumi.Input[str] description: A description of this activity log alert.
         :param pulumi.Input[bool] enabled: Indicates whether this activity log alert is enabled. If an activity log alert is not enabled, then none of its actions will be activated.
         :param pulumi.Input[str] location: Resource location
         :param pulumi.Input[str] name: The name of the activity log alert.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
-        :param pulumi.Input[list] scopes: A list of resourceIds that will be used as prefixes. The alert will only apply to activityLogs with resourceIds that fall under one of these prefixes. This list must include at least one item.
-        :param pulumi.Input[dict] tags: Resource tags
-
-        The **actions** object supports the following:
-
-          * `action_groups` (`pulumi.Input[list]`) - The list of activity log alerts.
-            * `action_group_id` (`pulumi.Input[str]`) - The resourceId of the action group. This cannot be null or empty.
-            * `webhook_properties` (`pulumi.Input[dict]`) - the dictionary of custom properties to include with the post operation. These data are appended to the webhook payload.
-
-        The **condition** object supports the following:
-
-          * `all_of` (`pulumi.Input[list]`) - The list of activity log alert conditions.
-            * `equals` (`pulumi.Input[str]`) - The field value will be compared to this value (case-insensitive) to determine if the condition is met.
-            * `field` (`pulumi.Input[str]`) - The name of the field that this condition will examine. The possible values for this field are (case-insensitive): 'resourceId', 'category', 'caller', 'level', 'operationName', 'resourceGroup', 'resourceProvider', 'status', 'subStatus', 'resourceType', or anything beginning with 'properties.'.
+        :param pulumi.Input[List[pulumi.Input[str]]] scopes: A list of resourceIds that will be used as prefixes. The alert will only apply to activityLogs with resourceIds that fall under one of these prefixes. This list must include at least one item.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -126,13 +90,15 @@ class ActivityLogAlert(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None) -> 'ActivityLogAlert':
         """
         Get an existing ActivityLogAlert resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -141,8 +107,81 @@ class ActivityLogAlert(pulumi.CustomResource):
 
         return ActivityLogAlert(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter
+    def actions(self) -> 'outputs.ActivityLogAlertActionListResponse':
+        """
+        The actions that will activate when the condition is met.
+        """
+        return pulumi.get(self, "actions")
+
+    @property
+    @pulumi.getter
+    def condition(self) -> 'outputs.ActivityLogAlertAllOfConditionResponse':
+        """
+        The condition that will cause this alert to activate.
+        """
+        return pulumi.get(self, "condition")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        """
+        A description of this activity log alert.
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[bool]:
+        """
+        Indicates whether this activity log alert is enabled. If an activity log alert is not enabled, then none of its actions will be activated.
+        """
+        return pulumi.get(self, "enabled")
+
+    @property
+    @pulumi.getter
+    def location(self) -> str:
+        """
+        Resource location
+        """
+        return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Azure resource name
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def scopes(self) -> List[str]:
+        """
+        A list of resourceIds that will be used as prefixes. The alert will only apply to activityLogs with resourceIds that fall under one of these prefixes. This list must include at least one item.
+        """
+        return pulumi.get(self, "scopes")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Mapping[str, str]]:
+        """
+        Resource tags
+        """
+        return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Azure resource type
+        """
+        return pulumi.get(self, "type")
+
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

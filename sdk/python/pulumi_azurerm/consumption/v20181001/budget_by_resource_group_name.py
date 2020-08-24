@@ -5,60 +5,30 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+from . import outputs
+from ._inputs import *
+
+__all__ = ['BudgetByResourceGroupName']
 
 
 class BudgetByResourceGroupName(pulumi.CustomResource):
-    amount: pulumi.Output[float]
-    """
-    The total amount of cost to track with the budget
-    """
-    category: pulumi.Output[str]
-    """
-    The category of the budget, whether the budget tracks cost or usage.
-    """
-    current_spend: pulumi.Output[dict]
-    """
-    The current amount of cost which is being tracked for a budget.
-      * `amount` (`float`) - The total amount of cost which is being tracked by the budget.
-      * `unit` (`str`) - The unit of measure for the budget amount.
-    """
-    e_tag: pulumi.Output[str]
-    """
-    eTag of the resource. To handle concurrent update scenario, this field will be used to determine whether the user is updating the latest version or not.
-    """
-    filters: pulumi.Output[dict]
-    """
-    May be used to filter budgets by resource group, resource, or meter.
-      * `meters` (`list`) - The list of filters on meters (GUID), mandatory for budgets of usage category. 
-      * `resource_groups` (`list`) - The list of filters on resource groups, allowed at subscription level only.
-      * `resources` (`list`) - The list of filters on resources.
-      * `tags` (`dict`) - The dictionary of filters on tags.
-    """
-    name: pulumi.Output[str]
-    """
-    Resource name.
-    """
-    notifications: pulumi.Output[dict]
-    """
-    Dictionary of notifications associated with the budget. Budget can have up to five notifications.
-    """
-    time_grain: pulumi.Output[str]
-    """
-    The time covered by a budget. Tracking of the amount will be reset based on the time grain.
-    """
-    time_period: pulumi.Output[dict]
-    """
-    Has start and end date of the budget. The start date must be first of the month and should be less than the end date. Budget start date must be on or after June 1, 2017. Future start date should not be more than three months. Past start date should  be selected within the timegrain period. There are no restrictions on the end date.
-      * `end_date` (`str`) - The end date for the budget. If not provided, we default this to 10 years from the start date.
-      * `start_date` (`str`) - The start date for the budget.
-    """
-    type: pulumi.Output[str]
-    """
-    Resource type.
-    """
-    def __init__(__self__, resource_name, opts=None, amount=None, category=None, e_tag=None, filters=None, name=None, notifications=None, resource_group_name=None, time_grain=None, time_period=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 amount: Optional[pulumi.Input[float]] = None,
+                 category: Optional[pulumi.Input[str]] = None,
+                 e_tag: Optional[pulumi.Input[str]] = None,
+                 filters: Optional[pulumi.Input[pulumi.InputType['FiltersArgs']]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 notifications: Optional[pulumi.Input[Mapping[str, pulumi.Input[pulumi.InputType['NotificationArgs']]]]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 time_grain: Optional[pulumi.Input[str]] = None,
+                 time_period: Optional[pulumi.Input[pulumi.InputType['BudgetTimePeriodArgs']]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         A budget resource.
 
@@ -67,24 +37,12 @@ class BudgetByResourceGroupName(pulumi.CustomResource):
         :param pulumi.Input[float] amount: The total amount of cost to track with the budget
         :param pulumi.Input[str] category: The category of the budget, whether the budget tracks cost or usage.
         :param pulumi.Input[str] e_tag: eTag of the resource. To handle concurrent update scenario, this field will be used to determine whether the user is updating the latest version or not.
-        :param pulumi.Input[dict] filters: May be used to filter budgets by resource group, resource, or meter.
+        :param pulumi.Input[pulumi.InputType['FiltersArgs']] filters: May be used to filter budgets by resource group, resource, or meter.
         :param pulumi.Input[str] name: Budget Name.
-        :param pulumi.Input[dict] notifications: Dictionary of notifications associated with the budget. Budget can have up to five notifications.
+        :param pulumi.Input[Mapping[str, pulumi.Input[pulumi.InputType['NotificationArgs']]]] notifications: Dictionary of notifications associated with the budget. Budget can have up to five notifications.
         :param pulumi.Input[str] resource_group_name: Azure Resource Group Name.
         :param pulumi.Input[str] time_grain: The time covered by a budget. Tracking of the amount will be reset based on the time grain.
-        :param pulumi.Input[dict] time_period: Has start and end date of the budget. The start date must be first of the month and should be less than the end date. Budget start date must be on or after June 1, 2017. Future start date should not be more than three months. Past start date should  be selected within the timegrain period. There are no restrictions on the end date.
-
-        The **filters** object supports the following:
-
-          * `meters` (`pulumi.Input[list]`) - The list of filters on meters (GUID), mandatory for budgets of usage category. 
-          * `resource_groups` (`pulumi.Input[list]`) - The list of filters on resource groups, allowed at subscription level only.
-          * `resources` (`pulumi.Input[list]`) - The list of filters on resources.
-          * `tags` (`pulumi.Input[dict]`) - The dictionary of filters on tags.
-
-        The **time_period** object supports the following:
-
-          * `end_date` (`pulumi.Input[str]`) - The end date for the budget. If not provided, we default this to 10 years from the start date.
-          * `start_date` (`pulumi.Input[str]`) - The start date for the budget.
+        :param pulumi.Input[pulumi.InputType['BudgetTimePeriodArgs']] time_period: Has start and end date of the budget. The start date must be first of the month and should be less than the end date. Budget start date must be on or after June 1, 2017. Future start date should not be more than three months. Past start date should  be selected within the timegrain period. There are no restrictions on the end date.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -135,13 +93,15 @@ class BudgetByResourceGroupName(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None) -> 'BudgetByResourceGroupName':
         """
         Get an existing BudgetByResourceGroupName resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -150,8 +110,89 @@ class BudgetByResourceGroupName(pulumi.CustomResource):
 
         return BudgetByResourceGroupName(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter
+    def amount(self) -> float:
+        """
+        The total amount of cost to track with the budget
+        """
+        return pulumi.get(self, "amount")
+
+    @property
+    @pulumi.getter
+    def category(self) -> str:
+        """
+        The category of the budget, whether the budget tracks cost or usage.
+        """
+        return pulumi.get(self, "category")
+
+    @property
+    @pulumi.getter(name="currentSpend")
+    def current_spend(self) -> 'outputs.CurrentSpendResponse':
+        """
+        The current amount of cost which is being tracked for a budget.
+        """
+        return pulumi.get(self, "current_spend")
+
+    @property
+    @pulumi.getter(name="eTag")
+    def e_tag(self) -> Optional[str]:
+        """
+        eTag of the resource. To handle concurrent update scenario, this field will be used to determine whether the user is updating the latest version or not.
+        """
+        return pulumi.get(self, "e_tag")
+
+    @property
+    @pulumi.getter
+    def filters(self) -> Optional['outputs.FiltersResponse']:
+        """
+        May be used to filter budgets by resource group, resource, or meter.
+        """
+        return pulumi.get(self, "filters")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Resource name.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def notifications(self) -> Optional[Mapping[str, 'outputs.NotificationResponse']]:
+        """
+        Dictionary of notifications associated with the budget. Budget can have up to five notifications.
+        """
+        return pulumi.get(self, "notifications")
+
+    @property
+    @pulumi.getter(name="timeGrain")
+    def time_grain(self) -> str:
+        """
+        The time covered by a budget. Tracking of the amount will be reset based on the time grain.
+        """
+        return pulumi.get(self, "time_grain")
+
+    @property
+    @pulumi.getter(name="timePeriod")
+    def time_period(self) -> 'outputs.BudgetTimePeriodResponse':
+        """
+        Has start and end date of the budget. The start date must be first of the month and should be less than the end date. Budget start date must be on or after June 1, 2017. Future start date should not be more than three months. Past start date should  be selected within the timegrain period. There are no restrictions on the end date.
+        """
+        return pulumi.get(self, "time_period")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Resource type.
+        """
+        return pulumi.get(self, "type")
+
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

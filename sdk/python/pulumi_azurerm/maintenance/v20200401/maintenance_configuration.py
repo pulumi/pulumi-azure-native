@@ -5,52 +5,38 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+
+__all__ = ['MaintenanceConfiguration']
 
 
 class MaintenanceConfiguration(pulumi.CustomResource):
-    extension_properties: pulumi.Output[dict]
-    """
-    Gets or sets extensionProperties of the maintenanceConfiguration. This is for future use only and would be a set of key value pairs for additional information e.g. whether to follow SDP etc.
-    """
-    location: pulumi.Output[str]
-    """
-    Gets or sets location of the resource
-    """
-    maintenance_scope: pulumi.Output[str]
-    """
-    Gets or sets maintenanceScope of the configuration. It represent the impact area of the maintenance
-    """
-    name: pulumi.Output[str]
-    """
-    Name of the resource
-    """
-    namespace: pulumi.Output[str]
-    """
-    Gets or sets namespace of the resource e.g. Microsoft.Maintenance or Microsoft.Sql
-    """
-    tags: pulumi.Output[dict]
-    """
-    Gets or sets tags of the resource
-    """
-    type: pulumi.Output[str]
-    """
-    Type of the resource
-    """
-    def __init__(__self__, resource_name, opts=None, extension_properties=None, location=None, maintenance_scope=None, name=None, namespace=None, resource_group_name=None, tags=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 extension_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 maintenance_scope: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 namespace: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         Maintenance configuration record type
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[dict] extension_properties: Gets or sets extensionProperties of the maintenanceConfiguration. This is for future use only and would be a set of key value pairs for additional information e.g. whether to follow SDP etc.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] extension_properties: Gets or sets extensionProperties of the maintenanceConfiguration. This is for future use only and would be a set of key value pairs for additional information e.g. whether to follow SDP etc.
         :param pulumi.Input[str] location: Gets or sets location of the resource
         :param pulumi.Input[str] maintenance_scope: Gets or sets maintenanceScope of the configuration. It represent the impact area of the maintenance
         :param pulumi.Input[str] name: Resource Identifier
         :param pulumi.Input[str] namespace: Gets or sets namespace of the resource e.g. Microsoft.Maintenance or Microsoft.Sql
         :param pulumi.Input[str] resource_group_name: Resource Group Name
-        :param pulumi.Input[dict] tags: Gets or sets tags of the resource
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Gets or sets tags of the resource
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -88,13 +74,15 @@ class MaintenanceConfiguration(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None) -> 'MaintenanceConfiguration':
         """
         Get an existing MaintenanceConfiguration resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -103,8 +91,65 @@ class MaintenanceConfiguration(pulumi.CustomResource):
 
         return MaintenanceConfiguration(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter(name="extensionProperties")
+    def extension_properties(self) -> Optional[Mapping[str, str]]:
+        """
+        Gets or sets extensionProperties of the maintenanceConfiguration. This is for future use only and would be a set of key value pairs for additional information e.g. whether to follow SDP etc.
+        """
+        return pulumi.get(self, "extension_properties")
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[str]:
+        """
+        Gets or sets location of the resource
+        """
+        return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter(name="maintenanceScope")
+    def maintenance_scope(self) -> Optional[str]:
+        """
+        Gets or sets maintenanceScope of the configuration. It represent the impact area of the maintenance
+        """
+        return pulumi.get(self, "maintenance_scope")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Name of the resource
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def namespace(self) -> Optional[str]:
+        """
+        Gets or sets namespace of the resource e.g. Microsoft.Maintenance or Microsoft.Sql
+        """
+        return pulumi.get(self, "namespace")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Mapping[str, str]]:
+        """
+        Gets or sets tags of the resource
+        """
+        return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Type of the resource
+        """
+        return pulumi.get(self, "type")
+
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

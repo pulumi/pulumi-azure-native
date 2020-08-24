@@ -5,10 +5,17 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+from . import outputs
 
+__all__ = [
+    'GetStorageInsightConfigResult',
+    'AwaitableGetStorageInsightConfigResult',
+    'get_storage_insight_config',
+]
 
+@pulumi.output_type
 class GetStorageInsightConfigResult:
     """
     The top level storage insight resource container.
@@ -16,52 +23,92 @@ class GetStorageInsightConfigResult:
     def __init__(__self__, containers=None, e_tag=None, name=None, status=None, storage_account=None, tables=None, tags=None, type=None):
         if containers and not isinstance(containers, list):
             raise TypeError("Expected argument 'containers' to be a list")
-        __self__.containers = containers
+        pulumi.set(__self__, "containers", containers)
+        if e_tag and not isinstance(e_tag, str):
+            raise TypeError("Expected argument 'e_tag' to be a str")
+        pulumi.set(__self__, "e_tag", e_tag)
+        if name and not isinstance(name, str):
+            raise TypeError("Expected argument 'name' to be a str")
+        pulumi.set(__self__, "name", name)
+        if status and not isinstance(status, dict):
+            raise TypeError("Expected argument 'status' to be a dict")
+        pulumi.set(__self__, "status", status)
+        if storage_account and not isinstance(storage_account, dict):
+            raise TypeError("Expected argument 'storage_account' to be a dict")
+        pulumi.set(__self__, "storage_account", storage_account)
+        if tables and not isinstance(tables, list):
+            raise TypeError("Expected argument 'tables' to be a list")
+        pulumi.set(__self__, "tables", tables)
+        if tags and not isinstance(tags, dict):
+            raise TypeError("Expected argument 'tags' to be a dict")
+        pulumi.set(__self__, "tags", tags)
+        if type and not isinstance(type, str):
+            raise TypeError("Expected argument 'type' to be a str")
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def containers(self) -> Optional[List[str]]:
         """
         The names of the blob containers that the workspace should read
         """
-        if e_tag and not isinstance(e_tag, str):
-            raise TypeError("Expected argument 'e_tag' to be a str")
-        __self__.e_tag = e_tag
+        return pulumi.get(self, "containers")
+
+    @property
+    @pulumi.getter(name="eTag")
+    def e_tag(self) -> Optional[str]:
         """
         The ETag of the storage insight.
         """
-        if name and not isinstance(name, str):
-            raise TypeError("Expected argument 'name' to be a str")
-        __self__.name = name
+        return pulumi.get(self, "e_tag")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
         """
         The name of the resource
         """
-        if status and not isinstance(status, dict):
-            raise TypeError("Expected argument 'status' to be a dict")
-        __self__.status = status
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def status(self) -> 'outputs.StorageInsightStatusResponse':
         """
         The status of the storage insight
         """
-        if storage_account and not isinstance(storage_account, dict):
-            raise TypeError("Expected argument 'storage_account' to be a dict")
-        __self__.storage_account = storage_account
+        return pulumi.get(self, "status")
+
+    @property
+    @pulumi.getter(name="storageAccount")
+    def storage_account(self) -> 'outputs.StorageAccountResponse':
         """
         The storage account connection details
         """
-        if tables and not isinstance(tables, list):
-            raise TypeError("Expected argument 'tables' to be a list")
-        __self__.tables = tables
+        return pulumi.get(self, "storage_account")
+
+    @property
+    @pulumi.getter
+    def tables(self) -> Optional[List[str]]:
         """
         The names of the Azure tables that the workspace should read
         """
-        if tags and not isinstance(tags, dict):
-            raise TypeError("Expected argument 'tags' to be a dict")
-        __self__.tags = tags
+        return pulumi.get(self, "tables")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Mapping[str, str]]:
         """
         Resource tags.
         """
-        if type and not isinstance(type, str):
-            raise TypeError("Expected argument 'type' to be a str")
-        __self__.type = type
+        return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
         """
         The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
         """
+        return pulumi.get(self, "type")
 
 
 class AwaitableGetStorageInsightConfigResult(GetStorageInsightConfigResult):
@@ -80,7 +127,10 @@ class AwaitableGetStorageInsightConfigResult(GetStorageInsightConfigResult):
             type=self.type)
 
 
-def get_storage_insight_config(name=None, resource_group_name=None, workspace_name=None, opts=None):
+def get_storage_insight_config(name: Optional[str] = None,
+                               resource_group_name: Optional[str] = None,
+                               workspace_name: Optional[str] = None,
+                               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetStorageInsightConfigResult:
     """
     Use this data source to access information about an existing resource.
 
@@ -96,14 +146,14 @@ def get_storage_insight_config(name=None, resource_group_name=None, workspace_na
         opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = _utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('azurerm:operationalinsights/v20200801:getStorageInsightConfig', __args__, opts=opts).value
+    __ret__ = pulumi.runtime.invoke('azurerm:operationalinsights/v20200801:getStorageInsightConfig', __args__, opts=opts, typ=GetStorageInsightConfigResult).value
 
     return AwaitableGetStorageInsightConfigResult(
-        containers=__ret__.get('containers'),
-        e_tag=__ret__.get('eTag'),
-        name=__ret__.get('name'),
-        status=__ret__.get('status'),
-        storage_account=__ret__.get('storageAccount'),
-        tables=__ret__.get('tables'),
-        tags=__ret__.get('tags'),
-        type=__ret__.get('type'))
+        containers=__ret__.containers,
+        e_tag=__ret__.e_tag,
+        name=__ret__.name,
+        status=__ret__.status,
+        storage_account=__ret__.storage_account,
+        tables=__ret__.tables,
+        tags=__ret__.tags,
+        type=__ret__.type)

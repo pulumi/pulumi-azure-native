@@ -5,45 +5,30 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+from . import outputs
+from ._inputs import *
+
+__all__ = ['AnalyticsItem']
 
 
 class AnalyticsItem(pulumi.CustomResource):
-    content: pulumi.Output[str]
-    """
-    The content of this item
-    """
-    name: pulumi.Output[str]
-    """
-    The user-defined name of the item.
-    """
-    properties: pulumi.Output[dict]
-    """
-    A set of properties that can be defined in the context of a specific item type. Each type may have its own properties.
-      * `function_alias` (`str`) - A function alias, used when the type of the item is Function
-    """
-    scope: pulumi.Output[str]
-    """
-    Enum indicating if this item definition is owned by a specific user or is shared between all users with access to the Application Insights component.
-    """
-    time_created: pulumi.Output[str]
-    """
-    Date and time in UTC when this item was created.
-    """
-    time_modified: pulumi.Output[str]
-    """
-    Date and time in UTC of the last modification that was made to this item.
-    """
-    type: pulumi.Output[str]
-    """
-    Enum indicating the type of the Analytics item.
-    """
-    version: pulumi.Output[str]
-    """
-    This instance's version of the data model. This can change as new features are added.
-    """
-    def __init__(__self__, resource_name, opts=None, content=None, id=None, name=None, override_item=None, properties=None, resource_group_name=None, resource_name_=None, scope=None, type=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 content: Optional[pulumi.Input[str]] = None,
+                 id: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 override_item: Optional[pulumi.Input[bool]] = None,
+                 properties: Optional[pulumi.Input[pulumi.InputType['ApplicationInsightsComponentAnalyticsItemPropertiesArgs']]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 resource_name_: Optional[pulumi.Input[str]] = None,
+                 scope: Optional[pulumi.Input[str]] = None,
+                 type: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         Properties that define an Analytics item that is associated to an Application Insights component.
 
@@ -53,15 +38,11 @@ class AnalyticsItem(pulumi.CustomResource):
         :param pulumi.Input[str] id: Internally assigned unique id of the item definition.
         :param pulumi.Input[str] name: Enum indicating if this item definition is owned by a specific user or is shared between all users with access to the Application Insights component.
         :param pulumi.Input[bool] override_item: Flag indicating whether or not to force save an item. This allows overriding an item if it already exists.
-        :param pulumi.Input[dict] properties: A set of properties that can be defined in the context of a specific item type. Each type may have its own properties.
+        :param pulumi.Input[pulumi.InputType['ApplicationInsightsComponentAnalyticsItemPropertiesArgs']] properties: A set of properties that can be defined in the context of a specific item type. Each type may have its own properties.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] resource_name_: The name of the Application Insights component resource.
         :param pulumi.Input[str] scope: Enum indicating if this item definition is owned by a specific user or is shared between all users with access to the Application Insights component.
         :param pulumi.Input[str] type: Enum indicating the type of the Analytics item.
-
-        The **properties** object supports the following:
-
-          * `function_alias` (`pulumi.Input[str]`) - A function alias, used when the type of the item is Function
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -105,13 +86,15 @@ class AnalyticsItem(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None) -> 'AnalyticsItem':
         """
         Get an existing AnalyticsItem resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -120,8 +103,73 @@ class AnalyticsItem(pulumi.CustomResource):
 
         return AnalyticsItem(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter
+    def content(self) -> Optional[str]:
+        """
+        The content of this item
+        """
+        return pulumi.get(self, "content")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        The user-defined name of the item.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def properties(self) -> 'outputs.ApplicationInsightsComponentAnalyticsItemPropertiesResponse':
+        """
+        A set of properties that can be defined in the context of a specific item type. Each type may have its own properties.
+        """
+        return pulumi.get(self, "properties")
+
+    @property
+    @pulumi.getter
+    def scope(self) -> Optional[str]:
+        """
+        Enum indicating if this item definition is owned by a specific user or is shared between all users with access to the Application Insights component.
+        """
+        return pulumi.get(self, "scope")
+
+    @property
+    @pulumi.getter(name="timeCreated")
+    def time_created(self) -> str:
+        """
+        Date and time in UTC when this item was created.
+        """
+        return pulumi.get(self, "time_created")
+
+    @property
+    @pulumi.getter(name="timeModified")
+    def time_modified(self) -> str:
+        """
+        Date and time in UTC of the last modification that was made to this item.
+        """
+        return pulumi.get(self, "time_modified")
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[str]:
+        """
+        Enum indicating the type of the Analytics item.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def version(self) -> str:
+        """
+        This instance's version of the data model. This can change as new features are added.
+        """
+        return pulumi.get(self, "version")
+
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

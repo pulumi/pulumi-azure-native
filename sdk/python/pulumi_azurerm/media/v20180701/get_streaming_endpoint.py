@@ -5,10 +5,17 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+from . import outputs
 
+__all__ = [
+    'GetStreamingEndpointResult',
+    'AwaitableGetStreamingEndpointResult',
+    'get_streaming_endpoint',
+]
 
+@pulumi.output_type
 class GetStreamingEndpointResult:
     """
     The StreamingEndpoint.
@@ -16,124 +23,224 @@ class GetStreamingEndpointResult:
     def __init__(__self__, access_control=None, availability_set_name=None, cdn_enabled=None, cdn_profile=None, cdn_provider=None, created=None, cross_site_access_policies=None, custom_host_names=None, description=None, free_trial_end_time=None, host_name=None, last_modified=None, location=None, max_cache_age=None, name=None, provisioning_state=None, resource_state=None, scale_units=None, tags=None, type=None):
         if access_control and not isinstance(access_control, dict):
             raise TypeError("Expected argument 'access_control' to be a dict")
-        __self__.access_control = access_control
+        pulumi.set(__self__, "access_control", access_control)
+        if availability_set_name and not isinstance(availability_set_name, str):
+            raise TypeError("Expected argument 'availability_set_name' to be a str")
+        pulumi.set(__self__, "availability_set_name", availability_set_name)
+        if cdn_enabled and not isinstance(cdn_enabled, bool):
+            raise TypeError("Expected argument 'cdn_enabled' to be a bool")
+        pulumi.set(__self__, "cdn_enabled", cdn_enabled)
+        if cdn_profile and not isinstance(cdn_profile, str):
+            raise TypeError("Expected argument 'cdn_profile' to be a str")
+        pulumi.set(__self__, "cdn_profile", cdn_profile)
+        if cdn_provider and not isinstance(cdn_provider, str):
+            raise TypeError("Expected argument 'cdn_provider' to be a str")
+        pulumi.set(__self__, "cdn_provider", cdn_provider)
+        if created and not isinstance(created, str):
+            raise TypeError("Expected argument 'created' to be a str")
+        pulumi.set(__self__, "created", created)
+        if cross_site_access_policies and not isinstance(cross_site_access_policies, dict):
+            raise TypeError("Expected argument 'cross_site_access_policies' to be a dict")
+        pulumi.set(__self__, "cross_site_access_policies", cross_site_access_policies)
+        if custom_host_names and not isinstance(custom_host_names, list):
+            raise TypeError("Expected argument 'custom_host_names' to be a list")
+        pulumi.set(__self__, "custom_host_names", custom_host_names)
+        if description and not isinstance(description, str):
+            raise TypeError("Expected argument 'description' to be a str")
+        pulumi.set(__self__, "description", description)
+        if free_trial_end_time and not isinstance(free_trial_end_time, str):
+            raise TypeError("Expected argument 'free_trial_end_time' to be a str")
+        pulumi.set(__self__, "free_trial_end_time", free_trial_end_time)
+        if host_name and not isinstance(host_name, str):
+            raise TypeError("Expected argument 'host_name' to be a str")
+        pulumi.set(__self__, "host_name", host_name)
+        if last_modified and not isinstance(last_modified, str):
+            raise TypeError("Expected argument 'last_modified' to be a str")
+        pulumi.set(__self__, "last_modified", last_modified)
+        if location and not isinstance(location, str):
+            raise TypeError("Expected argument 'location' to be a str")
+        pulumi.set(__self__, "location", location)
+        if max_cache_age and not isinstance(max_cache_age, float):
+            raise TypeError("Expected argument 'max_cache_age' to be a float")
+        pulumi.set(__self__, "max_cache_age", max_cache_age)
+        if name and not isinstance(name, str):
+            raise TypeError("Expected argument 'name' to be a str")
+        pulumi.set(__self__, "name", name)
+        if provisioning_state and not isinstance(provisioning_state, str):
+            raise TypeError("Expected argument 'provisioning_state' to be a str")
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if resource_state and not isinstance(resource_state, str):
+            raise TypeError("Expected argument 'resource_state' to be a str")
+        pulumi.set(__self__, "resource_state", resource_state)
+        if scale_units and not isinstance(scale_units, float):
+            raise TypeError("Expected argument 'scale_units' to be a float")
+        pulumi.set(__self__, "scale_units", scale_units)
+        if tags and not isinstance(tags, dict):
+            raise TypeError("Expected argument 'tags' to be a dict")
+        pulumi.set(__self__, "tags", tags)
+        if type and not isinstance(type, str):
+            raise TypeError("Expected argument 'type' to be a str")
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="accessControl")
+    def access_control(self) -> Optional['outputs.StreamingEndpointAccessControlResponse']:
         """
         The access control definition of the StreamingEndpoint.
         """
-        if availability_set_name and not isinstance(availability_set_name, str):
-            raise TypeError("Expected argument 'availability_set_name' to be a str")
-        __self__.availability_set_name = availability_set_name
+        return pulumi.get(self, "access_control")
+
+    @property
+    @pulumi.getter(name="availabilitySetName")
+    def availability_set_name(self) -> Optional[str]:
         """
         The name of the AvailabilitySet used with this StreamingEndpoint for high availability streaming.  This value can only be set at creation time.
         """
-        if cdn_enabled and not isinstance(cdn_enabled, bool):
-            raise TypeError("Expected argument 'cdn_enabled' to be a bool")
-        __self__.cdn_enabled = cdn_enabled
+        return pulumi.get(self, "availability_set_name")
+
+    @property
+    @pulumi.getter(name="cdnEnabled")
+    def cdn_enabled(self) -> Optional[bool]:
         """
         The CDN enabled flag.
         """
-        if cdn_profile and not isinstance(cdn_profile, str):
-            raise TypeError("Expected argument 'cdn_profile' to be a str")
-        __self__.cdn_profile = cdn_profile
+        return pulumi.get(self, "cdn_enabled")
+
+    @property
+    @pulumi.getter(name="cdnProfile")
+    def cdn_profile(self) -> Optional[str]:
         """
         The CDN profile name.
         """
-        if cdn_provider and not isinstance(cdn_provider, str):
-            raise TypeError("Expected argument 'cdn_provider' to be a str")
-        __self__.cdn_provider = cdn_provider
+        return pulumi.get(self, "cdn_profile")
+
+    @property
+    @pulumi.getter(name="cdnProvider")
+    def cdn_provider(self) -> Optional[str]:
         """
         The CDN provider name.
         """
-        if created and not isinstance(created, str):
-            raise TypeError("Expected argument 'created' to be a str")
-        __self__.created = created
+        return pulumi.get(self, "cdn_provider")
+
+    @property
+    @pulumi.getter
+    def created(self) -> str:
         """
         The exact time the StreamingEndpoint was created.
         """
-        if cross_site_access_policies and not isinstance(cross_site_access_policies, dict):
-            raise TypeError("Expected argument 'cross_site_access_policies' to be a dict")
-        __self__.cross_site_access_policies = cross_site_access_policies
+        return pulumi.get(self, "created")
+
+    @property
+    @pulumi.getter(name="crossSiteAccessPolicies")
+    def cross_site_access_policies(self) -> Optional['outputs.CrossSiteAccessPoliciesResponse']:
         """
         The StreamingEndpoint access policies.
         """
-        if custom_host_names and not isinstance(custom_host_names, list):
-            raise TypeError("Expected argument 'custom_host_names' to be a list")
-        __self__.custom_host_names = custom_host_names
+        return pulumi.get(self, "cross_site_access_policies")
+
+    @property
+    @pulumi.getter(name="customHostNames")
+    def custom_host_names(self) -> Optional[List[str]]:
         """
         The custom host names of the StreamingEndpoint
         """
-        if description and not isinstance(description, str):
-            raise TypeError("Expected argument 'description' to be a str")
-        __self__.description = description
+        return pulumi.get(self, "custom_host_names")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
         """
         The StreamingEndpoint description.
         """
-        if free_trial_end_time and not isinstance(free_trial_end_time, str):
-            raise TypeError("Expected argument 'free_trial_end_time' to be a str")
-        __self__.free_trial_end_time = free_trial_end_time
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="freeTrialEndTime")
+    def free_trial_end_time(self) -> str:
         """
         The free trial expiration time.
         """
-        if host_name and not isinstance(host_name, str):
-            raise TypeError("Expected argument 'host_name' to be a str")
-        __self__.host_name = host_name
+        return pulumi.get(self, "free_trial_end_time")
+
+    @property
+    @pulumi.getter(name="hostName")
+    def host_name(self) -> str:
         """
         The StreamingEndpoint host name.
         """
-        if last_modified and not isinstance(last_modified, str):
-            raise TypeError("Expected argument 'last_modified' to be a str")
-        __self__.last_modified = last_modified
+        return pulumi.get(self, "host_name")
+
+    @property
+    @pulumi.getter(name="lastModified")
+    def last_modified(self) -> str:
         """
         The exact time the StreamingEndpoint was last modified.
         """
-        if location and not isinstance(location, str):
-            raise TypeError("Expected argument 'location' to be a str")
-        __self__.location = location
+        return pulumi.get(self, "last_modified")
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[str]:
         """
         The Azure Region of the resource.
         """
-        if max_cache_age and not isinstance(max_cache_age, float):
-            raise TypeError("Expected argument 'max_cache_age' to be a float")
-        __self__.max_cache_age = max_cache_age
+        return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter(name="maxCacheAge")
+    def max_cache_age(self) -> Optional[float]:
         """
         Max cache age
         """
-        if name and not isinstance(name, str):
-            raise TypeError("Expected argument 'name' to be a str")
-        __self__.name = name
+        return pulumi.get(self, "max_cache_age")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
         """
         The name of the resource.
         """
-        if provisioning_state and not isinstance(provisioning_state, str):
-            raise TypeError("Expected argument 'provisioning_state' to be a str")
-        __self__.provisioning_state = provisioning_state
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
         """
         The provisioning state of the StreamingEndpoint.
         """
-        if resource_state and not isinstance(resource_state, str):
-            raise TypeError("Expected argument 'resource_state' to be a str")
-        __self__.resource_state = resource_state
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="resourceState")
+    def resource_state(self) -> str:
         """
         The resource state of the StreamingEndpoint.
         """
-        if scale_units and not isinstance(scale_units, float):
-            raise TypeError("Expected argument 'scale_units' to be a float")
-        __self__.scale_units = scale_units
+        return pulumi.get(self, "resource_state")
+
+    @property
+    @pulumi.getter(name="scaleUnits")
+    def scale_units(self) -> float:
         """
         The number of scale units.  Use the Scale operation to adjust this value.
         """
-        if tags and not isinstance(tags, dict):
-            raise TypeError("Expected argument 'tags' to be a dict")
-        __self__.tags = tags
+        return pulumi.get(self, "scale_units")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Mapping[str, str]]:
         """
         Resource tags.
         """
-        if type and not isinstance(type, str):
-            raise TypeError("Expected argument 'type' to be a str")
-        __self__.type = type
+        return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
         """
         The type of the resource.
         """
+        return pulumi.get(self, "type")
 
 
 class AwaitableGetStreamingEndpointResult(GetStreamingEndpointResult):
@@ -164,7 +271,10 @@ class AwaitableGetStreamingEndpointResult(GetStreamingEndpointResult):
             type=self.type)
 
 
-def get_streaming_endpoint(account_name=None, name=None, resource_group_name=None, opts=None):
+def get_streaming_endpoint(account_name: Optional[str] = None,
+                           name: Optional[str] = None,
+                           resource_group_name: Optional[str] = None,
+                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetStreamingEndpointResult:
     """
     Use this data source to access information about an existing resource.
 
@@ -180,26 +290,26 @@ def get_streaming_endpoint(account_name=None, name=None, resource_group_name=Non
         opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = _utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('azurerm:media/v20180701:getStreamingEndpoint', __args__, opts=opts).value
+    __ret__ = pulumi.runtime.invoke('azurerm:media/v20180701:getStreamingEndpoint', __args__, opts=opts, typ=GetStreamingEndpointResult).value
 
     return AwaitableGetStreamingEndpointResult(
-        access_control=__ret__.get('accessControl'),
-        availability_set_name=__ret__.get('availabilitySetName'),
-        cdn_enabled=__ret__.get('cdnEnabled'),
-        cdn_profile=__ret__.get('cdnProfile'),
-        cdn_provider=__ret__.get('cdnProvider'),
-        created=__ret__.get('created'),
-        cross_site_access_policies=__ret__.get('crossSiteAccessPolicies'),
-        custom_host_names=__ret__.get('customHostNames'),
-        description=__ret__.get('description'),
-        free_trial_end_time=__ret__.get('freeTrialEndTime'),
-        host_name=__ret__.get('hostName'),
-        last_modified=__ret__.get('lastModified'),
-        location=__ret__.get('location'),
-        max_cache_age=__ret__.get('maxCacheAge'),
-        name=__ret__.get('name'),
-        provisioning_state=__ret__.get('provisioningState'),
-        resource_state=__ret__.get('resourceState'),
-        scale_units=__ret__.get('scaleUnits'),
-        tags=__ret__.get('tags'),
-        type=__ret__.get('type'))
+        access_control=__ret__.access_control,
+        availability_set_name=__ret__.availability_set_name,
+        cdn_enabled=__ret__.cdn_enabled,
+        cdn_profile=__ret__.cdn_profile,
+        cdn_provider=__ret__.cdn_provider,
+        created=__ret__.created,
+        cross_site_access_policies=__ret__.cross_site_access_policies,
+        custom_host_names=__ret__.custom_host_names,
+        description=__ret__.description,
+        free_trial_end_time=__ret__.free_trial_end_time,
+        host_name=__ret__.host_name,
+        last_modified=__ret__.last_modified,
+        location=__ret__.location,
+        max_cache_age=__ret__.max_cache_age,
+        name=__ret__.name,
+        provisioning_state=__ret__.provisioning_state,
+        resource_state=__ret__.resource_state,
+        scale_units=__ret__.scale_units,
+        tags=__ret__.tags,
+        type=__ret__.type)

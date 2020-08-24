@@ -5,73 +5,32 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+from . import outputs
+from ._inputs import *
+
+__all__ = ['Workspace']
 
 
 class Workspace(pulumi.CustomResource):
-    customer_id: pulumi.Output[str]
-    """
-    This is a read-only property. Represents the ID associated with the workspace.
-    """
-    e_tag: pulumi.Output[str]
-    """
-    The ETag of the workspace.
-    """
-    location: pulumi.Output[str]
-    """
-    The geo-location where the resource lives
-    """
-    name: pulumi.Output[str]
-    """
-    The name of the resource
-    """
-    private_link_scoped_resources: pulumi.Output[list]
-    """
-    List of linked private link scope resources.
-      * `resource_id` (`str`) - The full resource Id of the private link scope resource.
-      * `scope_id` (`str`) - The private link scope unique Identifier.
-    """
-    provisioning_state: pulumi.Output[str]
-    """
-    The provisioning state of the workspace.
-    """
-    public_network_access_for_ingestion: pulumi.Output[str]
-    """
-    The network access type for accessing Log Analytics ingestion.
-    """
-    public_network_access_for_query: pulumi.Output[str]
-    """
-    The network access type for accessing Log Analytics query.
-    """
-    retention_in_days: pulumi.Output[float]
-    """
-    The workspace data retention in days, between 30 and 730.
-    """
-    sku: pulumi.Output[dict]
-    """
-    The SKU of the workspace.
-      * `capacity_reservation_level` (`float`) - The capacity reservation level for this workspace, when CapacityReservation sku is selected.
-      * `last_sku_update` (`str`) - The last time when the sku was updated.
-      * `max_capacity_reservation_level` (`float`) - The maximum capacity reservation level available for this workspace, when CapacityReservation sku is selected.
-      * `name` (`str`) - The name of the SKU.
-    """
-    tags: pulumi.Output[dict]
-    """
-    Resource tags.
-    """
-    type: pulumi.Output[str]
-    """
-    The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
-    """
-    workspace_capping: pulumi.Output[dict]
-    """
-    The daily volume cap for ingestion.
-      * `daily_quota_gb` (`float`) - The workspace daily quota for ingestion.
-      * `data_ingestion_status` (`str`) - The status of data ingestion for this workspace.
-      * `quota_next_reset_time` (`str`) - The time when the quota will be rest.
-    """
-    def __init__(__self__, resource_name, opts=None, e_tag=None, location=None, name=None, provisioning_state=None, public_network_access_for_ingestion=None, public_network_access_for_query=None, resource_group_name=None, retention_in_days=None, sku=None, tags=None, workspace_capping=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 e_tag: Optional[pulumi.Input[str]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 provisioning_state: Optional[pulumi.Input[str]] = None,
+                 public_network_access_for_ingestion: Optional[pulumi.Input[str]] = None,
+                 public_network_access_for_query: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 retention_in_days: Optional[pulumi.Input[float]] = None,
+                 sku: Optional[pulumi.Input[pulumi.InputType['WorkspaceSkuArgs']]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 workspace_capping: Optional[pulumi.Input[pulumi.InputType['WorkspaceCappingArgs']]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         The top level Workspace resource container.
 
@@ -85,18 +44,9 @@ class Workspace(pulumi.CustomResource):
         :param pulumi.Input[str] public_network_access_for_query: The network access type for accessing Log Analytics query.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[float] retention_in_days: The workspace data retention in days, between 30 and 730.
-        :param pulumi.Input[dict] sku: The SKU of the workspace.
-        :param pulumi.Input[dict] tags: Resource tags.
-        :param pulumi.Input[dict] workspace_capping: The daily volume cap for ingestion.
-
-        The **sku** object supports the following:
-
-          * `capacity_reservation_level` (`pulumi.Input[float]`) - The capacity reservation level for this workspace, when CapacityReservation sku is selected.
-          * `name` (`pulumi.Input[str]`) - The name of the SKU.
-
-        The **workspace_capping** object supports the following:
-
-          * `daily_quota_gb` (`pulumi.Input[float]`) - The workspace daily quota for ingestion.
+        :param pulumi.Input[pulumi.InputType['WorkspaceSkuArgs']] sku: The SKU of the workspace.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
+        :param pulumi.Input[pulumi.InputType['WorkspaceCappingArgs']] workspace_capping: The daily volume cap for ingestion.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -142,13 +92,15 @@ class Workspace(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None) -> 'Workspace':
         """
         Get an existing Workspace resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -157,8 +109,113 @@ class Workspace(pulumi.CustomResource):
 
         return Workspace(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter(name="customerId")
+    def customer_id(self) -> str:
+        """
+        This is a read-only property. Represents the ID associated with the workspace.
+        """
+        return pulumi.get(self, "customer_id")
+
+    @property
+    @pulumi.getter(name="eTag")
+    def e_tag(self) -> Optional[str]:
+        """
+        The ETag of the workspace.
+        """
+        return pulumi.get(self, "e_tag")
+
+    @property
+    @pulumi.getter
+    def location(self) -> str:
+        """
+        The geo-location where the resource lives
+        """
+        return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the resource
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="privateLinkScopedResources")
+    def private_link_scoped_resources(self) -> List['outputs.PrivateLinkScopedResourceResponse']:
+        """
+        List of linked private link scope resources.
+        """
+        return pulumi.get(self, "private_link_scoped_resources")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> Optional[str]:
+        """
+        The provisioning state of the workspace.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="publicNetworkAccessForIngestion")
+    def public_network_access_for_ingestion(self) -> Optional[str]:
+        """
+        The network access type for accessing Log Analytics ingestion.
+        """
+        return pulumi.get(self, "public_network_access_for_ingestion")
+
+    @property
+    @pulumi.getter(name="publicNetworkAccessForQuery")
+    def public_network_access_for_query(self) -> Optional[str]:
+        """
+        The network access type for accessing Log Analytics query.
+        """
+        return pulumi.get(self, "public_network_access_for_query")
+
+    @property
+    @pulumi.getter(name="retentionInDays")
+    def retention_in_days(self) -> Optional[float]:
+        """
+        The workspace data retention in days, between 30 and 730.
+        """
+        return pulumi.get(self, "retention_in_days")
+
+    @property
+    @pulumi.getter
+    def sku(self) -> Optional['outputs.WorkspaceSkuResponse']:
+        """
+        The SKU of the workspace.
+        """
+        return pulumi.get(self, "sku")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Mapping[str, str]]:
+        """
+        Resource tags.
+        """
+        return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="workspaceCapping")
+    def workspace_capping(self) -> Optional['outputs.WorkspaceCappingResponse']:
+        """
+        The daily volume cap for ingestion.
+        """
+        return pulumi.get(self, "workspace_capping")
+
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

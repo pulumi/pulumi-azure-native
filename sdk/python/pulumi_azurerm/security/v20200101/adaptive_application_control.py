@@ -5,51 +5,27 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+from . import outputs
+from ._inputs import *
+
+__all__ = ['AdaptiveApplicationControl']
 
 
 class AdaptiveApplicationControl(pulumi.CustomResource):
-    configuration_status: pulumi.Output[str]
-    """
-    The configuration status of the machines group or machine or rule
-    """
-    enforcement_mode: pulumi.Output[str]
-    """
-    The application control policy enforcement/protection mode of the machine group
-    """
-    issues: pulumi.Output[list]
-    location: pulumi.Output[str]
-    """
-    Location where the resource is stored
-    """
-    name: pulumi.Output[str]
-    """
-    Resource name
-    """
-    path_recommendations: pulumi.Output[list]
-    protection_mode: pulumi.Output[dict]
-    """
-    The protection mode of the collection/file types. Exe/Msi/Script are used for Windows, Executable is used for Linux.
-      * `exe` (`str`) - The application control policy enforcement/protection mode of the machine group
-      * `executable` (`str`) - The application control policy enforcement/protection mode of the machine group
-      * `msi` (`str`) - The application control policy enforcement/protection mode of the machine group
-      * `script` (`str`) - The application control policy enforcement/protection mode of the machine group
-    """
-    recommendation_status: pulumi.Output[str]
-    """
-    The initial recommendation status of the machine group or machine
-    """
-    source_system: pulumi.Output[str]
-    """
-    The source type of the machine group
-    """
-    type: pulumi.Output[str]
-    """
-    Resource type
-    """
-    vm_recommendations: pulumi.Output[list]
-    def __init__(__self__, resource_name, opts=None, asc_location=None, enforcement_mode=None, name=None, path_recommendations=None, protection_mode=None, vm_recommendations=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 asc_location: Optional[pulumi.Input[str]] = None,
+                 enforcement_mode: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 path_recommendations: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['PathRecommendationArgs']]]]] = None,
+                 protection_mode: Optional[pulumi.Input[pulumi.InputType['ProtectionModeArgs']]] = None,
+                 vm_recommendations: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['VmRecommendationArgs']]]]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         Create a AdaptiveApplicationControl resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
@@ -57,40 +33,7 @@ class AdaptiveApplicationControl(pulumi.CustomResource):
         :param pulumi.Input[str] asc_location: The location where ASC stores the data of the subscription. can be retrieved from Get locations
         :param pulumi.Input[str] enforcement_mode: The application control policy enforcement/protection mode of the machine group
         :param pulumi.Input[str] name: Name of an application control machine group
-        :param pulumi.Input[dict] protection_mode: The protection mode of the collection/file types. Exe/Msi/Script are used for Windows, Executable is used for Linux.
-
-        The **path_recommendations** object supports the following:
-
-          * `action` (`pulumi.Input[str]`) - The recommendation action of the machine or rule
-          * `common` (`pulumi.Input[bool]`) - Whether the application is commonly run on the machine
-          * `configuration_status` (`pulumi.Input[str]`) - The configuration status of the machines group or machine or rule
-          * `file_type` (`pulumi.Input[str]`) - The type of the file (for Linux files - Executable is used)
-          * `path` (`pulumi.Input[str]`) - The full path of the file, or an identifier of the application
-          * `publisher_info` (`pulumi.Input[dict]`) - Represents the publisher information of a process/rule
-            * `binary_name` (`pulumi.Input[str]`) - The "OriginalName" field taken from the file's version resource
-            * `product_name` (`pulumi.Input[str]`) - The product name taken from the file's version resource
-            * `publisher_name` (`pulumi.Input[str]`) - The Subject field of the x.509 certificate used to sign the code, using the following fields -  O = Organization, L = Locality, S = State or Province, and C = Country
-            * `version` (`pulumi.Input[str]`) - The binary file version taken from the file's version resource
-
-          * `type` (`pulumi.Input[str]`) - The type of the rule to be allowed
-          * `user_sids` (`pulumi.Input[list]`)
-          * `usernames` (`pulumi.Input[list]`)
-            * `recommendation_action` (`pulumi.Input[str]`) - The recommendation action of the machine or rule
-            * `username` (`pulumi.Input[str]`) - Represents a user that is recommended to be allowed for a certain rule
-
-        The **protection_mode** object supports the following:
-
-          * `exe` (`pulumi.Input[str]`) - The application control policy enforcement/protection mode of the machine group
-          * `executable` (`pulumi.Input[str]`) - The application control policy enforcement/protection mode of the machine group
-          * `msi` (`pulumi.Input[str]`) - The application control policy enforcement/protection mode of the machine group
-          * `script` (`pulumi.Input[str]`) - The application control policy enforcement/protection mode of the machine group
-
-        The **vm_recommendations** object supports the following:
-
-          * `configuration_status` (`pulumi.Input[str]`) - The configuration status of the machines group or machine or rule
-          * `enforcement_support` (`pulumi.Input[str]`) - The machine supportability of Enforce feature
-          * `recommendation_action` (`pulumi.Input[str]`) - The recommendation action of the machine or rule
-          * `resource_id` (`pulumi.Input[str]`) - The full resource id of the machine
+        :param pulumi.Input[pulumi.InputType['ProtectionModeArgs']] protection_mode: The protection mode of the collection/file types. Exe/Msi/Script are used for Windows, Executable is used for Linux.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -132,13 +75,15 @@ class AdaptiveApplicationControl(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None) -> 'AdaptiveApplicationControl':
         """
         Get an existing AdaptiveApplicationControl resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -147,8 +92,88 @@ class AdaptiveApplicationControl(pulumi.CustomResource):
 
         return AdaptiveApplicationControl(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter(name="configurationStatus")
+    def configuration_status(self) -> str:
+        """
+        The configuration status of the machines group or machine or rule
+        """
+        return pulumi.get(self, "configuration_status")
+
+    @property
+    @pulumi.getter(name="enforcementMode")
+    def enforcement_mode(self) -> Optional[str]:
+        """
+        The application control policy enforcement/protection mode of the machine group
+        """
+        return pulumi.get(self, "enforcement_mode")
+
+    @property
+    @pulumi.getter
+    def issues(self) -> List['outputs.AdaptiveApplicationControlIssueSummaryResponse']:
+        return pulumi.get(self, "issues")
+
+    @property
+    @pulumi.getter
+    def location(self) -> str:
+        """
+        Location where the resource is stored
+        """
+        return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Resource name
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="pathRecommendations")
+    def path_recommendations(self) -> Optional[List['outputs.PathRecommendationResponse']]:
+        return pulumi.get(self, "path_recommendations")
+
+    @property
+    @pulumi.getter(name="protectionMode")
+    def protection_mode(self) -> Optional['outputs.ProtectionModeResponse']:
+        """
+        The protection mode of the collection/file types. Exe/Msi/Script are used for Windows, Executable is used for Linux.
+        """
+        return pulumi.get(self, "protection_mode")
+
+    @property
+    @pulumi.getter(name="recommendationStatus")
+    def recommendation_status(self) -> str:
+        """
+        The initial recommendation status of the machine group or machine
+        """
+        return pulumi.get(self, "recommendation_status")
+
+    @property
+    @pulumi.getter(name="sourceSystem")
+    def source_system(self) -> str:
+        """
+        The source type of the machine group
+        """
+        return pulumi.get(self, "source_system")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Resource type
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="vmRecommendations")
+    def vm_recommendations(self) -> Optional[List['outputs.VmRecommendationResponse']]:
+        return pulumi.get(self, "vm_recommendations")
+
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

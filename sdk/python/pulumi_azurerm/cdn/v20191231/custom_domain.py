@@ -5,44 +5,24 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+
+__all__ = ['CustomDomain']
 
 
 class CustomDomain(pulumi.CustomResource):
-    custom_https_provisioning_state: pulumi.Output[str]
-    """
-    Provisioning status of Custom Https of the custom domain.
-    """
-    custom_https_provisioning_substate: pulumi.Output[str]
-    """
-    Provisioning substate shows the progress of custom HTTPS enabling/disabling process step by step.
-    """
-    host_name: pulumi.Output[str]
-    """
-    The host name of the custom domain. Must be a domain name.
-    """
-    name: pulumi.Output[str]
-    """
-    Resource name.
-    """
-    provisioning_state: pulumi.Output[str]
-    """
-    Provisioning status of the custom domain.
-    """
-    resource_state: pulumi.Output[str]
-    """
-    Resource status of the custom domain.
-    """
-    type: pulumi.Output[str]
-    """
-    Resource type.
-    """
-    validation_data: pulumi.Output[str]
-    """
-    Special validation or data may be required when delivering CDN to some regions due to local compliance reasons. E.g. ICP license number of a custom domain is required to deliver content in China.
-    """
-    def __init__(__self__, resource_name, opts=None, endpoint_name=None, host_name=None, name=None, profile_name=None, resource_group_name=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 endpoint_name: Optional[pulumi.Input[str]] = None,
+                 host_name: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 profile_name: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         Friendly domain name mapping to the endpoint hostname that the customer provides for branding purposes, e.g. www.contoso.com.
 
@@ -101,13 +81,15 @@ class CustomDomain(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None) -> 'CustomDomain':
         """
         Get an existing CustomDomain resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -116,8 +98,73 @@ class CustomDomain(pulumi.CustomResource):
 
         return CustomDomain(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter(name="customHttpsProvisioningState")
+    def custom_https_provisioning_state(self) -> str:
+        """
+        Provisioning status of Custom Https of the custom domain.
+        """
+        return pulumi.get(self, "custom_https_provisioning_state")
+
+    @property
+    @pulumi.getter(name="customHttpsProvisioningSubstate")
+    def custom_https_provisioning_substate(self) -> str:
+        """
+        Provisioning substate shows the progress of custom HTTPS enabling/disabling process step by step.
+        """
+        return pulumi.get(self, "custom_https_provisioning_substate")
+
+    @property
+    @pulumi.getter(name="hostName")
+    def host_name(self) -> str:
+        """
+        The host name of the custom domain. Must be a domain name.
+        """
+        return pulumi.get(self, "host_name")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Resource name.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        Provisioning status of the custom domain.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="resourceState")
+    def resource_state(self) -> str:
+        """
+        Resource status of the custom domain.
+        """
+        return pulumi.get(self, "resource_state")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Resource type.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="validationData")
+    def validation_data(self) -> Optional[str]:
+        """
+        Special validation or data may be required when delivering CDN to some regions due to local compliance reasons. E.g. ICP license number of a custom domain is required to deliver content in China.
+        """
+        return pulumi.get(self, "validation_data")
+
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

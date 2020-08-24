@@ -5,69 +5,28 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+from . import outputs
+from ._inputs import *
+
+__all__ = ['GalleryApplicationVersion']
 
 
 class GalleryApplicationVersion(pulumi.CustomResource):
-    location: pulumi.Output[str]
-    """
-    Resource location
-    """
-    name: pulumi.Output[str]
-    """
-    Resource name
-    """
-    provisioning_state: pulumi.Output[str]
-    """
-    The provisioning state, which only appears in the response.
-    """
-    publishing_profile: pulumi.Output[dict]
-    """
-    The publishing profile of a gallery Image Version.
-      * `content_type` (`str`) - Optional. May be used to help process this file. The type of file contained in the source, e.g. zip, json, etc.
-      * `enable_health_check` (`bool`) - Optional. Whether or not this application reports health.
-      * `end_of_life_date` (`str`) - The end of life date of the gallery Image Version. This property can be used for decommissioning purposes. This property is updatable.
-      * `exclude_from_latest` (`bool`) - If set to true, Virtual Machines deployed from the latest version of the Image Definition won't use this Image Version.
-      * `published_date` (`str`) - The timestamp for when the gallery Image Version is published.
-      * `replica_count` (`float`) - The number of replicas of the Image Version to be created per region. This property would take effect for a region when regionalReplicaCount is not specified. This property is updatable.
-      * `source` (`dict`) - The source image from which the Image Version is going to be created.
-        * `file_name` (`str`) - Required. The fileName of the artifact.
-        * `media_link` (`str`) - Required. The mediaLink of the artifact, must be a readable storage blob.
-
-      * `storage_account_type` (`str`) - Specifies the storage account type to be used to store the image. This property is not updatable.
-      * `target_regions` (`list`) - The target regions where the Image Version is going to be replicated to. This property is updatable.
-        * `encryption` (`dict`) - Optional. Allows users to provide customer managed keys for encrypting the OS and data disks in the gallery artifact.
-          * `data_disk_images` (`list`) - A list of encryption specifications for data disk images.
-            * `disk_encryption_set_id` (`str`) - A relative URI containing the resource ID of the disk encryption set.
-            * `lun` (`float`) - This property specifies the logical unit number of the data disk. This value is used to identify data disks within the Virtual Machine and therefore must be unique for each data disk attached to the Virtual Machine.
-
-          * `os_disk_image` (`dict`) - Contains encryption settings for an OS disk image.
-            * `disk_encryption_set_id` (`str`) - A relative URI containing the resource ID of the disk encryption set.
-
-        * `name` (`str`) - The name of the region.
-        * `regional_replica_count` (`float`) - The number of replicas of the Image Version to be created per region. This property is updatable.
-        * `storage_account_type` (`str`) - Specifies the storage account type to be used to store the image. This property is not updatable.
-    """
-    replication_status: pulumi.Output[dict]
-    """
-    This is the replication status of the gallery Image Version.
-      * `aggregated_state` (`str`) - This is the aggregated replication status based on all the regional replication status flags.
-      * `summary` (`list`) - This is a summary of replication status for each region.
-        * `details` (`str`) - The details of the replication status.
-        * `progress` (`float`) - It indicates progress of the replication job.
-        * `region` (`str`) - The region to which the gallery Image Version is being replicated to.
-        * `state` (`str`) - This is the regional replication state.
-    """
-    tags: pulumi.Output[dict]
-    """
-    Resource tags
-    """
-    type: pulumi.Output[str]
-    """
-    Resource type
-    """
-    def __init__(__self__, resource_name, opts=None, gallery_application_name=None, gallery_name=None, location=None, name=None, publishing_profile=None, resource_group_name=None, tags=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 gallery_application_name: Optional[pulumi.Input[str]] = None,
+                 gallery_name: Optional[pulumi.Input[str]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 publishing_profile: Optional[pulumi.Input[pulumi.InputType['GalleryApplicationVersionPublishingProfileArgs']]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         Specifies information about the gallery Application Version that you want to create or update.
 
@@ -77,34 +36,9 @@ class GalleryApplicationVersion(pulumi.CustomResource):
         :param pulumi.Input[str] gallery_name: The name of the Shared Application Gallery in which the Application Definition resides.
         :param pulumi.Input[str] location: Resource location
         :param pulumi.Input[str] name: The name of the gallery Application Version to be created. Needs to follow semantic version name pattern: The allowed characters are digit and period. Digits must be within the range of a 32-bit integer. Format: <MajorVersion>.<MinorVersion>.<Patch>
-        :param pulumi.Input[dict] publishing_profile: The publishing profile of a gallery Image Version.
+        :param pulumi.Input[pulumi.InputType['GalleryApplicationVersionPublishingProfileArgs']] publishing_profile: The publishing profile of a gallery Image Version.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
-        :param pulumi.Input[dict] tags: Resource tags
-
-        The **publishing_profile** object supports the following:
-
-          * `content_type` (`pulumi.Input[str]`) - Optional. May be used to help process this file. The type of file contained in the source, e.g. zip, json, etc.
-          * `enable_health_check` (`pulumi.Input[bool]`) - Optional. Whether or not this application reports health.
-          * `end_of_life_date` (`pulumi.Input[str]`) - The end of life date of the gallery Image Version. This property can be used for decommissioning purposes. This property is updatable.
-          * `exclude_from_latest` (`pulumi.Input[bool]`) - If set to true, Virtual Machines deployed from the latest version of the Image Definition won't use this Image Version.
-          * `replica_count` (`pulumi.Input[float]`) - The number of replicas of the Image Version to be created per region. This property would take effect for a region when regionalReplicaCount is not specified. This property is updatable.
-          * `source` (`pulumi.Input[dict]`) - The source image from which the Image Version is going to be created.
-            * `file_name` (`pulumi.Input[str]`) - Required. The fileName of the artifact.
-            * `media_link` (`pulumi.Input[str]`) - Required. The mediaLink of the artifact, must be a readable storage blob.
-
-          * `storage_account_type` (`pulumi.Input[str]`) - Specifies the storage account type to be used to store the image. This property is not updatable.
-          * `target_regions` (`pulumi.Input[list]`) - The target regions where the Image Version is going to be replicated to. This property is updatable.
-            * `encryption` (`pulumi.Input[dict]`) - Optional. Allows users to provide customer managed keys for encrypting the OS and data disks in the gallery artifact.
-              * `data_disk_images` (`pulumi.Input[list]`) - A list of encryption specifications for data disk images.
-                * `disk_encryption_set_id` (`pulumi.Input[str]`) - A relative URI containing the resource ID of the disk encryption set.
-                * `lun` (`pulumi.Input[float]`) - This property specifies the logical unit number of the data disk. This value is used to identify data disks within the Virtual Machine and therefore must be unique for each data disk attached to the Virtual Machine.
-
-              * `os_disk_image` (`pulumi.Input[dict]`) - Contains encryption settings for an OS disk image.
-                * `disk_encryption_set_id` (`pulumi.Input[str]`) - A relative URI containing the resource ID of the disk encryption set.
-
-            * `name` (`pulumi.Input[str]`) - The name of the region.
-            * `regional_replica_count` (`pulumi.Input[float]`) - The number of replicas of the Image Version to be created per region. This property is updatable.
-            * `storage_account_type` (`pulumi.Input[str]`) - Specifies the storage account type to be used to store the image. This property is not updatable.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -154,13 +88,15 @@ class GalleryApplicationVersion(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None) -> 'GalleryApplicationVersion':
         """
         Get an existing GalleryApplicationVersion resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -169,8 +105,65 @@ class GalleryApplicationVersion(pulumi.CustomResource):
 
         return GalleryApplicationVersion(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter
+    def location(self) -> str:
+        """
+        Resource location
+        """
+        return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Resource name
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        The provisioning state, which only appears in the response.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="publishingProfile")
+    def publishing_profile(self) -> 'outputs.GalleryApplicationVersionPublishingProfileResponse':
+        """
+        The publishing profile of a gallery Image Version.
+        """
+        return pulumi.get(self, "publishing_profile")
+
+    @property
+    @pulumi.getter(name="replicationStatus")
+    def replication_status(self) -> 'outputs.ReplicationStatusResponse':
+        """
+        This is the replication status of the gallery Image Version.
+        """
+        return pulumi.get(self, "replication_status")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Mapping[str, str]]:
+        """
+        Resource tags
+        """
+        return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Resource type
+        """
+        return pulumi.get(self, "type")
+
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

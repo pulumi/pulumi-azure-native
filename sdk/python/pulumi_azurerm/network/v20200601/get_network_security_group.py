@@ -5,10 +5,17 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+from . import outputs
 
+__all__ = [
+    'GetNetworkSecurityGroupResult',
+    'AwaitableGetNetworkSecurityGroupResult',
+    'get_network_security_group',
+]
 
+@pulumi.output_type
 class GetNetworkSecurityGroupResult:
     """
     NetworkSecurityGroup resource.
@@ -16,76 +23,136 @@ class GetNetworkSecurityGroupResult:
     def __init__(__self__, default_security_rules=None, etag=None, flow_logs=None, location=None, name=None, network_interfaces=None, provisioning_state=None, resource_guid=None, security_rules=None, subnets=None, tags=None, type=None):
         if default_security_rules and not isinstance(default_security_rules, list):
             raise TypeError("Expected argument 'default_security_rules' to be a list")
-        __self__.default_security_rules = default_security_rules
+        pulumi.set(__self__, "default_security_rules", default_security_rules)
+        if etag and not isinstance(etag, str):
+            raise TypeError("Expected argument 'etag' to be a str")
+        pulumi.set(__self__, "etag", etag)
+        if flow_logs and not isinstance(flow_logs, list):
+            raise TypeError("Expected argument 'flow_logs' to be a list")
+        pulumi.set(__self__, "flow_logs", flow_logs)
+        if location and not isinstance(location, str):
+            raise TypeError("Expected argument 'location' to be a str")
+        pulumi.set(__self__, "location", location)
+        if name and not isinstance(name, str):
+            raise TypeError("Expected argument 'name' to be a str")
+        pulumi.set(__self__, "name", name)
+        if network_interfaces and not isinstance(network_interfaces, list):
+            raise TypeError("Expected argument 'network_interfaces' to be a list")
+        pulumi.set(__self__, "network_interfaces", network_interfaces)
+        if provisioning_state and not isinstance(provisioning_state, str):
+            raise TypeError("Expected argument 'provisioning_state' to be a str")
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if resource_guid and not isinstance(resource_guid, str):
+            raise TypeError("Expected argument 'resource_guid' to be a str")
+        pulumi.set(__self__, "resource_guid", resource_guid)
+        if security_rules and not isinstance(security_rules, list):
+            raise TypeError("Expected argument 'security_rules' to be a list")
+        pulumi.set(__self__, "security_rules", security_rules)
+        if subnets and not isinstance(subnets, list):
+            raise TypeError("Expected argument 'subnets' to be a list")
+        pulumi.set(__self__, "subnets", subnets)
+        if tags and not isinstance(tags, dict):
+            raise TypeError("Expected argument 'tags' to be a dict")
+        pulumi.set(__self__, "tags", tags)
+        if type and not isinstance(type, str):
+            raise TypeError("Expected argument 'type' to be a str")
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="defaultSecurityRules")
+    def default_security_rules(self) -> List['outputs.SecurityRuleResponse']:
         """
         The default security rules of network security group.
         """
-        if etag and not isinstance(etag, str):
-            raise TypeError("Expected argument 'etag' to be a str")
-        __self__.etag = etag
+        return pulumi.get(self, "default_security_rules")
+
+    @property
+    @pulumi.getter
+    def etag(self) -> str:
         """
         A unique read-only string that changes whenever the resource is updated.
         """
-        if flow_logs and not isinstance(flow_logs, list):
-            raise TypeError("Expected argument 'flow_logs' to be a list")
-        __self__.flow_logs = flow_logs
+        return pulumi.get(self, "etag")
+
+    @property
+    @pulumi.getter(name="flowLogs")
+    def flow_logs(self) -> List['outputs.FlowLogResponse']:
         """
         A collection of references to flow log resources.
         """
-        if location and not isinstance(location, str):
-            raise TypeError("Expected argument 'location' to be a str")
-        __self__.location = location
+        return pulumi.get(self, "flow_logs")
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[str]:
         """
         Resource location.
         """
-        if name and not isinstance(name, str):
-            raise TypeError("Expected argument 'name' to be a str")
-        __self__.name = name
+        return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
         """
         Resource name.
         """
-        if network_interfaces and not isinstance(network_interfaces, list):
-            raise TypeError("Expected argument 'network_interfaces' to be a list")
-        __self__.network_interfaces = network_interfaces
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="networkInterfaces")
+    def network_interfaces(self) -> List['outputs.NetworkInterfaceResponse']:
         """
         A collection of references to network interfaces.
         """
-        if provisioning_state and not isinstance(provisioning_state, str):
-            raise TypeError("Expected argument 'provisioning_state' to be a str")
-        __self__.provisioning_state = provisioning_state
+        return pulumi.get(self, "network_interfaces")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
         """
         The provisioning state of the network security group resource.
         """
-        if resource_guid and not isinstance(resource_guid, str):
-            raise TypeError("Expected argument 'resource_guid' to be a str")
-        __self__.resource_guid = resource_guid
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="resourceGuid")
+    def resource_guid(self) -> str:
         """
         The resource GUID property of the network security group resource.
         """
-        if security_rules and not isinstance(security_rules, list):
-            raise TypeError("Expected argument 'security_rules' to be a list")
-        __self__.security_rules = security_rules
+        return pulumi.get(self, "resource_guid")
+
+    @property
+    @pulumi.getter(name="securityRules")
+    def security_rules(self) -> Optional[List['outputs.SecurityRuleResponse']]:
         """
         A collection of security rules of the network security group.
         """
-        if subnets and not isinstance(subnets, list):
-            raise TypeError("Expected argument 'subnets' to be a list")
-        __self__.subnets = subnets
+        return pulumi.get(self, "security_rules")
+
+    @property
+    @pulumi.getter
+    def subnets(self) -> List['outputs.SubnetResponse']:
         """
         A collection of references to subnets.
         """
-        if tags and not isinstance(tags, dict):
-            raise TypeError("Expected argument 'tags' to be a dict")
-        __self__.tags = tags
+        return pulumi.get(self, "subnets")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Mapping[str, str]]:
         """
         Resource tags.
         """
-        if type and not isinstance(type, str):
-            raise TypeError("Expected argument 'type' to be a str")
-        __self__.type = type
+        return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
         """
         Resource type.
         """
+        return pulumi.get(self, "type")
 
 
 class AwaitableGetNetworkSecurityGroupResult(GetNetworkSecurityGroupResult):
@@ -108,7 +175,10 @@ class AwaitableGetNetworkSecurityGroupResult(GetNetworkSecurityGroupResult):
             type=self.type)
 
 
-def get_network_security_group(expand=None, name=None, resource_group_name=None, opts=None):
+def get_network_security_group(expand: Optional[str] = None,
+                               name: Optional[str] = None,
+                               resource_group_name: Optional[str] = None,
+                               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetNetworkSecurityGroupResult:
     """
     Use this data source to access information about an existing resource.
 
@@ -124,18 +194,18 @@ def get_network_security_group(expand=None, name=None, resource_group_name=None,
         opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = _utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('azurerm:network/v20200601:getNetworkSecurityGroup', __args__, opts=opts).value
+    __ret__ = pulumi.runtime.invoke('azurerm:network/v20200601:getNetworkSecurityGroup', __args__, opts=opts, typ=GetNetworkSecurityGroupResult).value
 
     return AwaitableGetNetworkSecurityGroupResult(
-        default_security_rules=__ret__.get('defaultSecurityRules'),
-        etag=__ret__.get('etag'),
-        flow_logs=__ret__.get('flowLogs'),
-        location=__ret__.get('location'),
-        name=__ret__.get('name'),
-        network_interfaces=__ret__.get('networkInterfaces'),
-        provisioning_state=__ret__.get('provisioningState'),
-        resource_guid=__ret__.get('resourceGuid'),
-        security_rules=__ret__.get('securityRules'),
-        subnets=__ret__.get('subnets'),
-        tags=__ret__.get('tags'),
-        type=__ret__.get('type'))
+        default_security_rules=__ret__.default_security_rules,
+        etag=__ret__.etag,
+        flow_logs=__ret__.flow_logs,
+        location=__ret__.location,
+        name=__ret__.name,
+        network_interfaces=__ret__.network_interfaces,
+        provisioning_state=__ret__.provisioning_state,
+        resource_guid=__ret__.resource_guid,
+        security_rules=__ret__.security_rules,
+        subnets=__ret__.subnets,
+        tags=__ret__.tags,
+        type=__ret__.type)

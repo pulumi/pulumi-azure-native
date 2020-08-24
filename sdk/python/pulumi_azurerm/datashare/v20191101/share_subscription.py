@@ -5,76 +5,24 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+
+__all__ = ['ShareSubscription']
 
 
 class ShareSubscription(pulumi.CustomResource):
-    created_at: pulumi.Output[str]
-    """
-    Time at which the share subscription was created.
-    """
-    invitation_id: pulumi.Output[str]
-    """
-    The invitation id.
-    """
-    name: pulumi.Output[str]
-    """
-    Name of the azure resource
-    """
-    provider_email: pulumi.Output[str]
-    """
-    Email of the provider who created the resource
-    """
-    provider_name: pulumi.Output[str]
-    """
-    Name of the provider who created the resource
-    """
-    provider_tenant_name: pulumi.Output[str]
-    """
-    Tenant name of the provider who created the resource
-    """
-    provisioning_state: pulumi.Output[str]
-    """
-    Provisioning state of the share subscription
-    """
-    share_description: pulumi.Output[str]
-    """
-    Description of share
-    """
-    share_kind: pulumi.Output[str]
-    """
-    Kind of share
-    """
-    share_name: pulumi.Output[str]
-    """
-    Name of the share
-    """
-    share_subscription_status: pulumi.Output[str]
-    """
-    Gets the current status of share subscription.
-    """
-    share_terms: pulumi.Output[str]
-    """
-    Terms of a share
-    """
-    source_share_location: pulumi.Output[str]
-    """
-    Source share location.
-    """
-    type: pulumi.Output[str]
-    """
-    Type of the azure resource
-    """
-    user_email: pulumi.Output[str]
-    """
-    Email of the user who created the resource
-    """
-    user_name: pulumi.Output[str]
-    """
-    Name of the user who created the resource
-    """
-    def __init__(__self__, resource_name, opts=None, account_name=None, invitation_id=None, name=None, resource_group_name=None, source_share_location=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 account_name: Optional[pulumi.Input[str]] = None,
+                 invitation_id: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 source_share_location: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         A share subscription data transfer object.
 
@@ -138,13 +86,15 @@ class ShareSubscription(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None) -> 'ShareSubscription':
         """
         Get an existing ShareSubscription resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -153,8 +103,137 @@ class ShareSubscription(pulumi.CustomResource):
 
         return ShareSubscription(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter(name="createdAt")
+    def created_at(self) -> str:
+        """
+        Time at which the share subscription was created.
+        """
+        return pulumi.get(self, "created_at")
+
+    @property
+    @pulumi.getter(name="invitationId")
+    def invitation_id(self) -> str:
+        """
+        The invitation id.
+        """
+        return pulumi.get(self, "invitation_id")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Name of the azure resource
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="providerEmail")
+    def provider_email(self) -> str:
+        """
+        Email of the provider who created the resource
+        """
+        return pulumi.get(self, "provider_email")
+
+    @property
+    @pulumi.getter(name="providerName")
+    def provider_name(self) -> str:
+        """
+        Name of the provider who created the resource
+        """
+        return pulumi.get(self, "provider_name")
+
+    @property
+    @pulumi.getter(name="providerTenantName")
+    def provider_tenant_name(self) -> str:
+        """
+        Tenant name of the provider who created the resource
+        """
+        return pulumi.get(self, "provider_tenant_name")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        Provisioning state of the share subscription
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="shareDescription")
+    def share_description(self) -> str:
+        """
+        Description of share
+        """
+        return pulumi.get(self, "share_description")
+
+    @property
+    @pulumi.getter(name="shareKind")
+    def share_kind(self) -> str:
+        """
+        Kind of share
+        """
+        return pulumi.get(self, "share_kind")
+
+    @property
+    @pulumi.getter(name="shareName")
+    def share_name(self) -> str:
+        """
+        Name of the share
+        """
+        return pulumi.get(self, "share_name")
+
+    @property
+    @pulumi.getter(name="shareSubscriptionStatus")
+    def share_subscription_status(self) -> str:
+        """
+        Gets the current status of share subscription.
+        """
+        return pulumi.get(self, "share_subscription_status")
+
+    @property
+    @pulumi.getter(name="shareTerms")
+    def share_terms(self) -> str:
+        """
+        Terms of a share
+        """
+        return pulumi.get(self, "share_terms")
+
+    @property
+    @pulumi.getter(name="sourceShareLocation")
+    def source_share_location(self) -> str:
+        """
+        Source share location.
+        """
+        return pulumi.get(self, "source_share_location")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Type of the azure resource
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="userEmail")
+    def user_email(self) -> str:
+        """
+        Email of the user who created the resource
+        """
+        return pulumi.get(self, "user_email")
+
+    @property
+    @pulumi.getter(name="userName")
+    def user_name(self) -> str:
+        """
+        Name of the user who created the resource
+        """
+        return pulumi.get(self, "user_name")
+
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

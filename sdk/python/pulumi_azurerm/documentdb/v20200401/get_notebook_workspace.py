@@ -5,10 +5,16 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
 
+__all__ = [
+    'GetNotebookWorkspaceResult',
+    'AwaitableGetNotebookWorkspaceResult',
+    'get_notebook_workspace',
+]
 
+@pulumi.output_type
 class GetNotebookWorkspaceResult:
     """
     A notebook workspace resource
@@ -16,28 +22,48 @@ class GetNotebookWorkspaceResult:
     def __init__(__self__, name=None, notebook_server_endpoint=None, status=None, type=None):
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
-        __self__.name = name
+        pulumi.set(__self__, "name", name)
+        if notebook_server_endpoint and not isinstance(notebook_server_endpoint, str):
+            raise TypeError("Expected argument 'notebook_server_endpoint' to be a str")
+        pulumi.set(__self__, "notebook_server_endpoint", notebook_server_endpoint)
+        if status and not isinstance(status, str):
+            raise TypeError("Expected argument 'status' to be a str")
+        pulumi.set(__self__, "status", status)
+        if type and not isinstance(type, str):
+            raise TypeError("Expected argument 'type' to be a str")
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
         """
         The name of the database account.
         """
-        if notebook_server_endpoint and not isinstance(notebook_server_endpoint, str):
-            raise TypeError("Expected argument 'notebook_server_endpoint' to be a str")
-        __self__.notebook_server_endpoint = notebook_server_endpoint
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="notebookServerEndpoint")
+    def notebook_server_endpoint(self) -> str:
         """
         Specifies the endpoint of Notebook server.
         """
-        if status and not isinstance(status, str):
-            raise TypeError("Expected argument 'status' to be a str")
-        __self__.status = status
+        return pulumi.get(self, "notebook_server_endpoint")
+
+    @property
+    @pulumi.getter
+    def status(self) -> str:
         """
         Status of the notebook workspace. Possible values are: Creating, Online, Deleting, Failed, Updating.
         """
-        if type and not isinstance(type, str):
-            raise TypeError("Expected argument 'type' to be a str")
-        __self__.type = type
+        return pulumi.get(self, "status")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
         """
         The type of Azure resource.
         """
+        return pulumi.get(self, "type")
 
 
 class AwaitableGetNotebookWorkspaceResult(GetNotebookWorkspaceResult):
@@ -52,7 +78,10 @@ class AwaitableGetNotebookWorkspaceResult(GetNotebookWorkspaceResult):
             type=self.type)
 
 
-def get_notebook_workspace(account_name=None, name=None, resource_group_name=None, opts=None):
+def get_notebook_workspace(account_name: Optional[str] = None,
+                           name: Optional[str] = None,
+                           resource_group_name: Optional[str] = None,
+                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetNotebookWorkspaceResult:
     """
     Use this data source to access information about an existing resource.
 
@@ -68,10 +97,10 @@ def get_notebook_workspace(account_name=None, name=None, resource_group_name=Non
         opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = _utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('azurerm:documentdb/v20200401:getNotebookWorkspace', __args__, opts=opts).value
+    __ret__ = pulumi.runtime.invoke('azurerm:documentdb/v20200401:getNotebookWorkspace', __args__, opts=opts, typ=GetNotebookWorkspaceResult).value
 
     return AwaitableGetNotebookWorkspaceResult(
-        name=__ret__.get('name'),
-        notebook_server_endpoint=__ret__.get('notebookServerEndpoint'),
-        status=__ret__.get('status'),
-        type=__ret__.get('type'))
+        name=__ret__.name,
+        notebook_server_endpoint=__ret__.notebook_server_endpoint,
+        status=__ret__.status,
+        type=__ret__.type)

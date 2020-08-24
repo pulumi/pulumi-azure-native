@@ -5,58 +5,36 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+
+__all__ = ['IscsiDisk']
 
 
 class IscsiDisk(pulumi.CustomResource):
-    access_control_records: pulumi.Output[list]
-    """
-    The access control records.
-    """
-    data_policy: pulumi.Output[str]
-    """
-    The data policy.
-    """
-    description: pulumi.Output[str]
-    """
-    The description.
-    """
-    disk_status: pulumi.Output[str]
-    """
-    The disk status.
-    """
-    local_used_capacity_in_bytes: pulumi.Output[float]
-    """
-    The local used capacity in bytes.
-    """
-    monitoring_status: pulumi.Output[str]
-    """
-    The monitoring.
-    """
-    name: pulumi.Output[str]
-    """
-    The name.
-    """
-    provisioned_capacity_in_bytes: pulumi.Output[float]
-    """
-    The provisioned capacity in bytes.
-    """
-    type: pulumi.Output[str]
-    """
-    The type.
-    """
-    used_capacity_in_bytes: pulumi.Output[float]
-    """
-    The used capacity in bytes.
-    """
-    def __init__(__self__, resource_name, opts=None, access_control_records=None, data_policy=None, description=None, device_name=None, disk_status=None, iscsi_server_name=None, manager_name=None, monitoring_status=None, name=None, provisioned_capacity_in_bytes=None, resource_group_name=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 access_control_records: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 data_policy: Optional[pulumi.Input[str]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 device_name: Optional[pulumi.Input[str]] = None,
+                 disk_status: Optional[pulumi.Input[str]] = None,
+                 iscsi_server_name: Optional[pulumi.Input[str]] = None,
+                 manager_name: Optional[pulumi.Input[str]] = None,
+                 monitoring_status: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 provisioned_capacity_in_bytes: Optional[pulumi.Input[float]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         The iSCSI disk.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[list] access_control_records: The access control records.
+        :param pulumi.Input[List[pulumi.Input[str]]] access_control_records: The access control records.
         :param pulumi.Input[str] data_policy: The data policy.
         :param pulumi.Input[str] description: The description.
         :param pulumi.Input[str] device_name: The device name.
@@ -126,13 +104,15 @@ class IscsiDisk(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None) -> 'IscsiDisk':
         """
         Get an existing IscsiDisk resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -141,8 +121,89 @@ class IscsiDisk(pulumi.CustomResource):
 
         return IscsiDisk(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter(name="accessControlRecords")
+    def access_control_records(self) -> List[str]:
+        """
+        The access control records.
+        """
+        return pulumi.get(self, "access_control_records")
+
+    @property
+    @pulumi.getter(name="dataPolicy")
+    def data_policy(self) -> str:
+        """
+        The data policy.
+        """
+        return pulumi.get(self, "data_policy")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        """
+        The description.
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="diskStatus")
+    def disk_status(self) -> str:
+        """
+        The disk status.
+        """
+        return pulumi.get(self, "disk_status")
+
+    @property
+    @pulumi.getter(name="localUsedCapacityInBytes")
+    def local_used_capacity_in_bytes(self) -> float:
+        """
+        The local used capacity in bytes.
+        """
+        return pulumi.get(self, "local_used_capacity_in_bytes")
+
+    @property
+    @pulumi.getter(name="monitoringStatus")
+    def monitoring_status(self) -> str:
+        """
+        The monitoring.
+        """
+        return pulumi.get(self, "monitoring_status")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="provisionedCapacityInBytes")
+    def provisioned_capacity_in_bytes(self) -> float:
+        """
+        The provisioned capacity in bytes.
+        """
+        return pulumi.get(self, "provisioned_capacity_in_bytes")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        The type.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="usedCapacityInBytes")
+    def used_capacity_in_bytes(self) -> float:
+        """
+        The used capacity in bytes.
+        """
+        return pulumi.get(self, "used_capacity_in_bytes")
+
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

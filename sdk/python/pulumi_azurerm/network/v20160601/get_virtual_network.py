@@ -5,10 +5,17 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+from . import outputs
 
+__all__ = [
+    'GetVirtualNetworkResult',
+    'AwaitableGetVirtualNetworkResult',
+    'get_virtual_network',
+]
 
+@pulumi.output_type
 class GetVirtualNetworkResult:
     """
     Virtual Network resource
@@ -16,70 +23,125 @@ class GetVirtualNetworkResult:
     def __init__(__self__, address_space=None, dhcp_options=None, etag=None, location=None, name=None, provisioning_state=None, resource_guid=None, subnets=None, tags=None, type=None, virtual_network_peerings=None):
         if address_space and not isinstance(address_space, dict):
             raise TypeError("Expected argument 'address_space' to be a dict")
-        __self__.address_space = address_space
+        pulumi.set(__self__, "address_space", address_space)
+        if dhcp_options and not isinstance(dhcp_options, dict):
+            raise TypeError("Expected argument 'dhcp_options' to be a dict")
+        pulumi.set(__self__, "dhcp_options", dhcp_options)
+        if etag and not isinstance(etag, str):
+            raise TypeError("Expected argument 'etag' to be a str")
+        pulumi.set(__self__, "etag", etag)
+        if location and not isinstance(location, str):
+            raise TypeError("Expected argument 'location' to be a str")
+        pulumi.set(__self__, "location", location)
+        if name and not isinstance(name, str):
+            raise TypeError("Expected argument 'name' to be a str")
+        pulumi.set(__self__, "name", name)
+        if provisioning_state and not isinstance(provisioning_state, str):
+            raise TypeError("Expected argument 'provisioning_state' to be a str")
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if resource_guid and not isinstance(resource_guid, str):
+            raise TypeError("Expected argument 'resource_guid' to be a str")
+        pulumi.set(__self__, "resource_guid", resource_guid)
+        if subnets and not isinstance(subnets, list):
+            raise TypeError("Expected argument 'subnets' to be a list")
+        pulumi.set(__self__, "subnets", subnets)
+        if tags and not isinstance(tags, dict):
+            raise TypeError("Expected argument 'tags' to be a dict")
+        pulumi.set(__self__, "tags", tags)
+        if type and not isinstance(type, str):
+            raise TypeError("Expected argument 'type' to be a str")
+        pulumi.set(__self__, "type", type)
+        if virtual_network_peerings and not isinstance(virtual_network_peerings, list):
+            raise TypeError("Expected argument 'virtual_network_peerings' to be a list")
+        pulumi.set(__self__, "virtual_network_peerings", virtual_network_peerings)
+
+    @property
+    @pulumi.getter(name="addressSpace")
+    def address_space(self) -> Optional['outputs.AddressSpaceResponse']:
         """
         Gets or sets AddressSpace that contains an array of IP address ranges that can be used by subnets
         """
-        if dhcp_options and not isinstance(dhcp_options, dict):
-            raise TypeError("Expected argument 'dhcp_options' to be a dict")
-        __self__.dhcp_options = dhcp_options
+        return pulumi.get(self, "address_space")
+
+    @property
+    @pulumi.getter(name="dhcpOptions")
+    def dhcp_options(self) -> Optional['outputs.DhcpOptionsResponse']:
         """
         Gets or sets DHCPOptions that contains an array of DNS servers available to VMs deployed in the virtual network
         """
-        if etag and not isinstance(etag, str):
-            raise TypeError("Expected argument 'etag' to be a str")
-        __self__.etag = etag
+        return pulumi.get(self, "dhcp_options")
+
+    @property
+    @pulumi.getter
+    def etag(self) -> Optional[str]:
         """
         Gets a unique read-only string that changes whenever the resource is updated
         """
-        if location and not isinstance(location, str):
-            raise TypeError("Expected argument 'location' to be a str")
-        __self__.location = location
+        return pulumi.get(self, "etag")
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[str]:
         """
         Resource location
         """
-        if name and not isinstance(name, str):
-            raise TypeError("Expected argument 'name' to be a str")
-        __self__.name = name
+        return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
         """
         Resource name
         """
-        if provisioning_state and not isinstance(provisioning_state, str):
-            raise TypeError("Expected argument 'provisioning_state' to be a str")
-        __self__.provisioning_state = provisioning_state
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> Optional[str]:
         """
         Gets provisioning state of the PublicIP resource Updating/Deleting/Failed
         """
-        if resource_guid and not isinstance(resource_guid, str):
-            raise TypeError("Expected argument 'resource_guid' to be a str")
-        __self__.resource_guid = resource_guid
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="resourceGuid")
+    def resource_guid(self) -> Optional[str]:
         """
         Gets or sets resource guid property of the VirtualNetwork resource
         """
-        if subnets and not isinstance(subnets, list):
-            raise TypeError("Expected argument 'subnets' to be a list")
-        __self__.subnets = subnets
+        return pulumi.get(self, "resource_guid")
+
+    @property
+    @pulumi.getter
+    def subnets(self) -> Optional[List['outputs.SubnetResponse']]:
         """
         Gets or sets list of subnets in a VirtualNetwork
         """
-        if tags and not isinstance(tags, dict):
-            raise TypeError("Expected argument 'tags' to be a dict")
-        __self__.tags = tags
+        return pulumi.get(self, "subnets")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Mapping[str, str]]:
         """
         Resource tags
         """
-        if type and not isinstance(type, str):
-            raise TypeError("Expected argument 'type' to be a str")
-        __self__.type = type
+        return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
         """
         Resource type
         """
-        if virtual_network_peerings and not isinstance(virtual_network_peerings, list):
-            raise TypeError("Expected argument 'virtual_network_peerings' to be a list")
-        __self__.virtual_network_peerings = virtual_network_peerings
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="virtualNetworkPeerings")
+    def virtual_network_peerings(self) -> Optional[List['outputs.VirtualNetworkPeeringResponse']]:
         """
         Gets or sets list of peerings in a VirtualNetwork
         """
+        return pulumi.get(self, "virtual_network_peerings")
 
 
 class AwaitableGetVirtualNetworkResult(GetVirtualNetworkResult):
@@ -101,7 +163,10 @@ class AwaitableGetVirtualNetworkResult(GetVirtualNetworkResult):
             virtual_network_peerings=self.virtual_network_peerings)
 
 
-def get_virtual_network(expand=None, name=None, resource_group_name=None, opts=None):
+def get_virtual_network(expand: Optional[str] = None,
+                        name: Optional[str] = None,
+                        resource_group_name: Optional[str] = None,
+                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVirtualNetworkResult:
     """
     Use this data source to access information about an existing resource.
 
@@ -117,17 +182,17 @@ def get_virtual_network(expand=None, name=None, resource_group_name=None, opts=N
         opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = _utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('azurerm:network/v20160601:getVirtualNetwork', __args__, opts=opts).value
+    __ret__ = pulumi.runtime.invoke('azurerm:network/v20160601:getVirtualNetwork', __args__, opts=opts, typ=GetVirtualNetworkResult).value
 
     return AwaitableGetVirtualNetworkResult(
-        address_space=__ret__.get('addressSpace'),
-        dhcp_options=__ret__.get('dhcpOptions'),
-        etag=__ret__.get('etag'),
-        location=__ret__.get('location'),
-        name=__ret__.get('name'),
-        provisioning_state=__ret__.get('provisioningState'),
-        resource_guid=__ret__.get('resourceGuid'),
-        subnets=__ret__.get('subnets'),
-        tags=__ret__.get('tags'),
-        type=__ret__.get('type'),
-        virtual_network_peerings=__ret__.get('virtualNetworkPeerings'))
+        address_space=__ret__.address_space,
+        dhcp_options=__ret__.dhcp_options,
+        etag=__ret__.etag,
+        location=__ret__.location,
+        name=__ret__.name,
+        provisioning_state=__ret__.provisioning_state,
+        resource_guid=__ret__.resource_guid,
+        subnets=__ret__.subnets,
+        tags=__ret__.tags,
+        type=__ret__.type,
+        virtual_network_peerings=__ret__.virtual_network_peerings)

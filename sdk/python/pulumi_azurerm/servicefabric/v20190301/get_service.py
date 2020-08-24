@@ -5,10 +5,17 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+from . import outputs
 
+__all__ = [
+    'GetServiceResult',
+    'AwaitableGetServiceResult',
+    'get_service',
+]
 
+@pulumi.output_type
 class GetServiceResult:
     """
     The service resource.
@@ -16,94 +23,169 @@ class GetServiceResult:
     def __init__(__self__, correlation_scheme=None, default_move_cost=None, etag=None, location=None, name=None, partition_description=None, placement_constraints=None, provisioning_state=None, service_kind=None, service_load_metrics=None, service_package_activation_mode=None, service_placement_policies=None, service_type_name=None, tags=None, type=None):
         if correlation_scheme and not isinstance(correlation_scheme, list):
             raise TypeError("Expected argument 'correlation_scheme' to be a list")
-        __self__.correlation_scheme = correlation_scheme
+        pulumi.set(__self__, "correlation_scheme", correlation_scheme)
+        if default_move_cost and not isinstance(default_move_cost, str):
+            raise TypeError("Expected argument 'default_move_cost' to be a str")
+        pulumi.set(__self__, "default_move_cost", default_move_cost)
+        if etag and not isinstance(etag, str):
+            raise TypeError("Expected argument 'etag' to be a str")
+        pulumi.set(__self__, "etag", etag)
+        if location and not isinstance(location, str):
+            raise TypeError("Expected argument 'location' to be a str")
+        pulumi.set(__self__, "location", location)
+        if name and not isinstance(name, str):
+            raise TypeError("Expected argument 'name' to be a str")
+        pulumi.set(__self__, "name", name)
+        if partition_description and not isinstance(partition_description, dict):
+            raise TypeError("Expected argument 'partition_description' to be a dict")
+        pulumi.set(__self__, "partition_description", partition_description)
+        if placement_constraints and not isinstance(placement_constraints, str):
+            raise TypeError("Expected argument 'placement_constraints' to be a str")
+        pulumi.set(__self__, "placement_constraints", placement_constraints)
+        if provisioning_state and not isinstance(provisioning_state, str):
+            raise TypeError("Expected argument 'provisioning_state' to be a str")
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if service_kind and not isinstance(service_kind, str):
+            raise TypeError("Expected argument 'service_kind' to be a str")
+        pulumi.set(__self__, "service_kind", service_kind)
+        if service_load_metrics and not isinstance(service_load_metrics, list):
+            raise TypeError("Expected argument 'service_load_metrics' to be a list")
+        pulumi.set(__self__, "service_load_metrics", service_load_metrics)
+        if service_package_activation_mode and not isinstance(service_package_activation_mode, str):
+            raise TypeError("Expected argument 'service_package_activation_mode' to be a str")
+        pulumi.set(__self__, "service_package_activation_mode", service_package_activation_mode)
+        if service_placement_policies and not isinstance(service_placement_policies, list):
+            raise TypeError("Expected argument 'service_placement_policies' to be a list")
+        pulumi.set(__self__, "service_placement_policies", service_placement_policies)
+        if service_type_name and not isinstance(service_type_name, str):
+            raise TypeError("Expected argument 'service_type_name' to be a str")
+        pulumi.set(__self__, "service_type_name", service_type_name)
+        if tags and not isinstance(tags, dict):
+            raise TypeError("Expected argument 'tags' to be a dict")
+        pulumi.set(__self__, "tags", tags)
+        if type and not isinstance(type, str):
+            raise TypeError("Expected argument 'type' to be a str")
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="correlationScheme")
+    def correlation_scheme(self) -> Optional[List['outputs.ServiceCorrelationDescriptionResponse']]:
         """
         A list that describes the correlation of the service with other services.
         """
-        if default_move_cost and not isinstance(default_move_cost, str):
-            raise TypeError("Expected argument 'default_move_cost' to be a str")
-        __self__.default_move_cost = default_move_cost
+        return pulumi.get(self, "correlation_scheme")
+
+    @property
+    @pulumi.getter(name="defaultMoveCost")
+    def default_move_cost(self) -> Optional[str]:
         """
         Specifies the move cost for the service.
         """
-        if etag and not isinstance(etag, str):
-            raise TypeError("Expected argument 'etag' to be a str")
-        __self__.etag = etag
+        return pulumi.get(self, "default_move_cost")
+
+    @property
+    @pulumi.getter
+    def etag(self) -> str:
         """
         Azure resource etag.
         """
-        if location and not isinstance(location, str):
-            raise TypeError("Expected argument 'location' to be a str")
-        __self__.location = location
+        return pulumi.get(self, "etag")
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[str]:
         """
         It will be deprecated in New API, resource location depends on the parent resource.
         """
-        if name and not isinstance(name, str):
-            raise TypeError("Expected argument 'name' to be a str")
-        __self__.name = name
+        return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
         """
         Azure resource name.
         """
-        if partition_description and not isinstance(partition_description, dict):
-            raise TypeError("Expected argument 'partition_description' to be a dict")
-        __self__.partition_description = partition_description
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="partitionDescription")
+    def partition_description(self) -> Optional['outputs.PartitionSchemeDescriptionResponse']:
         """
         Describes how the service is partitioned.
         """
-        if placement_constraints and not isinstance(placement_constraints, str):
-            raise TypeError("Expected argument 'placement_constraints' to be a str")
-        __self__.placement_constraints = placement_constraints
+        return pulumi.get(self, "partition_description")
+
+    @property
+    @pulumi.getter(name="placementConstraints")
+    def placement_constraints(self) -> Optional[str]:
         """
         The placement constraints as a string. Placement constraints are boolean expressions on node properties and allow for restricting a service to particular nodes based on the service requirements. For example, to place a service on nodes where NodeType is blue specify the following: "NodeColor == blue)".
         """
-        if provisioning_state and not isinstance(provisioning_state, str):
-            raise TypeError("Expected argument 'provisioning_state' to be a str")
-        __self__.provisioning_state = provisioning_state
+        return pulumi.get(self, "placement_constraints")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
         """
         The current deployment or provisioning state, which only appears in the response
         """
-        if service_kind and not isinstance(service_kind, str):
-            raise TypeError("Expected argument 'service_kind' to be a str")
-        __self__.service_kind = service_kind
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="serviceKind")
+    def service_kind(self) -> str:
         """
         The kind of service (Stateless or Stateful).
         """
-        if service_load_metrics and not isinstance(service_load_metrics, list):
-            raise TypeError("Expected argument 'service_load_metrics' to be a list")
-        __self__.service_load_metrics = service_load_metrics
+        return pulumi.get(self, "service_kind")
+
+    @property
+    @pulumi.getter(name="serviceLoadMetrics")
+    def service_load_metrics(self) -> Optional[List['outputs.ServiceLoadMetricDescriptionResponse']]:
         """
         The service load metrics is given as an array of ServiceLoadMetricDescription objects.
         """
-        if service_package_activation_mode and not isinstance(service_package_activation_mode, str):
-            raise TypeError("Expected argument 'service_package_activation_mode' to be a str")
-        __self__.service_package_activation_mode = service_package_activation_mode
+        return pulumi.get(self, "service_load_metrics")
+
+    @property
+    @pulumi.getter(name="servicePackageActivationMode")
+    def service_package_activation_mode(self) -> Optional[str]:
         """
         The activation Mode of the service package
         """
-        if service_placement_policies and not isinstance(service_placement_policies, list):
-            raise TypeError("Expected argument 'service_placement_policies' to be a list")
-        __self__.service_placement_policies = service_placement_policies
+        return pulumi.get(self, "service_package_activation_mode")
+
+    @property
+    @pulumi.getter(name="servicePlacementPolicies")
+    def service_placement_policies(self) -> Optional[List['outputs.ServicePlacementPolicyDescriptionResponse']]:
         """
         A list that describes the correlation of the service with other services.
         """
-        if service_type_name and not isinstance(service_type_name, str):
-            raise TypeError("Expected argument 'service_type_name' to be a str")
-        __self__.service_type_name = service_type_name
+        return pulumi.get(self, "service_placement_policies")
+
+    @property
+    @pulumi.getter(name="serviceTypeName")
+    def service_type_name(self) -> Optional[str]:
         """
         The name of the service type
         """
-        if tags and not isinstance(tags, dict):
-            raise TypeError("Expected argument 'tags' to be a dict")
-        __self__.tags = tags
+        return pulumi.get(self, "service_type_name")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Mapping[str, str]]:
         """
         Azure resource tags.
         """
-        if type and not isinstance(type, str):
-            raise TypeError("Expected argument 'type' to be a str")
-        __self__.type = type
+        return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
         """
         Azure resource type.
         """
+        return pulumi.get(self, "type")
 
 
 class AwaitableGetServiceResult(GetServiceResult):
@@ -129,7 +211,11 @@ class AwaitableGetServiceResult(GetServiceResult):
             type=self.type)
 
 
-def get_service(application_name=None, cluster_name=None, name=None, resource_group_name=None, opts=None):
+def get_service(application_name: Optional[str] = None,
+                cluster_name: Optional[str] = None,
+                name: Optional[str] = None,
+                resource_group_name: Optional[str] = None,
+                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetServiceResult:
     """
     Use this data source to access information about an existing resource.
 
@@ -147,21 +233,21 @@ def get_service(application_name=None, cluster_name=None, name=None, resource_gr
         opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = _utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('azurerm:servicefabric/v20190301:getService', __args__, opts=opts).value
+    __ret__ = pulumi.runtime.invoke('azurerm:servicefabric/v20190301:getService', __args__, opts=opts, typ=GetServiceResult).value
 
     return AwaitableGetServiceResult(
-        correlation_scheme=__ret__.get('correlationScheme'),
-        default_move_cost=__ret__.get('defaultMoveCost'),
-        etag=__ret__.get('etag'),
-        location=__ret__.get('location'),
-        name=__ret__.get('name'),
-        partition_description=__ret__.get('partitionDescription'),
-        placement_constraints=__ret__.get('placementConstraints'),
-        provisioning_state=__ret__.get('provisioningState'),
-        service_kind=__ret__.get('serviceKind'),
-        service_load_metrics=__ret__.get('serviceLoadMetrics'),
-        service_package_activation_mode=__ret__.get('servicePackageActivationMode'),
-        service_placement_policies=__ret__.get('servicePlacementPolicies'),
-        service_type_name=__ret__.get('serviceTypeName'),
-        tags=__ret__.get('tags'),
-        type=__ret__.get('type'))
+        correlation_scheme=__ret__.correlation_scheme,
+        default_move_cost=__ret__.default_move_cost,
+        etag=__ret__.etag,
+        location=__ret__.location,
+        name=__ret__.name,
+        partition_description=__ret__.partition_description,
+        placement_constraints=__ret__.placement_constraints,
+        provisioning_state=__ret__.provisioning_state,
+        service_kind=__ret__.service_kind,
+        service_load_metrics=__ret__.service_load_metrics,
+        service_package_activation_mode=__ret__.service_package_activation_mode,
+        service_placement_policies=__ret__.service_placement_policies,
+        service_type_name=__ret__.service_type_name,
+        tags=__ret__.tags,
+        type=__ret__.type)

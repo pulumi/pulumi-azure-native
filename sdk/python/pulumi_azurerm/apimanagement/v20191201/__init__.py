@@ -86,3 +86,5 @@ from .tag_by_api import *
 from .tag_by_operation import *
 from .tag_by_product import *
 from .user import *
+from ._inputs import *
+from . import outputs

@@ -5,36 +5,24 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+
+__all__ = ['LinkedServer']
 
 
 class LinkedServer(pulumi.CustomResource):
-    linked_redis_cache_id: pulumi.Output[str]
-    """
-    Fully qualified resourceId of the linked redis cache.
-    """
-    linked_redis_cache_location: pulumi.Output[str]
-    """
-    Location of the linked redis cache.
-    """
-    name: pulumi.Output[str]
-    """
-    Resource name.
-    """
-    provisioning_state: pulumi.Output[str]
-    """
-    Terminal state of the link between primary and secondary redis cache.
-    """
-    server_role: pulumi.Output[str]
-    """
-    Role of the linked server.
-    """
-    type: pulumi.Output[str]
-    """
-    Resource type.
-    """
-    def __init__(__self__, resource_name, opts=None, linked_redis_cache_id=None, linked_redis_cache_location=None, name=None, resource_group_name=None, server_role=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 linked_redis_cache_id: Optional[pulumi.Input[str]] = None,
+                 linked_redis_cache_location: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 server_role: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         Response to put/get linked server (with properties) for Redis cache.
 
@@ -89,13 +77,15 @@ class LinkedServer(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None) -> 'LinkedServer':
         """
         Get an existing LinkedServer resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -104,8 +94,57 @@ class LinkedServer(pulumi.CustomResource):
 
         return LinkedServer(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter(name="linkedRedisCacheId")
+    def linked_redis_cache_id(self) -> str:
+        """
+        Fully qualified resourceId of the linked redis cache.
+        """
+        return pulumi.get(self, "linked_redis_cache_id")
+
+    @property
+    @pulumi.getter(name="linkedRedisCacheLocation")
+    def linked_redis_cache_location(self) -> str:
+        """
+        Location of the linked redis cache.
+        """
+        return pulumi.get(self, "linked_redis_cache_location")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Resource name.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        Terminal state of the link between primary and secondary redis cache.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="serverRole")
+    def server_role(self) -> str:
+        """
+        Role of the linked server.
+        """
+        return pulumi.get(self, "server_role")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Resource type.
+        """
+        return pulumi.get(self, "type")
+
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

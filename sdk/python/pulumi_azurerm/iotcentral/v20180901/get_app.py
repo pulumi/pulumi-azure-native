@@ -5,10 +5,17 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+from . import outputs
 
+__all__ = [
+    'GetAppResult',
+    'AwaitableGetAppResult',
+    'get_app',
+]
 
+@pulumi.output_type
 class GetAppResult:
     """
     The IoT Central application.
@@ -16,58 +23,103 @@ class GetAppResult:
     def __init__(__self__, application_id=None, display_name=None, location=None, name=None, sku=None, subdomain=None, tags=None, template=None, type=None):
         if application_id and not isinstance(application_id, str):
             raise TypeError("Expected argument 'application_id' to be a str")
-        __self__.application_id = application_id
+        pulumi.set(__self__, "application_id", application_id)
+        if display_name and not isinstance(display_name, str):
+            raise TypeError("Expected argument 'display_name' to be a str")
+        pulumi.set(__self__, "display_name", display_name)
+        if location and not isinstance(location, str):
+            raise TypeError("Expected argument 'location' to be a str")
+        pulumi.set(__self__, "location", location)
+        if name and not isinstance(name, str):
+            raise TypeError("Expected argument 'name' to be a str")
+        pulumi.set(__self__, "name", name)
+        if sku and not isinstance(sku, dict):
+            raise TypeError("Expected argument 'sku' to be a dict")
+        pulumi.set(__self__, "sku", sku)
+        if subdomain and not isinstance(subdomain, str):
+            raise TypeError("Expected argument 'subdomain' to be a str")
+        pulumi.set(__self__, "subdomain", subdomain)
+        if tags and not isinstance(tags, dict):
+            raise TypeError("Expected argument 'tags' to be a dict")
+        pulumi.set(__self__, "tags", tags)
+        if template and not isinstance(template, str):
+            raise TypeError("Expected argument 'template' to be a str")
+        pulumi.set(__self__, "template", template)
+        if type and not isinstance(type, str):
+            raise TypeError("Expected argument 'type' to be a str")
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="applicationId")
+    def application_id(self) -> str:
         """
         The ID of the application.
         """
-        if display_name and not isinstance(display_name, str):
-            raise TypeError("Expected argument 'display_name' to be a str")
-        __self__.display_name = display_name
+        return pulumi.get(self, "application_id")
+
+    @property
+    @pulumi.getter(name="displayName")
+    def display_name(self) -> Optional[str]:
         """
         The display name of the application.
         """
-        if location and not isinstance(location, str):
-            raise TypeError("Expected argument 'location' to be a str")
-        __self__.location = location
+        return pulumi.get(self, "display_name")
+
+    @property
+    @pulumi.getter
+    def location(self) -> str:
         """
         The resource location.
         """
-        if name and not isinstance(name, str):
-            raise TypeError("Expected argument 'name' to be a str")
-        __self__.name = name
+        return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
         """
         The ARM resource name.
         """
-        if sku and not isinstance(sku, dict):
-            raise TypeError("Expected argument 'sku' to be a dict")
-        __self__.sku = sku
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def sku(self) -> 'outputs.AppSkuInfoResponse':
         """
         A valid instance SKU.
         """
-        if subdomain and not isinstance(subdomain, str):
-            raise TypeError("Expected argument 'subdomain' to be a str")
-        __self__.subdomain = subdomain
+        return pulumi.get(self, "sku")
+
+    @property
+    @pulumi.getter
+    def subdomain(self) -> Optional[str]:
         """
         The subdomain of the application.
         """
-        if tags and not isinstance(tags, dict):
-            raise TypeError("Expected argument 'tags' to be a dict")
-        __self__.tags = tags
+        return pulumi.get(self, "subdomain")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Mapping[str, str]]:
         """
         The resource tags.
         """
-        if template and not isinstance(template, str):
-            raise TypeError("Expected argument 'template' to be a str")
-        __self__.template = template
+        return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter
+    def template(self) -> Optional[str]:
         """
         The ID of the application template, which is a blueprint that defines the characteristics and behaviors of an application. Optional; if not specified, defaults to a blank blueprint and allows the application to be defined from scratch.
         """
-        if type and not isinstance(type, str):
-            raise TypeError("Expected argument 'type' to be a str")
-        __self__.type = type
+        return pulumi.get(self, "template")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
         """
         The resource type.
         """
+        return pulumi.get(self, "type")
 
 
 class AwaitableGetAppResult(GetAppResult):
@@ -87,7 +139,9 @@ class AwaitableGetAppResult(GetAppResult):
             type=self.type)
 
 
-def get_app(name=None, resource_group_name=None, opts=None):
+def get_app(name: Optional[str] = None,
+            resource_group_name: Optional[str] = None,
+            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAppResult:
     """
     Use this data source to access information about an existing resource.
 
@@ -101,15 +155,15 @@ def get_app(name=None, resource_group_name=None, opts=None):
         opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = _utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('azurerm:iotcentral/v20180901:getApp', __args__, opts=opts).value
+    __ret__ = pulumi.runtime.invoke('azurerm:iotcentral/v20180901:getApp', __args__, opts=opts, typ=GetAppResult).value
 
     return AwaitableGetAppResult(
-        application_id=__ret__.get('applicationId'),
-        display_name=__ret__.get('displayName'),
-        location=__ret__.get('location'),
-        name=__ret__.get('name'),
-        sku=__ret__.get('sku'),
-        subdomain=__ret__.get('subdomain'),
-        tags=__ret__.get('tags'),
-        template=__ret__.get('template'),
-        type=__ret__.get('type'))
+        application_id=__ret__.application_id,
+        display_name=__ret__.display_name,
+        location=__ret__.location,
+        name=__ret__.name,
+        sku=__ret__.sku,
+        subdomain=__ret__.subdomain,
+        tags=__ret__.tags,
+        template=__ret__.template,
+        type=__ret__.type)

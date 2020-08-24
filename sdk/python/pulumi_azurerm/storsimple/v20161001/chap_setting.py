@@ -5,27 +5,26 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+from . import outputs
+from ._inputs import *
+
+__all__ = ['ChapSetting']
 
 
 class ChapSetting(pulumi.CustomResource):
-    name: pulumi.Output[str]
-    """
-    The name.
-    """
-    password: pulumi.Output[dict]
-    """
-    The chap password.
-      * `encryption_algorithm` (`str`) - Algorithm used to encrypt "Value"
-      * `encryption_certificate_thumbprint` (`str`) - Thumbprint certificate that was used to encrypt "Value"
-      * `value` (`str`) - The value of the secret itself. If the secret is in plaintext then EncryptionAlgorithm will be none and EncryptionCertThumbprint will be null.
-    """
-    type: pulumi.Output[str]
-    """
-    The type.
-    """
-    def __init__(__self__, resource_name, opts=None, device_name=None, manager_name=None, name=None, password=None, resource_group_name=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 device_name: Optional[pulumi.Input[str]] = None,
+                 manager_name: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 password: Optional[pulumi.Input[pulumi.InputType['AsymmetricEncryptedSecretArgs']]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         Challenge-Handshake Authentication Protocol (CHAP) setting
 
@@ -34,14 +33,8 @@ class ChapSetting(pulumi.CustomResource):
         :param pulumi.Input[str] device_name: The device name.
         :param pulumi.Input[str] manager_name: The manager name
         :param pulumi.Input[str] name: The chap user name.
-        :param pulumi.Input[dict] password: The chap password.
+        :param pulumi.Input[pulumi.InputType['AsymmetricEncryptedSecretArgs']] password: The chap password.
         :param pulumi.Input[str] resource_group_name: The resource group name
-
-        The **password** object supports the following:
-
-          * `encryption_algorithm` (`pulumi.Input[str]`) - Algorithm used to encrypt "Value"
-          * `encryption_certificate_thumbprint` (`pulumi.Input[str]`) - Thumbprint certificate that was used to encrypt "Value"
-          * `value` (`pulumi.Input[str]`) - The value of the secret itself. If the secret is in plaintext then EncryptionAlgorithm will be none and EncryptionCertThumbprint will be null.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -83,13 +76,15 @@ class ChapSetting(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None) -> 'ChapSetting':
         """
         Get an existing ChapSetting resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -98,8 +93,33 @@ class ChapSetting(pulumi.CustomResource):
 
         return ChapSetting(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def password(self) -> 'outputs.AsymmetricEncryptedSecretResponse':
+        """
+        The chap password.
+        """
+        return pulumi.get(self, "password")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        The type.
+        """
+        return pulumi.get(self, "type")
+
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

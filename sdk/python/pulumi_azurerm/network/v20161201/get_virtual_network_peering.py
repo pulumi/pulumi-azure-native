@@ -5,10 +5,17 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+from . import outputs
 
+__all__ = [
+    'GetVirtualNetworkPeeringResult',
+    'AwaitableGetVirtualNetworkPeeringResult',
+    'get_virtual_network_peering',
+]
 
+@pulumi.output_type
 class GetVirtualNetworkPeeringResult:
     """
     Peerings in a virtual network resource.
@@ -16,58 +23,103 @@ class GetVirtualNetworkPeeringResult:
     def __init__(__self__, allow_forwarded_traffic=None, allow_gateway_transit=None, allow_virtual_network_access=None, etag=None, name=None, peering_state=None, provisioning_state=None, remote_virtual_network=None, use_remote_gateways=None):
         if allow_forwarded_traffic and not isinstance(allow_forwarded_traffic, bool):
             raise TypeError("Expected argument 'allow_forwarded_traffic' to be a bool")
-        __self__.allow_forwarded_traffic = allow_forwarded_traffic
+        pulumi.set(__self__, "allow_forwarded_traffic", allow_forwarded_traffic)
+        if allow_gateway_transit and not isinstance(allow_gateway_transit, bool):
+            raise TypeError("Expected argument 'allow_gateway_transit' to be a bool")
+        pulumi.set(__self__, "allow_gateway_transit", allow_gateway_transit)
+        if allow_virtual_network_access and not isinstance(allow_virtual_network_access, bool):
+            raise TypeError("Expected argument 'allow_virtual_network_access' to be a bool")
+        pulumi.set(__self__, "allow_virtual_network_access", allow_virtual_network_access)
+        if etag and not isinstance(etag, str):
+            raise TypeError("Expected argument 'etag' to be a str")
+        pulumi.set(__self__, "etag", etag)
+        if name and not isinstance(name, str):
+            raise TypeError("Expected argument 'name' to be a str")
+        pulumi.set(__self__, "name", name)
+        if peering_state and not isinstance(peering_state, str):
+            raise TypeError("Expected argument 'peering_state' to be a str")
+        pulumi.set(__self__, "peering_state", peering_state)
+        if provisioning_state and not isinstance(provisioning_state, str):
+            raise TypeError("Expected argument 'provisioning_state' to be a str")
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if remote_virtual_network and not isinstance(remote_virtual_network, dict):
+            raise TypeError("Expected argument 'remote_virtual_network' to be a dict")
+        pulumi.set(__self__, "remote_virtual_network", remote_virtual_network)
+        if use_remote_gateways and not isinstance(use_remote_gateways, bool):
+            raise TypeError("Expected argument 'use_remote_gateways' to be a bool")
+        pulumi.set(__self__, "use_remote_gateways", use_remote_gateways)
+
+    @property
+    @pulumi.getter(name="allowForwardedTraffic")
+    def allow_forwarded_traffic(self) -> Optional[bool]:
         """
         Whether the forwarded traffic from the VMs in the remote virtual network will be allowed/disallowed.
         """
-        if allow_gateway_transit and not isinstance(allow_gateway_transit, bool):
-            raise TypeError("Expected argument 'allow_gateway_transit' to be a bool")
-        __self__.allow_gateway_transit = allow_gateway_transit
+        return pulumi.get(self, "allow_forwarded_traffic")
+
+    @property
+    @pulumi.getter(name="allowGatewayTransit")
+    def allow_gateway_transit(self) -> Optional[bool]:
         """
         If gateway links can be used in remote virtual networking to link to this virtual network.
         """
-        if allow_virtual_network_access and not isinstance(allow_virtual_network_access, bool):
-            raise TypeError("Expected argument 'allow_virtual_network_access' to be a bool")
-        __self__.allow_virtual_network_access = allow_virtual_network_access
+        return pulumi.get(self, "allow_gateway_transit")
+
+    @property
+    @pulumi.getter(name="allowVirtualNetworkAccess")
+    def allow_virtual_network_access(self) -> Optional[bool]:
         """
         Whether the VMs in the linked virtual network space would be able to access all the VMs in local Virtual network space.
         """
-        if etag and not isinstance(etag, str):
-            raise TypeError("Expected argument 'etag' to be a str")
-        __self__.etag = etag
+        return pulumi.get(self, "allow_virtual_network_access")
+
+    @property
+    @pulumi.getter
+    def etag(self) -> Optional[str]:
         """
         A unique read-only string that changes whenever the resource is updated.
         """
-        if name and not isinstance(name, str):
-            raise TypeError("Expected argument 'name' to be a str")
-        __self__.name = name
+        return pulumi.get(self, "etag")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
         """
         The name of the resource that is unique within a resource group. This name can be used to access the resource.
         """
-        if peering_state and not isinstance(peering_state, str):
-            raise TypeError("Expected argument 'peering_state' to be a str")
-        __self__.peering_state = peering_state
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="peeringState")
+    def peering_state(self) -> Optional[str]:
         """
         The status of the virtual network peering. Possible values are 'Initiated', 'Connected', and 'Disconnected'.
         """
-        if provisioning_state and not isinstance(provisioning_state, str):
-            raise TypeError("Expected argument 'provisioning_state' to be a str")
-        __self__.provisioning_state = provisioning_state
+        return pulumi.get(self, "peering_state")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> Optional[str]:
         """
         The provisioning state of the resource.
         """
-        if remote_virtual_network and not isinstance(remote_virtual_network, dict):
-            raise TypeError("Expected argument 'remote_virtual_network' to be a dict")
-        __self__.remote_virtual_network = remote_virtual_network
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="remoteVirtualNetwork")
+    def remote_virtual_network(self) -> Optional['outputs.SubResourceResponse']:
         """
         The reference of the remote virtual network.
         """
-        if use_remote_gateways and not isinstance(use_remote_gateways, bool):
-            raise TypeError("Expected argument 'use_remote_gateways' to be a bool")
-        __self__.use_remote_gateways = use_remote_gateways
+        return pulumi.get(self, "remote_virtual_network")
+
+    @property
+    @pulumi.getter(name="useRemoteGateways")
+    def use_remote_gateways(self) -> Optional[bool]:
         """
         If remote gateways can be used on this virtual network. If the flag is set to true, and allowGatewayTransit on remote peering is also true, virtual network will use gateways of remote virtual network for transit. Only one peering can have this flag set to true. This flag cannot be set if virtual network already has a gateway.
         """
+        return pulumi.get(self, "use_remote_gateways")
 
 
 class AwaitableGetVirtualNetworkPeeringResult(GetVirtualNetworkPeeringResult):
@@ -87,7 +139,10 @@ class AwaitableGetVirtualNetworkPeeringResult(GetVirtualNetworkPeeringResult):
             use_remote_gateways=self.use_remote_gateways)
 
 
-def get_virtual_network_peering(name=None, resource_group_name=None, virtual_network_name=None, opts=None):
+def get_virtual_network_peering(name: Optional[str] = None,
+                                resource_group_name: Optional[str] = None,
+                                virtual_network_name: Optional[str] = None,
+                                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVirtualNetworkPeeringResult:
     """
     Use this data source to access information about an existing resource.
 
@@ -103,15 +158,15 @@ def get_virtual_network_peering(name=None, resource_group_name=None, virtual_net
         opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = _utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('azurerm:network/v20161201:getVirtualNetworkPeering', __args__, opts=opts).value
+    __ret__ = pulumi.runtime.invoke('azurerm:network/v20161201:getVirtualNetworkPeering', __args__, opts=opts, typ=GetVirtualNetworkPeeringResult).value
 
     return AwaitableGetVirtualNetworkPeeringResult(
-        allow_forwarded_traffic=__ret__.get('allowForwardedTraffic'),
-        allow_gateway_transit=__ret__.get('allowGatewayTransit'),
-        allow_virtual_network_access=__ret__.get('allowVirtualNetworkAccess'),
-        etag=__ret__.get('etag'),
-        name=__ret__.get('name'),
-        peering_state=__ret__.get('peeringState'),
-        provisioning_state=__ret__.get('provisioningState'),
-        remote_virtual_network=__ret__.get('remoteVirtualNetwork'),
-        use_remote_gateways=__ret__.get('useRemoteGateways'))
+        allow_forwarded_traffic=__ret__.allow_forwarded_traffic,
+        allow_gateway_transit=__ret__.allow_gateway_transit,
+        allow_virtual_network_access=__ret__.allow_virtual_network_access,
+        etag=__ret__.etag,
+        name=__ret__.name,
+        peering_state=__ret__.peering_state,
+        provisioning_state=__ret__.provisioning_state,
+        remote_virtual_network=__ret__.remote_virtual_network,
+        use_remote_gateways=__ret__.use_remote_gateways)

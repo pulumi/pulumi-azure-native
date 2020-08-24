@@ -5,32 +5,22 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+
+__all__ = ['HierarchySetting']
 
 
 class HierarchySetting(pulumi.CustomResource):
-    default_management_group: pulumi.Output[str]
-    """
-    Settings that sets the default Management Group under which new subscriptions get added in this tenant. For example, /providers/Microsoft.Management/managementGroups/defaultGroup
-    """
-    name: pulumi.Output[str]
-    """
-    The name of the object. In this case, default.
-    """
-    require_authorization_for_group_creation: pulumi.Output[bool]
-    """
-    Indicates whether RBAC access is required upon group creation under the root Management Group. If set to true, user will require Microsoft.Management/managementGroups/write action on the root Management Group scope in order to create new Groups directly under the root. This will prevent new users from creating new Management Groups, unless they are given access.
-    """
-    tenant_id: pulumi.Output[str]
-    """
-    The AAD Tenant ID associated with the hierarchy settings. For example, 00000000-0000-0000-0000-000000000000
-    """
-    type: pulumi.Output[str]
-    """
-    The type of the resource.  For example, Microsoft.Management/managementGroups/settings.
-    """
-    def __init__(__self__, resource_name, opts=None, default_management_group=None, name=None, require_authorization_for_group_creation=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 default_management_group: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 require_authorization_for_group_creation: Optional[pulumi.Input[bool]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         Settings defined at the Management Group scope.
 
@@ -73,13 +63,15 @@ class HierarchySetting(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None) -> 'HierarchySetting':
         """
         Get an existing HierarchySetting resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -88,8 +80,49 @@ class HierarchySetting(pulumi.CustomResource):
 
         return HierarchySetting(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter(name="defaultManagementGroup")
+    def default_management_group(self) -> Optional[str]:
+        """
+        Settings that sets the default Management Group under which new subscriptions get added in this tenant. For example, /providers/Microsoft.Management/managementGroups/defaultGroup
+        """
+        return pulumi.get(self, "default_management_group")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the object. In this case, default.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="requireAuthorizationForGroupCreation")
+    def require_authorization_for_group_creation(self) -> Optional[bool]:
+        """
+        Indicates whether RBAC access is required upon group creation under the root Management Group. If set to true, user will require Microsoft.Management/managementGroups/write action on the root Management Group scope in order to create new Groups directly under the root. This will prevent new users from creating new Management Groups, unless they are given access.
+        """
+        return pulumi.get(self, "require_authorization_for_group_creation")
+
+    @property
+    @pulumi.getter(name="tenantId")
+    def tenant_id(self) -> Optional[str]:
+        """
+        The AAD Tenant ID associated with the hierarchy settings. For example, 00000000-0000-0000-0000-000000000000
+        """
+        return pulumi.get(self, "tenant_id")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        The type of the resource.  For example, Microsoft.Management/managementGroups/settings.
+        """
+        return pulumi.get(self, "type")
+
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

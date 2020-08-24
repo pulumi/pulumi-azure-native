@@ -5,10 +5,16 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
 
+__all__ = [
+    'GetSuppressionResult',
+    'AwaitableGetSuppressionResult',
+    'get_suppression',
+]
 
+@pulumi.output_type
 class GetSuppressionResult:
     """
     The details of the snoozed or dismissed rule; for example, the duration, name, and GUID associated with the rule.
@@ -16,28 +22,48 @@ class GetSuppressionResult:
     def __init__(__self__, name=None, suppression_id=None, ttl=None, type=None):
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
-        __self__.name = name
+        pulumi.set(__self__, "name", name)
+        if suppression_id and not isinstance(suppression_id, str):
+            raise TypeError("Expected argument 'suppression_id' to be a str")
+        pulumi.set(__self__, "suppression_id", suppression_id)
+        if ttl and not isinstance(ttl, str):
+            raise TypeError("Expected argument 'ttl' to be a str")
+        pulumi.set(__self__, "ttl", ttl)
+        if type and not isinstance(type, str):
+            raise TypeError("Expected argument 'type' to be a str")
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
         """
         The name of the resource.
         """
-        if suppression_id and not isinstance(suppression_id, str):
-            raise TypeError("Expected argument 'suppression_id' to be a str")
-        __self__.suppression_id = suppression_id
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="suppressionId")
+    def suppression_id(self) -> Optional[str]:
         """
         The GUID of the suppression.
         """
-        if ttl and not isinstance(ttl, str):
-            raise TypeError("Expected argument 'ttl' to be a str")
-        __self__.ttl = ttl
+        return pulumi.get(self, "suppression_id")
+
+    @property
+    @pulumi.getter
+    def ttl(self) -> Optional[str]:
         """
         The duration for which the suppression is valid.
         """
-        if type and not isinstance(type, str):
-            raise TypeError("Expected argument 'type' to be a str")
-        __self__.type = type
+        return pulumi.get(self, "ttl")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
         """
         The type of the resource.
         """
+        return pulumi.get(self, "type")
 
 
 class AwaitableGetSuppressionResult(GetSuppressionResult):
@@ -52,7 +78,10 @@ class AwaitableGetSuppressionResult(GetSuppressionResult):
             type=self.type)
 
 
-def get_suppression(name=None, recommendation_id=None, resource_uri=None, opts=None):
+def get_suppression(name: Optional[str] = None,
+                    recommendation_id: Optional[str] = None,
+                    resource_uri: Optional[str] = None,
+                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSuppressionResult:
     """
     Use this data source to access information about an existing resource.
 
@@ -68,10 +97,10 @@ def get_suppression(name=None, recommendation_id=None, resource_uri=None, opts=N
         opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = _utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('azurerm:advisor/v20170331:getSuppression', __args__, opts=opts).value
+    __ret__ = pulumi.runtime.invoke('azurerm:advisor/v20170331:getSuppression', __args__, opts=opts, typ=GetSuppressionResult).value
 
     return AwaitableGetSuppressionResult(
-        name=__ret__.get('name'),
-        suppression_id=__ret__.get('suppressionId'),
-        ttl=__ret__.get('ttl'),
-        type=__ret__.get('type'))
+        name=__ret__.name,
+        suppression_id=__ret__.suppression_id,
+        ttl=__ret__.ttl,
+        type=__ret__.type)

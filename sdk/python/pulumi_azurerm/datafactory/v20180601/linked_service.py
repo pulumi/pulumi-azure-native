@@ -5,37 +5,25 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+from . import outputs
+from ._inputs import *
+
+__all__ = ['LinkedService']
 
 
 class LinkedService(pulumi.CustomResource):
-    etag: pulumi.Output[str]
-    """
-    Etag identifies change in the resource.
-    """
-    name: pulumi.Output[str]
-    """
-    The resource name.
-    """
-    properties: pulumi.Output[dict]
-    """
-    Properties of linked service.
-      * `annotations` (`list`) - List of tags that can be used for describing the linked service.
-      * `connect_via` (`dict`) - The integration runtime reference.
-        * `parameters` (`dict`) - Arguments for integration runtime.
-        * `reference_name` (`str`) - Reference integration runtime name.
-        * `type` (`str`) - Type of integration runtime.
-
-      * `description` (`str`) - Linked service description.
-      * `parameters` (`dict`) - Parameters for linked service.
-      * `type` (`str`) - Type of linked service.
-    """
-    type: pulumi.Output[str]
-    """
-    The resource type.
-    """
-    def __init__(__self__, resource_name, opts=None, factory_name=None, name=None, properties=None, resource_group_name=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 factory_name: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 properties: Optional[pulumi.Input[pulumi.InputType['LinkedServiceArgs']]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         Linked service resource type.
 
@@ -43,20 +31,8 @@ class LinkedService(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] factory_name: The factory name.
         :param pulumi.Input[str] name: The linked service name.
-        :param pulumi.Input[dict] properties: Properties of linked service.
+        :param pulumi.Input[pulumi.InputType['LinkedServiceArgs']] properties: Properties of linked service.
         :param pulumi.Input[str] resource_group_name: The resource group name.
-
-        The **properties** object supports the following:
-
-          * `annotations` (`pulumi.Input[list]`) - List of tags that can be used for describing the linked service.
-          * `connect_via` (`pulumi.Input[dict]`) - The integration runtime reference.
-            * `parameters` (`pulumi.Input[dict]`) - Arguments for integration runtime.
-            * `reference_name` (`pulumi.Input[str]`) - Reference integration runtime name.
-            * `type` (`pulumi.Input[str]`) - Type of integration runtime.
-
-          * `description` (`pulumi.Input[str]`) - Linked service description.
-          * `parameters` (`pulumi.Input[dict]`) - Parameters for linked service.
-          * `type` (`pulumi.Input[str]`) - Type of linked service.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -96,13 +72,15 @@ class LinkedService(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None) -> 'LinkedService':
         """
         Get an existing LinkedService resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -111,8 +89,41 @@ class LinkedService(pulumi.CustomResource):
 
         return LinkedService(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter
+    def etag(self) -> str:
+        """
+        Etag identifies change in the resource.
+        """
+        return pulumi.get(self, "etag")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The resource name.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def properties(self) -> 'outputs.LinkedServiceResponse':
+        """
+        Properties of linked service.
+        """
+        return pulumi.get(self, "properties")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        The resource type.
+        """
+        return pulumi.get(self, "type")
+
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

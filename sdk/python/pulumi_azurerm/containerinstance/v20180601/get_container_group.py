@@ -5,10 +5,17 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+from . import outputs
 
+__all__ = [
+    'GetContainerGroupResult',
+    'AwaitableGetContainerGroupResult',
+    'get_container_group',
+]
 
+@pulumi.output_type
 class GetContainerGroupResult:
     """
     A container group.
@@ -16,85 +23,150 @@ class GetContainerGroupResult:
     def __init__(__self__, containers=None, diagnostics=None, image_registry_credentials=None, instance_view=None, ip_address=None, location=None, name=None, os_type=None, provisioning_state=None, restart_policy=None, tags=None, type=None, volumes=None):
         if containers and not isinstance(containers, list):
             raise TypeError("Expected argument 'containers' to be a list")
-        __self__.containers = containers
+        pulumi.set(__self__, "containers", containers)
+        if diagnostics and not isinstance(diagnostics, dict):
+            raise TypeError("Expected argument 'diagnostics' to be a dict")
+        pulumi.set(__self__, "diagnostics", diagnostics)
+        if image_registry_credentials and not isinstance(image_registry_credentials, list):
+            raise TypeError("Expected argument 'image_registry_credentials' to be a list")
+        pulumi.set(__self__, "image_registry_credentials", image_registry_credentials)
+        if instance_view and not isinstance(instance_view, dict):
+            raise TypeError("Expected argument 'instance_view' to be a dict")
+        pulumi.set(__self__, "instance_view", instance_view)
+        if ip_address and not isinstance(ip_address, dict):
+            raise TypeError("Expected argument 'ip_address' to be a dict")
+        pulumi.set(__self__, "ip_address", ip_address)
+        if location and not isinstance(location, str):
+            raise TypeError("Expected argument 'location' to be a str")
+        pulumi.set(__self__, "location", location)
+        if name and not isinstance(name, str):
+            raise TypeError("Expected argument 'name' to be a str")
+        pulumi.set(__self__, "name", name)
+        if os_type and not isinstance(os_type, str):
+            raise TypeError("Expected argument 'os_type' to be a str")
+        pulumi.set(__self__, "os_type", os_type)
+        if provisioning_state and not isinstance(provisioning_state, str):
+            raise TypeError("Expected argument 'provisioning_state' to be a str")
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if restart_policy and not isinstance(restart_policy, str):
+            raise TypeError("Expected argument 'restart_policy' to be a str")
+        pulumi.set(__self__, "restart_policy", restart_policy)
+        if tags and not isinstance(tags, dict):
+            raise TypeError("Expected argument 'tags' to be a dict")
+        pulumi.set(__self__, "tags", tags)
+        if type and not isinstance(type, str):
+            raise TypeError("Expected argument 'type' to be a str")
+        pulumi.set(__self__, "type", type)
+        if volumes and not isinstance(volumes, list):
+            raise TypeError("Expected argument 'volumes' to be a list")
+        pulumi.set(__self__, "volumes", volumes)
+
+    @property
+    @pulumi.getter
+    def containers(self) -> List['outputs.ContainerResponse']:
         """
         The containers within the container group.
         """
-        if diagnostics and not isinstance(diagnostics, dict):
-            raise TypeError("Expected argument 'diagnostics' to be a dict")
-        __self__.diagnostics = diagnostics
+        return pulumi.get(self, "containers")
+
+    @property
+    @pulumi.getter
+    def diagnostics(self) -> Optional['outputs.ContainerGroupDiagnosticsResponse']:
         """
         The diagnostic information for a container group.
         """
-        if image_registry_credentials and not isinstance(image_registry_credentials, list):
-            raise TypeError("Expected argument 'image_registry_credentials' to be a list")
-        __self__.image_registry_credentials = image_registry_credentials
+        return pulumi.get(self, "diagnostics")
+
+    @property
+    @pulumi.getter(name="imageRegistryCredentials")
+    def image_registry_credentials(self) -> Optional[List['outputs.ImageRegistryCredentialResponse']]:
         """
         The image registry credentials by which the container group is created from.
         """
-        if instance_view and not isinstance(instance_view, dict):
-            raise TypeError("Expected argument 'instance_view' to be a dict")
-        __self__.instance_view = instance_view
+        return pulumi.get(self, "image_registry_credentials")
+
+    @property
+    @pulumi.getter(name="instanceView")
+    def instance_view(self) -> 'outputs.ContainerGroupResponseInstanceView':
         """
         The instance view of the container group. Only valid in response.
         """
-        if ip_address and not isinstance(ip_address, dict):
-            raise TypeError("Expected argument 'ip_address' to be a dict")
-        __self__.ip_address = ip_address
+        return pulumi.get(self, "instance_view")
+
+    @property
+    @pulumi.getter(name="ipAddress")
+    def ip_address(self) -> Optional['outputs.IpAddressResponse']:
         """
         The IP address type of the container group.
         """
-        if location and not isinstance(location, str):
-            raise TypeError("Expected argument 'location' to be a str")
-        __self__.location = location
+        return pulumi.get(self, "ip_address")
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[str]:
         """
         The resource location.
         """
-        if name and not isinstance(name, str):
-            raise TypeError("Expected argument 'name' to be a str")
-        __self__.name = name
+        return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
         """
         The resource name.
         """
-        if os_type and not isinstance(os_type, str):
-            raise TypeError("Expected argument 'os_type' to be a str")
-        __self__.os_type = os_type
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="osType")
+    def os_type(self) -> str:
         """
         The operating system type required by the containers in the container group.
         """
-        if provisioning_state and not isinstance(provisioning_state, str):
-            raise TypeError("Expected argument 'provisioning_state' to be a str")
-        __self__.provisioning_state = provisioning_state
+        return pulumi.get(self, "os_type")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
         """
         The provisioning state of the container group. This only appears in the response.
         """
-        if restart_policy and not isinstance(restart_policy, str):
-            raise TypeError("Expected argument 'restart_policy' to be a str")
-        __self__.restart_policy = restart_policy
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="restartPolicy")
+    def restart_policy(self) -> Optional[str]:
         """
         Restart policy for all containers within the container group. 
         - `Always` Always restart
         - `OnFailure` Restart on failure
         - `Never` Never restart
         """
-        if tags and not isinstance(tags, dict):
-            raise TypeError("Expected argument 'tags' to be a dict")
-        __self__.tags = tags
+        return pulumi.get(self, "restart_policy")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Mapping[str, str]]:
         """
         The resource tags.
         """
-        if type and not isinstance(type, str):
-            raise TypeError("Expected argument 'type' to be a str")
-        __self__.type = type
+        return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
         """
         The resource type.
         """
-        if volumes and not isinstance(volumes, list):
-            raise TypeError("Expected argument 'volumes' to be a list")
-        __self__.volumes = volumes
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def volumes(self) -> Optional[List['outputs.VolumeResponse']]:
         """
         The list of volumes that can be mounted by containers in this container group.
         """
+        return pulumi.get(self, "volumes")
 
 
 class AwaitableGetContainerGroupResult(GetContainerGroupResult):
@@ -118,7 +190,9 @@ class AwaitableGetContainerGroupResult(GetContainerGroupResult):
             volumes=self.volumes)
 
 
-def get_container_group(name=None, resource_group_name=None, opts=None):
+def get_container_group(name: Optional[str] = None,
+                        resource_group_name: Optional[str] = None,
+                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetContainerGroupResult:
     """
     Use this data source to access information about an existing resource.
 
@@ -132,19 +206,19 @@ def get_container_group(name=None, resource_group_name=None, opts=None):
         opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = _utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('azurerm:containerinstance/v20180601:getContainerGroup', __args__, opts=opts).value
+    __ret__ = pulumi.runtime.invoke('azurerm:containerinstance/v20180601:getContainerGroup', __args__, opts=opts, typ=GetContainerGroupResult).value
 
     return AwaitableGetContainerGroupResult(
-        containers=__ret__.get('containers'),
-        diagnostics=__ret__.get('diagnostics'),
-        image_registry_credentials=__ret__.get('imageRegistryCredentials'),
-        instance_view=__ret__.get('instanceView'),
-        ip_address=__ret__.get('ipAddress'),
-        location=__ret__.get('location'),
-        name=__ret__.get('name'),
-        os_type=__ret__.get('osType'),
-        provisioning_state=__ret__.get('provisioningState'),
-        restart_policy=__ret__.get('restartPolicy'),
-        tags=__ret__.get('tags'),
-        type=__ret__.get('type'),
-        volumes=__ret__.get('volumes'))
+        containers=__ret__.containers,
+        diagnostics=__ret__.diagnostics,
+        image_registry_credentials=__ret__.image_registry_credentials,
+        instance_view=__ret__.instance_view,
+        ip_address=__ret__.ip_address,
+        location=__ret__.location,
+        name=__ret__.name,
+        os_type=__ret__.os_type,
+        provisioning_state=__ret__.provisioning_state,
+        restart_policy=__ret__.restart_policy,
+        tags=__ret__.tags,
+        type=__ret__.type,
+        volumes=__ret__.volumes)

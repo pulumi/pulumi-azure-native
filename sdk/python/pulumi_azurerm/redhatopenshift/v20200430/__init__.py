@@ -6,3 +6,5 @@
 from .get_open_shift_cluster import *
 from .list_open_shift_cluster_credentials import *
 from .open_shift_cluster import *
+from ._inputs import *
+from . import outputs

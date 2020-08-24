@@ -5,120 +5,52 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+from . import outputs
+from ._inputs import *
+
+__all__ = ['Schedule']
 
 
 class Schedule(pulumi.CustomResource):
-    created_date: pulumi.Output[str]
-    """
-    The creation date of the schedule.
-    """
-    daily_recurrence: pulumi.Output[dict]
-    """
-    If the schedule will occur once each day of the week, specify the daily recurrence.
-      * `time` (`str`) - The time of day the schedule will occur.
-    """
-    hourly_recurrence: pulumi.Output[dict]
-    """
-    If the schedule will occur multiple times a day, specify the hourly recurrence.
-      * `minute` (`float`) - Minutes of the hour the schedule will run.
-    """
-    location: pulumi.Output[str]
-    """
-    The location of the resource.
-    """
-    name: pulumi.Output[str]
-    """
-    The name of the resource.
-    """
-    notification_settings: pulumi.Output[dict]
-    """
-    Notification settings.
-      * `email_recipient` (`str`) - The email recipient to send notifications to (can be a list of semi-colon separated email addresses).
-      * `notification_locale` (`str`) - The locale to use when sending a notification (fallback for unsupported languages is EN).
-      * `status` (`str`) - If notifications are enabled for this schedule (i.e. Enabled, Disabled).
-      * `time_in_minutes` (`float`) - Time in minutes before event at which notification will be sent.
-      * `webhook_url` (`str`) - The webhook URL to which the notification will be sent.
-    """
-    provisioning_state: pulumi.Output[str]
-    """
-    The provisioning status of the resource.
-    """
-    status: pulumi.Output[str]
-    """
-    The status of the schedule (i.e. Enabled, Disabled)
-    """
-    tags: pulumi.Output[dict]
-    """
-    The tags of the resource.
-    """
-    target_resource_id: pulumi.Output[str]
-    """
-    The resource ID to which the schedule belongs
-    """
-    task_type: pulumi.Output[str]
-    """
-    The task type of the schedule (e.g. LabVmsShutdownTask, LabVmAutoStart).
-    """
-    time_zone_id: pulumi.Output[str]
-    """
-    The time zone ID (e.g. Pacific Standard time).
-    """
-    type: pulumi.Output[str]
-    """
-    The type of the resource.
-    """
-    unique_identifier: pulumi.Output[str]
-    """
-    The unique immutable identifier of a resource (Guid).
-    """
-    weekly_recurrence: pulumi.Output[dict]
-    """
-    If the schedule will occur only some days of the week, specify the weekly recurrence.
-      * `time` (`str`) - The time of the day the schedule will occur.
-      * `weekdays` (`list`) - The days of the week for which the schedule is set (e.g. Sunday, Monday, Tuesday, etc.).
-    """
-    def __init__(__self__, resource_name, opts=None, daily_recurrence=None, hourly_recurrence=None, lab_name=None, location=None, name=None, notification_settings=None, resource_group_name=None, status=None, tags=None, target_resource_id=None, task_type=None, time_zone_id=None, weekly_recurrence=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 daily_recurrence: Optional[pulumi.Input[pulumi.InputType['DayDetailsArgs']]] = None,
+                 hourly_recurrence: Optional[pulumi.Input[pulumi.InputType['HourDetailsArgs']]] = None,
+                 lab_name: Optional[pulumi.Input[str]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 notification_settings: Optional[pulumi.Input[pulumi.InputType['NotificationSettingsArgs']]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 status: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 target_resource_id: Optional[pulumi.Input[str]] = None,
+                 task_type: Optional[pulumi.Input[str]] = None,
+                 time_zone_id: Optional[pulumi.Input[str]] = None,
+                 weekly_recurrence: Optional[pulumi.Input[pulumi.InputType['WeekDetailsArgs']]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         A schedule.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[dict] daily_recurrence: If the schedule will occur once each day of the week, specify the daily recurrence.
-        :param pulumi.Input[dict] hourly_recurrence: If the schedule will occur multiple times a day, specify the hourly recurrence.
+        :param pulumi.Input[pulumi.InputType['DayDetailsArgs']] daily_recurrence: If the schedule will occur once each day of the week, specify the daily recurrence.
+        :param pulumi.Input[pulumi.InputType['HourDetailsArgs']] hourly_recurrence: If the schedule will occur multiple times a day, specify the hourly recurrence.
         :param pulumi.Input[str] lab_name: The name of the lab.
         :param pulumi.Input[str] location: The location of the resource.
         :param pulumi.Input[str] name: The name of the schedule.
-        :param pulumi.Input[dict] notification_settings: Notification settings.
+        :param pulumi.Input[pulumi.InputType['NotificationSettingsArgs']] notification_settings: Notification settings.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[str] status: The status of the schedule (i.e. Enabled, Disabled)
-        :param pulumi.Input[dict] tags: The tags of the resource.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The tags of the resource.
         :param pulumi.Input[str] target_resource_id: The resource ID to which the schedule belongs
         :param pulumi.Input[str] task_type: The task type of the schedule (e.g. LabVmsShutdownTask, LabVmAutoStart).
         :param pulumi.Input[str] time_zone_id: The time zone ID (e.g. Pacific Standard time).
-        :param pulumi.Input[dict] weekly_recurrence: If the schedule will occur only some days of the week, specify the weekly recurrence.
-
-        The **daily_recurrence** object supports the following:
-
-          * `time` (`pulumi.Input[str]`) - The time of day the schedule will occur.
-
-        The **hourly_recurrence** object supports the following:
-
-          * `minute` (`pulumi.Input[float]`) - Minutes of the hour the schedule will run.
-
-        The **notification_settings** object supports the following:
-
-          * `email_recipient` (`pulumi.Input[str]`) - The email recipient to send notifications to (can be a list of semi-colon separated email addresses).
-          * `notification_locale` (`pulumi.Input[str]`) - The locale to use when sending a notification (fallback for unsupported languages is EN).
-          * `status` (`pulumi.Input[str]`) - If notifications are enabled for this schedule (i.e. Enabled, Disabled).
-          * `time_in_minutes` (`pulumi.Input[float]`) - Time in minutes before event at which notification will be sent.
-          * `webhook_url` (`pulumi.Input[str]`) - The webhook URL to which the notification will be sent.
-
-        The **weekly_recurrence** object supports the following:
-
-          * `time` (`pulumi.Input[str]`) - The time of the day the schedule will occur.
-          * `weekdays` (`pulumi.Input[list]`) - The days of the week for which the schedule is set (e.g. Sunday, Monday, Tuesday, etc.).
+        :param pulumi.Input[pulumi.InputType['WeekDetailsArgs']] weekly_recurrence: If the schedule will occur only some days of the week, specify the weekly recurrence.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -169,13 +101,15 @@ class Schedule(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None) -> 'Schedule':
         """
         Get an existing Schedule resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -184,8 +118,129 @@ class Schedule(pulumi.CustomResource):
 
         return Schedule(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter(name="createdDate")
+    def created_date(self) -> str:
+        """
+        The creation date of the schedule.
+        """
+        return pulumi.get(self, "created_date")
+
+    @property
+    @pulumi.getter(name="dailyRecurrence")
+    def daily_recurrence(self) -> Optional['outputs.DayDetailsResponse']:
+        """
+        If the schedule will occur once each day of the week, specify the daily recurrence.
+        """
+        return pulumi.get(self, "daily_recurrence")
+
+    @property
+    @pulumi.getter(name="hourlyRecurrence")
+    def hourly_recurrence(self) -> Optional['outputs.HourDetailsResponse']:
+        """
+        If the schedule will occur multiple times a day, specify the hourly recurrence.
+        """
+        return pulumi.get(self, "hourly_recurrence")
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[str]:
+        """
+        The location of the resource.
+        """
+        return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the resource.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="notificationSettings")
+    def notification_settings(self) -> Optional['outputs.NotificationSettingsResponse']:
+        """
+        Notification settings.
+        """
+        return pulumi.get(self, "notification_settings")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        The provisioning status of the resource.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter
+    def status(self) -> Optional[str]:
+        """
+        The status of the schedule (i.e. Enabled, Disabled)
+        """
+        return pulumi.get(self, "status")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Mapping[str, str]]:
+        """
+        The tags of the resource.
+        """
+        return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter(name="targetResourceId")
+    def target_resource_id(self) -> Optional[str]:
+        """
+        The resource ID to which the schedule belongs
+        """
+        return pulumi.get(self, "target_resource_id")
+
+    @property
+    @pulumi.getter(name="taskType")
+    def task_type(self) -> Optional[str]:
+        """
+        The task type of the schedule (e.g. LabVmsShutdownTask, LabVmAutoStart).
+        """
+        return pulumi.get(self, "task_type")
+
+    @property
+    @pulumi.getter(name="timeZoneId")
+    def time_zone_id(self) -> Optional[str]:
+        """
+        The time zone ID (e.g. Pacific Standard time).
+        """
+        return pulumi.get(self, "time_zone_id")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        The type of the resource.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="uniqueIdentifier")
+    def unique_identifier(self) -> str:
+        """
+        The unique immutable identifier of a resource (Guid).
+        """
+        return pulumi.get(self, "unique_identifier")
+
+    @property
+    @pulumi.getter(name="weeklyRecurrence")
+    def weekly_recurrence(self) -> Optional['outputs.WeekDetailsResponse']:
+        """
+        If the schedule will occur only some days of the week, specify the weekly recurrence.
+        """
+        return pulumi.get(self, "weekly_recurrence")
+
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

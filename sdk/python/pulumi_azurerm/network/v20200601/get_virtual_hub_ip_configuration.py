@@ -5,10 +5,17 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+from . import outputs
 
+__all__ = [
+    'GetVirtualHubIpConfigurationResult',
+    'AwaitableGetVirtualHubIpConfigurationResult',
+    'get_virtual_hub_ip_configuration',
+]
 
+@pulumi.output_type
 class GetVirtualHubIpConfigurationResult:
     """
     IpConfigurations.
@@ -16,52 +23,92 @@ class GetVirtualHubIpConfigurationResult:
     def __init__(__self__, etag=None, name=None, private_ip_address=None, private_ip_allocation_method=None, provisioning_state=None, public_ip_address=None, subnet=None, type=None):
         if etag and not isinstance(etag, str):
             raise TypeError("Expected argument 'etag' to be a str")
-        __self__.etag = etag
+        pulumi.set(__self__, "etag", etag)
+        if name and not isinstance(name, str):
+            raise TypeError("Expected argument 'name' to be a str")
+        pulumi.set(__self__, "name", name)
+        if private_ip_address and not isinstance(private_ip_address, str):
+            raise TypeError("Expected argument 'private_ip_address' to be a str")
+        pulumi.set(__self__, "private_ip_address", private_ip_address)
+        if private_ip_allocation_method and not isinstance(private_ip_allocation_method, str):
+            raise TypeError("Expected argument 'private_ip_allocation_method' to be a str")
+        pulumi.set(__self__, "private_ip_allocation_method", private_ip_allocation_method)
+        if provisioning_state and not isinstance(provisioning_state, str):
+            raise TypeError("Expected argument 'provisioning_state' to be a str")
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if public_ip_address and not isinstance(public_ip_address, dict):
+            raise TypeError("Expected argument 'public_ip_address' to be a dict")
+        pulumi.set(__self__, "public_ip_address", public_ip_address)
+        if subnet and not isinstance(subnet, dict):
+            raise TypeError("Expected argument 'subnet' to be a dict")
+        pulumi.set(__self__, "subnet", subnet)
+        if type and not isinstance(type, str):
+            raise TypeError("Expected argument 'type' to be a str")
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def etag(self) -> str:
         """
         A unique read-only string that changes whenever the resource is updated.
         """
-        if name and not isinstance(name, str):
-            raise TypeError("Expected argument 'name' to be a str")
-        __self__.name = name
+        return pulumi.get(self, "etag")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
         """
         Name of the Ip Configuration.
         """
-        if private_ip_address and not isinstance(private_ip_address, str):
-            raise TypeError("Expected argument 'private_ip_address' to be a str")
-        __self__.private_ip_address = private_ip_address
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="privateIPAddress")
+    def private_ip_address(self) -> Optional[str]:
         """
         The private IP address of the IP configuration.
         """
-        if private_ip_allocation_method and not isinstance(private_ip_allocation_method, str):
-            raise TypeError("Expected argument 'private_ip_allocation_method' to be a str")
-        __self__.private_ip_allocation_method = private_ip_allocation_method
+        return pulumi.get(self, "private_ip_address")
+
+    @property
+    @pulumi.getter(name="privateIPAllocationMethod")
+    def private_ip_allocation_method(self) -> Optional[str]:
         """
         The private IP address allocation method.
         """
-        if provisioning_state and not isinstance(provisioning_state, str):
-            raise TypeError("Expected argument 'provisioning_state' to be a str")
-        __self__.provisioning_state = provisioning_state
+        return pulumi.get(self, "private_ip_allocation_method")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
         """
         The provisioning state of the IP configuration resource.
         """
-        if public_ip_address and not isinstance(public_ip_address, dict):
-            raise TypeError("Expected argument 'public_ip_address' to be a dict")
-        __self__.public_ip_address = public_ip_address
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="publicIPAddress")
+    def public_ip_address(self) -> Optional['outputs.PublicIPAddressResponse']:
         """
         The reference to the public IP resource.
         """
-        if subnet and not isinstance(subnet, dict):
-            raise TypeError("Expected argument 'subnet' to be a dict")
-        __self__.subnet = subnet
+        return pulumi.get(self, "public_ip_address")
+
+    @property
+    @pulumi.getter
+    def subnet(self) -> Optional['outputs.SubnetResponse']:
         """
         The reference to the subnet resource.
         """
-        if type and not isinstance(type, str):
-            raise TypeError("Expected argument 'type' to be a str")
-        __self__.type = type
+        return pulumi.get(self, "subnet")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
         """
         Ipconfiguration type.
         """
+        return pulumi.get(self, "type")
 
 
 class AwaitableGetVirtualHubIpConfigurationResult(GetVirtualHubIpConfigurationResult):
@@ -80,7 +127,10 @@ class AwaitableGetVirtualHubIpConfigurationResult(GetVirtualHubIpConfigurationRe
             type=self.type)
 
 
-def get_virtual_hub_ip_configuration(name=None, resource_group_name=None, virtual_hub_name=None, opts=None):
+def get_virtual_hub_ip_configuration(name: Optional[str] = None,
+                                     resource_group_name: Optional[str] = None,
+                                     virtual_hub_name: Optional[str] = None,
+                                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVirtualHubIpConfigurationResult:
     """
     Use this data source to access information about an existing resource.
 
@@ -96,14 +146,14 @@ def get_virtual_hub_ip_configuration(name=None, resource_group_name=None, virtua
         opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = _utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('azurerm:network/v20200601:getVirtualHubIpConfiguration', __args__, opts=opts).value
+    __ret__ = pulumi.runtime.invoke('azurerm:network/v20200601:getVirtualHubIpConfiguration', __args__, opts=opts, typ=GetVirtualHubIpConfigurationResult).value
 
     return AwaitableGetVirtualHubIpConfigurationResult(
-        etag=__ret__.get('etag'),
-        name=__ret__.get('name'),
-        private_ip_address=__ret__.get('privateIPAddress'),
-        private_ip_allocation_method=__ret__.get('privateIPAllocationMethod'),
-        provisioning_state=__ret__.get('provisioningState'),
-        public_ip_address=__ret__.get('publicIPAddress'),
-        subnet=__ret__.get('subnet'),
-        type=__ret__.get('type'))
+        etag=__ret__.etag,
+        name=__ret__.name,
+        private_ip_address=__ret__.private_ip_address,
+        private_ip_allocation_method=__ret__.private_ip_allocation_method,
+        provisioning_state=__ret__.provisioning_state,
+        public_ip_address=__ret__.public_ip_address,
+        subnet=__ret__.subnet,
+        type=__ret__.type)

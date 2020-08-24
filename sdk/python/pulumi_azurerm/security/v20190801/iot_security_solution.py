@@ -5,101 +5,52 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+from . import outputs
+from ._inputs import *
+
+__all__ = ['IotSecuritySolution']
 
 
 class IotSecuritySolution(pulumi.CustomResource):
-    auto_discovered_resources: pulumi.Output[list]
-    """
-    List of resources that were automatically discovered as relevant to the security solution.
-    """
-    disabled_data_sources: pulumi.Output[list]
-    """
-    Disabled data sources. Disabling these data sources compromises the system.
-    """
-    display_name: pulumi.Output[str]
-    """
-    Resource display name.
-    """
-    export: pulumi.Output[list]
-    """
-    List of additional options for exporting to workspace data.
-    """
-    iot_hubs: pulumi.Output[list]
-    """
-    IoT Hub resource IDs
-    """
-    location: pulumi.Output[str]
-    """
-    The resource location.
-    """
-    name: pulumi.Output[str]
-    """
-    Resource name
-    """
-    recommendations_configuration: pulumi.Output[list]
-    """
-    List of the configuration status for each recommendation type.
-      * `name` (`str`)
-      * `recommendation_type` (`str`) - The type of IoT Security recommendation.
-      * `status` (`str`) - Recommendation status. When the recommendation status is disabled recommendations are not generated.
-    """
-    status: pulumi.Output[str]
-    """
-    Status of the IoT Security solution.
-    """
-    tags: pulumi.Output[dict]
-    """
-    Resource tags
-    """
-    type: pulumi.Output[str]
-    """
-    Resource type
-    """
-    unmasked_ip_logging_status: pulumi.Output[str]
-    """
-    Unmasked IP address logging status
-    """
-    user_defined_resources: pulumi.Output[dict]
-    """
-    Properties of the IoT Security solution's user defined resources.
-      * `query` (`str`) - Azure Resource Graph query which represents the security solution's user defined resources. Required to start with "where type != "Microsoft.Devices/IotHubs""
-      * `query_subscriptions` (`list`) - List of Azure subscription ids on which the user defined resources query should be executed.
-    """
-    workspace: pulumi.Output[str]
-    """
-    Workspace resource ID
-    """
-    def __init__(__self__, resource_name, opts=None, disabled_data_sources=None, display_name=None, export=None, iot_hubs=None, location=None, name=None, recommendations_configuration=None, resource_group_name=None, status=None, tags=None, unmasked_ip_logging_status=None, user_defined_resources=None, workspace=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 disabled_data_sources: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 display_name: Optional[pulumi.Input[str]] = None,
+                 export: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 iot_hubs: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 recommendations_configuration: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['RecommendationConfigurationPropertiesArgs']]]]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 status: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 unmasked_ip_logging_status: Optional[pulumi.Input[str]] = None,
+                 user_defined_resources: Optional[pulumi.Input[pulumi.InputType['UserDefinedResourcesPropertiesArgs']]] = None,
+                 workspace: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         IoT Security solution configuration and resource information.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[list] disabled_data_sources: Disabled data sources. Disabling these data sources compromises the system.
+        :param pulumi.Input[List[pulumi.Input[str]]] disabled_data_sources: Disabled data sources. Disabling these data sources compromises the system.
         :param pulumi.Input[str] display_name: Resource display name.
-        :param pulumi.Input[list] export: List of additional options for exporting to workspace data.
-        :param pulumi.Input[list] iot_hubs: IoT Hub resource IDs
+        :param pulumi.Input[List[pulumi.Input[str]]] export: List of additional options for exporting to workspace data.
+        :param pulumi.Input[List[pulumi.Input[str]]] iot_hubs: IoT Hub resource IDs
         :param pulumi.Input[str] location: The resource location.
         :param pulumi.Input[str] name: The name of the IoT Security solution.
-        :param pulumi.Input[list] recommendations_configuration: List of the configuration status for each recommendation type.
+        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['RecommendationConfigurationPropertiesArgs']]]] recommendations_configuration: List of the configuration status for each recommendation type.
         :param pulumi.Input[str] resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.
         :param pulumi.Input[str] status: Status of the IoT Security solution.
-        :param pulumi.Input[dict] tags: Resource tags
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags
         :param pulumi.Input[str] unmasked_ip_logging_status: Unmasked IP address logging status
-        :param pulumi.Input[dict] user_defined_resources: Properties of the IoT Security solution's user defined resources.
+        :param pulumi.Input[pulumi.InputType['UserDefinedResourcesPropertiesArgs']] user_defined_resources: Properties of the IoT Security solution's user defined resources.
         :param pulumi.Input[str] workspace: Workspace resource ID
-
-        The **recommendations_configuration** object supports the following:
-
-          * `recommendation_type` (`pulumi.Input[str]`) - The type of IoT Security recommendation.
-          * `status` (`pulumi.Input[str]`) - Recommendation status. When the recommendation status is disabled recommendations are not generated.
-
-        The **user_defined_resources** object supports the following:
-
-          * `query` (`pulumi.Input[str]`) - Azure Resource Graph query which represents the security solution's user defined resources. Required to start with "where type != "Microsoft.Devices/IotHubs""
-          * `query_subscriptions` (`pulumi.Input[list]`) - List of Azure subscription ids on which the user defined resources query should be executed.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -148,13 +99,15 @@ class IotSecuritySolution(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None) -> 'IotSecuritySolution':
         """
         Get an existing IotSecuritySolution resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -163,8 +116,121 @@ class IotSecuritySolution(pulumi.CustomResource):
 
         return IotSecuritySolution(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter(name="autoDiscoveredResources")
+    def auto_discovered_resources(self) -> List[str]:
+        """
+        List of resources that were automatically discovered as relevant to the security solution.
+        """
+        return pulumi.get(self, "auto_discovered_resources")
+
+    @property
+    @pulumi.getter(name="disabledDataSources")
+    def disabled_data_sources(self) -> Optional[List[str]]:
+        """
+        Disabled data sources. Disabling these data sources compromises the system.
+        """
+        return pulumi.get(self, "disabled_data_sources")
+
+    @property
+    @pulumi.getter(name="displayName")
+    def display_name(self) -> str:
+        """
+        Resource display name.
+        """
+        return pulumi.get(self, "display_name")
+
+    @property
+    @pulumi.getter
+    def export(self) -> Optional[List[str]]:
+        """
+        List of additional options for exporting to workspace data.
+        """
+        return pulumi.get(self, "export")
+
+    @property
+    @pulumi.getter(name="iotHubs")
+    def iot_hubs(self) -> List[str]:
+        """
+        IoT Hub resource IDs
+        """
+        return pulumi.get(self, "iot_hubs")
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[str]:
+        """
+        The resource location.
+        """
+        return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Resource name
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="recommendationsConfiguration")
+    def recommendations_configuration(self) -> Optional[List['outputs.RecommendationConfigurationPropertiesResponse']]:
+        """
+        List of the configuration status for each recommendation type.
+        """
+        return pulumi.get(self, "recommendations_configuration")
+
+    @property
+    @pulumi.getter
+    def status(self) -> Optional[str]:
+        """
+        Status of the IoT Security solution.
+        """
+        return pulumi.get(self, "status")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Mapping[str, str]]:
+        """
+        Resource tags
+        """
+        return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Resource type
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="unmaskedIpLoggingStatus")
+    def unmasked_ip_logging_status(self) -> Optional[str]:
+        """
+        Unmasked IP address logging status
+        """
+        return pulumi.get(self, "unmasked_ip_logging_status")
+
+    @property
+    @pulumi.getter(name="userDefinedResources")
+    def user_defined_resources(self) -> Optional['outputs.UserDefinedResourcesPropertiesResponse']:
+        """
+        Properties of the IoT Security solution's user defined resources.
+        """
+        return pulumi.get(self, "user_defined_resources")
+
+    @property
+    @pulumi.getter
+    def workspace(self) -> Optional[str]:
+        """
+        Workspace resource ID
+        """
+        return pulumi.get(self, "workspace")
+
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

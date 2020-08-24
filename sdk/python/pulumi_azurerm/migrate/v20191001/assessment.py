@@ -5,60 +5,27 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+from . import outputs
+from ._inputs import *
+
+__all__ = ['Assessment']
 
 
 class Assessment(pulumi.CustomResource):
-    e_tag: pulumi.Output[str]
-    """
-    For optimistic concurrency control.
-    """
-    name: pulumi.Output[str]
-    """
-    Unique name of an assessment.
-    """
-    properties: pulumi.Output[dict]
-    """
-    Properties of the assessment.
-      * `azure_disk_type` (`str`) - Storage type selected for this disk.
-      * `azure_hybrid_use_benefit` (`str`) - AHUB discount on windows virtual machines.
-      * `azure_location` (`str`) - Target Azure location for which the machines should be assessed. These enums are the same as used by Compute API.
-      * `azure_offer_code` (`str`) - Offer code according to which cost estimation is done.
-      * `azure_pricing_tier` (`str`) - Pricing tier for Size evaluation.
-      * `azure_storage_redundancy` (`str`) - Storage Redundancy type offered by Azure.
-      * `azure_vm_families` (`list`) - List of azure VM families.
-      * `confidence_rating_in_percentage` (`float`) - Confidence rating percentage for assessment. Can be in the range [0, 100].
-      * `created_timestamp` (`str`) - Time when this project was created. Date-Time represented in ISO-8601 format.
-      * `currency` (`str`) - Currency to report prices in.
-      * `discount_percentage` (`float`) - Custom discount percentage to be applied on final costs. Can be in the range [0, 100].
-      * `ea_subscription_id` (`str`) - Enterprise agreement subscription arm id.
-      * `monthly_bandwidth_cost` (`float`) - Monthly network cost estimate for the machines that are part of this assessment as a group, for a 31-day month.
-      * `monthly_compute_cost` (`float`) - Monthly compute cost estimate for the machines that are part of this assessment as a group, for a 31-day month.
-      * `monthly_premium_storage_cost` (`float`) - Monthly premium storage cost estimate for the machines that are part of this assessment as a group, for a 31-day month.
-      * `monthly_standard_ssd_storage_cost` (`float`) - Monthly standard SSD storage cost estimate for the machines that are part of this assessment as a group, for a 31-day month.
-      * `monthly_storage_cost` (`float`) - Monthly storage cost estimate for the machines that are part of this assessment as a group, for a 31-day month.
-      * `number_of_machines` (`float`) - Number of assessed machines part of this assessment.
-      * `percentile` (`str`) - Percentile of performance data used to recommend Azure size.
-      * `perf_data_end_time` (`str`) - End time to consider performance data for assessment
-      * `perf_data_start_time` (`str`) - Start time to consider performance data for assessment
-      * `prices_timestamp` (`str`) - Time when the Azure Prices were queried. Date-Time represented in ISO-8601 format.
-      * `reserved_instance` (`str`) - Azure reserved instance.
-      * `scaling_factor` (`float`) - Scaling factor used over utilization data to add a performance buffer for new machines to be created in Azure. Min Value = 1.0, Max value = 1.9, Default = 1.3.
-      * `sizing_criterion` (`str`) - Assessment sizing criterion.
-      * `stage` (`str`) - User configurable setting that describes the status of the assessment.
-      * `status` (`str`) - Whether the assessment has been created and is valid.
-      * `time_range` (`str`) - Time range of performance data used to recommend a size.
-      * `updated_timestamp` (`str`) - Time when this project was last updated. Date-Time represented in ISO-8601 format.
-      * `vm_uptime` (`dict`) - Specify the duration for which the VMs are up in the on-premises environment.
-        * `days_per_month` (`float`) - Number of days in a month for VM uptime.
-        * `hours_per_day` (`float`) - Number of hours per day for VM uptime.
-    """
-    type: pulumi.Output[str]
-    """
-    Type of the object = [Microsoft.Migrate/assessmentProjects/groups/assessments].
-    """
-    def __init__(__self__, resource_name, opts=None, e_tag=None, group_name=None, name=None, project_name=None, properties=None, resource_group_name=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 e_tag: Optional[pulumi.Input[str]] = None,
+                 group_name: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 project_name: Optional[pulumi.Input[str]] = None,
+                 properties: Optional[pulumi.Input[pulumi.InputType['AssessmentPropertiesArgs']]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         An assessment created for a group in the Migration project.
 
@@ -68,29 +35,8 @@ class Assessment(pulumi.CustomResource):
         :param pulumi.Input[str] group_name: Unique name of a group within a project.
         :param pulumi.Input[str] name: Unique name of an assessment within a project.
         :param pulumi.Input[str] project_name: Name of the Azure Migrate project.
-        :param pulumi.Input[dict] properties: Properties of the assessment.
+        :param pulumi.Input[pulumi.InputType['AssessmentPropertiesArgs']] properties: Properties of the assessment.
         :param pulumi.Input[str] resource_group_name: Name of the Azure Resource Group that project is part of.
-
-        The **properties** object supports the following:
-
-          * `azure_disk_type` (`pulumi.Input[str]`) - Storage type selected for this disk.
-          * `azure_hybrid_use_benefit` (`pulumi.Input[str]`) - AHUB discount on windows virtual machines.
-          * `azure_location` (`pulumi.Input[str]`) - Target Azure location for which the machines should be assessed. These enums are the same as used by Compute API.
-          * `azure_offer_code` (`pulumi.Input[str]`) - Offer code according to which cost estimation is done.
-          * `azure_pricing_tier` (`pulumi.Input[str]`) - Pricing tier for Size evaluation.
-          * `azure_storage_redundancy` (`pulumi.Input[str]`) - Storage Redundancy type offered by Azure.
-          * `azure_vm_families` (`pulumi.Input[list]`) - List of azure VM families.
-          * `currency` (`pulumi.Input[str]`) - Currency to report prices in.
-          * `discount_percentage` (`pulumi.Input[float]`) - Custom discount percentage to be applied on final costs. Can be in the range [0, 100].
-          * `percentile` (`pulumi.Input[str]`) - Percentile of performance data used to recommend Azure size.
-          * `reserved_instance` (`pulumi.Input[str]`) - Azure reserved instance.
-          * `scaling_factor` (`pulumi.Input[float]`) - Scaling factor used over utilization data to add a performance buffer for new machines to be created in Azure. Min Value = 1.0, Max value = 1.9, Default = 1.3.
-          * `sizing_criterion` (`pulumi.Input[str]`) - Assessment sizing criterion.
-          * `stage` (`pulumi.Input[str]`) - User configurable setting that describes the status of the assessment.
-          * `time_range` (`pulumi.Input[str]`) - Time range of performance data used to recommend a size.
-          * `vm_uptime` (`pulumi.Input[dict]`) - Specify the duration for which the VMs are up in the on-premises environment.
-            * `days_per_month` (`pulumi.Input[float]`) - Number of days in a month for VM uptime.
-            * `hours_per_day` (`pulumi.Input[float]`) - Number of hours per day for VM uptime.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -133,13 +79,15 @@ class Assessment(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None) -> 'Assessment':
         """
         Get an existing Assessment resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -148,8 +96,41 @@ class Assessment(pulumi.CustomResource):
 
         return Assessment(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter(name="eTag")
+    def e_tag(self) -> Optional[str]:
+        """
+        For optimistic concurrency control.
+        """
+        return pulumi.get(self, "e_tag")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Unique name of an assessment.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def properties(self) -> 'outputs.AssessmentPropertiesResponse':
+        """
+        Properties of the assessment.
+        """
+        return pulumi.get(self, "properties")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Type of the object = [Microsoft.Migrate/assessmentProjects/groups/assessments].
+        """
+        return pulumi.get(self, "type")
+
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

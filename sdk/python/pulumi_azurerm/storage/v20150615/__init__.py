@@ -6,3 +6,4 @@
 from .get_storage_account import *
 from .list_storage_account_keys import *
 from .storage_account import *
+from . import outputs

@@ -5,10 +5,17 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+from . import outputs
 
+__all__ = [
+    'ListDatabasePrincipalsResult',
+    'AwaitableListDatabasePrincipalsResult',
+    'list_database_principals',
+]
 
+@pulumi.output_type
 class ListDatabasePrincipalsResult:
     """
     The list Kusto database principals operation response.
@@ -16,10 +23,15 @@ class ListDatabasePrincipalsResult:
     def __init__(__self__, value=None):
         if value and not isinstance(value, list):
             raise TypeError("Expected argument 'value' to be a list")
-        __self__.value = value
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[List['outputs.DatabasePrincipalResponseResult']]:
         """
         The list of Kusto database principals.
         """
+        return pulumi.get(self, "value")
 
 
 class AwaitableListDatabasePrincipalsResult(ListDatabasePrincipalsResult):
@@ -31,7 +43,10 @@ class AwaitableListDatabasePrincipalsResult(ListDatabasePrincipalsResult):
             value=self.value)
 
 
-def list_database_principals(cluster_name=None, database_name=None, resource_group_name=None, opts=None):
+def list_database_principals(cluster_name: Optional[str] = None,
+                             database_name: Optional[str] = None,
+                             resource_group_name: Optional[str] = None,
+                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListDatabasePrincipalsResult:
     """
     Use this data source to access information about an existing resource.
 
@@ -47,7 +62,7 @@ def list_database_principals(cluster_name=None, database_name=None, resource_gro
         opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = _utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('azurerm:kusto/v20200215:listDatabasePrincipals', __args__, opts=opts).value
+    __ret__ = pulumi.runtime.invoke('azurerm:kusto/v20200215:listDatabasePrincipals', __args__, opts=opts, typ=ListDatabasePrincipalsResult).value
 
     return AwaitableListDatabasePrincipalsResult(
-        value=__ret__.get('value'))
+        value=__ret__.value)

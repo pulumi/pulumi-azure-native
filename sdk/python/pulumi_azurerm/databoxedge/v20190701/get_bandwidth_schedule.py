@@ -5,10 +5,16 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
 
+__all__ = [
+    'GetBandwidthScheduleResult',
+    'AwaitableGetBandwidthScheduleResult',
+    'get_bandwidth_schedule',
+]
 
+@pulumi.output_type
 class GetBandwidthScheduleResult:
     """
     The bandwidth schedule details.
@@ -16,40 +22,70 @@ class GetBandwidthScheduleResult:
     def __init__(__self__, days=None, name=None, rate_in_mbps=None, start=None, stop=None, type=None):
         if days and not isinstance(days, list):
             raise TypeError("Expected argument 'days' to be a list")
-        __self__.days = days
+        pulumi.set(__self__, "days", days)
+        if name and not isinstance(name, str):
+            raise TypeError("Expected argument 'name' to be a str")
+        pulumi.set(__self__, "name", name)
+        if rate_in_mbps and not isinstance(rate_in_mbps, float):
+            raise TypeError("Expected argument 'rate_in_mbps' to be a float")
+        pulumi.set(__self__, "rate_in_mbps", rate_in_mbps)
+        if start and not isinstance(start, str):
+            raise TypeError("Expected argument 'start' to be a str")
+        pulumi.set(__self__, "start", start)
+        if stop and not isinstance(stop, str):
+            raise TypeError("Expected argument 'stop' to be a str")
+        pulumi.set(__self__, "stop", stop)
+        if type and not isinstance(type, str):
+            raise TypeError("Expected argument 'type' to be a str")
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def days(self) -> List[str]:
         """
         The days of the week when this schedule is applicable.
         """
-        if name and not isinstance(name, str):
-            raise TypeError("Expected argument 'name' to be a str")
-        __self__.name = name
+        return pulumi.get(self, "days")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
         """
         The object name.
         """
-        if rate_in_mbps and not isinstance(rate_in_mbps, float):
-            raise TypeError("Expected argument 'rate_in_mbps' to be a float")
-        __self__.rate_in_mbps = rate_in_mbps
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="rateInMbps")
+    def rate_in_mbps(self) -> float:
         """
         The bandwidth rate in Mbps.
         """
-        if start and not isinstance(start, str):
-            raise TypeError("Expected argument 'start' to be a str")
-        __self__.start = start
+        return pulumi.get(self, "rate_in_mbps")
+
+    @property
+    @pulumi.getter
+    def start(self) -> str:
         """
         The start time of the schedule in UTC.
         """
-        if stop and not isinstance(stop, str):
-            raise TypeError("Expected argument 'stop' to be a str")
-        __self__.stop = stop
+        return pulumi.get(self, "start")
+
+    @property
+    @pulumi.getter
+    def stop(self) -> str:
         """
         The stop time of the schedule in UTC.
         """
-        if type and not isinstance(type, str):
-            raise TypeError("Expected argument 'type' to be a str")
-        __self__.type = type
+        return pulumi.get(self, "stop")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
         """
         The hierarchical type of the object.
         """
+        return pulumi.get(self, "type")
 
 
 class AwaitableGetBandwidthScheduleResult(GetBandwidthScheduleResult):
@@ -66,7 +102,10 @@ class AwaitableGetBandwidthScheduleResult(GetBandwidthScheduleResult):
             type=self.type)
 
 
-def get_bandwidth_schedule(device_name=None, name=None, resource_group_name=None, opts=None):
+def get_bandwidth_schedule(device_name: Optional[str] = None,
+                           name: Optional[str] = None,
+                           resource_group_name: Optional[str] = None,
+                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetBandwidthScheduleResult:
     """
     Use this data source to access information about an existing resource.
 
@@ -82,12 +121,12 @@ def get_bandwidth_schedule(device_name=None, name=None, resource_group_name=None
         opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = _utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('azurerm:databoxedge/v20190701:getBandwidthSchedule', __args__, opts=opts).value
+    __ret__ = pulumi.runtime.invoke('azurerm:databoxedge/v20190701:getBandwidthSchedule', __args__, opts=opts, typ=GetBandwidthScheduleResult).value
 
     return AwaitableGetBandwidthScheduleResult(
-        days=__ret__.get('days'),
-        name=__ret__.get('name'),
-        rate_in_mbps=__ret__.get('rateInMbps'),
-        start=__ret__.get('start'),
-        stop=__ret__.get('stop'),
-        type=__ret__.get('type'))
+        days=__ret__.days,
+        name=__ret__.name,
+        rate_in_mbps=__ret__.rate_in_mbps,
+        start=__ret__.start,
+        stop=__ret__.stop,
+        type=__ret__.type)

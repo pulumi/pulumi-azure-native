@@ -39,3 +39,5 @@ from .list_workflow_run_action_repetition_expression_traces import *
 from .list_workflow_trigger_callback_url import *
 from .list_workflow_version_trigger_callback_url import *
 from .workflow import *
+from ._inputs import *
+from . import outputs

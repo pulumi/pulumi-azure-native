@@ -5,10 +5,17 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+from . import outputs
 
+__all__ = [
+    'GetManagementPolicyResult',
+    'AwaitableGetManagementPolicyResult',
+    'get_management_policy',
+]
 
+@pulumi.output_type
 class GetManagementPolicyResult:
     """
     The Get Storage Account ManagementPolicies operation response.
@@ -16,28 +23,48 @@ class GetManagementPolicyResult:
     def __init__(__self__, last_modified_time=None, name=None, policy=None, type=None):
         if last_modified_time and not isinstance(last_modified_time, str):
             raise TypeError("Expected argument 'last_modified_time' to be a str")
-        __self__.last_modified_time = last_modified_time
+        pulumi.set(__self__, "last_modified_time", last_modified_time)
+        if name and not isinstance(name, str):
+            raise TypeError("Expected argument 'name' to be a str")
+        pulumi.set(__self__, "name", name)
+        if policy and not isinstance(policy, dict):
+            raise TypeError("Expected argument 'policy' to be a dict")
+        pulumi.set(__self__, "policy", policy)
+        if type and not isinstance(type, str):
+            raise TypeError("Expected argument 'type' to be a str")
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="lastModifiedTime")
+    def last_modified_time(self) -> str:
         """
         Returns the date and time the ManagementPolicies was last modified.
         """
-        if name and not isinstance(name, str):
-            raise TypeError("Expected argument 'name' to be a str")
-        __self__.name = name
+        return pulumi.get(self, "last_modified_time")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
         """
         The name of the resource
         """
-        if policy and not isinstance(policy, dict):
-            raise TypeError("Expected argument 'policy' to be a dict")
-        __self__.policy = policy
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def policy(self) -> 'outputs.ManagementPolicySchemaResponse':
         """
         The Storage Account ManagementPolicy, in JSON format. See more details in: https://docs.microsoft.com/en-us/azure/storage/common/storage-lifecycle-managment-concepts.
         """
-        if type and not isinstance(type, str):
-            raise TypeError("Expected argument 'type' to be a str")
-        __self__.type = type
+        return pulumi.get(self, "policy")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
         """
         The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
         """
+        return pulumi.get(self, "type")
 
 
 class AwaitableGetManagementPolicyResult(GetManagementPolicyResult):
@@ -52,7 +79,10 @@ class AwaitableGetManagementPolicyResult(GetManagementPolicyResult):
             type=self.type)
 
 
-def get_management_policy(account_name=None, name=None, resource_group_name=None, opts=None):
+def get_management_policy(account_name: Optional[str] = None,
+                          name: Optional[str] = None,
+                          resource_group_name: Optional[str] = None,
+                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetManagementPolicyResult:
     """
     Use this data source to access information about an existing resource.
 
@@ -68,10 +98,10 @@ def get_management_policy(account_name=None, name=None, resource_group_name=None
         opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = _utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('azurerm:storage/v20181101:getManagementPolicy', __args__, opts=opts).value
+    __ret__ = pulumi.runtime.invoke('azurerm:storage/v20181101:getManagementPolicy', __args__, opts=opts, typ=GetManagementPolicyResult).value
 
     return AwaitableGetManagementPolicyResult(
-        last_modified_time=__ret__.get('lastModifiedTime'),
-        name=__ret__.get('name'),
-        policy=__ret__.get('policy'),
-        type=__ret__.get('type'))
+        last_modified_time=__ret__.last_modified_time,
+        name=__ret__.name,
+        policy=__ret__.policy,
+        type=__ret__.type)

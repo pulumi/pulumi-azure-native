@@ -8,3 +8,5 @@ from .list_registry_build_source_upload_url import *
 from .list_run_log_sas_url import *
 from .list_task_details import *
 from .task import *
+from ._inputs import *
+from . import outputs

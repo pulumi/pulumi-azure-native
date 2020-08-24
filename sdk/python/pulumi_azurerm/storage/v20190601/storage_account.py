@@ -5,248 +5,39 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+from . import outputs
+from ._inputs import *
+
+__all__ = ['StorageAccount']
 
 
 class StorageAccount(pulumi.CustomResource):
-    access_tier: pulumi.Output[str]
-    """
-    Required for storage accounts where kind = BlobStorage. The access tier used for billing.
-    """
-    allow_blob_public_access: pulumi.Output[bool]
-    """
-    Allow or disallow public access to all blobs or containers in the storage account. The default interpretation is true for this property.
-    """
-    azure_files_identity_based_authentication: pulumi.Output[dict]
-    """
-    Provides the identity based authentication settings for Azure Files.
-      * `active_directory_properties` (`dict`) - Required if choose AD.
-        * `azure_storage_sid` (`str`) - Specifies the security identifier (SID) for Azure Storage.
-        * `domain_guid` (`str`) - Specifies the domain GUID.
-        * `domain_name` (`str`) - Specifies the primary domain that the AD DNS server is authoritative for.
-        * `domain_sid` (`str`) - Specifies the security identifier (SID).
-        * `forest_name` (`str`) - Specifies the Active Directory forest to get.
-        * `net_bios_domain_name` (`str`) - Specifies the NetBIOS domain name.
-
-      * `directory_service_options` (`str`) - Indicates the directory service used.
-    """
-    blob_restore_status: pulumi.Output[dict]
-    """
-    Blob restore status
-      * `failure_reason` (`str`) - Failure reason when blob restore is failed.
-      * `parameters` (`dict`) - Blob restore request parameters.
-        * `blob_ranges` (`list`) - Blob ranges to restore.
-          * `end_range` (`str`) - Blob end range. This is exclusive. Empty means account end.
-          * `start_range` (`str`) - Blob start range. This is inclusive. Empty means account start.
-
-        * `time_to_restore` (`str`) - Restore blob to the specified time.
-
-      * `restore_id` (`str`) - Id for tracking blob restore request.
-      * `status` (`str`) - The status of blob restore progress. Possible values are: - InProgress: Indicates that blob restore is ongoing. - Complete: Indicates that blob restore has been completed successfully. - Failed: Indicates that blob restore is failed.
-    """
-    creation_time: pulumi.Output[str]
-    """
-    Gets the creation date and time of the storage account in UTC.
-    """
-    custom_domain: pulumi.Output[dict]
-    """
-    Gets the custom domain the user assigned to this storage account.
-      * `name` (`str`) - Gets or sets the custom domain name assigned to the storage account. Name is the CNAME source.
-      * `use_sub_domain_name` (`bool`) - Indicates whether indirect CName validation is enabled. Default value is false. This should only be set on updates.
-    """
-    enable_https_traffic_only: pulumi.Output[bool]
-    """
-    Allows https traffic only to storage service if sets to true.
-    """
-    encryption: pulumi.Output[dict]
-    """
-    Gets the encryption settings on the account. If unspecified, the account is unencrypted.
-      * `key_source` (`str`) - The encryption keySource (provider). Possible values (case-insensitive):  Microsoft.Storage, Microsoft.Keyvault
-      * `key_vault_properties` (`dict`) - Properties provided by key vault.
-        * `current_versioned_key_identifier` (`str`) - The object identifier of the current versioned Key Vault Key in use.
-        * `key_name` (`str`) - The name of KeyVault key.
-        * `key_vault_uri` (`str`) - The Uri of KeyVault.
-        * `key_version` (`str`) - The version of KeyVault key.
-        * `last_key_rotation_timestamp` (`str`) - Timestamp of last rotation of the Key Vault Key.
-
-      * `require_infrastructure_encryption` (`bool`) - A boolean indicating whether or not the service applies a secondary layer of encryption with platform managed keys for data at rest.
-      * `services` (`dict`) - List of services which support encryption.
-        * `blob` (`dict`) - The encryption function of the blob storage service.
-          * `enabled` (`bool`) - A boolean indicating whether or not the service encrypts the data as it is stored.
-          * `key_type` (`str`) - Encryption key type to be used for the encryption service. 'Account' key type implies that an account-scoped encryption key will be used. 'Service' key type implies that a default service key is used.
-          * `last_enabled_time` (`str`) - Gets a rough estimate of the date/time when the encryption was last enabled by the user. Only returned when encryption is enabled. There might be some unencrypted blobs which were written after this time, as it is just a rough estimate.
-
-        * `file` (`dict`) - The encryption function of the file storage service.
-        * `queue` (`dict`) - The encryption function of the queue storage service.
-        * `table` (`dict`) - The encryption function of the table storage service.
-    """
-    failover_in_progress: pulumi.Output[bool]
-    """
-    If the failover is in progress, the value will be true, otherwise, it will be null.
-    """
-    geo_replication_stats: pulumi.Output[dict]
-    """
-    Geo Replication Stats
-      * `can_failover` (`bool`) - A boolean flag which indicates whether or not account failover is supported for the account.
-      * `last_sync_time` (`str`) - All primary writes preceding this UTC date/time value are guaranteed to be available for read operations. Primary writes following this point in time may or may not be available for reads. Element may be default value if value of LastSyncTime is not available, this can happen if secondary is offline or we are in bootstrap.
-      * `status` (`str`) - The status of the secondary location. Possible values are: - Live: Indicates that the secondary location is active and operational. - Bootstrap: Indicates initial synchronization from the primary location to the secondary location is in progress.This typically occurs when replication is first enabled. - Unavailable: Indicates that the secondary location is temporarily unavailable.
-    """
-    identity: pulumi.Output[dict]
-    """
-    The identity of the resource.
-      * `principal_id` (`str`) - The principal ID of resource identity.
-      * `tenant_id` (`str`) - The tenant ID of resource.
-      * `type` (`str`) - The identity type.
-    """
-    is_hns_enabled: pulumi.Output[bool]
-    """
-    Account HierarchicalNamespace enabled if sets to true.
-    """
-    kind: pulumi.Output[str]
-    """
-    Gets the Kind.
-    """
-    large_file_shares_state: pulumi.Output[str]
-    """
-    Allow large file shares if sets to Enabled. It cannot be disabled once it is enabled.
-    """
-    last_geo_failover_time: pulumi.Output[str]
-    """
-    Gets the timestamp of the most recent instance of a failover to the secondary location. Only the most recent timestamp is retained. This element is not returned if there has never been a failover instance. Only available if the accountType is Standard_GRS or Standard_RAGRS.
-    """
-    location: pulumi.Output[str]
-    """
-    The geo-location where the resource lives
-    """
-    minimum_tls_version: pulumi.Output[str]
-    """
-    Set the minimum TLS version to be permitted on requests to storage. The default interpretation is TLS 1.0 for this property.
-    """
-    name: pulumi.Output[str]
-    """
-    The name of the resource
-    """
-    network_rule_set: pulumi.Output[dict]
-    """
-    Network rule set
-      * `bypass` (`str`) - Specifies whether traffic is bypassed for Logging/Metrics/AzureServices. Possible values are any combination of Logging|Metrics|AzureServices (For example, "Logging, Metrics"), or None to bypass none of those traffics.
-      * `default_action` (`str`) - Specifies the default action of allow or deny when no other rules match.
-      * `ip_rules` (`list`) - Sets the IP ACL rules
-        * `action` (`str`) - The action of IP ACL rule.
-        * `i_p_address_or_range` (`str`) - Specifies the IP or IP range in CIDR format. Only IPV4 address is allowed.
-
-      * `virtual_network_rules` (`list`) - Sets the virtual network rules
-        * `action` (`str`) - The action of virtual network rule.
-        * `state` (`str`) - Gets the state of virtual network rule.
-        * `virtual_network_resource_id` (`str`) - Resource ID of a subnet, for example: /subscriptions/{subscriptionId}/resourceGroups/{groupName}/providers/Microsoft.Network/virtualNetworks/{vnetName}/subnets/{subnetName}.
-    """
-    primary_endpoints: pulumi.Output[dict]
-    """
-    Gets the URLs that are used to perform a retrieval of a public blob, queue, or table object. Note that Standard_ZRS and Premium_LRS accounts only return the blob endpoint.
-      * `blob` (`str`) - Gets the blob endpoint.
-      * `dfs` (`str`) - Gets the dfs endpoint.
-      * `file` (`str`) - Gets the file endpoint.
-      * `internet_endpoints` (`dict`) - Gets the internet routing storage endpoints
-        * `blob` (`str`) - Gets the blob endpoint.
-        * `dfs` (`str`) - Gets the dfs endpoint.
-        * `file` (`str`) - Gets the file endpoint.
-        * `web` (`str`) - Gets the web endpoint.
-
-      * `microsoft_endpoints` (`dict`) - Gets the microsoft routing storage endpoints.
-        * `blob` (`str`) - Gets the blob endpoint.
-        * `dfs` (`str`) - Gets the dfs endpoint.
-        * `file` (`str`) - Gets the file endpoint.
-        * `queue` (`str`) - Gets the queue endpoint.
-        * `table` (`str`) - Gets the table endpoint.
-        * `web` (`str`) - Gets the web endpoint.
-
-      * `queue` (`str`) - Gets the queue endpoint.
-      * `table` (`str`) - Gets the table endpoint.
-      * `web` (`str`) - Gets the web endpoint.
-    """
-    primary_location: pulumi.Output[str]
-    """
-    Gets the location of the primary data center for the storage account.
-    """
-    private_endpoint_connections: pulumi.Output[list]
-    """
-    List of private endpoint connection associated with the specified storage account
-      * `id` (`str`) - Fully qualified resource Id for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
-      * `name` (`str`) - The name of the resource
-      * `private_endpoint` (`dict`) - The resource of private end point.
-        * `id` (`str`) - The ARM identifier for Private Endpoint
-
-      * `private_link_service_connection_state` (`dict`) - A collection of information about the state of the connection between service consumer and provider.
-        * `action_required` (`str`) - A message indicating if changes on the service provider require any updates on the consumer.
-        * `description` (`str`) - The reason for approval/rejection of the connection.
-        * `status` (`str`) - Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
-
-      * `provisioning_state` (`str`) - The provisioning state of the private endpoint connection resource.
-      * `type` (`str`) - The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
-    """
-    provisioning_state: pulumi.Output[str]
-    """
-    Gets the status of the storage account at the time the operation was called.
-    """
-    routing_preference: pulumi.Output[dict]
-    """
-    Maintains information about the network routing choice opted by the user for data transfer
-      * `publish_internet_endpoints` (`bool`) - A boolean flag which indicates whether internet routing storage endpoints are to be published
-      * `publish_microsoft_endpoints` (`bool`) - A boolean flag which indicates whether microsoft routing storage endpoints are to be published
-      * `routing_choice` (`str`) - Routing Choice defines the kind of network routing opted by the user.
-    """
-    secondary_endpoints: pulumi.Output[dict]
-    """
-    Gets the URLs that are used to perform a retrieval of a public blob, queue, or table object from the secondary location of the storage account. Only available if the SKU name is Standard_RAGRS.
-      * `blob` (`str`) - Gets the blob endpoint.
-      * `dfs` (`str`) - Gets the dfs endpoint.
-      * `file` (`str`) - Gets the file endpoint.
-      * `internet_endpoints` (`dict`) - Gets the internet routing storage endpoints
-        * `blob` (`str`) - Gets the blob endpoint.
-        * `dfs` (`str`) - Gets the dfs endpoint.
-        * `file` (`str`) - Gets the file endpoint.
-        * `web` (`str`) - Gets the web endpoint.
-
-      * `microsoft_endpoints` (`dict`) - Gets the microsoft routing storage endpoints.
-        * `blob` (`str`) - Gets the blob endpoint.
-        * `dfs` (`str`) - Gets the dfs endpoint.
-        * `file` (`str`) - Gets the file endpoint.
-        * `queue` (`str`) - Gets the queue endpoint.
-        * `table` (`str`) - Gets the table endpoint.
-        * `web` (`str`) - Gets the web endpoint.
-
-      * `queue` (`str`) - Gets the queue endpoint.
-      * `table` (`str`) - Gets the table endpoint.
-      * `web` (`str`) - Gets the web endpoint.
-    """
-    secondary_location: pulumi.Output[str]
-    """
-    Gets the location of the geo-replicated secondary for the storage account. Only available if the accountType is Standard_GRS or Standard_RAGRS.
-    """
-    sku: pulumi.Output[dict]
-    """
-    Gets the SKU.
-      * `name` (`str`) - The SKU name. Required for account creation; optional for update. Note that in older versions, SKU name was called accountType.
-      * `tier` (`str`) - The SKU tier. This is based on the SKU name.
-    """
-    status_of_primary: pulumi.Output[str]
-    """
-    Gets the status indicating whether the primary location of the storage account is available or unavailable.
-    """
-    status_of_secondary: pulumi.Output[str]
-    """
-    Gets the status indicating whether the secondary location of the storage account is available or unavailable. Only available if the SKU name is Standard_GRS or Standard_RAGRS.
-    """
-    tags: pulumi.Output[dict]
-    """
-    Resource tags.
-    """
-    type: pulumi.Output[str]
-    """
-    The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
-    """
-    def __init__(__self__, resource_name, opts=None, access_tier=None, allow_blob_public_access=None, azure_files_identity_based_authentication=None, custom_domain=None, enable_https_traffic_only=None, encryption=None, identity=None, is_hns_enabled=None, kind=None, large_file_shares_state=None, location=None, minimum_tls_version=None, name=None, network_rule_set=None, resource_group_name=None, routing_preference=None, sku=None, tags=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 access_tier: Optional[pulumi.Input[str]] = None,
+                 allow_blob_public_access: Optional[pulumi.Input[bool]] = None,
+                 azure_files_identity_based_authentication: Optional[pulumi.Input[pulumi.InputType['AzureFilesIdentityBasedAuthenticationArgs']]] = None,
+                 custom_domain: Optional[pulumi.Input[pulumi.InputType['CustomDomainArgs']]] = None,
+                 enable_https_traffic_only: Optional[pulumi.Input[bool]] = None,
+                 encryption: Optional[pulumi.Input[pulumi.InputType['EncryptionArgs']]] = None,
+                 identity: Optional[pulumi.Input[pulumi.InputType['IdentityArgs']]] = None,
+                 is_hns_enabled: Optional[pulumi.Input[bool]] = None,
+                 kind: Optional[pulumi.Input[str]] = None,
+                 large_file_shares_state: Optional[pulumi.Input[str]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 minimum_tls_version: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 network_rule_set: Optional[pulumi.Input[pulumi.InputType['NetworkRuleSetArgs']]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 routing_preference: Optional[pulumi.Input[pulumi.InputType['RoutingPreferenceArgs']]] = None,
+                 sku: Optional[pulumi.Input[pulumi.InputType['SkuArgs']]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         The storage account.
 
@@ -254,85 +45,22 @@ class StorageAccount(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] access_tier: Required for storage accounts where kind = BlobStorage. The access tier used for billing.
         :param pulumi.Input[bool] allow_blob_public_access: Allow or disallow public access to all blobs or containers in the storage account. The default interpretation is true for this property.
-        :param pulumi.Input[dict] azure_files_identity_based_authentication: Provides the identity based authentication settings for Azure Files.
-        :param pulumi.Input[dict] custom_domain: User domain assigned to the storage account. Name is the CNAME source. Only one custom domain is supported per storage account at this time. To clear the existing custom domain, use an empty string for the custom domain name property.
+        :param pulumi.Input[pulumi.InputType['AzureFilesIdentityBasedAuthenticationArgs']] azure_files_identity_based_authentication: Provides the identity based authentication settings for Azure Files.
+        :param pulumi.Input[pulumi.InputType['CustomDomainArgs']] custom_domain: User domain assigned to the storage account. Name is the CNAME source. Only one custom domain is supported per storage account at this time. To clear the existing custom domain, use an empty string for the custom domain name property.
         :param pulumi.Input[bool] enable_https_traffic_only: Allows https traffic only to storage service if sets to true. The default value is true since API version 2019-04-01.
-        :param pulumi.Input[dict] encryption: Not applicable. Azure Storage encryption is enabled for all storage accounts and cannot be disabled.
-        :param pulumi.Input[dict] identity: The identity of the resource.
+        :param pulumi.Input[pulumi.InputType['EncryptionArgs']] encryption: Not applicable. Azure Storage encryption is enabled for all storage accounts and cannot be disabled.
+        :param pulumi.Input[pulumi.InputType['IdentityArgs']] identity: The identity of the resource.
         :param pulumi.Input[bool] is_hns_enabled: Account HierarchicalNamespace enabled if sets to true.
         :param pulumi.Input[str] kind: Required. Indicates the type of storage account.
         :param pulumi.Input[str] large_file_shares_state: Allow large file shares if sets to Enabled. It cannot be disabled once it is enabled.
         :param pulumi.Input[str] location: Required. Gets or sets the location of the resource. This will be one of the supported and registered Azure Geo Regions (e.g. West US, East US, Southeast Asia, etc.). The geo region of a resource cannot be changed once it is created, but if an identical geo region is specified on update, the request will succeed.
         :param pulumi.Input[str] minimum_tls_version: Set the minimum TLS version to be permitted on requests to storage. The default interpretation is TLS 1.0 for this property.
         :param pulumi.Input[str] name: The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.
-        :param pulumi.Input[dict] network_rule_set: Network rule set
+        :param pulumi.Input[pulumi.InputType['NetworkRuleSetArgs']] network_rule_set: Network rule set
         :param pulumi.Input[str] resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.
-        :param pulumi.Input[dict] routing_preference: Maintains information about the network routing choice opted by the user for data transfer
-        :param pulumi.Input[dict] sku: Required. Gets or sets the SKU name.
-        :param pulumi.Input[dict] tags: Gets or sets a list of key value pairs that describe the resource. These tags can be used for viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key with a length no greater than 128 characters and a value with a length no greater than 256 characters.
-
-        The **azure_files_identity_based_authentication** object supports the following:
-
-          * `active_directory_properties` (`pulumi.Input[dict]`) - Required if choose AD.
-            * `azure_storage_sid` (`pulumi.Input[str]`) - Specifies the security identifier (SID) for Azure Storage.
-            * `domain_guid` (`pulumi.Input[str]`) - Specifies the domain GUID.
-            * `domain_name` (`pulumi.Input[str]`) - Specifies the primary domain that the AD DNS server is authoritative for.
-            * `domain_sid` (`pulumi.Input[str]`) - Specifies the security identifier (SID).
-            * `forest_name` (`pulumi.Input[str]`) - Specifies the Active Directory forest to get.
-            * `net_bios_domain_name` (`pulumi.Input[str]`) - Specifies the NetBIOS domain name.
-
-          * `directory_service_options` (`pulumi.Input[str]`) - Indicates the directory service used.
-
-        The **custom_domain** object supports the following:
-
-          * `name` (`pulumi.Input[str]`) - Gets or sets the custom domain name assigned to the storage account. Name is the CNAME source.
-          * `use_sub_domain_name` (`pulumi.Input[bool]`) - Indicates whether indirect CName validation is enabled. Default value is false. This should only be set on updates.
-
-        The **encryption** object supports the following:
-
-          * `key_source` (`pulumi.Input[str]`) - The encryption keySource (provider). Possible values (case-insensitive):  Microsoft.Storage, Microsoft.Keyvault
-          * `key_vault_properties` (`pulumi.Input[dict]`) - Properties provided by key vault.
-            * `key_name` (`pulumi.Input[str]`) - The name of KeyVault key.
-            * `key_vault_uri` (`pulumi.Input[str]`) - The Uri of KeyVault.
-            * `key_version` (`pulumi.Input[str]`) - The version of KeyVault key.
-
-          * `require_infrastructure_encryption` (`pulumi.Input[bool]`) - A boolean indicating whether or not the service applies a secondary layer of encryption with platform managed keys for data at rest.
-          * `services` (`pulumi.Input[dict]`) - List of services which support encryption.
-            * `blob` (`pulumi.Input[dict]`) - The encryption function of the blob storage service.
-              * `enabled` (`pulumi.Input[bool]`) - A boolean indicating whether or not the service encrypts the data as it is stored.
-              * `key_type` (`pulumi.Input[str]`) - Encryption key type to be used for the encryption service. 'Account' key type implies that an account-scoped encryption key will be used. 'Service' key type implies that a default service key is used.
-
-            * `file` (`pulumi.Input[dict]`) - The encryption function of the file storage service.
-            * `queue` (`pulumi.Input[dict]`) - The encryption function of the queue storage service.
-            * `table` (`pulumi.Input[dict]`) - The encryption function of the table storage service.
-
-        The **identity** object supports the following:
-
-          * `type` (`pulumi.Input[str]`) - The identity type.
-
-        The **network_rule_set** object supports the following:
-
-          * `bypass` (`pulumi.Input[str]`) - Specifies whether traffic is bypassed for Logging/Metrics/AzureServices. Possible values are any combination of Logging|Metrics|AzureServices (For example, "Logging, Metrics"), or None to bypass none of those traffics.
-          * `default_action` (`pulumi.Input[str]`) - Specifies the default action of allow or deny when no other rules match.
-          * `ip_rules` (`pulumi.Input[list]`) - Sets the IP ACL rules
-            * `action` (`pulumi.Input[str]`) - The action of IP ACL rule.
-            * `i_p_address_or_range` (`pulumi.Input[str]`) - Specifies the IP or IP range in CIDR format. Only IPV4 address is allowed.
-
-          * `virtual_network_rules` (`pulumi.Input[list]`) - Sets the virtual network rules
-            * `action` (`pulumi.Input[str]`) - The action of virtual network rule.
-            * `state` (`pulumi.Input[str]`) - Gets the state of virtual network rule.
-            * `virtual_network_resource_id` (`pulumi.Input[str]`) - Resource ID of a subnet, for example: /subscriptions/{subscriptionId}/resourceGroups/{groupName}/providers/Microsoft.Network/virtualNetworks/{vnetName}/subnets/{subnetName}.
-
-        The **routing_preference** object supports the following:
-
-          * `publish_internet_endpoints` (`pulumi.Input[bool]`) - A boolean flag which indicates whether internet routing storage endpoints are to be published
-          * `publish_microsoft_endpoints` (`pulumi.Input[bool]`) - A boolean flag which indicates whether microsoft routing storage endpoints are to be published
-          * `routing_choice` (`pulumi.Input[str]`) - Routing Choice defines the kind of network routing opted by the user.
-
-        The **sku** object supports the following:
-
-          * `name` (`pulumi.Input[str]`) - The SKU name. Required for account creation; optional for update. Note that in older versions, SKU name was called accountType.
-          * `tier` (`pulumi.Input[str]`) - The SKU tier. This is based on the SKU name.
+        :param pulumi.Input[pulumi.InputType['RoutingPreferenceArgs']] routing_preference: Maintains information about the network routing choice opted by the user for data transfer
+        :param pulumi.Input[pulumi.InputType['SkuArgs']] sku: Required. Gets or sets the SKU name.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Gets or sets a list of key value pairs that describe the resource. These tags can be used for viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key with a length no greater than 128 characters and a value with a length no greater than 256 characters.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -402,13 +130,15 @@ class StorageAccount(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None) -> 'StorageAccount':
         """
         Get an existing StorageAccount resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -417,8 +147,257 @@ class StorageAccount(pulumi.CustomResource):
 
         return StorageAccount(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter(name="accessTier")
+    def access_tier(self) -> str:
+        """
+        Required for storage accounts where kind = BlobStorage. The access tier used for billing.
+        """
+        return pulumi.get(self, "access_tier")
+
+    @property
+    @pulumi.getter(name="allowBlobPublicAccess")
+    def allow_blob_public_access(self) -> Optional[bool]:
+        """
+        Allow or disallow public access to all blobs or containers in the storage account. The default interpretation is true for this property.
+        """
+        return pulumi.get(self, "allow_blob_public_access")
+
+    @property
+    @pulumi.getter(name="azureFilesIdentityBasedAuthentication")
+    def azure_files_identity_based_authentication(self) -> Optional['outputs.AzureFilesIdentityBasedAuthenticationResponse']:
+        """
+        Provides the identity based authentication settings for Azure Files.
+        """
+        return pulumi.get(self, "azure_files_identity_based_authentication")
+
+    @property
+    @pulumi.getter(name="blobRestoreStatus")
+    def blob_restore_status(self) -> 'outputs.BlobRestoreStatusResponse':
+        """
+        Blob restore status
+        """
+        return pulumi.get(self, "blob_restore_status")
+
+    @property
+    @pulumi.getter(name="creationTime")
+    def creation_time(self) -> str:
+        """
+        Gets the creation date and time of the storage account in UTC.
+        """
+        return pulumi.get(self, "creation_time")
+
+    @property
+    @pulumi.getter(name="customDomain")
+    def custom_domain(self) -> 'outputs.CustomDomainResponse':
+        """
+        Gets the custom domain the user assigned to this storage account.
+        """
+        return pulumi.get(self, "custom_domain")
+
+    @property
+    @pulumi.getter(name="enableHttpsTrafficOnly")
+    def enable_https_traffic_only(self) -> Optional[bool]:
+        """
+        Allows https traffic only to storage service if sets to true.
+        """
+        return pulumi.get(self, "enable_https_traffic_only")
+
+    @property
+    @pulumi.getter
+    def encryption(self) -> 'outputs.EncryptionResponse':
+        """
+        Gets the encryption settings on the account. If unspecified, the account is unencrypted.
+        """
+        return pulumi.get(self, "encryption")
+
+    @property
+    @pulumi.getter(name="failoverInProgress")
+    def failover_in_progress(self) -> bool:
+        """
+        If the failover is in progress, the value will be true, otherwise, it will be null.
+        """
+        return pulumi.get(self, "failover_in_progress")
+
+    @property
+    @pulumi.getter(name="geoReplicationStats")
+    def geo_replication_stats(self) -> 'outputs.GeoReplicationStatsResponse':
+        """
+        Geo Replication Stats
+        """
+        return pulumi.get(self, "geo_replication_stats")
+
+    @property
+    @pulumi.getter
+    def identity(self) -> Optional['outputs.IdentityResponse']:
+        """
+        The identity of the resource.
+        """
+        return pulumi.get(self, "identity")
+
+    @property
+    @pulumi.getter(name="isHnsEnabled")
+    def is_hns_enabled(self) -> Optional[bool]:
+        """
+        Account HierarchicalNamespace enabled if sets to true.
+        """
+        return pulumi.get(self, "is_hns_enabled")
+
+    @property
+    @pulumi.getter
+    def kind(self) -> str:
+        """
+        Gets the Kind.
+        """
+        return pulumi.get(self, "kind")
+
+    @property
+    @pulumi.getter(name="largeFileSharesState")
+    def large_file_shares_state(self) -> Optional[str]:
+        """
+        Allow large file shares if sets to Enabled. It cannot be disabled once it is enabled.
+        """
+        return pulumi.get(self, "large_file_shares_state")
+
+    @property
+    @pulumi.getter(name="lastGeoFailoverTime")
+    def last_geo_failover_time(self) -> str:
+        """
+        Gets the timestamp of the most recent instance of a failover to the secondary location. Only the most recent timestamp is retained. This element is not returned if there has never been a failover instance. Only available if the accountType is Standard_GRS or Standard_RAGRS.
+        """
+        return pulumi.get(self, "last_geo_failover_time")
+
+    @property
+    @pulumi.getter
+    def location(self) -> str:
+        """
+        The geo-location where the resource lives
+        """
+        return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter(name="minimumTlsVersion")
+    def minimum_tls_version(self) -> Optional[str]:
+        """
+        Set the minimum TLS version to be permitted on requests to storage. The default interpretation is TLS 1.0 for this property.
+        """
+        return pulumi.get(self, "minimum_tls_version")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the resource
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="networkRuleSet")
+    def network_rule_set(self) -> 'outputs.NetworkRuleSetResponse':
+        """
+        Network rule set
+        """
+        return pulumi.get(self, "network_rule_set")
+
+    @property
+    @pulumi.getter(name="primaryEndpoints")
+    def primary_endpoints(self) -> 'outputs.EndpointsResponse':
+        """
+        Gets the URLs that are used to perform a retrieval of a public blob, queue, or table object. Note that Standard_ZRS and Premium_LRS accounts only return the blob endpoint.
+        """
+        return pulumi.get(self, "primary_endpoints")
+
+    @property
+    @pulumi.getter(name="primaryLocation")
+    def primary_location(self) -> str:
+        """
+        Gets the location of the primary data center for the storage account.
+        """
+        return pulumi.get(self, "primary_location")
+
+    @property
+    @pulumi.getter(name="privateEndpointConnections")
+    def private_endpoint_connections(self) -> List['outputs.PrivateEndpointConnectionResponse']:
+        """
+        List of private endpoint connection associated with the specified storage account
+        """
+        return pulumi.get(self, "private_endpoint_connections")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        Gets the status of the storage account at the time the operation was called.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="routingPreference")
+    def routing_preference(self) -> Optional['outputs.RoutingPreferenceResponse']:
+        """
+        Maintains information about the network routing choice opted by the user for data transfer
+        """
+        return pulumi.get(self, "routing_preference")
+
+    @property
+    @pulumi.getter(name="secondaryEndpoints")
+    def secondary_endpoints(self) -> 'outputs.EndpointsResponse':
+        """
+        Gets the URLs that are used to perform a retrieval of a public blob, queue, or table object from the secondary location of the storage account. Only available if the SKU name is Standard_RAGRS.
+        """
+        return pulumi.get(self, "secondary_endpoints")
+
+    @property
+    @pulumi.getter(name="secondaryLocation")
+    def secondary_location(self) -> str:
+        """
+        Gets the location of the geo-replicated secondary for the storage account. Only available if the accountType is Standard_GRS or Standard_RAGRS.
+        """
+        return pulumi.get(self, "secondary_location")
+
+    @property
+    @pulumi.getter
+    def sku(self) -> 'outputs.SkuResponse':
+        """
+        Gets the SKU.
+        """
+        return pulumi.get(self, "sku")
+
+    @property
+    @pulumi.getter(name="statusOfPrimary")
+    def status_of_primary(self) -> str:
+        """
+        Gets the status indicating whether the primary location of the storage account is available or unavailable.
+        """
+        return pulumi.get(self, "status_of_primary")
+
+    @property
+    @pulumi.getter(name="statusOfSecondary")
+    def status_of_secondary(self) -> str:
+        """
+        Gets the status indicating whether the secondary location of the storage account is available or unavailable. Only available if the SKU name is Standard_GRS or Standard_RAGRS.
+        """
+        return pulumi.get(self, "status_of_secondary")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Mapping[str, str]]:
+        """
+        Resource tags.
+        """
+        return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+        """
+        return pulumi.get(self, "type")
+
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

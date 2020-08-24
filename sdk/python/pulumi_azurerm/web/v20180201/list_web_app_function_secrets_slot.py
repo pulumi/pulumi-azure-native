@@ -5,10 +5,16 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
 
+__all__ = [
+    'ListWebAppFunctionSecretsSlotResult',
+    'AwaitableListWebAppFunctionSecretsSlotResult',
+    'list_web_app_function_secrets_slot',
+]
 
+@pulumi.output_type
 class ListWebAppFunctionSecretsSlotResult:
     """
     Function secrets.
@@ -16,34 +22,59 @@ class ListWebAppFunctionSecretsSlotResult:
     def __init__(__self__, key=None, kind=None, name=None, trigger_url=None, type=None):
         if key and not isinstance(key, str):
             raise TypeError("Expected argument 'key' to be a str")
-        __self__.key = key
+        pulumi.set(__self__, "key", key)
+        if kind and not isinstance(kind, str):
+            raise TypeError("Expected argument 'kind' to be a str")
+        pulumi.set(__self__, "kind", kind)
+        if name and not isinstance(name, str):
+            raise TypeError("Expected argument 'name' to be a str")
+        pulumi.set(__self__, "name", name)
+        if trigger_url and not isinstance(trigger_url, str):
+            raise TypeError("Expected argument 'trigger_url' to be a str")
+        pulumi.set(__self__, "trigger_url", trigger_url)
+        if type and not isinstance(type, str):
+            raise TypeError("Expected argument 'type' to be a str")
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def key(self) -> Optional[str]:
         """
         Secret key.
         """
-        if kind and not isinstance(kind, str):
-            raise TypeError("Expected argument 'kind' to be a str")
-        __self__.kind = kind
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def kind(self) -> Optional[str]:
         """
         Kind of resource.
         """
-        if name and not isinstance(name, str):
-            raise TypeError("Expected argument 'name' to be a str")
-        __self__.name = name
+        return pulumi.get(self, "kind")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
         """
         Resource Name.
         """
-        if trigger_url and not isinstance(trigger_url, str):
-            raise TypeError("Expected argument 'trigger_url' to be a str")
-        __self__.trigger_url = trigger_url
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="triggerUrl")
+    def trigger_url(self) -> Optional[str]:
         """
         Trigger URL.
         """
-        if type and not isinstance(type, str):
-            raise TypeError("Expected argument 'type' to be a str")
-        __self__.type = type
+        return pulumi.get(self, "trigger_url")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
         """
         Resource type.
         """
+        return pulumi.get(self, "type")
 
 
 class AwaitableListWebAppFunctionSecretsSlotResult(ListWebAppFunctionSecretsSlotResult):
@@ -59,7 +90,10 @@ class AwaitableListWebAppFunctionSecretsSlotResult(ListWebAppFunctionSecretsSlot
             type=self.type)
 
 
-def list_web_app_function_secrets_slot(name=None, resource_group_name=None, slot=None, opts=None):
+def list_web_app_function_secrets_slot(name: Optional[str] = None,
+                                       resource_group_name: Optional[str] = None,
+                                       slot: Optional[str] = None,
+                                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListWebAppFunctionSecretsSlotResult:
     """
     Use this data source to access information about an existing resource.
 
@@ -75,11 +109,11 @@ def list_web_app_function_secrets_slot(name=None, resource_group_name=None, slot
         opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = _utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('azurerm:web/v20180201:listWebAppFunctionSecretsSlot', __args__, opts=opts).value
+    __ret__ = pulumi.runtime.invoke('azurerm:web/v20180201:listWebAppFunctionSecretsSlot', __args__, opts=opts, typ=ListWebAppFunctionSecretsSlotResult).value
 
     return AwaitableListWebAppFunctionSecretsSlotResult(
-        key=__ret__.get('key'),
-        kind=__ret__.get('kind'),
-        name=__ret__.get('name'),
-        trigger_url=__ret__.get('triggerUrl'),
-        type=__ret__.get('type'))
+        key=__ret__.key,
+        kind=__ret__.kind,
+        name=__ret__.name,
+        trigger_url=__ret__.trigger_url,
+        type=__ret__.type)

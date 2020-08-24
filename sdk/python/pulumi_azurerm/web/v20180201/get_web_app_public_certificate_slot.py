@@ -5,10 +5,16 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
 
+__all__ = [
+    'GetWebAppPublicCertificateSlotResult',
+    'AwaitableGetWebAppPublicCertificateSlotResult',
+    'get_web_app_public_certificate_slot',
+]
 
+@pulumi.output_type
 class GetWebAppPublicCertificateSlotResult:
     """
     Public certificate object
@@ -16,40 +22,70 @@ class GetWebAppPublicCertificateSlotResult:
     def __init__(__self__, blob=None, kind=None, name=None, public_certificate_location=None, thumbprint=None, type=None):
         if blob and not isinstance(blob, str):
             raise TypeError("Expected argument 'blob' to be a str")
-        __self__.blob = blob
+        pulumi.set(__self__, "blob", blob)
+        if kind and not isinstance(kind, str):
+            raise TypeError("Expected argument 'kind' to be a str")
+        pulumi.set(__self__, "kind", kind)
+        if name and not isinstance(name, str):
+            raise TypeError("Expected argument 'name' to be a str")
+        pulumi.set(__self__, "name", name)
+        if public_certificate_location and not isinstance(public_certificate_location, str):
+            raise TypeError("Expected argument 'public_certificate_location' to be a str")
+        pulumi.set(__self__, "public_certificate_location", public_certificate_location)
+        if thumbprint and not isinstance(thumbprint, str):
+            raise TypeError("Expected argument 'thumbprint' to be a str")
+        pulumi.set(__self__, "thumbprint", thumbprint)
+        if type and not isinstance(type, str):
+            raise TypeError("Expected argument 'type' to be a str")
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def blob(self) -> Optional[str]:
         """
         Public Certificate byte array
         """
-        if kind and not isinstance(kind, str):
-            raise TypeError("Expected argument 'kind' to be a str")
-        __self__.kind = kind
+        return pulumi.get(self, "blob")
+
+    @property
+    @pulumi.getter
+    def kind(self) -> Optional[str]:
         """
         Kind of resource.
         """
-        if name and not isinstance(name, str):
-            raise TypeError("Expected argument 'name' to be a str")
-        __self__.name = name
+        return pulumi.get(self, "kind")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
         """
         Resource Name.
         """
-        if public_certificate_location and not isinstance(public_certificate_location, str):
-            raise TypeError("Expected argument 'public_certificate_location' to be a str")
-        __self__.public_certificate_location = public_certificate_location
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="publicCertificateLocation")
+    def public_certificate_location(self) -> Optional[str]:
         """
         Public Certificate Location
         """
-        if thumbprint and not isinstance(thumbprint, str):
-            raise TypeError("Expected argument 'thumbprint' to be a str")
-        __self__.thumbprint = thumbprint
+        return pulumi.get(self, "public_certificate_location")
+
+    @property
+    @pulumi.getter
+    def thumbprint(self) -> str:
         """
         Certificate Thumbprint
         """
-        if type and not isinstance(type, str):
-            raise TypeError("Expected argument 'type' to be a str")
-        __self__.type = type
+        return pulumi.get(self, "thumbprint")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
         """
         Resource type.
         """
+        return pulumi.get(self, "type")
 
 
 class AwaitableGetWebAppPublicCertificateSlotResult(GetWebAppPublicCertificateSlotResult):
@@ -66,7 +102,10 @@ class AwaitableGetWebAppPublicCertificateSlotResult(GetWebAppPublicCertificateSl
             type=self.type)
 
 
-def get_web_app_public_certificate_slot(name=None, resource_group_name=None, slot=None, opts=None):
+def get_web_app_public_certificate_slot(name: Optional[str] = None,
+                                        resource_group_name: Optional[str] = None,
+                                        slot: Optional[str] = None,
+                                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetWebAppPublicCertificateSlotResult:
     """
     Use this data source to access information about an existing resource.
 
@@ -82,12 +121,12 @@ def get_web_app_public_certificate_slot(name=None, resource_group_name=None, slo
         opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = _utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('azurerm:web/v20180201:getWebAppPublicCertificateSlot', __args__, opts=opts).value
+    __ret__ = pulumi.runtime.invoke('azurerm:web/v20180201:getWebAppPublicCertificateSlot', __args__, opts=opts, typ=GetWebAppPublicCertificateSlotResult).value
 
     return AwaitableGetWebAppPublicCertificateSlotResult(
-        blob=__ret__.get('blob'),
-        kind=__ret__.get('kind'),
-        name=__ret__.get('name'),
-        public_certificate_location=__ret__.get('publicCertificateLocation'),
-        thumbprint=__ret__.get('thumbprint'),
-        type=__ret__.get('type'))
+        blob=__ret__.blob,
+        kind=__ret__.kind,
+        name=__ret__.name,
+        public_certificate_location=__ret__.public_certificate_location,
+        thumbprint=__ret__.thumbprint,
+        type=__ret__.type)

@@ -5,10 +5,17 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+from . import outputs
 
+__all__ = [
+    'GetJobScheduleResult',
+    'AwaitableGetJobScheduleResult',
+    'get_job_schedule',
+]
 
+@pulumi.output_type
 class GetJobScheduleResult:
     """
     Definition of the job schedule.
@@ -16,46 +23,81 @@ class GetJobScheduleResult:
     def __init__(__self__, job_schedule_id=None, name=None, parameters=None, run_on=None, runbook=None, schedule=None, type=None):
         if job_schedule_id and not isinstance(job_schedule_id, str):
             raise TypeError("Expected argument 'job_schedule_id' to be a str")
-        __self__.job_schedule_id = job_schedule_id
+        pulumi.set(__self__, "job_schedule_id", job_schedule_id)
+        if name and not isinstance(name, str):
+            raise TypeError("Expected argument 'name' to be a str")
+        pulumi.set(__self__, "name", name)
+        if parameters and not isinstance(parameters, dict):
+            raise TypeError("Expected argument 'parameters' to be a dict")
+        pulumi.set(__self__, "parameters", parameters)
+        if run_on and not isinstance(run_on, str):
+            raise TypeError("Expected argument 'run_on' to be a str")
+        pulumi.set(__self__, "run_on", run_on)
+        if runbook and not isinstance(runbook, dict):
+            raise TypeError("Expected argument 'runbook' to be a dict")
+        pulumi.set(__self__, "runbook", runbook)
+        if schedule and not isinstance(schedule, dict):
+            raise TypeError("Expected argument 'schedule' to be a dict")
+        pulumi.set(__self__, "schedule", schedule)
+        if type and not isinstance(type, str):
+            raise TypeError("Expected argument 'type' to be a str")
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="jobScheduleId")
+    def job_schedule_id(self) -> Optional[str]:
         """
         Gets or sets the id of job schedule.
         """
-        if name and not isinstance(name, str):
-            raise TypeError("Expected argument 'name' to be a str")
-        __self__.name = name
+        return pulumi.get(self, "job_schedule_id")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
         """
         Gets the name of the variable.
         """
-        if parameters and not isinstance(parameters, dict):
-            raise TypeError("Expected argument 'parameters' to be a dict")
-        __self__.parameters = parameters
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def parameters(self) -> Optional[Mapping[str, str]]:
         """
         Gets or sets the parameters of the job schedule.
         """
-        if run_on and not isinstance(run_on, str):
-            raise TypeError("Expected argument 'run_on' to be a str")
-        __self__.run_on = run_on
+        return pulumi.get(self, "parameters")
+
+    @property
+    @pulumi.getter(name="runOn")
+    def run_on(self) -> Optional[str]:
         """
         Gets or sets the hybrid worker group that the scheduled job should run on.
         """
-        if runbook and not isinstance(runbook, dict):
-            raise TypeError("Expected argument 'runbook' to be a dict")
-        __self__.runbook = runbook
+        return pulumi.get(self, "run_on")
+
+    @property
+    @pulumi.getter
+    def runbook(self) -> Optional['outputs.RunbookAssociationPropertyResponse']:
         """
         Gets or sets the runbook.
         """
-        if schedule and not isinstance(schedule, dict):
-            raise TypeError("Expected argument 'schedule' to be a dict")
-        __self__.schedule = schedule
+        return pulumi.get(self, "runbook")
+
+    @property
+    @pulumi.getter
+    def schedule(self) -> Optional['outputs.ScheduleAssociationPropertyResponse']:
         """
         Gets or sets the schedule.
         """
-        if type and not isinstance(type, str):
-            raise TypeError("Expected argument 'type' to be a str")
-        __self__.type = type
+        return pulumi.get(self, "schedule")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
         """
         Resource type
         """
+        return pulumi.get(self, "type")
 
 
 class AwaitableGetJobScheduleResult(GetJobScheduleResult):
@@ -73,7 +115,10 @@ class AwaitableGetJobScheduleResult(GetJobScheduleResult):
             type=self.type)
 
 
-def get_job_schedule(automation_account_name=None, name=None, resource_group_name=None, opts=None):
+def get_job_schedule(automation_account_name: Optional[str] = None,
+                     name: Optional[str] = None,
+                     resource_group_name: Optional[str] = None,
+                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetJobScheduleResult:
     """
     Use this data source to access information about an existing resource.
 
@@ -89,13 +134,13 @@ def get_job_schedule(automation_account_name=None, name=None, resource_group_nam
         opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = _utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('azurerm:automation/v20151031:getJobSchedule', __args__, opts=opts).value
+    __ret__ = pulumi.runtime.invoke('azurerm:automation/v20151031:getJobSchedule', __args__, opts=opts, typ=GetJobScheduleResult).value
 
     return AwaitableGetJobScheduleResult(
-        job_schedule_id=__ret__.get('jobScheduleId'),
-        name=__ret__.get('name'),
-        parameters=__ret__.get('parameters'),
-        run_on=__ret__.get('runOn'),
-        runbook=__ret__.get('runbook'),
-        schedule=__ret__.get('schedule'),
-        type=__ret__.get('type'))
+        job_schedule_id=__ret__.job_schedule_id,
+        name=__ret__.name,
+        parameters=__ret__.parameters,
+        run_on=__ret__.run_on,
+        runbook=__ret__.runbook,
+        schedule=__ret__.schedule,
+        type=__ret__.type)

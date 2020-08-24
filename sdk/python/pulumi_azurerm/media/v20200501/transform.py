@@ -5,41 +5,26 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+from . import outputs
+from ._inputs import *
+
+__all__ = ['Transform']
 
 
 class Transform(pulumi.CustomResource):
-    created: pulumi.Output[str]
-    """
-    The UTC date and time when the Transform was created, in 'YYYY-MM-DDThh:mm:ssZ' format.
-    """
-    description: pulumi.Output[str]
-    """
-    An optional verbose description of the Transform.
-    """
-    last_modified: pulumi.Output[str]
-    """
-    The UTC date and time when the Transform was last updated, in 'YYYY-MM-DDThh:mm:ssZ' format.
-    """
-    name: pulumi.Output[str]
-    """
-    The name of the resource
-    """
-    outputs: pulumi.Output[list]
-    """
-    An array of one or more TransformOutputs that the Transform should generate.
-      * `on_error` (`str`) - A Transform can define more than one outputs. This property defines what the service should do when one output fails - either continue to produce other outputs, or, stop the other outputs. The overall Job state will not reflect failures of outputs that are specified with 'ContinueJob'. The default is 'StopProcessingJob'.
-      * `preset` (`dict`) - Preset that describes the operations that will be used to modify, transcode, or extract insights from the source file to generate the output.
-        * `odata_type` (`str`) - The discriminator for derived types.
-
-      * `relative_priority` (`str`) - Sets the relative priority of the TransformOutputs within a Transform. This sets the priority that the service uses for processing TransformOutputs. The default priority is Normal.
-    """
-    type: pulumi.Output[str]
-    """
-    The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
-    """
-    def __init__(__self__, resource_name, opts=None, account_name=None, description=None, name=None, outputs=None, resource_group_name=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 account_name: Optional[pulumi.Input[str]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 outputs: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['TransformOutputArgs']]]]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         A Transform encapsulates the rules or instructions for generating desired outputs from input media, such as by transcoding or by extracting insights. After the Transform is created, it can be applied to input media by creating Jobs.
 
@@ -48,16 +33,8 @@ class Transform(pulumi.CustomResource):
         :param pulumi.Input[str] account_name: The Media Services account name.
         :param pulumi.Input[str] description: An optional verbose description of the Transform.
         :param pulumi.Input[str] name: The Transform name.
-        :param pulumi.Input[list] outputs: An array of one or more TransformOutputs that the Transform should generate.
+        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['TransformOutputArgs']]]] outputs: An array of one or more TransformOutputs that the Transform should generate.
         :param pulumi.Input[str] resource_group_name: The name of the resource group within the Azure subscription.
-
-        The **outputs** object supports the following:
-
-          * `on_error` (`pulumi.Input[str]`) - A Transform can define more than one outputs. This property defines what the service should do when one output fails - either continue to produce other outputs, or, stop the other outputs. The overall Job state will not reflect failures of outputs that are specified with 'ContinueJob'. The default is 'StopProcessingJob'.
-          * `preset` (`pulumi.Input[dict]`) - Preset that describes the operations that will be used to modify, transcode, or extract insights from the source file to generate the output.
-            * `odata_type` (`pulumi.Input[str]`) - The discriminator for derived types.
-
-          * `relative_priority` (`pulumi.Input[str]`) - Sets the relative priority of the TransformOutputs within a Transform. This sets the priority that the service uses for processing TransformOutputs. The default priority is Normal.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -101,13 +78,15 @@ class Transform(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None) -> 'Transform':
         """
         Get an existing Transform resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -116,8 +95,57 @@ class Transform(pulumi.CustomResource):
 
         return Transform(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter
+    def created(self) -> str:
+        """
+        The UTC date and time when the Transform was created, in 'YYYY-MM-DDThh:mm:ssZ' format.
+        """
+        return pulumi.get(self, "created")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        """
+        An optional verbose description of the Transform.
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="lastModified")
+    def last_modified(self) -> str:
+        """
+        The UTC date and time when the Transform was last updated, in 'YYYY-MM-DDThh:mm:ssZ' format.
+        """
+        return pulumi.get(self, "last_modified")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the resource
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def outputs(self) -> List['outputs.TransformOutputResponse']:
+        """
+        An array of one or more TransformOutputs that the Transform should generate.
+        """
+        return pulumi.get(self, "outputs")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+        """
+        return pulumi.get(self, "type")
+
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

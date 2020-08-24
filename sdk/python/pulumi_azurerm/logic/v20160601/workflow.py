@@ -5,93 +5,42 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+from . import outputs
+from ._inputs import *
+
+__all__ = ['Workflow']
 
 
 class Workflow(pulumi.CustomResource):
-    access_endpoint: pulumi.Output[str]
-    """
-    Gets the access endpoint.
-    """
-    changed_time: pulumi.Output[str]
-    """
-    Gets the changed time.
-    """
-    created_time: pulumi.Output[str]
-    """
-    Gets the created time.
-    """
-    definition: pulumi.Output[dict]
-    """
-    The definition. See [Schema reference for Workflow Definition Language in Azure Logic Apps](https://aka.ms/logic-apps-workflow-definition-language).
-    """
-    integration_account: pulumi.Output[dict]
-    """
-    The integration account.
-      * `id` (`str`) - The resource id.
-      * `name` (`str`) - Gets the resource name.
-      * `type` (`str`) - Gets the resource type.
-    """
-    location: pulumi.Output[str]
-    """
-    The resource location.
-    """
-    name: pulumi.Output[str]
-    """
-    Gets the resource name.
-    """
-    parameters: pulumi.Output[dict]
-    """
-    The parameters.
-    """
-    provisioning_state: pulumi.Output[str]
-    """
-    Gets the provisioning state.
-    """
-    sku: pulumi.Output[dict]
-    """
-    The sku.
-      * `name` (`str`) - The name.
-      * `plan` (`dict`) - The reference to plan.
-        * `id` (`str`) - The resource id.
-        * `name` (`str`) - Gets the resource name.
-        * `type` (`str`) - Gets the resource type.
-    """
-    state: pulumi.Output[str]
-    """
-    The state.
-    """
-    tags: pulumi.Output[dict]
-    """
-    The resource tags.
-    """
-    type: pulumi.Output[str]
-    """
-    Gets the resource type.
-    """
-    version: pulumi.Output[str]
-    """
-    Gets the version.
-    """
-    def __init__(__self__, resource_name, opts=None, definition=None, location=None, name=None, parameters=None, resource_group_name=None, sku=None, state=None, tags=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 definition: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[pulumi.InputType['WorkflowParameterArgs']]]]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 sku: Optional[pulumi.Input[pulumi.InputType['SkuArgs']]] = None,
+                 state: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         The workflow type.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[dict] definition: The definition. See [Schema reference for Workflow Definition Language in Azure Logic Apps](https://aka.ms/logic-apps-workflow-definition-language).
+        :param pulumi.Input[Mapping[str, Any]] definition: The definition. See [Schema reference for Workflow Definition Language in Azure Logic Apps](https://aka.ms/logic-apps-workflow-definition-language).
         :param pulumi.Input[str] location: The resource location.
         :param pulumi.Input[str] name: The workflow name.
-        :param pulumi.Input[dict] parameters: The parameters.
+        :param pulumi.Input[Mapping[str, pulumi.Input[pulumi.InputType['WorkflowParameterArgs']]]] parameters: The parameters.
         :param pulumi.Input[str] resource_group_name: The resource group name.
-        :param pulumi.Input[dict] sku: The sku.
+        :param pulumi.Input[pulumi.InputType['SkuArgs']] sku: The sku.
         :param pulumi.Input[str] state: The state.
-        :param pulumi.Input[dict] tags: The resource tags.
-
-        The **sku** object supports the following:
-
-          * `name` (`pulumi.Input[str]`) - The name.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The resource tags.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -138,13 +87,15 @@ class Workflow(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None) -> 'Workflow':
         """
         Get an existing Workflow resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -153,8 +104,121 @@ class Workflow(pulumi.CustomResource):
 
         return Workflow(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter(name="accessEndpoint")
+    def access_endpoint(self) -> str:
+        """
+        Gets the access endpoint.
+        """
+        return pulumi.get(self, "access_endpoint")
+
+    @property
+    @pulumi.getter(name="changedTime")
+    def changed_time(self) -> str:
+        """
+        Gets the changed time.
+        """
+        return pulumi.get(self, "changed_time")
+
+    @property
+    @pulumi.getter(name="createdTime")
+    def created_time(self) -> str:
+        """
+        Gets the created time.
+        """
+        return pulumi.get(self, "created_time")
+
+    @property
+    @pulumi.getter
+    def definition(self) -> Optional[Mapping[str, Any]]:
+        """
+        The definition. See [Schema reference for Workflow Definition Language in Azure Logic Apps](https://aka.ms/logic-apps-workflow-definition-language).
+        """
+        return pulumi.get(self, "definition")
+
+    @property
+    @pulumi.getter(name="integrationAccount")
+    def integration_account(self) -> Optional['outputs.ResourceReferenceResponse']:
+        """
+        The integration account.
+        """
+        return pulumi.get(self, "integration_account")
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[str]:
+        """
+        The resource location.
+        """
+        return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Gets the resource name.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def parameters(self) -> Optional[Mapping[str, 'outputs.WorkflowParameterResponse']]:
+        """
+        The parameters.
+        """
+        return pulumi.get(self, "parameters")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        Gets the provisioning state.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter
+    def sku(self) -> Optional['outputs.SkuResponse']:
+        """
+        The sku.
+        """
+        return pulumi.get(self, "sku")
+
+    @property
+    @pulumi.getter
+    def state(self) -> Optional[str]:
+        """
+        The state.
+        """
+        return pulumi.get(self, "state")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Mapping[str, str]]:
+        """
+        The resource tags.
+        """
+        return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Gets the resource type.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def version(self) -> str:
+        """
+        Gets the version.
+        """
+        return pulumi.get(self, "version")
+
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

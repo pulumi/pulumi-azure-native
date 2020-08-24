@@ -5,10 +5,17 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+from . import outputs
 
+__all__ = [
+    'GetADCCatalogResult',
+    'AwaitableGetADCCatalogResult',
+    'get_adc_catalog',
+]
 
+@pulumi.output_type
 class GetADCCatalogResult:
     """
     Azure Data Catalog.
@@ -16,70 +23,125 @@ class GetADCCatalogResult:
     def __init__(__self__, admins=None, enable_automatic_unit_adjustment=None, etag=None, location=None, name=None, sku=None, successfully_provisioned=None, tags=None, type=None, units=None, users=None):
         if admins and not isinstance(admins, list):
             raise TypeError("Expected argument 'admins' to be a list")
-        __self__.admins = admins
+        pulumi.set(__self__, "admins", admins)
+        if enable_automatic_unit_adjustment and not isinstance(enable_automatic_unit_adjustment, bool):
+            raise TypeError("Expected argument 'enable_automatic_unit_adjustment' to be a bool")
+        pulumi.set(__self__, "enable_automatic_unit_adjustment", enable_automatic_unit_adjustment)
+        if etag and not isinstance(etag, str):
+            raise TypeError("Expected argument 'etag' to be a str")
+        pulumi.set(__self__, "etag", etag)
+        if location and not isinstance(location, str):
+            raise TypeError("Expected argument 'location' to be a str")
+        pulumi.set(__self__, "location", location)
+        if name and not isinstance(name, str):
+            raise TypeError("Expected argument 'name' to be a str")
+        pulumi.set(__self__, "name", name)
+        if sku and not isinstance(sku, str):
+            raise TypeError("Expected argument 'sku' to be a str")
+        pulumi.set(__self__, "sku", sku)
+        if successfully_provisioned and not isinstance(successfully_provisioned, bool):
+            raise TypeError("Expected argument 'successfully_provisioned' to be a bool")
+        pulumi.set(__self__, "successfully_provisioned", successfully_provisioned)
+        if tags and not isinstance(tags, dict):
+            raise TypeError("Expected argument 'tags' to be a dict")
+        pulumi.set(__self__, "tags", tags)
+        if type and not isinstance(type, str):
+            raise TypeError("Expected argument 'type' to be a str")
+        pulumi.set(__self__, "type", type)
+        if units and not isinstance(units, float):
+            raise TypeError("Expected argument 'units' to be a float")
+        pulumi.set(__self__, "units", units)
+        if users and not isinstance(users, list):
+            raise TypeError("Expected argument 'users' to be a list")
+        pulumi.set(__self__, "users", users)
+
+    @property
+    @pulumi.getter
+    def admins(self) -> Optional[List['outputs.PrincipalsResponse']]:
         """
         Azure data catalog admin list.
         """
-        if enable_automatic_unit_adjustment and not isinstance(enable_automatic_unit_adjustment, bool):
-            raise TypeError("Expected argument 'enable_automatic_unit_adjustment' to be a bool")
-        __self__.enable_automatic_unit_adjustment = enable_automatic_unit_adjustment
+        return pulumi.get(self, "admins")
+
+    @property
+    @pulumi.getter(name="enableAutomaticUnitAdjustment")
+    def enable_automatic_unit_adjustment(self) -> Optional[bool]:
         """
         Automatic unit adjustment enabled or not.
         """
-        if etag and not isinstance(etag, str):
-            raise TypeError("Expected argument 'etag' to be a str")
-        __self__.etag = etag
+        return pulumi.get(self, "enable_automatic_unit_adjustment")
+
+    @property
+    @pulumi.getter
+    def etag(self) -> Optional[str]:
         """
         Resource etag
         """
-        if location and not isinstance(location, str):
-            raise TypeError("Expected argument 'location' to be a str")
-        __self__.location = location
+        return pulumi.get(self, "etag")
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[str]:
         """
         Resource location
         """
-        if name and not isinstance(name, str):
-            raise TypeError("Expected argument 'name' to be a str")
-        __self__.name = name
+        return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
         """
         Resource name
         """
-        if sku and not isinstance(sku, str):
-            raise TypeError("Expected argument 'sku' to be a str")
-        __self__.sku = sku
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def sku(self) -> Optional[str]:
         """
         Azure data catalog SKU.
         """
-        if successfully_provisioned and not isinstance(successfully_provisioned, bool):
-            raise TypeError("Expected argument 'successfully_provisioned' to be a bool")
-        __self__.successfully_provisioned = successfully_provisioned
+        return pulumi.get(self, "sku")
+
+    @property
+    @pulumi.getter(name="successfullyProvisioned")
+    def successfully_provisioned(self) -> Optional[bool]:
         """
         Azure data catalog provision status.
         """
-        if tags and not isinstance(tags, dict):
-            raise TypeError("Expected argument 'tags' to be a dict")
-        __self__.tags = tags
+        return pulumi.get(self, "successfully_provisioned")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Mapping[str, str]]:
         """
         Resource tags
         """
-        if type and not isinstance(type, str):
-            raise TypeError("Expected argument 'type' to be a str")
-        __self__.type = type
+        return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
         """
         Resource type
         """
-        if units and not isinstance(units, float):
-            raise TypeError("Expected argument 'units' to be a float")
-        __self__.units = units
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def units(self) -> Optional[float]:
         """
         Azure data catalog units.
         """
-        if users and not isinstance(users, list):
-            raise TypeError("Expected argument 'users' to be a list")
-        __self__.users = users
+        return pulumi.get(self, "units")
+
+    @property
+    @pulumi.getter
+    def users(self) -> Optional[List['outputs.PrincipalsResponse']]:
         """
         Azure data catalog user list.
         """
+        return pulumi.get(self, "users")
 
 
 class AwaitableGetADCCatalogResult(GetADCCatalogResult):
@@ -101,7 +163,9 @@ class AwaitableGetADCCatalogResult(GetADCCatalogResult):
             users=self.users)
 
 
-def get_adc_catalog(name=None, resource_group_name=None, opts=None):
+def get_adc_catalog(name: Optional[str] = None,
+                    resource_group_name: Optional[str] = None,
+                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetADCCatalogResult:
     """
     Use this data source to access information about an existing resource.
 
@@ -115,17 +179,17 @@ def get_adc_catalog(name=None, resource_group_name=None, opts=None):
         opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = _utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('azurerm:datacatalog/v20160330:getADCCatalog', __args__, opts=opts).value
+    __ret__ = pulumi.runtime.invoke('azurerm:datacatalog/v20160330:getADCCatalog', __args__, opts=opts, typ=GetADCCatalogResult).value
 
     return AwaitableGetADCCatalogResult(
-        admins=__ret__.get('admins'),
-        enable_automatic_unit_adjustment=__ret__.get('enableAutomaticUnitAdjustment'),
-        etag=__ret__.get('etag'),
-        location=__ret__.get('location'),
-        name=__ret__.get('name'),
-        sku=__ret__.get('sku'),
-        successfully_provisioned=__ret__.get('successfullyProvisioned'),
-        tags=__ret__.get('tags'),
-        type=__ret__.get('type'),
-        units=__ret__.get('units'),
-        users=__ret__.get('users'))
+        admins=__ret__.admins,
+        enable_automatic_unit_adjustment=__ret__.enable_automatic_unit_adjustment,
+        etag=__ret__.etag,
+        location=__ret__.location,
+        name=__ret__.name,
+        sku=__ret__.sku,
+        successfully_provisioned=__ret__.successfully_provisioned,
+        tags=__ret__.tags,
+        type=__ret__.type,
+        units=__ret__.units,
+        users=__ret__.users)

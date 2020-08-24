@@ -5,52 +5,23 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+
+__all__ = ['PrivateStoreOffer']
 
 
 class PrivateStoreOffer(pulumi.CustomResource):
-    created_by: pulumi.Output[str]
-    """
-    Private store offer creator name
-    """
-    created_date: pulumi.Output[str]
-    """
-    Private store offer created date
-    """
-    e_tag: pulumi.Output[str]
-    """
-    Identifier for purposes of race condition
-    """
-    name: pulumi.Output[str]
-    """
-    The name of the resource.
-    """
-    offer_display_name: pulumi.Output[str]
-    """
-    It will be displayed prominently in the marketplace
-    """
-    private_store_id: pulumi.Output[str]
-    """
-    Private store unique id
-    """
-    publisher_display_name: pulumi.Output[str]
-    """
-    Publisher name that will be displayed prominently in the marketplace
-    """
-    specific_plan_ids_limitation: pulumi.Output[list]
-    """
-    Plan ids limitation for this offer
-    """
-    type: pulumi.Output[str]
-    """
-    The type of the resource.
-    """
-    unique_offer_id: pulumi.Output[str]
-    """
-    Offers unique id
-    """
-    def __init__(__self__, resource_name, opts=None, e_tag=None, name=None, private_store_id=None, specific_plan_ids_limitation=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 e_tag: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 private_store_id: Optional[pulumi.Input[str]] = None,
+                 specific_plan_ids_limitation: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         The privateStore offer data structure.
 
@@ -59,7 +30,7 @@ class PrivateStoreOffer(pulumi.CustomResource):
         :param pulumi.Input[str] e_tag: Identifier for purposes of race condition
         :param pulumi.Input[str] name: The offer ID to update or delete
         :param pulumi.Input[str] private_store_id: The store ID - must use the tenant ID
-        :param pulumi.Input[list] specific_plan_ids_limitation: Plan ids limitation for this offer
+        :param pulumi.Input[List[pulumi.Input[str]]] specific_plan_ids_limitation: Plan ids limitation for this offer
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -99,13 +70,15 @@ class PrivateStoreOffer(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None) -> 'PrivateStoreOffer':
         """
         Get an existing PrivateStoreOffer resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -114,8 +87,89 @@ class PrivateStoreOffer(pulumi.CustomResource):
 
         return PrivateStoreOffer(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter(name="createdBy")
+    def created_by(self) -> str:
+        """
+        Private store offer creator name
+        """
+        return pulumi.get(self, "created_by")
+
+    @property
+    @pulumi.getter(name="createdDate")
+    def created_date(self) -> str:
+        """
+        Private store offer created date
+        """
+        return pulumi.get(self, "created_date")
+
+    @property
+    @pulumi.getter(name="eTag")
+    def e_tag(self) -> Optional[str]:
+        """
+        Identifier for purposes of race condition
+        """
+        return pulumi.get(self, "e_tag")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the resource.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="offerDisplayName")
+    def offer_display_name(self) -> str:
+        """
+        It will be displayed prominently in the marketplace
+        """
+        return pulumi.get(self, "offer_display_name")
+
+    @property
+    @pulumi.getter(name="privateStoreId")
+    def private_store_id(self) -> str:
+        """
+        Private store unique id
+        """
+        return pulumi.get(self, "private_store_id")
+
+    @property
+    @pulumi.getter(name="publisherDisplayName")
+    def publisher_display_name(self) -> str:
+        """
+        Publisher name that will be displayed prominently in the marketplace
+        """
+        return pulumi.get(self, "publisher_display_name")
+
+    @property
+    @pulumi.getter(name="specificPlanIdsLimitation")
+    def specific_plan_ids_limitation(self) -> Optional[List[str]]:
+        """
+        Plan ids limitation for this offer
+        """
+        return pulumi.get(self, "specific_plan_ids_limitation")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        The type of the resource.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="uniqueOfferId")
+    def unique_offer_id(self) -> str:
+        """
+        Offers unique id
+        """
+        return pulumi.get(self, "unique_offer_id")
+
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

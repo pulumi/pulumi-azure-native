@@ -5,10 +5,17 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+from . import outputs
 
+__all__ = [
+    'GetTaskResult',
+    'AwaitableGetTaskResult',
+    'get_task',
+]
 
+@pulumi.output_type
 class GetTaskResult:
     """
     A task resource
@@ -16,28 +23,48 @@ class GetTaskResult:
     def __init__(__self__, etag=None, name=None, properties=None, type=None):
         if etag and not isinstance(etag, str):
             raise TypeError("Expected argument 'etag' to be a str")
-        __self__.etag = etag
+        pulumi.set(__self__, "etag", etag)
+        if name and not isinstance(name, str):
+            raise TypeError("Expected argument 'name' to be a str")
+        pulumi.set(__self__, "name", name)
+        if properties and not isinstance(properties, dict):
+            raise TypeError("Expected argument 'properties' to be a dict")
+        pulumi.set(__self__, "properties", properties)
+        if type and not isinstance(type, str):
+            raise TypeError("Expected argument 'type' to be a str")
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def etag(self) -> Optional[str]:
         """
         HTTP strong entity tag value. This is ignored if submitted.
         """
-        if name and not isinstance(name, str):
-            raise TypeError("Expected argument 'name' to be a str")
-        __self__.name = name
+        return pulumi.get(self, "etag")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
         """
         Resource name.
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def properties(self) -> 'outputs.ProjectTaskPropertiesResponse':
         """
         Custom task properties
         """
-        if type and not isinstance(type, str):
-            raise TypeError("Expected argument 'type' to be a str")
-        __self__.type = type
+        return pulumi.get(self, "properties")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
         """
         Resource type.
         """
+        return pulumi.get(self, "type")
 
 
 class AwaitableGetTaskResult(GetTaskResult):
@@ -52,7 +79,12 @@ class AwaitableGetTaskResult(GetTaskResult):
             type=self.type)
 
 
-def get_task(expand=None, group_name=None, name=None, project_name=None, service_name=None, opts=None):
+def get_task(expand: Optional[str] = None,
+             group_name: Optional[str] = None,
+             name: Optional[str] = None,
+             project_name: Optional[str] = None,
+             service_name: Optional[str] = None,
+             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetTaskResult:
     """
     Use this data source to access information about an existing resource.
 
@@ -72,10 +104,10 @@ def get_task(expand=None, group_name=None, name=None, project_name=None, service
         opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = _utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('azurerm:datamigration/v20180419:getTask', __args__, opts=opts).value
+    __ret__ = pulumi.runtime.invoke('azurerm:datamigration/v20180419:getTask', __args__, opts=opts, typ=GetTaskResult).value
 
     return AwaitableGetTaskResult(
-        etag=__ret__.get('etag'),
-        name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
-        type=__ret__.get('type'))
+        etag=__ret__.etag,
+        name=__ret__.name,
+        properties=__ret__.properties,
+        type=__ret__.type)

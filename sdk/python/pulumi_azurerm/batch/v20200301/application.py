@@ -5,36 +5,25 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+
+__all__ = ['Application']
 
 
 class Application(pulumi.CustomResource):
-    allow_updates: pulumi.Output[bool]
-    """
-    A value indicating whether packages within the application may be overwritten using the same version string.
-    """
-    default_version: pulumi.Output[str]
-    """
-    The package to use if a client requests the application but does not specify a version. This property can only be set to the name of an existing package.
-    """
-    display_name: pulumi.Output[str]
-    """
-    The display name for the application.
-    """
-    etag: pulumi.Output[str]
-    """
-    The ETag of the resource, used for concurrency statements.
-    """
-    name: pulumi.Output[str]
-    """
-    The name of the resource.
-    """
-    type: pulumi.Output[str]
-    """
-    The type of the resource.
-    """
-    def __init__(__self__, resource_name, opts=None, account_name=None, allow_updates=None, default_version=None, display_name=None, name=None, resource_group_name=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 account_name: Optional[pulumi.Input[str]] = None,
+                 allow_updates: Optional[pulumi.Input[bool]] = None,
+                 default_version: Optional[pulumi.Input[str]] = None,
+                 display_name: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         Contains information about an application in a Batch account.
 
@@ -87,13 +76,15 @@ class Application(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None) -> 'Application':
         """
         Get an existing Application resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -102,8 +93,57 @@ class Application(pulumi.CustomResource):
 
         return Application(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter(name="allowUpdates")
+    def allow_updates(self) -> Optional[bool]:
+        """
+        A value indicating whether packages within the application may be overwritten using the same version string.
+        """
+        return pulumi.get(self, "allow_updates")
+
+    @property
+    @pulumi.getter(name="defaultVersion")
+    def default_version(self) -> Optional[str]:
+        """
+        The package to use if a client requests the application but does not specify a version. This property can only be set to the name of an existing package.
+        """
+        return pulumi.get(self, "default_version")
+
+    @property
+    @pulumi.getter(name="displayName")
+    def display_name(self) -> Optional[str]:
+        """
+        The display name for the application.
+        """
+        return pulumi.get(self, "display_name")
+
+    @property
+    @pulumi.getter
+    def etag(self) -> str:
+        """
+        The ETag of the resource, used for concurrency statements.
+        """
+        return pulumi.get(self, "etag")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the resource.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        The type of the resource.
+        """
+        return pulumi.get(self, "type")
+
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

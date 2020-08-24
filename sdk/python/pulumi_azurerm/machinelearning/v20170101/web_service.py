@@ -5,80 +5,26 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+from . import outputs
+from ._inputs import *
+
+__all__ = ['WebService']
 
 
 class WebService(pulumi.CustomResource):
-    location: pulumi.Output[str]
-    """
-    Specifies the location of the resource.
-    """
-    name: pulumi.Output[str]
-    """
-    Specifies the name of the resource.
-    """
-    properties: pulumi.Output[dict]
-    """
-    Contains the property payload that describes the web service.
-      * `assets` (`dict`) - Contains user defined properties describing web service assets. Properties are expressed as Key/Value pairs.
-      * `commitment_plan` (`dict`) - Contains the commitment plan associated with this web service. Set at creation time. Once set, this value cannot be changed. Note: The commitment plan is not returned from calls to GET operations.
-        * `id` (`str`) - Specifies the Azure Resource Manager ID of the commitment plan associated with the web service.
-
-      * `created_on` (`str`) - Read Only: The date and time when the web service was created.
-      * `description` (`str`) - The description of the web service.
-      * `diagnostics` (`dict`) - Settings controlling the diagnostics traces collection for the web service.
-        * `expiry` (`str`) - Specifies the date and time when the logging will cease. If null, diagnostic collection is not time limited.
-        * `level` (`str`) - Specifies the verbosity of the diagnostic output. Valid values are: None - disables tracing; Error - collects only error (stderr) traces; All - collects all traces (stdout and stderr).
-
-      * `example_request` (`dict`) - Defines sample input data for one or more of the service's inputs.
-        * `global_parameters` (`dict`) - Sample input data for the web service's global parameters
-        * `inputs` (`dict`) - Sample input data for the web service's input(s) given as an input name to sample input values matrix map.
-
-      * `expose_sample_data` (`bool`) - When set to true, sample data is included in the web service's swagger definition. The default value is true.
-      * `input` (`dict`) - Contains the Swagger 2.0 schema describing one or more of the web service's inputs. For more information, see the Swagger specification.
-        * `description` (`str`) - The description of the Swagger schema.
-        * `properties` (`dict`) - Specifies a collection that contains the column schema for each input or output of the web service. For more information, see the Swagger specification.
-        * `title` (`str`) - The title of your Swagger schema.
-        * `type` (`str`) - The type of the entity described in swagger. Always 'object'.
-
-      * `keys` (`dict`) - Contains the web service provisioning keys. If you do not specify provisioning keys, the Azure Machine Learning system generates them for you. Note: The keys are not returned from calls to GET operations.
-        * `primary` (`str`) - The primary access key.
-        * `secondary` (`str`) - The secondary access key.
-
-      * `machine_learning_workspace` (`dict`) - Specifies the Machine Learning workspace containing the experiment that is source for the web service.
-        * `id` (`str`) - Specifies the workspace ID of the machine learning workspace associated with the web service
-
-      * `modified_on` (`str`) - Read Only: The date and time when the web service was last modified.
-      * `output` (`dict`) - Contains the Swagger 2.0 schema describing one or more of the web service's outputs. For more information, see the Swagger specification.
-      * `package_type` (`str`) - Specifies the package type. Valid values are Graph (Specifies a web service published through the Machine Learning Studio) and Code (Specifies a web service published using code such as Python). Note: Code is not supported at this time.
-      * `parameters` (`dict`) - The set of global parameters values defined for the web service, given as a global parameter name to default value map. If no default value is specified, the parameter is considered to be required.
-      * `payloads_in_blob_storage` (`bool`) - When set to true, indicates that the payload size is larger than 3 MB. Otherwise false. If the payload size exceed 3 MB, the payload is stored in a blob and the PayloadsLocation parameter contains the URI of the blob. Otherwise, this will be set to false and Assets, Input, Output, Package, Parameters, ExampleRequest are inline. The Payload sizes is determined by adding the size of the Assets, Input, Output, Package, Parameters, and the ExampleRequest.
-      * `payloads_location` (`dict`) - The URI of the payload blob. This parameter contains a value only if the payloadsInBlobStorage parameter is set to true. Otherwise is set to null.
-        * `credentials` (`str`) - Access credentials for the blob, if applicable (e.g. blob specified by storage account connection string + blob URI)
-        * `uri` (`str`) - The URI from which the blob is accessible from. For example, aml://abc for system assets or https://xyz for user assets or payload.
-
-      * `provisioning_state` (`str`) - Read Only: The provision state of the web service. Valid values are Unknown, Provisioning, Succeeded, and Failed.
-      * `read_only` (`bool`) - When set to true, indicates that the web service is read-only and can no longer be updated or patched, only removed. Default, is false. Note: Once set to true, you cannot change its value.
-      * `realtime_configuration` (`dict`) - Contains the configuration settings for the web service endpoint.
-        * `max_concurrent_calls` (`float`) - Specifies the maximum concurrent calls that can be made to the web service. Minimum value: 4, Maximum value: 200.
-
-      * `storage_account` (`dict`) - Specifies the storage account that Azure Machine Learning uses to store information about the web service. Only the name of the storage account is returned from calls to GET operations. When updating the storage account information, you must ensure that all necessary assets are available in the new storage account or calls to your web service will fail.
-        * `key` (`str`) - Specifies the key used to access the storage account.
-        * `name` (`str`) - Specifies the name of the storage account.
-
-      * `swagger_location` (`str`) - Read Only: Contains the URI of the swagger spec associated with this web service.
-      * `title` (`str`) - The title of the web service.
-    """
-    tags: pulumi.Output[dict]
-    """
-    Contains resource tags defined as key/value pairs.
-    """
-    type: pulumi.Output[str]
-    """
-    Specifies the type of the resource.
-    """
-    def __init__(__self__, resource_name, opts=None, location=None, name=None, properties=None, resource_group_name=None, tags=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 properties: Optional[pulumi.Input[pulumi.InputType['WebServicePropertiesArgs']]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         Instance of an Azure ML web service resource.
 
@@ -86,56 +32,9 @@ class WebService(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] location: Specifies the location of the resource.
         :param pulumi.Input[str] name: The name of the web service.
-        :param pulumi.Input[dict] properties: Contains the property payload that describes the web service.
+        :param pulumi.Input[pulumi.InputType['WebServicePropertiesArgs']] properties: Contains the property payload that describes the web service.
         :param pulumi.Input[str] resource_group_name: Name of the resource group in which the web service is located.
-        :param pulumi.Input[dict] tags: Contains resource tags defined as key/value pairs.
-
-        The **properties** object supports the following:
-
-          * `assets` (`pulumi.Input[dict]`) - Contains user defined properties describing web service assets. Properties are expressed as Key/Value pairs.
-          * `commitment_plan` (`pulumi.Input[dict]`) - Contains the commitment plan associated with this web service. Set at creation time. Once set, this value cannot be changed. Note: The commitment plan is not returned from calls to GET operations.
-            * `id` (`pulumi.Input[str]`) - Specifies the Azure Resource Manager ID of the commitment plan associated with the web service.
-
-          * `description` (`pulumi.Input[str]`) - The description of the web service.
-          * `diagnostics` (`pulumi.Input[dict]`) - Settings controlling the diagnostics traces collection for the web service.
-            * `expiry` (`pulumi.Input[str]`) - Specifies the date and time when the logging will cease. If null, diagnostic collection is not time limited.
-            * `level` (`pulumi.Input[str]`) - Specifies the verbosity of the diagnostic output. Valid values are: None - disables tracing; Error - collects only error (stderr) traces; All - collects all traces (stdout and stderr).
-
-          * `example_request` (`pulumi.Input[dict]`) - Defines sample input data for one or more of the service's inputs.
-            * `global_parameters` (`pulumi.Input[dict]`) - Sample input data for the web service's global parameters
-            * `inputs` (`pulumi.Input[dict]`) - Sample input data for the web service's input(s) given as an input name to sample input values matrix map.
-
-          * `expose_sample_data` (`pulumi.Input[bool]`) - When set to true, sample data is included in the web service's swagger definition. The default value is true.
-          * `input` (`pulumi.Input[dict]`) - Contains the Swagger 2.0 schema describing one or more of the web service's inputs. For more information, see the Swagger specification.
-            * `description` (`pulumi.Input[str]`) - The description of the Swagger schema.
-            * `properties` (`pulumi.Input[dict]`) - Specifies a collection that contains the column schema for each input or output of the web service. For more information, see the Swagger specification.
-            * `title` (`pulumi.Input[str]`) - The title of your Swagger schema.
-            * `type` (`pulumi.Input[str]`) - The type of the entity described in swagger. Always 'object'.
-
-          * `keys` (`pulumi.Input[dict]`) - Contains the web service provisioning keys. If you do not specify provisioning keys, the Azure Machine Learning system generates them for you. Note: The keys are not returned from calls to GET operations.
-            * `primary` (`pulumi.Input[str]`) - The primary access key.
-            * `secondary` (`pulumi.Input[str]`) - The secondary access key.
-
-          * `machine_learning_workspace` (`pulumi.Input[dict]`) - Specifies the Machine Learning workspace containing the experiment that is source for the web service.
-            * `id` (`pulumi.Input[str]`) - Specifies the workspace ID of the machine learning workspace associated with the web service
-
-          * `output` (`pulumi.Input[dict]`) - Contains the Swagger 2.0 schema describing one or more of the web service's outputs. For more information, see the Swagger specification.
-          * `package_type` (`pulumi.Input[str]`) - Specifies the package type. Valid values are Graph (Specifies a web service published through the Machine Learning Studio) and Code (Specifies a web service published using code such as Python). Note: Code is not supported at this time.
-          * `parameters` (`pulumi.Input[dict]`) - The set of global parameters values defined for the web service, given as a global parameter name to default value map. If no default value is specified, the parameter is considered to be required.
-          * `payloads_in_blob_storage` (`pulumi.Input[bool]`) - When set to true, indicates that the payload size is larger than 3 MB. Otherwise false. If the payload size exceed 3 MB, the payload is stored in a blob and the PayloadsLocation parameter contains the URI of the blob. Otherwise, this will be set to false and Assets, Input, Output, Package, Parameters, ExampleRequest are inline. The Payload sizes is determined by adding the size of the Assets, Input, Output, Package, Parameters, and the ExampleRequest.
-          * `payloads_location` (`pulumi.Input[dict]`) - The URI of the payload blob. This parameter contains a value only if the payloadsInBlobStorage parameter is set to true. Otherwise is set to null.
-            * `credentials` (`pulumi.Input[str]`) - Access credentials for the blob, if applicable (e.g. blob specified by storage account connection string + blob URI)
-            * `uri` (`pulumi.Input[str]`) - The URI from which the blob is accessible from. For example, aml://abc for system assets or https://xyz for user assets or payload.
-
-          * `read_only` (`pulumi.Input[bool]`) - When set to true, indicates that the web service is read-only and can no longer be updated or patched, only removed. Default, is false. Note: Once set to true, you cannot change its value.
-          * `realtime_configuration` (`pulumi.Input[dict]`) - Contains the configuration settings for the web service endpoint.
-            * `max_concurrent_calls` (`pulumi.Input[float]`) - Specifies the maximum concurrent calls that can be made to the web service. Minimum value: 4, Maximum value: 200.
-
-          * `storage_account` (`pulumi.Input[dict]`) - Specifies the storage account that Azure Machine Learning uses to store information about the web service. Only the name of the storage account is returned from calls to GET operations. When updating the storage account information, you must ensure that all necessary assets are available in the new storage account or calls to your web service will fail.
-            * `key` (`pulumi.Input[str]`) - Specifies the key used to access the storage account.
-            * `name` (`pulumi.Input[str]`) - Specifies the name of the storage account.
-
-          * `title` (`pulumi.Input[str]`) - The title of the web service.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Contains resource tags defined as key/value pairs.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -175,13 +74,15 @@ class WebService(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None) -> 'WebService':
         """
         Get an existing WebService resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -190,8 +91,49 @@ class WebService(pulumi.CustomResource):
 
         return WebService(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter
+    def location(self) -> str:
+        """
+        Specifies the location of the resource.
+        """
+        return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Specifies the name of the resource.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def properties(self) -> 'outputs.WebServicePropertiesResponse':
+        """
+        Contains the property payload that describes the web service.
+        """
+        return pulumi.get(self, "properties")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Mapping[str, str]]:
+        """
+        Contains resource tags defined as key/value pairs.
+        """
+        return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Specifies the type of the resource.
+        """
+        return pulumi.get(self, "type")
+
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

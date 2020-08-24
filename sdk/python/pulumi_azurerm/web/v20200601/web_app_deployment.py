@@ -5,60 +5,31 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+
+__all__ = ['WebAppDeployment']
 
 
 class WebAppDeployment(pulumi.CustomResource):
-    active: pulumi.Output[bool]
-    """
-    True if deployment is currently active, false if completed and null if not started.
-    """
-    author: pulumi.Output[str]
-    """
-    Who authored the deployment.
-    """
-    author_email: pulumi.Output[str]
-    """
-    Author email.
-    """
-    deployer: pulumi.Output[str]
-    """
-    Who performed the deployment.
-    """
-    details: pulumi.Output[str]
-    """
-    Details on deployment.
-    """
-    end_time: pulumi.Output[str]
-    """
-    End time.
-    """
-    kind: pulumi.Output[str]
-    """
-    Kind of resource.
-    """
-    message: pulumi.Output[str]
-    """
-    Details about deployment status.
-    """
-    name: pulumi.Output[str]
-    """
-    Resource Name.
-    """
-    start_time: pulumi.Output[str]
-    """
-    Start time.
-    """
-    status: pulumi.Output[float]
-    """
-    Deployment status.
-    """
-    type: pulumi.Output[str]
-    """
-    Resource type.
-    """
-    def __init__(__self__, resource_name, opts=None, active=None, author=None, author_email=None, deployer=None, details=None, end_time=None, kind=None, message=None, name=None, resource_group_name=None, start_time=None, status=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 active: Optional[pulumi.Input[bool]] = None,
+                 author: Optional[pulumi.Input[str]] = None,
+                 author_email: Optional[pulumi.Input[str]] = None,
+                 deployer: Optional[pulumi.Input[str]] = None,
+                 details: Optional[pulumi.Input[str]] = None,
+                 end_time: Optional[pulumi.Input[str]] = None,
+                 kind: Optional[pulumi.Input[str]] = None,
+                 message: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 start_time: Optional[pulumi.Input[str]] = None,
+                 status: Optional[pulumi.Input[float]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         User credentials used for publishing activity.
 
@@ -120,13 +91,15 @@ class WebAppDeployment(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None) -> 'WebAppDeployment':
         """
         Get an existing WebAppDeployment resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -135,8 +108,105 @@ class WebAppDeployment(pulumi.CustomResource):
 
         return WebAppDeployment(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter
+    def active(self) -> Optional[bool]:
+        """
+        True if deployment is currently active, false if completed and null if not started.
+        """
+        return pulumi.get(self, "active")
+
+    @property
+    @pulumi.getter
+    def author(self) -> Optional[str]:
+        """
+        Who authored the deployment.
+        """
+        return pulumi.get(self, "author")
+
+    @property
+    @pulumi.getter(name="authorEmail")
+    def author_email(self) -> Optional[str]:
+        """
+        Author email.
+        """
+        return pulumi.get(self, "author_email")
+
+    @property
+    @pulumi.getter
+    def deployer(self) -> Optional[str]:
+        """
+        Who performed the deployment.
+        """
+        return pulumi.get(self, "deployer")
+
+    @property
+    @pulumi.getter
+    def details(self) -> Optional[str]:
+        """
+        Details on deployment.
+        """
+        return pulumi.get(self, "details")
+
+    @property
+    @pulumi.getter(name="endTime")
+    def end_time(self) -> Optional[str]:
+        """
+        End time.
+        """
+        return pulumi.get(self, "end_time")
+
+    @property
+    @pulumi.getter
+    def kind(self) -> Optional[str]:
+        """
+        Kind of resource.
+        """
+        return pulumi.get(self, "kind")
+
+    @property
+    @pulumi.getter
+    def message(self) -> Optional[str]:
+        """
+        Details about deployment status.
+        """
+        return pulumi.get(self, "message")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Resource Name.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="startTime")
+    def start_time(self) -> Optional[str]:
+        """
+        Start time.
+        """
+        return pulumi.get(self, "start_time")
+
+    @property
+    @pulumi.getter
+    def status(self) -> Optional[float]:
+        """
+        Deployment status.
+        """
+        return pulumi.get(self, "status")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Resource type.
+        """
+        return pulumi.get(self, "type")
+
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

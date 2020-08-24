@@ -5,145 +5,58 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+from . import outputs
+from ._inputs import *
+
+__all__ = ['StreamingEndpoint']
 
 
 class StreamingEndpoint(pulumi.CustomResource):
-    access_control: pulumi.Output[dict]
-    """
-    The access control definition of the StreamingEndpoint.
-      * `akamai` (`dict`) - The access control of Akamai
-        * `akamai_signature_header_authentication_key_list` (`list`) - authentication key list
-          * `base64_key` (`str`) - authentication key
-          * `expiration` (`str`) - The expiration time of the authentication key.
-          * `identifier` (`str`) - identifier of the key
-
-      * `ip` (`dict`) - The IP access control of the StreamingEndpoint.
-        * `allow` (`list`) - The IP allow list.
-          * `address` (`str`) - The IP address.
-          * `name` (`str`) - The friendly name for the IP address range.
-          * `subnet_prefix_length` (`float`) - The subnet mask prefix length (see CIDR notation).
-    """
-    availability_set_name: pulumi.Output[str]
-    """
-    The name of the AvailabilitySet used with this StreamingEndpoint for high availability streaming.  This value can only be set at creation time.
-    """
-    cdn_enabled: pulumi.Output[bool]
-    """
-    The CDN enabled flag.
-    """
-    cdn_profile: pulumi.Output[str]
-    """
-    The CDN profile name.
-    """
-    cdn_provider: pulumi.Output[str]
-    """
-    The CDN provider name.
-    """
-    created: pulumi.Output[str]
-    """
-    The exact time the StreamingEndpoint was created.
-    """
-    cross_site_access_policies: pulumi.Output[dict]
-    """
-    The StreamingEndpoint access policies.
-      * `client_access_policy` (`str`) - The content of clientaccesspolicy.xml used by Silverlight.
-      * `cross_domain_policy` (`str`) - The content of crossdomain.xml used by Silverlight.
-    """
-    custom_host_names: pulumi.Output[list]
-    """
-    The custom host names of the StreamingEndpoint
-    """
-    description: pulumi.Output[str]
-    """
-    The StreamingEndpoint description.
-    """
-    free_trial_end_time: pulumi.Output[str]
-    """
-    The free trial expiration time.
-    """
-    host_name: pulumi.Output[str]
-    """
-    The StreamingEndpoint host name.
-    """
-    last_modified: pulumi.Output[str]
-    """
-    The exact time the StreamingEndpoint was last modified.
-    """
-    location: pulumi.Output[str]
-    """
-    The geo-location where the resource lives
-    """
-    max_cache_age: pulumi.Output[float]
-    """
-    Max cache age
-    """
-    name: pulumi.Output[str]
-    """
-    The name of the resource
-    """
-    provisioning_state: pulumi.Output[str]
-    """
-    The provisioning state of the StreamingEndpoint.
-    """
-    resource_state: pulumi.Output[str]
-    """
-    The resource state of the StreamingEndpoint.
-    """
-    scale_units: pulumi.Output[float]
-    """
-    The number of scale units.  Use the Scale operation to adjust this value.
-    """
-    tags: pulumi.Output[dict]
-    """
-    Resource tags.
-    """
-    type: pulumi.Output[str]
-    """
-    The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
-    """
-    def __init__(__self__, resource_name, opts=None, access_control=None, account_name=None, auto_start=None, availability_set_name=None, cdn_enabled=None, cdn_profile=None, cdn_provider=None, cross_site_access_policies=None, custom_host_names=None, description=None, location=None, max_cache_age=None, name=None, resource_group_name=None, scale_units=None, tags=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 access_control: Optional[pulumi.Input[pulumi.InputType['StreamingEndpointAccessControlArgs']]] = None,
+                 account_name: Optional[pulumi.Input[str]] = None,
+                 auto_start: Optional[pulumi.Input[bool]] = None,
+                 availability_set_name: Optional[pulumi.Input[str]] = None,
+                 cdn_enabled: Optional[pulumi.Input[bool]] = None,
+                 cdn_profile: Optional[pulumi.Input[str]] = None,
+                 cdn_provider: Optional[pulumi.Input[str]] = None,
+                 cross_site_access_policies: Optional[pulumi.Input[pulumi.InputType['CrossSiteAccessPoliciesArgs']]] = None,
+                 custom_host_names: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 max_cache_age: Optional[pulumi.Input[float]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 scale_units: Optional[pulumi.Input[float]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         The StreamingEndpoint.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[dict] access_control: The access control definition of the StreamingEndpoint.
+        :param pulumi.Input[pulumi.InputType['StreamingEndpointAccessControlArgs']] access_control: The access control definition of the StreamingEndpoint.
         :param pulumi.Input[str] account_name: The Media Services account name.
         :param pulumi.Input[bool] auto_start: The flag indicates if the resource should be automatically started on creation.
         :param pulumi.Input[str] availability_set_name: The name of the AvailabilitySet used with this StreamingEndpoint for high availability streaming.  This value can only be set at creation time.
         :param pulumi.Input[bool] cdn_enabled: The CDN enabled flag.
         :param pulumi.Input[str] cdn_profile: The CDN profile name.
         :param pulumi.Input[str] cdn_provider: The CDN provider name.
-        :param pulumi.Input[dict] cross_site_access_policies: The StreamingEndpoint access policies.
-        :param pulumi.Input[list] custom_host_names: The custom host names of the StreamingEndpoint
+        :param pulumi.Input[pulumi.InputType['CrossSiteAccessPoliciesArgs']] cross_site_access_policies: The StreamingEndpoint access policies.
+        :param pulumi.Input[List[pulumi.Input[str]]] custom_host_names: The custom host names of the StreamingEndpoint
         :param pulumi.Input[str] description: The StreamingEndpoint description.
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input[float] max_cache_age: Max cache age
         :param pulumi.Input[str] name: The name of the StreamingEndpoint.
         :param pulumi.Input[str] resource_group_name: The name of the resource group within the Azure subscription.
         :param pulumi.Input[float] scale_units: The number of scale units.  Use the Scale operation to adjust this value.
-        :param pulumi.Input[dict] tags: Resource tags.
-
-        The **access_control** object supports the following:
-
-          * `akamai` (`pulumi.Input[dict]`) - The access control of Akamai
-            * `akamai_signature_header_authentication_key_list` (`pulumi.Input[list]`) - authentication key list
-              * `base64_key` (`pulumi.Input[str]`) - authentication key
-              * `expiration` (`pulumi.Input[str]`) - The expiration time of the authentication key.
-              * `identifier` (`pulumi.Input[str]`) - identifier of the key
-
-          * `ip` (`pulumi.Input[dict]`) - The IP access control of the StreamingEndpoint.
-            * `allow` (`pulumi.Input[list]`) - The IP allow list.
-              * `address` (`pulumi.Input[str]`) - The IP address.
-              * `name` (`pulumi.Input[str]`) - The friendly name for the IP address range.
-              * `subnet_prefix_length` (`pulumi.Input[float]`) - The subnet mask prefix length (see CIDR notation).
-
-        The **cross_site_access_policies** object supports the following:
-
-          * `client_access_policy` (`pulumi.Input[str]`) - The content of clientaccesspolicy.xml used by Silverlight.
-          * `cross_domain_policy` (`pulumi.Input[str]`) - The content of crossdomain.xml used by Silverlight.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -204,13 +117,15 @@ class StreamingEndpoint(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None) -> 'StreamingEndpoint':
         """
         Get an existing StreamingEndpoint resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -219,8 +134,169 @@ class StreamingEndpoint(pulumi.CustomResource):
 
         return StreamingEndpoint(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter(name="accessControl")
+    def access_control(self) -> Optional['outputs.StreamingEndpointAccessControlResponse']:
+        """
+        The access control definition of the StreamingEndpoint.
+        """
+        return pulumi.get(self, "access_control")
+
+    @property
+    @pulumi.getter(name="availabilitySetName")
+    def availability_set_name(self) -> Optional[str]:
+        """
+        The name of the AvailabilitySet used with this StreamingEndpoint for high availability streaming.  This value can only be set at creation time.
+        """
+        return pulumi.get(self, "availability_set_name")
+
+    @property
+    @pulumi.getter(name="cdnEnabled")
+    def cdn_enabled(self) -> Optional[bool]:
+        """
+        The CDN enabled flag.
+        """
+        return pulumi.get(self, "cdn_enabled")
+
+    @property
+    @pulumi.getter(name="cdnProfile")
+    def cdn_profile(self) -> Optional[str]:
+        """
+        The CDN profile name.
+        """
+        return pulumi.get(self, "cdn_profile")
+
+    @property
+    @pulumi.getter(name="cdnProvider")
+    def cdn_provider(self) -> Optional[str]:
+        """
+        The CDN provider name.
+        """
+        return pulumi.get(self, "cdn_provider")
+
+    @property
+    @pulumi.getter
+    def created(self) -> str:
+        """
+        The exact time the StreamingEndpoint was created.
+        """
+        return pulumi.get(self, "created")
+
+    @property
+    @pulumi.getter(name="crossSiteAccessPolicies")
+    def cross_site_access_policies(self) -> Optional['outputs.CrossSiteAccessPoliciesResponse']:
+        """
+        The StreamingEndpoint access policies.
+        """
+        return pulumi.get(self, "cross_site_access_policies")
+
+    @property
+    @pulumi.getter(name="customHostNames")
+    def custom_host_names(self) -> Optional[List[str]]:
+        """
+        The custom host names of the StreamingEndpoint
+        """
+        return pulumi.get(self, "custom_host_names")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        """
+        The StreamingEndpoint description.
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="freeTrialEndTime")
+    def free_trial_end_time(self) -> str:
+        """
+        The free trial expiration time.
+        """
+        return pulumi.get(self, "free_trial_end_time")
+
+    @property
+    @pulumi.getter(name="hostName")
+    def host_name(self) -> str:
+        """
+        The StreamingEndpoint host name.
+        """
+        return pulumi.get(self, "host_name")
+
+    @property
+    @pulumi.getter(name="lastModified")
+    def last_modified(self) -> str:
+        """
+        The exact time the StreamingEndpoint was last modified.
+        """
+        return pulumi.get(self, "last_modified")
+
+    @property
+    @pulumi.getter
+    def location(self) -> str:
+        """
+        The geo-location where the resource lives
+        """
+        return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter(name="maxCacheAge")
+    def max_cache_age(self) -> Optional[float]:
+        """
+        Max cache age
+        """
+        return pulumi.get(self, "max_cache_age")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the resource
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        The provisioning state of the StreamingEndpoint.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="resourceState")
+    def resource_state(self) -> str:
+        """
+        The resource state of the StreamingEndpoint.
+        """
+        return pulumi.get(self, "resource_state")
+
+    @property
+    @pulumi.getter(name="scaleUnits")
+    def scale_units(self) -> float:
+        """
+        The number of scale units.  Use the Scale operation to adjust this value.
+        """
+        return pulumi.get(self, "scale_units")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Mapping[str, str]]:
+        """
+        Resource tags.
+        """
+        return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+        """
+        return pulumi.get(self, "type")
+
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

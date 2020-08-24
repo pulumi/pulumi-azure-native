@@ -5,10 +5,16 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
 
+__all__ = [
+    'GetConsumerGroupResult',
+    'AwaitableGetConsumerGroupResult',
+    'get_consumer_group',
+]
 
+@pulumi.output_type
 class GetConsumerGroupResult:
     """
     Single item in List or Get Consumer group operation
@@ -16,46 +22,81 @@ class GetConsumerGroupResult:
     def __init__(__self__, created_at=None, event_hub_path=None, location=None, name=None, type=None, updated_at=None, user_metadata=None):
         if created_at and not isinstance(created_at, str):
             raise TypeError("Expected argument 'created_at' to be a str")
-        __self__.created_at = created_at
+        pulumi.set(__self__, "created_at", created_at)
+        if event_hub_path and not isinstance(event_hub_path, str):
+            raise TypeError("Expected argument 'event_hub_path' to be a str")
+        pulumi.set(__self__, "event_hub_path", event_hub_path)
+        if location and not isinstance(location, str):
+            raise TypeError("Expected argument 'location' to be a str")
+        pulumi.set(__self__, "location", location)
+        if name and not isinstance(name, str):
+            raise TypeError("Expected argument 'name' to be a str")
+        pulumi.set(__self__, "name", name)
+        if type and not isinstance(type, str):
+            raise TypeError("Expected argument 'type' to be a str")
+        pulumi.set(__self__, "type", type)
+        if updated_at and not isinstance(updated_at, str):
+            raise TypeError("Expected argument 'updated_at' to be a str")
+        pulumi.set(__self__, "updated_at", updated_at)
+        if user_metadata and not isinstance(user_metadata, str):
+            raise TypeError("Expected argument 'user_metadata' to be a str")
+        pulumi.set(__self__, "user_metadata", user_metadata)
+
+    @property
+    @pulumi.getter(name="createdAt")
+    def created_at(self) -> str:
         """
         Exact time the message was created.
         """
-        if event_hub_path and not isinstance(event_hub_path, str):
-            raise TypeError("Expected argument 'event_hub_path' to be a str")
-        __self__.event_hub_path = event_hub_path
+        return pulumi.get(self, "created_at")
+
+    @property
+    @pulumi.getter(name="eventHubPath")
+    def event_hub_path(self) -> str:
         """
         The path of the Event Hub.
         """
-        if location and not isinstance(location, str):
-            raise TypeError("Expected argument 'location' to be a str")
-        __self__.location = location
+        return pulumi.get(self, "event_hub_path")
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[str]:
         """
         Resource location
         """
-        if name and not isinstance(name, str):
-            raise TypeError("Expected argument 'name' to be a str")
-        __self__.name = name
+        return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
         """
         Resource name
         """
-        if type and not isinstance(type, str):
-            raise TypeError("Expected argument 'type' to be a str")
-        __self__.type = type
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
         """
         Resource type
         """
-        if updated_at and not isinstance(updated_at, str):
-            raise TypeError("Expected argument 'updated_at' to be a str")
-        __self__.updated_at = updated_at
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="updatedAt")
+    def updated_at(self) -> str:
         """
         The exact time the message was updated.
         """
-        if user_metadata and not isinstance(user_metadata, str):
-            raise TypeError("Expected argument 'user_metadata' to be a str")
-        __self__.user_metadata = user_metadata
+        return pulumi.get(self, "updated_at")
+
+    @property
+    @pulumi.getter(name="userMetadata")
+    def user_metadata(self) -> Optional[str]:
         """
         The user metadata.
         """
+        return pulumi.get(self, "user_metadata")
 
 
 class AwaitableGetConsumerGroupResult(GetConsumerGroupResult):
@@ -73,7 +114,11 @@ class AwaitableGetConsumerGroupResult(GetConsumerGroupResult):
             user_metadata=self.user_metadata)
 
 
-def get_consumer_group(event_hub_name=None, name=None, namespace_name=None, resource_group_name=None, opts=None):
+def get_consumer_group(event_hub_name: Optional[str] = None,
+                       name: Optional[str] = None,
+                       namespace_name: Optional[str] = None,
+                       resource_group_name: Optional[str] = None,
+                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetConsumerGroupResult:
     """
     Use this data source to access information about an existing resource.
 
@@ -91,13 +136,13 @@ def get_consumer_group(event_hub_name=None, name=None, namespace_name=None, reso
         opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = _utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('azurerm:eventhub/v20150801:getConsumerGroup', __args__, opts=opts).value
+    __ret__ = pulumi.runtime.invoke('azurerm:eventhub/v20150801:getConsumerGroup', __args__, opts=opts, typ=GetConsumerGroupResult).value
 
     return AwaitableGetConsumerGroupResult(
-        created_at=__ret__.get('createdAt'),
-        event_hub_path=__ret__.get('eventHubPath'),
-        location=__ret__.get('location'),
-        name=__ret__.get('name'),
-        type=__ret__.get('type'),
-        updated_at=__ret__.get('updatedAt'),
-        user_metadata=__ret__.get('userMetadata'))
+        created_at=__ret__.created_at,
+        event_hub_path=__ret__.event_hub_path,
+        location=__ret__.location,
+        name=__ret__.name,
+        type=__ret__.type,
+        updated_at=__ret__.updated_at,
+        user_metadata=__ret__.user_metadata)

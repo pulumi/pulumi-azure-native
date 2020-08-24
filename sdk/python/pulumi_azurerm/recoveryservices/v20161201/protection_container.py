@@ -5,44 +5,29 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+from . import outputs
+from ._inputs import *
+
+__all__ = ['ProtectionContainer']
 
 
 class ProtectionContainer(pulumi.CustomResource):
-    e_tag: pulumi.Output[str]
-    """
-    Optional ETag.
-    """
-    location: pulumi.Output[str]
-    """
-    Resource location.
-    """
-    name: pulumi.Output[str]
-    """
-    Resource name associated with the resource.
-    """
-    properties: pulumi.Output[dict]
-    """
-    ProtectionContainerResource properties
-      * `backup_management_type` (`str`) - Type of backup management for the container.
-      * `container_type` (`str`) - Type of the container. The value of this property for: 1. Compute Azure VM is Microsoft.Compute/virtualMachines 2.
-        Classic Compute Azure VM is Microsoft.ClassicCompute/virtualMachines 3. Windows machines (like MAB, DPM etc) is
-        Windows 4. Azure SQL instance is AzureSqlContainer. 5. Storage containers is StorageContainer. 6. Azure workload
-        Backup is VMAppContainer
-      * `friendly_name` (`str`) - Friendly name of the container.
-      * `health_status` (`str`) - Status of health of the container.
-      * `registration_status` (`str`) - Status of registration of the container with the Recovery Services Vault.
-    """
-    tags: pulumi.Output[dict]
-    """
-    Resource tags.
-    """
-    type: pulumi.Output[str]
-    """
-    Resource type represents the complete path of the form Namespace/ResourceType/ResourceType/...
-    """
-    def __init__(__self__, resource_name, opts=None, e_tag=None, fabric_name=None, location=None, name=None, properties=None, resource_group_name=None, tags=None, vault_name=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 e_tag: Optional[pulumi.Input[str]] = None,
+                 fabric_name: Optional[pulumi.Input[str]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 properties: Optional[pulumi.Input[pulumi.InputType['ProtectionContainerArgs']]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 vault_name: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         Base class for container with backup items. Containers with specific workloads are derived from this class.
 
@@ -52,21 +37,10 @@ class ProtectionContainer(pulumi.CustomResource):
         :param pulumi.Input[str] fabric_name: Fabric name associated with the container.
         :param pulumi.Input[str] location: Resource location.
         :param pulumi.Input[str] name: Name of the container to be registered.
-        :param pulumi.Input[dict] properties: ProtectionContainerResource properties
+        :param pulumi.Input[pulumi.InputType['ProtectionContainerArgs']] properties: ProtectionContainerResource properties
         :param pulumi.Input[str] resource_group_name: The name of the resource group where the recovery services vault is present.
-        :param pulumi.Input[dict] tags: Resource tags.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         :param pulumi.Input[str] vault_name: The name of the recovery services vault.
-
-        The **properties** object supports the following:
-
-          * `backup_management_type` (`pulumi.Input[str]`) - Type of backup management for the container.
-          * `container_type` (`pulumi.Input[str]`) - Type of the container. The value of this property for: 1. Compute Azure VM is Microsoft.Compute/virtualMachines 2.
-            Classic Compute Azure VM is Microsoft.ClassicCompute/virtualMachines 3. Windows machines (like MAB, DPM etc) is
-            Windows 4. Azure SQL instance is AzureSqlContainer. 5. Storage containers is StorageContainer. 6. Azure workload
-            Backup is VMAppContainer
-          * `friendly_name` (`pulumi.Input[str]`) - Friendly name of the container.
-          * `health_status` (`pulumi.Input[str]`) - Status of health of the container.
-          * `registration_status` (`pulumi.Input[str]`) - Status of registration of the container with the Recovery Services Vault.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -111,13 +85,15 @@ class ProtectionContainer(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None) -> 'ProtectionContainer':
         """
         Get an existing ProtectionContainer resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -126,8 +102,57 @@ class ProtectionContainer(pulumi.CustomResource):
 
         return ProtectionContainer(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter(name="eTag")
+    def e_tag(self) -> Optional[str]:
+        """
+        Optional ETag.
+        """
+        return pulumi.get(self, "e_tag")
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[str]:
+        """
+        Resource location.
+        """
+        return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Resource name associated with the resource.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def properties(self) -> 'outputs.ProtectionContainerResponse':
+        """
+        ProtectionContainerResource properties
+        """
+        return pulumi.get(self, "properties")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Mapping[str, str]]:
+        """
+        Resource tags.
+        """
+        return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Resource type represents the complete path of the form Namespace/ResourceType/ResourceType/...
+        """
+        return pulumi.get(self, "type")
+
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

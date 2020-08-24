@@ -5,93 +5,44 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+from . import outputs
+from ._inputs import *
+
+__all__ = ['ScheduledQueryRule']
 
 
 class ScheduledQueryRule(pulumi.CustomResource):
-    action: pulumi.Output[dict]
-    """
-    Action needs to be taken on rule execution.
-      * `odata_type` (`str`) - Specifies the action. Supported values - AlertingAction, LogToMetricAction
-    """
-    description: pulumi.Output[str]
-    """
-    The description of the Log Search rule.
-    """
-    enabled: pulumi.Output[str]
-    """
-    The flag which indicates whether the Log Search rule is enabled. Value should be true or false
-    """
-    last_updated_time: pulumi.Output[str]
-    """
-    Last time the rule was updated in IS08601 format.
-    """
-    location: pulumi.Output[str]
-    """
-    Resource location
-    """
-    name: pulumi.Output[str]
-    """
-    Azure resource name
-    """
-    provisioning_state: pulumi.Output[str]
-    """
-    Provisioning state of the scheduled query rule
-    """
-    schedule: pulumi.Output[dict]
-    """
-    Schedule (Frequency, Time Window) for rule. Required for action type - AlertingAction
-      * `frequency_in_minutes` (`float`) - frequency (in minutes) at which rule condition should be evaluated.
-      * `time_window_in_minutes` (`float`) - Time window for which data needs to be fetched for query (should be greater than or equal to frequencyInMinutes).
-    """
-    source: pulumi.Output[dict]
-    """
-    Data Source against which rule will Query Data
-      * `authorized_resources` (`list`) - List of  Resource referred into query
-      * `data_source_id` (`str`) - The resource uri over which log search query is to be run.
-      * `query` (`str`) - Log search query. Required for action type - AlertingAction
-      * `query_type` (`str`) - Set value to 'ResultCount' .
-    """
-    tags: pulumi.Output[dict]
-    """
-    Resource tags
-    """
-    type: pulumi.Output[str]
-    """
-    Azure resource type
-    """
-    def __init__(__self__, resource_name, opts=None, action=None, description=None, enabled=None, location=None, name=None, resource_group_name=None, schedule=None, source=None, tags=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 action: Optional[pulumi.Input[pulumi.InputType['ActionArgs']]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 enabled: Optional[pulumi.Input[str]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 schedule: Optional[pulumi.Input[pulumi.InputType['ScheduleArgs']]] = None,
+                 source: Optional[pulumi.Input[pulumi.InputType['SourceArgs']]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         The Log Search Rule resource.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[dict] action: Action needs to be taken on rule execution.
+        :param pulumi.Input[pulumi.InputType['ActionArgs']] action: Action needs to be taken on rule execution.
         :param pulumi.Input[str] description: The description of the Log Search rule.
         :param pulumi.Input[str] enabled: The flag which indicates whether the Log Search rule is enabled. Value should be true or false
         :param pulumi.Input[str] location: Resource location
         :param pulumi.Input[str] name: The name of the rule.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
-        :param pulumi.Input[dict] schedule: Schedule (Frequency, Time Window) for rule. Required for action type - AlertingAction
-        :param pulumi.Input[dict] source: Data Source against which rule will Query Data
-        :param pulumi.Input[dict] tags: Resource tags
-
-        The **action** object supports the following:
-
-          * `odata_type` (`pulumi.Input[str]`) - Specifies the action. Supported values - AlertingAction, LogToMetricAction
-
-        The **schedule** object supports the following:
-
-          * `frequency_in_minutes` (`pulumi.Input[float]`) - frequency (in minutes) at which rule condition should be evaluated.
-          * `time_window_in_minutes` (`pulumi.Input[float]`) - Time window for which data needs to be fetched for query (should be greater than or equal to frequencyInMinutes).
-
-        The **source** object supports the following:
-
-          * `authorized_resources` (`pulumi.Input[list]`) - List of  Resource referred into query
-          * `data_source_id` (`pulumi.Input[str]`) - The resource uri over which log search query is to be run.
-          * `query` (`pulumi.Input[str]`) - Log search query. Required for action type - AlertingAction
-          * `query_type` (`pulumi.Input[str]`) - Set value to 'ResultCount' .
+        :param pulumi.Input[pulumi.InputType['ScheduleArgs']] schedule: Schedule (Frequency, Time Window) for rule. Required for action type - AlertingAction
+        :param pulumi.Input[pulumi.InputType['SourceArgs']] source: Data Source against which rule will Query Data
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -139,13 +90,15 @@ class ScheduledQueryRule(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None) -> 'ScheduledQueryRule':
         """
         Get an existing ScheduledQueryRule resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -154,8 +107,97 @@ class ScheduledQueryRule(pulumi.CustomResource):
 
         return ScheduledQueryRule(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter
+    def action(self) -> 'outputs.ActionResponse':
+        """
+        Action needs to be taken on rule execution.
+        """
+        return pulumi.get(self, "action")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        """
+        The description of the Log Search rule.
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[str]:
+        """
+        The flag which indicates whether the Log Search rule is enabled. Value should be true or false
+        """
+        return pulumi.get(self, "enabled")
+
+    @property
+    @pulumi.getter(name="lastUpdatedTime")
+    def last_updated_time(self) -> str:
+        """
+        Last time the rule was updated in IS08601 format.
+        """
+        return pulumi.get(self, "last_updated_time")
+
+    @property
+    @pulumi.getter
+    def location(self) -> str:
+        """
+        Resource location
+        """
+        return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Azure resource name
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        Provisioning state of the scheduled query rule
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter
+    def schedule(self) -> Optional['outputs.ScheduleResponse']:
+        """
+        Schedule (Frequency, Time Window) for rule. Required for action type - AlertingAction
+        """
+        return pulumi.get(self, "schedule")
+
+    @property
+    @pulumi.getter
+    def source(self) -> 'outputs.SourceResponse':
+        """
+        Data Source against which rule will Query Data
+        """
+        return pulumi.get(self, "source")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Mapping[str, str]]:
+        """
+        Resource tags
+        """
+        return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Azure resource type
+        """
+        return pulumi.get(self, "type")
+
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

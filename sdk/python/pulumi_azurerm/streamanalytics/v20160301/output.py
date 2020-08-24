@@ -5,60 +5,36 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+from . import outputs
+from ._inputs import *
+
+__all__ = ['Output']
 
 
 class Output(pulumi.CustomResource):
-    datasource: pulumi.Output[dict]
-    """
-    Describes the data source that output will be written to. Required on PUT (CreateOrReplace) requests.
-      * `type` (`str`) - Indicates the type of data source output will be written to. Required on PUT (CreateOrReplace) requests.
-    """
-    diagnostics: pulumi.Output[dict]
-    """
-    Describes conditions applicable to the Input, Output, or the job overall, that warrant customer attention.
-      * `conditions` (`list`) - A collection of zero or more conditions applicable to the resource, or to the job overall, that warrant customer attention.
-        * `code` (`str`) - The opaque diagnostic code.
-        * `message` (`str`) - The human-readable message describing the condition in detail. Localized in the Accept-Language of the client request.
-        * `since` (`str`) - The UTC timestamp of when the condition started. Customers should be able to find a corresponding event in the ops log around this time.
-    """
-    etag: pulumi.Output[str]
-    """
-    The current entity tag for the output. This is an opaque string. You can use it to detect whether the resource has changed between requests. You can also use it in the If-Match or If-None-Match headers for write operations for optimistic concurrency.
-    """
-    name: pulumi.Output[str]
-    """
-    Resource name
-    """
-    serialization: pulumi.Output[dict]
-    """
-    Describes how data from an input is serialized or how data is serialized when written to an output. Required on PUT (CreateOrReplace) requests.
-      * `type` (`str`) - Indicates the type of serialization that the input or output uses. Required on PUT (CreateOrReplace) requests.
-    """
-    type: pulumi.Output[str]
-    """
-    Resource type
-    """
-    def __init__(__self__, resource_name, opts=None, datasource=None, job_name=None, name=None, resource_group_name=None, serialization=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 datasource: Optional[pulumi.Input[pulumi.InputType['OutputDataSourceArgs']]] = None,
+                 job_name: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 serialization: Optional[pulumi.Input[pulumi.InputType['SerializationArgs']]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         An output object, containing all information associated with the named output. All outputs are contained under a streaming job.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[dict] datasource: Describes the data source that output will be written to. Required on PUT (CreateOrReplace) requests.
+        :param pulumi.Input[pulumi.InputType['OutputDataSourceArgs']] datasource: Describes the data source that output will be written to. Required on PUT (CreateOrReplace) requests.
         :param pulumi.Input[str] job_name: The name of the streaming job.
         :param pulumi.Input[str] name: The name of the output.
         :param pulumi.Input[str] resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
-        :param pulumi.Input[dict] serialization: Describes how data from an input is serialized or how data is serialized when written to an output. Required on PUT (CreateOrReplace) requests.
-
-        The **datasource** object supports the following:
-
-          * `type` (`pulumi.Input[str]`) - Indicates the type of data source output will be written to. Required on PUT (CreateOrReplace) requests.
-
-        The **serialization** object supports the following:
-
-          * `type` (`pulumi.Input[str]`) - Indicates the type of serialization that the input or output uses. Required on PUT (CreateOrReplace) requests.
+        :param pulumi.Input[pulumi.InputType['SerializationArgs']] serialization: Describes how data from an input is serialized or how data is serialized when written to an output. Required on PUT (CreateOrReplace) requests.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -98,13 +74,15 @@ class Output(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None) -> 'Output':
         """
         Get an existing Output resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -113,8 +91,57 @@ class Output(pulumi.CustomResource):
 
         return Output(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter
+    def datasource(self) -> Optional['outputs.OutputDataSourceResponse']:
+        """
+        Describes the data source that output will be written to. Required on PUT (CreateOrReplace) requests.
+        """
+        return pulumi.get(self, "datasource")
+
+    @property
+    @pulumi.getter
+    def diagnostics(self) -> 'outputs.DiagnosticsResponse':
+        """
+        Describes conditions applicable to the Input, Output, or the job overall, that warrant customer attention.
+        """
+        return pulumi.get(self, "diagnostics")
+
+    @property
+    @pulumi.getter
+    def etag(self) -> str:
+        """
+        The current entity tag for the output. This is an opaque string. You can use it to detect whether the resource has changed between requests. You can also use it in the If-Match or If-None-Match headers for write operations for optimistic concurrency.
+        """
+        return pulumi.get(self, "etag")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        Resource name
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def serialization(self) -> Optional['outputs.SerializationResponse']:
+        """
+        Describes how data from an input is serialized or how data is serialized when written to an output. Required on PUT (CreateOrReplace) requests.
+        """
+        return pulumi.get(self, "serialization")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Resource type
+        """
+        return pulumi.get(self, "type")
+
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

@@ -5,44 +5,26 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+
+__all__ = ['StorageAccount']
 
 
 class StorageAccount(pulumi.CustomResource):
-    blob_endpoint: pulumi.Output[str]
-    """
-    BlobEndpoint of Storage Account
-    """
-    container_count: pulumi.Output[float]
-    """
-    The Container Count. Present only for Storage Accounts with DataPolicy set to Cloud.
-    """
-    data_policy: pulumi.Output[str]
-    """
-    Data policy of the storage Account.
-    """
-    description: pulumi.Output[str]
-    """
-    Description for the storage Account.
-    """
-    name: pulumi.Output[str]
-    """
-    The object name.
-    """
-    storage_account_credential_id: pulumi.Output[str]
-    """
-    Storage Account Credential Id
-    """
-    storage_account_status: pulumi.Output[str]
-    """
-    Current status of the storage account
-    """
-    type: pulumi.Output[str]
-    """
-    The hierarchical type of the object.
-    """
-    def __init__(__self__, resource_name, opts=None, data_policy=None, description=None, device_name=None, name=None, resource_group_name=None, storage_account_credential_id=None, storage_account_status=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 data_policy: Optional[pulumi.Input[str]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 device_name: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 storage_account_credential_id: Optional[pulumi.Input[str]] = None,
+                 storage_account_status: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         Represents a Storage Account on the  Data Box Edge/Gateway device.
 
@@ -96,13 +78,15 @@ class StorageAccount(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None) -> 'StorageAccount':
         """
         Get an existing StorageAccount resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -111,8 +95,73 @@ class StorageAccount(pulumi.CustomResource):
 
         return StorageAccount(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter(name="blobEndpoint")
+    def blob_endpoint(self) -> str:
+        """
+        BlobEndpoint of Storage Account
+        """
+        return pulumi.get(self, "blob_endpoint")
+
+    @property
+    @pulumi.getter(name="containerCount")
+    def container_count(self) -> float:
+        """
+        The Container Count. Present only for Storage Accounts with DataPolicy set to Cloud.
+        """
+        return pulumi.get(self, "container_count")
+
+    @property
+    @pulumi.getter(name="dataPolicy")
+    def data_policy(self) -> Optional[str]:
+        """
+        Data policy of the storage Account.
+        """
+        return pulumi.get(self, "data_policy")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        """
+        Description for the storage Account.
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The object name.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="storageAccountCredentialId")
+    def storage_account_credential_id(self) -> Optional[str]:
+        """
+        Storage Account Credential Id
+        """
+        return pulumi.get(self, "storage_account_credential_id")
+
+    @property
+    @pulumi.getter(name="storageAccountStatus")
+    def storage_account_status(self) -> Optional[str]:
+        """
+        Current status of the storage account
+        """
+        return pulumi.get(self, "storage_account_status")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        The hierarchical type of the object.
+        """
+        return pulumi.get(self, "type")
+
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

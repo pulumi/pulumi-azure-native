@@ -5,10 +5,16 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
 
+__all__ = [
+    'GetFileServerResult',
+    'AwaitableGetFileServerResult',
+    'get_file_server',
+]
 
+@pulumi.output_type
 class GetFileServerResult:
     """
     The file server.
@@ -16,40 +22,70 @@ class GetFileServerResult:
     def __init__(__self__, backup_schedule_group_id=None, description=None, domain_name=None, name=None, storage_domain_id=None, type=None):
         if backup_schedule_group_id and not isinstance(backup_schedule_group_id, str):
             raise TypeError("Expected argument 'backup_schedule_group_id' to be a str")
-        __self__.backup_schedule_group_id = backup_schedule_group_id
+        pulumi.set(__self__, "backup_schedule_group_id", backup_schedule_group_id)
+        if description and not isinstance(description, str):
+            raise TypeError("Expected argument 'description' to be a str")
+        pulumi.set(__self__, "description", description)
+        if domain_name and not isinstance(domain_name, str):
+            raise TypeError("Expected argument 'domain_name' to be a str")
+        pulumi.set(__self__, "domain_name", domain_name)
+        if name and not isinstance(name, str):
+            raise TypeError("Expected argument 'name' to be a str")
+        pulumi.set(__self__, "name", name)
+        if storage_domain_id and not isinstance(storage_domain_id, str):
+            raise TypeError("Expected argument 'storage_domain_id' to be a str")
+        pulumi.set(__self__, "storage_domain_id", storage_domain_id)
+        if type and not isinstance(type, str):
+            raise TypeError("Expected argument 'type' to be a str")
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="backupScheduleGroupId")
+    def backup_schedule_group_id(self) -> str:
         """
         The backup policy id.
         """
-        if description and not isinstance(description, str):
-            raise TypeError("Expected argument 'description' to be a str")
-        __self__.description = description
+        return pulumi.get(self, "backup_schedule_group_id")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
         """
         The description of the file server
         """
-        if domain_name and not isinstance(domain_name, str):
-            raise TypeError("Expected argument 'domain_name' to be a str")
-        __self__.domain_name = domain_name
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="domainName")
+    def domain_name(self) -> str:
         """
         Domain of the file server
         """
-        if name and not isinstance(name, str):
-            raise TypeError("Expected argument 'name' to be a str")
-        __self__.name = name
+        return pulumi.get(self, "domain_name")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
         """
         The name.
         """
-        if storage_domain_id and not isinstance(storage_domain_id, str):
-            raise TypeError("Expected argument 'storage_domain_id' to be a str")
-        __self__.storage_domain_id = storage_domain_id
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="storageDomainId")
+    def storage_domain_id(self) -> str:
         """
         The storage domain id.
         """
-        if type and not isinstance(type, str):
-            raise TypeError("Expected argument 'type' to be a str")
-        __self__.type = type
+        return pulumi.get(self, "storage_domain_id")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
         """
         The type.
         """
+        return pulumi.get(self, "type")
 
 
 class AwaitableGetFileServerResult(GetFileServerResult):
@@ -66,7 +102,11 @@ class AwaitableGetFileServerResult(GetFileServerResult):
             type=self.type)
 
 
-def get_file_server(device_name=None, manager_name=None, name=None, resource_group_name=None, opts=None):
+def get_file_server(device_name: Optional[str] = None,
+                    manager_name: Optional[str] = None,
+                    name: Optional[str] = None,
+                    resource_group_name: Optional[str] = None,
+                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetFileServerResult:
     """
     Use this data source to access information about an existing resource.
 
@@ -84,12 +124,12 @@ def get_file_server(device_name=None, manager_name=None, name=None, resource_gro
         opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = _utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('azurerm:storsimple/v20161001:getFileServer', __args__, opts=opts).value
+    __ret__ = pulumi.runtime.invoke('azurerm:storsimple/v20161001:getFileServer', __args__, opts=opts, typ=GetFileServerResult).value
 
     return AwaitableGetFileServerResult(
-        backup_schedule_group_id=__ret__.get('backupScheduleGroupId'),
-        description=__ret__.get('description'),
-        domain_name=__ret__.get('domainName'),
-        name=__ret__.get('name'),
-        storage_domain_id=__ret__.get('storageDomainId'),
-        type=__ret__.get('type'))
+        backup_schedule_group_id=__ret__.backup_schedule_group_id,
+        description=__ret__.description,
+        domain_name=__ret__.domain_name,
+        name=__ret__.name,
+        storage_domain_id=__ret__.storage_domain_id,
+        type=__ret__.type)

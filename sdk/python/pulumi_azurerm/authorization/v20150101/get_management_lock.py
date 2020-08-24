@@ -5,10 +5,16 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
 
+__all__ = [
+    'GetManagementLockResult',
+    'AwaitableGetManagementLockResult',
+    'get_management_lock',
+]
 
+@pulumi.output_type
 class GetManagementLockResult:
     """
     Management lock information.
@@ -16,28 +22,48 @@ class GetManagementLockResult:
     def __init__(__self__, level=None, name=None, notes=None, type=None):
         if level and not isinstance(level, str):
             raise TypeError("Expected argument 'level' to be a str")
-        __self__.level = level
+        pulumi.set(__self__, "level", level)
+        if name and not isinstance(name, str):
+            raise TypeError("Expected argument 'name' to be a str")
+        pulumi.set(__self__, "name", name)
+        if notes and not isinstance(notes, str):
+            raise TypeError("Expected argument 'notes' to be a str")
+        pulumi.set(__self__, "notes", notes)
+        if type and not isinstance(type, str):
+            raise TypeError("Expected argument 'type' to be a str")
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def level(self) -> Optional[str]:
         """
         The lock level of the management lock.
         """
-        if name and not isinstance(name, str):
-            raise TypeError("Expected argument 'name' to be a str")
-        __self__.name = name
+        return pulumi.get(self, "level")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
         """
         The name of the lock.
         """
-        if notes and not isinstance(notes, str):
-            raise TypeError("Expected argument 'notes' to be a str")
-        __self__.notes = notes
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def notes(self) -> Optional[str]:
         """
         The notes of the management lock.
         """
-        if type and not isinstance(type, str):
-            raise TypeError("Expected argument 'type' to be a str")
-        __self__.type = type
+        return pulumi.get(self, "notes")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
         """
         The type of the lock.
         """
+        return pulumi.get(self, "type")
 
 
 class AwaitableGetManagementLockResult(GetManagementLockResult):
@@ -52,7 +78,8 @@ class AwaitableGetManagementLockResult(GetManagementLockResult):
             type=self.type)
 
 
-def get_management_lock(name=None, opts=None):
+def get_management_lock(name: Optional[str] = None,
+                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetManagementLockResult:
     """
     Use this data source to access information about an existing resource.
 
@@ -64,10 +91,10 @@ def get_management_lock(name=None, opts=None):
         opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = _utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('azurerm:authorization/v20150101:getManagementLock', __args__, opts=opts).value
+    __ret__ = pulumi.runtime.invoke('azurerm:authorization/v20150101:getManagementLock', __args__, opts=opts, typ=GetManagementLockResult).value
 
     return AwaitableGetManagementLockResult(
-        level=__ret__.get('level'),
-        name=__ret__.get('name'),
-        notes=__ret__.get('notes'),
-        type=__ret__.get('type'))
+        level=__ret__.level,
+        name=__ret__.name,
+        notes=__ret__.notes,
+        type=__ret__.type)

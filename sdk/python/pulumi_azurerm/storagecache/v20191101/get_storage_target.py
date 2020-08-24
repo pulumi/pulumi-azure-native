@@ -5,10 +5,17 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+from . import outputs
 
+__all__ = [
+    'GetStorageTargetResult',
+    'AwaitableGetStorageTargetResult',
+    'get_storage_target',
+]
 
+@pulumi.output_type
 class GetStorageTargetResult:
     """
     A storage system being cached by a Cache.
@@ -16,52 +23,92 @@ class GetStorageTargetResult:
     def __init__(__self__, clfs=None, junctions=None, name=None, nfs3=None, provisioning_state=None, target_type=None, type=None, unknown=None):
         if clfs and not isinstance(clfs, dict):
             raise TypeError("Expected argument 'clfs' to be a dict")
-        __self__.clfs = clfs
+        pulumi.set(__self__, "clfs", clfs)
+        if junctions and not isinstance(junctions, list):
+            raise TypeError("Expected argument 'junctions' to be a list")
+        pulumi.set(__self__, "junctions", junctions)
+        if name and not isinstance(name, str):
+            raise TypeError("Expected argument 'name' to be a str")
+        pulumi.set(__self__, "name", name)
+        if nfs3 and not isinstance(nfs3, dict):
+            raise TypeError("Expected argument 'nfs3' to be a dict")
+        pulumi.set(__self__, "nfs3", nfs3)
+        if provisioning_state and not isinstance(provisioning_state, str):
+            raise TypeError("Expected argument 'provisioning_state' to be a str")
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if target_type and not isinstance(target_type, str):
+            raise TypeError("Expected argument 'target_type' to be a str")
+        pulumi.set(__self__, "target_type", target_type)
+        if type and not isinstance(type, str):
+            raise TypeError("Expected argument 'type' to be a str")
+        pulumi.set(__self__, "type", type)
+        if unknown and not isinstance(unknown, dict):
+            raise TypeError("Expected argument 'unknown' to be a dict")
+        pulumi.set(__self__, "unknown", unknown)
+
+    @property
+    @pulumi.getter
+    def clfs(self) -> Optional['outputs.ClfsTargetResponse']:
         """
         Properties when targetType is clfs.
         """
-        if junctions and not isinstance(junctions, list):
-            raise TypeError("Expected argument 'junctions' to be a list")
-        __self__.junctions = junctions
+        return pulumi.get(self, "clfs")
+
+    @property
+    @pulumi.getter
+    def junctions(self) -> Optional[List['outputs.NamespaceJunctionResponse']]:
         """
         List of Cache namespace junctions to target for namespace associations.
         """
-        if name and not isinstance(name, str):
-            raise TypeError("Expected argument 'name' to be a str")
-        __self__.name = name
+        return pulumi.get(self, "junctions")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
         """
         Name of the Storage Target.
         """
-        if nfs3 and not isinstance(nfs3, dict):
-            raise TypeError("Expected argument 'nfs3' to be a dict")
-        __self__.nfs3 = nfs3
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def nfs3(self) -> Optional['outputs.Nfs3TargetResponse']:
         """
         Properties when targetType is nfs3.
         """
-        if provisioning_state and not isinstance(provisioning_state, str):
-            raise TypeError("Expected argument 'provisioning_state' to be a str")
-        __self__.provisioning_state = provisioning_state
+        return pulumi.get(self, "nfs3")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> Optional[str]:
         """
         ARM provisioning state, see https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/Addendum.md#provisioningstate-property
         """
-        if target_type and not isinstance(target_type, str):
-            raise TypeError("Expected argument 'target_type' to be a str")
-        __self__.target_type = target_type
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="targetType")
+    def target_type(self) -> Optional[str]:
         """
         Type of the Storage Target.
         """
-        if type and not isinstance(type, str):
-            raise TypeError("Expected argument 'type' to be a str")
-        __self__.type = type
+        return pulumi.get(self, "target_type")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
         """
         Type of the Storage Target; Microsoft.StorageCache/Cache/StorageTarget
         """
-        if unknown and not isinstance(unknown, dict):
-            raise TypeError("Expected argument 'unknown' to be a dict")
-        __self__.unknown = unknown
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def unknown(self) -> Optional['outputs.UnknownTargetResponse']:
         """
         Properties when targetType is unknown.
         """
+        return pulumi.get(self, "unknown")
 
 
 class AwaitableGetStorageTargetResult(GetStorageTargetResult):
@@ -80,7 +127,10 @@ class AwaitableGetStorageTargetResult(GetStorageTargetResult):
             unknown=self.unknown)
 
 
-def get_storage_target(cache_name=None, name=None, resource_group_name=None, opts=None):
+def get_storage_target(cache_name: Optional[str] = None,
+                       name: Optional[str] = None,
+                       resource_group_name: Optional[str] = None,
+                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetStorageTargetResult:
     """
     Use this data source to access information about an existing resource.
 
@@ -96,14 +146,14 @@ def get_storage_target(cache_name=None, name=None, resource_group_name=None, opt
         opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = _utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('azurerm:storagecache/v20191101:getStorageTarget', __args__, opts=opts).value
+    __ret__ = pulumi.runtime.invoke('azurerm:storagecache/v20191101:getStorageTarget', __args__, opts=opts, typ=GetStorageTargetResult).value
 
     return AwaitableGetStorageTargetResult(
-        clfs=__ret__.get('clfs'),
-        junctions=__ret__.get('junctions'),
-        name=__ret__.get('name'),
-        nfs3=__ret__.get('nfs3'),
-        provisioning_state=__ret__.get('provisioningState'),
-        target_type=__ret__.get('targetType'),
-        type=__ret__.get('type'),
-        unknown=__ret__.get('unknown'))
+        clfs=__ret__.clfs,
+        junctions=__ret__.junctions,
+        name=__ret__.name,
+        nfs3=__ret__.nfs3,
+        provisioning_state=__ret__.provisioning_state,
+        target_type=__ret__.target_type,
+        type=__ret__.type,
+        unknown=__ret__.unknown)

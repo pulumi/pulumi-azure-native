@@ -5,10 +5,17 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+from . import outputs
 
+__all__ = [
+    'GetGalleryImageResult',
+    'AwaitableGetGalleryImageResult',
+    'get_gallery_image',
+]
 
+@pulumi.output_type
 class GetGalleryImageResult:
     """
     Represents an image from the Azure Marketplace
@@ -16,100 +23,180 @@ class GetGalleryImageResult:
     def __init__(__self__, author=None, created_date=None, description=None, icon=None, image_reference=None, is_enabled=None, is_override=None, is_plan_authorized=None, latest_operation_result=None, location=None, name=None, plan_id=None, provisioning_state=None, tags=None, type=None, unique_identifier=None):
         if author and not isinstance(author, str):
             raise TypeError("Expected argument 'author' to be a str")
-        __self__.author = author
+        pulumi.set(__self__, "author", author)
+        if created_date and not isinstance(created_date, str):
+            raise TypeError("Expected argument 'created_date' to be a str")
+        pulumi.set(__self__, "created_date", created_date)
+        if description and not isinstance(description, str):
+            raise TypeError("Expected argument 'description' to be a str")
+        pulumi.set(__self__, "description", description)
+        if icon and not isinstance(icon, str):
+            raise TypeError("Expected argument 'icon' to be a str")
+        pulumi.set(__self__, "icon", icon)
+        if image_reference and not isinstance(image_reference, dict):
+            raise TypeError("Expected argument 'image_reference' to be a dict")
+        pulumi.set(__self__, "image_reference", image_reference)
+        if is_enabled and not isinstance(is_enabled, bool):
+            raise TypeError("Expected argument 'is_enabled' to be a bool")
+        pulumi.set(__self__, "is_enabled", is_enabled)
+        if is_override and not isinstance(is_override, bool):
+            raise TypeError("Expected argument 'is_override' to be a bool")
+        pulumi.set(__self__, "is_override", is_override)
+        if is_plan_authorized and not isinstance(is_plan_authorized, bool):
+            raise TypeError("Expected argument 'is_plan_authorized' to be a bool")
+        pulumi.set(__self__, "is_plan_authorized", is_plan_authorized)
+        if latest_operation_result and not isinstance(latest_operation_result, dict):
+            raise TypeError("Expected argument 'latest_operation_result' to be a dict")
+        pulumi.set(__self__, "latest_operation_result", latest_operation_result)
+        if location and not isinstance(location, str):
+            raise TypeError("Expected argument 'location' to be a str")
+        pulumi.set(__self__, "location", location)
+        if name and not isinstance(name, str):
+            raise TypeError("Expected argument 'name' to be a str")
+        pulumi.set(__self__, "name", name)
+        if plan_id and not isinstance(plan_id, str):
+            raise TypeError("Expected argument 'plan_id' to be a str")
+        pulumi.set(__self__, "plan_id", plan_id)
+        if provisioning_state and not isinstance(provisioning_state, str):
+            raise TypeError("Expected argument 'provisioning_state' to be a str")
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if tags and not isinstance(tags, dict):
+            raise TypeError("Expected argument 'tags' to be a dict")
+        pulumi.set(__self__, "tags", tags)
+        if type and not isinstance(type, str):
+            raise TypeError("Expected argument 'type' to be a str")
+        pulumi.set(__self__, "type", type)
+        if unique_identifier and not isinstance(unique_identifier, str):
+            raise TypeError("Expected argument 'unique_identifier' to be a str")
+        pulumi.set(__self__, "unique_identifier", unique_identifier)
+
+    @property
+    @pulumi.getter
+    def author(self) -> str:
         """
         The author of the gallery image.
         """
-        if created_date and not isinstance(created_date, str):
-            raise TypeError("Expected argument 'created_date' to be a str")
-        __self__.created_date = created_date
+        return pulumi.get(self, "author")
+
+    @property
+    @pulumi.getter(name="createdDate")
+    def created_date(self) -> str:
         """
         The creation date of the gallery image.
         """
-        if description and not isinstance(description, str):
-            raise TypeError("Expected argument 'description' to be a str")
-        __self__.description = description
+        return pulumi.get(self, "created_date")
+
+    @property
+    @pulumi.getter
+    def description(self) -> str:
         """
         The description of the gallery image.
         """
-        if icon and not isinstance(icon, str):
-            raise TypeError("Expected argument 'icon' to be a str")
-        __self__.icon = icon
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def icon(self) -> str:
         """
         The icon of the gallery image.
         """
-        if image_reference and not isinstance(image_reference, dict):
-            raise TypeError("Expected argument 'image_reference' to be a dict")
-        __self__.image_reference = image_reference
+        return pulumi.get(self, "icon")
+
+    @property
+    @pulumi.getter(name="imageReference")
+    def image_reference(self) -> 'outputs.GalleryImageReferenceResponse':
         """
         The image reference of the gallery image.
         """
-        if is_enabled and not isinstance(is_enabled, bool):
-            raise TypeError("Expected argument 'is_enabled' to be a bool")
-        __self__.is_enabled = is_enabled
+        return pulumi.get(self, "image_reference")
+
+    @property
+    @pulumi.getter(name="isEnabled")
+    def is_enabled(self) -> Optional[bool]:
         """
         Indicates whether this gallery image is enabled.
         """
-        if is_override and not isinstance(is_override, bool):
-            raise TypeError("Expected argument 'is_override' to be a bool")
-        __self__.is_override = is_override
+        return pulumi.get(self, "is_enabled")
+
+    @property
+    @pulumi.getter(name="isOverride")
+    def is_override(self) -> Optional[bool]:
         """
         Indicates whether this gallery has been overridden for this lab account
         """
-        if is_plan_authorized and not isinstance(is_plan_authorized, bool):
-            raise TypeError("Expected argument 'is_plan_authorized' to be a bool")
-        __self__.is_plan_authorized = is_plan_authorized
+        return pulumi.get(self, "is_override")
+
+    @property
+    @pulumi.getter(name="isPlanAuthorized")
+    def is_plan_authorized(self) -> Optional[bool]:
         """
         Indicates if the plan has been authorized for programmatic deployment.
         """
-        if latest_operation_result and not isinstance(latest_operation_result, dict):
-            raise TypeError("Expected argument 'latest_operation_result' to be a dict")
-        __self__.latest_operation_result = latest_operation_result
+        return pulumi.get(self, "is_plan_authorized")
+
+    @property
+    @pulumi.getter(name="latestOperationResult")
+    def latest_operation_result(self) -> 'outputs.LatestOperationResultResponse':
         """
         The details of the latest operation. ex: status, error
         """
-        if location and not isinstance(location, str):
-            raise TypeError("Expected argument 'location' to be a str")
-        __self__.location = location
+        return pulumi.get(self, "latest_operation_result")
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[str]:
         """
         The location of the resource.
         """
-        if name and not isinstance(name, str):
-            raise TypeError("Expected argument 'name' to be a str")
-        __self__.name = name
+        return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
         """
         The name of the resource.
         """
-        if plan_id and not isinstance(plan_id, str):
-            raise TypeError("Expected argument 'plan_id' to be a str")
-        __self__.plan_id = plan_id
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="planId")
+    def plan_id(self) -> str:
         """
         The third party plan that applies to this image
         """
-        if provisioning_state and not isinstance(provisioning_state, str):
-            raise TypeError("Expected argument 'provisioning_state' to be a str")
-        __self__.provisioning_state = provisioning_state
+        return pulumi.get(self, "plan_id")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> Optional[str]:
         """
         The provisioning status of the resource.
         """
-        if tags and not isinstance(tags, dict):
-            raise TypeError("Expected argument 'tags' to be a dict")
-        __self__.tags = tags
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Mapping[str, str]]:
         """
         The tags of the resource.
         """
-        if type and not isinstance(type, str):
-            raise TypeError("Expected argument 'type' to be a str")
-        __self__.type = type
+        return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
         """
         The type of the resource.
         """
-        if unique_identifier and not isinstance(unique_identifier, str):
-            raise TypeError("Expected argument 'unique_identifier' to be a str")
-        __self__.unique_identifier = unique_identifier
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="uniqueIdentifier")
+    def unique_identifier(self) -> Optional[str]:
         """
         The unique immutable identifier of a resource (Guid).
         """
+        return pulumi.get(self, "unique_identifier")
 
 
 class AwaitableGetGalleryImageResult(GetGalleryImageResult):
@@ -136,7 +223,11 @@ class AwaitableGetGalleryImageResult(GetGalleryImageResult):
             unique_identifier=self.unique_identifier)
 
 
-def get_gallery_image(expand=None, lab_account_name=None, name=None, resource_group_name=None, opts=None):
+def get_gallery_image(expand: Optional[str] = None,
+                      lab_account_name: Optional[str] = None,
+                      name: Optional[str] = None,
+                      resource_group_name: Optional[str] = None,
+                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetGalleryImageResult:
     """
     Use this data source to access information about an existing resource.
 
@@ -154,22 +245,22 @@ def get_gallery_image(expand=None, lab_account_name=None, name=None, resource_gr
         opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = _utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('azurerm:labservices/v20181015:getGalleryImage', __args__, opts=opts).value
+    __ret__ = pulumi.runtime.invoke('azurerm:labservices/v20181015:getGalleryImage', __args__, opts=opts, typ=GetGalleryImageResult).value
 
     return AwaitableGetGalleryImageResult(
-        author=__ret__.get('author'),
-        created_date=__ret__.get('createdDate'),
-        description=__ret__.get('description'),
-        icon=__ret__.get('icon'),
-        image_reference=__ret__.get('imageReference'),
-        is_enabled=__ret__.get('isEnabled'),
-        is_override=__ret__.get('isOverride'),
-        is_plan_authorized=__ret__.get('isPlanAuthorized'),
-        latest_operation_result=__ret__.get('latestOperationResult'),
-        location=__ret__.get('location'),
-        name=__ret__.get('name'),
-        plan_id=__ret__.get('planId'),
-        provisioning_state=__ret__.get('provisioningState'),
-        tags=__ret__.get('tags'),
-        type=__ret__.get('type'),
-        unique_identifier=__ret__.get('uniqueIdentifier'))
+        author=__ret__.author,
+        created_date=__ret__.created_date,
+        description=__ret__.description,
+        icon=__ret__.icon,
+        image_reference=__ret__.image_reference,
+        is_enabled=__ret__.is_enabled,
+        is_override=__ret__.is_override,
+        is_plan_authorized=__ret__.is_plan_authorized,
+        latest_operation_result=__ret__.latest_operation_result,
+        location=__ret__.location,
+        name=__ret__.name,
+        plan_id=__ret__.plan_id,
+        provisioning_state=__ret__.provisioning_state,
+        tags=__ret__.tags,
+        type=__ret__.type,
+        unique_identifier=__ret__.unique_identifier)

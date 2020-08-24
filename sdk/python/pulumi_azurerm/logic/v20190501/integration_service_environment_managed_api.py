@@ -5,86 +5,23 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+from . import outputs
+
+__all__ = ['IntegrationServiceEnvironmentManagedApi']
 
 
 class IntegrationServiceEnvironmentManagedApi(pulumi.CustomResource):
-    location: pulumi.Output[str]
-    """
-    The resource location.
-    """
-    name: pulumi.Output[str]
-    """
-    Gets the resource name.
-    """
-    properties: pulumi.Output[dict]
-    """
-    The api resource properties.
-      * `api_definition_url` (`str`) - The API definition.
-      * `api_definitions` (`dict`) - The api definitions.
-        * `modified_swagger_url` (`str`) - The modified swagger url.
-        * `original_swagger_url` (`str`) - The original swagger url.
-
-      * `backend_service` (`dict`) - The backend service.
-        * `service_url` (`str`) - The service URL.
-
-      * `capabilities` (`list`) - The capabilities.
-      * `category` (`str`) - The category.
-      * `connection_parameters` (`dict`) - The connection parameters.
-      * `general_information` (`dict`) - The api general information.
-        * `description` (`str`) - The description.
-        * `display_name` (`str`) - The display name.
-        * `icon_url` (`str`) - The icon url.
-        * `release_tag` (`str`) - The release tag.
-        * `terms_of_use_url` (`str`) - The terms of use url.
-        * `tier` (`str`) - The tier.
-
-      * `integration_service_environment` (`dict`) - The integration service environment reference.
-        * `id` (`str`) - The resource id.
-        * `name` (`str`) - Gets the resource name.
-        * `type` (`str`) - Gets the resource type.
-
-      * `metadata` (`dict`) - The metadata.
-        * `api_type` (`str`) - The api type.
-        * `brand_color` (`str`) - The brand color.
-        * `connection_type` (`str`) - The connection type.
-        * `deployment_parameters` (`dict`) - The connector deployment parameters metadata.
-          * `package_content_link` (`dict`) - The package content link parameter.
-            * `description` (`str`) - The description.
-            * `display_name` (`str`) - The display name.
-            * `is_required` (`bool`) - Indicates whether its required.
-            * `type` (`str`) - The type.
-            * `visibility` (`str`) - The visibility.
-
-          * `redis_cache_connection_string` (`dict`) - The package content link parameter.
-
-        * `hide_key` (`str`) - The hide key.
-        * `provisioning_state` (`str`) - The provisioning state.
-        * `source` (`str`) - The source.
-        * `tags` (`dict`) - The tags.
-        * `wsdl_import_method` (`str`) - The WSDL import method.
-        * `wsdl_service` (`dict`) - The WSDL service.
-          * `endpoint_qualified_names` (`list`) - The list of endpoints' qualified names.
-          * `qualified_name` (`str`) - The qualified name.
-
-      * `name` (`str`) - The name
-      * `policies` (`dict`) - The policies for the API.
-        * `content` (`str`) - The API level only policies XML as embedded content.
-        * `content_link` (`str`) - The content link to the policies.
-
-      * `provisioning_state` (`str`) - The provisioning state.
-      * `runtime_urls` (`list`) - The runtime urls.
-    """
-    tags: pulumi.Output[dict]
-    """
-    The resource tags.
-    """
-    type: pulumi.Output[str]
-    """
-    Gets the resource type.
-    """
-    def __init__(__self__, resource_name, opts=None, integration_service_environment_name=None, name=None, resource_group=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 integration_service_environment_name: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 resource_group: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         The managed api definition.
 
@@ -131,13 +68,15 @@ class IntegrationServiceEnvironmentManagedApi(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None) -> 'IntegrationServiceEnvironmentManagedApi':
         """
         Get an existing IntegrationServiceEnvironmentManagedApi resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -146,8 +85,49 @@ class IntegrationServiceEnvironmentManagedApi(pulumi.CustomResource):
 
         return IntegrationServiceEnvironmentManagedApi(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[str]:
+        """
+        The resource location.
+        """
+        return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Gets the resource name.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def properties(self) -> 'outputs.ApiResourcePropertiesResponse':
+        """
+        The api resource properties.
+        """
+        return pulumi.get(self, "properties")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Mapping[str, str]]:
+        """
+        The resource tags.
+        """
+        return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Gets the resource type.
+        """
+        return pulumi.get(self, "type")
+
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

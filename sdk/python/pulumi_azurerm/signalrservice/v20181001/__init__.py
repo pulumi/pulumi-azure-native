@@ -6,3 +6,5 @@
 from .get_signal_r import *
 from .list_signal_r_keys import *
 from .signal_r import *
+from ._inputs import *
+from . import outputs

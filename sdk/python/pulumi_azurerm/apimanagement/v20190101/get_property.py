@@ -5,10 +5,16 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
 
+__all__ = [
+    'GetPropertyResult',
+    'AwaitableGetPropertyResult',
+    'get_property',
+]
 
+@pulumi.output_type
 class GetPropertyResult:
     """
     Property details.
@@ -16,40 +22,70 @@ class GetPropertyResult:
     def __init__(__self__, display_name=None, name=None, secret=None, tags=None, type=None, value=None):
         if display_name and not isinstance(display_name, str):
             raise TypeError("Expected argument 'display_name' to be a str")
-        __self__.display_name = display_name
+        pulumi.set(__self__, "display_name", display_name)
+        if name and not isinstance(name, str):
+            raise TypeError("Expected argument 'name' to be a str")
+        pulumi.set(__self__, "name", name)
+        if secret and not isinstance(secret, bool):
+            raise TypeError("Expected argument 'secret' to be a bool")
+        pulumi.set(__self__, "secret", secret)
+        if tags and not isinstance(tags, list):
+            raise TypeError("Expected argument 'tags' to be a list")
+        pulumi.set(__self__, "tags", tags)
+        if type and not isinstance(type, str):
+            raise TypeError("Expected argument 'type' to be a str")
+        pulumi.set(__self__, "type", type)
+        if value and not isinstance(value, str):
+            raise TypeError("Expected argument 'value' to be a str")
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter(name="displayName")
+    def display_name(self) -> str:
         """
         Unique name of Property. It may contain only letters, digits, period, dash, and underscore characters.
         """
-        if name and not isinstance(name, str):
-            raise TypeError("Expected argument 'name' to be a str")
-        __self__.name = name
+        return pulumi.get(self, "display_name")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
         """
         Resource name.
         """
-        if secret and not isinstance(secret, bool):
-            raise TypeError("Expected argument 'secret' to be a bool")
-        __self__.secret = secret
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def secret(self) -> Optional[bool]:
         """
         Determines whether the value is a secret and should be encrypted or not. Default value is false.
         """
-        if tags and not isinstance(tags, list):
-            raise TypeError("Expected argument 'tags' to be a list")
-        __self__.tags = tags
+        return pulumi.get(self, "secret")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[List[str]]:
         """
         Optional tags that when provided can be used to filter the property list.
         """
-        if type and not isinstance(type, str):
-            raise TypeError("Expected argument 'type' to be a str")
-        __self__.type = type
+        return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
         """
         Resource type for API Management resource.
         """
-        if value and not isinstance(value, str):
-            raise TypeError("Expected argument 'value' to be a str")
-        __self__.value = value
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
         """
         Value of the property. Can contain policy expressions. It may not be empty or consist only of whitespace.
         """
+        return pulumi.get(self, "value")
 
 
 class AwaitableGetPropertyResult(GetPropertyResult):
@@ -66,7 +102,10 @@ class AwaitableGetPropertyResult(GetPropertyResult):
             value=self.value)
 
 
-def get_property(name=None, resource_group_name=None, service_name=None, opts=None):
+def get_property(name: Optional[str] = None,
+                 resource_group_name: Optional[str] = None,
+                 service_name: Optional[str] = None,
+                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPropertyResult:
     """
     Use this data source to access information about an existing resource.
 
@@ -82,12 +121,12 @@ def get_property(name=None, resource_group_name=None, service_name=None, opts=No
         opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = _utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('azurerm:apimanagement/v20190101:getProperty', __args__, opts=opts).value
+    __ret__ = pulumi.runtime.invoke('azurerm:apimanagement/v20190101:getProperty', __args__, opts=opts, typ=GetPropertyResult).value
 
     return AwaitableGetPropertyResult(
-        display_name=__ret__.get('displayName'),
-        name=__ret__.get('name'),
-        secret=__ret__.get('secret'),
-        tags=__ret__.get('tags'),
-        type=__ret__.get('type'),
-        value=__ret__.get('value'))
+        display_name=__ret__.display_name,
+        name=__ret__.name,
+        secret=__ret__.secret,
+        tags=__ret__.tags,
+        type=__ret__.type,
+        value=__ret__.value)

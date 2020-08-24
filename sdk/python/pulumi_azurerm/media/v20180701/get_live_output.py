@@ -5,10 +5,17 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+from . import outputs
 
+__all__ = [
+    'GetLiveOutputResult',
+    'AwaitableGetLiveOutputResult',
+    'get_live_output',
+]
 
+@pulumi.output_type
 class GetLiveOutputResult:
     """
     The Live Output.
@@ -16,76 +23,136 @@ class GetLiveOutputResult:
     def __init__(__self__, archive_window_length=None, asset_name=None, created=None, description=None, hls=None, last_modified=None, manifest_name=None, name=None, output_snap_time=None, provisioning_state=None, resource_state=None, type=None):
         if archive_window_length and not isinstance(archive_window_length, str):
             raise TypeError("Expected argument 'archive_window_length' to be a str")
-        __self__.archive_window_length = archive_window_length
+        pulumi.set(__self__, "archive_window_length", archive_window_length)
+        if asset_name and not isinstance(asset_name, str):
+            raise TypeError("Expected argument 'asset_name' to be a str")
+        pulumi.set(__self__, "asset_name", asset_name)
+        if created and not isinstance(created, str):
+            raise TypeError("Expected argument 'created' to be a str")
+        pulumi.set(__self__, "created", created)
+        if description and not isinstance(description, str):
+            raise TypeError("Expected argument 'description' to be a str")
+        pulumi.set(__self__, "description", description)
+        if hls and not isinstance(hls, dict):
+            raise TypeError("Expected argument 'hls' to be a dict")
+        pulumi.set(__self__, "hls", hls)
+        if last_modified and not isinstance(last_modified, str):
+            raise TypeError("Expected argument 'last_modified' to be a str")
+        pulumi.set(__self__, "last_modified", last_modified)
+        if manifest_name and not isinstance(manifest_name, str):
+            raise TypeError("Expected argument 'manifest_name' to be a str")
+        pulumi.set(__self__, "manifest_name", manifest_name)
+        if name and not isinstance(name, str):
+            raise TypeError("Expected argument 'name' to be a str")
+        pulumi.set(__self__, "name", name)
+        if output_snap_time and not isinstance(output_snap_time, float):
+            raise TypeError("Expected argument 'output_snap_time' to be a float")
+        pulumi.set(__self__, "output_snap_time", output_snap_time)
+        if provisioning_state and not isinstance(provisioning_state, str):
+            raise TypeError("Expected argument 'provisioning_state' to be a str")
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if resource_state and not isinstance(resource_state, str):
+            raise TypeError("Expected argument 'resource_state' to be a str")
+        pulumi.set(__self__, "resource_state", resource_state)
+        if type and not isinstance(type, str):
+            raise TypeError("Expected argument 'type' to be a str")
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="archiveWindowLength")
+    def archive_window_length(self) -> str:
         """
         ISO 8601 timespan duration of the archive window length. This is duration that customer want to retain the recorded content.
         """
-        if asset_name and not isinstance(asset_name, str):
-            raise TypeError("Expected argument 'asset_name' to be a str")
-        __self__.asset_name = asset_name
+        return pulumi.get(self, "archive_window_length")
+
+    @property
+    @pulumi.getter(name="assetName")
+    def asset_name(self) -> str:
         """
         The asset name.
         """
-        if created and not isinstance(created, str):
-            raise TypeError("Expected argument 'created' to be a str")
-        __self__.created = created
+        return pulumi.get(self, "asset_name")
+
+    @property
+    @pulumi.getter
+    def created(self) -> str:
         """
         The exact time the Live Output was created.
         """
-        if description and not isinstance(description, str):
-            raise TypeError("Expected argument 'description' to be a str")
-        __self__.description = description
+        return pulumi.get(self, "created")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
         """
         The description of the Live Output.
         """
-        if hls and not isinstance(hls, dict):
-            raise TypeError("Expected argument 'hls' to be a dict")
-        __self__.hls = hls
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def hls(self) -> Optional['outputs.HlsResponse']:
         """
         The HLS configuration.
         """
-        if last_modified and not isinstance(last_modified, str):
-            raise TypeError("Expected argument 'last_modified' to be a str")
-        __self__.last_modified = last_modified
+        return pulumi.get(self, "hls")
+
+    @property
+    @pulumi.getter(name="lastModified")
+    def last_modified(self) -> str:
         """
         The exact time the Live Output was last modified.
         """
-        if manifest_name and not isinstance(manifest_name, str):
-            raise TypeError("Expected argument 'manifest_name' to be a str")
-        __self__.manifest_name = manifest_name
+        return pulumi.get(self, "last_modified")
+
+    @property
+    @pulumi.getter(name="manifestName")
+    def manifest_name(self) -> Optional[str]:
         """
         The manifest file name.  If not provided, the service will generate one automatically.
         """
-        if name and not isinstance(name, str):
-            raise TypeError("Expected argument 'name' to be a str")
-        __self__.name = name
+        return pulumi.get(self, "manifest_name")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
         """
         The name of the resource.
         """
-        if output_snap_time and not isinstance(output_snap_time, float):
-            raise TypeError("Expected argument 'output_snap_time' to be a float")
-        __self__.output_snap_time = output_snap_time
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="outputSnapTime")
+    def output_snap_time(self) -> Optional[float]:
         """
         The output snapshot time.
         """
-        if provisioning_state and not isinstance(provisioning_state, str):
-            raise TypeError("Expected argument 'provisioning_state' to be a str")
-        __self__.provisioning_state = provisioning_state
+        return pulumi.get(self, "output_snap_time")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
         """
         The provisioning state of the Live Output.
         """
-        if resource_state and not isinstance(resource_state, str):
-            raise TypeError("Expected argument 'resource_state' to be a str")
-        __self__.resource_state = resource_state
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="resourceState")
+    def resource_state(self) -> str:
         """
         The resource state of the Live Output.
         """
-        if type and not isinstance(type, str):
-            raise TypeError("Expected argument 'type' to be a str")
-        __self__.type = type
+        return pulumi.get(self, "resource_state")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
         """
         The type of the resource.
         """
+        return pulumi.get(self, "type")
 
 
 class AwaitableGetLiveOutputResult(GetLiveOutputResult):
@@ -108,7 +175,11 @@ class AwaitableGetLiveOutputResult(GetLiveOutputResult):
             type=self.type)
 
 
-def get_live_output(account_name=None, live_event_name=None, name=None, resource_group_name=None, opts=None):
+def get_live_output(account_name: Optional[str] = None,
+                    live_event_name: Optional[str] = None,
+                    name: Optional[str] = None,
+                    resource_group_name: Optional[str] = None,
+                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetLiveOutputResult:
     """
     Use this data source to access information about an existing resource.
 
@@ -126,18 +197,18 @@ def get_live_output(account_name=None, live_event_name=None, name=None, resource
         opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = _utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('azurerm:media/v20180701:getLiveOutput', __args__, opts=opts).value
+    __ret__ = pulumi.runtime.invoke('azurerm:media/v20180701:getLiveOutput', __args__, opts=opts, typ=GetLiveOutputResult).value
 
     return AwaitableGetLiveOutputResult(
-        archive_window_length=__ret__.get('archiveWindowLength'),
-        asset_name=__ret__.get('assetName'),
-        created=__ret__.get('created'),
-        description=__ret__.get('description'),
-        hls=__ret__.get('hls'),
-        last_modified=__ret__.get('lastModified'),
-        manifest_name=__ret__.get('manifestName'),
-        name=__ret__.get('name'),
-        output_snap_time=__ret__.get('outputSnapTime'),
-        provisioning_state=__ret__.get('provisioningState'),
-        resource_state=__ret__.get('resourceState'),
-        type=__ret__.get('type'))
+        archive_window_length=__ret__.archive_window_length,
+        asset_name=__ret__.asset_name,
+        created=__ret__.created,
+        description=__ret__.description,
+        hls=__ret__.hls,
+        last_modified=__ret__.last_modified,
+        manifest_name=__ret__.manifest_name,
+        name=__ret__.name,
+        output_snap_time=__ret__.output_snap_time,
+        provisioning_state=__ret__.provisioning_state,
+        resource_state=__ret__.resource_state,
+        type=__ret__.type)

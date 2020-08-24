@@ -5,65 +5,33 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+from . import outputs
+from ._inputs import *
+
+__all__ = ['AssessmentMetadataInSubscription']
 
 
 class AssessmentMetadataInSubscription(pulumi.CustomResource):
-    assessment_type: pulumi.Output[str]
-    """
-    BuiltIn if the assessment based on built-in Azure Policy definition, Custom if the assessment based on custom Azure Policy definition
-    """
-    category: pulumi.Output[list]
-    description: pulumi.Output[str]
-    """
-    Human readable description of the assessment
-    """
-    display_name: pulumi.Output[str]
-    """
-    User friendly display name of the assessment
-    """
-    implementation_effort: pulumi.Output[str]
-    """
-    The implementation effort required to remediate this assessment
-    """
-    name: pulumi.Output[str]
-    """
-    Resource name
-    """
-    partner_data: pulumi.Output[dict]
-    """
-    Describes the partner that created the assessment
-      * `partner_name` (`str`) - Name of the company of the partner
-      * `product_name` (`str`) - Name of the product of the partner that created the assessment
-      * `secret` (`str`) - Secret to authenticate the partner and verify it created the assessment - write only
-    """
-    policy_definition_id: pulumi.Output[str]
-    """
-    Azure resource ID of the policy definition that turns this assessment calculation on
-    """
-    preview: pulumi.Output[bool]
-    """
-    True if this assessment is in preview release status
-    """
-    remediation_description: pulumi.Output[str]
-    """
-    Human readable description of what you should do to mitigate this security issue
-    """
-    severity: pulumi.Output[str]
-    """
-    The severity level of the assessment
-    """
-    threats: pulumi.Output[list]
-    type: pulumi.Output[str]
-    """
-    Resource type
-    """
-    user_impact: pulumi.Output[str]
-    """
-    The user impact of the assessment
-    """
-    def __init__(__self__, resource_name, opts=None, assessment_type=None, category=None, description=None, display_name=None, implementation_effort=None, name=None, partner_data=None, preview=None, remediation_description=None, severity=None, threats=None, user_impact=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 assessment_type: Optional[pulumi.Input[str]] = None,
+                 category: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 display_name: Optional[pulumi.Input[str]] = None,
+                 implementation_effort: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 partner_data: Optional[pulumi.Input[pulumi.InputType['SecurityAssessmentMetadataPartnerDataArgs']]] = None,
+                 preview: Optional[pulumi.Input[bool]] = None,
+                 remediation_description: Optional[pulumi.Input[str]] = None,
+                 severity: Optional[pulumi.Input[str]] = None,
+                 threats: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 user_impact: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         Security assessment metadata
 
@@ -74,17 +42,11 @@ class AssessmentMetadataInSubscription(pulumi.CustomResource):
         :param pulumi.Input[str] display_name: User friendly display name of the assessment
         :param pulumi.Input[str] implementation_effort: The implementation effort required to remediate this assessment
         :param pulumi.Input[str] name: The Assessment Key - Unique key for the assessment type
-        :param pulumi.Input[dict] partner_data: Describes the partner that created the assessment
+        :param pulumi.Input[pulumi.InputType['SecurityAssessmentMetadataPartnerDataArgs']] partner_data: Describes the partner that created the assessment
         :param pulumi.Input[bool] preview: True if this assessment is in preview release status
         :param pulumi.Input[str] remediation_description: Human readable description of what you should do to mitigate this security issue
         :param pulumi.Input[str] severity: The severity level of the assessment
         :param pulumi.Input[str] user_impact: The user impact of the assessment
-
-        The **partner_data** object supports the following:
-
-          * `partner_name` (`pulumi.Input[str]`) - Name of the company of the partner
-          * `product_name` (`pulumi.Input[str]`) - Name of the product of the partner that created the assessment
-          * `secret` (`pulumi.Input[str]`) - Secret to authenticate the partner and verify it created the assessment - write only
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -132,13 +94,15 @@ class AssessmentMetadataInSubscription(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None) -> 'AssessmentMetadataInSubscription':
         """
         Get an existing AssessmentMetadataInSubscription resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -147,8 +111,115 @@ class AssessmentMetadataInSubscription(pulumi.CustomResource):
 
         return AssessmentMetadataInSubscription(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter(name="assessmentType")
+    def assessment_type(self) -> str:
+        """
+        BuiltIn if the assessment based on built-in Azure Policy definition, Custom if the assessment based on custom Azure Policy definition
+        """
+        return pulumi.get(self, "assessment_type")
+
+    @property
+    @pulumi.getter
+    def category(self) -> Optional[List[str]]:
+        return pulumi.get(self, "category")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        """
+        Human readable description of the assessment
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="displayName")
+    def display_name(self) -> str:
+        """
+        User friendly display name of the assessment
+        """
+        return pulumi.get(self, "display_name")
+
+    @property
+    @pulumi.getter(name="implementationEffort")
+    def implementation_effort(self) -> Optional[str]:
+        """
+        The implementation effort required to remediate this assessment
+        """
+        return pulumi.get(self, "implementation_effort")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Resource name
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="partnerData")
+    def partner_data(self) -> Optional['outputs.SecurityAssessmentMetadataPartnerDataResponse']:
+        """
+        Describes the partner that created the assessment
+        """
+        return pulumi.get(self, "partner_data")
+
+    @property
+    @pulumi.getter(name="policyDefinitionId")
+    def policy_definition_id(self) -> str:
+        """
+        Azure resource ID of the policy definition that turns this assessment calculation on
+        """
+        return pulumi.get(self, "policy_definition_id")
+
+    @property
+    @pulumi.getter
+    def preview(self) -> Optional[bool]:
+        """
+        True if this assessment is in preview release status
+        """
+        return pulumi.get(self, "preview")
+
+    @property
+    @pulumi.getter(name="remediationDescription")
+    def remediation_description(self) -> Optional[str]:
+        """
+        Human readable description of what you should do to mitigate this security issue
+        """
+        return pulumi.get(self, "remediation_description")
+
+    @property
+    @pulumi.getter
+    def severity(self) -> str:
+        """
+        The severity level of the assessment
+        """
+        return pulumi.get(self, "severity")
+
+    @property
+    @pulumi.getter
+    def threats(self) -> Optional[List[str]]:
+        return pulumi.get(self, "threats")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Resource type
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="userImpact")
+    def user_impact(self) -> Optional[str]:
+        """
+        The user impact of the assessment
+        """
+        return pulumi.get(self, "user_impact")
+
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

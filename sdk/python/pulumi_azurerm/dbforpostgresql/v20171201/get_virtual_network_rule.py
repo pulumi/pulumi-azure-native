@@ -5,10 +5,16 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
 
+__all__ = [
+    'GetVirtualNetworkRuleResult',
+    'AwaitableGetVirtualNetworkRuleResult',
+    'get_virtual_network_rule',
+]
 
+@pulumi.output_type
 class GetVirtualNetworkRuleResult:
     """
     A virtual network rule.
@@ -16,34 +22,59 @@ class GetVirtualNetworkRuleResult:
     def __init__(__self__, ignore_missing_vnet_service_endpoint=None, name=None, state=None, type=None, virtual_network_subnet_id=None):
         if ignore_missing_vnet_service_endpoint and not isinstance(ignore_missing_vnet_service_endpoint, bool):
             raise TypeError("Expected argument 'ignore_missing_vnet_service_endpoint' to be a bool")
-        __self__.ignore_missing_vnet_service_endpoint = ignore_missing_vnet_service_endpoint
+        pulumi.set(__self__, "ignore_missing_vnet_service_endpoint", ignore_missing_vnet_service_endpoint)
+        if name and not isinstance(name, str):
+            raise TypeError("Expected argument 'name' to be a str")
+        pulumi.set(__self__, "name", name)
+        if state and not isinstance(state, str):
+            raise TypeError("Expected argument 'state' to be a str")
+        pulumi.set(__self__, "state", state)
+        if type and not isinstance(type, str):
+            raise TypeError("Expected argument 'type' to be a str")
+        pulumi.set(__self__, "type", type)
+        if virtual_network_subnet_id and not isinstance(virtual_network_subnet_id, str):
+            raise TypeError("Expected argument 'virtual_network_subnet_id' to be a str")
+        pulumi.set(__self__, "virtual_network_subnet_id", virtual_network_subnet_id)
+
+    @property
+    @pulumi.getter(name="ignoreMissingVnetServiceEndpoint")
+    def ignore_missing_vnet_service_endpoint(self) -> Optional[bool]:
         """
         Create firewall rule before the virtual network has vnet service endpoint enabled.
         """
-        if name and not isinstance(name, str):
-            raise TypeError("Expected argument 'name' to be a str")
-        __self__.name = name
+        return pulumi.get(self, "ignore_missing_vnet_service_endpoint")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
         """
         The name of the resource
         """
-        if state and not isinstance(state, str):
-            raise TypeError("Expected argument 'state' to be a str")
-        __self__.state = state
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def state(self) -> str:
         """
         Virtual Network Rule State
         """
-        if type and not isinstance(type, str):
-            raise TypeError("Expected argument 'type' to be a str")
-        __self__.type = type
+        return pulumi.get(self, "state")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
         """
         The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
         """
-        if virtual_network_subnet_id and not isinstance(virtual_network_subnet_id, str):
-            raise TypeError("Expected argument 'virtual_network_subnet_id' to be a str")
-        __self__.virtual_network_subnet_id = virtual_network_subnet_id
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="virtualNetworkSubnetId")
+    def virtual_network_subnet_id(self) -> str:
         """
         The ARM resource id of the virtual network subnet.
         """
+        return pulumi.get(self, "virtual_network_subnet_id")
 
 
 class AwaitableGetVirtualNetworkRuleResult(GetVirtualNetworkRuleResult):
@@ -59,7 +90,10 @@ class AwaitableGetVirtualNetworkRuleResult(GetVirtualNetworkRuleResult):
             virtual_network_subnet_id=self.virtual_network_subnet_id)
 
 
-def get_virtual_network_rule(name=None, resource_group_name=None, server_name=None, opts=None):
+def get_virtual_network_rule(name: Optional[str] = None,
+                             resource_group_name: Optional[str] = None,
+                             server_name: Optional[str] = None,
+                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVirtualNetworkRuleResult:
     """
     Use this data source to access information about an existing resource.
 
@@ -75,11 +109,11 @@ def get_virtual_network_rule(name=None, resource_group_name=None, server_name=No
         opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = _utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('azurerm:dbforpostgresql/v20171201:getVirtualNetworkRule', __args__, opts=opts).value
+    __ret__ = pulumi.runtime.invoke('azurerm:dbforpostgresql/v20171201:getVirtualNetworkRule', __args__, opts=opts, typ=GetVirtualNetworkRuleResult).value
 
     return AwaitableGetVirtualNetworkRuleResult(
-        ignore_missing_vnet_service_endpoint=__ret__.get('ignoreMissingVnetServiceEndpoint'),
-        name=__ret__.get('name'),
-        state=__ret__.get('state'),
-        type=__ret__.get('type'),
-        virtual_network_subnet_id=__ret__.get('virtualNetworkSubnetId'))
+        ignore_missing_vnet_service_endpoint=__ret__.ignore_missing_vnet_service_endpoint,
+        name=__ret__.name,
+        state=__ret__.state,
+        type=__ret__.type,
+        virtual_network_subnet_id=__ret__.virtual_network_subnet_id)

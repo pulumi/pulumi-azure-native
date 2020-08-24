@@ -5,69 +5,36 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+from . import outputs
+from ._inputs import *
+
+__all__ = ['Account']
 
 
 class Account(pulumi.CustomResource):
-    active_directories: pulumi.Output[list]
-    """
-    Active Directories
-      * `active_directory_id` (`str`) - Id of the Active Directory
-      * `backup_operators` (`list`) - Users to be added to the Built-in Backup Operator active directory group. A list of unique usernames without domain specifier
-      * `dns` (`str`) - Comma separated list of DNS server IP addresses (IPv4 only) for the Active Directory domain
-      * `domain` (`str`) - Name of the Active Directory domain
-      * `organizational_unit` (`str`) - The Organizational Unit (OU) within the Windows Active Directory
-      * `password` (`str`) - Plain text password of Active Directory domain administrator
-      * `site` (`str`) - The Active Directory site the service will limit Domain Controller discovery to
-      * `smb_server_name` (`str`) - NetBIOS name of the SMB server. This name will be registered as a computer account in the AD and used to mount volumes
-      * `status` (`str`) - Status of the Active Directory
-      * `username` (`str`) - Username of Active Directory domain administrator
-    """
-    location: pulumi.Output[str]
-    """
-    Resource location
-    """
-    name: pulumi.Output[str]
-    """
-    Resource name
-    """
-    provisioning_state: pulumi.Output[str]
-    """
-    Azure lifecycle management
-    """
-    tags: pulumi.Output[dict]
-    """
-    Resource tags
-    """
-    type: pulumi.Output[str]
-    """
-    Resource type
-    """
-    def __init__(__self__, resource_name, opts=None, active_directories=None, location=None, name=None, resource_group_name=None, tags=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 active_directories: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['ActiveDirectoryArgs']]]]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         NetApp account resource
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[list] active_directories: Active Directories
+        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['ActiveDirectoryArgs']]]] active_directories: Active Directories
         :param pulumi.Input[str] location: Resource location
         :param pulumi.Input[str] name: The name of the NetApp account
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
-        :param pulumi.Input[dict] tags: Resource tags
-
-        The **active_directories** object supports the following:
-
-          * `active_directory_id` (`pulumi.Input[str]`) - Id of the Active Directory
-          * `backup_operators` (`pulumi.Input[list]`) - Users to be added to the Built-in Backup Operator active directory group. A list of unique usernames without domain specifier
-          * `dns` (`pulumi.Input[str]`) - Comma separated list of DNS server IP addresses (IPv4 only) for the Active Directory domain
-          * `domain` (`pulumi.Input[str]`) - Name of the Active Directory domain
-          * `organizational_unit` (`pulumi.Input[str]`) - The Organizational Unit (OU) within the Windows Active Directory
-          * `password` (`pulumi.Input[str]`) - Plain text password of Active Directory domain administrator
-          * `site` (`pulumi.Input[str]`) - The Active Directory site the service will limit Domain Controller discovery to
-          * `smb_server_name` (`pulumi.Input[str]`) - NetBIOS name of the SMB server. This name will be registered as a computer account in the AD and used to mount volumes
-          * `status` (`pulumi.Input[str]`) - Status of the Active Directory
-          * `username` (`pulumi.Input[str]`) - Username of Active Directory domain administrator
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -108,13 +75,15 @@ class Account(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None) -> 'Account':
         """
         Get an existing Account resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -123,8 +92,57 @@ class Account(pulumi.CustomResource):
 
         return Account(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter(name="activeDirectories")
+    def active_directories(self) -> Optional[List['outputs.ActiveDirectoryResponse']]:
+        """
+        Active Directories
+        """
+        return pulumi.get(self, "active_directories")
+
+    @property
+    @pulumi.getter
+    def location(self) -> str:
+        """
+        Resource location
+        """
+        return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Resource name
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        Azure lifecycle management
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Mapping[str, str]]:
+        """
+        Resource tags
+        """
+        return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Resource type
+        """
+        return pulumi.get(self, "type")
+
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

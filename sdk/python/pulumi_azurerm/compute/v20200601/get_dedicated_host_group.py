@@ -5,10 +5,17 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+from . import outputs
 
+__all__ = [
+    'GetDedicatedHostGroupResult',
+    'AwaitableGetDedicatedHostGroupResult',
+    'get_dedicated_host_group',
+]
 
+@pulumi.output_type
 class GetDedicatedHostGroupResult:
     """
     Specifies information about the dedicated host group that the dedicated hosts should be assigned to. <br><br> Currently, a dedicated host can only be added to a dedicated host group at creation time. An existing dedicated host cannot be added to another dedicated host group.
@@ -16,58 +23,103 @@ class GetDedicatedHostGroupResult:
     def __init__(__self__, hosts=None, instance_view=None, location=None, name=None, platform_fault_domain_count=None, support_automatic_placement=None, tags=None, type=None, zones=None):
         if hosts and not isinstance(hosts, list):
             raise TypeError("Expected argument 'hosts' to be a list")
-        __self__.hosts = hosts
+        pulumi.set(__self__, "hosts", hosts)
+        if instance_view and not isinstance(instance_view, dict):
+            raise TypeError("Expected argument 'instance_view' to be a dict")
+        pulumi.set(__self__, "instance_view", instance_view)
+        if location and not isinstance(location, str):
+            raise TypeError("Expected argument 'location' to be a str")
+        pulumi.set(__self__, "location", location)
+        if name and not isinstance(name, str):
+            raise TypeError("Expected argument 'name' to be a str")
+        pulumi.set(__self__, "name", name)
+        if platform_fault_domain_count and not isinstance(platform_fault_domain_count, float):
+            raise TypeError("Expected argument 'platform_fault_domain_count' to be a float")
+        pulumi.set(__self__, "platform_fault_domain_count", platform_fault_domain_count)
+        if support_automatic_placement and not isinstance(support_automatic_placement, bool):
+            raise TypeError("Expected argument 'support_automatic_placement' to be a bool")
+        pulumi.set(__self__, "support_automatic_placement", support_automatic_placement)
+        if tags and not isinstance(tags, dict):
+            raise TypeError("Expected argument 'tags' to be a dict")
+        pulumi.set(__self__, "tags", tags)
+        if type and not isinstance(type, str):
+            raise TypeError("Expected argument 'type' to be a str")
+        pulumi.set(__self__, "type", type)
+        if zones and not isinstance(zones, list):
+            raise TypeError("Expected argument 'zones' to be a list")
+        pulumi.set(__self__, "zones", zones)
+
+    @property
+    @pulumi.getter
+    def hosts(self) -> List['outputs.SubResourceReadOnlyResponse']:
         """
         A list of references to all dedicated hosts in the dedicated host group.
         """
-        if instance_view and not isinstance(instance_view, dict):
-            raise TypeError("Expected argument 'instance_view' to be a dict")
-        __self__.instance_view = instance_view
+        return pulumi.get(self, "hosts")
+
+    @property
+    @pulumi.getter(name="instanceView")
+    def instance_view(self) -> 'outputs.DedicatedHostGroupInstanceViewResponse':
         """
         The dedicated host group instance view, which has the list of instance view of the dedicated hosts under the dedicated host group.
         """
-        if location and not isinstance(location, str):
-            raise TypeError("Expected argument 'location' to be a str")
-        __self__.location = location
+        return pulumi.get(self, "instance_view")
+
+    @property
+    @pulumi.getter
+    def location(self) -> str:
         """
         Resource location
         """
-        if name and not isinstance(name, str):
-            raise TypeError("Expected argument 'name' to be a str")
-        __self__.name = name
+        return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
         """
         Resource name
         """
-        if platform_fault_domain_count and not isinstance(platform_fault_domain_count, float):
-            raise TypeError("Expected argument 'platform_fault_domain_count' to be a float")
-        __self__.platform_fault_domain_count = platform_fault_domain_count
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="platformFaultDomainCount")
+    def platform_fault_domain_count(self) -> float:
         """
         Number of fault domains that the host group can span.
         """
-        if support_automatic_placement and not isinstance(support_automatic_placement, bool):
-            raise TypeError("Expected argument 'support_automatic_placement' to be a bool")
-        __self__.support_automatic_placement = support_automatic_placement
+        return pulumi.get(self, "platform_fault_domain_count")
+
+    @property
+    @pulumi.getter(name="supportAutomaticPlacement")
+    def support_automatic_placement(self) -> Optional[bool]:
         """
         Specifies whether virtual machines or virtual machine scale sets can be placed automatically on the dedicated host group. Automatic placement means resources are allocated on dedicated hosts, that are chosen by Azure, under the dedicated host group. The value is defaulted to 'true' when not provided. <br><br>Minimum api-version: 2020-06-01.
         """
-        if tags and not isinstance(tags, dict):
-            raise TypeError("Expected argument 'tags' to be a dict")
-        __self__.tags = tags
+        return pulumi.get(self, "support_automatic_placement")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Mapping[str, str]]:
         """
         Resource tags
         """
-        if type and not isinstance(type, str):
-            raise TypeError("Expected argument 'type' to be a str")
-        __self__.type = type
+        return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
         """
         Resource type
         """
-        if zones and not isinstance(zones, list):
-            raise TypeError("Expected argument 'zones' to be a list")
-        __self__.zones = zones
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def zones(self) -> Optional[List[str]]:
         """
         Availability Zone to use for this host group. Only single zone is supported. The zone can be assigned only during creation. If not provided, the group supports all zones in the region. If provided, enforces each host in the group to be in the same zone.
         """
+        return pulumi.get(self, "zones")
 
 
 class AwaitableGetDedicatedHostGroupResult(GetDedicatedHostGroupResult):
@@ -87,7 +139,10 @@ class AwaitableGetDedicatedHostGroupResult(GetDedicatedHostGroupResult):
             zones=self.zones)
 
 
-def get_dedicated_host_group(expand=None, name=None, resource_group_name=None, opts=None):
+def get_dedicated_host_group(expand: Optional[str] = None,
+                             name: Optional[str] = None,
+                             resource_group_name: Optional[str] = None,
+                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDedicatedHostGroupResult:
     """
     Use this data source to access information about an existing resource.
 
@@ -103,15 +158,15 @@ def get_dedicated_host_group(expand=None, name=None, resource_group_name=None, o
         opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = _utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('azurerm:compute/v20200601:getDedicatedHostGroup', __args__, opts=opts).value
+    __ret__ = pulumi.runtime.invoke('azurerm:compute/v20200601:getDedicatedHostGroup', __args__, opts=opts, typ=GetDedicatedHostGroupResult).value
 
     return AwaitableGetDedicatedHostGroupResult(
-        hosts=__ret__.get('hosts'),
-        instance_view=__ret__.get('instanceView'),
-        location=__ret__.get('location'),
-        name=__ret__.get('name'),
-        platform_fault_domain_count=__ret__.get('platformFaultDomainCount'),
-        support_automatic_placement=__ret__.get('supportAutomaticPlacement'),
-        tags=__ret__.get('tags'),
-        type=__ret__.get('type'),
-        zones=__ret__.get('zones'))
+        hosts=__ret__.hosts,
+        instance_view=__ret__.instance_view,
+        location=__ret__.location,
+        name=__ret__.name,
+        platform_fault_domain_count=__ret__.platform_fault_domain_count,
+        support_automatic_placement=__ret__.support_automatic_placement,
+        tags=__ret__.tags,
+        type=__ret__.type,
+        zones=__ret__.zones)

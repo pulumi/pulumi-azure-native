@@ -5,135 +5,58 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+from . import outputs
+from ._inputs import *
+
+__all__ = ['ApplicationDefinition']
 
 
 class ApplicationDefinition(pulumi.CustomResource):
-    artifacts: pulumi.Output[list]
-    """
-    The collection of managed application artifacts. The portal will use the files specified as artifacts to construct the user experience of creating a managed application from a managed application definition.
-      * `name` (`str`) - The managed application artifact name.
-      * `type` (`str`) - The managed application artifact type.
-      * `uri` (`str`) - The managed application artifact blob uri.
-    """
-    authorizations: pulumi.Output[list]
-    """
-    The managed application provider authorizations.
-      * `principal_id` (`str`) - The provider's principal identifier. This is the identity that the provider will use to call ARM to manage the managed application resources.
-      * `role_definition_id` (`str`) - The provider's role definition identifier. This role will define all the permissions that the provider must have on the managed application's container resource group. This role definition cannot have permission to delete the resource group.
-    """
-    create_ui_definition: pulumi.Output[dict]
-    """
-    The createUiDefinition json for the backing template with Microsoft.Solutions/applications resource. It can be a JObject or well-formed JSON string.
-    """
-    description: pulumi.Output[str]
-    """
-    The managed application definition description.
-    """
-    display_name: pulumi.Output[str]
-    """
-    The managed application definition display name.
-    """
-    identity: pulumi.Output[dict]
-    """
-    The identity of the resource.
-      * `principal_id` (`str`) - The principal ID of resource identity.
-      * `tenant_id` (`str`) - The tenant ID of resource.
-      * `type` (`str`) - The identity type.
-    """
-    is_enabled: pulumi.Output[str]
-    """
-    A value indicating whether the package is enabled or not.
-    """
-    location: pulumi.Output[str]
-    """
-    Resource location
-    """
-    lock_level: pulumi.Output[str]
-    """
-    The managed application lock level.
-    """
-    main_template: pulumi.Output[dict]
-    """
-    The inline main template json which has resources to be provisioned. It can be a JObject or well-formed JSON string.
-    """
-    managed_by: pulumi.Output[str]
-    """
-    ID of the resource that manages this resource.
-    """
-    name: pulumi.Output[str]
-    """
-    Resource name
-    """
-    package_file_uri: pulumi.Output[str]
-    """
-    The managed application definition package file Uri. Use this element
-    """
-    sku: pulumi.Output[dict]
-    """
-    The SKU of the resource.
-      * `capacity` (`float`) - The SKU capacity.
-      * `family` (`str`) - The SKU family.
-      * `model` (`str`) - The SKU model.
-      * `name` (`str`) - The SKU name.
-      * `size` (`str`) - The SKU size.
-      * `tier` (`str`) - The SKU tier.
-    """
-    tags: pulumi.Output[dict]
-    """
-    Resource tags
-    """
-    type: pulumi.Output[str]
-    """
-    Resource type
-    """
-    def __init__(__self__, resource_name, opts=None, artifacts=None, authorizations=None, create_ui_definition=None, description=None, display_name=None, identity=None, is_enabled=None, location=None, lock_level=None, main_template=None, managed_by=None, name=None, package_file_uri=None, resource_group_name=None, sku=None, tags=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 artifacts: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['ApplicationArtifactArgs']]]]] = None,
+                 authorizations: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['ApplicationProviderAuthorizationArgs']]]]] = None,
+                 create_ui_definition: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 display_name: Optional[pulumi.Input[str]] = None,
+                 identity: Optional[pulumi.Input[pulumi.InputType['IdentityArgs']]] = None,
+                 is_enabled: Optional[pulumi.Input[str]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 lock_level: Optional[pulumi.Input[str]] = None,
+                 main_template: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 managed_by: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 package_file_uri: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 sku: Optional[pulumi.Input[pulumi.InputType['SkuArgs']]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         Information about managed application definition.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[list] artifacts: The collection of managed application artifacts. The portal will use the files specified as artifacts to construct the user experience of creating a managed application from a managed application definition.
-        :param pulumi.Input[list] authorizations: The managed application provider authorizations.
-        :param pulumi.Input[dict] create_ui_definition: The createUiDefinition json for the backing template with Microsoft.Solutions/applications resource. It can be a JObject or well-formed JSON string.
+        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['ApplicationArtifactArgs']]]] artifacts: The collection of managed application artifacts. The portal will use the files specified as artifacts to construct the user experience of creating a managed application from a managed application definition.
+        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['ApplicationProviderAuthorizationArgs']]]] authorizations: The managed application provider authorizations.
+        :param pulumi.Input[Mapping[str, Any]] create_ui_definition: The createUiDefinition json for the backing template with Microsoft.Solutions/applications resource. It can be a JObject or well-formed JSON string.
         :param pulumi.Input[str] description: The managed application definition description.
         :param pulumi.Input[str] display_name: The managed application definition display name.
-        :param pulumi.Input[dict] identity: The identity of the resource.
+        :param pulumi.Input[pulumi.InputType['IdentityArgs']] identity: The identity of the resource.
         :param pulumi.Input[str] is_enabled: A value indicating whether the package is enabled or not.
         :param pulumi.Input[str] location: Resource location
         :param pulumi.Input[str] lock_level: The managed application lock level.
-        :param pulumi.Input[dict] main_template: The inline main template json which has resources to be provisioned. It can be a JObject or well-formed JSON string.
+        :param pulumi.Input[Mapping[str, Any]] main_template: The inline main template json which has resources to be provisioned. It can be a JObject or well-formed JSON string.
         :param pulumi.Input[str] managed_by: ID of the resource that manages this resource.
         :param pulumi.Input[str] name: The name of the managed application definition.
         :param pulumi.Input[str] package_file_uri: The managed application definition package file Uri. Use this element
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input[dict] sku: The SKU of the resource.
-        :param pulumi.Input[dict] tags: Resource tags
-
-        The **artifacts** object supports the following:
-
-          * `name` (`pulumi.Input[str]`) - The managed application artifact name.
-          * `type` (`pulumi.Input[str]`) - The managed application artifact type.
-          * `uri` (`pulumi.Input[str]`) - The managed application artifact blob uri.
-
-        The **authorizations** object supports the following:
-
-          * `principal_id` (`pulumi.Input[str]`) - The provider's principal identifier. This is the identity that the provider will use to call ARM to manage the managed application resources.
-          * `role_definition_id` (`pulumi.Input[str]`) - The provider's role definition identifier. This role will define all the permissions that the provider must have on the managed application's container resource group. This role definition cannot have permission to delete the resource group.
-
-        The **identity** object supports the following:
-
-          * `type` (`pulumi.Input[str]`) - The identity type.
-
-        The **sku** object supports the following:
-
-          * `capacity` (`pulumi.Input[float]`) - The SKU capacity.
-          * `family` (`pulumi.Input[str]`) - The SKU family.
-          * `model` (`pulumi.Input[str]`) - The SKU model.
-          * `name` (`pulumi.Input[str]`) - The SKU name.
-          * `size` (`pulumi.Input[str]`) - The SKU size.
-          * `tier` (`pulumi.Input[str]`) - The SKU tier.
+        :param pulumi.Input[pulumi.InputType['SkuArgs']] sku: The SKU of the resource.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -186,13 +109,15 @@ class ApplicationDefinition(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None) -> 'ApplicationDefinition':
         """
         Get an existing ApplicationDefinition resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -201,8 +126,137 @@ class ApplicationDefinition(pulumi.CustomResource):
 
         return ApplicationDefinition(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter
+    def artifacts(self) -> Optional[List['outputs.ApplicationArtifactResponse']]:
+        """
+        The collection of managed application artifacts. The portal will use the files specified as artifacts to construct the user experience of creating a managed application from a managed application definition.
+        """
+        return pulumi.get(self, "artifacts")
+
+    @property
+    @pulumi.getter
+    def authorizations(self) -> List['outputs.ApplicationProviderAuthorizationResponse']:
+        """
+        The managed application provider authorizations.
+        """
+        return pulumi.get(self, "authorizations")
+
+    @property
+    @pulumi.getter(name="createUiDefinition")
+    def create_ui_definition(self) -> Optional[Mapping[str, Any]]:
+        """
+        The createUiDefinition json for the backing template with Microsoft.Solutions/applications resource. It can be a JObject or well-formed JSON string.
+        """
+        return pulumi.get(self, "create_ui_definition")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        """
+        The managed application definition description.
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="displayName")
+    def display_name(self) -> Optional[str]:
+        """
+        The managed application definition display name.
+        """
+        return pulumi.get(self, "display_name")
+
+    @property
+    @pulumi.getter
+    def identity(self) -> Optional['outputs.IdentityResponse']:
+        """
+        The identity of the resource.
+        """
+        return pulumi.get(self, "identity")
+
+    @property
+    @pulumi.getter(name="isEnabled")
+    def is_enabled(self) -> Optional[str]:
+        """
+        A value indicating whether the package is enabled or not.
+        """
+        return pulumi.get(self, "is_enabled")
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[str]:
+        """
+        Resource location
+        """
+        return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter(name="lockLevel")
+    def lock_level(self) -> str:
+        """
+        The managed application lock level.
+        """
+        return pulumi.get(self, "lock_level")
+
+    @property
+    @pulumi.getter(name="mainTemplate")
+    def main_template(self) -> Optional[Mapping[str, Any]]:
+        """
+        The inline main template json which has resources to be provisioned. It can be a JObject or well-formed JSON string.
+        """
+        return pulumi.get(self, "main_template")
+
+    @property
+    @pulumi.getter(name="managedBy")
+    def managed_by(self) -> Optional[str]:
+        """
+        ID of the resource that manages this resource.
+        """
+        return pulumi.get(self, "managed_by")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Resource name
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="packageFileUri")
+    def package_file_uri(self) -> Optional[str]:
+        """
+        The managed application definition package file Uri. Use this element
+        """
+        return pulumi.get(self, "package_file_uri")
+
+    @property
+    @pulumi.getter
+    def sku(self) -> Optional['outputs.SkuResponse']:
+        """
+        The SKU of the resource.
+        """
+        return pulumi.get(self, "sku")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Mapping[str, str]]:
+        """
+        Resource tags
+        """
+        return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Resource type
+        """
+        return pulumi.get(self, "type")
+
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

@@ -13,3 +13,5 @@ from .get_virtual_network_rule import *
 from .private_endpoint_connection import *
 from .server import *
 from .virtual_network_rule import *
+from ._inputs import *
+from . import outputs

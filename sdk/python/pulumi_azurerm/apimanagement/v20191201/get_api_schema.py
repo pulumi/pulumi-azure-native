@@ -5,10 +5,16 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
 
+__all__ = [
+    'GetApiSchemaResult',
+    'AwaitableGetApiSchemaResult',
+    'get_api_schema',
+]
 
+@pulumi.output_type
 class GetApiSchemaResult:
     """
     Schema Contract details.
@@ -16,34 +22,59 @@ class GetApiSchemaResult:
     def __init__(__self__, content_type=None, definitions=None, name=None, type=None, value=None):
         if content_type and not isinstance(content_type, str):
             raise TypeError("Expected argument 'content_type' to be a str")
-        __self__.content_type = content_type
+        pulumi.set(__self__, "content_type", content_type)
+        if definitions and not isinstance(definitions, dict):
+            raise TypeError("Expected argument 'definitions' to be a dict")
+        pulumi.set(__self__, "definitions", definitions)
+        if name and not isinstance(name, str):
+            raise TypeError("Expected argument 'name' to be a str")
+        pulumi.set(__self__, "name", name)
+        if type and not isinstance(type, str):
+            raise TypeError("Expected argument 'type' to be a str")
+        pulumi.set(__self__, "type", type)
+        if value and not isinstance(value, str):
+            raise TypeError("Expected argument 'value' to be a str")
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter(name="contentType")
+    def content_type(self) -> str:
         """
         Must be a valid a media type used in a Content-Type header as defined in the RFC 2616. Media type of the schema document (e.g. application/json, application/xml). </br> - `Swagger` Schema use `application/vnd.ms-azure-apim.swagger.definitions+json` </br> - `WSDL` Schema use `application/vnd.ms-azure-apim.xsd+xml` </br> - `OpenApi` Schema use `application/vnd.oai.openapi.components+json` </br> - `WADL Schema` use `application/vnd.ms-azure-apim.wadl.grammars+xml`.
         """
-        if definitions and not isinstance(definitions, dict):
-            raise TypeError("Expected argument 'definitions' to be a dict")
-        __self__.definitions = definitions
+        return pulumi.get(self, "content_type")
+
+    @property
+    @pulumi.getter
+    def definitions(self) -> Optional[Mapping[str, Any]]:
         """
         Types definitions. Used for Swagger/OpenAPI schemas only, null otherwise.
         """
-        if name and not isinstance(name, str):
-            raise TypeError("Expected argument 'name' to be a str")
-        __self__.name = name
+        return pulumi.get(self, "definitions")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
         """
         Resource name.
         """
-        if type and not isinstance(type, str):
-            raise TypeError("Expected argument 'type' to be a str")
-        __self__.type = type
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
         """
         Resource type for API Management resource.
         """
-        if value and not isinstance(value, str):
-            raise TypeError("Expected argument 'value' to be a str")
-        __self__.value = value
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[str]:
         """
         Json escaped string defining the document representing the Schema. Used for schemas other than Swagger/OpenAPI.
         """
+        return pulumi.get(self, "value")
 
 
 class AwaitableGetApiSchemaResult(GetApiSchemaResult):
@@ -59,7 +90,11 @@ class AwaitableGetApiSchemaResult(GetApiSchemaResult):
             value=self.value)
 
 
-def get_api_schema(api_id=None, name=None, resource_group_name=None, service_name=None, opts=None):
+def get_api_schema(api_id: Optional[str] = None,
+                   name: Optional[str] = None,
+                   resource_group_name: Optional[str] = None,
+                   service_name: Optional[str] = None,
+                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetApiSchemaResult:
     """
     Use this data source to access information about an existing resource.
 
@@ -77,11 +112,11 @@ def get_api_schema(api_id=None, name=None, resource_group_name=None, service_nam
         opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = _utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('azurerm:apimanagement/v20191201:getApiSchema', __args__, opts=opts).value
+    __ret__ = pulumi.runtime.invoke('azurerm:apimanagement/v20191201:getApiSchema', __args__, opts=opts, typ=GetApiSchemaResult).value
 
     return AwaitableGetApiSchemaResult(
-        content_type=__ret__.get('contentType'),
-        definitions=__ret__.get('definitions'),
-        name=__ret__.get('name'),
-        type=__ret__.get('type'),
-        value=__ret__.get('value'))
+        content_type=__ret__.content_type,
+        definitions=__ret__.definitions,
+        name=__ret__.name,
+        type=__ret__.type,
+        value=__ret__.value)

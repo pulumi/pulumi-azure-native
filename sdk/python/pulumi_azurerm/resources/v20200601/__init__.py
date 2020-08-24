@@ -17,3 +17,5 @@ from .get_tag_at_scope import *
 from .resource import *
 from .resource_group import *
 from .tag_at_scope import *
+from ._inputs import *
+from . import outputs

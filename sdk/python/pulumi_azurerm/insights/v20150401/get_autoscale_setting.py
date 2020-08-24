@@ -5,10 +5,17 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+from . import outputs
 
+__all__ = [
+    'GetAutoscaleSettingResult',
+    'AwaitableGetAutoscaleSettingResult',
+    'get_autoscale_setting',
+]
 
+@pulumi.output_type
 class GetAutoscaleSettingResult:
     """
     The autoscale setting resource.
@@ -16,52 +23,92 @@ class GetAutoscaleSettingResult:
     def __init__(__self__, enabled=None, location=None, name=None, notifications=None, profiles=None, tags=None, target_resource_uri=None, type=None):
         if enabled and not isinstance(enabled, bool):
             raise TypeError("Expected argument 'enabled' to be a bool")
-        __self__.enabled = enabled
+        pulumi.set(__self__, "enabled", enabled)
+        if location and not isinstance(location, str):
+            raise TypeError("Expected argument 'location' to be a str")
+        pulumi.set(__self__, "location", location)
+        if name and not isinstance(name, str):
+            raise TypeError("Expected argument 'name' to be a str")
+        pulumi.set(__self__, "name", name)
+        if notifications and not isinstance(notifications, list):
+            raise TypeError("Expected argument 'notifications' to be a list")
+        pulumi.set(__self__, "notifications", notifications)
+        if profiles and not isinstance(profiles, list):
+            raise TypeError("Expected argument 'profiles' to be a list")
+        pulumi.set(__self__, "profiles", profiles)
+        if tags and not isinstance(tags, dict):
+            raise TypeError("Expected argument 'tags' to be a dict")
+        pulumi.set(__self__, "tags", tags)
+        if target_resource_uri and not isinstance(target_resource_uri, str):
+            raise TypeError("Expected argument 'target_resource_uri' to be a str")
+        pulumi.set(__self__, "target_resource_uri", target_resource_uri)
+        if type and not isinstance(type, str):
+            raise TypeError("Expected argument 'type' to be a str")
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[bool]:
         """
         the enabled flag. Specifies whether automatic scaling is enabled for the resource. The default value is 'true'.
         """
-        if location and not isinstance(location, str):
-            raise TypeError("Expected argument 'location' to be a str")
-        __self__.location = location
+        return pulumi.get(self, "enabled")
+
+    @property
+    @pulumi.getter
+    def location(self) -> str:
         """
         Resource location
         """
-        if name and not isinstance(name, str):
-            raise TypeError("Expected argument 'name' to be a str")
-        __self__.name = name
+        return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
         """
         Azure resource name
         """
-        if notifications and not isinstance(notifications, list):
-            raise TypeError("Expected argument 'notifications' to be a list")
-        __self__.notifications = notifications
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def notifications(self) -> Optional[List['outputs.AutoscaleNotificationResponse']]:
         """
         the collection of notifications.
         """
-        if profiles and not isinstance(profiles, list):
-            raise TypeError("Expected argument 'profiles' to be a list")
-        __self__.profiles = profiles
+        return pulumi.get(self, "notifications")
+
+    @property
+    @pulumi.getter
+    def profiles(self) -> List['outputs.AutoscaleProfileResponse']:
         """
         the collection of automatic scaling profiles that specify different scaling parameters for different time periods. A maximum of 20 profiles can be specified.
         """
-        if tags and not isinstance(tags, dict):
-            raise TypeError("Expected argument 'tags' to be a dict")
-        __self__.tags = tags
+        return pulumi.get(self, "profiles")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Mapping[str, str]]:
         """
         Resource tags
         """
-        if target_resource_uri and not isinstance(target_resource_uri, str):
-            raise TypeError("Expected argument 'target_resource_uri' to be a str")
-        __self__.target_resource_uri = target_resource_uri
+        return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter(name="targetResourceUri")
+    def target_resource_uri(self) -> Optional[str]:
         """
         the resource identifier of the resource that the autoscale setting should be added to.
         """
-        if type and not isinstance(type, str):
-            raise TypeError("Expected argument 'type' to be a str")
-        __self__.type = type
+        return pulumi.get(self, "target_resource_uri")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
         """
         Azure resource type
         """
+        return pulumi.get(self, "type")
 
 
 class AwaitableGetAutoscaleSettingResult(GetAutoscaleSettingResult):
@@ -80,7 +127,9 @@ class AwaitableGetAutoscaleSettingResult(GetAutoscaleSettingResult):
             type=self.type)
 
 
-def get_autoscale_setting(name=None, resource_group_name=None, opts=None):
+def get_autoscale_setting(name: Optional[str] = None,
+                          resource_group_name: Optional[str] = None,
+                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAutoscaleSettingResult:
     """
     Use this data source to access information about an existing resource.
 
@@ -94,14 +143,14 @@ def get_autoscale_setting(name=None, resource_group_name=None, opts=None):
         opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = _utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('azurerm:insights/v20150401:getAutoscaleSetting', __args__, opts=opts).value
+    __ret__ = pulumi.runtime.invoke('azurerm:insights/v20150401:getAutoscaleSetting', __args__, opts=opts, typ=GetAutoscaleSettingResult).value
 
     return AwaitableGetAutoscaleSettingResult(
-        enabled=__ret__.get('enabled'),
-        location=__ret__.get('location'),
-        name=__ret__.get('name'),
-        notifications=__ret__.get('notifications'),
-        profiles=__ret__.get('profiles'),
-        tags=__ret__.get('tags'),
-        target_resource_uri=__ret__.get('targetResourceUri'),
-        type=__ret__.get('type'))
+        enabled=__ret__.enabled,
+        location=__ret__.location,
+        name=__ret__.name,
+        notifications=__ret__.notifications,
+        profiles=__ret__.profiles,
+        tags=__ret__.tags,
+        target_resource_uri=__ret__.target_resource_uri,
+        type=__ret__.type)

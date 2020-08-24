@@ -5,36 +5,26 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+
+__all__ = ['ComputePolicy']
 
 
 class ComputePolicy(pulumi.CustomResource):
-    max_degree_of_parallelism_per_job: pulumi.Output[float]
-    """
-    The maximum degree of parallelism per job this user can use to submit jobs.
-    """
-    min_priority_per_job: pulumi.Output[float]
-    """
-    The minimum priority per job this user can use to submit jobs.
-    """
-    name: pulumi.Output[str]
-    """
-    The resource name.
-    """
-    object_id: pulumi.Output[str]
-    """
-    The AAD object identifier for the entity to create a policy for.
-    """
-    object_type: pulumi.Output[str]
-    """
-    The type of AAD object the object identifier refers to.
-    """
-    type: pulumi.Output[str]
-    """
-    The resource type.
-    """
-    def __init__(__self__, resource_name, opts=None, account_name=None, max_degree_of_parallelism_per_job=None, min_priority_per_job=None, name=None, object_id=None, object_type=None, resource_group_name=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 account_name: Optional[pulumi.Input[str]] = None,
+                 max_degree_of_parallelism_per_job: Optional[pulumi.Input[float]] = None,
+                 min_priority_per_job: Optional[pulumi.Input[float]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 object_id: Optional[pulumi.Input[str]] = None,
+                 object_type: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         Data Lake Analytics compute policy information.
 
@@ -90,13 +80,15 @@ class ComputePolicy(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None) -> 'ComputePolicy':
         """
         Get an existing ComputePolicy resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -105,8 +97,57 @@ class ComputePolicy(pulumi.CustomResource):
 
         return ComputePolicy(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter(name="maxDegreeOfParallelismPerJob")
+    def max_degree_of_parallelism_per_job(self) -> float:
+        """
+        The maximum degree of parallelism per job this user can use to submit jobs.
+        """
+        return pulumi.get(self, "max_degree_of_parallelism_per_job")
+
+    @property
+    @pulumi.getter(name="minPriorityPerJob")
+    def min_priority_per_job(self) -> float:
+        """
+        The minimum priority per job this user can use to submit jobs.
+        """
+        return pulumi.get(self, "min_priority_per_job")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The resource name.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="objectId")
+    def object_id(self) -> str:
+        """
+        The AAD object identifier for the entity to create a policy for.
+        """
+        return pulumi.get(self, "object_id")
+
+    @property
+    @pulumi.getter(name="objectType")
+    def object_type(self) -> str:
+        """
+        The type of AAD object the object identifier refers to.
+        """
+        return pulumi.get(self, "object_type")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        The resource type.
+        """
+        return pulumi.get(self, "type")
+
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

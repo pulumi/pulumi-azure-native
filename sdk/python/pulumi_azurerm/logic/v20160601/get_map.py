@@ -5,10 +5,17 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+from . import outputs
 
+__all__ = [
+    'GetMapResult',
+    'AwaitableGetMapResult',
+    'get_map',
+]
 
+@pulumi.output_type
 class GetMapResult:
     """
     The integration account map.
@@ -16,76 +23,136 @@ class GetMapResult:
     def __init__(__self__, changed_time=None, content=None, content_link=None, content_type=None, created_time=None, location=None, map_type=None, metadata=None, name=None, parameters_schema=None, tags=None, type=None):
         if changed_time and not isinstance(changed_time, str):
             raise TypeError("Expected argument 'changed_time' to be a str")
-        __self__.changed_time = changed_time
+        pulumi.set(__self__, "changed_time", changed_time)
+        if content and not isinstance(content, str):
+            raise TypeError("Expected argument 'content' to be a str")
+        pulumi.set(__self__, "content", content)
+        if content_link and not isinstance(content_link, dict):
+            raise TypeError("Expected argument 'content_link' to be a dict")
+        pulumi.set(__self__, "content_link", content_link)
+        if content_type and not isinstance(content_type, str):
+            raise TypeError("Expected argument 'content_type' to be a str")
+        pulumi.set(__self__, "content_type", content_type)
+        if created_time and not isinstance(created_time, str):
+            raise TypeError("Expected argument 'created_time' to be a str")
+        pulumi.set(__self__, "created_time", created_time)
+        if location and not isinstance(location, str):
+            raise TypeError("Expected argument 'location' to be a str")
+        pulumi.set(__self__, "location", location)
+        if map_type and not isinstance(map_type, str):
+            raise TypeError("Expected argument 'map_type' to be a str")
+        pulumi.set(__self__, "map_type", map_type)
+        if metadata and not isinstance(metadata, dict):
+            raise TypeError("Expected argument 'metadata' to be a dict")
+        pulumi.set(__self__, "metadata", metadata)
+        if name and not isinstance(name, str):
+            raise TypeError("Expected argument 'name' to be a str")
+        pulumi.set(__self__, "name", name)
+        if parameters_schema and not isinstance(parameters_schema, dict):
+            raise TypeError("Expected argument 'parameters_schema' to be a dict")
+        pulumi.set(__self__, "parameters_schema", parameters_schema)
+        if tags and not isinstance(tags, dict):
+            raise TypeError("Expected argument 'tags' to be a dict")
+        pulumi.set(__self__, "tags", tags)
+        if type and not isinstance(type, str):
+            raise TypeError("Expected argument 'type' to be a str")
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="changedTime")
+    def changed_time(self) -> str:
         """
         The changed time.
         """
-        if content and not isinstance(content, str):
-            raise TypeError("Expected argument 'content' to be a str")
-        __self__.content = content
+        return pulumi.get(self, "changed_time")
+
+    @property
+    @pulumi.getter
+    def content(self) -> Optional[str]:
         """
         The content.
         """
-        if content_link and not isinstance(content_link, dict):
-            raise TypeError("Expected argument 'content_link' to be a dict")
-        __self__.content_link = content_link
+        return pulumi.get(self, "content")
+
+    @property
+    @pulumi.getter(name="contentLink")
+    def content_link(self) -> 'outputs.ContentLinkResponse':
         """
         The content link.
         """
-        if content_type and not isinstance(content_type, str):
-            raise TypeError("Expected argument 'content_type' to be a str")
-        __self__.content_type = content_type
+        return pulumi.get(self, "content_link")
+
+    @property
+    @pulumi.getter(name="contentType")
+    def content_type(self) -> Optional[str]:
         """
         The content type.
         """
-        if created_time and not isinstance(created_time, str):
-            raise TypeError("Expected argument 'created_time' to be a str")
-        __self__.created_time = created_time
+        return pulumi.get(self, "content_type")
+
+    @property
+    @pulumi.getter(name="createdTime")
+    def created_time(self) -> str:
         """
         The created time.
         """
-        if location and not isinstance(location, str):
-            raise TypeError("Expected argument 'location' to be a str")
-        __self__.location = location
+        return pulumi.get(self, "created_time")
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[str]:
         """
         The resource location.
         """
-        if map_type and not isinstance(map_type, str):
-            raise TypeError("Expected argument 'map_type' to be a str")
-        __self__.map_type = map_type
+        return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter(name="mapType")
+    def map_type(self) -> str:
         """
         The map type.
         """
-        if metadata and not isinstance(metadata, dict):
-            raise TypeError("Expected argument 'metadata' to be a dict")
-        __self__.metadata = metadata
+        return pulumi.get(self, "map_type")
+
+    @property
+    @pulumi.getter
+    def metadata(self) -> Optional[Mapping[str, Any]]:
         """
         The metadata.
         """
-        if name and not isinstance(name, str):
-            raise TypeError("Expected argument 'name' to be a str")
-        __self__.name = name
+        return pulumi.get(self, "metadata")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
         """
         Gets the resource name.
         """
-        if parameters_schema and not isinstance(parameters_schema, dict):
-            raise TypeError("Expected argument 'parameters_schema' to be a dict")
-        __self__.parameters_schema = parameters_schema
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="parametersSchema")
+    def parameters_schema(self) -> Optional['outputs.IntegrationAccountMapPropertiesResponseParametersSchema']:
         """
         The parameters schema of integration account map.
         """
-        if tags and not isinstance(tags, dict):
-            raise TypeError("Expected argument 'tags' to be a dict")
-        __self__.tags = tags
+        return pulumi.get(self, "parameters_schema")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Mapping[str, str]]:
         """
         The resource tags.
         """
-        if type and not isinstance(type, str):
-            raise TypeError("Expected argument 'type' to be a str")
-        __self__.type = type
+        return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
         """
         Gets the resource type.
         """
+        return pulumi.get(self, "type")
 
 
 class AwaitableGetMapResult(GetMapResult):
@@ -108,7 +175,10 @@ class AwaitableGetMapResult(GetMapResult):
             type=self.type)
 
 
-def get_map(integration_account_name=None, name=None, resource_group_name=None, opts=None):
+def get_map(integration_account_name: Optional[str] = None,
+            name: Optional[str] = None,
+            resource_group_name: Optional[str] = None,
+            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetMapResult:
     """
     Use this data source to access information about an existing resource.
 
@@ -124,18 +194,18 @@ def get_map(integration_account_name=None, name=None, resource_group_name=None, 
         opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = _utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('azurerm:logic/v20160601:getMap', __args__, opts=opts).value
+    __ret__ = pulumi.runtime.invoke('azurerm:logic/v20160601:getMap', __args__, opts=opts, typ=GetMapResult).value
 
     return AwaitableGetMapResult(
-        changed_time=__ret__.get('changedTime'),
-        content=__ret__.get('content'),
-        content_link=__ret__.get('contentLink'),
-        content_type=__ret__.get('contentType'),
-        created_time=__ret__.get('createdTime'),
-        location=__ret__.get('location'),
-        map_type=__ret__.get('mapType'),
-        metadata=__ret__.get('metadata'),
-        name=__ret__.get('name'),
-        parameters_schema=__ret__.get('parametersSchema'),
-        tags=__ret__.get('tags'),
-        type=__ret__.get('type'))
+        changed_time=__ret__.changed_time,
+        content=__ret__.content,
+        content_link=__ret__.content_link,
+        content_type=__ret__.content_type,
+        created_time=__ret__.created_time,
+        location=__ret__.location,
+        map_type=__ret__.map_type,
+        metadata=__ret__.metadata,
+        name=__ret__.name,
+        parameters_schema=__ret__.parameters_schema,
+        tags=__ret__.tags,
+        type=__ret__.type)

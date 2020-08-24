@@ -13,3 +13,5 @@ from .namespace import *
 from .namespace_authorization_rule import *
 from .notification_hub import *
 from .notification_hub_authorization_rule import *
+from ._inputs import *
+from . import outputs

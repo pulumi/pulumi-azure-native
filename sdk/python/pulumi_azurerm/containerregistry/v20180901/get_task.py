@@ -5,10 +5,17 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+from . import outputs
 
+__all__ = [
+    'GetTaskResult',
+    'AwaitableGetTaskResult',
+    'get_task',
+]
 
+@pulumi.output_type
 class GetTaskResult:
     """
     The task that has the ARM resource and task properties. 
@@ -17,82 +24,147 @@ class GetTaskResult:
     def __init__(__self__, agent_configuration=None, creation_date=None, credentials=None, location=None, name=None, platform=None, provisioning_state=None, status=None, step=None, tags=None, timeout=None, trigger=None, type=None):
         if agent_configuration and not isinstance(agent_configuration, dict):
             raise TypeError("Expected argument 'agent_configuration' to be a dict")
-        __self__.agent_configuration = agent_configuration
+        pulumi.set(__self__, "agent_configuration", agent_configuration)
+        if creation_date and not isinstance(creation_date, str):
+            raise TypeError("Expected argument 'creation_date' to be a str")
+        pulumi.set(__self__, "creation_date", creation_date)
+        if credentials and not isinstance(credentials, dict):
+            raise TypeError("Expected argument 'credentials' to be a dict")
+        pulumi.set(__self__, "credentials", credentials)
+        if location and not isinstance(location, str):
+            raise TypeError("Expected argument 'location' to be a str")
+        pulumi.set(__self__, "location", location)
+        if name and not isinstance(name, str):
+            raise TypeError("Expected argument 'name' to be a str")
+        pulumi.set(__self__, "name", name)
+        if platform and not isinstance(platform, dict):
+            raise TypeError("Expected argument 'platform' to be a dict")
+        pulumi.set(__self__, "platform", platform)
+        if provisioning_state and not isinstance(provisioning_state, str):
+            raise TypeError("Expected argument 'provisioning_state' to be a str")
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if status and not isinstance(status, str):
+            raise TypeError("Expected argument 'status' to be a str")
+        pulumi.set(__self__, "status", status)
+        if step and not isinstance(step, dict):
+            raise TypeError("Expected argument 'step' to be a dict")
+        pulumi.set(__self__, "step", step)
+        if tags and not isinstance(tags, dict):
+            raise TypeError("Expected argument 'tags' to be a dict")
+        pulumi.set(__self__, "tags", tags)
+        if timeout and not isinstance(timeout, float):
+            raise TypeError("Expected argument 'timeout' to be a float")
+        pulumi.set(__self__, "timeout", timeout)
+        if trigger and not isinstance(trigger, dict):
+            raise TypeError("Expected argument 'trigger' to be a dict")
+        pulumi.set(__self__, "trigger", trigger)
+        if type and not isinstance(type, str):
+            raise TypeError("Expected argument 'type' to be a str")
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="agentConfiguration")
+    def agent_configuration(self) -> Optional['outputs.AgentPropertiesResponse']:
         """
         The machine configuration of the run agent.
         """
-        if creation_date and not isinstance(creation_date, str):
-            raise TypeError("Expected argument 'creation_date' to be a str")
-        __self__.creation_date = creation_date
+        return pulumi.get(self, "agent_configuration")
+
+    @property
+    @pulumi.getter(name="creationDate")
+    def creation_date(self) -> str:
         """
         The creation date of task.
         """
-        if credentials and not isinstance(credentials, dict):
-            raise TypeError("Expected argument 'credentials' to be a dict")
-        __self__.credentials = credentials
+        return pulumi.get(self, "creation_date")
+
+    @property
+    @pulumi.getter
+    def credentials(self) -> Optional['outputs.CredentialsResponse']:
         """
         The properties that describes a set of credentials that will be used when this run is invoked.
         """
-        if location and not isinstance(location, str):
-            raise TypeError("Expected argument 'location' to be a str")
-        __self__.location = location
+        return pulumi.get(self, "credentials")
+
+    @property
+    @pulumi.getter
+    def location(self) -> str:
         """
         The location of the resource. This cannot be changed after the resource is created.
         """
-        if name and not isinstance(name, str):
-            raise TypeError("Expected argument 'name' to be a str")
-        __self__.name = name
+        return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
         """
         The name of the resource.
         """
-        if platform and not isinstance(platform, dict):
-            raise TypeError("Expected argument 'platform' to be a dict")
-        __self__.platform = platform
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def platform(self) -> 'outputs.PlatformPropertiesResponse':
         """
         The platform properties against which the run has to happen.
         """
-        if provisioning_state and not isinstance(provisioning_state, str):
-            raise TypeError("Expected argument 'provisioning_state' to be a str")
-        __self__.provisioning_state = provisioning_state
+        return pulumi.get(self, "platform")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
         """
         The provisioning state of the task.
         """
-        if status and not isinstance(status, str):
-            raise TypeError("Expected argument 'status' to be a str")
-        __self__.status = status
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter
+    def status(self) -> Optional[str]:
         """
         The current status of task.
         """
-        if step and not isinstance(step, dict):
-            raise TypeError("Expected argument 'step' to be a dict")
-        __self__.step = step
+        return pulumi.get(self, "status")
+
+    @property
+    @pulumi.getter
+    def step(self) -> 'outputs.TaskStepPropertiesResponse':
         """
         The properties of a task step.
         """
-        if tags and not isinstance(tags, dict):
-            raise TypeError("Expected argument 'tags' to be a dict")
-        __self__.tags = tags
+        return pulumi.get(self, "step")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Mapping[str, str]]:
         """
         The tags of the resource.
         """
-        if timeout and not isinstance(timeout, float):
-            raise TypeError("Expected argument 'timeout' to be a float")
-        __self__.timeout = timeout
+        return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter
+    def timeout(self) -> Optional[float]:
         """
         Run timeout in seconds.
         """
-        if trigger and not isinstance(trigger, dict):
-            raise TypeError("Expected argument 'trigger' to be a dict")
-        __self__.trigger = trigger
+        return pulumi.get(self, "timeout")
+
+    @property
+    @pulumi.getter
+    def trigger(self) -> Optional['outputs.TriggerPropertiesResponse']:
         """
         The properties that describe all triggers for the task.
         """
-        if type and not isinstance(type, str):
-            raise TypeError("Expected argument 'type' to be a str")
-        __self__.type = type
+        return pulumi.get(self, "trigger")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
         """
         The type of the resource.
         """
+        return pulumi.get(self, "type")
 
 
 class AwaitableGetTaskResult(GetTaskResult):
@@ -116,7 +188,10 @@ class AwaitableGetTaskResult(GetTaskResult):
             type=self.type)
 
 
-def get_task(name=None, registry_name=None, resource_group_name=None, opts=None):
+def get_task(name: Optional[str] = None,
+             registry_name: Optional[str] = None,
+             resource_group_name: Optional[str] = None,
+             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetTaskResult:
     """
     Use this data source to access information about an existing resource.
 
@@ -132,19 +207,19 @@ def get_task(name=None, registry_name=None, resource_group_name=None, opts=None)
         opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = _utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('azurerm:containerregistry/v20180901:getTask', __args__, opts=opts).value
+    __ret__ = pulumi.runtime.invoke('azurerm:containerregistry/v20180901:getTask', __args__, opts=opts, typ=GetTaskResult).value
 
     return AwaitableGetTaskResult(
-        agent_configuration=__ret__.get('agentConfiguration'),
-        creation_date=__ret__.get('creationDate'),
-        credentials=__ret__.get('credentials'),
-        location=__ret__.get('location'),
-        name=__ret__.get('name'),
-        platform=__ret__.get('platform'),
-        provisioning_state=__ret__.get('provisioningState'),
-        status=__ret__.get('status'),
-        step=__ret__.get('step'),
-        tags=__ret__.get('tags'),
-        timeout=__ret__.get('timeout'),
-        trigger=__ret__.get('trigger'),
-        type=__ret__.get('type'))
+        agent_configuration=__ret__.agent_configuration,
+        creation_date=__ret__.creation_date,
+        credentials=__ret__.credentials,
+        location=__ret__.location,
+        name=__ret__.name,
+        platform=__ret__.platform,
+        provisioning_state=__ret__.provisioning_state,
+        status=__ret__.status,
+        step=__ret__.step,
+        tags=__ret__.tags,
+        timeout=__ret__.timeout,
+        trigger=__ret__.trigger,
+        type=__ret__.type)

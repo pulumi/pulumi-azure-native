@@ -5,56 +5,30 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+
+__all__ = ['WebAppPremierAddOnSlot']
 
 
 class WebAppPremierAddOnSlot(pulumi.CustomResource):
-    kind: pulumi.Output[str]
-    """
-    Kind of resource.
-    """
-    location: pulumi.Output[str]
-    """
-    Resource Location.
-    """
-    marketplace_offer: pulumi.Output[str]
-    """
-    Premier add on Marketplace offer.
-    """
-    marketplace_publisher: pulumi.Output[str]
-    """
-    Premier add on Marketplace publisher.
-    """
-    name: pulumi.Output[str]
-    """
-    Resource Name.
-    """
-    premier_add_on_name: pulumi.Output[str]
-    """
-    Premier add on Name.
-    """
-    product: pulumi.Output[str]
-    """
-    Premier add on Product.
-    """
-    sku: pulumi.Output[str]
-    """
-    Premier add on SKU.
-    """
-    tags: pulumi.Output[dict]
-    """
-    Resource tags.
-    """
-    type: pulumi.Output[str]
-    """
-    Resource type.
-    """
-    vendor: pulumi.Output[str]
-    """
-    Premier add on Vendor.
-    """
-    def __init__(__self__, resource_name, opts=None, kind=None, location=None, marketplace_offer=None, marketplace_publisher=None, name=None, product=None, resource_group_name=None, sku=None, slot=None, tags=None, vendor=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 kind: Optional[pulumi.Input[str]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 marketplace_offer: Optional[pulumi.Input[str]] = None,
+                 marketplace_publisher: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 product: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 sku: Optional[pulumi.Input[str]] = None,
+                 slot: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 vendor: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         Premier add-on.
 
@@ -69,7 +43,7 @@ class WebAppPremierAddOnSlot(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: Name of the resource group to which the resource belongs.
         :param pulumi.Input[str] sku: Premier add on SKU.
         :param pulumi.Input[str] slot: Name of the deployment slot. If a slot is not specified, the API will update the named add-on for the production slot.
-        :param pulumi.Input[dict] tags: Resource tags.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         :param pulumi.Input[str] vendor: Premier add on Vendor.
         """
         if __name__ is not None:
@@ -119,13 +93,15 @@ class WebAppPremierAddOnSlot(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None) -> 'WebAppPremierAddOnSlot':
         """
         Get an existing WebAppPremierAddOnSlot resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -134,8 +110,97 @@ class WebAppPremierAddOnSlot(pulumi.CustomResource):
 
         return WebAppPremierAddOnSlot(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter
+    def kind(self) -> Optional[str]:
+        """
+        Kind of resource.
+        """
+        return pulumi.get(self, "kind")
+
+    @property
+    @pulumi.getter
+    def location(self) -> str:
+        """
+        Resource Location.
+        """
+        return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter(name="marketplaceOffer")
+    def marketplace_offer(self) -> Optional[str]:
+        """
+        Premier add on Marketplace offer.
+        """
+        return pulumi.get(self, "marketplace_offer")
+
+    @property
+    @pulumi.getter(name="marketplacePublisher")
+    def marketplace_publisher(self) -> Optional[str]:
+        """
+        Premier add on Marketplace publisher.
+        """
+        return pulumi.get(self, "marketplace_publisher")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Resource Name.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="premierAddOnName")
+    def premier_add_on_name(self) -> Optional[str]:
+        """
+        Premier add on Name.
+        """
+        return pulumi.get(self, "premier_add_on_name")
+
+    @property
+    @pulumi.getter
+    def product(self) -> Optional[str]:
+        """
+        Premier add on Product.
+        """
+        return pulumi.get(self, "product")
+
+    @property
+    @pulumi.getter
+    def sku(self) -> Optional[str]:
+        """
+        Premier add on SKU.
+        """
+        return pulumi.get(self, "sku")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Mapping[str, str]]:
+        """
+        Resource tags.
+        """
+        return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Resource type.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def vendor(self) -> Optional[str]:
+        """
+        Premier add on Vendor.
+        """
+        return pulumi.get(self, "vendor")
+
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

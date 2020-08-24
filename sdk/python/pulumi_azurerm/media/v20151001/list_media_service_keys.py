@@ -5,10 +5,16 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
 
+__all__ = [
+    'ListMediaServiceKeysResult',
+    'AwaitableListMediaServiceKeysResult',
+    'list_media_service_keys',
+]
 
+@pulumi.output_type
 class ListMediaServiceKeysResult:
     """
     The response body for a ListKeys API.
@@ -16,34 +22,59 @@ class ListMediaServiceKeysResult:
     def __init__(__self__, primary_auth_endpoint=None, primary_key=None, scope=None, secondary_auth_endpoint=None, secondary_key=None):
         if primary_auth_endpoint and not isinstance(primary_auth_endpoint, str):
             raise TypeError("Expected argument 'primary_auth_endpoint' to be a str")
-        __self__.primary_auth_endpoint = primary_auth_endpoint
+        pulumi.set(__self__, "primary_auth_endpoint", primary_auth_endpoint)
+        if primary_key and not isinstance(primary_key, str):
+            raise TypeError("Expected argument 'primary_key' to be a str")
+        pulumi.set(__self__, "primary_key", primary_key)
+        if scope and not isinstance(scope, str):
+            raise TypeError("Expected argument 'scope' to be a str")
+        pulumi.set(__self__, "scope", scope)
+        if secondary_auth_endpoint and not isinstance(secondary_auth_endpoint, str):
+            raise TypeError("Expected argument 'secondary_auth_endpoint' to be a str")
+        pulumi.set(__self__, "secondary_auth_endpoint", secondary_auth_endpoint)
+        if secondary_key and not isinstance(secondary_key, str):
+            raise TypeError("Expected argument 'secondary_key' to be a str")
+        pulumi.set(__self__, "secondary_key", secondary_key)
+
+    @property
+    @pulumi.getter(name="primaryAuthEndpoint")
+    def primary_auth_endpoint(self) -> Optional[str]:
         """
         The primary authorization endpoint.
         """
-        if primary_key and not isinstance(primary_key, str):
-            raise TypeError("Expected argument 'primary_key' to be a str")
-        __self__.primary_key = primary_key
+        return pulumi.get(self, "primary_auth_endpoint")
+
+    @property
+    @pulumi.getter(name="primaryKey")
+    def primary_key(self) -> Optional[str]:
         """
         The primary key for the Media Service resource.
         """
-        if scope and not isinstance(scope, str):
-            raise TypeError("Expected argument 'scope' to be a str")
-        __self__.scope = scope
+        return pulumi.get(self, "primary_key")
+
+    @property
+    @pulumi.getter
+    def scope(self) -> Optional[str]:
         """
         The authorization scope.
         """
-        if secondary_auth_endpoint and not isinstance(secondary_auth_endpoint, str):
-            raise TypeError("Expected argument 'secondary_auth_endpoint' to be a str")
-        __self__.secondary_auth_endpoint = secondary_auth_endpoint
+        return pulumi.get(self, "scope")
+
+    @property
+    @pulumi.getter(name="secondaryAuthEndpoint")
+    def secondary_auth_endpoint(self) -> Optional[str]:
         """
         The secondary authorization endpoint.
         """
-        if secondary_key and not isinstance(secondary_key, str):
-            raise TypeError("Expected argument 'secondary_key' to be a str")
-        __self__.secondary_key = secondary_key
+        return pulumi.get(self, "secondary_auth_endpoint")
+
+    @property
+    @pulumi.getter(name="secondaryKey")
+    def secondary_key(self) -> Optional[str]:
         """
         The secondary key for the Media Service resource.
         """
+        return pulumi.get(self, "secondary_key")
 
 
 class AwaitableListMediaServiceKeysResult(ListMediaServiceKeysResult):
@@ -59,7 +90,9 @@ class AwaitableListMediaServiceKeysResult(ListMediaServiceKeysResult):
             secondary_key=self.secondary_key)
 
 
-def list_media_service_keys(media_service_name=None, resource_group_name=None, opts=None):
+def list_media_service_keys(media_service_name: Optional[str] = None,
+                            resource_group_name: Optional[str] = None,
+                            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListMediaServiceKeysResult:
     """
     Use this data source to access information about an existing resource.
 
@@ -73,11 +106,11 @@ def list_media_service_keys(media_service_name=None, resource_group_name=None, o
         opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = _utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('azurerm:media/v20151001:listMediaServiceKeys', __args__, opts=opts).value
+    __ret__ = pulumi.runtime.invoke('azurerm:media/v20151001:listMediaServiceKeys', __args__, opts=opts, typ=ListMediaServiceKeysResult).value
 
     return AwaitableListMediaServiceKeysResult(
-        primary_auth_endpoint=__ret__.get('primaryAuthEndpoint'),
-        primary_key=__ret__.get('primaryKey'),
-        scope=__ret__.get('scope'),
-        secondary_auth_endpoint=__ret__.get('secondaryAuthEndpoint'),
-        secondary_key=__ret__.get('secondaryKey'))
+        primary_auth_endpoint=__ret__.primary_auth_endpoint,
+        primary_key=__ret__.primary_key,
+        scope=__ret__.scope,
+        secondary_auth_endpoint=__ret__.secondary_auth_endpoint,
+        secondary_key=__ret__.secondary_key)

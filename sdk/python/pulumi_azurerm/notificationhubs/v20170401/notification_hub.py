@@ -5,171 +5,54 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+from . import outputs
+from ._inputs import *
+
+__all__ = ['NotificationHub']
 
 
 class NotificationHub(pulumi.CustomResource):
-    adm_credential: pulumi.Output[dict]
-    """
-    The AdmCredential of the created NotificationHub
-      * `auth_token_url` (`str`) - The URL of the authorization token.
-      * `client_id` (`str`) - The client identifier.
-      * `client_secret` (`str`) - The credential secret access key.
-    """
-    apns_credential: pulumi.Output[dict]
-    """
-    The ApnsCredential of the created NotificationHub
-      * `apns_certificate` (`str`) - The APNS certificate. Specify if using Certificate Authentication Mode.
-      * `app_id` (`str`) - The issuer (iss) registered claim key. The value is a 10-character TeamId, obtained from your developer account. Specify if using Token Authentication Mode.
-      * `app_name` (`str`) - The name of the application or BundleId. Specify if using Token Authentication Mode.
-      * `certificate_key` (`str`) - The APNS certificate password if it exists.
-      * `endpoint` (`str`) - The APNS endpoint of this credential. If using Certificate Authentication Mode and Sandbox specify 'gateway.sandbox.push.apple.com'. If using Certificate Authentication Mode and Production specify 'gateway.push.apple.com'. If using Token Authentication Mode and Sandbox specify 'https://api.development.push.apple.com:443/3/device'. If using Token Authentication Mode and Production specify 'https://api.push.apple.com:443/3/device'.
-      * `key_id` (`str`) - A 10-character key identifier (kid) key, obtained from your developer account. Specify if using Token Authentication Mode.
-      * `thumbprint` (`str`) - The APNS certificate thumbprint. Specify if using Certificate Authentication Mode.
-      * `token` (`str`) - Provider Authentication Token, obtained through your developer account. Specify if using Token Authentication Mode.
-    """
-    authorization_rules: pulumi.Output[list]
-    """
-    The AuthorizationRules of the created NotificationHub
-      * `claim_type` (`str`) - A string that describes the claim type
-      * `claim_value` (`str`) - A string that describes the claim value
-      * `created_time` (`str`) - The created time for this rule
-      * `key_name` (`str`) - A string that describes the authorization rule.
-      * `modified_time` (`str`) - The last modified time for this rule
-      * `primary_key` (`str`) - A base64-encoded 256-bit primary key for signing and validating the SAS token.
-      * `revision` (`float`) - The revision number for the rule
-      * `rights` (`list`) - The rights associated with the rule.
-      * `secondary_key` (`str`) - A base64-encoded 256-bit primary key for signing and validating the SAS token.
-    """
-    baidu_credential: pulumi.Output[dict]
-    """
-    The BaiduCredential of the created NotificationHub
-      * `baidu_api_key` (`str`) - Baidu Api Key.
-      * `baidu_end_point` (`str`) - Baidu Endpoint.
-      * `baidu_secret_key` (`str`) - Baidu Secret Key
-    """
-    gcm_credential: pulumi.Output[dict]
-    """
-    The GcmCredential of the created NotificationHub
-      * `gcm_endpoint` (`str`) - The FCM legacy endpoint. Default value is 'https://fcm.googleapis.com/fcm/send'
-      * `google_api_key` (`str`) - The Google API key.
-    """
-    location: pulumi.Output[str]
-    """
-    Resource location
-    """
-    mpns_credential: pulumi.Output[dict]
-    """
-    The MpnsCredential of the created NotificationHub
-      * `certificate_key` (`str`) - The certificate key for this credential.
-      * `mpns_certificate` (`str`) - The MPNS certificate.
-      * `thumbprint` (`str`) - The MPNS certificate Thumbprint
-    """
-    name: pulumi.Output[str]
-    """
-    Resource name
-    """
-    registration_ttl: pulumi.Output[str]
-    """
-    The RegistrationTtl of the created NotificationHub
-    """
-    sku: pulumi.Output[dict]
-    """
-    The sku of the created namespace
-      * `capacity` (`float`) - The capacity of the resource
-      * `family` (`str`) - The Sku Family
-      * `name` (`str`) - Name of the notification hub sku
-      * `size` (`str`) - The Sku size
-      * `tier` (`str`) - The tier of particular sku
-    """
-    tags: pulumi.Output[dict]
-    """
-    Resource tags
-    """
-    type: pulumi.Output[str]
-    """
-    Resource type
-    """
-    wns_credential: pulumi.Output[dict]
-    """
-    The WnsCredential of the created NotificationHub
-      * `package_sid` (`str`) - The package ID for this credential.
-      * `secret_key` (`str`) - The secret key.
-      * `windows_live_endpoint` (`str`) - The Windows Live endpoint.
-    """
-    def __init__(__self__, resource_name, opts=None, adm_credential=None, apns_credential=None, authorization_rules=None, baidu_credential=None, gcm_credential=None, location=None, mpns_credential=None, name=None, namespace_name=None, registration_ttl=None, resource_group_name=None, sku=None, tags=None, wns_credential=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 adm_credential: Optional[pulumi.Input[pulumi.InputType['AdmCredentialArgs']]] = None,
+                 apns_credential: Optional[pulumi.Input[pulumi.InputType['ApnsCredentialArgs']]] = None,
+                 authorization_rules: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['SharedAccessAuthorizationRulePropertiesArgs']]]]] = None,
+                 baidu_credential: Optional[pulumi.Input[pulumi.InputType['BaiduCredentialArgs']]] = None,
+                 gcm_credential: Optional[pulumi.Input[pulumi.InputType['GcmCredentialArgs']]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 mpns_credential: Optional[pulumi.Input[pulumi.InputType['MpnsCredentialArgs']]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 namespace_name: Optional[pulumi.Input[str]] = None,
+                 registration_ttl: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 sku: Optional[pulumi.Input[pulumi.InputType['SkuArgs']]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 wns_credential: Optional[pulumi.Input[pulumi.InputType['WnsCredentialArgs']]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         Description of a NotificationHub Resource.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[dict] adm_credential: The AdmCredential of the created NotificationHub
-        :param pulumi.Input[dict] apns_credential: The ApnsCredential of the created NotificationHub
-        :param pulumi.Input[list] authorization_rules: The AuthorizationRules of the created NotificationHub
-        :param pulumi.Input[dict] baidu_credential: The BaiduCredential of the created NotificationHub
-        :param pulumi.Input[dict] gcm_credential: The GcmCredential of the created NotificationHub
+        :param pulumi.Input[pulumi.InputType['AdmCredentialArgs']] adm_credential: The AdmCredential of the created NotificationHub
+        :param pulumi.Input[pulumi.InputType['ApnsCredentialArgs']] apns_credential: The ApnsCredential of the created NotificationHub
+        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['SharedAccessAuthorizationRulePropertiesArgs']]]] authorization_rules: The AuthorizationRules of the created NotificationHub
+        :param pulumi.Input[pulumi.InputType['BaiduCredentialArgs']] baidu_credential: The BaiduCredential of the created NotificationHub
+        :param pulumi.Input[pulumi.InputType['GcmCredentialArgs']] gcm_credential: The GcmCredential of the created NotificationHub
         :param pulumi.Input[str] location: Resource location
-        :param pulumi.Input[dict] mpns_credential: The MpnsCredential of the created NotificationHub
+        :param pulumi.Input[pulumi.InputType['MpnsCredentialArgs']] mpns_credential: The MpnsCredential of the created NotificationHub
         :param pulumi.Input[str] name: The notification hub name.
         :param pulumi.Input[str] namespace_name: The namespace name.
         :param pulumi.Input[str] registration_ttl: The RegistrationTtl of the created NotificationHub
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
-        :param pulumi.Input[dict] sku: The sku of the created namespace
-        :param pulumi.Input[dict] tags: Resource tags
-        :param pulumi.Input[dict] wns_credential: The WnsCredential of the created NotificationHub
-
-        The **adm_credential** object supports the following:
-
-          * `auth_token_url` (`pulumi.Input[str]`) - The URL of the authorization token.
-          * `client_id` (`pulumi.Input[str]`) - The client identifier.
-          * `client_secret` (`pulumi.Input[str]`) - The credential secret access key.
-
-        The **apns_credential** object supports the following:
-
-          * `apns_certificate` (`pulumi.Input[str]`) - The APNS certificate. Specify if using Certificate Authentication Mode.
-          * `app_id` (`pulumi.Input[str]`) - The issuer (iss) registered claim key. The value is a 10-character TeamId, obtained from your developer account. Specify if using Token Authentication Mode.
-          * `app_name` (`pulumi.Input[str]`) - The name of the application or BundleId. Specify if using Token Authentication Mode.
-          * `certificate_key` (`pulumi.Input[str]`) - The APNS certificate password if it exists.
-          * `endpoint` (`pulumi.Input[str]`) - The APNS endpoint of this credential. If using Certificate Authentication Mode and Sandbox specify 'gateway.sandbox.push.apple.com'. If using Certificate Authentication Mode and Production specify 'gateway.push.apple.com'. If using Token Authentication Mode and Sandbox specify 'https://api.development.push.apple.com:443/3/device'. If using Token Authentication Mode and Production specify 'https://api.push.apple.com:443/3/device'.
-          * `key_id` (`pulumi.Input[str]`) - A 10-character key identifier (kid) key, obtained from your developer account. Specify if using Token Authentication Mode.
-          * `thumbprint` (`pulumi.Input[str]`) - The APNS certificate thumbprint. Specify if using Certificate Authentication Mode.
-          * `token` (`pulumi.Input[str]`) - Provider Authentication Token, obtained through your developer account. Specify if using Token Authentication Mode.
-
-        The **authorization_rules** object supports the following:
-
-          * `rights` (`pulumi.Input[list]`) - The rights associated with the rule.
-
-        The **baidu_credential** object supports the following:
-
-          * `baidu_api_key` (`pulumi.Input[str]`) - Baidu Api Key.
-          * `baidu_end_point` (`pulumi.Input[str]`) - Baidu Endpoint.
-          * `baidu_secret_key` (`pulumi.Input[str]`) - Baidu Secret Key
-
-        The **gcm_credential** object supports the following:
-
-          * `gcm_endpoint` (`pulumi.Input[str]`) - The FCM legacy endpoint. Default value is 'https://fcm.googleapis.com/fcm/send'
-          * `google_api_key` (`pulumi.Input[str]`) - The Google API key.
-
-        The **mpns_credential** object supports the following:
-
-          * `certificate_key` (`pulumi.Input[str]`) - The certificate key for this credential.
-          * `mpns_certificate` (`pulumi.Input[str]`) - The MPNS certificate.
-          * `thumbprint` (`pulumi.Input[str]`) - The MPNS certificate Thumbprint
-
-        The **sku** object supports the following:
-
-          * `capacity` (`pulumi.Input[float]`) - The capacity of the resource
-          * `family` (`pulumi.Input[str]`) - The Sku Family
-          * `name` (`pulumi.Input[str]`) - Name of the notification hub sku
-          * `size` (`pulumi.Input[str]`) - The Sku size
-          * `tier` (`pulumi.Input[str]`) - The tier of particular sku
-
-        The **wns_credential** object supports the following:
-
-          * `package_sid` (`pulumi.Input[str]`) - The package ID for this credential.
-          * `secret_key` (`pulumi.Input[str]`) - The secret key.
-          * `windows_live_endpoint` (`pulumi.Input[str]`) - The Windows Live endpoint.
+        :param pulumi.Input[pulumi.InputType['SkuArgs']] sku: The sku of the created namespace
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags
+        :param pulumi.Input[pulumi.InputType['WnsCredentialArgs']] wns_credential: The WnsCredential of the created NotificationHub
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -218,13 +101,15 @@ class NotificationHub(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None) -> 'NotificationHub':
         """
         Get an existing NotificationHub resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -233,8 +118,113 @@ class NotificationHub(pulumi.CustomResource):
 
         return NotificationHub(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter(name="admCredential")
+    def adm_credential(self) -> Optional['outputs.AdmCredentialResponse']:
+        """
+        The AdmCredential of the created NotificationHub
+        """
+        return pulumi.get(self, "adm_credential")
+
+    @property
+    @pulumi.getter(name="apnsCredential")
+    def apns_credential(self) -> Optional['outputs.ApnsCredentialResponse']:
+        """
+        The ApnsCredential of the created NotificationHub
+        """
+        return pulumi.get(self, "apns_credential")
+
+    @property
+    @pulumi.getter(name="authorizationRules")
+    def authorization_rules(self) -> Optional[List['outputs.SharedAccessAuthorizationRulePropertiesResponse']]:
+        """
+        The AuthorizationRules of the created NotificationHub
+        """
+        return pulumi.get(self, "authorization_rules")
+
+    @property
+    @pulumi.getter(name="baiduCredential")
+    def baidu_credential(self) -> Optional['outputs.BaiduCredentialResponse']:
+        """
+        The BaiduCredential of the created NotificationHub
+        """
+        return pulumi.get(self, "baidu_credential")
+
+    @property
+    @pulumi.getter(name="gcmCredential")
+    def gcm_credential(self) -> Optional['outputs.GcmCredentialResponse']:
+        """
+        The GcmCredential of the created NotificationHub
+        """
+        return pulumi.get(self, "gcm_credential")
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[str]:
+        """
+        Resource location
+        """
+        return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter(name="mpnsCredential")
+    def mpns_credential(self) -> Optional['outputs.MpnsCredentialResponse']:
+        """
+        The MpnsCredential of the created NotificationHub
+        """
+        return pulumi.get(self, "mpns_credential")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Resource name
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="registrationTtl")
+    def registration_ttl(self) -> Optional[str]:
+        """
+        The RegistrationTtl of the created NotificationHub
+        """
+        return pulumi.get(self, "registration_ttl")
+
+    @property
+    @pulumi.getter
+    def sku(self) -> Optional['outputs.SkuResponse']:
+        """
+        The sku of the created namespace
+        """
+        return pulumi.get(self, "sku")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Mapping[str, str]]:
+        """
+        Resource tags
+        """
+        return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Resource type
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="wnsCredential")
+    def wns_credential(self) -> Optional['outputs.WnsCredentialResponse']:
+        """
+        The WnsCredential of the created NotificationHub
+        """
+        return pulumi.get(self, "wns_credential")
+
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

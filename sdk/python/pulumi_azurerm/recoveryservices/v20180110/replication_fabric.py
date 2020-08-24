@@ -5,83 +5,34 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+from . import outputs
+from ._inputs import *
+
+__all__ = ['ReplicationFabric']
 
 
 class ReplicationFabric(pulumi.CustomResource):
-    location: pulumi.Output[str]
-    """
-    Resource Location
-    """
-    name: pulumi.Output[str]
-    """
-    Resource Name
-    """
-    properties: pulumi.Output[dict]
-    """
-    Fabric related data.
-      * `bcdr_state` (`str`) - BCDR state of the fabric.
-      * `custom_details` (`dict`) - Fabric specific settings.
-        * `instance_type` (`str`) - Gets the class type. Overridden in derived classes.
-
-      * `encryption_details` (`dict`) - Encryption details for the fabric.
-        * `kek_cert_expiry_date` (`str`) - The key encryption key certificate expiry date.
-        * `kek_cert_thumbprint` (`str`) - The key encryption key certificate thumbprint.
-        * `kek_state` (`str`) - The key encryption key state for the Vmm.
-
-      * `friendly_name` (`str`) - Friendly name of the fabric.
-      * `health` (`str`) - Health of fabric.
-      * `health_error_details` (`list`) - Fabric health error details.
-        * `creation_time_utc` (`str`) - Error creation time (UTC)
-        * `entity_id` (`str`) - ID of the entity.
-        * `error_category` (`str`) - Category of error.
-        * `error_code` (`str`) - Error code.
-        * `error_level` (`str`) - Level of error.
-        * `error_message` (`str`) - Error message.
-        * `error_source` (`str`) - Source of error.
-        * `error_type` (`str`) - Type of error.
-        * `inner_health_errors` (`list`) - The inner health errors. HealthError having a list of HealthError as child errors is problematic. InnerHealthError is used because this will prevent an infinite loop of structures when Hydra tries to auto-generate the contract. We are exposing the related health errors as inner health errors and all API consumers can utilize this in the same fashion as Exception -&gt; InnerException.
-          * `creation_time_utc` (`str`) - Error creation time (UTC)
-          * `entity_id` (`str`) - ID of the entity.
-          * `error_category` (`str`) - Category of error.
-          * `error_code` (`str`) - Error code.
-          * `error_level` (`str`) - Level of error.
-          * `error_message` (`str`) - Error message.
-          * `error_source` (`str`) - Source of error.
-          * `error_type` (`str`) - Type of error.
-          * `possible_causes` (`str`) - Possible causes of error.
-          * `recommended_action` (`str`) - Recommended action to resolve error.
-          * `recovery_provider_error_message` (`str`) - DRA error message.
-          * `summary_message` (`str`) - Summary message of the entity.
-
-        * `possible_causes` (`str`) - Possible causes of error.
-        * `recommended_action` (`str`) - Recommended action to resolve error.
-        * `recovery_provider_error_message` (`str`) - DRA error message.
-        * `summary_message` (`str`) - Summary message of the entity.
-
-      * `internal_identifier` (`str`) - Dra Registration Id.
-      * `rollover_encryption_details` (`dict`) - Rollover encryption details for the fabric.
-    """
-    type: pulumi.Output[str]
-    """
-    Resource Type
-    """
-    def __init__(__self__, resource_name, opts=None, name=None, properties=None, resource_group_name=None, resource_name_=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 properties: Optional[pulumi.Input[pulumi.InputType['FabricCreationInputPropertiesArgs']]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 resource_name_: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         Fabric definition.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] name: Name of the ASR fabric.
-        :param pulumi.Input[dict] properties: Fabric creation input.
+        :param pulumi.Input[pulumi.InputType['FabricCreationInputPropertiesArgs']] properties: Fabric creation input.
         :param pulumi.Input[str] resource_group_name: The name of the resource group where the recovery services vault is present.
         :param pulumi.Input[str] resource_name_: The name of the recovery services vault.
-
-        The **properties** object supports the following:
-
-          * `custom_details` (`pulumi.Input[dict]`) - Fabric provider specific creation input.
-            * `instance_type` (`pulumi.Input[str]`) - Gets the class type.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -121,13 +72,15 @@ class ReplicationFabric(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None) -> 'ReplicationFabric':
         """
         Get an existing ReplicationFabric resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -136,8 +89,41 @@ class ReplicationFabric(pulumi.CustomResource):
 
         return ReplicationFabric(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[str]:
+        """
+        Resource Location
+        """
+        return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Resource Name
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def properties(self) -> 'outputs.FabricPropertiesResponse':
+        """
+        Fabric related data.
+        """
+        return pulumi.get(self, "properties")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Resource Type
+        """
+        return pulumi.get(self, "type")
+
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

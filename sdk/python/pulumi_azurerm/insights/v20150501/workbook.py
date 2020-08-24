@@ -5,64 +5,31 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+
+__all__ = ['Workbook']
 
 
 class Workbook(pulumi.CustomResource):
-    category: pulumi.Output[str]
-    """
-    Workbook category, as defined by the user at creation time.
-    """
-    kind: pulumi.Output[str]
-    """
-    The kind of workbook. Choices are user and shared.
-    """
-    location: pulumi.Output[str]
-    """
-    Resource location
-    """
-    name: pulumi.Output[str]
-    """
-    Azure resource name
-    """
-    serialized_data: pulumi.Output[str]
-    """
-    Configuration of this particular workbook. Configuration data is a string containing valid JSON
-    """
-    shared_type_kind: pulumi.Output[str]
-    """
-    Enum indicating if this workbook definition is owned by a specific user or is shared between all users with access to the Application Insights component.
-    """
-    source_resource_id: pulumi.Output[str]
-    """
-    Optional resourceId for a source resource.
-    """
-    tags: pulumi.Output[dict]
-    """
-    Resource tags
-    """
-    time_modified: pulumi.Output[str]
-    """
-    Date and time in UTC of the last modification that was made to this workbook definition.
-    """
-    type: pulumi.Output[str]
-    """
-    Azure resource type
-    """
-    user_id: pulumi.Output[str]
-    """
-    Unique user id of the specific user that owns this workbook.
-    """
-    version: pulumi.Output[str]
-    """
-    This instance's version of the data model. This can change as new features are added that can be marked workbook.
-    """
-    workbook_id: pulumi.Output[str]
-    """
-    Internally assigned unique id of the workbook definition.
-    """
-    def __init__(__self__, resource_name, opts=None, category=None, kind=None, location=None, name=None, resource_group_name=None, serialized_data=None, shared_type_kind=None, source_resource_id=None, tags=None, user_id=None, version=None, workbook_id=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 category: Optional[pulumi.Input[str]] = None,
+                 kind: Optional[pulumi.Input[str]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 serialized_data: Optional[pulumi.Input[str]] = None,
+                 shared_type_kind: Optional[pulumi.Input[str]] = None,
+                 source_resource_id: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 user_id: Optional[pulumi.Input[str]] = None,
+                 version: Optional[pulumi.Input[str]] = None,
+                 workbook_id: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         An Application Insights workbook definition.
 
@@ -76,7 +43,7 @@ class Workbook(pulumi.CustomResource):
         :param pulumi.Input[str] serialized_data: Configuration of this particular workbook. Configuration data is a string containing valid JSON
         :param pulumi.Input[str] shared_type_kind: Enum indicating if this workbook definition is owned by a specific user or is shared between all users with access to the Application Insights component.
         :param pulumi.Input[str] source_resource_id: Optional resourceId for a source resource.
-        :param pulumi.Input[dict] tags: Resource tags
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags
         :param pulumi.Input[str] user_id: Unique user id of the specific user that owns this workbook.
         :param pulumi.Input[str] version: This instance's version of the data model. This can change as new features are added that can be marked workbook.
         :param pulumi.Input[str] workbook_id: Internally assigned unique id of the workbook definition.
@@ -133,13 +100,15 @@ class Workbook(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None) -> 'Workbook':
         """
         Get an existing Workbook resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -148,8 +117,113 @@ class Workbook(pulumi.CustomResource):
 
         return Workbook(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter
+    def category(self) -> str:
+        """
+        Workbook category, as defined by the user at creation time.
+        """
+        return pulumi.get(self, "category")
+
+    @property
+    @pulumi.getter
+    def kind(self) -> Optional[str]:
+        """
+        The kind of workbook. Choices are user and shared.
+        """
+        return pulumi.get(self, "kind")
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[str]:
+        """
+        Resource location
+        """
+        return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Azure resource name
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="serializedData")
+    def serialized_data(self) -> str:
+        """
+        Configuration of this particular workbook. Configuration data is a string containing valid JSON
+        """
+        return pulumi.get(self, "serialized_data")
+
+    @property
+    @pulumi.getter(name="sharedTypeKind")
+    def shared_type_kind(self) -> str:
+        """
+        Enum indicating if this workbook definition is owned by a specific user or is shared between all users with access to the Application Insights component.
+        """
+        return pulumi.get(self, "shared_type_kind")
+
+    @property
+    @pulumi.getter(name="sourceResourceId")
+    def source_resource_id(self) -> Optional[str]:
+        """
+        Optional resourceId for a source resource.
+        """
+        return pulumi.get(self, "source_resource_id")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Mapping[str, str]]:
+        """
+        Resource tags
+        """
+        return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter(name="timeModified")
+    def time_modified(self) -> str:
+        """
+        Date and time in UTC of the last modification that was made to this workbook definition.
+        """
+        return pulumi.get(self, "time_modified")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Azure resource type
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="userId")
+    def user_id(self) -> str:
+        """
+        Unique user id of the specific user that owns this workbook.
+        """
+        return pulumi.get(self, "user_id")
+
+    @property
+    @pulumi.getter
+    def version(self) -> Optional[str]:
+        """
+        This instance's version of the data model. This can change as new features are added that can be marked workbook.
+        """
+        return pulumi.get(self, "version")
+
+    @property
+    @pulumi.getter(name="workbookId")
+    def workbook_id(self) -> str:
+        """
+        Internally assigned unique id of the workbook definition.
+        """
+        return pulumi.get(self, "workbook_id")
+
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

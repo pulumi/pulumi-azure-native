@@ -5,10 +5,17 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+from . import outputs
 
+__all__ = [
+    'GetBandwidthSettingResult',
+    'AwaitableGetBandwidthSettingResult',
+    'get_bandwidth_setting',
+]
 
+@pulumi.output_type
 class GetBandwidthSettingResult:
     """
     The bandwidth setting.
@@ -16,34 +23,59 @@ class GetBandwidthSettingResult:
     def __init__(__self__, kind=None, name=None, schedules=None, type=None, volume_count=None):
         if kind and not isinstance(kind, str):
             raise TypeError("Expected argument 'kind' to be a str")
-        __self__.kind = kind
+        pulumi.set(__self__, "kind", kind)
+        if name and not isinstance(name, str):
+            raise TypeError("Expected argument 'name' to be a str")
+        pulumi.set(__self__, "name", name)
+        if schedules and not isinstance(schedules, list):
+            raise TypeError("Expected argument 'schedules' to be a list")
+        pulumi.set(__self__, "schedules", schedules)
+        if type and not isinstance(type, str):
+            raise TypeError("Expected argument 'type' to be a str")
+        pulumi.set(__self__, "type", type)
+        if volume_count and not isinstance(volume_count, float):
+            raise TypeError("Expected argument 'volume_count' to be a float")
+        pulumi.set(__self__, "volume_count", volume_count)
+
+    @property
+    @pulumi.getter
+    def kind(self) -> Optional[str]:
         """
         The Kind of the object. Currently only Series8000 is supported
         """
-        if name and not isinstance(name, str):
-            raise TypeError("Expected argument 'name' to be a str")
-        __self__.name = name
+        return pulumi.get(self, "kind")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
         """
         The name of the object.
         """
-        if schedules and not isinstance(schedules, list):
-            raise TypeError("Expected argument 'schedules' to be a list")
-        __self__.schedules = schedules
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def schedules(self) -> List['outputs.BandwidthScheduleResponse']:
         """
         The schedules.
         """
-        if type and not isinstance(type, str):
-            raise TypeError("Expected argument 'type' to be a str")
-        __self__.type = type
+        return pulumi.get(self, "schedules")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
         """
         The hierarchical type of the object.
         """
-        if volume_count and not isinstance(volume_count, float):
-            raise TypeError("Expected argument 'volume_count' to be a float")
-        __self__.volume_count = volume_count
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="volumeCount")
+    def volume_count(self) -> float:
         """
         The number of volumes that uses the bandwidth setting.
         """
+        return pulumi.get(self, "volume_count")
 
 
 class AwaitableGetBandwidthSettingResult(GetBandwidthSettingResult):
@@ -59,7 +91,10 @@ class AwaitableGetBandwidthSettingResult(GetBandwidthSettingResult):
             volume_count=self.volume_count)
 
 
-def get_bandwidth_setting(manager_name=None, name=None, resource_group_name=None, opts=None):
+def get_bandwidth_setting(manager_name: Optional[str] = None,
+                          name: Optional[str] = None,
+                          resource_group_name: Optional[str] = None,
+                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetBandwidthSettingResult:
     """
     Use this data source to access information about an existing resource.
 
@@ -75,11 +110,11 @@ def get_bandwidth_setting(manager_name=None, name=None, resource_group_name=None
         opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = _utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('azurerm:storsimple/v20170601:getBandwidthSetting', __args__, opts=opts).value
+    __ret__ = pulumi.runtime.invoke('azurerm:storsimple/v20170601:getBandwidthSetting', __args__, opts=opts, typ=GetBandwidthSettingResult).value
 
     return AwaitableGetBandwidthSettingResult(
-        kind=__ret__.get('kind'),
-        name=__ret__.get('name'),
-        schedules=__ret__.get('schedules'),
-        type=__ret__.get('type'),
-        volume_count=__ret__.get('volumeCount'))
+        kind=__ret__.kind,
+        name=__ret__.name,
+        schedules=__ret__.schedules,
+        type=__ret__.type,
+        volume_count=__ret__.volume_count)

@@ -5,110 +5,50 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+from . import outputs
+from ._inputs import *
+
+__all__ = ['FlowLog']
 
 
 class FlowLog(pulumi.CustomResource):
-    enabled: pulumi.Output[bool]
-    """
-    Flag to enable/disable flow logging.
-    """
-    etag: pulumi.Output[str]
-    """
-    A unique read-only string that changes whenever the resource is updated.
-    """
-    flow_analytics_configuration: pulumi.Output[dict]
-    """
-    Parameters that define the configuration of traffic analytics.
-      * `network_watcher_flow_analytics_configuration` (`dict`) - Parameters that define the configuration of traffic analytics.
-        * `enabled` (`bool`) - Flag to enable/disable traffic analytics.
-        * `traffic_analytics_interval` (`float`) - The interval in minutes which would decide how frequently TA service should do flow analytics.
-        * `workspace_id` (`str`) - The resource guid of the attached workspace.
-        * `workspace_region` (`str`) - The location of the attached workspace.
-        * `workspace_resource_id` (`str`) - Resource Id of the attached workspace.
-    """
-    format: pulumi.Output[dict]
-    """
-    Parameters that define the flow log format.
-      * `type` (`str`) - The file type of flow log.
-      * `version` (`float`) - The version (revision) of the flow log.
-    """
-    location: pulumi.Output[str]
-    """
-    Resource location.
-    """
-    name: pulumi.Output[str]
-    """
-    Resource name.
-    """
-    provisioning_state: pulumi.Output[str]
-    """
-    The provisioning state of the flow log.
-    """
-    retention_policy: pulumi.Output[dict]
-    """
-    Parameters that define the retention policy for flow log.
-      * `days` (`float`) - Number of days to retain flow log records.
-      * `enabled` (`bool`) - Flag to enable/disable retention.
-    """
-    storage_id: pulumi.Output[str]
-    """
-    ID of the storage account which is used to store the flow log.
-    """
-    tags: pulumi.Output[dict]
-    """
-    Resource tags.
-    """
-    target_resource_guid: pulumi.Output[str]
-    """
-    Guid of network security group to which flow log will be applied.
-    """
-    target_resource_id: pulumi.Output[str]
-    """
-    ID of network security group to which flow log will be applied.
-    """
-    type: pulumi.Output[str]
-    """
-    Resource type.
-    """
-    def __init__(__self__, resource_name, opts=None, enabled=None, flow_analytics_configuration=None, format=None, id=None, location=None, name=None, network_watcher_name=None, resource_group_name=None, retention_policy=None, storage_id=None, tags=None, target_resource_id=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 enabled: Optional[pulumi.Input[bool]] = None,
+                 flow_analytics_configuration: Optional[pulumi.Input[pulumi.InputType['TrafficAnalyticsPropertiesArgs']]] = None,
+                 format: Optional[pulumi.Input[pulumi.InputType['FlowLogFormatParametersArgs']]] = None,
+                 id: Optional[pulumi.Input[str]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 network_watcher_name: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 retention_policy: Optional[pulumi.Input[pulumi.InputType['RetentionPolicyParametersArgs']]] = None,
+                 storage_id: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 target_resource_id: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         A flow log resource.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] enabled: Flag to enable/disable flow logging.
-        :param pulumi.Input[dict] flow_analytics_configuration: Parameters that define the configuration of traffic analytics.
-        :param pulumi.Input[dict] format: Parameters that define the flow log format.
+        :param pulumi.Input[pulumi.InputType['TrafficAnalyticsPropertiesArgs']] flow_analytics_configuration: Parameters that define the configuration of traffic analytics.
+        :param pulumi.Input[pulumi.InputType['FlowLogFormatParametersArgs']] format: Parameters that define the flow log format.
         :param pulumi.Input[str] id: Resource ID.
         :param pulumi.Input[str] location: Resource location.
         :param pulumi.Input[str] name: The name of the flow log.
         :param pulumi.Input[str] network_watcher_name: The name of the network watcher.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
-        :param pulumi.Input[dict] retention_policy: Parameters that define the retention policy for flow log.
+        :param pulumi.Input[pulumi.InputType['RetentionPolicyParametersArgs']] retention_policy: Parameters that define the retention policy for flow log.
         :param pulumi.Input[str] storage_id: ID of the storage account which is used to store the flow log.
-        :param pulumi.Input[dict] tags: Resource tags.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         :param pulumi.Input[str] target_resource_id: ID of network security group to which flow log will be applied.
-
-        The **flow_analytics_configuration** object supports the following:
-
-          * `network_watcher_flow_analytics_configuration` (`pulumi.Input[dict]`) - Parameters that define the configuration of traffic analytics.
-            * `enabled` (`pulumi.Input[bool]`) - Flag to enable/disable traffic analytics.
-            * `traffic_analytics_interval` (`pulumi.Input[float]`) - The interval in minutes which would decide how frequently TA service should do flow analytics.
-            * `workspace_id` (`pulumi.Input[str]`) - The resource guid of the attached workspace.
-            * `workspace_region` (`pulumi.Input[str]`) - The location of the attached workspace.
-            * `workspace_resource_id` (`pulumi.Input[str]`) - Resource Id of the attached workspace.
-
-        The **format** object supports the following:
-
-          * `type` (`pulumi.Input[str]`) - The file type of flow log.
-          * `version` (`pulumi.Input[float]`) - The version (revision) of the flow log.
-
-        The **retention_policy** object supports the following:
-
-          * `days` (`pulumi.Input[float]`) - Number of days to retain flow log records.
-          * `enabled` (`pulumi.Input[bool]`) - Flag to enable/disable retention.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -162,13 +102,15 @@ class FlowLog(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None) -> 'FlowLog':
         """
         Get an existing FlowLog resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -177,8 +119,113 @@ class FlowLog(pulumi.CustomResource):
 
         return FlowLog(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[bool]:
+        """
+        Flag to enable/disable flow logging.
+        """
+        return pulumi.get(self, "enabled")
+
+    @property
+    @pulumi.getter
+    def etag(self) -> str:
+        """
+        A unique read-only string that changes whenever the resource is updated.
+        """
+        return pulumi.get(self, "etag")
+
+    @property
+    @pulumi.getter(name="flowAnalyticsConfiguration")
+    def flow_analytics_configuration(self) -> Optional['outputs.TrafficAnalyticsPropertiesResponse']:
+        """
+        Parameters that define the configuration of traffic analytics.
+        """
+        return pulumi.get(self, "flow_analytics_configuration")
+
+    @property
+    @pulumi.getter
+    def format(self) -> Optional['outputs.FlowLogFormatParametersResponse']:
+        """
+        Parameters that define the flow log format.
+        """
+        return pulumi.get(self, "format")
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[str]:
+        """
+        Resource location.
+        """
+        return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Resource name.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        The provisioning state of the flow log.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="retentionPolicy")
+    def retention_policy(self) -> Optional['outputs.RetentionPolicyParametersResponse']:
+        """
+        Parameters that define the retention policy for flow log.
+        """
+        return pulumi.get(self, "retention_policy")
+
+    @property
+    @pulumi.getter(name="storageId")
+    def storage_id(self) -> str:
+        """
+        ID of the storage account which is used to store the flow log.
+        """
+        return pulumi.get(self, "storage_id")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Mapping[str, str]]:
+        """
+        Resource tags.
+        """
+        return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter(name="targetResourceGuid")
+    def target_resource_guid(self) -> str:
+        """
+        Guid of network security group to which flow log will be applied.
+        """
+        return pulumi.get(self, "target_resource_guid")
+
+    @property
+    @pulumi.getter(name="targetResourceId")
+    def target_resource_id(self) -> str:
+        """
+        ID of network security group to which flow log will be applied.
+        """
+        return pulumi.get(self, "target_resource_id")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Resource type.
+        """
+        return pulumi.get(self, "type")
+
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

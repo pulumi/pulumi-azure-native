@@ -5,10 +5,17 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+from . import outputs
 
+__all__ = [
+    'GetPolicyDefinitionResult',
+    'AwaitableGetPolicyDefinitionResult',
+    'get_policy_definition',
+]
 
+@pulumi.output_type
 class GetPolicyDefinitionResult:
     """
     Policy definition.
@@ -16,16 +23,26 @@ class GetPolicyDefinitionResult:
     def __init__(__self__, name=None, properties=None):
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
-        __self__.name = name
+        pulumi.set(__self__, "name", name)
+        if properties and not isinstance(properties, dict):
+            raise TypeError("Expected argument 'properties' to be a dict")
+        pulumi.set(__self__, "properties", properties)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
         """
         Gets or sets the policy definition name.
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def properties(self) -> 'outputs.PolicyDefinitionPropertiesResponse':
         """
         Gets or sets the policy definition properties.
         """
+        return pulumi.get(self, "properties")
 
 
 class AwaitableGetPolicyDefinitionResult(GetPolicyDefinitionResult):
@@ -38,7 +55,8 @@ class AwaitableGetPolicyDefinitionResult(GetPolicyDefinitionResult):
             properties=self.properties)
 
 
-def get_policy_definition(name=None, opts=None):
+def get_policy_definition(name: Optional[str] = None,
+                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPolicyDefinitionResult:
     """
     Use this data source to access information about an existing resource.
 
@@ -50,8 +68,8 @@ def get_policy_definition(name=None, opts=None):
         opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = _utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('azurerm:authorization/v20151101:getPolicyDefinition', __args__, opts=opts).value
+    __ret__ = pulumi.runtime.invoke('azurerm:authorization/v20151101:getPolicyDefinition', __args__, opts=opts, typ=GetPolicyDefinitionResult).value
 
     return AwaitableGetPolicyDefinitionResult(
-        name=__ret__.get('name'),
-        properties=__ret__.get('properties'))
+        name=__ret__.name,
+        properties=__ret__.properties)

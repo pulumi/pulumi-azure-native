@@ -5,73 +5,32 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+from . import outputs
+from ._inputs import *
+
+__all__ = ['ManagementGroup']
 
 
 class ManagementGroup(pulumi.CustomResource):
-    children: pulumi.Output[list]
-    """
-    The list of children.
-      * `children` (`list`) - The list of children.
-      * `display_name` (`str`) - The friendly name of the child resource.
-      * `id` (`str`) - The fully qualified ID for the child resource (management group or subscription).  For example, /providers/Microsoft.Management/managementGroups/0000000-0000-0000-0000-000000000000
-      * `name` (`str`) - The name of the child entity.
-      * `roles` (`list`) - The roles definitions associated with the management group.
-      * `type` (`str`) - The fully qualified resource type which includes provider namespace (e.g. Microsoft.Management/managementGroups)
-    """
-    details: pulumi.Output[dict]
-    """
-    The details of a management group.
-      * `parent` (`dict`) - (Optional) The ID of the parent management group.
-        * `display_name` (`str`) - The friendly name of the parent management group.
-        * `id` (`str`) - The fully qualified ID for the parent management group.  For example, /providers/Microsoft.Management/managementGroups/0000000-0000-0000-0000-000000000000
-        * `name` (`str`) - The name of the parent management group
-
-      * `updated_by` (`str`) - The identity of the principal or process that updated the object.
-      * `updated_time` (`str`) - The date and time when this object was last updated.
-      * `version` (`float`) - The version number of the object.
-    """
-    display_name: pulumi.Output[str]
-    """
-    The friendly name of the management group.
-    """
-    name: pulumi.Output[str]
-    """
-    The name of the management group. For example, 00000000-0000-0000-0000-000000000000
-    """
-    path: pulumi.Output[list]
-    """
-    The hierarchial path from the root group to the current group.
-      * `display_name` (`str`) - The friendly name of the group.
-      * `name` (`str`) - The name of the group.
-    """
-    roles: pulumi.Output[list]
-    """
-    The role definitions associated with the management group.
-    """
-    tenant_id: pulumi.Output[str]
-    """
-    The AAD Tenant ID associated with the management group. For example, 00000000-0000-0000-0000-000000000000
-    """
-    type: pulumi.Output[str]
-    """
-    The type of the resource.  For example, Microsoft.Management/managementGroups
-    """
-    def __init__(__self__, resource_name, opts=None, details=None, display_name=None, name=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 details: Optional[pulumi.Input[pulumi.InputType['CreateManagementGroupDetailsArgs']]] = None,
+                 display_name: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         The management group details.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[dict] details: The details of a management group used during creation.
+        :param pulumi.Input[pulumi.InputType['CreateManagementGroupDetailsArgs']] details: The details of a management group used during creation.
         :param pulumi.Input[str] display_name: The friendly name of the management group. If no value is passed then this  field will be set to the groupId.
         :param pulumi.Input[str] name: Management Group ID.
-
-        The **details** object supports the following:
-
-          * `parent` (`pulumi.Input[dict]`) - (Optional) The ID of the parent management group used during creation.
-            * `id` (`pulumi.Input[str]`) - The fully qualified ID for the parent management group.  For example, /providers/Microsoft.Management/managementGroups/0000000-0000-0000-0000-000000000000
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -109,13 +68,15 @@ class ManagementGroup(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None) -> 'ManagementGroup':
         """
         Get an existing ManagementGroup resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -124,8 +85,73 @@ class ManagementGroup(pulumi.CustomResource):
 
         return ManagementGroup(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter
+    def children(self) -> Optional[List['outputs.ManagementGroupChildInfoResponse']]:
+        """
+        The list of children.
+        """
+        return pulumi.get(self, "children")
+
+    @property
+    @pulumi.getter
+    def details(self) -> Optional['outputs.ManagementGroupDetailsResponse']:
+        """
+        The details of a management group.
+        """
+        return pulumi.get(self, "details")
+
+    @property
+    @pulumi.getter(name="displayName")
+    def display_name(self) -> Optional[str]:
+        """
+        The friendly name of the management group.
+        """
+        return pulumi.get(self, "display_name")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the management group. For example, 00000000-0000-0000-0000-000000000000
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def path(self) -> Optional[List['outputs.ManagementGroupPathElementResponse']]:
+        """
+        The hierarchial path from the root group to the current group.
+        """
+        return pulumi.get(self, "path")
+
+    @property
+    @pulumi.getter
+    def roles(self) -> Optional[List[str]]:
+        """
+        The role definitions associated with the management group.
+        """
+        return pulumi.get(self, "roles")
+
+    @property
+    @pulumi.getter(name="tenantId")
+    def tenant_id(self) -> Optional[str]:
+        """
+        The AAD Tenant ID associated with the management group. For example, 00000000-0000-0000-0000-000000000000
+        """
+        return pulumi.get(self, "tenant_id")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        The type of the resource.  For example, Microsoft.Management/managementGroups
+        """
+        return pulumi.get(self, "type")
+
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

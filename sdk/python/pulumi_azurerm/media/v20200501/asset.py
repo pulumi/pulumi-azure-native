@@ -5,52 +5,26 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+
+__all__ = ['Asset']
 
 
 class Asset(pulumi.CustomResource):
-    alternate_id: pulumi.Output[str]
-    """
-    The alternate ID of the Asset.
-    """
-    asset_id: pulumi.Output[str]
-    """
-    The Asset ID.
-    """
-    container: pulumi.Output[str]
-    """
-    The name of the asset blob container.
-    """
-    created: pulumi.Output[str]
-    """
-    The creation date of the Asset.
-    """
-    description: pulumi.Output[str]
-    """
-    The Asset description.
-    """
-    last_modified: pulumi.Output[str]
-    """
-    The last modified date of the Asset.
-    """
-    name: pulumi.Output[str]
-    """
-    The name of the resource
-    """
-    storage_account_name: pulumi.Output[str]
-    """
-    The name of the storage account.
-    """
-    storage_encryption_format: pulumi.Output[str]
-    """
-    The Asset encryption format. One of None or MediaStorageEncryption.
-    """
-    type: pulumi.Output[str]
-    """
-    The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
-    """
-    def __init__(__self__, resource_name, opts=None, account_name=None, alternate_id=None, container=None, description=None, name=None, resource_group_name=None, storage_account_name=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 account_name: Optional[pulumi.Input[str]] = None,
+                 alternate_id: Optional[pulumi.Input[str]] = None,
+                 container: Optional[pulumi.Input[str]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 storage_account_name: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         An Asset.
 
@@ -108,13 +82,15 @@ class Asset(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None) -> 'Asset':
         """
         Get an existing Asset resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -123,8 +99,89 @@ class Asset(pulumi.CustomResource):
 
         return Asset(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter(name="alternateId")
+    def alternate_id(self) -> Optional[str]:
+        """
+        The alternate ID of the Asset.
+        """
+        return pulumi.get(self, "alternate_id")
+
+    @property
+    @pulumi.getter(name="assetId")
+    def asset_id(self) -> str:
+        """
+        The Asset ID.
+        """
+        return pulumi.get(self, "asset_id")
+
+    @property
+    @pulumi.getter
+    def container(self) -> Optional[str]:
+        """
+        The name of the asset blob container.
+        """
+        return pulumi.get(self, "container")
+
+    @property
+    @pulumi.getter
+    def created(self) -> str:
+        """
+        The creation date of the Asset.
+        """
+        return pulumi.get(self, "created")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        """
+        The Asset description.
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="lastModified")
+    def last_modified(self) -> str:
+        """
+        The last modified date of the Asset.
+        """
+        return pulumi.get(self, "last_modified")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the resource
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="storageAccountName")
+    def storage_account_name(self) -> Optional[str]:
+        """
+        The name of the storage account.
+        """
+        return pulumi.get(self, "storage_account_name")
+
+    @property
+    @pulumi.getter(name="storageEncryptionFormat")
+    def storage_encryption_format(self) -> str:
+        """
+        The Asset encryption format. One of None or MediaStorageEncryption.
+        """
+        return pulumi.get(self, "storage_encryption_format")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+        """
+        return pulumi.get(self, "type")
+
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

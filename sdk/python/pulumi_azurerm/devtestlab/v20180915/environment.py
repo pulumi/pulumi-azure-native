@@ -5,76 +5,42 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+from . import outputs
+from ._inputs import *
+
+__all__ = ['Environment']
 
 
 class Environment(pulumi.CustomResource):
-    arm_template_display_name: pulumi.Output[str]
-    """
-    The display name of the Azure Resource Manager template that produced the environment.
-    """
-    created_by_user: pulumi.Output[str]
-    """
-    The creator of the environment.
-    """
-    deployment_properties: pulumi.Output[dict]
-    """
-    The deployment properties of the environment.
-      * `arm_template_id` (`str`) - The Azure Resource Manager template's identifier.
-      * `parameters` (`list`) - The parameters of the Azure Resource Manager template.
-        * `name` (`str`) - The name of the template parameter.
-        * `value` (`str`) - The value of the template parameter.
-    """
-    location: pulumi.Output[str]
-    """
-    The location of the resource.
-    """
-    name: pulumi.Output[str]
-    """
-    The name of the resource.
-    """
-    provisioning_state: pulumi.Output[str]
-    """
-    The provisioning status of the resource.
-    """
-    resource_group_id: pulumi.Output[str]
-    """
-    The identifier of the resource group containing the environment's resources.
-    """
-    tags: pulumi.Output[dict]
-    """
-    The tags of the resource.
-    """
-    type: pulumi.Output[str]
-    """
-    The type of the resource.
-    """
-    unique_identifier: pulumi.Output[str]
-    """
-    The unique immutable identifier of a resource (Guid).
-    """
-    def __init__(__self__, resource_name, opts=None, arm_template_display_name=None, deployment_properties=None, lab_name=None, location=None, name=None, resource_group_name=None, tags=None, user_name=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 arm_template_display_name: Optional[pulumi.Input[str]] = None,
+                 deployment_properties: Optional[pulumi.Input[pulumi.InputType['EnvironmentDeploymentPropertiesArgs']]] = None,
+                 lab_name: Optional[pulumi.Input[str]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 user_name: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         An environment, which is essentially an ARM template deployment.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] arm_template_display_name: The display name of the Azure Resource Manager template that produced the environment.
-        :param pulumi.Input[dict] deployment_properties: The deployment properties of the environment.
+        :param pulumi.Input[pulumi.InputType['EnvironmentDeploymentPropertiesArgs']] deployment_properties: The deployment properties of the environment.
         :param pulumi.Input[str] lab_name: The name of the lab.
         :param pulumi.Input[str] location: The location of the resource.
         :param pulumi.Input[str] name: The name of the environment.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
-        :param pulumi.Input[dict] tags: The tags of the resource.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The tags of the resource.
         :param pulumi.Input[str] user_name: The name of the user profile.
-
-        The **deployment_properties** object supports the following:
-
-          * `arm_template_id` (`pulumi.Input[str]`) - The Azure Resource Manager template's identifier.
-          * `parameters` (`pulumi.Input[list]`) - The parameters of the Azure Resource Manager template.
-            * `name` (`pulumi.Input[str]`) - The name of the template parameter.
-            * `value` (`pulumi.Input[str]`) - The value of the template parameter.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -123,13 +89,15 @@ class Environment(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None) -> 'Environment':
         """
         Get an existing Environment resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -138,8 +106,89 @@ class Environment(pulumi.CustomResource):
 
         return Environment(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter(name="armTemplateDisplayName")
+    def arm_template_display_name(self) -> Optional[str]:
+        """
+        The display name of the Azure Resource Manager template that produced the environment.
+        """
+        return pulumi.get(self, "arm_template_display_name")
+
+    @property
+    @pulumi.getter(name="createdByUser")
+    def created_by_user(self) -> str:
+        """
+        The creator of the environment.
+        """
+        return pulumi.get(self, "created_by_user")
+
+    @property
+    @pulumi.getter(name="deploymentProperties")
+    def deployment_properties(self) -> Optional['outputs.EnvironmentDeploymentPropertiesResponse']:
+        """
+        The deployment properties of the environment.
+        """
+        return pulumi.get(self, "deployment_properties")
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[str]:
+        """
+        The location of the resource.
+        """
+        return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the resource.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        The provisioning status of the resource.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="resourceGroupId")
+    def resource_group_id(self) -> str:
+        """
+        The identifier of the resource group containing the environment's resources.
+        """
+        return pulumi.get(self, "resource_group_id")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Mapping[str, str]]:
+        """
+        The tags of the resource.
+        """
+        return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        The type of the resource.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="uniqueIdentifier")
+    def unique_identifier(self) -> str:
+        """
+        The unique immutable identifier of a resource (Guid).
+        """
+        return pulumi.get(self, "unique_identifier")
+
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

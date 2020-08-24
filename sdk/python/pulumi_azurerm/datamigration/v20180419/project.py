@@ -5,88 +5,46 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+from . import outputs
+from ._inputs import *
+
+__all__ = ['Project']
 
 
 class Project(pulumi.CustomResource):
-    creation_time: pulumi.Output[str]
-    """
-    UTC Date and time when project was created
-    """
-    databases_info: pulumi.Output[list]
-    """
-    List of DatabaseInfo
-      * `source_database_name` (`str`) - Name of the database
-    """
-    location: pulumi.Output[str]
-    """
-    Resource location.
-    """
-    name: pulumi.Output[str]
-    """
-    Resource name.
-    """
-    provisioning_state: pulumi.Output[str]
-    """
-    The project's provisioning state
-    """
-    source_connection_info: pulumi.Output[dict]
-    """
-    Information for connecting to source
-      * `password` (`str`) - Password credential.
-      * `type` (`str`) - Type of connection info
-      * `user_name` (`str`) - User name
-    """
-    source_platform: pulumi.Output[str]
-    """
-    Source platform for the project
-    """
-    tags: pulumi.Output[dict]
-    """
-    Resource tags.
-    """
-    target_connection_info: pulumi.Output[dict]
-    """
-    Information for connecting to target
-      * `password` (`str`) - Password credential.
-      * `type` (`str`) - Type of connection info
-      * `user_name` (`str`) - User name
-    """
-    target_platform: pulumi.Output[str]
-    """
-    Target platform for the project
-    """
-    type: pulumi.Output[str]
-    """
-    Resource type.
-    """
-    def __init__(__self__, resource_name, opts=None, databases_info=None, group_name=None, location=None, name=None, service_name=None, source_connection_info=None, source_platform=None, tags=None, target_connection_info=None, target_platform=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 databases_info: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['DatabaseInfoArgs']]]]] = None,
+                 group_name: Optional[pulumi.Input[str]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 service_name: Optional[pulumi.Input[str]] = None,
+                 source_connection_info: Optional[pulumi.Input[pulumi.InputType['ConnectionInfoArgs']]] = None,
+                 source_platform: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 target_connection_info: Optional[pulumi.Input[pulumi.InputType['ConnectionInfoArgs']]] = None,
+                 target_platform: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         A project resource
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[list] databases_info: List of DatabaseInfo
+        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['DatabaseInfoArgs']]]] databases_info: List of DatabaseInfo
         :param pulumi.Input[str] group_name: Name of the resource group
         :param pulumi.Input[str] location: Resource location.
         :param pulumi.Input[str] name: Name of the project
         :param pulumi.Input[str] service_name: Name of the service
-        :param pulumi.Input[dict] source_connection_info: Information for connecting to source
+        :param pulumi.Input[pulumi.InputType['ConnectionInfoArgs']] source_connection_info: Information for connecting to source
         :param pulumi.Input[str] source_platform: Source platform for the project
-        :param pulumi.Input[dict] tags: Resource tags.
-        :param pulumi.Input[dict] target_connection_info: Information for connecting to target
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
+        :param pulumi.Input[pulumi.InputType['ConnectionInfoArgs']] target_connection_info: Information for connecting to target
         :param pulumi.Input[str] target_platform: Target platform for the project
-
-        The **databases_info** object supports the following:
-
-          * `source_database_name` (`pulumi.Input[str]`) - Name of the database
-
-        The **source_connection_info** object supports the following:
-
-          * `password` (`pulumi.Input[str]`) - Password credential.
-          * `type` (`pulumi.Input[str]`) - Type of connection info
-          * `user_name` (`pulumi.Input[str]`) - User name
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -137,13 +95,15 @@ class Project(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None) -> 'Project':
         """
         Get an existing Project resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -152,8 +112,97 @@ class Project(pulumi.CustomResource):
 
         return Project(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter(name="creationTime")
+    def creation_time(self) -> str:
+        """
+        UTC Date and time when project was created
+        """
+        return pulumi.get(self, "creation_time")
+
+    @property
+    @pulumi.getter(name="databasesInfo")
+    def databases_info(self) -> Optional[List['outputs.DatabaseInfoResponse']]:
+        """
+        List of DatabaseInfo
+        """
+        return pulumi.get(self, "databases_info")
+
+    @property
+    @pulumi.getter
+    def location(self) -> str:
+        """
+        Resource location.
+        """
+        return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Resource name.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        The project's provisioning state
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="sourceConnectionInfo")
+    def source_connection_info(self) -> Optional['outputs.ConnectionInfoResponse']:
+        """
+        Information for connecting to source
+        """
+        return pulumi.get(self, "source_connection_info")
+
+    @property
+    @pulumi.getter(name="sourcePlatform")
+    def source_platform(self) -> str:
+        """
+        Source platform for the project
+        """
+        return pulumi.get(self, "source_platform")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Mapping[str, str]]:
+        """
+        Resource tags.
+        """
+        return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter(name="targetConnectionInfo")
+    def target_connection_info(self) -> Optional['outputs.ConnectionInfoResponse']:
+        """
+        Information for connecting to target
+        """
+        return pulumi.get(self, "target_connection_info")
+
+    @property
+    @pulumi.getter(name="targetPlatform")
+    def target_platform(self) -> str:
+        """
+        Target platform for the project
+        """
+        return pulumi.get(self, "target_platform")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Resource type.
+        """
+        return pulumi.get(self, "type")
+
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

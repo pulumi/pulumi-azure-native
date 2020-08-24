@@ -5,10 +5,16 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
 
+__all__ = [
+    'GetAccessControlRecordResult',
+    'AwaitableGetAccessControlRecordResult',
+    'get_access_control_record',
+]
 
+@pulumi.output_type
 class GetAccessControlRecordResult:
     """
     The access control record
@@ -16,22 +22,37 @@ class GetAccessControlRecordResult:
     def __init__(__self__, initiator_name=None, name=None, type=None):
         if initiator_name and not isinstance(initiator_name, str):
             raise TypeError("Expected argument 'initiator_name' to be a str")
-        __self__.initiator_name = initiator_name
+        pulumi.set(__self__, "initiator_name", initiator_name)
+        if name and not isinstance(name, str):
+            raise TypeError("Expected argument 'name' to be a str")
+        pulumi.set(__self__, "name", name)
+        if type and not isinstance(type, str):
+            raise TypeError("Expected argument 'type' to be a str")
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="initiatorName")
+    def initiator_name(self) -> str:
         """
         The Iscsi initiator name (IQN)
         """
-        if name and not isinstance(name, str):
-            raise TypeError("Expected argument 'name' to be a str")
-        __self__.name = name
+        return pulumi.get(self, "initiator_name")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
         """
         The name.
         """
-        if type and not isinstance(type, str):
-            raise TypeError("Expected argument 'type' to be a str")
-        __self__.type = type
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
         """
         The type.
         """
+        return pulumi.get(self, "type")
 
 
 class AwaitableGetAccessControlRecordResult(GetAccessControlRecordResult):
@@ -45,7 +66,10 @@ class AwaitableGetAccessControlRecordResult(GetAccessControlRecordResult):
             type=self.type)
 
 
-def get_access_control_record(manager_name=None, name=None, resource_group_name=None, opts=None):
+def get_access_control_record(manager_name: Optional[str] = None,
+                              name: Optional[str] = None,
+                              resource_group_name: Optional[str] = None,
+                              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAccessControlRecordResult:
     """
     Use this data source to access information about an existing resource.
 
@@ -61,9 +85,9 @@ def get_access_control_record(manager_name=None, name=None, resource_group_name=
         opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = _utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('azurerm:storsimple/v20161001:getAccessControlRecord', __args__, opts=opts).value
+    __ret__ = pulumi.runtime.invoke('azurerm:storsimple/v20161001:getAccessControlRecord', __args__, opts=opts, typ=GetAccessControlRecordResult).value
 
     return AwaitableGetAccessControlRecordResult(
-        initiator_name=__ret__.get('initiatorName'),
-        name=__ret__.get('name'),
-        type=__ret__.get('type'))
+        initiator_name=__ret__.initiator_name,
+        name=__ret__.name,
+        type=__ret__.type)

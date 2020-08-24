@@ -5,154 +5,48 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+from . import outputs
+from ._inputs import *
+
+__all__ = ['OpenShiftManagedCluster']
 
 
 class OpenShiftManagedCluster(pulumi.CustomResource):
-    agent_pool_profiles: pulumi.Output[list]
-    """
-    Configuration of OpenShift cluster VMs.
-      * `count` (`float`) - Number of agents (VMs) to host docker containers.
-      * `name` (`str`) - Unique name of the pool profile in the context of the subscription and resource group.
-      * `os_type` (`str`) - OsType to be used to specify os type. Choose from Linux and Windows. Default to Linux.
-      * `role` (`str`) - Define the role of the AgentPoolProfile.
-      * `subnet_cidr` (`str`) - Subnet CIDR for the peering.
-      * `vm_size` (`str`) - Size of agent VMs.
-    """
-    auth_profile: pulumi.Output[dict]
-    """
-    Configures OpenShift authentication.
-      * `identity_providers` (`list`) - Type of authentication profile to use.
-        * `name` (`str`) - Name of the provider.
-        * `provider` (`dict`) - Configuration of the provider.
-          * `kind` (`str`) - The kind of the provider.
-    """
-    cluster_version: pulumi.Output[str]
-    """
-    Version of OpenShift specified when creating the cluster.
-    """
-    fqdn: pulumi.Output[str]
-    """
-    Service generated FQDN for OpenShift API server loadbalancer internal hostname.
-    """
-    location: pulumi.Output[str]
-    """
-    Resource location
-    """
-    master_pool_profile: pulumi.Output[dict]
-    """
-    Configuration for OpenShift master VMs.
-      * `count` (`float`) - Number of masters (VMs) to host docker containers. The default value is 3.
-      * `name` (`str`) - Unique name of the master pool profile in the context of the subscription and resource group.
-      * `os_type` (`str`) - OsType to be used to specify os type. Choose from Linux and Windows. Default to Linux.
-      * `subnet_cidr` (`str`) - Subnet CIDR for the peering.
-      * `vm_size` (`str`) - Size of agent VMs.
-    """
-    name: pulumi.Output[str]
-    """
-    Resource name
-    """
-    network_profile: pulumi.Output[dict]
-    """
-    Configuration for OpenShift networking.
-      * `peer_vnet_id` (`str`) - CIDR of the Vnet to peer.
-      * `vnet_cidr` (`str`) - CIDR for the OpenShift Vnet.
-      * `vnet_id` (`str`) - ID of the Vnet created for OSA cluster.
-    """
-    open_shift_version: pulumi.Output[str]
-    """
-    Version of OpenShift specified when creating the cluster.
-    """
-    plan: pulumi.Output[dict]
-    """
-    Define the resource plan as required by ARM for billing purposes
-      * `name` (`str`) - The plan ID.
-      * `product` (`str`) - Specifies the product of the image from the marketplace. This is the same value as Offer under the imageReference element.
-      * `promotion_code` (`str`) - The promotion code.
-      * `publisher` (`str`) - The plan ID.
-    """
-    provisioning_state: pulumi.Output[str]
-    """
-    The current deployment or provisioning state, which only appears in the response.
-    """
-    public_hostname: pulumi.Output[str]
-    """
-    Service generated FQDN for OpenShift API server.
-    """
-    router_profiles: pulumi.Output[list]
-    """
-    Configuration for OpenShift router(s).
-      * `fqdn` (`str`) - Auto-allocated FQDN for the OpenShift router.
-      * `name` (`str`) - Name of the router profile.
-      * `public_subdomain` (`str`) - DNS subdomain for OpenShift router.
-    """
-    tags: pulumi.Output[dict]
-    """
-    Resource tags
-    """
-    type: pulumi.Output[str]
-    """
-    Resource type
-    """
-    def __init__(__self__, resource_name, opts=None, agent_pool_profiles=None, auth_profile=None, location=None, master_pool_profile=None, name=None, network_profile=None, open_shift_version=None, plan=None, resource_group_name=None, router_profiles=None, tags=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 agent_pool_profiles: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['OpenShiftManagedClusterAgentPoolProfileArgs']]]]] = None,
+                 auth_profile: Optional[pulumi.Input[pulumi.InputType['OpenShiftManagedClusterAuthProfileArgs']]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 master_pool_profile: Optional[pulumi.Input[pulumi.InputType['OpenShiftManagedClusterMasterPoolProfileArgs']]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 network_profile: Optional[pulumi.Input[pulumi.InputType['NetworkProfileArgs']]] = None,
+                 open_shift_version: Optional[pulumi.Input[str]] = None,
+                 plan: Optional[pulumi.Input[pulumi.InputType['PurchasePlanArgs']]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 router_profiles: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['OpenShiftRouterProfileArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         OpenShift Managed cluster.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[list] agent_pool_profiles: Configuration of OpenShift cluster VMs.
-        :param pulumi.Input[dict] auth_profile: Configures OpenShift authentication.
+        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['OpenShiftManagedClusterAgentPoolProfileArgs']]]] agent_pool_profiles: Configuration of OpenShift cluster VMs.
+        :param pulumi.Input[pulumi.InputType['OpenShiftManagedClusterAuthProfileArgs']] auth_profile: Configures OpenShift authentication.
         :param pulumi.Input[str] location: Resource location
-        :param pulumi.Input[dict] master_pool_profile: Configuration for OpenShift master VMs.
+        :param pulumi.Input[pulumi.InputType['OpenShiftManagedClusterMasterPoolProfileArgs']] master_pool_profile: Configuration for OpenShift master VMs.
         :param pulumi.Input[str] name: The name of the OpenShift managed cluster resource.
-        :param pulumi.Input[dict] network_profile: Configuration for OpenShift networking.
+        :param pulumi.Input[pulumi.InputType['NetworkProfileArgs']] network_profile: Configuration for OpenShift networking.
         :param pulumi.Input[str] open_shift_version: Version of OpenShift specified when creating the cluster.
-        :param pulumi.Input[dict] plan: Define the resource plan as required by ARM for billing purposes
+        :param pulumi.Input[pulumi.InputType['PurchasePlanArgs']] plan: Define the resource plan as required by ARM for billing purposes
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
-        :param pulumi.Input[list] router_profiles: Configuration for OpenShift router(s).
-        :param pulumi.Input[dict] tags: Resource tags
-
-        The **agent_pool_profiles** object supports the following:
-
-          * `count` (`pulumi.Input[float]`) - Number of agents (VMs) to host docker containers.
-          * `name` (`pulumi.Input[str]`) - Unique name of the pool profile in the context of the subscription and resource group.
-          * `os_type` (`pulumi.Input[str]`) - OsType to be used to specify os type. Choose from Linux and Windows. Default to Linux.
-          * `role` (`pulumi.Input[str]`) - Define the role of the AgentPoolProfile.
-          * `subnet_cidr` (`pulumi.Input[str]`) - Subnet CIDR for the peering.
-          * `vm_size` (`pulumi.Input[str]`) - Size of agent VMs.
-
-        The **auth_profile** object supports the following:
-
-          * `identity_providers` (`pulumi.Input[list]`) - Type of authentication profile to use.
-            * `name` (`pulumi.Input[str]`) - Name of the provider.
-            * `provider` (`pulumi.Input[dict]`) - Configuration of the provider.
-              * `kind` (`pulumi.Input[str]`) - The kind of the provider.
-
-        The **master_pool_profile** object supports the following:
-
-          * `count` (`pulumi.Input[float]`) - Number of masters (VMs) to host docker containers. The default value is 3.
-          * `name` (`pulumi.Input[str]`) - Unique name of the master pool profile in the context of the subscription and resource group.
-          * `os_type` (`pulumi.Input[str]`) - OsType to be used to specify os type. Choose from Linux and Windows. Default to Linux.
-          * `subnet_cidr` (`pulumi.Input[str]`) - Subnet CIDR for the peering.
-          * `vm_size` (`pulumi.Input[str]`) - Size of agent VMs.
-
-        The **network_profile** object supports the following:
-
-          * `peer_vnet_id` (`pulumi.Input[str]`) - CIDR of the Vnet to peer.
-          * `vnet_cidr` (`pulumi.Input[str]`) - CIDR for the OpenShift Vnet.
-          * `vnet_id` (`pulumi.Input[str]`) - ID of the Vnet created for OSA cluster.
-
-        The **plan** object supports the following:
-
-          * `name` (`pulumi.Input[str]`) - The plan ID.
-          * `product` (`pulumi.Input[str]`) - Specifies the product of the image from the marketplace. This is the same value as Offer under the imageReference element.
-          * `promotion_code` (`pulumi.Input[str]`) - The promotion code.
-          * `publisher` (`pulumi.Input[str]`) - The plan ID.
-
-        The **router_profiles** object supports the following:
-
-          * `name` (`pulumi.Input[str]`) - Name of the router profile.
+        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['OpenShiftRouterProfileArgs']]]] router_profiles: Configuration for OpenShift router(s).
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -202,13 +96,15 @@ class OpenShiftManagedCluster(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None) -> 'OpenShiftManagedCluster':
         """
         Get an existing OpenShiftManagedCluster resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -217,8 +113,129 @@ class OpenShiftManagedCluster(pulumi.CustomResource):
 
         return OpenShiftManagedCluster(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter(name="agentPoolProfiles")
+    def agent_pool_profiles(self) -> Optional[List['outputs.OpenShiftManagedClusterAgentPoolProfileResponse']]:
+        """
+        Configuration of OpenShift cluster VMs.
+        """
+        return pulumi.get(self, "agent_pool_profiles")
+
+    @property
+    @pulumi.getter(name="authProfile")
+    def auth_profile(self) -> Optional['outputs.OpenShiftManagedClusterAuthProfileResponse']:
+        """
+        Configures OpenShift authentication.
+        """
+        return pulumi.get(self, "auth_profile")
+
+    @property
+    @pulumi.getter(name="clusterVersion")
+    def cluster_version(self) -> str:
+        """
+        Version of OpenShift specified when creating the cluster.
+        """
+        return pulumi.get(self, "cluster_version")
+
+    @property
+    @pulumi.getter
+    def fqdn(self) -> str:
+        """
+        Service generated FQDN for OpenShift API server loadbalancer internal hostname.
+        """
+        return pulumi.get(self, "fqdn")
+
+    @property
+    @pulumi.getter
+    def location(self) -> str:
+        """
+        Resource location
+        """
+        return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter(name="masterPoolProfile")
+    def master_pool_profile(self) -> Optional['outputs.OpenShiftManagedClusterMasterPoolProfileResponse']:
+        """
+        Configuration for OpenShift master VMs.
+        """
+        return pulumi.get(self, "master_pool_profile")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Resource name
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="networkProfile")
+    def network_profile(self) -> Optional['outputs.NetworkProfileResponse']:
+        """
+        Configuration for OpenShift networking.
+        """
+        return pulumi.get(self, "network_profile")
+
+    @property
+    @pulumi.getter(name="openShiftVersion")
+    def open_shift_version(self) -> str:
+        """
+        Version of OpenShift specified when creating the cluster.
+        """
+        return pulumi.get(self, "open_shift_version")
+
+    @property
+    @pulumi.getter
+    def plan(self) -> Optional['outputs.PurchasePlanResponse']:
+        """
+        Define the resource plan as required by ARM for billing purposes
+        """
+        return pulumi.get(self, "plan")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        The current deployment or provisioning state, which only appears in the response.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="publicHostname")
+    def public_hostname(self) -> str:
+        """
+        Service generated FQDN for OpenShift API server.
+        """
+        return pulumi.get(self, "public_hostname")
+
+    @property
+    @pulumi.getter(name="routerProfiles")
+    def router_profiles(self) -> Optional[List['outputs.OpenShiftRouterProfileResponse']]:
+        """
+        Configuration for OpenShift router(s).
+        """
+        return pulumi.get(self, "router_profiles")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Mapping[str, str]]:
+        """
+        Resource tags
+        """
+        return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Resource type
+        """
+        return pulumi.get(self, "type")
+
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

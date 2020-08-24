@@ -5,76 +5,27 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+
+__all__ = ['FileShare']
 
 
 class FileShare(pulumi.CustomResource):
-    access_tier: pulumi.Output[str]
-    """
-    Access tier for specific share. GpV2 account can choose between TransactionOptimized (default), Hot, and Cool. FileStorage account can choose Premium.
-    """
-    access_tier_change_time: pulumi.Output[str]
-    """
-    Indicates the last modification time for share access tier.
-    """
-    access_tier_status: pulumi.Output[str]
-    """
-    Indicates if there is a pending transition for access tier.
-    """
-    deleted: pulumi.Output[bool]
-    """
-    Indicates whether the share was deleted.
-    """
-    deleted_time: pulumi.Output[str]
-    """
-    The deleted time if the share was deleted.
-    """
-    enabled_protocols: pulumi.Output[str]
-    """
-    The authentication protocol that is used for the file share. Can only be specified when creating a share.
-    """
-    etag: pulumi.Output[str]
-    """
-    Resource Etag.
-    """
-    last_modified_time: pulumi.Output[str]
-    """
-    Returns the date and time the share was last modified.
-    """
-    metadata: pulumi.Output[dict]
-    """
-    A name-value pair to associate with the share as metadata.
-    """
-    name: pulumi.Output[str]
-    """
-    The name of the resource
-    """
-    remaining_retention_days: pulumi.Output[float]
-    """
-    Remaining retention days for share that was soft deleted.
-    """
-    root_squash: pulumi.Output[str]
-    """
-    The property is for NFS share only. The default is NoRootSquash.
-    """
-    share_quota: pulumi.Output[float]
-    """
-    The maximum size of the share, in gigabytes. Must be greater than 0, and less than or equal to 5TB (5120). For Large File Shares, the maximum size is 102400.
-    """
-    share_usage_bytes: pulumi.Output[float]
-    """
-    The approximate size of the data stored on the share. Note that this value may not include all recently created or recently resized files.
-    """
-    type: pulumi.Output[str]
-    """
-    The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
-    """
-    version: pulumi.Output[str]
-    """
-    The version of the share.
-    """
-    def __init__(__self__, resource_name, opts=None, access_tier=None, account_name=None, enabled_protocols=None, metadata=None, name=None, resource_group_name=None, root_squash=None, share_quota=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 access_tier: Optional[pulumi.Input[str]] = None,
+                 account_name: Optional[pulumi.Input[str]] = None,
+                 enabled_protocols: Optional[pulumi.Input[str]] = None,
+                 metadata: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 root_squash: Optional[pulumi.Input[str]] = None,
+                 share_quota: Optional[pulumi.Input[float]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         Properties of the file share, including Id, resource name, resource type, Etag.
 
@@ -83,7 +34,7 @@ class FileShare(pulumi.CustomResource):
         :param pulumi.Input[str] access_tier: Access tier for specific share. GpV2 account can choose between TransactionOptimized (default), Hot, and Cool. FileStorage account can choose Premium.
         :param pulumi.Input[str] account_name: The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.
         :param pulumi.Input[str] enabled_protocols: The authentication protocol that is used for the file share. Can only be specified when creating a share.
-        :param pulumi.Input[dict] metadata: A name-value pair to associate with the share as metadata.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] metadata: A name-value pair to associate with the share as metadata.
         :param pulumi.Input[str] name: The name of the file share within the specified storage account. File share names must be between 3 and 63 characters in length and use numbers, lower-case letters and dash (-) only. Every dash (-) character must be immediately preceded and followed by a letter or number.
         :param pulumi.Input[str] resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.
         :param pulumi.Input[str] root_squash: The property is for NFS share only. The default is NoRootSquash.
@@ -139,13 +90,15 @@ class FileShare(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None) -> 'FileShare':
         """
         Get an existing FileShare resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -154,8 +107,137 @@ class FileShare(pulumi.CustomResource):
 
         return FileShare(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter(name="accessTier")
+    def access_tier(self) -> Optional[str]:
+        """
+        Access tier for specific share. GpV2 account can choose between TransactionOptimized (default), Hot, and Cool. FileStorage account can choose Premium.
+        """
+        return pulumi.get(self, "access_tier")
+
+    @property
+    @pulumi.getter(name="accessTierChangeTime")
+    def access_tier_change_time(self) -> str:
+        """
+        Indicates the last modification time for share access tier.
+        """
+        return pulumi.get(self, "access_tier_change_time")
+
+    @property
+    @pulumi.getter(name="accessTierStatus")
+    def access_tier_status(self) -> str:
+        """
+        Indicates if there is a pending transition for access tier.
+        """
+        return pulumi.get(self, "access_tier_status")
+
+    @property
+    @pulumi.getter
+    def deleted(self) -> bool:
+        """
+        Indicates whether the share was deleted.
+        """
+        return pulumi.get(self, "deleted")
+
+    @property
+    @pulumi.getter(name="deletedTime")
+    def deleted_time(self) -> str:
+        """
+        The deleted time if the share was deleted.
+        """
+        return pulumi.get(self, "deleted_time")
+
+    @property
+    @pulumi.getter(name="enabledProtocols")
+    def enabled_protocols(self) -> Optional[str]:
+        """
+        The authentication protocol that is used for the file share. Can only be specified when creating a share.
+        """
+        return pulumi.get(self, "enabled_protocols")
+
+    @property
+    @pulumi.getter
+    def etag(self) -> str:
+        """
+        Resource Etag.
+        """
+        return pulumi.get(self, "etag")
+
+    @property
+    @pulumi.getter(name="lastModifiedTime")
+    def last_modified_time(self) -> str:
+        """
+        Returns the date and time the share was last modified.
+        """
+        return pulumi.get(self, "last_modified_time")
+
+    @property
+    @pulumi.getter
+    def metadata(self) -> Optional[Mapping[str, str]]:
+        """
+        A name-value pair to associate with the share as metadata.
+        """
+        return pulumi.get(self, "metadata")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the resource
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="remainingRetentionDays")
+    def remaining_retention_days(self) -> float:
+        """
+        Remaining retention days for share that was soft deleted.
+        """
+        return pulumi.get(self, "remaining_retention_days")
+
+    @property
+    @pulumi.getter(name="rootSquash")
+    def root_squash(self) -> Optional[str]:
+        """
+        The property is for NFS share only. The default is NoRootSquash.
+        """
+        return pulumi.get(self, "root_squash")
+
+    @property
+    @pulumi.getter(name="shareQuota")
+    def share_quota(self) -> Optional[float]:
+        """
+        The maximum size of the share, in gigabytes. Must be greater than 0, and less than or equal to 5TB (5120). For Large File Shares, the maximum size is 102400.
+        """
+        return pulumi.get(self, "share_quota")
+
+    @property
+    @pulumi.getter(name="shareUsageBytes")
+    def share_usage_bytes(self) -> float:
+        """
+        The approximate size of the data stored on the share. Note that this value may not include all recently created or recently resized files.
+        """
+        return pulumi.get(self, "share_usage_bytes")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def version(self) -> str:
+        """
+        The version of the share.
+        """
+        return pulumi.get(self, "version")
+
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

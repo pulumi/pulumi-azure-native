@@ -5,10 +5,16 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
 
+__all__ = [
+    'ListSiteMetadataSlotResult',
+    'AwaitableListSiteMetadataSlotResult',
+    'list_site_metadata_slot',
+]
 
+@pulumi.output_type
 class ListSiteMetadataSlotResult:
     """
     String dictionary resource
@@ -16,34 +22,59 @@ class ListSiteMetadataSlotResult:
     def __init__(__self__, kind=None, location=None, name=None, tags=None, type=None):
         if kind and not isinstance(kind, str):
             raise TypeError("Expected argument 'kind' to be a str")
-        __self__.kind = kind
+        pulumi.set(__self__, "kind", kind)
+        if location and not isinstance(location, str):
+            raise TypeError("Expected argument 'location' to be a str")
+        pulumi.set(__self__, "location", location)
+        if name and not isinstance(name, str):
+            raise TypeError("Expected argument 'name' to be a str")
+        pulumi.set(__self__, "name", name)
+        if tags and not isinstance(tags, dict):
+            raise TypeError("Expected argument 'tags' to be a dict")
+        pulumi.set(__self__, "tags", tags)
+        if type and not isinstance(type, str):
+            raise TypeError("Expected argument 'type' to be a str")
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def kind(self) -> Optional[str]:
         """
         Kind of resource
         """
-        if location and not isinstance(location, str):
-            raise TypeError("Expected argument 'location' to be a str")
-        __self__.location = location
+        return pulumi.get(self, "kind")
+
+    @property
+    @pulumi.getter
+    def location(self) -> str:
         """
         Resource Location
         """
-        if name and not isinstance(name, str):
-            raise TypeError("Expected argument 'name' to be a str")
-        __self__.name = name
+        return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
         """
         Resource Name
         """
-        if tags and not isinstance(tags, dict):
-            raise TypeError("Expected argument 'tags' to be a dict")
-        __self__.tags = tags
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Mapping[str, str]]:
         """
         Resource tags
         """
-        if type and not isinstance(type, str):
-            raise TypeError("Expected argument 'type' to be a str")
-        __self__.type = type
+        return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[str]:
         """
         Resource type
         """
+        return pulumi.get(self, "type")
 
 
 class AwaitableListSiteMetadataSlotResult(ListSiteMetadataSlotResult):
@@ -59,7 +90,9 @@ class AwaitableListSiteMetadataSlotResult(ListSiteMetadataSlotResult):
             type=self.type)
 
 
-def list_site_metadata_slot(name=None, resource_group_name=None, opts=None):
+def list_site_metadata_slot(name: Optional[str] = None,
+                            resource_group_name: Optional[str] = None,
+                            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListSiteMetadataSlotResult:
     """
     Use this data source to access information about an existing resource.
 
@@ -73,11 +106,11 @@ def list_site_metadata_slot(name=None, resource_group_name=None, opts=None):
         opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = _utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('azurerm:web/v20150801:listSiteMetadataSlot', __args__, opts=opts).value
+    __ret__ = pulumi.runtime.invoke('azurerm:web/v20150801:listSiteMetadataSlot', __args__, opts=opts, typ=ListSiteMetadataSlotResult).value
 
     return AwaitableListSiteMetadataSlotResult(
-        kind=__ret__.get('kind'),
-        location=__ret__.get('location'),
-        name=__ret__.get('name'),
-        tags=__ret__.get('tags'),
-        type=__ret__.get('type'))
+        kind=__ret__.kind,
+        location=__ret__.location,
+        name=__ret__.name,
+        tags=__ret__.tags,
+        type=__ret__.type)

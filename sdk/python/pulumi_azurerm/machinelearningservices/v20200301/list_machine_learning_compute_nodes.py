@@ -5,10 +5,17 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+from . import outputs
 
+__all__ = [
+    'ListMachineLearningComputeNodesResult',
+    'AwaitableListMachineLearningComputeNodesResult',
+    'list_machine_learning_compute_nodes',
+]
 
+@pulumi.output_type
 class ListMachineLearningComputeNodesResult:
     """
     Compute node information related to a AmlCompute.
@@ -16,22 +23,37 @@ class ListMachineLearningComputeNodesResult:
     def __init__(__self__, compute_type=None, next_link=None, nodes=None):
         if compute_type and not isinstance(compute_type, str):
             raise TypeError("Expected argument 'compute_type' to be a str")
-        __self__.compute_type = compute_type
+        pulumi.set(__self__, "compute_type", compute_type)
+        if next_link and not isinstance(next_link, str):
+            raise TypeError("Expected argument 'next_link' to be a str")
+        pulumi.set(__self__, "next_link", next_link)
+        if nodes and not isinstance(nodes, list):
+            raise TypeError("Expected argument 'nodes' to be a list")
+        pulumi.set(__self__, "nodes", nodes)
+
+    @property
+    @pulumi.getter(name="computeType")
+    def compute_type(self) -> str:
         """
         The type of compute
         """
-        if next_link and not isinstance(next_link, str):
-            raise TypeError("Expected argument 'next_link' to be a str")
-        __self__.next_link = next_link
+        return pulumi.get(self, "compute_type")
+
+    @property
+    @pulumi.getter(name="nextLink")
+    def next_link(self) -> str:
         """
         The continuation token.
         """
-        if nodes and not isinstance(nodes, list):
-            raise TypeError("Expected argument 'nodes' to be a list")
-        __self__.nodes = nodes
+        return pulumi.get(self, "next_link")
+
+    @property
+    @pulumi.getter
+    def nodes(self) -> List['outputs.AmlComputeNodeInformationResponseResult']:
         """
         The collection of returned AmlCompute nodes details.
         """
+        return pulumi.get(self, "nodes")
 
 
 class AwaitableListMachineLearningComputeNodesResult(ListMachineLearningComputeNodesResult):
@@ -45,7 +67,10 @@ class AwaitableListMachineLearningComputeNodesResult(ListMachineLearningComputeN
             nodes=self.nodes)
 
 
-def list_machine_learning_compute_nodes(compute_name=None, resource_group_name=None, workspace_name=None, opts=None):
+def list_machine_learning_compute_nodes(compute_name: Optional[str] = None,
+                                        resource_group_name: Optional[str] = None,
+                                        workspace_name: Optional[str] = None,
+                                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListMachineLearningComputeNodesResult:
     """
     Use this data source to access information about an existing resource.
 
@@ -61,9 +86,9 @@ def list_machine_learning_compute_nodes(compute_name=None, resource_group_name=N
         opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = _utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('azurerm:machinelearningservices/v20200301:listMachineLearningComputeNodes', __args__, opts=opts).value
+    __ret__ = pulumi.runtime.invoke('azurerm:machinelearningservices/v20200301:listMachineLearningComputeNodes', __args__, opts=opts, typ=ListMachineLearningComputeNodesResult).value
 
     return AwaitableListMachineLearningComputeNodesResult(
-        compute_type=__ret__.get('computeType'),
-        next_link=__ret__.get('nextLink'),
-        nodes=__ret__.get('nodes'))
+        compute_type=__ret__.compute_type,
+        next_link=__ret__.next_link,
+        nodes=__ret__.nodes)

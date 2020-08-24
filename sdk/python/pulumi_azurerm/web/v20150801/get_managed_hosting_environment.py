@@ -5,10 +5,17 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+from . import outputs
 
+__all__ = [
+    'GetManagedHostingEnvironmentResult',
+    'AwaitableGetManagedHostingEnvironmentResult',
+    'get_managed_hosting_environment',
+]
 
+@pulumi.output_type
 class GetManagedHostingEnvironmentResult:
     """
     Description of a managed hosting environment
@@ -16,95 +23,170 @@ class GetManagedHostingEnvironmentResult:
     def __init__(__self__, api_management_account=None, dns_suffix=None, environment_is_healthy=None, environment_status=None, ipssl_address_count=None, kind=None, location=None, name=None, resource_group=None, status=None, subscription_id=None, suspended=None, tags=None, type=None, virtual_network=None):
         if api_management_account and not isinstance(api_management_account, str):
             raise TypeError("Expected argument 'api_management_account' to be a str")
-        __self__.api_management_account = api_management_account
+        pulumi.set(__self__, "api_management_account", api_management_account)
+        if dns_suffix and not isinstance(dns_suffix, str):
+            raise TypeError("Expected argument 'dns_suffix' to be a str")
+        pulumi.set(__self__, "dns_suffix", dns_suffix)
+        if environment_is_healthy and not isinstance(environment_is_healthy, bool):
+            raise TypeError("Expected argument 'environment_is_healthy' to be a bool")
+        pulumi.set(__self__, "environment_is_healthy", environment_is_healthy)
+        if environment_status and not isinstance(environment_status, str):
+            raise TypeError("Expected argument 'environment_status' to be a str")
+        pulumi.set(__self__, "environment_status", environment_status)
+        if ipssl_address_count and not isinstance(ipssl_address_count, float):
+            raise TypeError("Expected argument 'ipssl_address_count' to be a float")
+        pulumi.set(__self__, "ipssl_address_count", ipssl_address_count)
+        if kind and not isinstance(kind, str):
+            raise TypeError("Expected argument 'kind' to be a str")
+        pulumi.set(__self__, "kind", kind)
+        if location and not isinstance(location, str):
+            raise TypeError("Expected argument 'location' to be a str")
+        pulumi.set(__self__, "location", location)
+        if name and not isinstance(name, str):
+            raise TypeError("Expected argument 'name' to be a str")
+        pulumi.set(__self__, "name", name)
+        if resource_group and not isinstance(resource_group, str):
+            raise TypeError("Expected argument 'resource_group' to be a str")
+        pulumi.set(__self__, "resource_group", resource_group)
+        if status and not isinstance(status, str):
+            raise TypeError("Expected argument 'status' to be a str")
+        pulumi.set(__self__, "status", status)
+        if subscription_id and not isinstance(subscription_id, str):
+            raise TypeError("Expected argument 'subscription_id' to be a str")
+        pulumi.set(__self__, "subscription_id", subscription_id)
+        if suspended and not isinstance(suspended, bool):
+            raise TypeError("Expected argument 'suspended' to be a bool")
+        pulumi.set(__self__, "suspended", suspended)
+        if tags and not isinstance(tags, dict):
+            raise TypeError("Expected argument 'tags' to be a dict")
+        pulumi.set(__self__, "tags", tags)
+        if type and not isinstance(type, str):
+            raise TypeError("Expected argument 'type' to be a str")
+        pulumi.set(__self__, "type", type)
+        if virtual_network and not isinstance(virtual_network, dict):
+            raise TypeError("Expected argument 'virtual_network' to be a dict")
+        pulumi.set(__self__, "virtual_network", virtual_network)
+
+    @property
+    @pulumi.getter(name="apiManagementAccount")
+    def api_management_account(self) -> Optional[str]:
         """
         Resource id of the api management account associated with this managed hosting environment (read only)
         """
-        if dns_suffix and not isinstance(dns_suffix, str):
-            raise TypeError("Expected argument 'dns_suffix' to be a str")
-        __self__.dns_suffix = dns_suffix
+        return pulumi.get(self, "api_management_account")
+
+    @property
+    @pulumi.getter(name="dnsSuffix")
+    def dns_suffix(self) -> Optional[str]:
         """
         DNS suffix of the managed hosting environment
         """
-        if environment_is_healthy and not isinstance(environment_is_healthy, bool):
-            raise TypeError("Expected argument 'environment_is_healthy' to be a bool")
-        __self__.environment_is_healthy = environment_is_healthy
+        return pulumi.get(self, "dns_suffix")
+
+    @property
+    @pulumi.getter(name="environmentIsHealthy")
+    def environment_is_healthy(self) -> Optional[bool]:
         """
         True/false indicating whether the managed hosting environment is healthy
         """
-        if environment_status and not isinstance(environment_status, str):
-            raise TypeError("Expected argument 'environment_status' to be a str")
-        __self__.environment_status = environment_status
+        return pulumi.get(self, "environment_is_healthy")
+
+    @property
+    @pulumi.getter(name="environmentStatus")
+    def environment_status(self) -> Optional[str]:
         """
         Detailed message about with results of the last check of the managed hosting environment
         """
-        if ipssl_address_count and not isinstance(ipssl_address_count, float):
-            raise TypeError("Expected argument 'ipssl_address_count' to be a float")
-        __self__.ipssl_address_count = ipssl_address_count
+        return pulumi.get(self, "environment_status")
+
+    @property
+    @pulumi.getter(name="ipsslAddressCount")
+    def ipssl_address_count(self) -> Optional[float]:
         """
         Number of ip ssl addresses reserved for the managed hosting environment
         """
-        if kind and not isinstance(kind, str):
-            raise TypeError("Expected argument 'kind' to be a str")
-        __self__.kind = kind
+        return pulumi.get(self, "ipssl_address_count")
+
+    @property
+    @pulumi.getter
+    def kind(self) -> Optional[str]:
         """
         Kind of resource
         """
-        if location and not isinstance(location, str):
-            raise TypeError("Expected argument 'location' to be a str")
-        __self__.location = location
+        return pulumi.get(self, "kind")
+
+    @property
+    @pulumi.getter
+    def location(self) -> str:
         """
         Resource Location
         """
-        if name and not isinstance(name, str):
-            raise TypeError("Expected argument 'name' to be a str")
-        __self__.name = name
+        return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
         """
         Resource Name
         """
-        if resource_group and not isinstance(resource_group, str):
-            raise TypeError("Expected argument 'resource_group' to be a str")
-        __self__.resource_group = resource_group
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="resourceGroup")
+    def resource_group(self) -> Optional[str]:
         """
         Resource group of the managed hosting environment (read only)
         """
-        if status and not isinstance(status, str):
-            raise TypeError("Expected argument 'status' to be a str")
-        __self__.status = status
+        return pulumi.get(self, "resource_group")
+
+    @property
+    @pulumi.getter
+    def status(self) -> str:
         """
         Current status of the managed hosting environment
         """
-        if subscription_id and not isinstance(subscription_id, str):
-            raise TypeError("Expected argument 'subscription_id' to be a str")
-        __self__.subscription_id = subscription_id
+        return pulumi.get(self, "status")
+
+    @property
+    @pulumi.getter(name="subscriptionId")
+    def subscription_id(self) -> Optional[str]:
         """
         Subscription of the managed hosting environment (read only)
         """
-        if suspended and not isinstance(suspended, bool):
-            raise TypeError("Expected argument 'suspended' to be a bool")
-        __self__.suspended = suspended
+        return pulumi.get(self, "subscription_id")
+
+    @property
+    @pulumi.getter
+    def suspended(self) -> Optional[bool]:
         """
         True/false indicating whether the managed hosting environment is suspended. The environment can be suspended e.g. when the management endpoint is no longer available
                     (most likely because NSG blocked the incoming traffic)
         """
-        if tags and not isinstance(tags, dict):
-            raise TypeError("Expected argument 'tags' to be a dict")
-        __self__.tags = tags
+        return pulumi.get(self, "suspended")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Mapping[str, str]]:
         """
         Resource tags
         """
-        if type and not isinstance(type, str):
-            raise TypeError("Expected argument 'type' to be a str")
-        __self__.type = type
+        return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[str]:
         """
         Resource type
         """
-        if virtual_network and not isinstance(virtual_network, dict):
-            raise TypeError("Expected argument 'virtual_network' to be a dict")
-        __self__.virtual_network = virtual_network
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="virtualNetwork")
+    def virtual_network(self) -> Optional['outputs.VirtualNetworkProfileResponse']:
         """
         Description of the managed hosting environment's virtual network
         """
+        return pulumi.get(self, "virtual_network")
 
 
 class AwaitableGetManagedHostingEnvironmentResult(GetManagedHostingEnvironmentResult):
@@ -130,7 +212,9 @@ class AwaitableGetManagedHostingEnvironmentResult(GetManagedHostingEnvironmentRe
             virtual_network=self.virtual_network)
 
 
-def get_managed_hosting_environment(name=None, resource_group_name=None, opts=None):
+def get_managed_hosting_environment(name: Optional[str] = None,
+                                    resource_group_name: Optional[str] = None,
+                                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetManagedHostingEnvironmentResult:
     """
     Use this data source to access information about an existing resource.
 
@@ -144,21 +228,21 @@ def get_managed_hosting_environment(name=None, resource_group_name=None, opts=No
         opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = _utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('azurerm:web/v20150801:getManagedHostingEnvironment', __args__, opts=opts).value
+    __ret__ = pulumi.runtime.invoke('azurerm:web/v20150801:getManagedHostingEnvironment', __args__, opts=opts, typ=GetManagedHostingEnvironmentResult).value
 
     return AwaitableGetManagedHostingEnvironmentResult(
-        api_management_account=__ret__.get('apiManagementAccount'),
-        dns_suffix=__ret__.get('dnsSuffix'),
-        environment_is_healthy=__ret__.get('environmentIsHealthy'),
-        environment_status=__ret__.get('environmentStatus'),
-        ipssl_address_count=__ret__.get('ipsslAddressCount'),
-        kind=__ret__.get('kind'),
-        location=__ret__.get('location'),
-        name=__ret__.get('name'),
-        resource_group=__ret__.get('resourceGroup'),
-        status=__ret__.get('status'),
-        subscription_id=__ret__.get('subscriptionId'),
-        suspended=__ret__.get('suspended'),
-        tags=__ret__.get('tags'),
-        type=__ret__.get('type'),
-        virtual_network=__ret__.get('virtualNetwork'))
+        api_management_account=__ret__.api_management_account,
+        dns_suffix=__ret__.dns_suffix,
+        environment_is_healthy=__ret__.environment_is_healthy,
+        environment_status=__ret__.environment_status,
+        ipssl_address_count=__ret__.ipssl_address_count,
+        kind=__ret__.kind,
+        location=__ret__.location,
+        name=__ret__.name,
+        resource_group=__ret__.resource_group,
+        status=__ret__.status,
+        subscription_id=__ret__.subscription_id,
+        suspended=__ret__.suspended,
+        tags=__ret__.tags,
+        type=__ret__.type,
+        virtual_network=__ret__.virtual_network)

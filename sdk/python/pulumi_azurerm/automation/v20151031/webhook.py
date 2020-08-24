@@ -5,65 +5,30 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+from . import outputs
+from ._inputs import *
+
+__all__ = ['Webhook']
 
 
 class Webhook(pulumi.CustomResource):
-    creation_time: pulumi.Output[str]
-    """
-    Gets or sets the creation time.
-    """
-    description: pulumi.Output[str]
-    """
-    Gets or sets the description.
-    """
-    expiry_time: pulumi.Output[str]
-    """
-    Gets or sets the expiry time.
-    """
-    is_enabled: pulumi.Output[bool]
-    """
-    Gets or sets the value of the enabled flag of the webhook.
-    """
-    last_invoked_time: pulumi.Output[str]
-    """
-    Gets or sets the last invoked time.
-    """
-    last_modified_by: pulumi.Output[str]
-    """
-    Details of the user who last modified the Webhook
-    """
-    last_modified_time: pulumi.Output[str]
-    """
-    Gets or sets the last modified time.
-    """
-    name: pulumi.Output[str]
-    """
-    The name of the resource
-    """
-    parameters: pulumi.Output[dict]
-    """
-    Gets or sets the parameters of the job that is created when the webhook calls the runbook it is associated with.
-    """
-    run_on: pulumi.Output[str]
-    """
-    Gets or sets the name of the hybrid worker group the webhook job will run on.
-    """
-    runbook: pulumi.Output[dict]
-    """
-    Gets or sets the runbook the webhook is associated with.
-      * `name` (`str`) - Gets or sets the name of the runbook.
-    """
-    type: pulumi.Output[str]
-    """
-    The type of the resource.
-    """
-    uri: pulumi.Output[str]
-    """
-    Gets or sets the webhook uri.
-    """
-    def __init__(__self__, resource_name, opts=None, automation_account_name=None, expiry_time=None, is_enabled=None, name=None, parameters=None, resource_group_name=None, run_on=None, runbook=None, uri=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 automation_account_name: Optional[pulumi.Input[str]] = None,
+                 expiry_time: Optional[pulumi.Input[str]] = None,
+                 is_enabled: Optional[pulumi.Input[bool]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 run_on: Optional[pulumi.Input[str]] = None,
+                 runbook: Optional[pulumi.Input[pulumi.InputType['RunbookAssociationPropertyArgs']]] = None,
+                 uri: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         Definition of the webhook type.
 
@@ -73,15 +38,11 @@ class Webhook(pulumi.CustomResource):
         :param pulumi.Input[str] expiry_time: Gets or sets the expiry time.
         :param pulumi.Input[bool] is_enabled: Gets or sets the value of the enabled flag of webhook.
         :param pulumi.Input[str] name: The webhook name.
-        :param pulumi.Input[dict] parameters: Gets or sets the parameters of the job.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameters: Gets or sets the parameters of the job.
         :param pulumi.Input[str] resource_group_name: Name of an Azure Resource group.
         :param pulumi.Input[str] run_on: Gets or sets the name of the hybrid worker group the webhook job will run on.
-        :param pulumi.Input[dict] runbook: Gets or sets the runbook.
+        :param pulumi.Input[pulumi.InputType['RunbookAssociationPropertyArgs']] runbook: Gets or sets the runbook.
         :param pulumi.Input[str] uri: Gets or sets the uri.
-
-        The **runbook** object supports the following:
-
-          * `name` (`pulumi.Input[str]`) - Gets or sets the name of the runbook.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -128,13 +89,15 @@ class Webhook(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None) -> 'Webhook':
         """
         Get an existing Webhook resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -143,8 +106,113 @@ class Webhook(pulumi.CustomResource):
 
         return Webhook(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter(name="creationTime")
+    def creation_time(self) -> Optional[str]:
+        """
+        Gets or sets the creation time.
+        """
+        return pulumi.get(self, "creation_time")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        """
+        Gets or sets the description.
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="expiryTime")
+    def expiry_time(self) -> Optional[str]:
+        """
+        Gets or sets the expiry time.
+        """
+        return pulumi.get(self, "expiry_time")
+
+    @property
+    @pulumi.getter(name="isEnabled")
+    def is_enabled(self) -> Optional[bool]:
+        """
+        Gets or sets the value of the enabled flag of the webhook.
+        """
+        return pulumi.get(self, "is_enabled")
+
+    @property
+    @pulumi.getter(name="lastInvokedTime")
+    def last_invoked_time(self) -> Optional[str]:
+        """
+        Gets or sets the last invoked time.
+        """
+        return pulumi.get(self, "last_invoked_time")
+
+    @property
+    @pulumi.getter(name="lastModifiedBy")
+    def last_modified_by(self) -> Optional[str]:
+        """
+        Details of the user who last modified the Webhook
+        """
+        return pulumi.get(self, "last_modified_by")
+
+    @property
+    @pulumi.getter(name="lastModifiedTime")
+    def last_modified_time(self) -> Optional[str]:
+        """
+        Gets or sets the last modified time.
+        """
+        return pulumi.get(self, "last_modified_time")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the resource
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def parameters(self) -> Optional[Mapping[str, str]]:
+        """
+        Gets or sets the parameters of the job that is created when the webhook calls the runbook it is associated with.
+        """
+        return pulumi.get(self, "parameters")
+
+    @property
+    @pulumi.getter(name="runOn")
+    def run_on(self) -> Optional[str]:
+        """
+        Gets or sets the name of the hybrid worker group the webhook job will run on.
+        """
+        return pulumi.get(self, "run_on")
+
+    @property
+    @pulumi.getter
+    def runbook(self) -> Optional['outputs.RunbookAssociationPropertyResponse']:
+        """
+        Gets or sets the runbook the webhook is associated with.
+        """
+        return pulumi.get(self, "runbook")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        The type of the resource.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def uri(self) -> Optional[str]:
+        """
+        Gets or sets the webhook uri.
+        """
+        return pulumi.get(self, "uri")
+
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

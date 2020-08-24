@@ -5,68 +5,32 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+
+__all__ = ['Disk']
 
 
 class Disk(pulumi.CustomResource):
-    created_date: pulumi.Output[str]
-    """
-    The creation date of the disk.
-    """
-    disk_blob_name: pulumi.Output[str]
-    """
-    When backed by a blob, the name of the VHD blob without extension.
-    """
-    disk_size_gi_b: pulumi.Output[float]
-    """
-    The size of the disk in GibiBytes.
-    """
-    disk_type: pulumi.Output[str]
-    """
-    The storage type for the disk (i.e. Standard, Premium).
-    """
-    disk_uri: pulumi.Output[str]
-    """
-    When backed by a blob, the URI of underlying blob.
-    """
-    host_caching: pulumi.Output[str]
-    """
-    The host caching policy of the disk (i.e. None, ReadOnly, ReadWrite).
-    """
-    leased_by_lab_vm_id: pulumi.Output[str]
-    """
-    The resource ID of the VM to which this disk is leased.
-    """
-    location: pulumi.Output[str]
-    """
-    The location of the resource.
-    """
-    managed_disk_id: pulumi.Output[str]
-    """
-    When backed by managed disk, this is the ID of the compute disk resource.
-    """
-    name: pulumi.Output[str]
-    """
-    The name of the resource.
-    """
-    provisioning_state: pulumi.Output[str]
-    """
-    The provisioning status of the resource.
-    """
-    tags: pulumi.Output[dict]
-    """
-    The tags of the resource.
-    """
-    type: pulumi.Output[str]
-    """
-    The type of the resource.
-    """
-    unique_identifier: pulumi.Output[str]
-    """
-    The unique immutable identifier of a resource (Guid).
-    """
-    def __init__(__self__, resource_name, opts=None, disk_blob_name=None, disk_size_gi_b=None, disk_type=None, disk_uri=None, host_caching=None, lab_name=None, leased_by_lab_vm_id=None, location=None, managed_disk_id=None, name=None, resource_group_name=None, tags=None, user_name=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 disk_blob_name: Optional[pulumi.Input[str]] = None,
+                 disk_size_gi_b: Optional[pulumi.Input[float]] = None,
+                 disk_type: Optional[pulumi.Input[str]] = None,
+                 disk_uri: Optional[pulumi.Input[str]] = None,
+                 host_caching: Optional[pulumi.Input[str]] = None,
+                 lab_name: Optional[pulumi.Input[str]] = None,
+                 leased_by_lab_vm_id: Optional[pulumi.Input[str]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 managed_disk_id: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 user_name: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         A Disk.
 
@@ -83,7 +47,7 @@ class Disk(pulumi.CustomResource):
         :param pulumi.Input[str] managed_disk_id: When backed by managed disk, this is the ID of the compute disk resource.
         :param pulumi.Input[str] name: The name of the disk.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
-        :param pulumi.Input[dict] tags: The tags of the resource.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The tags of the resource.
         :param pulumi.Input[str] user_name: The name of the user profile.
         """
         if __name__ is not None:
@@ -137,13 +101,15 @@ class Disk(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None) -> 'Disk':
         """
         Get an existing Disk resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -152,8 +118,121 @@ class Disk(pulumi.CustomResource):
 
         return Disk(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter(name="createdDate")
+    def created_date(self) -> str:
+        """
+        The creation date of the disk.
+        """
+        return pulumi.get(self, "created_date")
+
+    @property
+    @pulumi.getter(name="diskBlobName")
+    def disk_blob_name(self) -> Optional[str]:
+        """
+        When backed by a blob, the name of the VHD blob without extension.
+        """
+        return pulumi.get(self, "disk_blob_name")
+
+    @property
+    @pulumi.getter(name="diskSizeGiB")
+    def disk_size_gi_b(self) -> Optional[float]:
+        """
+        The size of the disk in GibiBytes.
+        """
+        return pulumi.get(self, "disk_size_gi_b")
+
+    @property
+    @pulumi.getter(name="diskType")
+    def disk_type(self) -> Optional[str]:
+        """
+        The storage type for the disk (i.e. Standard, Premium).
+        """
+        return pulumi.get(self, "disk_type")
+
+    @property
+    @pulumi.getter(name="diskUri")
+    def disk_uri(self) -> Optional[str]:
+        """
+        When backed by a blob, the URI of underlying blob.
+        """
+        return pulumi.get(self, "disk_uri")
+
+    @property
+    @pulumi.getter(name="hostCaching")
+    def host_caching(self) -> Optional[str]:
+        """
+        The host caching policy of the disk (i.e. None, ReadOnly, ReadWrite).
+        """
+        return pulumi.get(self, "host_caching")
+
+    @property
+    @pulumi.getter(name="leasedByLabVmId")
+    def leased_by_lab_vm_id(self) -> Optional[str]:
+        """
+        The resource ID of the VM to which this disk is leased.
+        """
+        return pulumi.get(self, "leased_by_lab_vm_id")
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[str]:
+        """
+        The location of the resource.
+        """
+        return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter(name="managedDiskId")
+    def managed_disk_id(self) -> Optional[str]:
+        """
+        When backed by managed disk, this is the ID of the compute disk resource.
+        """
+        return pulumi.get(self, "managed_disk_id")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the resource.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        The provisioning status of the resource.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Mapping[str, str]]:
+        """
+        The tags of the resource.
+        """
+        return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        The type of the resource.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="uniqueIdentifier")
+    def unique_identifier(self) -> str:
+        """
+        The unique immutable identifier of a resource (Guid).
+        """
+        return pulumi.get(self, "unique_identifier")
+
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

@@ -5,10 +5,17 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+from . import outputs
 
+__all__ = [
+    'GetApiManagementServiceResult',
+    'AwaitableGetApiManagementServiceResult',
+    'get_api_management_service',
+]
 
+@pulumi.output_type
 class GetApiManagementServiceResult:
     """
     A single API Management service resource in List or Get response.
@@ -16,160 +23,290 @@ class GetApiManagementServiceResult:
     def __init__(__self__, additional_locations=None, certificates=None, created_at_utc=None, custom_properties=None, etag=None, gateway_regional_url=None, gateway_url=None, hostname_configurations=None, identity=None, location=None, management_api_url=None, name=None, notification_sender_email=None, portal_url=None, private_ip_addresses=None, provisioning_state=None, public_ip_addresses=None, publisher_email=None, publisher_name=None, scm_url=None, sku=None, tags=None, target_provisioning_state=None, type=None, virtual_network_configuration=None, virtual_network_type=None):
         if additional_locations and not isinstance(additional_locations, list):
             raise TypeError("Expected argument 'additional_locations' to be a list")
-        __self__.additional_locations = additional_locations
+        pulumi.set(__self__, "additional_locations", additional_locations)
+        if certificates and not isinstance(certificates, list):
+            raise TypeError("Expected argument 'certificates' to be a list")
+        pulumi.set(__self__, "certificates", certificates)
+        if created_at_utc and not isinstance(created_at_utc, str):
+            raise TypeError("Expected argument 'created_at_utc' to be a str")
+        pulumi.set(__self__, "created_at_utc", created_at_utc)
+        if custom_properties and not isinstance(custom_properties, dict):
+            raise TypeError("Expected argument 'custom_properties' to be a dict")
+        pulumi.set(__self__, "custom_properties", custom_properties)
+        if etag and not isinstance(etag, str):
+            raise TypeError("Expected argument 'etag' to be a str")
+        pulumi.set(__self__, "etag", etag)
+        if gateway_regional_url and not isinstance(gateway_regional_url, str):
+            raise TypeError("Expected argument 'gateway_regional_url' to be a str")
+        pulumi.set(__self__, "gateway_regional_url", gateway_regional_url)
+        if gateway_url and not isinstance(gateway_url, str):
+            raise TypeError("Expected argument 'gateway_url' to be a str")
+        pulumi.set(__self__, "gateway_url", gateway_url)
+        if hostname_configurations and not isinstance(hostname_configurations, list):
+            raise TypeError("Expected argument 'hostname_configurations' to be a list")
+        pulumi.set(__self__, "hostname_configurations", hostname_configurations)
+        if identity and not isinstance(identity, dict):
+            raise TypeError("Expected argument 'identity' to be a dict")
+        pulumi.set(__self__, "identity", identity)
+        if location and not isinstance(location, str):
+            raise TypeError("Expected argument 'location' to be a str")
+        pulumi.set(__self__, "location", location)
+        if management_api_url and not isinstance(management_api_url, str):
+            raise TypeError("Expected argument 'management_api_url' to be a str")
+        pulumi.set(__self__, "management_api_url", management_api_url)
+        if name and not isinstance(name, str):
+            raise TypeError("Expected argument 'name' to be a str")
+        pulumi.set(__self__, "name", name)
+        if notification_sender_email and not isinstance(notification_sender_email, str):
+            raise TypeError("Expected argument 'notification_sender_email' to be a str")
+        pulumi.set(__self__, "notification_sender_email", notification_sender_email)
+        if portal_url and not isinstance(portal_url, str):
+            raise TypeError("Expected argument 'portal_url' to be a str")
+        pulumi.set(__self__, "portal_url", portal_url)
+        if private_ip_addresses and not isinstance(private_ip_addresses, list):
+            raise TypeError("Expected argument 'private_ip_addresses' to be a list")
+        pulumi.set(__self__, "private_ip_addresses", private_ip_addresses)
+        if provisioning_state and not isinstance(provisioning_state, str):
+            raise TypeError("Expected argument 'provisioning_state' to be a str")
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if public_ip_addresses and not isinstance(public_ip_addresses, list):
+            raise TypeError("Expected argument 'public_ip_addresses' to be a list")
+        pulumi.set(__self__, "public_ip_addresses", public_ip_addresses)
+        if publisher_email and not isinstance(publisher_email, str):
+            raise TypeError("Expected argument 'publisher_email' to be a str")
+        pulumi.set(__self__, "publisher_email", publisher_email)
+        if publisher_name and not isinstance(publisher_name, str):
+            raise TypeError("Expected argument 'publisher_name' to be a str")
+        pulumi.set(__self__, "publisher_name", publisher_name)
+        if scm_url and not isinstance(scm_url, str):
+            raise TypeError("Expected argument 'scm_url' to be a str")
+        pulumi.set(__self__, "scm_url", scm_url)
+        if sku and not isinstance(sku, dict):
+            raise TypeError("Expected argument 'sku' to be a dict")
+        pulumi.set(__self__, "sku", sku)
+        if tags and not isinstance(tags, dict):
+            raise TypeError("Expected argument 'tags' to be a dict")
+        pulumi.set(__self__, "tags", tags)
+        if target_provisioning_state and not isinstance(target_provisioning_state, str):
+            raise TypeError("Expected argument 'target_provisioning_state' to be a str")
+        pulumi.set(__self__, "target_provisioning_state", target_provisioning_state)
+        if type and not isinstance(type, str):
+            raise TypeError("Expected argument 'type' to be a str")
+        pulumi.set(__self__, "type", type)
+        if virtual_network_configuration and not isinstance(virtual_network_configuration, dict):
+            raise TypeError("Expected argument 'virtual_network_configuration' to be a dict")
+        pulumi.set(__self__, "virtual_network_configuration", virtual_network_configuration)
+        if virtual_network_type and not isinstance(virtual_network_type, str):
+            raise TypeError("Expected argument 'virtual_network_type' to be a str")
+        pulumi.set(__self__, "virtual_network_type", virtual_network_type)
+
+    @property
+    @pulumi.getter(name="additionalLocations")
+    def additional_locations(self) -> Optional[List['outputs.AdditionalLocationResponse']]:
         """
         Additional datacenter locations of the API Management service.
         """
-        if certificates and not isinstance(certificates, list):
-            raise TypeError("Expected argument 'certificates' to be a list")
-        __self__.certificates = certificates
+        return pulumi.get(self, "additional_locations")
+
+    @property
+    @pulumi.getter
+    def certificates(self) -> Optional[List['outputs.CertificateConfigurationResponse']]:
         """
         List of Certificates that need to be installed in the API Management service. Max supported certificates that can be installed is 10.
         """
-        if created_at_utc and not isinstance(created_at_utc, str):
-            raise TypeError("Expected argument 'created_at_utc' to be a str")
-        __self__.created_at_utc = created_at_utc
+        return pulumi.get(self, "certificates")
+
+    @property
+    @pulumi.getter(name="createdAtUtc")
+    def created_at_utc(self) -> str:
         """
         Creation UTC date of the API Management service.The date conforms to the following format: `yyyy-MM-ddTHH:mm:ssZ` as specified by the ISO 8601 standard.
         """
-        if custom_properties and not isinstance(custom_properties, dict):
-            raise TypeError("Expected argument 'custom_properties' to be a dict")
-        __self__.custom_properties = custom_properties
+        return pulumi.get(self, "created_at_utc")
+
+    @property
+    @pulumi.getter(name="customProperties")
+    def custom_properties(self) -> Optional[Mapping[str, str]]:
         """
         Custom properties of the API Management service. Setting `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Ciphers.TripleDes168` will disable the cipher TLS_RSA_WITH_3DES_EDE_CBC_SHA for all TLS(1.0, 1.1 and 1.2). Setting `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Protocols.Tls11` can be used to disable just TLS 1.1 and setting `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Protocols.Tls10` can be used to disable TLS 1.0 on an API Management service.
         """
-        if etag and not isinstance(etag, str):
-            raise TypeError("Expected argument 'etag' to be a str")
-        __self__.etag = etag
+        return pulumi.get(self, "custom_properties")
+
+    @property
+    @pulumi.getter
+    def etag(self) -> str:
         """
         ETag of the resource.
         """
-        if gateway_regional_url and not isinstance(gateway_regional_url, str):
-            raise TypeError("Expected argument 'gateway_regional_url' to be a str")
-        __self__.gateway_regional_url = gateway_regional_url
+        return pulumi.get(self, "etag")
+
+    @property
+    @pulumi.getter(name="gatewayRegionalUrl")
+    def gateway_regional_url(self) -> str:
         """
         Gateway URL of the API Management service in the Default Region.
         """
-        if gateway_url and not isinstance(gateway_url, str):
-            raise TypeError("Expected argument 'gateway_url' to be a str")
-        __self__.gateway_url = gateway_url
+        return pulumi.get(self, "gateway_regional_url")
+
+    @property
+    @pulumi.getter(name="gatewayUrl")
+    def gateway_url(self) -> str:
         """
         Gateway URL of the API Management service.
         """
-        if hostname_configurations and not isinstance(hostname_configurations, list):
-            raise TypeError("Expected argument 'hostname_configurations' to be a list")
-        __self__.hostname_configurations = hostname_configurations
+        return pulumi.get(self, "gateway_url")
+
+    @property
+    @pulumi.getter(name="hostnameConfigurations")
+    def hostname_configurations(self) -> Optional[List['outputs.HostnameConfigurationResponse']]:
         """
         Custom hostname configuration of the API Management service.
         """
-        if identity and not isinstance(identity, dict):
-            raise TypeError("Expected argument 'identity' to be a dict")
-        __self__.identity = identity
+        return pulumi.get(self, "hostname_configurations")
+
+    @property
+    @pulumi.getter
+    def identity(self) -> Optional['outputs.ApiManagementServiceIdentityResponse']:
         """
         Managed service identity of the Api Management service.
         """
-        if location and not isinstance(location, str):
-            raise TypeError("Expected argument 'location' to be a str")
-        __self__.location = location
+        return pulumi.get(self, "identity")
+
+    @property
+    @pulumi.getter
+    def location(self) -> str:
         """
         Resource location.
         """
-        if management_api_url and not isinstance(management_api_url, str):
-            raise TypeError("Expected argument 'management_api_url' to be a str")
-        __self__.management_api_url = management_api_url
+        return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter(name="managementApiUrl")
+    def management_api_url(self) -> str:
         """
         Management API endpoint URL of the API Management service.
         """
-        if name and not isinstance(name, str):
-            raise TypeError("Expected argument 'name' to be a str")
-        __self__.name = name
+        return pulumi.get(self, "management_api_url")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
         """
         Resource name.
         """
-        if notification_sender_email and not isinstance(notification_sender_email, str):
-            raise TypeError("Expected argument 'notification_sender_email' to be a str")
-        __self__.notification_sender_email = notification_sender_email
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="notificationSenderEmail")
+    def notification_sender_email(self) -> Optional[str]:
         """
         Email address from which the notification will be sent.
         """
-        if portal_url and not isinstance(portal_url, str):
-            raise TypeError("Expected argument 'portal_url' to be a str")
-        __self__.portal_url = portal_url
+        return pulumi.get(self, "notification_sender_email")
+
+    @property
+    @pulumi.getter(name="portalUrl")
+    def portal_url(self) -> str:
         """
         Publisher portal endpoint Url of the API Management service.
         """
-        if private_ip_addresses and not isinstance(private_ip_addresses, list):
-            raise TypeError("Expected argument 'private_ip_addresses' to be a list")
-        __self__.private_ip_addresses = private_ip_addresses
+        return pulumi.get(self, "portal_url")
+
+    @property
+    @pulumi.getter(name="privateIPAddresses")
+    def private_ip_addresses(self) -> List[str]:
         """
         Private Static Load Balanced IP addresses of the API Management service in Primary region which is deployed in an Internal Virtual Network. Available only for Basic, Standard and Premium SKU.
         """
-        if provisioning_state and not isinstance(provisioning_state, str):
-            raise TypeError("Expected argument 'provisioning_state' to be a str")
-        __self__.provisioning_state = provisioning_state
+        return pulumi.get(self, "private_ip_addresses")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
         """
         The current provisioning state of the API Management service which can be one of the following: Created/Activating/Succeeded/Updating/Failed/Stopped/Terminating/TerminationFailed/Deleted.
         """
-        if public_ip_addresses and not isinstance(public_ip_addresses, list):
-            raise TypeError("Expected argument 'public_ip_addresses' to be a list")
-        __self__.public_ip_addresses = public_ip_addresses
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="publicIPAddresses")
+    def public_ip_addresses(self) -> List[str]:
         """
         Public Static Load Balanced IP addresses of the API Management service in Primary region. Available only for Basic, Standard and Premium SKU.
         """
-        if publisher_email and not isinstance(publisher_email, str):
-            raise TypeError("Expected argument 'publisher_email' to be a str")
-        __self__.publisher_email = publisher_email
+        return pulumi.get(self, "public_ip_addresses")
+
+    @property
+    @pulumi.getter(name="publisherEmail")
+    def publisher_email(self) -> str:
         """
         Publisher email.
         """
-        if publisher_name and not isinstance(publisher_name, str):
-            raise TypeError("Expected argument 'publisher_name' to be a str")
-        __self__.publisher_name = publisher_name
+        return pulumi.get(self, "publisher_email")
+
+    @property
+    @pulumi.getter(name="publisherName")
+    def publisher_name(self) -> str:
         """
         Publisher name.
         """
-        if scm_url and not isinstance(scm_url, str):
-            raise TypeError("Expected argument 'scm_url' to be a str")
-        __self__.scm_url = scm_url
+        return pulumi.get(self, "publisher_name")
+
+    @property
+    @pulumi.getter(name="scmUrl")
+    def scm_url(self) -> str:
         """
         SCM endpoint URL of the API Management service.
         """
-        if sku and not isinstance(sku, dict):
-            raise TypeError("Expected argument 'sku' to be a dict")
-        __self__.sku = sku
+        return pulumi.get(self, "scm_url")
+
+    @property
+    @pulumi.getter
+    def sku(self) -> 'outputs.ApiManagementServiceSkuPropertiesResponse':
         """
         SKU properties of the API Management service.
         """
-        if tags and not isinstance(tags, dict):
-            raise TypeError("Expected argument 'tags' to be a dict")
-        __self__.tags = tags
+        return pulumi.get(self, "sku")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Mapping[str, str]]:
         """
         Resource tags.
         """
-        if target_provisioning_state and not isinstance(target_provisioning_state, str):
-            raise TypeError("Expected argument 'target_provisioning_state' to be a str")
-        __self__.target_provisioning_state = target_provisioning_state
+        return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter(name="targetProvisioningState")
+    def target_provisioning_state(self) -> str:
         """
         The provisioning state of the API Management service, which is targeted by the long running operation started on the service.
         """
-        if type and not isinstance(type, str):
-            raise TypeError("Expected argument 'type' to be a str")
-        __self__.type = type
+        return pulumi.get(self, "target_provisioning_state")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
         """
         Resource type for API Management resource is set to Microsoft.ApiManagement.
         """
-        if virtual_network_configuration and not isinstance(virtual_network_configuration, dict):
-            raise TypeError("Expected argument 'virtual_network_configuration' to be a dict")
-        __self__.virtual_network_configuration = virtual_network_configuration
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="virtualNetworkConfiguration")
+    def virtual_network_configuration(self) -> Optional['outputs.VirtualNetworkConfigurationResponse']:
         """
         Virtual network configuration of the API Management service.
         """
-        if virtual_network_type and not isinstance(virtual_network_type, str):
-            raise TypeError("Expected argument 'virtual_network_type' to be a str")
-        __self__.virtual_network_type = virtual_network_type
+        return pulumi.get(self, "virtual_network_configuration")
+
+    @property
+    @pulumi.getter(name="virtualNetworkType")
+    def virtual_network_type(self) -> Optional[str]:
         """
         The type of VPN in which API Management service needs to be configured in. None (Default Value) means the API Management service is not part of any Virtual Network, External means the API Management deployment is set up inside a Virtual Network having an Internet Facing Endpoint, and Internal means that API Management deployment is setup inside a Virtual Network having an Intranet Facing Endpoint only.
         """
+        return pulumi.get(self, "virtual_network_type")
 
 
 class AwaitableGetApiManagementServiceResult(GetApiManagementServiceResult):
@@ -206,7 +343,9 @@ class AwaitableGetApiManagementServiceResult(GetApiManagementServiceResult):
             virtual_network_type=self.virtual_network_type)
 
 
-def get_api_management_service(name=None, resource_group_name=None, opts=None):
+def get_api_management_service(name: Optional[str] = None,
+                               resource_group_name: Optional[str] = None,
+                               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetApiManagementServiceResult:
     """
     Use this data source to access information about an existing resource.
 
@@ -220,32 +359,32 @@ def get_api_management_service(name=None, resource_group_name=None, opts=None):
         opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = _utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('azurerm:apimanagement/v20180101:getApiManagementService', __args__, opts=opts).value
+    __ret__ = pulumi.runtime.invoke('azurerm:apimanagement/v20180101:getApiManagementService', __args__, opts=opts, typ=GetApiManagementServiceResult).value
 
     return AwaitableGetApiManagementServiceResult(
-        additional_locations=__ret__.get('additionalLocations'),
-        certificates=__ret__.get('certificates'),
-        created_at_utc=__ret__.get('createdAtUtc'),
-        custom_properties=__ret__.get('customProperties'),
-        etag=__ret__.get('etag'),
-        gateway_regional_url=__ret__.get('gatewayRegionalUrl'),
-        gateway_url=__ret__.get('gatewayUrl'),
-        hostname_configurations=__ret__.get('hostnameConfigurations'),
-        identity=__ret__.get('identity'),
-        location=__ret__.get('location'),
-        management_api_url=__ret__.get('managementApiUrl'),
-        name=__ret__.get('name'),
-        notification_sender_email=__ret__.get('notificationSenderEmail'),
-        portal_url=__ret__.get('portalUrl'),
-        private_ip_addresses=__ret__.get('privateIPAddresses'),
-        provisioning_state=__ret__.get('provisioningState'),
-        public_ip_addresses=__ret__.get('publicIPAddresses'),
-        publisher_email=__ret__.get('publisherEmail'),
-        publisher_name=__ret__.get('publisherName'),
-        scm_url=__ret__.get('scmUrl'),
-        sku=__ret__.get('sku'),
-        tags=__ret__.get('tags'),
-        target_provisioning_state=__ret__.get('targetProvisioningState'),
-        type=__ret__.get('type'),
-        virtual_network_configuration=__ret__.get('virtualNetworkConfiguration'),
-        virtual_network_type=__ret__.get('virtualNetworkType'))
+        additional_locations=__ret__.additional_locations,
+        certificates=__ret__.certificates,
+        created_at_utc=__ret__.created_at_utc,
+        custom_properties=__ret__.custom_properties,
+        etag=__ret__.etag,
+        gateway_regional_url=__ret__.gateway_regional_url,
+        gateway_url=__ret__.gateway_url,
+        hostname_configurations=__ret__.hostname_configurations,
+        identity=__ret__.identity,
+        location=__ret__.location,
+        management_api_url=__ret__.management_api_url,
+        name=__ret__.name,
+        notification_sender_email=__ret__.notification_sender_email,
+        portal_url=__ret__.portal_url,
+        private_ip_addresses=__ret__.private_ip_addresses,
+        provisioning_state=__ret__.provisioning_state,
+        public_ip_addresses=__ret__.public_ip_addresses,
+        publisher_email=__ret__.publisher_email,
+        publisher_name=__ret__.publisher_name,
+        scm_url=__ret__.scm_url,
+        sku=__ret__.sku,
+        tags=__ret__.tags,
+        target_provisioning_state=__ret__.target_provisioning_state,
+        type=__ret__.type,
+        virtual_network_configuration=__ret__.virtual_network_configuration,
+        virtual_network_type=__ret__.virtual_network_type)

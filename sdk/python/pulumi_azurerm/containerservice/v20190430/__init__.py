@@ -5,3 +5,5 @@
 # Export this package's modules as members:
 from .get_open_shift_managed_cluster import *
 from .open_shift_managed_cluster import *
+from ._inputs import *
+from . import outputs

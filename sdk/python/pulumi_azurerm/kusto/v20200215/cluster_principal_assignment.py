@@ -5,48 +5,26 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+
+__all__ = ['ClusterPrincipalAssignment']
 
 
 class ClusterPrincipalAssignment(pulumi.CustomResource):
-    name: pulumi.Output[str]
-    """
-    The name of the resource
-    """
-    principal_id: pulumi.Output[str]
-    """
-    The principal ID assigned to the cluster principal. It can be a user email, application ID, or security group name.
-    """
-    principal_name: pulumi.Output[str]
-    """
-    The principal name
-    """
-    principal_type: pulumi.Output[str]
-    """
-    Principal type.
-    """
-    provisioning_state: pulumi.Output[str]
-    """
-    The provisioned state of the resource.
-    """
-    role: pulumi.Output[str]
-    """
-    Cluster principal role.
-    """
-    tenant_id: pulumi.Output[str]
-    """
-    The tenant id of the principal
-    """
-    tenant_name: pulumi.Output[str]
-    """
-    The tenant name of the principal
-    """
-    type: pulumi.Output[str]
-    """
-    The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
-    """
-    def __init__(__self__, resource_name, opts=None, cluster_name=None, name=None, principal_id=None, principal_type=None, resource_group_name=None, role=None, tenant_id=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 cluster_name: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 principal_id: Optional[pulumi.Input[str]] = None,
+                 principal_type: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 role: Optional[pulumi.Input[str]] = None,
+                 tenant_id: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         Class representing a cluster principal assignment.
 
@@ -109,13 +87,15 @@ class ClusterPrincipalAssignment(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None) -> 'ClusterPrincipalAssignment':
         """
         Get an existing ClusterPrincipalAssignment resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -124,8 +104,81 @@ class ClusterPrincipalAssignment(pulumi.CustomResource):
 
         return ClusterPrincipalAssignment(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the resource
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="principalId")
+    def principal_id(self) -> str:
+        """
+        The principal ID assigned to the cluster principal. It can be a user email, application ID, or security group name.
+        """
+        return pulumi.get(self, "principal_id")
+
+    @property
+    @pulumi.getter(name="principalName")
+    def principal_name(self) -> str:
+        """
+        The principal name
+        """
+        return pulumi.get(self, "principal_name")
+
+    @property
+    @pulumi.getter(name="principalType")
+    def principal_type(self) -> str:
+        """
+        Principal type.
+        """
+        return pulumi.get(self, "principal_type")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        The provisioned state of the resource.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter
+    def role(self) -> str:
+        """
+        Cluster principal role.
+        """
+        return pulumi.get(self, "role")
+
+    @property
+    @pulumi.getter(name="tenantId")
+    def tenant_id(self) -> Optional[str]:
+        """
+        The tenant id of the principal
+        """
+        return pulumi.get(self, "tenant_id")
+
+    @property
+    @pulumi.getter(name="tenantName")
+    def tenant_name(self) -> str:
+        """
+        The tenant name of the principal
+        """
+        return pulumi.get(self, "tenant_name")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+        """
+        return pulumi.get(self, "type")
+
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

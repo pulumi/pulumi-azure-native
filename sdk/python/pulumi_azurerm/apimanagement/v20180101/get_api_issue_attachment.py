@@ -5,10 +5,16 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
 
+__all__ = [
+    'GetApiIssueAttachmentResult',
+    'AwaitableGetApiIssueAttachmentResult',
+    'get_api_issue_attachment',
+]
 
+@pulumi.output_type
 class GetApiIssueAttachmentResult:
     """
     Issue Attachment Contract details.
@@ -16,34 +22,59 @@ class GetApiIssueAttachmentResult:
     def __init__(__self__, content=None, content_format=None, name=None, title=None, type=None):
         if content and not isinstance(content, str):
             raise TypeError("Expected argument 'content' to be a str")
-        __self__.content = content
+        pulumi.set(__self__, "content", content)
+        if content_format and not isinstance(content_format, str):
+            raise TypeError("Expected argument 'content_format' to be a str")
+        pulumi.set(__self__, "content_format", content_format)
+        if name and not isinstance(name, str):
+            raise TypeError("Expected argument 'name' to be a str")
+        pulumi.set(__self__, "name", name)
+        if title and not isinstance(title, str):
+            raise TypeError("Expected argument 'title' to be a str")
+        pulumi.set(__self__, "title", title)
+        if type and not isinstance(type, str):
+            raise TypeError("Expected argument 'type' to be a str")
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def content(self) -> str:
         """
         An HTTP link or Base64-encoded binary data.
         """
-        if content_format and not isinstance(content_format, str):
-            raise TypeError("Expected argument 'content_format' to be a str")
-        __self__.content_format = content_format
+        return pulumi.get(self, "content")
+
+    @property
+    @pulumi.getter(name="contentFormat")
+    def content_format(self) -> str:
         """
         Either 'link' if content is provided via an HTTP link or the MIME type of the Base64-encoded binary data provided in the 'content' property.
         """
-        if name and not isinstance(name, str):
-            raise TypeError("Expected argument 'name' to be a str")
-        __self__.name = name
+        return pulumi.get(self, "content_format")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
         """
         Resource name.
         """
-        if title and not isinstance(title, str):
-            raise TypeError("Expected argument 'title' to be a str")
-        __self__.title = title
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def title(self) -> str:
         """
         Filename by which the binary data will be saved.
         """
-        if type and not isinstance(type, str):
-            raise TypeError("Expected argument 'type' to be a str")
-        __self__.type = type
+        return pulumi.get(self, "title")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
         """
         Resource type for API Management resource.
         """
+        return pulumi.get(self, "type")
 
 
 class AwaitableGetApiIssueAttachmentResult(GetApiIssueAttachmentResult):
@@ -59,7 +90,12 @@ class AwaitableGetApiIssueAttachmentResult(GetApiIssueAttachmentResult):
             type=self.type)
 
 
-def get_api_issue_attachment(api_id=None, issue_id=None, name=None, resource_group_name=None, service_name=None, opts=None):
+def get_api_issue_attachment(api_id: Optional[str] = None,
+                             issue_id: Optional[str] = None,
+                             name: Optional[str] = None,
+                             resource_group_name: Optional[str] = None,
+                             service_name: Optional[str] = None,
+                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetApiIssueAttachmentResult:
     """
     Use this data source to access information about an existing resource.
 
@@ -79,11 +115,11 @@ def get_api_issue_attachment(api_id=None, issue_id=None, name=None, resource_gro
         opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = _utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('azurerm:apimanagement/v20180101:getApiIssueAttachment', __args__, opts=opts).value
+    __ret__ = pulumi.runtime.invoke('azurerm:apimanagement/v20180101:getApiIssueAttachment', __args__, opts=opts, typ=GetApiIssueAttachmentResult).value
 
     return AwaitableGetApiIssueAttachmentResult(
-        content=__ret__.get('content'),
-        content_format=__ret__.get('contentFormat'),
-        name=__ret__.get('name'),
-        title=__ret__.get('title'),
-        type=__ret__.get('type'))
+        content=__ret__.content,
+        content_format=__ret__.content_format,
+        name=__ret__.name,
+        title=__ret__.title,
+        type=__ret__.type)

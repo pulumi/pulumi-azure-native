@@ -5,106 +5,34 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+from . import outputs
+
+__all__ = ['Component']
 
 
 class Component(pulumi.CustomResource):
-    app_id: pulumi.Output[str]
-    """
-    Application Insights Unique ID for your Application.
-    """
-    application_id: pulumi.Output[str]
-    """
-    The unique ID of your application. This field mirrors the 'Name' field and cannot be changed.
-    """
-    application_type: pulumi.Output[str]
-    """
-    Type of application being monitored.
-    """
-    connection_string: pulumi.Output[str]
-    """
-    Application Insights component connection string.
-    """
-    creation_date: pulumi.Output[str]
-    """
-    Creation Date for the Application Insights component, in ISO 8601 format.
-    """
-    disable_ip_masking: pulumi.Output[bool]
-    """
-    Disable IP masking.
-    """
-    flow_type: pulumi.Output[str]
-    """
-    Used by the Application Insights system to determine what kind of flow this component was created by. This is to be set to 'Bluefield' when creating/updating a component via the REST API.
-    """
-    hockey_app_id: pulumi.Output[str]
-    """
-    The unique application ID created when a new application is added to HockeyApp, used for communications with HockeyApp.
-    """
-    hockey_app_token: pulumi.Output[str]
-    """
-    Token used to authenticate communications with between Application Insights and HockeyApp.
-    """
-    immediate_purge_data_on30_days: pulumi.Output[bool]
-    """
-    Purge data immediately after 30 days.
-    """
-    ingestion_mode: pulumi.Output[str]
-    """
-    Indicates the flow of the ingestion.
-    """
-    instrumentation_key: pulumi.Output[str]
-    """
-    Application Insights Instrumentation key. A read-only value that applications can use to identify the destination for all telemetry sent to Azure Application Insights. This value will be supplied upon construction of each new Application Insights component.
-    """
-    kind: pulumi.Output[str]
-    """
-    The kind of application that this component refers to, used to customize UI. This value is a freeform string, values should typically be one of the following: web, ios, other, store, java, phone.
-    """
-    location: pulumi.Output[str]
-    """
-    Resource location
-    """
-    name: pulumi.Output[str]
-    """
-    Azure resource name
-    """
-    private_link_scoped_resources: pulumi.Output[list]
-    """
-    List of linked private link scope resources.
-      * `resource_id` (`str`) - The full resource Id of the private link scope resource.
-      * `scope_id` (`str`) - The private link scope unique Identifier.
-    """
-    provisioning_state: pulumi.Output[str]
-    """
-    Current state of this component: whether or not is has been provisioned within the resource group it is defined. Users cannot change this value but are able to read from it. Values will include Succeeded, Deploying, Canceled, and Failed.
-    """
-    request_source: pulumi.Output[str]
-    """
-    Describes what tool created this Application Insights component. Customers using this API should set this to the default 'rest'.
-    """
-    retention_in_days: pulumi.Output[float]
-    """
-    Retention period in days.
-    """
-    sampling_percentage: pulumi.Output[float]
-    """
-    Percentage of the data produced by the application being monitored that is being sampled for Application Insights telemetry.
-    """
-    tags: pulumi.Output[dict]
-    """
-    Resource tags
-    """
-    tenant_id: pulumi.Output[str]
-    """
-    Azure Tenant Id.
-    """
-    type: pulumi.Output[str]
-    """
-    Azure resource type
-    """
-    def __init__(__self__, resource_name, opts=None, application_type=None, disable_ip_masking=None, flow_type=None, hockey_app_id=None, immediate_purge_data_on30_days=None, ingestion_mode=None, kind=None, location=None, name=None, request_source=None, resource_group_name=None, retention_in_days=None, sampling_percentage=None, tags=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 application_type: Optional[pulumi.Input[str]] = None,
+                 disable_ip_masking: Optional[pulumi.Input[bool]] = None,
+                 flow_type: Optional[pulumi.Input[str]] = None,
+                 hockey_app_id: Optional[pulumi.Input[str]] = None,
+                 immediate_purge_data_on30_days: Optional[pulumi.Input[bool]] = None,
+                 ingestion_mode: Optional[pulumi.Input[str]] = None,
+                 kind: Optional[pulumi.Input[str]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 request_source: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 retention_in_days: Optional[pulumi.Input[float]] = None,
+                 sampling_percentage: Optional[pulumi.Input[float]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         An Application Insights component definition.
 
@@ -123,7 +51,7 @@ class Component(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[float] retention_in_days: Retention period in days.
         :param pulumi.Input[float] sampling_percentage: Percentage of the data produced by the application being monitored that is being sampled for Application Insights telemetry.
-        :param pulumi.Input[dict] tags: Resource tags
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -183,13 +111,15 @@ class Component(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None) -> 'Component':
         """
         Get an existing Component resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -198,8 +128,193 @@ class Component(pulumi.CustomResource):
 
         return Component(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter(name="appId")
+    def app_id(self) -> str:
+        """
+        Application Insights Unique ID for your Application.
+        """
+        return pulumi.get(self, "app_id")
+
+    @property
+    @pulumi.getter(name="applicationId")
+    def application_id(self) -> str:
+        """
+        The unique ID of your application. This field mirrors the 'Name' field and cannot be changed.
+        """
+        return pulumi.get(self, "application_id")
+
+    @property
+    @pulumi.getter(name="applicationType")
+    def application_type(self) -> str:
+        """
+        Type of application being monitored.
+        """
+        return pulumi.get(self, "application_type")
+
+    @property
+    @pulumi.getter(name="connectionString")
+    def connection_string(self) -> str:
+        """
+        Application Insights component connection string.
+        """
+        return pulumi.get(self, "connection_string")
+
+    @property
+    @pulumi.getter(name="creationDate")
+    def creation_date(self) -> str:
+        """
+        Creation Date for the Application Insights component, in ISO 8601 format.
+        """
+        return pulumi.get(self, "creation_date")
+
+    @property
+    @pulumi.getter(name="disableIpMasking")
+    def disable_ip_masking(self) -> Optional[bool]:
+        """
+        Disable IP masking.
+        """
+        return pulumi.get(self, "disable_ip_masking")
+
+    @property
+    @pulumi.getter(name="flowType")
+    def flow_type(self) -> Optional[str]:
+        """
+        Used by the Application Insights system to determine what kind of flow this component was created by. This is to be set to 'Bluefield' when creating/updating a component via the REST API.
+        """
+        return pulumi.get(self, "flow_type")
+
+    @property
+    @pulumi.getter(name="hockeyAppId")
+    def hockey_app_id(self) -> Optional[str]:
+        """
+        The unique application ID created when a new application is added to HockeyApp, used for communications with HockeyApp.
+        """
+        return pulumi.get(self, "hockey_app_id")
+
+    @property
+    @pulumi.getter(name="hockeyAppToken")
+    def hockey_app_token(self) -> str:
+        """
+        Token used to authenticate communications with between Application Insights and HockeyApp.
+        """
+        return pulumi.get(self, "hockey_app_token")
+
+    @property
+    @pulumi.getter(name="immediatePurgeDataOn30Days")
+    def immediate_purge_data_on30_days(self) -> Optional[bool]:
+        """
+        Purge data immediately after 30 days.
+        """
+        return pulumi.get(self, "immediate_purge_data_on30_days")
+
+    @property
+    @pulumi.getter(name="ingestionMode")
+    def ingestion_mode(self) -> Optional[str]:
+        """
+        Indicates the flow of the ingestion.
+        """
+        return pulumi.get(self, "ingestion_mode")
+
+    @property
+    @pulumi.getter(name="instrumentationKey")
+    def instrumentation_key(self) -> str:
+        """
+        Application Insights Instrumentation key. A read-only value that applications can use to identify the destination for all telemetry sent to Azure Application Insights. This value will be supplied upon construction of each new Application Insights component.
+        """
+        return pulumi.get(self, "instrumentation_key")
+
+    @property
+    @pulumi.getter
+    def kind(self) -> str:
+        """
+        The kind of application that this component refers to, used to customize UI. This value is a freeform string, values should typically be one of the following: web, ios, other, store, java, phone.
+        """
+        return pulumi.get(self, "kind")
+
+    @property
+    @pulumi.getter
+    def location(self) -> str:
+        """
+        Resource location
+        """
+        return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Azure resource name
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="privateLinkScopedResources")
+    def private_link_scoped_resources(self) -> List['outputs.PrivateLinkScopedResourceResponse']:
+        """
+        List of linked private link scope resources.
+        """
+        return pulumi.get(self, "private_link_scoped_resources")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        Current state of this component: whether or not is has been provisioned within the resource group it is defined. Users cannot change this value but are able to read from it. Values will include Succeeded, Deploying, Canceled, and Failed.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="requestSource")
+    def request_source(self) -> Optional[str]:
+        """
+        Describes what tool created this Application Insights component. Customers using this API should set this to the default 'rest'.
+        """
+        return pulumi.get(self, "request_source")
+
+    @property
+    @pulumi.getter(name="retentionInDays")
+    def retention_in_days(self) -> Optional[float]:
+        """
+        Retention period in days.
+        """
+        return pulumi.get(self, "retention_in_days")
+
+    @property
+    @pulumi.getter(name="samplingPercentage")
+    def sampling_percentage(self) -> Optional[float]:
+        """
+        Percentage of the data produced by the application being monitored that is being sampled for Application Insights telemetry.
+        """
+        return pulumi.get(self, "sampling_percentage")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Mapping[str, str]]:
+        """
+        Resource tags
+        """
+        return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter(name="tenantId")
+    def tenant_id(self) -> str:
+        """
+        Azure Tenant Id.
+        """
+        return pulumi.get(self, "tenant_id")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Azure resource type
+        """
+        return pulumi.get(self, "type")
+
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

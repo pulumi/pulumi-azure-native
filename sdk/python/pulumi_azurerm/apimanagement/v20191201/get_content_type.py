@@ -5,10 +5,16 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
 
+__all__ = [
+    'GetContentTypeResult',
+    'AwaitableGetContentTypeResult',
+    'get_content_type',
+]
 
+@pulumi.output_type
 class GetContentTypeResult:
     """
     Content type contract details.
@@ -16,34 +22,59 @@ class GetContentTypeResult:
     def __init__(__self__, description=None, name=None, schema=None, type=None, version=None):
         if description and not isinstance(description, str):
             raise TypeError("Expected argument 'description' to be a str")
-        __self__.description = description
+        pulumi.set(__self__, "description", description)
+        if name and not isinstance(name, str):
+            raise TypeError("Expected argument 'name' to be a str")
+        pulumi.set(__self__, "name", name)
+        if schema and not isinstance(schema, dict):
+            raise TypeError("Expected argument 'schema' to be a dict")
+        pulumi.set(__self__, "schema", schema)
+        if type and not isinstance(type, str):
+            raise TypeError("Expected argument 'type' to be a str")
+        pulumi.set(__self__, "type", type)
+        if version and not isinstance(version, str):
+            raise TypeError("Expected argument 'version' to be a str")
+        pulumi.set(__self__, "version", version)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
         """
         Content type description.
         """
-        if name and not isinstance(name, str):
-            raise TypeError("Expected argument 'name' to be a str")
-        __self__.name = name
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
         """
         Resource name.
         """
-        if schema and not isinstance(schema, dict):
-            raise TypeError("Expected argument 'schema' to be a dict")
-        __self__.schema = schema
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def schema(self) -> Optional[Mapping[str, Any]]:
         """
         Content type schema.
         """
-        if type and not isinstance(type, str):
-            raise TypeError("Expected argument 'type' to be a str")
-        __self__.type = type
+        return pulumi.get(self, "schema")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
         """
         Resource type for API Management resource.
         """
-        if version and not isinstance(version, str):
-            raise TypeError("Expected argument 'version' to be a str")
-        __self__.version = version
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def version(self) -> Optional[str]:
         """
         Content type version.
         """
+        return pulumi.get(self, "version")
 
 
 class AwaitableGetContentTypeResult(GetContentTypeResult):
@@ -59,7 +90,10 @@ class AwaitableGetContentTypeResult(GetContentTypeResult):
             version=self.version)
 
 
-def get_content_type(name=None, resource_group_name=None, service_name=None, opts=None):
+def get_content_type(name: Optional[str] = None,
+                     resource_group_name: Optional[str] = None,
+                     service_name: Optional[str] = None,
+                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetContentTypeResult:
     """
     Use this data source to access information about an existing resource.
 
@@ -75,11 +109,11 @@ def get_content_type(name=None, resource_group_name=None, service_name=None, opt
         opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = _utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('azurerm:apimanagement/v20191201:getContentType', __args__, opts=opts).value
+    __ret__ = pulumi.runtime.invoke('azurerm:apimanagement/v20191201:getContentType', __args__, opts=opts, typ=GetContentTypeResult).value
 
     return AwaitableGetContentTypeResult(
-        description=__ret__.get('description'),
-        name=__ret__.get('name'),
-        schema=__ret__.get('schema'),
-        type=__ret__.get('type'),
-        version=__ret__.get('version'))
+        description=__ret__.description,
+        name=__ret__.name,
+        schema=__ret__.schema,
+        type=__ret__.type,
+        version=__ret__.version)

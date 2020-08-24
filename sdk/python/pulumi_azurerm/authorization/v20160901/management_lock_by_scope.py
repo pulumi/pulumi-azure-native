@@ -5,33 +5,26 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+from . import outputs
+from ._inputs import *
+
+__all__ = ['ManagementLockByScope']
 
 
 class ManagementLockByScope(pulumi.CustomResource):
-    level: pulumi.Output[str]
-    """
-    The level of the lock. Possible values are: NotSpecified, CanNotDelete, ReadOnly. CanNotDelete means authorized users are able to read and modify the resources, but not delete. ReadOnly means authorized users can only read from a resource, but they can't modify or delete it.
-    """
-    name: pulumi.Output[str]
-    """
-    The name of the lock.
-    """
-    notes: pulumi.Output[str]
-    """
-    Notes about the lock. Maximum of 512 characters.
-    """
-    owners: pulumi.Output[list]
-    """
-    The owners of the lock.
-      * `application_id` (`str`) - The application ID of the lock owner.
-    """
-    type: pulumi.Output[str]
-    """
-    The resource type of the lock - Microsoft.Authorization/locks.
-    """
-    def __init__(__self__, resource_name, opts=None, level=None, name=None, notes=None, owners=None, scope=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 level: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 notes: Optional[pulumi.Input[str]] = None,
+                 owners: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['ManagementLockOwnerArgs']]]]] = None,
+                 scope: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         The lock information.
 
@@ -40,12 +33,8 @@ class ManagementLockByScope(pulumi.CustomResource):
         :param pulumi.Input[str] level: The level of the lock. Possible values are: NotSpecified, CanNotDelete, ReadOnly. CanNotDelete means authorized users are able to read and modify the resources, but not delete. ReadOnly means authorized users can only read from a resource, but they can't modify or delete it.
         :param pulumi.Input[str] name: The name of lock.
         :param pulumi.Input[str] notes: Notes about the lock. Maximum of 512 characters.
-        :param pulumi.Input[list] owners: The owners of the lock.
+        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['ManagementLockOwnerArgs']]]] owners: The owners of the lock.
         :param pulumi.Input[str] scope: The scope for the lock. When providing a scope for the assignment, use '/subscriptions/{subscriptionId}' for subscriptions, '/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}' for resource groups, and '/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{parentResourcePathIfPresent}/{resourceType}/{resourceName}' for resources.
-
-        The **owners** object supports the following:
-
-          * `application_id` (`pulumi.Input[str]`) - The application ID of the lock owner.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -83,13 +72,15 @@ class ManagementLockByScope(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None) -> 'ManagementLockByScope':
         """
         Get an existing ManagementLockByScope resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -98,8 +89,49 @@ class ManagementLockByScope(pulumi.CustomResource):
 
         return ManagementLockByScope(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter
+    def level(self) -> str:
+        """
+        The level of the lock. Possible values are: NotSpecified, CanNotDelete, ReadOnly. CanNotDelete means authorized users are able to read and modify the resources, but not delete. ReadOnly means authorized users can only read from a resource, but they can't modify or delete it.
+        """
+        return pulumi.get(self, "level")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the lock.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def notes(self) -> Optional[str]:
+        """
+        Notes about the lock. Maximum of 512 characters.
+        """
+        return pulumi.get(self, "notes")
+
+    @property
+    @pulumi.getter
+    def owners(self) -> Optional[List['outputs.ManagementLockOwnerResponse']]:
+        """
+        The owners of the lock.
+        """
+        return pulumi.get(self, "owners")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        The resource type of the lock - Microsoft.Authorization/locks.
+        """
+        return pulumi.get(self, "type")
+
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

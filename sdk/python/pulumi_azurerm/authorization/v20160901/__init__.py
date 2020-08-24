@@ -11,3 +11,5 @@ from .management_lock_at_resource_group_level import *
 from .management_lock_at_resource_level import *
 from .management_lock_at_subscription_level import *
 from .management_lock_by_scope import *
+from ._inputs import *
+from . import outputs

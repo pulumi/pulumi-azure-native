@@ -5,10 +5,17 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+from . import outputs
 
+__all__ = [
+    'GetFactoryResult',
+    'AwaitableGetFactoryResult',
+    'get_factory',
+]
 
+@pulumi.output_type
 class GetFactoryResult:
     """
     Factory resource type.
@@ -16,70 +23,125 @@ class GetFactoryResult:
     def __init__(__self__, create_time=None, e_tag=None, global_parameters=None, identity=None, location=None, name=None, provisioning_state=None, repo_configuration=None, tags=None, type=None, version=None):
         if create_time and not isinstance(create_time, str):
             raise TypeError("Expected argument 'create_time' to be a str")
-        __self__.create_time = create_time
+        pulumi.set(__self__, "create_time", create_time)
+        if e_tag and not isinstance(e_tag, str):
+            raise TypeError("Expected argument 'e_tag' to be a str")
+        pulumi.set(__self__, "e_tag", e_tag)
+        if global_parameters and not isinstance(global_parameters, dict):
+            raise TypeError("Expected argument 'global_parameters' to be a dict")
+        pulumi.set(__self__, "global_parameters", global_parameters)
+        if identity and not isinstance(identity, dict):
+            raise TypeError("Expected argument 'identity' to be a dict")
+        pulumi.set(__self__, "identity", identity)
+        if location and not isinstance(location, str):
+            raise TypeError("Expected argument 'location' to be a str")
+        pulumi.set(__self__, "location", location)
+        if name and not isinstance(name, str):
+            raise TypeError("Expected argument 'name' to be a str")
+        pulumi.set(__self__, "name", name)
+        if provisioning_state and not isinstance(provisioning_state, str):
+            raise TypeError("Expected argument 'provisioning_state' to be a str")
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if repo_configuration and not isinstance(repo_configuration, dict):
+            raise TypeError("Expected argument 'repo_configuration' to be a dict")
+        pulumi.set(__self__, "repo_configuration", repo_configuration)
+        if tags and not isinstance(tags, dict):
+            raise TypeError("Expected argument 'tags' to be a dict")
+        pulumi.set(__self__, "tags", tags)
+        if type and not isinstance(type, str):
+            raise TypeError("Expected argument 'type' to be a str")
+        pulumi.set(__self__, "type", type)
+        if version and not isinstance(version, str):
+            raise TypeError("Expected argument 'version' to be a str")
+        pulumi.set(__self__, "version", version)
+
+    @property
+    @pulumi.getter(name="createTime")
+    def create_time(self) -> str:
         """
         Time the factory was created in ISO8601 format.
         """
-        if e_tag and not isinstance(e_tag, str):
-            raise TypeError("Expected argument 'e_tag' to be a str")
-        __self__.e_tag = e_tag
+        return pulumi.get(self, "create_time")
+
+    @property
+    @pulumi.getter(name="eTag")
+    def e_tag(self) -> str:
         """
         Etag identifies change in the resource.
         """
-        if global_parameters and not isinstance(global_parameters, dict):
-            raise TypeError("Expected argument 'global_parameters' to be a dict")
-        __self__.global_parameters = global_parameters
+        return pulumi.get(self, "e_tag")
+
+    @property
+    @pulumi.getter(name="globalParameters")
+    def global_parameters(self) -> Optional[Mapping[str, 'outputs.GlobalParameterSpecificationResponse']]:
         """
         List of parameters for factory.
         """
-        if identity and not isinstance(identity, dict):
-            raise TypeError("Expected argument 'identity' to be a dict")
-        __self__.identity = identity
+        return pulumi.get(self, "global_parameters")
+
+    @property
+    @pulumi.getter
+    def identity(self) -> Optional['outputs.FactoryIdentityResponse']:
         """
         Managed service identity of the factory.
         """
-        if location and not isinstance(location, str):
-            raise TypeError("Expected argument 'location' to be a str")
-        __self__.location = location
+        return pulumi.get(self, "identity")
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[str]:
         """
         The resource location.
         """
-        if name and not isinstance(name, str):
-            raise TypeError("Expected argument 'name' to be a str")
-        __self__.name = name
+        return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
         """
         The resource name.
         """
-        if provisioning_state and not isinstance(provisioning_state, str):
-            raise TypeError("Expected argument 'provisioning_state' to be a str")
-        __self__.provisioning_state = provisioning_state
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
         """
         Factory provisioning state, example Succeeded.
         """
-        if repo_configuration and not isinstance(repo_configuration, dict):
-            raise TypeError("Expected argument 'repo_configuration' to be a dict")
-        __self__.repo_configuration = repo_configuration
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="repoConfiguration")
+    def repo_configuration(self) -> Optional['outputs.FactoryRepoConfigurationResponse']:
         """
         Git repo information of the factory.
         """
-        if tags and not isinstance(tags, dict):
-            raise TypeError("Expected argument 'tags' to be a dict")
-        __self__.tags = tags
+        return pulumi.get(self, "repo_configuration")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Mapping[str, str]]:
         """
         The resource tags.
         """
-        if type and not isinstance(type, str):
-            raise TypeError("Expected argument 'type' to be a str")
-        __self__.type = type
+        return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
         """
         The resource type.
         """
-        if version and not isinstance(version, str):
-            raise TypeError("Expected argument 'version' to be a str")
-        __self__.version = version
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def version(self) -> str:
         """
         Version of the factory.
         """
+        return pulumi.get(self, "version")
 
 
 class AwaitableGetFactoryResult(GetFactoryResult):
@@ -101,7 +163,9 @@ class AwaitableGetFactoryResult(GetFactoryResult):
             version=self.version)
 
 
-def get_factory(name=None, resource_group_name=None, opts=None):
+def get_factory(name: Optional[str] = None,
+                resource_group_name: Optional[str] = None,
+                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetFactoryResult:
     """
     Use this data source to access information about an existing resource.
 
@@ -115,17 +179,17 @@ def get_factory(name=None, resource_group_name=None, opts=None):
         opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = _utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('azurerm:datafactory/v20180601:getFactory', __args__, opts=opts).value
+    __ret__ = pulumi.runtime.invoke('azurerm:datafactory/v20180601:getFactory', __args__, opts=opts, typ=GetFactoryResult).value
 
     return AwaitableGetFactoryResult(
-        create_time=__ret__.get('createTime'),
-        e_tag=__ret__.get('eTag'),
-        global_parameters=__ret__.get('globalParameters'),
-        identity=__ret__.get('identity'),
-        location=__ret__.get('location'),
-        name=__ret__.get('name'),
-        provisioning_state=__ret__.get('provisioningState'),
-        repo_configuration=__ret__.get('repoConfiguration'),
-        tags=__ret__.get('tags'),
-        type=__ret__.get('type'),
-        version=__ret__.get('version'))
+        create_time=__ret__.create_time,
+        e_tag=__ret__.e_tag,
+        global_parameters=__ret__.global_parameters,
+        identity=__ret__.identity,
+        location=__ret__.location,
+        name=__ret__.name,
+        provisioning_state=__ret__.provisioning_state,
+        repo_configuration=__ret__.repo_configuration,
+        tags=__ret__.tags,
+        type=__ret__.type,
+        version=__ret__.version)

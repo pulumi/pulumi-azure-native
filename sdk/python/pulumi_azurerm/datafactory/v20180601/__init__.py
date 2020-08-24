@@ -20,3 +20,5 @@ from .list_integration_runtime_auth_keys import *
 from .managed_private_endpoint import *
 from .pipeline import *
 from .trigger import *
+from ._inputs import *
+from . import outputs

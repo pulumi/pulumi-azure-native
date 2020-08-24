@@ -5,10 +5,17 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+from . import outputs
 
+__all__ = [
+    'GetDiagnosticSettingResult',
+    'AwaitableGetDiagnosticSettingResult',
+    'get_diagnostic_setting',
+]
 
+@pulumi.output_type
 class GetDiagnosticSettingResult:
     """
     The diagnostic setting resource.
@@ -16,52 +23,92 @@ class GetDiagnosticSettingResult:
     def __init__(__self__, event_hub_authorization_rule_id=None, event_hub_name=None, logs=None, name=None, service_bus_rule_id=None, storage_account_id=None, type=None, workspace_id=None):
         if event_hub_authorization_rule_id and not isinstance(event_hub_authorization_rule_id, str):
             raise TypeError("Expected argument 'event_hub_authorization_rule_id' to be a str")
-        __self__.event_hub_authorization_rule_id = event_hub_authorization_rule_id
+        pulumi.set(__self__, "event_hub_authorization_rule_id", event_hub_authorization_rule_id)
+        if event_hub_name and not isinstance(event_hub_name, str):
+            raise TypeError("Expected argument 'event_hub_name' to be a str")
+        pulumi.set(__self__, "event_hub_name", event_hub_name)
+        if logs and not isinstance(logs, list):
+            raise TypeError("Expected argument 'logs' to be a list")
+        pulumi.set(__self__, "logs", logs)
+        if name and not isinstance(name, str):
+            raise TypeError("Expected argument 'name' to be a str")
+        pulumi.set(__self__, "name", name)
+        if service_bus_rule_id and not isinstance(service_bus_rule_id, str):
+            raise TypeError("Expected argument 'service_bus_rule_id' to be a str")
+        pulumi.set(__self__, "service_bus_rule_id", service_bus_rule_id)
+        if storage_account_id and not isinstance(storage_account_id, str):
+            raise TypeError("Expected argument 'storage_account_id' to be a str")
+        pulumi.set(__self__, "storage_account_id", storage_account_id)
+        if type and not isinstance(type, str):
+            raise TypeError("Expected argument 'type' to be a str")
+        pulumi.set(__self__, "type", type)
+        if workspace_id and not isinstance(workspace_id, str):
+            raise TypeError("Expected argument 'workspace_id' to be a str")
+        pulumi.set(__self__, "workspace_id", workspace_id)
+
+    @property
+    @pulumi.getter(name="eventHubAuthorizationRuleId")
+    def event_hub_authorization_rule_id(self) -> Optional[str]:
         """
         The resource Id for the event hub authorization rule.
         """
-        if event_hub_name and not isinstance(event_hub_name, str):
-            raise TypeError("Expected argument 'event_hub_name' to be a str")
-        __self__.event_hub_name = event_hub_name
+        return pulumi.get(self, "event_hub_authorization_rule_id")
+
+    @property
+    @pulumi.getter(name="eventHubName")
+    def event_hub_name(self) -> Optional[str]:
         """
         The name of the event hub. If none is specified, the default event hub will be selected.
         """
-        if logs and not isinstance(logs, list):
-            raise TypeError("Expected argument 'logs' to be a list")
-        __self__.logs = logs
+        return pulumi.get(self, "event_hub_name")
+
+    @property
+    @pulumi.getter
+    def logs(self) -> Optional[List['outputs.LogSettingsResponse']]:
         """
         The list of logs settings.
         """
-        if name and not isinstance(name, str):
-            raise TypeError("Expected argument 'name' to be a str")
-        __self__.name = name
+        return pulumi.get(self, "logs")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
         """
         Azure resource name
         """
-        if service_bus_rule_id and not isinstance(service_bus_rule_id, str):
-            raise TypeError("Expected argument 'service_bus_rule_id' to be a str")
-        __self__.service_bus_rule_id = service_bus_rule_id
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="serviceBusRuleId")
+    def service_bus_rule_id(self) -> Optional[str]:
         """
         The service bus rule Id of the diagnostic setting. This is here to maintain backwards compatibility.
         """
-        if storage_account_id and not isinstance(storage_account_id, str):
-            raise TypeError("Expected argument 'storage_account_id' to be a str")
-        __self__.storage_account_id = storage_account_id
+        return pulumi.get(self, "service_bus_rule_id")
+
+    @property
+    @pulumi.getter(name="storageAccountId")
+    def storage_account_id(self) -> Optional[str]:
         """
         The resource ID of the storage account to which you would like to send Diagnostic Logs.
         """
-        if type and not isinstance(type, str):
-            raise TypeError("Expected argument 'type' to be a str")
-        __self__.type = type
+        return pulumi.get(self, "storage_account_id")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
         """
         Azure resource type
         """
-        if workspace_id and not isinstance(workspace_id, str):
-            raise TypeError("Expected argument 'workspace_id' to be a str")
-        __self__.workspace_id = workspace_id
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="workspaceId")
+    def workspace_id(self) -> Optional[str]:
         """
         The workspace ID (resource ID of a Log Analytics workspace) for a Log Analytics workspace to which you would like to send Diagnostic Logs. Example: /subscriptions/4b9e8510-67ab-4e9a-95a9-e2f1e570ea9c/resourceGroups/insights-integration/providers/Microsoft.OperationalInsights/workspaces/viruela2
         """
+        return pulumi.get(self, "workspace_id")
 
 
 class AwaitableGetDiagnosticSettingResult(GetDiagnosticSettingResult):
@@ -80,7 +127,8 @@ class AwaitableGetDiagnosticSettingResult(GetDiagnosticSettingResult):
             workspace_id=self.workspace_id)
 
 
-def get_diagnostic_setting(name=None, opts=None):
+def get_diagnostic_setting(name: Optional[str] = None,
+                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDiagnosticSettingResult:
     """
     Use this data source to access information about an existing resource.
 
@@ -92,14 +140,14 @@ def get_diagnostic_setting(name=None, opts=None):
         opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = _utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('azurerm:aadiam/v20170401:getDiagnosticSetting', __args__, opts=opts).value
+    __ret__ = pulumi.runtime.invoke('azurerm:aadiam/v20170401:getDiagnosticSetting', __args__, opts=opts, typ=GetDiagnosticSettingResult).value
 
     return AwaitableGetDiagnosticSettingResult(
-        event_hub_authorization_rule_id=__ret__.get('eventHubAuthorizationRuleId'),
-        event_hub_name=__ret__.get('eventHubName'),
-        logs=__ret__.get('logs'),
-        name=__ret__.get('name'),
-        service_bus_rule_id=__ret__.get('serviceBusRuleId'),
-        storage_account_id=__ret__.get('storageAccountId'),
-        type=__ret__.get('type'),
-        workspace_id=__ret__.get('workspaceId'))
+        event_hub_authorization_rule_id=__ret__.event_hub_authorization_rule_id,
+        event_hub_name=__ret__.event_hub_name,
+        logs=__ret__.logs,
+        name=__ret__.name,
+        service_bus_rule_id=__ret__.service_bus_rule_id,
+        storage_account_id=__ret__.storage_account_id,
+        type=__ret__.type,
+        workspace_id=__ret__.workspace_id)

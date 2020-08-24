@@ -5,52 +5,38 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+from . import outputs
+from ._inputs import *
+
+__all__ = ['StorageDomain']
 
 
 class StorageDomain(pulumi.CustomResource):
-    encryption_key: pulumi.Output[dict]
-    """
-    The encryption key used to encrypt the data. This is a user secret.
-      * `encryption_algorithm` (`str`) - Algorithm used to encrypt "Value"
-      * `encryption_certificate_thumbprint` (`str`) - Thumbprint certificate that was used to encrypt "Value"
-      * `value` (`str`) - The value of the secret itself. If the secret is in plaintext then EncryptionAlgorithm will be none and EncryptionCertThumbprint will be null.
-    """
-    encryption_status: pulumi.Output[str]
-    """
-    The encryption status "Enabled | Disabled".
-    """
-    name: pulumi.Output[str]
-    """
-    The name.
-    """
-    storage_account_credential_ids: pulumi.Output[list]
-    """
-    The storage account credentials.
-    """
-    type: pulumi.Output[str]
-    """
-    The type.
-    """
-    def __init__(__self__, resource_name, opts=None, encryption_key=None, encryption_status=None, manager_name=None, name=None, resource_group_name=None, storage_account_credential_ids=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 encryption_key: Optional[pulumi.Input[pulumi.InputType['AsymmetricEncryptedSecretArgs']]] = None,
+                 encryption_status: Optional[pulumi.Input[str]] = None,
+                 manager_name: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 storage_account_credential_ids: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         The storage domain.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[dict] encryption_key: The encryption key used to encrypt the data. This is a user secret.
+        :param pulumi.Input[pulumi.InputType['AsymmetricEncryptedSecretArgs']] encryption_key: The encryption key used to encrypt the data. This is a user secret.
         :param pulumi.Input[str] encryption_status: The encryption status "Enabled | Disabled".
         :param pulumi.Input[str] manager_name: The manager name
         :param pulumi.Input[str] name: The storage domain name.
         :param pulumi.Input[str] resource_group_name: The resource group name
-        :param pulumi.Input[list] storage_account_credential_ids: The storage account credentials.
-
-        The **encryption_key** object supports the following:
-
-          * `encryption_algorithm` (`pulumi.Input[str]`) - Algorithm used to encrypt "Value"
-          * `encryption_certificate_thumbprint` (`pulumi.Input[str]`) - Thumbprint certificate that was used to encrypt "Value"
-          * `value` (`pulumi.Input[str]`) - The value of the secret itself. If the secret is in plaintext then EncryptionAlgorithm will be none and EncryptionCertThumbprint will be null.
+        :param pulumi.Input[List[pulumi.Input[str]]] storage_account_credential_ids: The storage account credentials.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -93,13 +79,15 @@ class StorageDomain(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None) -> 'StorageDomain':
         """
         Get an existing StorageDomain resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -108,8 +96,49 @@ class StorageDomain(pulumi.CustomResource):
 
         return StorageDomain(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter(name="encryptionKey")
+    def encryption_key(self) -> Optional['outputs.AsymmetricEncryptedSecretResponse']:
+        """
+        The encryption key used to encrypt the data. This is a user secret.
+        """
+        return pulumi.get(self, "encryption_key")
+
+    @property
+    @pulumi.getter(name="encryptionStatus")
+    def encryption_status(self) -> str:
+        """
+        The encryption status "Enabled | Disabled".
+        """
+        return pulumi.get(self, "encryption_status")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="storageAccountCredentialIds")
+    def storage_account_credential_ids(self) -> List[str]:
+        """
+        The storage account credentials.
+        """
+        return pulumi.get(self, "storage_account_credential_ids")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        The type.
+        """
+        return pulumi.get(self, "type")
+
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

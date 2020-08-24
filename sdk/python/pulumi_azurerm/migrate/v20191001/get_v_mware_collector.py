@@ -5,24 +5,51 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+from . import outputs
 
+__all__ = [
+    'GetVMwareCollectorResult',
+    'AwaitableGetVMwareCollectorResult',
+    'get_v_mware_collector',
+]
 
+@pulumi.output_type
 class GetVMwareCollectorResult:
     def __init__(__self__, e_tag=None, name=None, properties=None, type=None):
         if e_tag and not isinstance(e_tag, str):
             raise TypeError("Expected argument 'e_tag' to be a str")
-        __self__.e_tag = e_tag
+        pulumi.set(__self__, "e_tag", e_tag)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
-        __self__.name = name
+        pulumi.set(__self__, "name", name)
         if properties and not isinstance(properties, dict):
             raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        pulumi.set(__self__, "properties", properties)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
-        __self__.type = type
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="eTag")
+    def e_tag(self) -> Optional[str]:
+        return pulumi.get(self, "e_tag")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def properties(self) -> 'outputs.CollectorPropertiesResponse':
+        return pulumi.get(self, "properties")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        return pulumi.get(self, "type")
 
 
 class AwaitableGetVMwareCollectorResult(GetVMwareCollectorResult):
@@ -37,7 +64,10 @@ class AwaitableGetVMwareCollectorResult(GetVMwareCollectorResult):
             type=self.type)
 
 
-def get_v_mware_collector(name=None, project_name=None, resource_group_name=None, opts=None):
+def get_v_mware_collector(name: Optional[str] = None,
+                          project_name: Optional[str] = None,
+                          resource_group_name: Optional[str] = None,
+                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVMwareCollectorResult:
     """
     Use this data source to access information about an existing resource.
 
@@ -53,10 +83,10 @@ def get_v_mware_collector(name=None, project_name=None, resource_group_name=None
         opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = _utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('azurerm:migrate/v20191001:getVMwareCollector', __args__, opts=opts).value
+    __ret__ = pulumi.runtime.invoke('azurerm:migrate/v20191001:getVMwareCollector', __args__, opts=opts, typ=GetVMwareCollectorResult).value
 
     return AwaitableGetVMwareCollectorResult(
-        e_tag=__ret__.get('eTag'),
-        name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
-        type=__ret__.get('type'))
+        e_tag=__ret__.e_tag,
+        name=__ret__.name,
+        properties=__ret__.properties,
+        type=__ret__.type)

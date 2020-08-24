@@ -5,44 +5,26 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+
+__all__ = ['ApplicationTypeVersion']
 
 
 class ApplicationTypeVersion(pulumi.CustomResource):
-    app_package_url: pulumi.Output[str]
-    """
-    The URL to the application package
-    """
-    default_parameter_list: pulumi.Output[dict]
-    """
-    List of application type parameters that can be overridden when creating or updating the application.
-    """
-    etag: pulumi.Output[str]
-    """
-    Azure resource etag.
-    """
-    location: pulumi.Output[str]
-    """
-    It will be deprecated in New API, resource location depends on the parent resource.
-    """
-    name: pulumi.Output[str]
-    """
-    Azure resource name.
-    """
-    provisioning_state: pulumi.Output[str]
-    """
-    The current deployment or provisioning state, which only appears in the response
-    """
-    tags: pulumi.Output[dict]
-    """
-    Azure resource tags.
-    """
-    type: pulumi.Output[str]
-    """
-    Azure resource type.
-    """
-    def __init__(__self__, resource_name, opts=None, app_package_url=None, application_type_name=None, cluster_name=None, location=None, name=None, resource_group_name=None, tags=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 app_package_url: Optional[pulumi.Input[str]] = None,
+                 application_type_name: Optional[pulumi.Input[str]] = None,
+                 cluster_name: Optional[pulumi.Input[str]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         An application type version resource for the specified application type name resource.
 
@@ -54,7 +36,7 @@ class ApplicationTypeVersion(pulumi.CustomResource):
         :param pulumi.Input[str] location: It will be deprecated in New API, resource location depends on the parent resource.
         :param pulumi.Input[str] name: The application type version.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
-        :param pulumi.Input[dict] tags: Azure resource tags.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Azure resource tags.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -103,13 +85,15 @@ class ApplicationTypeVersion(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None) -> 'ApplicationTypeVersion':
         """
         Get an existing ApplicationTypeVersion resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -118,8 +102,73 @@ class ApplicationTypeVersion(pulumi.CustomResource):
 
         return ApplicationTypeVersion(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter(name="appPackageUrl")
+    def app_package_url(self) -> str:
+        """
+        The URL to the application package
+        """
+        return pulumi.get(self, "app_package_url")
+
+    @property
+    @pulumi.getter(name="defaultParameterList")
+    def default_parameter_list(self) -> Mapping[str, str]:
+        """
+        List of application type parameters that can be overridden when creating or updating the application.
+        """
+        return pulumi.get(self, "default_parameter_list")
+
+    @property
+    @pulumi.getter
+    def etag(self) -> str:
+        """
+        Azure resource etag.
+        """
+        return pulumi.get(self, "etag")
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[str]:
+        """
+        It will be deprecated in New API, resource location depends on the parent resource.
+        """
+        return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Azure resource name.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        The current deployment or provisioning state, which only appears in the response
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Mapping[str, str]]:
+        """
+        Azure resource tags.
+        """
+        return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Azure resource type.
+        """
+        return pulumi.get(self, "type")
+
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

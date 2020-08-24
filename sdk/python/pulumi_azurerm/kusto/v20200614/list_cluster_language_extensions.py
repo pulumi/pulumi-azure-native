@@ -5,10 +5,17 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+from . import outputs
 
+__all__ = [
+    'ListClusterLanguageExtensionsResult',
+    'AwaitableListClusterLanguageExtensionsResult',
+    'list_cluster_language_extensions',
+]
 
+@pulumi.output_type
 class ListClusterLanguageExtensionsResult:
     """
     The list of language extension objects.
@@ -16,10 +23,15 @@ class ListClusterLanguageExtensionsResult:
     def __init__(__self__, value=None):
         if value and not isinstance(value, list):
             raise TypeError("Expected argument 'value' to be a list")
-        __self__.value = value
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[List['outputs.LanguageExtensionResponse']]:
         """
         The list of language extensions.
         """
+        return pulumi.get(self, "value")
 
 
 class AwaitableListClusterLanguageExtensionsResult(ListClusterLanguageExtensionsResult):
@@ -31,7 +43,9 @@ class AwaitableListClusterLanguageExtensionsResult(ListClusterLanguageExtensions
             value=self.value)
 
 
-def list_cluster_language_extensions(cluster_name=None, resource_group_name=None, opts=None):
+def list_cluster_language_extensions(cluster_name: Optional[str] = None,
+                                     resource_group_name: Optional[str] = None,
+                                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListClusterLanguageExtensionsResult:
     """
     Use this data source to access information about an existing resource.
 
@@ -45,7 +59,7 @@ def list_cluster_language_extensions(cluster_name=None, resource_group_name=None
         opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = _utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('azurerm:kusto/v20200614:listClusterLanguageExtensions', __args__, opts=opts).value
+    __ret__ = pulumi.runtime.invoke('azurerm:kusto/v20200614:listClusterLanguageExtensions', __args__, opts=opts, typ=ListClusterLanguageExtensionsResult).value
 
     return AwaitableListClusterLanguageExtensionsResult(
-        value=__ret__.get('value'))
+        value=__ret__.value)

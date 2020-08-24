@@ -5,10 +5,17 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+from . import outputs
 
+__all__ = [
+    'ListIotHubResourceKeysResult',
+    'AwaitableListIotHubResourceKeysResult',
+    'list_iot_hub_resource_keys',
+]
 
+@pulumi.output_type
 class ListIotHubResourceKeysResult:
     """
     The list of shared access policies with a next link.
@@ -16,16 +23,26 @@ class ListIotHubResourceKeysResult:
     def __init__(__self__, next_link=None, value=None):
         if next_link and not isinstance(next_link, str):
             raise TypeError("Expected argument 'next_link' to be a str")
-        __self__.next_link = next_link
+        pulumi.set(__self__, "next_link", next_link)
+        if value and not isinstance(value, list):
+            raise TypeError("Expected argument 'value' to be a list")
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter(name="nextLink")
+    def next_link(self) -> str:
         """
         The next link.
         """
-        if value and not isinstance(value, list):
-            raise TypeError("Expected argument 'value' to be a list")
-        __self__.value = value
+        return pulumi.get(self, "next_link")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[List['outputs.SharedAccessSignatureAuthorizationRuleResponse']]:
         """
         The list of shared access policies.
         """
+        return pulumi.get(self, "value")
 
 
 class AwaitableListIotHubResourceKeysResult(ListIotHubResourceKeysResult):
@@ -38,7 +55,9 @@ class AwaitableListIotHubResourceKeysResult(ListIotHubResourceKeysResult):
             value=self.value)
 
 
-def list_iot_hub_resource_keys(resource_group_name=None, resource_name=None, opts=None):
+def list_iot_hub_resource_keys(resource_group_name: Optional[str] = None,
+                               resource_name: Optional[str] = None,
+                               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListIotHubResourceKeysResult:
     """
     Use this data source to access information about an existing resource.
 
@@ -52,8 +71,8 @@ def list_iot_hub_resource_keys(resource_group_name=None, resource_name=None, opt
         opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = _utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('azurerm:devices/v20170701:listIotHubResourceKeys', __args__, opts=opts).value
+    __ret__ = pulumi.runtime.invoke('azurerm:devices/v20170701:listIotHubResourceKeys', __args__, opts=opts, typ=ListIotHubResourceKeysResult).value
 
     return AwaitableListIotHubResourceKeysResult(
-        next_link=__ret__.get('nextLink'),
-        value=__ret__.get('value'))
+        next_link=__ret__.next_link,
+        value=__ret__.value)

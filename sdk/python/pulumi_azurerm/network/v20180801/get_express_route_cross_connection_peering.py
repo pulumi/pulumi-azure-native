@@ -5,10 +5,17 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+from . import outputs
 
+__all__ = [
+    'GetExpressRouteCrossConnectionPeeringResult',
+    'AwaitableGetExpressRouteCrossConnectionPeeringResult',
+    'get_express_route_cross_connection_peering',
+]
 
+@pulumi.output_type
 class GetExpressRouteCrossConnectionPeeringResult:
     """
     Peering in an ExpressRoute Cross Connection resource.
@@ -16,106 +23,191 @@ class GetExpressRouteCrossConnectionPeeringResult:
     def __init__(__self__, azure_asn=None, etag=None, gateway_manager_etag=None, ipv6_peering_config=None, last_modified_by=None, microsoft_peering_config=None, name=None, peer_asn=None, peering_type=None, primary_azure_port=None, primary_peer_address_prefix=None, provisioning_state=None, secondary_azure_port=None, secondary_peer_address_prefix=None, shared_key=None, state=None, vlan_id=None):
         if azure_asn and not isinstance(azure_asn, float):
             raise TypeError("Expected argument 'azure_asn' to be a float")
-        __self__.azure_asn = azure_asn
+        pulumi.set(__self__, "azure_asn", azure_asn)
+        if etag and not isinstance(etag, str):
+            raise TypeError("Expected argument 'etag' to be a str")
+        pulumi.set(__self__, "etag", etag)
+        if gateway_manager_etag and not isinstance(gateway_manager_etag, str):
+            raise TypeError("Expected argument 'gateway_manager_etag' to be a str")
+        pulumi.set(__self__, "gateway_manager_etag", gateway_manager_etag)
+        if ipv6_peering_config and not isinstance(ipv6_peering_config, dict):
+            raise TypeError("Expected argument 'ipv6_peering_config' to be a dict")
+        pulumi.set(__self__, "ipv6_peering_config", ipv6_peering_config)
+        if last_modified_by and not isinstance(last_modified_by, str):
+            raise TypeError("Expected argument 'last_modified_by' to be a str")
+        pulumi.set(__self__, "last_modified_by", last_modified_by)
+        if microsoft_peering_config and not isinstance(microsoft_peering_config, dict):
+            raise TypeError("Expected argument 'microsoft_peering_config' to be a dict")
+        pulumi.set(__self__, "microsoft_peering_config", microsoft_peering_config)
+        if name and not isinstance(name, str):
+            raise TypeError("Expected argument 'name' to be a str")
+        pulumi.set(__self__, "name", name)
+        if peer_asn and not isinstance(peer_asn, float):
+            raise TypeError("Expected argument 'peer_asn' to be a float")
+        pulumi.set(__self__, "peer_asn", peer_asn)
+        if peering_type and not isinstance(peering_type, str):
+            raise TypeError("Expected argument 'peering_type' to be a str")
+        pulumi.set(__self__, "peering_type", peering_type)
+        if primary_azure_port and not isinstance(primary_azure_port, str):
+            raise TypeError("Expected argument 'primary_azure_port' to be a str")
+        pulumi.set(__self__, "primary_azure_port", primary_azure_port)
+        if primary_peer_address_prefix and not isinstance(primary_peer_address_prefix, str):
+            raise TypeError("Expected argument 'primary_peer_address_prefix' to be a str")
+        pulumi.set(__self__, "primary_peer_address_prefix", primary_peer_address_prefix)
+        if provisioning_state and not isinstance(provisioning_state, str):
+            raise TypeError("Expected argument 'provisioning_state' to be a str")
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if secondary_azure_port and not isinstance(secondary_azure_port, str):
+            raise TypeError("Expected argument 'secondary_azure_port' to be a str")
+        pulumi.set(__self__, "secondary_azure_port", secondary_azure_port)
+        if secondary_peer_address_prefix and not isinstance(secondary_peer_address_prefix, str):
+            raise TypeError("Expected argument 'secondary_peer_address_prefix' to be a str")
+        pulumi.set(__self__, "secondary_peer_address_prefix", secondary_peer_address_prefix)
+        if shared_key and not isinstance(shared_key, str):
+            raise TypeError("Expected argument 'shared_key' to be a str")
+        pulumi.set(__self__, "shared_key", shared_key)
+        if state and not isinstance(state, str):
+            raise TypeError("Expected argument 'state' to be a str")
+        pulumi.set(__self__, "state", state)
+        if vlan_id and not isinstance(vlan_id, float):
+            raise TypeError("Expected argument 'vlan_id' to be a float")
+        pulumi.set(__self__, "vlan_id", vlan_id)
+
+    @property
+    @pulumi.getter(name="azureASN")
+    def azure_asn(self) -> float:
         """
         The Azure ASN.
         """
-        if etag and not isinstance(etag, str):
-            raise TypeError("Expected argument 'etag' to be a str")
-        __self__.etag = etag
+        return pulumi.get(self, "azure_asn")
+
+    @property
+    @pulumi.getter
+    def etag(self) -> str:
         """
         A unique read-only string that changes whenever the resource is updated.
         """
-        if gateway_manager_etag and not isinstance(gateway_manager_etag, str):
-            raise TypeError("Expected argument 'gateway_manager_etag' to be a str")
-        __self__.gateway_manager_etag = gateway_manager_etag
+        return pulumi.get(self, "etag")
+
+    @property
+    @pulumi.getter(name="gatewayManagerEtag")
+    def gateway_manager_etag(self) -> Optional[str]:
         """
         The GatewayManager Etag.
         """
-        if ipv6_peering_config and not isinstance(ipv6_peering_config, dict):
-            raise TypeError("Expected argument 'ipv6_peering_config' to be a dict")
-        __self__.ipv6_peering_config = ipv6_peering_config
+        return pulumi.get(self, "gateway_manager_etag")
+
+    @property
+    @pulumi.getter(name="ipv6PeeringConfig")
+    def ipv6_peering_config(self) -> Optional['outputs.Ipv6ExpressRouteCircuitPeeringConfigResponse']:
         """
         The IPv6 peering configuration.
         """
-        if last_modified_by and not isinstance(last_modified_by, str):
-            raise TypeError("Expected argument 'last_modified_by' to be a str")
-        __self__.last_modified_by = last_modified_by
+        return pulumi.get(self, "ipv6_peering_config")
+
+    @property
+    @pulumi.getter(name="lastModifiedBy")
+    def last_modified_by(self) -> Optional[str]:
         """
         Gets whether the provider or the customer last modified the peering.
         """
-        if microsoft_peering_config and not isinstance(microsoft_peering_config, dict):
-            raise TypeError("Expected argument 'microsoft_peering_config' to be a dict")
-        __self__.microsoft_peering_config = microsoft_peering_config
+        return pulumi.get(self, "last_modified_by")
+
+    @property
+    @pulumi.getter(name="microsoftPeeringConfig")
+    def microsoft_peering_config(self) -> Optional['outputs.ExpressRouteCircuitPeeringConfigResponse']:
         """
         The Microsoft peering configuration.
         """
-        if name and not isinstance(name, str):
-            raise TypeError("Expected argument 'name' to be a str")
-        __self__.name = name
+        return pulumi.get(self, "microsoft_peering_config")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
         """
         Gets name of the resource that is unique within a resource group. This name can be used to access the resource.
         """
-        if peer_asn and not isinstance(peer_asn, float):
-            raise TypeError("Expected argument 'peer_asn' to be a float")
-        __self__.peer_asn = peer_asn
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="peerASN")
+    def peer_asn(self) -> Optional[float]:
         """
         The peer ASN.
         """
-        if peering_type and not isinstance(peering_type, str):
-            raise TypeError("Expected argument 'peering_type' to be a str")
-        __self__.peering_type = peering_type
+        return pulumi.get(self, "peer_asn")
+
+    @property
+    @pulumi.getter(name="peeringType")
+    def peering_type(self) -> Optional[str]:
         """
         The peering type.
         """
-        if primary_azure_port and not isinstance(primary_azure_port, str):
-            raise TypeError("Expected argument 'primary_azure_port' to be a str")
-        __self__.primary_azure_port = primary_azure_port
+        return pulumi.get(self, "peering_type")
+
+    @property
+    @pulumi.getter(name="primaryAzurePort")
+    def primary_azure_port(self) -> str:
         """
         The primary port.
         """
-        if primary_peer_address_prefix and not isinstance(primary_peer_address_prefix, str):
-            raise TypeError("Expected argument 'primary_peer_address_prefix' to be a str")
-        __self__.primary_peer_address_prefix = primary_peer_address_prefix
+        return pulumi.get(self, "primary_azure_port")
+
+    @property
+    @pulumi.getter(name="primaryPeerAddressPrefix")
+    def primary_peer_address_prefix(self) -> Optional[str]:
         """
         The primary address prefix.
         """
-        if provisioning_state and not isinstance(provisioning_state, str):
-            raise TypeError("Expected argument 'provisioning_state' to be a str")
-        __self__.provisioning_state = provisioning_state
+        return pulumi.get(self, "primary_peer_address_prefix")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
         """
         Gets the provisioning state of the public IP resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
         """
-        if secondary_azure_port and not isinstance(secondary_azure_port, str):
-            raise TypeError("Expected argument 'secondary_azure_port' to be a str")
-        __self__.secondary_azure_port = secondary_azure_port
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="secondaryAzurePort")
+    def secondary_azure_port(self) -> str:
         """
         The secondary port.
         """
-        if secondary_peer_address_prefix and not isinstance(secondary_peer_address_prefix, str):
-            raise TypeError("Expected argument 'secondary_peer_address_prefix' to be a str")
-        __self__.secondary_peer_address_prefix = secondary_peer_address_prefix
+        return pulumi.get(self, "secondary_azure_port")
+
+    @property
+    @pulumi.getter(name="secondaryPeerAddressPrefix")
+    def secondary_peer_address_prefix(self) -> Optional[str]:
         """
         The secondary address prefix.
         """
-        if shared_key and not isinstance(shared_key, str):
-            raise TypeError("Expected argument 'shared_key' to be a str")
-        __self__.shared_key = shared_key
+        return pulumi.get(self, "secondary_peer_address_prefix")
+
+    @property
+    @pulumi.getter(name="sharedKey")
+    def shared_key(self) -> Optional[str]:
         """
         The shared key.
         """
-        if state and not isinstance(state, str):
-            raise TypeError("Expected argument 'state' to be a str")
-        __self__.state = state
+        return pulumi.get(self, "shared_key")
+
+    @property
+    @pulumi.getter
+    def state(self) -> Optional[str]:
         """
         The peering state.
         """
-        if vlan_id and not isinstance(vlan_id, float):
-            raise TypeError("Expected argument 'vlan_id' to be a float")
-        __self__.vlan_id = vlan_id
+        return pulumi.get(self, "state")
+
+    @property
+    @pulumi.getter(name="vlanId")
+    def vlan_id(self) -> Optional[float]:
         """
         The VLAN ID.
         """
+        return pulumi.get(self, "vlan_id")
 
 
 class AwaitableGetExpressRouteCrossConnectionPeeringResult(GetExpressRouteCrossConnectionPeeringResult):
@@ -143,7 +235,10 @@ class AwaitableGetExpressRouteCrossConnectionPeeringResult(GetExpressRouteCrossC
             vlan_id=self.vlan_id)
 
 
-def get_express_route_cross_connection_peering(cross_connection_name=None, name=None, resource_group_name=None, opts=None):
+def get_express_route_cross_connection_peering(cross_connection_name: Optional[str] = None,
+                                               name: Optional[str] = None,
+                                               resource_group_name: Optional[str] = None,
+                                               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetExpressRouteCrossConnectionPeeringResult:
     """
     Use this data source to access information about an existing resource.
 
@@ -159,23 +254,23 @@ def get_express_route_cross_connection_peering(cross_connection_name=None, name=
         opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = _utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('azurerm:network/v20180801:getExpressRouteCrossConnectionPeering', __args__, opts=opts).value
+    __ret__ = pulumi.runtime.invoke('azurerm:network/v20180801:getExpressRouteCrossConnectionPeering', __args__, opts=opts, typ=GetExpressRouteCrossConnectionPeeringResult).value
 
     return AwaitableGetExpressRouteCrossConnectionPeeringResult(
-        azure_asn=__ret__.get('azureASN'),
-        etag=__ret__.get('etag'),
-        gateway_manager_etag=__ret__.get('gatewayManagerEtag'),
-        ipv6_peering_config=__ret__.get('ipv6PeeringConfig'),
-        last_modified_by=__ret__.get('lastModifiedBy'),
-        microsoft_peering_config=__ret__.get('microsoftPeeringConfig'),
-        name=__ret__.get('name'),
-        peer_asn=__ret__.get('peerASN'),
-        peering_type=__ret__.get('peeringType'),
-        primary_azure_port=__ret__.get('primaryAzurePort'),
-        primary_peer_address_prefix=__ret__.get('primaryPeerAddressPrefix'),
-        provisioning_state=__ret__.get('provisioningState'),
-        secondary_azure_port=__ret__.get('secondaryAzurePort'),
-        secondary_peer_address_prefix=__ret__.get('secondaryPeerAddressPrefix'),
-        shared_key=__ret__.get('sharedKey'),
-        state=__ret__.get('state'),
-        vlan_id=__ret__.get('vlanId'))
+        azure_asn=__ret__.azure_asn,
+        etag=__ret__.etag,
+        gateway_manager_etag=__ret__.gateway_manager_etag,
+        ipv6_peering_config=__ret__.ipv6_peering_config,
+        last_modified_by=__ret__.last_modified_by,
+        microsoft_peering_config=__ret__.microsoft_peering_config,
+        name=__ret__.name,
+        peer_asn=__ret__.peer_asn,
+        peering_type=__ret__.peering_type,
+        primary_azure_port=__ret__.primary_azure_port,
+        primary_peer_address_prefix=__ret__.primary_peer_address_prefix,
+        provisioning_state=__ret__.provisioning_state,
+        secondary_azure_port=__ret__.secondary_azure_port,
+        secondary_peer_address_prefix=__ret__.secondary_peer_address_prefix,
+        shared_key=__ret__.shared_key,
+        state=__ret__.state,
+        vlan_id=__ret__.vlan_id)

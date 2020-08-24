@@ -5,10 +5,16 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
 
+__all__ = [
+    'GetIscsiDiskResult',
+    'AwaitableGetIscsiDiskResult',
+    'get_iscsi_disk',
+]
 
+@pulumi.output_type
 class GetIscsiDiskResult:
     """
     The iSCSI disk.
@@ -16,64 +22,114 @@ class GetIscsiDiskResult:
     def __init__(__self__, access_control_records=None, data_policy=None, description=None, disk_status=None, local_used_capacity_in_bytes=None, monitoring_status=None, name=None, provisioned_capacity_in_bytes=None, type=None, used_capacity_in_bytes=None):
         if access_control_records and not isinstance(access_control_records, list):
             raise TypeError("Expected argument 'access_control_records' to be a list")
-        __self__.access_control_records = access_control_records
+        pulumi.set(__self__, "access_control_records", access_control_records)
+        if data_policy and not isinstance(data_policy, str):
+            raise TypeError("Expected argument 'data_policy' to be a str")
+        pulumi.set(__self__, "data_policy", data_policy)
+        if description and not isinstance(description, str):
+            raise TypeError("Expected argument 'description' to be a str")
+        pulumi.set(__self__, "description", description)
+        if disk_status and not isinstance(disk_status, str):
+            raise TypeError("Expected argument 'disk_status' to be a str")
+        pulumi.set(__self__, "disk_status", disk_status)
+        if local_used_capacity_in_bytes and not isinstance(local_used_capacity_in_bytes, float):
+            raise TypeError("Expected argument 'local_used_capacity_in_bytes' to be a float")
+        pulumi.set(__self__, "local_used_capacity_in_bytes", local_used_capacity_in_bytes)
+        if monitoring_status and not isinstance(monitoring_status, str):
+            raise TypeError("Expected argument 'monitoring_status' to be a str")
+        pulumi.set(__self__, "monitoring_status", monitoring_status)
+        if name and not isinstance(name, str):
+            raise TypeError("Expected argument 'name' to be a str")
+        pulumi.set(__self__, "name", name)
+        if provisioned_capacity_in_bytes and not isinstance(provisioned_capacity_in_bytes, float):
+            raise TypeError("Expected argument 'provisioned_capacity_in_bytes' to be a float")
+        pulumi.set(__self__, "provisioned_capacity_in_bytes", provisioned_capacity_in_bytes)
+        if type and not isinstance(type, str):
+            raise TypeError("Expected argument 'type' to be a str")
+        pulumi.set(__self__, "type", type)
+        if used_capacity_in_bytes and not isinstance(used_capacity_in_bytes, float):
+            raise TypeError("Expected argument 'used_capacity_in_bytes' to be a float")
+        pulumi.set(__self__, "used_capacity_in_bytes", used_capacity_in_bytes)
+
+    @property
+    @pulumi.getter(name="accessControlRecords")
+    def access_control_records(self) -> List[str]:
         """
         The access control records.
         """
-        if data_policy and not isinstance(data_policy, str):
-            raise TypeError("Expected argument 'data_policy' to be a str")
-        __self__.data_policy = data_policy
+        return pulumi.get(self, "access_control_records")
+
+    @property
+    @pulumi.getter(name="dataPolicy")
+    def data_policy(self) -> str:
         """
         The data policy.
         """
-        if description and not isinstance(description, str):
-            raise TypeError("Expected argument 'description' to be a str")
-        __self__.description = description
+        return pulumi.get(self, "data_policy")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
         """
         The description.
         """
-        if disk_status and not isinstance(disk_status, str):
-            raise TypeError("Expected argument 'disk_status' to be a str")
-        __self__.disk_status = disk_status
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="diskStatus")
+    def disk_status(self) -> str:
         """
         The disk status.
         """
-        if local_used_capacity_in_bytes and not isinstance(local_used_capacity_in_bytes, float):
-            raise TypeError("Expected argument 'local_used_capacity_in_bytes' to be a float")
-        __self__.local_used_capacity_in_bytes = local_used_capacity_in_bytes
+        return pulumi.get(self, "disk_status")
+
+    @property
+    @pulumi.getter(name="localUsedCapacityInBytes")
+    def local_used_capacity_in_bytes(self) -> float:
         """
         The local used capacity in bytes.
         """
-        if monitoring_status and not isinstance(monitoring_status, str):
-            raise TypeError("Expected argument 'monitoring_status' to be a str")
-        __self__.monitoring_status = monitoring_status
+        return pulumi.get(self, "local_used_capacity_in_bytes")
+
+    @property
+    @pulumi.getter(name="monitoringStatus")
+    def monitoring_status(self) -> str:
         """
         The monitoring.
         """
-        if name and not isinstance(name, str):
-            raise TypeError("Expected argument 'name' to be a str")
-        __self__.name = name
+        return pulumi.get(self, "monitoring_status")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
         """
         The name.
         """
-        if provisioned_capacity_in_bytes and not isinstance(provisioned_capacity_in_bytes, float):
-            raise TypeError("Expected argument 'provisioned_capacity_in_bytes' to be a float")
-        __self__.provisioned_capacity_in_bytes = provisioned_capacity_in_bytes
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="provisionedCapacityInBytes")
+    def provisioned_capacity_in_bytes(self) -> float:
         """
         The provisioned capacity in bytes.
         """
-        if type and not isinstance(type, str):
-            raise TypeError("Expected argument 'type' to be a str")
-        __self__.type = type
+        return pulumi.get(self, "provisioned_capacity_in_bytes")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
         """
         The type.
         """
-        if used_capacity_in_bytes and not isinstance(used_capacity_in_bytes, float):
-            raise TypeError("Expected argument 'used_capacity_in_bytes' to be a float")
-        __self__.used_capacity_in_bytes = used_capacity_in_bytes
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="usedCapacityInBytes")
+    def used_capacity_in_bytes(self) -> float:
         """
         The used capacity in bytes.
         """
+        return pulumi.get(self, "used_capacity_in_bytes")
 
 
 class AwaitableGetIscsiDiskResult(GetIscsiDiskResult):
@@ -94,7 +150,12 @@ class AwaitableGetIscsiDiskResult(GetIscsiDiskResult):
             used_capacity_in_bytes=self.used_capacity_in_bytes)
 
 
-def get_iscsi_disk(device_name=None, iscsi_server_name=None, manager_name=None, name=None, resource_group_name=None, opts=None):
+def get_iscsi_disk(device_name: Optional[str] = None,
+                   iscsi_server_name: Optional[str] = None,
+                   manager_name: Optional[str] = None,
+                   name: Optional[str] = None,
+                   resource_group_name: Optional[str] = None,
+                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetIscsiDiskResult:
     """
     Use this data source to access information about an existing resource.
 
@@ -114,16 +175,16 @@ def get_iscsi_disk(device_name=None, iscsi_server_name=None, manager_name=None, 
         opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = _utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('azurerm:storsimple/v20161001:getIscsiDisk', __args__, opts=opts).value
+    __ret__ = pulumi.runtime.invoke('azurerm:storsimple/v20161001:getIscsiDisk', __args__, opts=opts, typ=GetIscsiDiskResult).value
 
     return AwaitableGetIscsiDiskResult(
-        access_control_records=__ret__.get('accessControlRecords'),
-        data_policy=__ret__.get('dataPolicy'),
-        description=__ret__.get('description'),
-        disk_status=__ret__.get('diskStatus'),
-        local_used_capacity_in_bytes=__ret__.get('localUsedCapacityInBytes'),
-        monitoring_status=__ret__.get('monitoringStatus'),
-        name=__ret__.get('name'),
-        provisioned_capacity_in_bytes=__ret__.get('provisionedCapacityInBytes'),
-        type=__ret__.get('type'),
-        used_capacity_in_bytes=__ret__.get('usedCapacityInBytes'))
+        access_control_records=__ret__.access_control_records,
+        data_policy=__ret__.data_policy,
+        description=__ret__.description,
+        disk_status=__ret__.disk_status,
+        local_used_capacity_in_bytes=__ret__.local_used_capacity_in_bytes,
+        monitoring_status=__ret__.monitoring_status,
+        name=__ret__.name,
+        provisioned_capacity_in_bytes=__ret__.provisioned_capacity_in_bytes,
+        type=__ret__.type,
+        used_capacity_in_bytes=__ret__.used_capacity_in_bytes)

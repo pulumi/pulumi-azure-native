@@ -5,10 +5,17 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+from . import outputs
 
+__all__ = [
+    'GetScheduledQueryRuleResult',
+    'AwaitableGetScheduledQueryRuleResult',
+    'get_scheduled_query_rule',
+]
 
+@pulumi.output_type
 class GetScheduledQueryRuleResult:
     """
     The Log Search Rule resource.
@@ -16,70 +23,125 @@ class GetScheduledQueryRuleResult:
     def __init__(__self__, action=None, description=None, enabled=None, last_updated_time=None, location=None, name=None, provisioning_state=None, schedule=None, source=None, tags=None, type=None):
         if action and not isinstance(action, dict):
             raise TypeError("Expected argument 'action' to be a dict")
-        __self__.action = action
+        pulumi.set(__self__, "action", action)
+        if description and not isinstance(description, str):
+            raise TypeError("Expected argument 'description' to be a str")
+        pulumi.set(__self__, "description", description)
+        if enabled and not isinstance(enabled, str):
+            raise TypeError("Expected argument 'enabled' to be a str")
+        pulumi.set(__self__, "enabled", enabled)
+        if last_updated_time and not isinstance(last_updated_time, str):
+            raise TypeError("Expected argument 'last_updated_time' to be a str")
+        pulumi.set(__self__, "last_updated_time", last_updated_time)
+        if location and not isinstance(location, str):
+            raise TypeError("Expected argument 'location' to be a str")
+        pulumi.set(__self__, "location", location)
+        if name and not isinstance(name, str):
+            raise TypeError("Expected argument 'name' to be a str")
+        pulumi.set(__self__, "name", name)
+        if provisioning_state and not isinstance(provisioning_state, str):
+            raise TypeError("Expected argument 'provisioning_state' to be a str")
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if schedule and not isinstance(schedule, dict):
+            raise TypeError("Expected argument 'schedule' to be a dict")
+        pulumi.set(__self__, "schedule", schedule)
+        if source and not isinstance(source, dict):
+            raise TypeError("Expected argument 'source' to be a dict")
+        pulumi.set(__self__, "source", source)
+        if tags and not isinstance(tags, dict):
+            raise TypeError("Expected argument 'tags' to be a dict")
+        pulumi.set(__self__, "tags", tags)
+        if type and not isinstance(type, str):
+            raise TypeError("Expected argument 'type' to be a str")
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def action(self) -> 'outputs.ActionResponse':
         """
         Action needs to be taken on rule execution.
         """
-        if description and not isinstance(description, str):
-            raise TypeError("Expected argument 'description' to be a str")
-        __self__.description = description
+        return pulumi.get(self, "action")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
         """
         The description of the Log Search rule.
         """
-        if enabled and not isinstance(enabled, str):
-            raise TypeError("Expected argument 'enabled' to be a str")
-        __self__.enabled = enabled
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[str]:
         """
         The flag which indicates whether the Log Search rule is enabled. Value should be true or false
         """
-        if last_updated_time and not isinstance(last_updated_time, str):
-            raise TypeError("Expected argument 'last_updated_time' to be a str")
-        __self__.last_updated_time = last_updated_time
+        return pulumi.get(self, "enabled")
+
+    @property
+    @pulumi.getter(name="lastUpdatedTime")
+    def last_updated_time(self) -> str:
         """
         Last time the rule was updated in IS08601 format.
         """
-        if location and not isinstance(location, str):
-            raise TypeError("Expected argument 'location' to be a str")
-        __self__.location = location
+        return pulumi.get(self, "last_updated_time")
+
+    @property
+    @pulumi.getter
+    def location(self) -> str:
         """
         Resource location
         """
-        if name and not isinstance(name, str):
-            raise TypeError("Expected argument 'name' to be a str")
-        __self__.name = name
+        return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
         """
         Azure resource name
         """
-        if provisioning_state and not isinstance(provisioning_state, str):
-            raise TypeError("Expected argument 'provisioning_state' to be a str")
-        __self__.provisioning_state = provisioning_state
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
         """
         Provisioning state of the scheduled query rule
         """
-        if schedule and not isinstance(schedule, dict):
-            raise TypeError("Expected argument 'schedule' to be a dict")
-        __self__.schedule = schedule
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter
+    def schedule(self) -> Optional['outputs.ScheduleResponse']:
         """
         Schedule (Frequency, Time Window) for rule. Required for action type - AlertingAction
         """
-        if source and not isinstance(source, dict):
-            raise TypeError("Expected argument 'source' to be a dict")
-        __self__.source = source
+        return pulumi.get(self, "schedule")
+
+    @property
+    @pulumi.getter
+    def source(self) -> 'outputs.SourceResponse':
         """
         Data Source against which rule will Query Data
         """
-        if tags and not isinstance(tags, dict):
-            raise TypeError("Expected argument 'tags' to be a dict")
-        __self__.tags = tags
+        return pulumi.get(self, "source")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Mapping[str, str]]:
         """
         Resource tags
         """
-        if type and not isinstance(type, str):
-            raise TypeError("Expected argument 'type' to be a str")
-        __self__.type = type
+        return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
         """
         Azure resource type
         """
+        return pulumi.get(self, "type")
 
 
 class AwaitableGetScheduledQueryRuleResult(GetScheduledQueryRuleResult):
@@ -101,7 +163,9 @@ class AwaitableGetScheduledQueryRuleResult(GetScheduledQueryRuleResult):
             type=self.type)
 
 
-def get_scheduled_query_rule(name=None, resource_group_name=None, opts=None):
+def get_scheduled_query_rule(name: Optional[str] = None,
+                             resource_group_name: Optional[str] = None,
+                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetScheduledQueryRuleResult:
     """
     Use this data source to access information about an existing resource.
 
@@ -115,17 +179,17 @@ def get_scheduled_query_rule(name=None, resource_group_name=None, opts=None):
         opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = _utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('azurerm:insights/v20180416:getScheduledQueryRule', __args__, opts=opts).value
+    __ret__ = pulumi.runtime.invoke('azurerm:insights/v20180416:getScheduledQueryRule', __args__, opts=opts, typ=GetScheduledQueryRuleResult).value
 
     return AwaitableGetScheduledQueryRuleResult(
-        action=__ret__.get('action'),
-        description=__ret__.get('description'),
-        enabled=__ret__.get('enabled'),
-        last_updated_time=__ret__.get('lastUpdatedTime'),
-        location=__ret__.get('location'),
-        name=__ret__.get('name'),
-        provisioning_state=__ret__.get('provisioningState'),
-        schedule=__ret__.get('schedule'),
-        source=__ret__.get('source'),
-        tags=__ret__.get('tags'),
-        type=__ret__.get('type'))
+        action=__ret__.action,
+        description=__ret__.description,
+        enabled=__ret__.enabled,
+        last_updated_time=__ret__.last_updated_time,
+        location=__ret__.location,
+        name=__ret__.name,
+        provisioning_state=__ret__.provisioning_state,
+        schedule=__ret__.schedule,
+        source=__ret__.source,
+        tags=__ret__.tags,
+        type=__ret__.type)

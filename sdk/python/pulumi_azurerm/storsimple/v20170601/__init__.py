@@ -25,3 +25,5 @@ from .manager_extended_info import *
 from .storage_account_credential import *
 from .volume import *
 from .volume_container import *
+from ._inputs import *
+from . import outputs

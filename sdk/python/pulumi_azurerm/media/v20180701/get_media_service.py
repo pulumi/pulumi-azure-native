@@ -5,10 +5,17 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+from . import outputs
 
+__all__ = [
+    'GetMediaServiceResult',
+    'AwaitableGetMediaServiceResult',
+    'get_media_service',
+]
 
+@pulumi.output_type
 class GetMediaServiceResult:
     """
     A Media Services account.
@@ -16,40 +23,70 @@ class GetMediaServiceResult:
     def __init__(__self__, location=None, media_service_id=None, name=None, storage_accounts=None, tags=None, type=None):
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
-        __self__.location = location
+        pulumi.set(__self__, "location", location)
+        if media_service_id and not isinstance(media_service_id, str):
+            raise TypeError("Expected argument 'media_service_id' to be a str")
+        pulumi.set(__self__, "media_service_id", media_service_id)
+        if name and not isinstance(name, str):
+            raise TypeError("Expected argument 'name' to be a str")
+        pulumi.set(__self__, "name", name)
+        if storage_accounts and not isinstance(storage_accounts, list):
+            raise TypeError("Expected argument 'storage_accounts' to be a list")
+        pulumi.set(__self__, "storage_accounts", storage_accounts)
+        if tags and not isinstance(tags, dict):
+            raise TypeError("Expected argument 'tags' to be a dict")
+        pulumi.set(__self__, "tags", tags)
+        if type and not isinstance(type, str):
+            raise TypeError("Expected argument 'type' to be a str")
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[str]:
         """
         The Azure Region of the resource.
         """
-        if media_service_id and not isinstance(media_service_id, str):
-            raise TypeError("Expected argument 'media_service_id' to be a str")
-        __self__.media_service_id = media_service_id
+        return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter(name="mediaServiceId")
+    def media_service_id(self) -> str:
         """
         The Media Services account ID.
         """
-        if name and not isinstance(name, str):
-            raise TypeError("Expected argument 'name' to be a str")
-        __self__.name = name
+        return pulumi.get(self, "media_service_id")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
         """
         The name of the resource.
         """
-        if storage_accounts and not isinstance(storage_accounts, list):
-            raise TypeError("Expected argument 'storage_accounts' to be a list")
-        __self__.storage_accounts = storage_accounts
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="storageAccounts")
+    def storage_accounts(self) -> Optional[List['outputs.StorageAccountResponse']]:
         """
         The storage accounts for this resource.
         """
-        if tags and not isinstance(tags, dict):
-            raise TypeError("Expected argument 'tags' to be a dict")
-        __self__.tags = tags
+        return pulumi.get(self, "storage_accounts")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Mapping[str, str]]:
         """
         Resource tags.
         """
-        if type and not isinstance(type, str):
-            raise TypeError("Expected argument 'type' to be a str")
-        __self__.type = type
+        return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
         """
         The type of the resource.
         """
+        return pulumi.get(self, "type")
 
 
 class AwaitableGetMediaServiceResult(GetMediaServiceResult):
@@ -66,7 +103,9 @@ class AwaitableGetMediaServiceResult(GetMediaServiceResult):
             type=self.type)
 
 
-def get_media_service(name=None, resource_group_name=None, opts=None):
+def get_media_service(name: Optional[str] = None,
+                      resource_group_name: Optional[str] = None,
+                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetMediaServiceResult:
     """
     Use this data source to access information about an existing resource.
 
@@ -80,12 +119,12 @@ def get_media_service(name=None, resource_group_name=None, opts=None):
         opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = _utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('azurerm:media/v20180701:getMediaService', __args__, opts=opts).value
+    __ret__ = pulumi.runtime.invoke('azurerm:media/v20180701:getMediaService', __args__, opts=opts, typ=GetMediaServiceResult).value
 
     return AwaitableGetMediaServiceResult(
-        location=__ret__.get('location'),
-        media_service_id=__ret__.get('mediaServiceId'),
-        name=__ret__.get('name'),
-        storage_accounts=__ret__.get('storageAccounts'),
-        tags=__ret__.get('tags'),
-        type=__ret__.get('type'))
+        location=__ret__.location,
+        media_service_id=__ret__.media_service_id,
+        name=__ret__.name,
+        storage_accounts=__ret__.storage_accounts,
+        tags=__ret__.tags,
+        type=__ret__.type)

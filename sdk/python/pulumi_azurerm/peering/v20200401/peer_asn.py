@@ -5,43 +5,26 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+from . import outputs
+from ._inputs import *
+
+__all__ = ['PeerAsn']
 
 
 class PeerAsn(pulumi.CustomResource):
-    error_message: pulumi.Output[str]
-    """
-    The error message for the validation state
-    """
-    name: pulumi.Output[str]
-    """
-    The name of the resource.
-    """
-    peer_asn: pulumi.Output[float]
-    """
-    The Autonomous System Number (ASN) of the peer.
-    """
-    peer_contact_detail: pulumi.Output[list]
-    """
-    The contact details of the peer.
-      * `email` (`str`) - The e-mail address of the contact.
-      * `phone` (`str`) - The phone number of the contact.
-      * `role` (`str`) - The role of the contact.
-    """
-    peer_name: pulumi.Output[str]
-    """
-    The name of the peer.
-    """
-    type: pulumi.Output[str]
-    """
-    The type of the resource.
-    """
-    validation_state: pulumi.Output[str]
-    """
-    The validation state of the ASN associated with the peer.
-    """
-    def __init__(__self__, resource_name, opts=None, name=None, peer_asn=None, peer_contact_detail=None, peer_name=None, validation_state=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 peer_asn: Optional[pulumi.Input[float]] = None,
+                 peer_contact_detail: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['ContactDetailArgs']]]]] = None,
+                 peer_name: Optional[pulumi.Input[str]] = None,
+                 validation_state: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         The essential information related to the peer's ASN.
 
@@ -49,15 +32,9 @@ class PeerAsn(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] name: The peer ASN name.
         :param pulumi.Input[float] peer_asn: The Autonomous System Number (ASN) of the peer.
-        :param pulumi.Input[list] peer_contact_detail: The contact details of the peer.
+        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['ContactDetailArgs']]]] peer_contact_detail: The contact details of the peer.
         :param pulumi.Input[str] peer_name: The name of the peer.
         :param pulumi.Input[str] validation_state: The validation state of the ASN associated with the peer.
-
-        The **peer_contact_detail** object supports the following:
-
-          * `email` (`pulumi.Input[str]`) - The e-mail address of the contact.
-          * `phone` (`pulumi.Input[str]`) - The phone number of the contact.
-          * `role` (`pulumi.Input[str]`) - The role of the contact.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -92,13 +69,15 @@ class PeerAsn(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None) -> 'PeerAsn':
         """
         Get an existing PeerAsn resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -107,8 +86,65 @@ class PeerAsn(pulumi.CustomResource):
 
         return PeerAsn(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter(name="errorMessage")
+    def error_message(self) -> str:
+        """
+        The error message for the validation state
+        """
+        return pulumi.get(self, "error_message")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the resource.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="peerAsn")
+    def peer_asn(self) -> Optional[float]:
+        """
+        The Autonomous System Number (ASN) of the peer.
+        """
+        return pulumi.get(self, "peer_asn")
+
+    @property
+    @pulumi.getter(name="peerContactDetail")
+    def peer_contact_detail(self) -> Optional[List['outputs.ContactDetailResponse']]:
+        """
+        The contact details of the peer.
+        """
+        return pulumi.get(self, "peer_contact_detail")
+
+    @property
+    @pulumi.getter(name="peerName")
+    def peer_name(self) -> Optional[str]:
+        """
+        The name of the peer.
+        """
+        return pulumi.get(self, "peer_name")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        The type of the resource.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="validationState")
+    def validation_state(self) -> Optional[str]:
+        """
+        The validation state of the ASN associated with the peer.
+        """
+        return pulumi.get(self, "validation_state")
+
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

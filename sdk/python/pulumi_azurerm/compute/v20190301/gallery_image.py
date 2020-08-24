@@ -5,133 +5,58 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+from . import outputs
+from ._inputs import *
+
+__all__ = ['GalleryImage']
 
 
 class GalleryImage(pulumi.CustomResource):
-    description: pulumi.Output[str]
-    """
-    The description of this gallery Image Definition resource. This property is updatable.
-    """
-    disallowed: pulumi.Output[dict]
-    """
-    Describes the disallowed disk types.
-      * `disk_types` (`list`) - A list of disk types.
-    """
-    end_of_life_date: pulumi.Output[str]
-    """
-    The end of life date of the gallery Image Definition. This property can be used for decommissioning purposes. This property is updatable.
-    """
-    eula: pulumi.Output[str]
-    """
-    The Eula agreement for the gallery Image Definition.
-    """
-    identifier: pulumi.Output[dict]
-    """
-    This is the gallery Image Definition identifier.
-      * `offer` (`str`) - The name of the gallery Image Definition offer.
-      * `publisher` (`str`) - The name of the gallery Image Definition publisher.
-      * `sku` (`str`) - The name of the gallery Image Definition SKU.
-    """
-    location: pulumi.Output[str]
-    """
-    Resource location
-    """
-    name: pulumi.Output[str]
-    """
-    Resource name
-    """
-    os_state: pulumi.Output[str]
-    """
-    This property allows the user to specify whether the virtual machines created under this image are 'Generalized' or 'Specialized'.
-    """
-    os_type: pulumi.Output[str]
-    """
-    This property allows you to specify the type of the OS that is included in the disk when creating a VM from a managed image. <br><br> Possible values are: <br><br> **Windows** <br><br> **Linux**
-    """
-    privacy_statement_uri: pulumi.Output[str]
-    """
-    The privacy statement uri.
-    """
-    provisioning_state: pulumi.Output[str]
-    """
-    The provisioning state, which only appears in the response.
-    """
-    purchase_plan: pulumi.Output[dict]
-    """
-    Describes the gallery Image Definition purchase plan. This is used by marketplace images.
-      * `name` (`str`) - The plan ID.
-      * `product` (`str`) - The product ID.
-      * `publisher` (`str`) - The publisher ID.
-    """
-    recommended: pulumi.Output[dict]
-    """
-    The properties describe the recommended machine configuration for this Image Definition. These properties are updatable.
-      * `memory` (`dict`) - Describes the resource range.
-        * `max` (`float`) - The maximum number of the resource.
-        * `min` (`float`) - The minimum number of the resource.
-
-      * `v_cp_us` (`dict`) - Describes the resource range.
-    """
-    release_note_uri: pulumi.Output[str]
-    """
-    The release note uri.
-    """
-    tags: pulumi.Output[dict]
-    """
-    Resource tags
-    """
-    type: pulumi.Output[str]
-    """
-    Resource type
-    """
-    def __init__(__self__, resource_name, opts=None, description=None, disallowed=None, end_of_life_date=None, eula=None, gallery_name=None, identifier=None, location=None, name=None, os_state=None, os_type=None, privacy_statement_uri=None, purchase_plan=None, recommended=None, release_note_uri=None, resource_group_name=None, tags=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 disallowed: Optional[pulumi.Input[pulumi.InputType['DisallowedArgs']]] = None,
+                 end_of_life_date: Optional[pulumi.Input[str]] = None,
+                 eula: Optional[pulumi.Input[str]] = None,
+                 gallery_name: Optional[pulumi.Input[str]] = None,
+                 identifier: Optional[pulumi.Input[pulumi.InputType['GalleryImageIdentifierArgs']]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 os_state: Optional[pulumi.Input[str]] = None,
+                 os_type: Optional[pulumi.Input[str]] = None,
+                 privacy_statement_uri: Optional[pulumi.Input[str]] = None,
+                 purchase_plan: Optional[pulumi.Input[pulumi.InputType['ImagePurchasePlanArgs']]] = None,
+                 recommended: Optional[pulumi.Input[pulumi.InputType['RecommendedMachineConfigurationArgs']]] = None,
+                 release_note_uri: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         Specifies information about the gallery Image Definition that you want to create or update.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: The description of this gallery Image Definition resource. This property is updatable.
-        :param pulumi.Input[dict] disallowed: Describes the disallowed disk types.
+        :param pulumi.Input[pulumi.InputType['DisallowedArgs']] disallowed: Describes the disallowed disk types.
         :param pulumi.Input[str] end_of_life_date: The end of life date of the gallery Image Definition. This property can be used for decommissioning purposes. This property is updatable.
         :param pulumi.Input[str] eula: The Eula agreement for the gallery Image Definition.
         :param pulumi.Input[str] gallery_name: The name of the Shared Image Gallery in which the Image Definition is to be created.
-        :param pulumi.Input[dict] identifier: This is the gallery Image Definition identifier.
+        :param pulumi.Input[pulumi.InputType['GalleryImageIdentifierArgs']] identifier: This is the gallery Image Definition identifier.
         :param pulumi.Input[str] location: Resource location
         :param pulumi.Input[str] name: The name of the gallery Image Definition to be created or updated. The allowed characters are alphabets and numbers with dots, dashes, and periods allowed in the middle. The maximum length is 80 characters.
         :param pulumi.Input[str] os_state: This property allows the user to specify whether the virtual machines created under this image are 'Generalized' or 'Specialized'.
         :param pulumi.Input[str] os_type: This property allows you to specify the type of the OS that is included in the disk when creating a VM from a managed image. <br><br> Possible values are: <br><br> **Windows** <br><br> **Linux**
         :param pulumi.Input[str] privacy_statement_uri: The privacy statement uri.
-        :param pulumi.Input[dict] purchase_plan: Describes the gallery Image Definition purchase plan. This is used by marketplace images.
-        :param pulumi.Input[dict] recommended: The properties describe the recommended machine configuration for this Image Definition. These properties are updatable.
+        :param pulumi.Input[pulumi.InputType['ImagePurchasePlanArgs']] purchase_plan: Describes the gallery Image Definition purchase plan. This is used by marketplace images.
+        :param pulumi.Input[pulumi.InputType['RecommendedMachineConfigurationArgs']] recommended: The properties describe the recommended machine configuration for this Image Definition. These properties are updatable.
         :param pulumi.Input[str] release_note_uri: The release note uri.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
-        :param pulumi.Input[dict] tags: Resource tags
-
-        The **disallowed** object supports the following:
-
-          * `disk_types` (`pulumi.Input[list]`) - A list of disk types.
-
-        The **identifier** object supports the following:
-
-          * `offer` (`pulumi.Input[str]`) - The name of the gallery Image Definition offer.
-          * `publisher` (`pulumi.Input[str]`) - The name of the gallery Image Definition publisher.
-          * `sku` (`pulumi.Input[str]`) - The name of the gallery Image Definition SKU.
-
-        The **purchase_plan** object supports the following:
-
-          * `name` (`pulumi.Input[str]`) - The plan ID.
-          * `product` (`pulumi.Input[str]`) - The product ID.
-          * `publisher` (`pulumi.Input[str]`) - The publisher ID.
-
-        The **recommended** object supports the following:
-
-          * `memory` (`pulumi.Input[dict]`) - Describes the resource range.
-            * `max` (`pulumi.Input[float]`) - The maximum number of the resource.
-            * `min` (`pulumi.Input[float]`) - The minimum number of the resource.
-
-          * `v_cp_us` (`pulumi.Input[dict]`) - Describes the resource range.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -191,13 +116,15 @@ class GalleryImage(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None) -> 'GalleryImage':
         """
         Get an existing GalleryImage resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -206,8 +133,137 @@ class GalleryImage(pulumi.CustomResource):
 
         return GalleryImage(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        """
+        The description of this gallery Image Definition resource. This property is updatable.
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def disallowed(self) -> Optional['outputs.DisallowedResponse']:
+        """
+        Describes the disallowed disk types.
+        """
+        return pulumi.get(self, "disallowed")
+
+    @property
+    @pulumi.getter(name="endOfLifeDate")
+    def end_of_life_date(self) -> Optional[str]:
+        """
+        The end of life date of the gallery Image Definition. This property can be used for decommissioning purposes. This property is updatable.
+        """
+        return pulumi.get(self, "end_of_life_date")
+
+    @property
+    @pulumi.getter
+    def eula(self) -> Optional[str]:
+        """
+        The Eula agreement for the gallery Image Definition.
+        """
+        return pulumi.get(self, "eula")
+
+    @property
+    @pulumi.getter
+    def identifier(self) -> 'outputs.GalleryImageIdentifierResponse':
+        """
+        This is the gallery Image Definition identifier.
+        """
+        return pulumi.get(self, "identifier")
+
+    @property
+    @pulumi.getter
+    def location(self) -> str:
+        """
+        Resource location
+        """
+        return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Resource name
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="osState")
+    def os_state(self) -> str:
+        """
+        This property allows the user to specify whether the virtual machines created under this image are 'Generalized' or 'Specialized'.
+        """
+        return pulumi.get(self, "os_state")
+
+    @property
+    @pulumi.getter(name="osType")
+    def os_type(self) -> str:
+        """
+        This property allows you to specify the type of the OS that is included in the disk when creating a VM from a managed image. <br><br> Possible values are: <br><br> **Windows** <br><br> **Linux**
+        """
+        return pulumi.get(self, "os_type")
+
+    @property
+    @pulumi.getter(name="privacyStatementUri")
+    def privacy_statement_uri(self) -> Optional[str]:
+        """
+        The privacy statement uri.
+        """
+        return pulumi.get(self, "privacy_statement_uri")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        The provisioning state, which only appears in the response.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="purchasePlan")
+    def purchase_plan(self) -> Optional['outputs.ImagePurchasePlanResponse']:
+        """
+        Describes the gallery Image Definition purchase plan. This is used by marketplace images.
+        """
+        return pulumi.get(self, "purchase_plan")
+
+    @property
+    @pulumi.getter
+    def recommended(self) -> Optional['outputs.RecommendedMachineConfigurationResponse']:
+        """
+        The properties describe the recommended machine configuration for this Image Definition. These properties are updatable.
+        """
+        return pulumi.get(self, "recommended")
+
+    @property
+    @pulumi.getter(name="releaseNoteUri")
+    def release_note_uri(self) -> Optional[str]:
+        """
+        The release note uri.
+        """
+        return pulumi.get(self, "release_note_uri")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Mapping[str, str]]:
+        """
+        Resource tags
+        """
+        return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Resource type
+        """
+        return pulumi.get(self, "type")
+
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

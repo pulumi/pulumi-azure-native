@@ -5,52 +5,25 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+
+__all__ = ['BackupPolicy']
 
 
 class BackupPolicy(pulumi.CustomResource):
-    backup_policy_creation_type: pulumi.Output[str]
-    """
-    The backup policy creation type. Indicates whether this was created through SaaS or through StorSimple Snapshot Manager.
-    """
-    kind: pulumi.Output[str]
-    """
-    The Kind of the object. Currently only Series8000 is supported
-    """
-    last_backup_time: pulumi.Output[str]
-    """
-    The time of the last backup for the backup policy.
-    """
-    name: pulumi.Output[str]
-    """
-    The name of the object.
-    """
-    next_backup_time: pulumi.Output[str]
-    """
-    The time of the next backup for the backup policy.
-    """
-    scheduled_backup_status: pulumi.Output[str]
-    """
-    Indicates whether at least one of the schedules in the backup policy is active or not.
-    """
-    schedules_count: pulumi.Output[float]
-    """
-    The count of schedules the backup policy contains.
-    """
-    ssm_host_name: pulumi.Output[str]
-    """
-    If the backup policy was created by StorSimple Snapshot Manager, then this field indicates the hostname of the StorSimple Snapshot Manager.
-    """
-    type: pulumi.Output[str]
-    """
-    The hierarchical type of the object.
-    """
-    volume_ids: pulumi.Output[list]
-    """
-    The path IDs of the volumes which are part of the backup policy.
-    """
-    def __init__(__self__, resource_name, opts=None, device_name=None, kind=None, manager_name=None, name=None, resource_group_name=None, volume_ids=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 device_name: Optional[pulumi.Input[str]] = None,
+                 kind: Optional[pulumi.Input[str]] = None,
+                 manager_name: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 volume_ids: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         The backup policy.
 
@@ -61,7 +34,7 @@ class BackupPolicy(pulumi.CustomResource):
         :param pulumi.Input[str] manager_name: The manager name
         :param pulumi.Input[str] name: The name of the backup policy to be created/updated.
         :param pulumi.Input[str] resource_group_name: The resource group name
-        :param pulumi.Input[list] volume_ids: The path IDs of the volumes which are part of the backup policy.
+        :param pulumi.Input[List[pulumi.Input[str]]] volume_ids: The path IDs of the volumes which are part of the backup policy.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -110,13 +83,15 @@ class BackupPolicy(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None) -> 'BackupPolicy':
         """
         Get an existing BackupPolicy resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -125,8 +100,89 @@ class BackupPolicy(pulumi.CustomResource):
 
         return BackupPolicy(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter(name="backupPolicyCreationType")
+    def backup_policy_creation_type(self) -> str:
+        """
+        The backup policy creation type. Indicates whether this was created through SaaS or through StorSimple Snapshot Manager.
+        """
+        return pulumi.get(self, "backup_policy_creation_type")
+
+    @property
+    @pulumi.getter
+    def kind(self) -> Optional[str]:
+        """
+        The Kind of the object. Currently only Series8000 is supported
+        """
+        return pulumi.get(self, "kind")
+
+    @property
+    @pulumi.getter(name="lastBackupTime")
+    def last_backup_time(self) -> str:
+        """
+        The time of the last backup for the backup policy.
+        """
+        return pulumi.get(self, "last_backup_time")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the object.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="nextBackupTime")
+    def next_backup_time(self) -> str:
+        """
+        The time of the next backup for the backup policy.
+        """
+        return pulumi.get(self, "next_backup_time")
+
+    @property
+    @pulumi.getter(name="scheduledBackupStatus")
+    def scheduled_backup_status(self) -> str:
+        """
+        Indicates whether at least one of the schedules in the backup policy is active or not.
+        """
+        return pulumi.get(self, "scheduled_backup_status")
+
+    @property
+    @pulumi.getter(name="schedulesCount")
+    def schedules_count(self) -> float:
+        """
+        The count of schedules the backup policy contains.
+        """
+        return pulumi.get(self, "schedules_count")
+
+    @property
+    @pulumi.getter(name="ssmHostName")
+    def ssm_host_name(self) -> str:
+        """
+        If the backup policy was created by StorSimple Snapshot Manager, then this field indicates the hostname of the StorSimple Snapshot Manager.
+        """
+        return pulumi.get(self, "ssm_host_name")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        The hierarchical type of the object.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="volumeIds")
+    def volume_ids(self) -> List[str]:
+        """
+        The path IDs of the volumes which are part of the backup policy.
+        """
+        return pulumi.get(self, "volume_ids")
+
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

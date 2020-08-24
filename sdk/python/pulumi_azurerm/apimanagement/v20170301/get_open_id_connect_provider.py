@@ -5,10 +5,16 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
 
+__all__ = [
+    'GetOpenIdConnectProviderResult',
+    'AwaitableGetOpenIdConnectProviderResult',
+    'get_open_id_connect_provider',
+]
 
+@pulumi.output_type
 class GetOpenIdConnectProviderResult:
     """
     OpenId Connect Provider details.
@@ -16,46 +22,81 @@ class GetOpenIdConnectProviderResult:
     def __init__(__self__, client_id=None, client_secret=None, description=None, display_name=None, metadata_endpoint=None, name=None, type=None):
         if client_id and not isinstance(client_id, str):
             raise TypeError("Expected argument 'client_id' to be a str")
-        __self__.client_id = client_id
+        pulumi.set(__self__, "client_id", client_id)
+        if client_secret and not isinstance(client_secret, str):
+            raise TypeError("Expected argument 'client_secret' to be a str")
+        pulumi.set(__self__, "client_secret", client_secret)
+        if description and not isinstance(description, str):
+            raise TypeError("Expected argument 'description' to be a str")
+        pulumi.set(__self__, "description", description)
+        if display_name and not isinstance(display_name, str):
+            raise TypeError("Expected argument 'display_name' to be a str")
+        pulumi.set(__self__, "display_name", display_name)
+        if metadata_endpoint and not isinstance(metadata_endpoint, str):
+            raise TypeError("Expected argument 'metadata_endpoint' to be a str")
+        pulumi.set(__self__, "metadata_endpoint", metadata_endpoint)
+        if name and not isinstance(name, str):
+            raise TypeError("Expected argument 'name' to be a str")
+        pulumi.set(__self__, "name", name)
+        if type and not isinstance(type, str):
+            raise TypeError("Expected argument 'type' to be a str")
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="clientId")
+    def client_id(self) -> str:
         """
         Client ID of developer console which is the client application.
         """
-        if client_secret and not isinstance(client_secret, str):
-            raise TypeError("Expected argument 'client_secret' to be a str")
-        __self__.client_secret = client_secret
+        return pulumi.get(self, "client_id")
+
+    @property
+    @pulumi.getter(name="clientSecret")
+    def client_secret(self) -> Optional[str]:
         """
         Client Secret of developer console which is the client application.
         """
-        if description and not isinstance(description, str):
-            raise TypeError("Expected argument 'description' to be a str")
-        __self__.description = description
+        return pulumi.get(self, "client_secret")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
         """
         User-friendly description of OpenID Connect Provider.
         """
-        if display_name and not isinstance(display_name, str):
-            raise TypeError("Expected argument 'display_name' to be a str")
-        __self__.display_name = display_name
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="displayName")
+    def display_name(self) -> str:
         """
         User-friendly OpenID Connect Provider name.
         """
-        if metadata_endpoint and not isinstance(metadata_endpoint, str):
-            raise TypeError("Expected argument 'metadata_endpoint' to be a str")
-        __self__.metadata_endpoint = metadata_endpoint
+        return pulumi.get(self, "display_name")
+
+    @property
+    @pulumi.getter(name="metadataEndpoint")
+    def metadata_endpoint(self) -> str:
         """
         Metadata endpoint URI.
         """
-        if name and not isinstance(name, str):
-            raise TypeError("Expected argument 'name' to be a str")
-        __self__.name = name
+        return pulumi.get(self, "metadata_endpoint")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
         """
         Resource name.
         """
-        if type and not isinstance(type, str):
-            raise TypeError("Expected argument 'type' to be a str")
-        __self__.type = type
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
         """
         Resource type for API Management resource.
         """
+        return pulumi.get(self, "type")
 
 
 class AwaitableGetOpenIdConnectProviderResult(GetOpenIdConnectProviderResult):
@@ -73,7 +114,10 @@ class AwaitableGetOpenIdConnectProviderResult(GetOpenIdConnectProviderResult):
             type=self.type)
 
 
-def get_open_id_connect_provider(name=None, resource_group_name=None, service_name=None, opts=None):
+def get_open_id_connect_provider(name: Optional[str] = None,
+                                 resource_group_name: Optional[str] = None,
+                                 service_name: Optional[str] = None,
+                                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetOpenIdConnectProviderResult:
     """
     Use this data source to access information about an existing resource.
 
@@ -89,13 +133,13 @@ def get_open_id_connect_provider(name=None, resource_group_name=None, service_na
         opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = _utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('azurerm:apimanagement/v20170301:getOpenIdConnectProvider', __args__, opts=opts).value
+    __ret__ = pulumi.runtime.invoke('azurerm:apimanagement/v20170301:getOpenIdConnectProvider', __args__, opts=opts, typ=GetOpenIdConnectProviderResult).value
 
     return AwaitableGetOpenIdConnectProviderResult(
-        client_id=__ret__.get('clientId'),
-        client_secret=__ret__.get('clientSecret'),
-        description=__ret__.get('description'),
-        display_name=__ret__.get('displayName'),
-        metadata_endpoint=__ret__.get('metadataEndpoint'),
-        name=__ret__.get('name'),
-        type=__ret__.get('type'))
+        client_id=__ret__.client_id,
+        client_secret=__ret__.client_secret,
+        description=__ret__.description,
+        display_name=__ret__.display_name,
+        metadata_endpoint=__ret__.metadata_endpoint,
+        name=__ret__.name,
+        type=__ret__.type)
