@@ -5,41 +5,26 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+from . import outputs
+from ._inputs import *
+
+__all__ = ['Cluster']
 
 
 class Cluster(pulumi.CustomResource):
-    cluster_id: pulumi.Output[float]
-    """
-    The identity
-    """
-    cluster_size: pulumi.Output[float]
-    """
-    The cluster size
-    """
-    hosts: pulumi.Output[list]
-    """
-    The hosts
-    """
-    name: pulumi.Output[str]
-    """
-    Resource name.
-    """
-    provisioning_state: pulumi.Output[str]
-    """
-    The state of the cluster provisioning
-    """
-    sku: pulumi.Output[dict]
-    """
-    The cluster SKU
-      * `name` (`str`) - The name of the SKU.
-    """
-    type: pulumi.Output[str]
-    """
-    Resource type.
-    """
-    def __init__(__self__, resource_name, opts=None, cluster_size=None, name=None, private_cloud_name=None, resource_group_name=None, sku=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 cluster_size: Optional[pulumi.Input[float]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 private_cloud_name: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 sku: Optional[pulumi.Input[pulumi.InputType['SkuArgs']]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         A cluster resource
 
@@ -49,11 +34,7 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[str] name: Name of the cluster in the private cloud
         :param pulumi.Input[str] private_cloud_name: The name of the private cloud.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input[dict] sku: The cluster SKU
-
-        The **sku** object supports the following:
-
-          * `name` (`pulumi.Input[str]`) - The name of the SKU.
+        :param pulumi.Input[pulumi.InputType['SkuArgs']] sku: The cluster SKU
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -98,13 +79,15 @@ class Cluster(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None) -> 'Cluster':
         """
         Get an existing Cluster resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -113,8 +96,65 @@ class Cluster(pulumi.CustomResource):
 
         return Cluster(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter(name="clusterId")
+    def cluster_id(self) -> float:
+        """
+        The identity
+        """
+        return pulumi.get(self, "cluster_id")
+
+    @property
+    @pulumi.getter(name="clusterSize")
+    def cluster_size(self) -> float:
+        """
+        The cluster size
+        """
+        return pulumi.get(self, "cluster_size")
+
+    @property
+    @pulumi.getter
+    def hosts(self) -> List[str]:
+        """
+        The hosts
+        """
+        return pulumi.get(self, "hosts")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Resource name.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        The state of the cluster provisioning
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter
+    def sku(self) -> 'outputs.SkuResponse':
+        """
+        The cluster SKU
+        """
+        return pulumi.get(self, "sku")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Resource type.
+        """
+        return pulumi.get(self, "type")
+
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

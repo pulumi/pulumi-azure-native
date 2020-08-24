@@ -5,42 +5,28 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+from . import outputs
+from ._inputs import *
+
+__all__ = ['JobSchedule']
 
 
 class JobSchedule(pulumi.CustomResource):
-    job_schedule_id: pulumi.Output[str]
-    """
-    Gets or sets the id of job schedule.
-    """
-    name: pulumi.Output[str]
-    """
-    Gets the name of the variable.
-    """
-    parameters: pulumi.Output[dict]
-    """
-    Gets or sets the parameters of the job schedule.
-    """
-    run_on: pulumi.Output[str]
-    """
-    Gets or sets the hybrid worker group that the scheduled job should run on.
-    """
-    runbook: pulumi.Output[dict]
-    """
-    Gets or sets the runbook.
-      * `name` (`str`) - Gets or sets the name of the runbook.
-    """
-    schedule: pulumi.Output[dict]
-    """
-    Gets or sets the schedule.
-      * `name` (`str`) - Gets or sets the name of the Schedule.
-    """
-    type: pulumi.Output[str]
-    """
-    Resource type
-    """
-    def __init__(__self__, resource_name, opts=None, automation_account_name=None, name=None, parameters=None, resource_group_name=None, run_on=None, runbook=None, schedule=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 automation_account_name: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 run_on: Optional[pulumi.Input[str]] = None,
+                 runbook: Optional[pulumi.Input[pulumi.InputType['RunbookAssociationPropertyArgs']]] = None,
+                 schedule: Optional[pulumi.Input[pulumi.InputType['ScheduleAssociationPropertyArgs']]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         Definition of the job schedule.
 
@@ -48,19 +34,11 @@ class JobSchedule(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] automation_account_name: The name of the automation account.
         :param pulumi.Input[str] name: The job schedule name.
-        :param pulumi.Input[dict] parameters: Gets or sets a list of job properties.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameters: Gets or sets a list of job properties.
         :param pulumi.Input[str] resource_group_name: Name of an Azure Resource group.
         :param pulumi.Input[str] run_on: Gets or sets the hybrid worker group that the scheduled job should run on.
-        :param pulumi.Input[dict] runbook: Gets or sets the runbook.
-        :param pulumi.Input[dict] schedule: Gets or sets the schedule.
-
-        The **runbook** object supports the following:
-
-          * `name` (`pulumi.Input[str]`) - Gets or sets the name of the runbook.
-
-        The **schedule** object supports the following:
-
-          * `name` (`pulumi.Input[str]`) - Gets or sets the name of the Schedule.
+        :param pulumi.Input[pulumi.InputType['RunbookAssociationPropertyArgs']] runbook: Gets or sets the runbook.
+        :param pulumi.Input[pulumi.InputType['ScheduleAssociationPropertyArgs']] schedule: Gets or sets the schedule.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -105,13 +83,15 @@ class JobSchedule(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None) -> 'JobSchedule':
         """
         Get an existing JobSchedule resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -120,8 +100,65 @@ class JobSchedule(pulumi.CustomResource):
 
         return JobSchedule(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter(name="jobScheduleId")
+    def job_schedule_id(self) -> Optional[str]:
+        """
+        Gets or sets the id of job schedule.
+        """
+        return pulumi.get(self, "job_schedule_id")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Gets the name of the variable.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def parameters(self) -> Optional[Mapping[str, str]]:
+        """
+        Gets or sets the parameters of the job schedule.
+        """
+        return pulumi.get(self, "parameters")
+
+    @property
+    @pulumi.getter(name="runOn")
+    def run_on(self) -> Optional[str]:
+        """
+        Gets or sets the hybrid worker group that the scheduled job should run on.
+        """
+        return pulumi.get(self, "run_on")
+
+    @property
+    @pulumi.getter
+    def runbook(self) -> Optional['outputs.RunbookAssociationPropertyResponse']:
+        """
+        Gets or sets the runbook.
+        """
+        return pulumi.get(self, "runbook")
+
+    @property
+    @pulumi.getter
+    def schedule(self) -> Optional['outputs.ScheduleAssociationPropertyResponse']:
+        """
+        Gets or sets the schedule.
+        """
+        return pulumi.get(self, "schedule")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Resource type
+        """
+        return pulumi.get(self, "type")
+
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

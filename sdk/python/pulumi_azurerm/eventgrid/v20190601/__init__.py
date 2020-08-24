@@ -13,3 +13,5 @@ from .get_topic import *
 from .list_domain_shared_access_keys import *
 from .list_topic_shared_access_keys import *
 from .topic import *
+from ._inputs import *
+from . import outputs

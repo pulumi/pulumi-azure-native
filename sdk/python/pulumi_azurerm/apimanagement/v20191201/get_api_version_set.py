@@ -5,10 +5,16 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
 
+__all__ = [
+    'GetApiVersionSetResult',
+    'AwaitableGetApiVersionSetResult',
+    'get_api_version_set',
+]
 
+@pulumi.output_type
 class GetApiVersionSetResult:
     """
     Api Version Set Contract details.
@@ -16,46 +22,81 @@ class GetApiVersionSetResult:
     def __init__(__self__, description=None, display_name=None, name=None, type=None, version_header_name=None, version_query_name=None, versioning_scheme=None):
         if description and not isinstance(description, str):
             raise TypeError("Expected argument 'description' to be a str")
-        __self__.description = description
+        pulumi.set(__self__, "description", description)
+        if display_name and not isinstance(display_name, str):
+            raise TypeError("Expected argument 'display_name' to be a str")
+        pulumi.set(__self__, "display_name", display_name)
+        if name and not isinstance(name, str):
+            raise TypeError("Expected argument 'name' to be a str")
+        pulumi.set(__self__, "name", name)
+        if type and not isinstance(type, str):
+            raise TypeError("Expected argument 'type' to be a str")
+        pulumi.set(__self__, "type", type)
+        if version_header_name and not isinstance(version_header_name, str):
+            raise TypeError("Expected argument 'version_header_name' to be a str")
+        pulumi.set(__self__, "version_header_name", version_header_name)
+        if version_query_name and not isinstance(version_query_name, str):
+            raise TypeError("Expected argument 'version_query_name' to be a str")
+        pulumi.set(__self__, "version_query_name", version_query_name)
+        if versioning_scheme and not isinstance(versioning_scheme, str):
+            raise TypeError("Expected argument 'versioning_scheme' to be a str")
+        pulumi.set(__self__, "versioning_scheme", versioning_scheme)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
         """
         Description of API Version Set.
         """
-        if display_name and not isinstance(display_name, str):
-            raise TypeError("Expected argument 'display_name' to be a str")
-        __self__.display_name = display_name
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="displayName")
+    def display_name(self) -> str:
         """
         Name of API Version Set
         """
-        if name and not isinstance(name, str):
-            raise TypeError("Expected argument 'name' to be a str")
-        __self__.name = name
+        return pulumi.get(self, "display_name")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
         """
         Resource name.
         """
-        if type and not isinstance(type, str):
-            raise TypeError("Expected argument 'type' to be a str")
-        __self__.type = type
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
         """
         Resource type for API Management resource.
         """
-        if version_header_name and not isinstance(version_header_name, str):
-            raise TypeError("Expected argument 'version_header_name' to be a str")
-        __self__.version_header_name = version_header_name
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="versionHeaderName")
+    def version_header_name(self) -> Optional[str]:
         """
         Name of HTTP header parameter that indicates the API Version if versioningScheme is set to `header`.
         """
-        if version_query_name and not isinstance(version_query_name, str):
-            raise TypeError("Expected argument 'version_query_name' to be a str")
-        __self__.version_query_name = version_query_name
+        return pulumi.get(self, "version_header_name")
+
+    @property
+    @pulumi.getter(name="versionQueryName")
+    def version_query_name(self) -> Optional[str]:
         """
         Name of query parameter that indicates the API Version if versioningScheme is set to `query`.
         """
-        if versioning_scheme and not isinstance(versioning_scheme, str):
-            raise TypeError("Expected argument 'versioning_scheme' to be a str")
-        __self__.versioning_scheme = versioning_scheme
+        return pulumi.get(self, "version_query_name")
+
+    @property
+    @pulumi.getter(name="versioningScheme")
+    def versioning_scheme(self) -> str:
         """
         An value that determines where the API Version identifer will be located in a HTTP request.
         """
+        return pulumi.get(self, "versioning_scheme")
 
 
 class AwaitableGetApiVersionSetResult(GetApiVersionSetResult):
@@ -73,7 +114,10 @@ class AwaitableGetApiVersionSetResult(GetApiVersionSetResult):
             versioning_scheme=self.versioning_scheme)
 
 
-def get_api_version_set(name=None, resource_group_name=None, service_name=None, opts=None):
+def get_api_version_set(name: Optional[str] = None,
+                        resource_group_name: Optional[str] = None,
+                        service_name: Optional[str] = None,
+                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetApiVersionSetResult:
     """
     Use this data source to access information about an existing resource.
 
@@ -89,13 +133,13 @@ def get_api_version_set(name=None, resource_group_name=None, service_name=None, 
         opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = _utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('azurerm:apimanagement/v20191201:getApiVersionSet', __args__, opts=opts).value
+    __ret__ = pulumi.runtime.invoke('azurerm:apimanagement/v20191201:getApiVersionSet', __args__, opts=opts, typ=GetApiVersionSetResult).value
 
     return AwaitableGetApiVersionSetResult(
-        description=__ret__.get('description'),
-        display_name=__ret__.get('displayName'),
-        name=__ret__.get('name'),
-        type=__ret__.get('type'),
-        version_header_name=__ret__.get('versionHeaderName'),
-        version_query_name=__ret__.get('versionQueryName'),
-        versioning_scheme=__ret__.get('versioningScheme'))
+        description=__ret__.description,
+        display_name=__ret__.display_name,
+        name=__ret__.name,
+        type=__ret__.type,
+        version_header_name=__ret__.version_header_name,
+        version_query_name=__ret__.version_query_name,
+        versioning_scheme=__ret__.versioning_scheme)

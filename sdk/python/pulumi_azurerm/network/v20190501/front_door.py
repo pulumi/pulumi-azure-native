@@ -5,226 +5,52 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+from . import outputs
+from ._inputs import *
+
+__all__ = ['FrontDoor']
 
 
 class FrontDoor(pulumi.CustomResource):
-    backend_pools: pulumi.Output[list]
-    """
-    Backend pools available to routing rules.
-      * `backends` (`list`) - The set of backends for this pool
-        * `address` (`str`) - Location of the backend (IP address or FQDN)
-        * `backend_host_header` (`str`) - The value to use as the host header sent to the backend. If blank or unspecified, this defaults to the incoming host.
-        * `enabled_state` (`str`) - Whether to enable use of this backend. Permitted values are 'Enabled' or 'Disabled'
-        * `http_port` (`float`) - The HTTP TCP port number. Must be between 1 and 65535.
-        * `https_port` (`float`) - The HTTPS TCP port number. Must be between 1 and 65535.
-        * `priority` (`float`) - Priority to use for load balancing. Higher priorities will not be used for load balancing if any lower priority backend is healthy.
-        * `weight` (`float`) - Weight of this endpoint for load balancing purposes.
-
-      * `health_probe_settings` (`dict`) - L7 health probe settings for a backend pool
-        * `id` (`str`) - Resource ID.
-
-      * `id` (`str`) - Resource ID.
-      * `load_balancing_settings` (`dict`) - Load balancing settings for a backend pool
-      * `name` (`str`) - Resource name.
-      * `resource_state` (`str`) - Resource status.
-      * `type` (`str`) - Resource type.
-    """
-    backend_pools_settings: pulumi.Output[dict]
-    """
-    Settings for all backendPools
-      * `enforce_certificate_name_check` (`str`) - Whether to enforce certificate name check on HTTPS requests to all backend pools. No effect on non-HTTPS requests.
-      * `send_recv_timeout_seconds` (`float`) - Send and receive timeout on forwarding request to the backend. When timeout is reached, the request fails and returns.
-    """
-    cname: pulumi.Output[str]
-    """
-    The host that each frontendEndpoint must CNAME to.
-    """
-    enabled_state: pulumi.Output[str]
-    """
-    Operational status of the Front Door load balancer. Permitted values are 'Enabled' or 'Disabled'
-    """
-    friendly_name: pulumi.Output[str]
-    """
-    A friendly name for the frontDoor
-    """
-    frontend_endpoints: pulumi.Output[list]
-    """
-    Frontend endpoints available to routing rules.
-      * `custom_https_configuration` (`dict`) - The configuration specifying how to enable HTTPS
-        * `certificate_source` (`str`) - Defines the source of the SSL certificate
-        * `certificate_type` (`str`) - Defines the type of the certificate used for secure connections to a frontendEndpoint
-        * `minimum_tls_version` (`str`) - The minimum TLS version required from the clients to establish an SSL handshake with Front Door.
-        * `protocol_type` (`str`) - Defines the TLS extension protocol that is used for secure delivery
-        * `secret_name` (`str`) - The name of the Key Vault secret representing the full certificate PFX
-        * `secret_version` (`str`) - The version of the Key Vault secret representing the full certificate PFX
-        * `vault` (`dict`) - The Key Vault containing the SSL certificate
-          * `id` (`str`) - Resource ID.
-
-      * `custom_https_provisioning_state` (`str`) - Provisioning status of Custom Https of the frontendEndpoint.
-      * `custom_https_provisioning_substate` (`str`) - Provisioning substate shows the progress of custom HTTPS enabling/disabling process step by step.
-      * `host_name` (`str`) - The host name of the frontendEndpoint. Must be a domain name.
-      * `id` (`str`) - Resource ID.
-      * `name` (`str`) - Resource name.
-      * `resource_state` (`str`) - Resource status.
-      * `session_affinity_enabled_state` (`str`) - Whether to allow session affinity on this host. Valid options are 'Enabled' or 'Disabled'
-      * `session_affinity_ttl_seconds` (`float`) - UNUSED. This field will be ignored. The TTL to use in seconds for session affinity, if applicable.
-      * `type` (`str`) - Resource type.
-      * `web_application_firewall_policy_link` (`dict`) - Defines the Web Application Firewall policy for each host (if applicable)
-        * `id` (`str`) - Resource ID.
-    """
-    health_probe_settings: pulumi.Output[list]
-    """
-    Health probe settings associated with this Front Door instance.
-      * `enabled_state` (`str`) - Whether to enable health probes to be made against backends defined under backendPools. Health probes can only be disabled if there is a single enabled backend in single enabled backend pool.
-      * `health_probe_method` (`str`) - Configures which HTTP method to use to probe the backends defined under backendPools.
-      * `id` (`str`) - Resource ID.
-      * `interval_in_seconds` (`float`) - The number of seconds between health probes.
-      * `name` (`str`) - Resource name.
-      * `path` (`str`) - The path to use for the health probe. Default is /
-      * `protocol` (`str`) - Protocol scheme to use for this probe
-      * `resource_state` (`str`) - Resource status.
-      * `type` (`str`) - Resource type.
-    """
-    load_balancing_settings: pulumi.Output[list]
-    """
-    Load balancing settings associated with this Front Door instance.
-      * `additional_latency_milliseconds` (`float`) - The additional latency in milliseconds for probes to fall into the lowest latency bucket
-      * `id` (`str`) - Resource ID.
-      * `name` (`str`) - Resource name.
-      * `resource_state` (`str`) - Resource status.
-      * `sample_size` (`float`) - The number of samples to consider for load balancing decisions
-      * `successful_samples_required` (`float`) - The number of samples within the sample period that must succeed
-      * `type` (`str`) - Resource type.
-    """
-    location: pulumi.Output[str]
-    """
-    Resource location.
-    """
-    name: pulumi.Output[str]
-    """
-    Resource name.
-    """
-    provisioning_state: pulumi.Output[str]
-    """
-    Provisioning state of the Front Door.
-    """
-    resource_state: pulumi.Output[str]
-    """
-    Resource status of the Front Door.
-    """
-    routing_rules: pulumi.Output[list]
-    """
-    Routing rules associated with this Front Door.
-      * `accepted_protocols` (`list`) - Protocol schemes to match for this rule
-      * `enabled_state` (`str`) - Whether to enable use of this rule. Permitted values are 'Enabled' or 'Disabled'
-      * `frontend_endpoints` (`list`) - Frontend endpoints associated with this rule
-        * `id` (`str`) - Resource ID.
-
-      * `id` (`str`) - Resource ID.
-      * `name` (`str`) - Resource name.
-      * `patterns_to_match` (`list`) - The route patterns of the rule.
-      * `resource_state` (`str`) - Resource status.
-      * `route_configuration` (`dict`) - A reference to the routing configuration.
-        * `odata_type` (`str`)
-
-      * `type` (`str`) - Resource type.
-    """
-    tags: pulumi.Output[dict]
-    """
-    Resource tags.
-    """
-    type: pulumi.Output[str]
-    """
-    Resource type.
-    """
-    def __init__(__self__, resource_name, opts=None, backend_pools=None, backend_pools_settings=None, enabled_state=None, friendly_name=None, frontend_endpoints=None, health_probe_settings=None, load_balancing_settings=None, location=None, name=None, resource_group_name=None, resource_state=None, routing_rules=None, tags=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 backend_pools: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['BackendPoolArgs']]]]] = None,
+                 backend_pools_settings: Optional[pulumi.Input[pulumi.InputType['BackendPoolsSettingsArgs']]] = None,
+                 enabled_state: Optional[pulumi.Input[str]] = None,
+                 friendly_name: Optional[pulumi.Input[str]] = None,
+                 frontend_endpoints: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['FrontendEndpointArgs']]]]] = None,
+                 health_probe_settings: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['HealthProbeSettingsModelArgs']]]]] = None,
+                 load_balancing_settings: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['LoadBalancingSettingsModelArgs']]]]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 resource_state: Optional[pulumi.Input[str]] = None,
+                 routing_rules: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['RoutingRuleArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         Front Door represents a collection of backend endpoints to route traffic to along with rules that specify how traffic is sent there.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[list] backend_pools: Backend pools available to routing rules.
-        :param pulumi.Input[dict] backend_pools_settings: Settings for all backendPools
+        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['BackendPoolArgs']]]] backend_pools: Backend pools available to routing rules.
+        :param pulumi.Input[pulumi.InputType['BackendPoolsSettingsArgs']] backend_pools_settings: Settings for all backendPools
         :param pulumi.Input[str] enabled_state: Operational status of the Front Door load balancer. Permitted values are 'Enabled' or 'Disabled'
         :param pulumi.Input[str] friendly_name: A friendly name for the frontDoor
-        :param pulumi.Input[list] frontend_endpoints: Frontend endpoints available to routing rules.
-        :param pulumi.Input[list] health_probe_settings: Health probe settings associated with this Front Door instance.
-        :param pulumi.Input[list] load_balancing_settings: Load balancing settings associated with this Front Door instance.
+        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['FrontendEndpointArgs']]]] frontend_endpoints: Frontend endpoints available to routing rules.
+        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['HealthProbeSettingsModelArgs']]]] health_probe_settings: Health probe settings associated with this Front Door instance.
+        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['LoadBalancingSettingsModelArgs']]]] load_balancing_settings: Load balancing settings associated with this Front Door instance.
         :param pulumi.Input[str] location: Resource location.
         :param pulumi.Input[str] name: Name of the Front Door which is globally unique.
         :param pulumi.Input[str] resource_group_name: Name of the Resource group within the Azure subscription.
         :param pulumi.Input[str] resource_state: Resource status of the Front Door.
-        :param pulumi.Input[list] routing_rules: Routing rules associated with this Front Door.
-        :param pulumi.Input[dict] tags: Resource tags.
-
-        The **backend_pools** object supports the following:
-
-          * `backends` (`pulumi.Input[list]`) - The set of backends for this pool
-            * `address` (`pulumi.Input[str]`) - Location of the backend (IP address or FQDN)
-            * `backend_host_header` (`pulumi.Input[str]`) - The value to use as the host header sent to the backend. If blank or unspecified, this defaults to the incoming host.
-            * `enabled_state` (`pulumi.Input[str]`) - Whether to enable use of this backend. Permitted values are 'Enabled' or 'Disabled'
-            * `http_port` (`pulumi.Input[float]`) - The HTTP TCP port number. Must be between 1 and 65535.
-            * `https_port` (`pulumi.Input[float]`) - The HTTPS TCP port number. Must be between 1 and 65535.
-            * `priority` (`pulumi.Input[float]`) - Priority to use for load balancing. Higher priorities will not be used for load balancing if any lower priority backend is healthy.
-            * `weight` (`pulumi.Input[float]`) - Weight of this endpoint for load balancing purposes.
-
-          * `health_probe_settings` (`pulumi.Input[dict]`) - L7 health probe settings for a backend pool
-            * `id` (`pulumi.Input[str]`) - Resource ID.
-
-          * `id` (`pulumi.Input[str]`) - Resource ID.
-          * `load_balancing_settings` (`pulumi.Input[dict]`) - Load balancing settings for a backend pool
-          * `name` (`pulumi.Input[str]`) - Resource name.
-          * `resource_state` (`pulumi.Input[str]`) - Resource status.
-
-        The **backend_pools_settings** object supports the following:
-
-          * `enforce_certificate_name_check` (`pulumi.Input[str]`) - Whether to enforce certificate name check on HTTPS requests to all backend pools. No effect on non-HTTPS requests.
-          * `send_recv_timeout_seconds` (`pulumi.Input[float]`) - Send and receive timeout on forwarding request to the backend. When timeout is reached, the request fails and returns.
-
-        The **frontend_endpoints** object supports the following:
-
-          * `host_name` (`pulumi.Input[str]`) - The host name of the frontendEndpoint. Must be a domain name.
-          * `id` (`pulumi.Input[str]`) - Resource ID.
-          * `name` (`pulumi.Input[str]`) - Resource name.
-          * `resource_state` (`pulumi.Input[str]`) - Resource status.
-          * `session_affinity_enabled_state` (`pulumi.Input[str]`) - Whether to allow session affinity on this host. Valid options are 'Enabled' or 'Disabled'
-          * `session_affinity_ttl_seconds` (`pulumi.Input[float]`) - UNUSED. This field will be ignored. The TTL to use in seconds for session affinity, if applicable.
-          * `web_application_firewall_policy_link` (`pulumi.Input[dict]`) - Defines the Web Application Firewall policy for each host (if applicable)
-            * `id` (`pulumi.Input[str]`) - Resource ID.
-
-        The **health_probe_settings** object supports the following:
-
-          * `enabled_state` (`pulumi.Input[str]`) - Whether to enable health probes to be made against backends defined under backendPools. Health probes can only be disabled if there is a single enabled backend in single enabled backend pool.
-          * `health_probe_method` (`pulumi.Input[str]`) - Configures which HTTP method to use to probe the backends defined under backendPools.
-          * `id` (`pulumi.Input[str]`) - Resource ID.
-          * `interval_in_seconds` (`pulumi.Input[float]`) - The number of seconds between health probes.
-          * `name` (`pulumi.Input[str]`) - Resource name.
-          * `path` (`pulumi.Input[str]`) - The path to use for the health probe. Default is /
-          * `protocol` (`pulumi.Input[str]`) - Protocol scheme to use for this probe
-          * `resource_state` (`pulumi.Input[str]`) - Resource status.
-
-        The **load_balancing_settings** object supports the following:
-
-          * `additional_latency_milliseconds` (`pulumi.Input[float]`) - The additional latency in milliseconds for probes to fall into the lowest latency bucket
-          * `id` (`pulumi.Input[str]`) - Resource ID.
-          * `name` (`pulumi.Input[str]`) - Resource name.
-          * `resource_state` (`pulumi.Input[str]`) - Resource status.
-          * `sample_size` (`pulumi.Input[float]`) - The number of samples to consider for load balancing decisions
-          * `successful_samples_required` (`pulumi.Input[float]`) - The number of samples within the sample period that must succeed
-
-        The **routing_rules** object supports the following:
-
-          * `accepted_protocols` (`pulumi.Input[list]`) - Protocol schemes to match for this rule
-          * `enabled_state` (`pulumi.Input[str]`) - Whether to enable use of this rule. Permitted values are 'Enabled' or 'Disabled'
-          * `frontend_endpoints` (`pulumi.Input[list]`) - Frontend endpoints associated with this rule
-          * `id` (`pulumi.Input[str]`) - Resource ID.
-          * `name` (`pulumi.Input[str]`) - Resource name.
-          * `patterns_to_match` (`pulumi.Input[list]`) - The route patterns of the rule.
-          * `resource_state` (`pulumi.Input[str]`) - Resource status.
-          * `route_configuration` (`pulumi.Input[dict]`) - A reference to the routing configuration.
-            * `odata_type` (`pulumi.Input[str]`)
+        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['RoutingRuleArgs']]]] routing_rules: Routing rules associated with this Front Door.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -272,13 +98,15 @@ class FrontDoor(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None) -> 'FrontDoor':
         """
         Get an existing FrontDoor resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -287,8 +115,129 @@ class FrontDoor(pulumi.CustomResource):
 
         return FrontDoor(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter(name="backendPools")
+    def backend_pools(self) -> Optional[List['outputs.BackendPoolResponse']]:
+        """
+        Backend pools available to routing rules.
+        """
+        return pulumi.get(self, "backend_pools")
+
+    @property
+    @pulumi.getter(name="backendPoolsSettings")
+    def backend_pools_settings(self) -> Optional['outputs.BackendPoolsSettingsResponse']:
+        """
+        Settings for all backendPools
+        """
+        return pulumi.get(self, "backend_pools_settings")
+
+    @property
+    @pulumi.getter
+    def cname(self) -> str:
+        """
+        The host that each frontendEndpoint must CNAME to.
+        """
+        return pulumi.get(self, "cname")
+
+    @property
+    @pulumi.getter(name="enabledState")
+    def enabled_state(self) -> Optional[str]:
+        """
+        Operational status of the Front Door load balancer. Permitted values are 'Enabled' or 'Disabled'
+        """
+        return pulumi.get(self, "enabled_state")
+
+    @property
+    @pulumi.getter(name="friendlyName")
+    def friendly_name(self) -> Optional[str]:
+        """
+        A friendly name for the frontDoor
+        """
+        return pulumi.get(self, "friendly_name")
+
+    @property
+    @pulumi.getter(name="frontendEndpoints")
+    def frontend_endpoints(self) -> Optional[List['outputs.FrontendEndpointResponse']]:
+        """
+        Frontend endpoints available to routing rules.
+        """
+        return pulumi.get(self, "frontend_endpoints")
+
+    @property
+    @pulumi.getter(name="healthProbeSettings")
+    def health_probe_settings(self) -> Optional[List['outputs.HealthProbeSettingsModelResponse']]:
+        """
+        Health probe settings associated with this Front Door instance.
+        """
+        return pulumi.get(self, "health_probe_settings")
+
+    @property
+    @pulumi.getter(name="loadBalancingSettings")
+    def load_balancing_settings(self) -> Optional[List['outputs.LoadBalancingSettingsModelResponse']]:
+        """
+        Load balancing settings associated with this Front Door instance.
+        """
+        return pulumi.get(self, "load_balancing_settings")
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[str]:
+        """
+        Resource location.
+        """
+        return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Resource name.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        Provisioning state of the Front Door.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="resourceState")
+    def resource_state(self) -> Optional[str]:
+        """
+        Resource status of the Front Door.
+        """
+        return pulumi.get(self, "resource_state")
+
+    @property
+    @pulumi.getter(name="routingRules")
+    def routing_rules(self) -> Optional[List['outputs.RoutingRuleResponse']]:
+        """
+        Routing rules associated with this Front Door.
+        """
+        return pulumi.get(self, "routing_rules")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Mapping[str, str]]:
+        """
+        Resource tags.
+        """
+        return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Resource type.
+        """
+        return pulumi.get(self, "type")
+
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

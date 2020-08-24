@@ -5,57 +5,30 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+from . import outputs
+from ._inputs import *
+
+__all__ = ['HubVirtualNetworkConnection']
 
 
 class HubVirtualNetworkConnection(pulumi.CustomResource):
-    allow_hub_to_remote_vnet_transit: pulumi.Output[bool]
-    """
-    Deprecated: VirtualHub to RemoteVnet transit to enabled or not.
-    """
-    allow_remote_vnet_to_use_hub_vnet_gateways: pulumi.Output[bool]
-    """
-    Deprecated: Allow RemoteVnet to use Virtual Hub's gateways.
-    """
-    enable_internet_security: pulumi.Output[bool]
-    """
-    Enable internet security.
-    """
-    etag: pulumi.Output[str]
-    """
-    A unique read-only string that changes whenever the resource is updated.
-    """
-    name: pulumi.Output[str]
-    """
-    The name of the resource that is unique within a resource group. This name can be used to access the resource.
-    """
-    provisioning_state: pulumi.Output[str]
-    """
-    The provisioning state of the hub virtual network connection resource.
-    """
-    remote_virtual_network: pulumi.Output[dict]
-    """
-    Reference to the remote virtual network.
-      * `id` (`str`) - Resource ID.
-    """
-    routing_configuration: pulumi.Output[dict]
-    """
-    The Routing Configuration indicating the associated and propagated route tables on this connection.
-      * `associated_route_table` (`dict`) - The resource id RouteTable associated with this RoutingConfiguration.
-        * `id` (`str`) - Resource ID.
-
-      * `propagated_route_tables` (`dict`) - The list of RouteTables to advertise the routes to.
-        * `ids` (`list`) - The list of resource ids of all the RouteTables.
-        * `labels` (`list`) - The list of labels.
-
-      * `vnet_routes` (`dict`) - List of routes that control routing from VirtualHub into a virtual network connection.
-        * `static_routes` (`list`) - List of all Static Routes.
-          * `address_prefixes` (`list`) - List of all address prefixes.
-          * `name` (`str`) - The name of the StaticRoute that is unique within a VnetRoute.
-          * `next_hop_ip_address` (`str`) - The ip address of the next hop.
-    """
-    def __init__(__self__, resource_name, opts=None, allow_hub_to_remote_vnet_transit=None, allow_remote_vnet_to_use_hub_vnet_gateways=None, enable_internet_security=None, id=None, name=None, remote_virtual_network=None, resource_group_name=None, routing_configuration=None, virtual_hub_name=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 allow_hub_to_remote_vnet_transit: Optional[pulumi.Input[bool]] = None,
+                 allow_remote_vnet_to_use_hub_vnet_gateways: Optional[pulumi.Input[bool]] = None,
+                 enable_internet_security: Optional[pulumi.Input[bool]] = None,
+                 id: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 remote_virtual_network: Optional[pulumi.Input[pulumi.InputType['SubResourceArgs']]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 routing_configuration: Optional[pulumi.Input[pulumi.InputType['RoutingConfigurationArgs']]] = None,
+                 virtual_hub_name: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         HubVirtualNetworkConnection Resource.
 
@@ -66,27 +39,10 @@ class HubVirtualNetworkConnection(pulumi.CustomResource):
         :param pulumi.Input[bool] enable_internet_security: Enable internet security.
         :param pulumi.Input[str] id: Resource ID.
         :param pulumi.Input[str] name: The name of the HubVirtualNetworkConnection.
-        :param pulumi.Input[dict] remote_virtual_network: Reference to the remote virtual network.
+        :param pulumi.Input[pulumi.InputType['SubResourceArgs']] remote_virtual_network: Reference to the remote virtual network.
         :param pulumi.Input[str] resource_group_name: The resource group name of the HubVirtualNetworkConnection.
-        :param pulumi.Input[dict] routing_configuration: The Routing Configuration indicating the associated and propagated route tables on this connection.
+        :param pulumi.Input[pulumi.InputType['RoutingConfigurationArgs']] routing_configuration: The Routing Configuration indicating the associated and propagated route tables on this connection.
         :param pulumi.Input[str] virtual_hub_name: The name of the VirtualHub.
-
-        The **remote_virtual_network** object supports the following:
-
-          * `id` (`pulumi.Input[str]`) - Resource ID.
-
-        The **routing_configuration** object supports the following:
-
-          * `associated_route_table` (`pulumi.Input[dict]`) - The resource id RouteTable associated with this RoutingConfiguration.
-          * `propagated_route_tables` (`pulumi.Input[dict]`) - The list of RouteTables to advertise the routes to.
-            * `ids` (`pulumi.Input[list]`) - The list of resource ids of all the RouteTables.
-            * `labels` (`pulumi.Input[list]`) - The list of labels.
-
-          * `vnet_routes` (`pulumi.Input[dict]`) - List of routes that control routing from VirtualHub into a virtual network connection.
-            * `static_routes` (`pulumi.Input[list]`) - List of all Static Routes.
-              * `address_prefixes` (`pulumi.Input[list]`) - List of all address prefixes.
-              * `name` (`pulumi.Input[str]`) - The name of the StaticRoute that is unique within a VnetRoute.
-              * `next_hop_ip_address` (`pulumi.Input[str]`) - The ip address of the next hop.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -131,13 +87,15 @@ class HubVirtualNetworkConnection(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None) -> 'HubVirtualNetworkConnection':
         """
         Get an existing HubVirtualNetworkConnection resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -146,8 +104,73 @@ class HubVirtualNetworkConnection(pulumi.CustomResource):
 
         return HubVirtualNetworkConnection(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter(name="allowHubToRemoteVnetTransit")
+    def allow_hub_to_remote_vnet_transit(self) -> Optional[bool]:
+        """
+        Deprecated: VirtualHub to RemoteVnet transit to enabled or not.
+        """
+        return pulumi.get(self, "allow_hub_to_remote_vnet_transit")
+
+    @property
+    @pulumi.getter(name="allowRemoteVnetToUseHubVnetGateways")
+    def allow_remote_vnet_to_use_hub_vnet_gateways(self) -> Optional[bool]:
+        """
+        Deprecated: Allow RemoteVnet to use Virtual Hub's gateways.
+        """
+        return pulumi.get(self, "allow_remote_vnet_to_use_hub_vnet_gateways")
+
+    @property
+    @pulumi.getter(name="enableInternetSecurity")
+    def enable_internet_security(self) -> Optional[bool]:
+        """
+        Enable internet security.
+        """
+        return pulumi.get(self, "enable_internet_security")
+
+    @property
+    @pulumi.getter
+    def etag(self) -> str:
+        """
+        A unique read-only string that changes whenever the resource is updated.
+        """
+        return pulumi.get(self, "etag")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        The name of the resource that is unique within a resource group. This name can be used to access the resource.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        The provisioning state of the hub virtual network connection resource.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="remoteVirtualNetwork")
+    def remote_virtual_network(self) -> Optional['outputs.SubResourceResponse']:
+        """
+        Reference to the remote virtual network.
+        """
+        return pulumi.get(self, "remote_virtual_network")
+
+    @property
+    @pulumi.getter(name="routingConfiguration")
+    def routing_configuration(self) -> Optional['outputs.RoutingConfigurationResponse']:
+        """
+        The Routing Configuration indicating the associated and propagated route tables on this connection.
+        """
+        return pulumi.get(self, "routing_configuration")
+
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

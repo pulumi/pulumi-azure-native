@@ -24,3 +24,5 @@ from .share import *
 from .share_subscription import *
 from .synchronization_setting import *
 from .trigger import *
+from ._inputs import *
+from . import outputs

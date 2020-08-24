@@ -5,10 +5,17 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+from . import outputs
 
+__all__ = [
+    'GetVpnGatewayResult',
+    'AwaitableGetVpnGatewayResult',
+    'get_vpn_gateway',
+]
 
+@pulumi.output_type
 class GetVpnGatewayResult:
     """
     VpnGateway Resource.
@@ -16,64 +23,114 @@ class GetVpnGatewayResult:
     def __init__(__self__, bgp_settings=None, connections=None, etag=None, location=None, name=None, provisioning_state=None, tags=None, type=None, virtual_hub=None, vpn_gateway_scale_unit=None):
         if bgp_settings and not isinstance(bgp_settings, dict):
             raise TypeError("Expected argument 'bgp_settings' to be a dict")
-        __self__.bgp_settings = bgp_settings
+        pulumi.set(__self__, "bgp_settings", bgp_settings)
+        if connections and not isinstance(connections, list):
+            raise TypeError("Expected argument 'connections' to be a list")
+        pulumi.set(__self__, "connections", connections)
+        if etag and not isinstance(etag, str):
+            raise TypeError("Expected argument 'etag' to be a str")
+        pulumi.set(__self__, "etag", etag)
+        if location and not isinstance(location, str):
+            raise TypeError("Expected argument 'location' to be a str")
+        pulumi.set(__self__, "location", location)
+        if name and not isinstance(name, str):
+            raise TypeError("Expected argument 'name' to be a str")
+        pulumi.set(__self__, "name", name)
+        if provisioning_state and not isinstance(provisioning_state, str):
+            raise TypeError("Expected argument 'provisioning_state' to be a str")
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if tags and not isinstance(tags, dict):
+            raise TypeError("Expected argument 'tags' to be a dict")
+        pulumi.set(__self__, "tags", tags)
+        if type and not isinstance(type, str):
+            raise TypeError("Expected argument 'type' to be a str")
+        pulumi.set(__self__, "type", type)
+        if virtual_hub and not isinstance(virtual_hub, dict):
+            raise TypeError("Expected argument 'virtual_hub' to be a dict")
+        pulumi.set(__self__, "virtual_hub", virtual_hub)
+        if vpn_gateway_scale_unit and not isinstance(vpn_gateway_scale_unit, float):
+            raise TypeError("Expected argument 'vpn_gateway_scale_unit' to be a float")
+        pulumi.set(__self__, "vpn_gateway_scale_unit", vpn_gateway_scale_unit)
+
+    @property
+    @pulumi.getter(name="bgpSettings")
+    def bgp_settings(self) -> Optional['outputs.BgpSettingsResponse']:
         """
         Local network gateway's BGP speaker settings.
         """
-        if connections and not isinstance(connections, list):
-            raise TypeError("Expected argument 'connections' to be a list")
-        __self__.connections = connections
+        return pulumi.get(self, "bgp_settings")
+
+    @property
+    @pulumi.getter
+    def connections(self) -> Optional[List['outputs.VpnConnectionResponse']]:
         """
         List of all vpn connections to the gateway.
         """
-        if etag and not isinstance(etag, str):
-            raise TypeError("Expected argument 'etag' to be a str")
-        __self__.etag = etag
+        return pulumi.get(self, "connections")
+
+    @property
+    @pulumi.getter
+    def etag(self) -> str:
         """
         A unique read-only string that changes whenever the resource is updated.
         """
-        if location and not isinstance(location, str):
-            raise TypeError("Expected argument 'location' to be a str")
-        __self__.location = location
+        return pulumi.get(self, "etag")
+
+    @property
+    @pulumi.getter
+    def location(self) -> str:
         """
         Resource location.
         """
-        if name and not isinstance(name, str):
-            raise TypeError("Expected argument 'name' to be a str")
-        __self__.name = name
+        return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
         """
         Resource name.
         """
-        if provisioning_state and not isinstance(provisioning_state, str):
-            raise TypeError("Expected argument 'provisioning_state' to be a str")
-        __self__.provisioning_state = provisioning_state
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
         """
         The provisioning state of the VPN gateway resource.
         """
-        if tags and not isinstance(tags, dict):
-            raise TypeError("Expected argument 'tags' to be a dict")
-        __self__.tags = tags
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Mapping[str, str]]:
         """
         Resource tags.
         """
-        if type and not isinstance(type, str):
-            raise TypeError("Expected argument 'type' to be a str")
-        __self__.type = type
+        return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
         """
         Resource type.
         """
-        if virtual_hub and not isinstance(virtual_hub, dict):
-            raise TypeError("Expected argument 'virtual_hub' to be a dict")
-        __self__.virtual_hub = virtual_hub
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="virtualHub")
+    def virtual_hub(self) -> Optional['outputs.SubResourceResponse']:
         """
         The VirtualHub to which the gateway belongs.
         """
-        if vpn_gateway_scale_unit and not isinstance(vpn_gateway_scale_unit, float):
-            raise TypeError("Expected argument 'vpn_gateway_scale_unit' to be a float")
-        __self__.vpn_gateway_scale_unit = vpn_gateway_scale_unit
+        return pulumi.get(self, "virtual_hub")
+
+    @property
+    @pulumi.getter(name="vpnGatewayScaleUnit")
+    def vpn_gateway_scale_unit(self) -> Optional[float]:
         """
         The scale unit for this vpn gateway.
         """
+        return pulumi.get(self, "vpn_gateway_scale_unit")
 
 
 class AwaitableGetVpnGatewayResult(GetVpnGatewayResult):
@@ -94,7 +151,9 @@ class AwaitableGetVpnGatewayResult(GetVpnGatewayResult):
             vpn_gateway_scale_unit=self.vpn_gateway_scale_unit)
 
 
-def get_vpn_gateway(name=None, resource_group_name=None, opts=None):
+def get_vpn_gateway(name: Optional[str] = None,
+                    resource_group_name: Optional[str] = None,
+                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVpnGatewayResult:
     """
     Use this data source to access information about an existing resource.
 
@@ -108,16 +167,16 @@ def get_vpn_gateway(name=None, resource_group_name=None, opts=None):
         opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = _utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('azurerm:network/v20200501:getVpnGateway', __args__, opts=opts).value
+    __ret__ = pulumi.runtime.invoke('azurerm:network/v20200501:getVpnGateway', __args__, opts=opts, typ=GetVpnGatewayResult).value
 
     return AwaitableGetVpnGatewayResult(
-        bgp_settings=__ret__.get('bgpSettings'),
-        connections=__ret__.get('connections'),
-        etag=__ret__.get('etag'),
-        location=__ret__.get('location'),
-        name=__ret__.get('name'),
-        provisioning_state=__ret__.get('provisioningState'),
-        tags=__ret__.get('tags'),
-        type=__ret__.get('type'),
-        virtual_hub=__ret__.get('virtualHub'),
-        vpn_gateway_scale_unit=__ret__.get('vpnGatewayScaleUnit'))
+        bgp_settings=__ret__.bgp_settings,
+        connections=__ret__.connections,
+        etag=__ret__.etag,
+        location=__ret__.location,
+        name=__ret__.name,
+        provisioning_state=__ret__.provisioning_state,
+        tags=__ret__.tags,
+        type=__ret__.type,
+        virtual_hub=__ret__.virtual_hub,
+        vpn_gateway_scale_unit=__ret__.vpn_gateway_scale_unit)

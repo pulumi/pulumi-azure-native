@@ -5,94 +5,29 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+from . import outputs
+from ._inputs import *
+
+__all__ = ['AutoscaleSetting']
 
 
 class AutoscaleSetting(pulumi.CustomResource):
-    enabled: pulumi.Output[bool]
-    """
-    the enabled flag. Specifies whether automatic scaling is enabled for the resource. The default value is 'true'.
-    """
-    location: pulumi.Output[str]
-    """
-    Resource location
-    """
-    name: pulumi.Output[str]
-    """
-    Azure resource name
-    """
-    notifications: pulumi.Output[list]
-    """
-    the collection of notifications.
-      * `email` (`dict`) - the email notification.
-        * `custom_emails` (`list`) - the custom e-mails list. This value can be null or empty, in which case this attribute will be ignored.
-        * `send_to_subscription_administrator` (`bool`) - a value indicating whether to send email to subscription administrator.
-        * `send_to_subscription_co_administrators` (`bool`) - a value indicating whether to send email to subscription co-administrators.
-
-      * `operation` (`str`) - the operation associated with the notification and its value must be "scale"
-      * `webhooks` (`list`) - the collection of webhook notifications.
-        * `properties` (`dict`) - a property bag of settings. This value can be empty.
-        * `service_uri` (`str`) - the service address to receive the notification.
-    """
-    profiles: pulumi.Output[list]
-    """
-    the collection of automatic scaling profiles that specify different scaling parameters for different time periods. A maximum of 20 profiles can be specified.
-      * `capacity` (`dict`) - the number of instances that can be used during this profile.
-        * `default` (`str`) - the number of instances that will be set if metrics are not available for evaluation. The default is only used if the current instance count is lower than the default.
-        * `maximum` (`str`) - the maximum number of instances for the resource. The actual maximum number of instances is limited by the cores that are available in the subscription.
-        * `minimum` (`str`) - the minimum number of instances for the resource.
-
-      * `fixed_date` (`dict`) - the specific date-time for the profile. This element is not used if the Recurrence element is used.
-        * `end` (`str`) - the end time for the profile in ISO 8601 format.
-        * `start` (`str`) - the start time for the profile in ISO 8601 format.
-        * `time_zone` (`str`) - the timezone of the start and end times for the profile. Some examples of valid time zones are: Dateline Standard Time, UTC-11, Hawaiian Standard Time, Alaskan Standard Time, Pacific Standard Time (Mexico), Pacific Standard Time, US Mountain Standard Time, Mountain Standard Time (Mexico), Mountain Standard Time, Central America Standard Time, Central Standard Time, Central Standard Time (Mexico), Canada Central Standard Time, SA Pacific Standard Time, Eastern Standard Time, US Eastern Standard Time, Venezuela Standard Time, Paraguay Standard Time, Atlantic Standard Time, Central Brazilian Standard Time, SA Western Standard Time, Pacific SA Standard Time, Newfoundland Standard Time, E. South America Standard Time, Argentina Standard Time, SA Eastern Standard Time, Greenland Standard Time, Montevideo Standard Time, Bahia Standard Time, UTC-02, Mid-Atlantic Standard Time, Azores Standard Time, Cape Verde Standard Time, Morocco Standard Time, UTC, GMT Standard Time, Greenwich Standard Time, W. Europe Standard Time, Central Europe Standard Time, Romance Standard Time, Central European Standard Time, W. Central Africa Standard Time, Namibia Standard Time, Jordan Standard Time, GTB Standard Time, Middle East Standard Time, Egypt Standard Time, Syria Standard Time, E. Europe Standard Time, South Africa Standard Time, FLE Standard Time, Turkey Standard Time, Israel Standard Time, Kaliningrad Standard Time, Libya Standard Time, Arabic Standard Time, Arab Standard Time, Belarus Standard Time, Russian Standard Time, E. Africa Standard Time, Iran Standard Time, Arabian Standard Time, Azerbaijan Standard Time, Russia Time Zone 3, Mauritius Standard Time, Georgian Standard Time, Caucasus Standard Time, Afghanistan Standard Time, West Asia Standard Time, Ekaterinburg Standard Time, Pakistan Standard Time, India Standard Time, Sri Lanka Standard Time, Nepal Standard Time, Central Asia Standard Time, Bangladesh Standard Time, N. Central Asia Standard Time, Myanmar Standard Time, SE Asia Standard Time, North Asia Standard Time, China Standard Time, North Asia East Standard Time, Singapore Standard Time, W. Australia Standard Time, Taipei Standard Time, Ulaanbaatar Standard Time, Tokyo Standard Time, Korea Standard Time, Yakutsk Standard Time, Cen. Australia Standard Time, AUS Central Standard Time, E. Australia Standard Time, AUS Eastern Standard Time, West Pacific Standard Time, Tasmania Standard Time, Magadan Standard Time, Vladivostok Standard Time, Russia Time Zone 10, Central Pacific Standard Time, Russia Time Zone 11, New Zealand Standard Time, UTC+12, Fiji Standard Time, Kamchatka Standard Time, Tonga Standard Time, Samoa Standard Time, Line Islands Standard Time
-
-      * `name` (`str`) - the name of the profile.
-      * `recurrence` (`dict`) - the repeating times at which this profile begins. This element is not used if the FixedDate element is used.
-        * `frequency` (`str`) - the recurrence frequency. How often the schedule profile should take effect. This value must be Week, meaning each week will have the same set of profiles. For example, to set a daily schedule, set **schedule** to every day of the week. The frequency property specifies that the schedule is repeated weekly.
-        * `schedule` (`dict`) - the scheduling constraints for when the profile begins.
-          * `days` (`list`) - the collection of days that the profile takes effect on. Possible values are Sunday through Saturday.
-          * `hours` (`list`) - A collection of hours that the profile takes effect on. Values supported are 0 to 23 on the 24-hour clock (AM/PM times are not supported).
-          * `minutes` (`list`) - A collection of minutes at which the profile takes effect at.
-          * `time_zone` (`str`) - the timezone for the hours of the profile. Some examples of valid time zones are: Dateline Standard Time, UTC-11, Hawaiian Standard Time, Alaskan Standard Time, Pacific Standard Time (Mexico), Pacific Standard Time, US Mountain Standard Time, Mountain Standard Time (Mexico), Mountain Standard Time, Central America Standard Time, Central Standard Time, Central Standard Time (Mexico), Canada Central Standard Time, SA Pacific Standard Time, Eastern Standard Time, US Eastern Standard Time, Venezuela Standard Time, Paraguay Standard Time, Atlantic Standard Time, Central Brazilian Standard Time, SA Western Standard Time, Pacific SA Standard Time, Newfoundland Standard Time, E. South America Standard Time, Argentina Standard Time, SA Eastern Standard Time, Greenland Standard Time, Montevideo Standard Time, Bahia Standard Time, UTC-02, Mid-Atlantic Standard Time, Azores Standard Time, Cape Verde Standard Time, Morocco Standard Time, UTC, GMT Standard Time, Greenwich Standard Time, W. Europe Standard Time, Central Europe Standard Time, Romance Standard Time, Central European Standard Time, W. Central Africa Standard Time, Namibia Standard Time, Jordan Standard Time, GTB Standard Time, Middle East Standard Time, Egypt Standard Time, Syria Standard Time, E. Europe Standard Time, South Africa Standard Time, FLE Standard Time, Turkey Standard Time, Israel Standard Time, Kaliningrad Standard Time, Libya Standard Time, Arabic Standard Time, Arab Standard Time, Belarus Standard Time, Russian Standard Time, E. Africa Standard Time, Iran Standard Time, Arabian Standard Time, Azerbaijan Standard Time, Russia Time Zone 3, Mauritius Standard Time, Georgian Standard Time, Caucasus Standard Time, Afghanistan Standard Time, West Asia Standard Time, Ekaterinburg Standard Time, Pakistan Standard Time, India Standard Time, Sri Lanka Standard Time, Nepal Standard Time, Central Asia Standard Time, Bangladesh Standard Time, N. Central Asia Standard Time, Myanmar Standard Time, SE Asia Standard Time, North Asia Standard Time, China Standard Time, North Asia East Standard Time, Singapore Standard Time, W. Australia Standard Time, Taipei Standard Time, Ulaanbaatar Standard Time, Tokyo Standard Time, Korea Standard Time, Yakutsk Standard Time, Cen. Australia Standard Time, AUS Central Standard Time, E. Australia Standard Time, AUS Eastern Standard Time, West Pacific Standard Time, Tasmania Standard Time, Magadan Standard Time, Vladivostok Standard Time, Russia Time Zone 10, Central Pacific Standard Time, Russia Time Zone 11, New Zealand Standard Time, UTC+12, Fiji Standard Time, Kamchatka Standard Time, Tonga Standard Time, Samoa Standard Time, Line Islands Standard Time
-
-      * `rules` (`list`) - the collection of rules that provide the triggers and parameters for the scaling action. A maximum of 10 rules can be specified.
-        * `metric_trigger` (`dict`) - the trigger that results in a scaling action.
-          * `dimensions` (`list`) - List of dimension conditions. For example: [{"DimensionName":"AppName","Operator":"Equals","Values":["App1"]},{"DimensionName":"Deployment","Operator":"Equals","Values":["default"]}].
-            * `dimension_name` (`str`) - Name of the dimension.
-            * `operator` (`str`) - the dimension operator. Only 'Equals' and 'NotEquals' are supported. 'Equals' being equal to any of the values. 'NotEquals' being not equal to all of the values
-            * `values` (`list`) - list of dimension values. For example: ["App1","App2"].
-
-          * `metric_name` (`str`) - the name of the metric that defines what the rule monitors.
-          * `metric_namespace` (`str`) - the namespace of the metric that defines what the rule monitors.
-          * `metric_resource_uri` (`str`) - the resource identifier of the resource the rule monitors.
-          * `operator` (`str`) - the operator that is used to compare the metric data and the threshold.
-          * `statistic` (`str`) - the metric statistic type. How the metrics from multiple instances are combined.
-          * `threshold` (`float`) - the threshold of the metric that triggers the scale action.
-          * `time_aggregation` (`str`) - time aggregation type. How the data that is collected should be combined over time. The default value is Average.
-          * `time_grain` (`str`) - the granularity of metrics the rule monitors. Must be one of the predefined values returned from metric definitions for the metric. Must be between 12 hours and 1 minute.
-          * `time_window` (`str`) - the range of time in which instance data is collected. This value must be greater than the delay in metric collection, which can vary from resource-to-resource. Must be between 12 hours and 5 minutes.
-
-        * `scale_action` (`dict`) - the parameters for the scaling action.
-          * `cooldown` (`str`) - the amount of time to wait since the last scaling action before this action occurs. It must be between 1 week and 1 minute in ISO 8601 format.
-          * `direction` (`str`) - the scale direction. Whether the scaling action increases or decreases the number of instances.
-          * `type` (`str`) - the type of action that should occur when the scale rule fires.
-          * `value` (`str`) - the number of instances that are involved in the scaling action. This value must be 1 or greater. The default value is 1.
-    """
-    tags: pulumi.Output[dict]
-    """
-    Resource tags
-    """
-    target_resource_uri: pulumi.Output[str]
-    """
-    the resource identifier of the resource that the autoscale setting should be added to.
-    """
-    type: pulumi.Output[str]
-    """
-    Azure resource type
-    """
-    def __init__(__self__, resource_name, opts=None, enabled=None, location=None, name=None, notifications=None, profiles=None, resource_group_name=None, tags=None, target_resource_uri=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 enabled: Optional[pulumi.Input[bool]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 notifications: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['AutoscaleNotificationArgs']]]]] = None,
+                 profiles: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['AutoscaleProfileArgs']]]]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 target_resource_uri: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         The autoscale setting resource.
 
@@ -101,67 +36,11 @@ class AutoscaleSetting(pulumi.CustomResource):
         :param pulumi.Input[bool] enabled: the enabled flag. Specifies whether automatic scaling is enabled for the resource. The default value is 'true'.
         :param pulumi.Input[str] location: Resource location
         :param pulumi.Input[str] name: The autoscale setting name.
-        :param pulumi.Input[list] notifications: the collection of notifications.
-        :param pulumi.Input[list] profiles: the collection of automatic scaling profiles that specify different scaling parameters for different time periods. A maximum of 20 profiles can be specified.
+        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['AutoscaleNotificationArgs']]]] notifications: the collection of notifications.
+        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['AutoscaleProfileArgs']]]] profiles: the collection of automatic scaling profiles that specify different scaling parameters for different time periods. A maximum of 20 profiles can be specified.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
-        :param pulumi.Input[dict] tags: Resource tags
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags
         :param pulumi.Input[str] target_resource_uri: the resource identifier of the resource that the autoscale setting should be added to.
-
-        The **notifications** object supports the following:
-
-          * `email` (`pulumi.Input[dict]`) - the email notification.
-            * `custom_emails` (`pulumi.Input[list]`) - the custom e-mails list. This value can be null or empty, in which case this attribute will be ignored.
-            * `send_to_subscription_administrator` (`pulumi.Input[bool]`) - a value indicating whether to send email to subscription administrator.
-            * `send_to_subscription_co_administrators` (`pulumi.Input[bool]`) - a value indicating whether to send email to subscription co-administrators.
-
-          * `operation` (`pulumi.Input[str]`) - the operation associated with the notification and its value must be "scale"
-          * `webhooks` (`pulumi.Input[list]`) - the collection of webhook notifications.
-            * `properties` (`pulumi.Input[dict]`) - a property bag of settings. This value can be empty.
-            * `service_uri` (`pulumi.Input[str]`) - the service address to receive the notification.
-
-        The **profiles** object supports the following:
-
-          * `capacity` (`pulumi.Input[dict]`) - the number of instances that can be used during this profile.
-            * `default` (`pulumi.Input[str]`) - the number of instances that will be set if metrics are not available for evaluation. The default is only used if the current instance count is lower than the default.
-            * `maximum` (`pulumi.Input[str]`) - the maximum number of instances for the resource. The actual maximum number of instances is limited by the cores that are available in the subscription.
-            * `minimum` (`pulumi.Input[str]`) - the minimum number of instances for the resource.
-
-          * `fixed_date` (`pulumi.Input[dict]`) - the specific date-time for the profile. This element is not used if the Recurrence element is used.
-            * `end` (`pulumi.Input[str]`) - the end time for the profile in ISO 8601 format.
-            * `start` (`pulumi.Input[str]`) - the start time for the profile in ISO 8601 format.
-            * `time_zone` (`pulumi.Input[str]`) - the timezone of the start and end times for the profile. Some examples of valid time zones are: Dateline Standard Time, UTC-11, Hawaiian Standard Time, Alaskan Standard Time, Pacific Standard Time (Mexico), Pacific Standard Time, US Mountain Standard Time, Mountain Standard Time (Mexico), Mountain Standard Time, Central America Standard Time, Central Standard Time, Central Standard Time (Mexico), Canada Central Standard Time, SA Pacific Standard Time, Eastern Standard Time, US Eastern Standard Time, Venezuela Standard Time, Paraguay Standard Time, Atlantic Standard Time, Central Brazilian Standard Time, SA Western Standard Time, Pacific SA Standard Time, Newfoundland Standard Time, E. South America Standard Time, Argentina Standard Time, SA Eastern Standard Time, Greenland Standard Time, Montevideo Standard Time, Bahia Standard Time, UTC-02, Mid-Atlantic Standard Time, Azores Standard Time, Cape Verde Standard Time, Morocco Standard Time, UTC, GMT Standard Time, Greenwich Standard Time, W. Europe Standard Time, Central Europe Standard Time, Romance Standard Time, Central European Standard Time, W. Central Africa Standard Time, Namibia Standard Time, Jordan Standard Time, GTB Standard Time, Middle East Standard Time, Egypt Standard Time, Syria Standard Time, E. Europe Standard Time, South Africa Standard Time, FLE Standard Time, Turkey Standard Time, Israel Standard Time, Kaliningrad Standard Time, Libya Standard Time, Arabic Standard Time, Arab Standard Time, Belarus Standard Time, Russian Standard Time, E. Africa Standard Time, Iran Standard Time, Arabian Standard Time, Azerbaijan Standard Time, Russia Time Zone 3, Mauritius Standard Time, Georgian Standard Time, Caucasus Standard Time, Afghanistan Standard Time, West Asia Standard Time, Ekaterinburg Standard Time, Pakistan Standard Time, India Standard Time, Sri Lanka Standard Time, Nepal Standard Time, Central Asia Standard Time, Bangladesh Standard Time, N. Central Asia Standard Time, Myanmar Standard Time, SE Asia Standard Time, North Asia Standard Time, China Standard Time, North Asia East Standard Time, Singapore Standard Time, W. Australia Standard Time, Taipei Standard Time, Ulaanbaatar Standard Time, Tokyo Standard Time, Korea Standard Time, Yakutsk Standard Time, Cen. Australia Standard Time, AUS Central Standard Time, E. Australia Standard Time, AUS Eastern Standard Time, West Pacific Standard Time, Tasmania Standard Time, Magadan Standard Time, Vladivostok Standard Time, Russia Time Zone 10, Central Pacific Standard Time, Russia Time Zone 11, New Zealand Standard Time, UTC+12, Fiji Standard Time, Kamchatka Standard Time, Tonga Standard Time, Samoa Standard Time, Line Islands Standard Time
-
-          * `name` (`pulumi.Input[str]`) - the name of the profile.
-          * `recurrence` (`pulumi.Input[dict]`) - the repeating times at which this profile begins. This element is not used if the FixedDate element is used.
-            * `frequency` (`pulumi.Input[str]`) - the recurrence frequency. How often the schedule profile should take effect. This value must be Week, meaning each week will have the same set of profiles. For example, to set a daily schedule, set **schedule** to every day of the week. The frequency property specifies that the schedule is repeated weekly.
-            * `schedule` (`pulumi.Input[dict]`) - the scheduling constraints for when the profile begins.
-              * `days` (`pulumi.Input[list]`) - the collection of days that the profile takes effect on. Possible values are Sunday through Saturday.
-              * `hours` (`pulumi.Input[list]`) - A collection of hours that the profile takes effect on. Values supported are 0 to 23 on the 24-hour clock (AM/PM times are not supported).
-              * `minutes` (`pulumi.Input[list]`) - A collection of minutes at which the profile takes effect at.
-              * `time_zone` (`pulumi.Input[str]`) - the timezone for the hours of the profile. Some examples of valid time zones are: Dateline Standard Time, UTC-11, Hawaiian Standard Time, Alaskan Standard Time, Pacific Standard Time (Mexico), Pacific Standard Time, US Mountain Standard Time, Mountain Standard Time (Mexico), Mountain Standard Time, Central America Standard Time, Central Standard Time, Central Standard Time (Mexico), Canada Central Standard Time, SA Pacific Standard Time, Eastern Standard Time, US Eastern Standard Time, Venezuela Standard Time, Paraguay Standard Time, Atlantic Standard Time, Central Brazilian Standard Time, SA Western Standard Time, Pacific SA Standard Time, Newfoundland Standard Time, E. South America Standard Time, Argentina Standard Time, SA Eastern Standard Time, Greenland Standard Time, Montevideo Standard Time, Bahia Standard Time, UTC-02, Mid-Atlantic Standard Time, Azores Standard Time, Cape Verde Standard Time, Morocco Standard Time, UTC, GMT Standard Time, Greenwich Standard Time, W. Europe Standard Time, Central Europe Standard Time, Romance Standard Time, Central European Standard Time, W. Central Africa Standard Time, Namibia Standard Time, Jordan Standard Time, GTB Standard Time, Middle East Standard Time, Egypt Standard Time, Syria Standard Time, E. Europe Standard Time, South Africa Standard Time, FLE Standard Time, Turkey Standard Time, Israel Standard Time, Kaliningrad Standard Time, Libya Standard Time, Arabic Standard Time, Arab Standard Time, Belarus Standard Time, Russian Standard Time, E. Africa Standard Time, Iran Standard Time, Arabian Standard Time, Azerbaijan Standard Time, Russia Time Zone 3, Mauritius Standard Time, Georgian Standard Time, Caucasus Standard Time, Afghanistan Standard Time, West Asia Standard Time, Ekaterinburg Standard Time, Pakistan Standard Time, India Standard Time, Sri Lanka Standard Time, Nepal Standard Time, Central Asia Standard Time, Bangladesh Standard Time, N. Central Asia Standard Time, Myanmar Standard Time, SE Asia Standard Time, North Asia Standard Time, China Standard Time, North Asia East Standard Time, Singapore Standard Time, W. Australia Standard Time, Taipei Standard Time, Ulaanbaatar Standard Time, Tokyo Standard Time, Korea Standard Time, Yakutsk Standard Time, Cen. Australia Standard Time, AUS Central Standard Time, E. Australia Standard Time, AUS Eastern Standard Time, West Pacific Standard Time, Tasmania Standard Time, Magadan Standard Time, Vladivostok Standard Time, Russia Time Zone 10, Central Pacific Standard Time, Russia Time Zone 11, New Zealand Standard Time, UTC+12, Fiji Standard Time, Kamchatka Standard Time, Tonga Standard Time, Samoa Standard Time, Line Islands Standard Time
-
-          * `rules` (`pulumi.Input[list]`) - the collection of rules that provide the triggers and parameters for the scaling action. A maximum of 10 rules can be specified.
-            * `metric_trigger` (`pulumi.Input[dict]`) - the trigger that results in a scaling action.
-              * `dimensions` (`pulumi.Input[list]`) - List of dimension conditions. For example: [{"DimensionName":"AppName","Operator":"Equals","Values":["App1"]},{"DimensionName":"Deployment","Operator":"Equals","Values":["default"]}].
-                * `dimension_name` (`pulumi.Input[str]`) - Name of the dimension.
-                * `operator` (`pulumi.Input[str]`) - the dimension operator. Only 'Equals' and 'NotEquals' are supported. 'Equals' being equal to any of the values. 'NotEquals' being not equal to all of the values
-                * `values` (`pulumi.Input[list]`) - list of dimension values. For example: ["App1","App2"].
-
-              * `metric_name` (`pulumi.Input[str]`) - the name of the metric that defines what the rule monitors.
-              * `metric_namespace` (`pulumi.Input[str]`) - the namespace of the metric that defines what the rule monitors.
-              * `metric_resource_uri` (`pulumi.Input[str]`) - the resource identifier of the resource the rule monitors.
-              * `operator` (`pulumi.Input[str]`) - the operator that is used to compare the metric data and the threshold.
-              * `statistic` (`pulumi.Input[str]`) - the metric statistic type. How the metrics from multiple instances are combined.
-              * `threshold` (`pulumi.Input[float]`) - the threshold of the metric that triggers the scale action.
-              * `time_aggregation` (`pulumi.Input[str]`) - time aggregation type. How the data that is collected should be combined over time. The default value is Average.
-              * `time_grain` (`pulumi.Input[str]`) - the granularity of metrics the rule monitors. Must be one of the predefined values returned from metric definitions for the metric. Must be between 12 hours and 1 minute.
-              * `time_window` (`pulumi.Input[str]`) - the range of time in which instance data is collected. This value must be greater than the delay in metric collection, which can vary from resource-to-resource. Must be between 12 hours and 5 minutes.
-
-            * `scale_action` (`pulumi.Input[dict]`) - the parameters for the scaling action.
-              * `cooldown` (`pulumi.Input[str]`) - the amount of time to wait since the last scaling action before this action occurs. It must be between 1 week and 1 minute in ISO 8601 format.
-              * `direction` (`pulumi.Input[str]`) - the scale direction. Whether the scaling action increases or decreases the number of instances.
-              * `type` (`pulumi.Input[str]`) - the type of action that should occur when the scale rule fires.
-              * `value` (`pulumi.Input[str]`) - the number of instances that are involved in the scaling action. This value must be 1 or greater. The default value is 1.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -204,13 +83,15 @@ class AutoscaleSetting(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None) -> 'AutoscaleSetting':
         """
         Get an existing AutoscaleSetting resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -219,8 +100,73 @@ class AutoscaleSetting(pulumi.CustomResource):
 
         return AutoscaleSetting(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[bool]:
+        """
+        the enabled flag. Specifies whether automatic scaling is enabled for the resource. The default value is 'true'.
+        """
+        return pulumi.get(self, "enabled")
+
+    @property
+    @pulumi.getter
+    def location(self) -> str:
+        """
+        Resource location
+        """
+        return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Azure resource name
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def notifications(self) -> Optional[List['outputs.AutoscaleNotificationResponse']]:
+        """
+        the collection of notifications.
+        """
+        return pulumi.get(self, "notifications")
+
+    @property
+    @pulumi.getter
+    def profiles(self) -> List['outputs.AutoscaleProfileResponse']:
+        """
+        the collection of automatic scaling profiles that specify different scaling parameters for different time periods. A maximum of 20 profiles can be specified.
+        """
+        return pulumi.get(self, "profiles")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Mapping[str, str]]:
+        """
+        Resource tags
+        """
+        return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter(name="targetResourceUri")
+    def target_resource_uri(self) -> Optional[str]:
+        """
+        the resource identifier of the resource that the autoscale setting should be added to.
+        """
+        return pulumi.get(self, "target_resource_uri")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Azure resource type
+        """
+        return pulumi.get(self, "type")
+
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

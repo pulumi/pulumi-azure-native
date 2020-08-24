@@ -5,121 +5,37 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+from . import outputs
+
+__all__ = ['Certificate']
 
 
 class Certificate(pulumi.CustomResource):
-    cer_blob: pulumi.Output[str]
-    """
-    Raw bytes of .cer file
-    """
-    expiration_date: pulumi.Output[str]
-    """
-    Certificate expiration date.
-    """
-    friendly_name: pulumi.Output[str]
-    """
-    Friendly name of the certificate.
-    """
-    geo_region: pulumi.Output[str]
-    """
-    Region of the certificate.
-    """
-    host_names: pulumi.Output[list]
-    """
-    Host names the certificate applies to.
-    """
-    hosting_environment_profile: pulumi.Output[dict]
-    """
-    Specification for the App Service Environment to use for the certificate.
-      * `id` (`str`) - Resource ID of the App Service Environment.
-      * `name` (`str`) - Name of the App Service Environment.
-      * `type` (`str`) - Resource type of the App Service Environment.
-    """
-    issue_date: pulumi.Output[str]
-    """
-    Certificate issue Date.
-    """
-    issuer: pulumi.Output[str]
-    """
-    Certificate issuer.
-    """
-    key_vault_id: pulumi.Output[str]
-    """
-    Key Vault Csm resource Id.
-    """
-    key_vault_secret_name: pulumi.Output[str]
-    """
-    Key Vault secret name.
-    """
-    key_vault_secret_status: pulumi.Output[str]
-    """
-    Status of the Key Vault secret.
-    """
-    kind: pulumi.Output[str]
-    """
-    Kind of resource.
-    """
-    location: pulumi.Output[str]
-    """
-    Resource Location.
-    """
-    name: pulumi.Output[str]
-    """
-    Resource Name.
-    """
-    password: pulumi.Output[str]
-    """
-    Certificate password.
-    """
-    pfx_blob: pulumi.Output[str]
-    """
-    Pfx blob.
-    """
-    public_key_hash: pulumi.Output[str]
-    """
-    Public key hash.
-    """
-    self_link: pulumi.Output[str]
-    """
-    Self link.
-    """
-    server_farm_id: pulumi.Output[str]
-    """
-    Resource ID of the associated App Service plan, formatted as: "/subscriptions/{subscriptionID}/resourceGroups/{groupName}/providers/Microsoft.Web/serverfarms/{appServicePlanName}".
-    """
-    site_name: pulumi.Output[str]
-    """
-    App name.
-    """
-    subject_name: pulumi.Output[str]
-    """
-    Subject name of the certificate.
-    """
-    tags: pulumi.Output[dict]
-    """
-    Resource tags.
-    """
-    thumbprint: pulumi.Output[str]
-    """
-    Certificate thumbprint.
-    """
-    type: pulumi.Output[str]
-    """
-    Resource type.
-    """
-    valid: pulumi.Output[bool]
-    """
-    Is the certificate valid?.
-    """
-    def __init__(__self__, resource_name, opts=None, host_names=None, key_vault_id=None, key_vault_secret_name=None, kind=None, location=None, name=None, password=None, pfx_blob=None, resource_group_name=None, server_farm_id=None, tags=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 host_names: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 key_vault_id: Optional[pulumi.Input[str]] = None,
+                 key_vault_secret_name: Optional[pulumi.Input[str]] = None,
+                 kind: Optional[pulumi.Input[str]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 password: Optional[pulumi.Input[str]] = None,
+                 pfx_blob: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 server_farm_id: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         SSL certificate for an app.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[list] host_names: Host names the certificate applies to.
+        :param pulumi.Input[List[pulumi.Input[str]]] host_names: Host names the certificate applies to.
         :param pulumi.Input[str] key_vault_id: Key Vault Csm resource Id.
         :param pulumi.Input[str] key_vault_secret_name: Key Vault secret name.
         :param pulumi.Input[str] kind: Kind of resource.
@@ -129,7 +45,7 @@ class Certificate(pulumi.CustomResource):
         :param pulumi.Input[str] pfx_blob: Pfx blob.
         :param pulumi.Input[str] resource_group_name: Name of the resource group to which the resource belongs.
         :param pulumi.Input[str] server_farm_id: Resource ID of the associated App Service plan, formatted as: "/subscriptions/{subscriptionID}/resourceGroups/{groupName}/providers/Microsoft.Web/serverfarms/{appServicePlanName}".
-        :param pulumi.Input[dict] tags: Resource tags.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -191,13 +107,15 @@ class Certificate(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None) -> 'Certificate':
         """
         Get an existing Certificate resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -206,8 +124,209 @@ class Certificate(pulumi.CustomResource):
 
         return Certificate(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter(name="cerBlob")
+    def cer_blob(self) -> str:
+        """
+        Raw bytes of .cer file
+        """
+        return pulumi.get(self, "cer_blob")
+
+    @property
+    @pulumi.getter(name="expirationDate")
+    def expiration_date(self) -> str:
+        """
+        Certificate expiration date.
+        """
+        return pulumi.get(self, "expiration_date")
+
+    @property
+    @pulumi.getter(name="friendlyName")
+    def friendly_name(self) -> str:
+        """
+        Friendly name of the certificate.
+        """
+        return pulumi.get(self, "friendly_name")
+
+    @property
+    @pulumi.getter(name="geoRegion")
+    def geo_region(self) -> str:
+        """
+        Region of the certificate.
+        """
+        return pulumi.get(self, "geo_region")
+
+    @property
+    @pulumi.getter(name="hostNames")
+    def host_names(self) -> Optional[List[str]]:
+        """
+        Host names the certificate applies to.
+        """
+        return pulumi.get(self, "host_names")
+
+    @property
+    @pulumi.getter(name="hostingEnvironmentProfile")
+    def hosting_environment_profile(self) -> 'outputs.HostingEnvironmentProfileResponse':
+        """
+        Specification for the App Service Environment to use for the certificate.
+        """
+        return pulumi.get(self, "hosting_environment_profile")
+
+    @property
+    @pulumi.getter(name="issueDate")
+    def issue_date(self) -> str:
+        """
+        Certificate issue Date.
+        """
+        return pulumi.get(self, "issue_date")
+
+    @property
+    @pulumi.getter
+    def issuer(self) -> str:
+        """
+        Certificate issuer.
+        """
+        return pulumi.get(self, "issuer")
+
+    @property
+    @pulumi.getter(name="keyVaultId")
+    def key_vault_id(self) -> Optional[str]:
+        """
+        Key Vault Csm resource Id.
+        """
+        return pulumi.get(self, "key_vault_id")
+
+    @property
+    @pulumi.getter(name="keyVaultSecretName")
+    def key_vault_secret_name(self) -> Optional[str]:
+        """
+        Key Vault secret name.
+        """
+        return pulumi.get(self, "key_vault_secret_name")
+
+    @property
+    @pulumi.getter(name="keyVaultSecretStatus")
+    def key_vault_secret_status(self) -> str:
+        """
+        Status of the Key Vault secret.
+        """
+        return pulumi.get(self, "key_vault_secret_status")
+
+    @property
+    @pulumi.getter
+    def kind(self) -> Optional[str]:
+        """
+        Kind of resource.
+        """
+        return pulumi.get(self, "kind")
+
+    @property
+    @pulumi.getter
+    def location(self) -> str:
+        """
+        Resource Location.
+        """
+        return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Resource Name.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def password(self) -> str:
+        """
+        Certificate password.
+        """
+        return pulumi.get(self, "password")
+
+    @property
+    @pulumi.getter(name="pfxBlob")
+    def pfx_blob(self) -> Optional[str]:
+        """
+        Pfx blob.
+        """
+        return pulumi.get(self, "pfx_blob")
+
+    @property
+    @pulumi.getter(name="publicKeyHash")
+    def public_key_hash(self) -> str:
+        """
+        Public key hash.
+        """
+        return pulumi.get(self, "public_key_hash")
+
+    @property
+    @pulumi.getter(name="selfLink")
+    def self_link(self) -> str:
+        """
+        Self link.
+        """
+        return pulumi.get(self, "self_link")
+
+    @property
+    @pulumi.getter(name="serverFarmId")
+    def server_farm_id(self) -> Optional[str]:
+        """
+        Resource ID of the associated App Service plan, formatted as: "/subscriptions/{subscriptionID}/resourceGroups/{groupName}/providers/Microsoft.Web/serverfarms/{appServicePlanName}".
+        """
+        return pulumi.get(self, "server_farm_id")
+
+    @property
+    @pulumi.getter(name="siteName")
+    def site_name(self) -> str:
+        """
+        App name.
+        """
+        return pulumi.get(self, "site_name")
+
+    @property
+    @pulumi.getter(name="subjectName")
+    def subject_name(self) -> str:
+        """
+        Subject name of the certificate.
+        """
+        return pulumi.get(self, "subject_name")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Mapping[str, str]]:
+        """
+        Resource tags.
+        """
+        return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter
+    def thumbprint(self) -> str:
+        """
+        Certificate thumbprint.
+        """
+        return pulumi.get(self, "thumbprint")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Resource type.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def valid(self) -> bool:
+        """
+        Is the certificate valid?.
+        """
+        return pulumi.get(self, "valid")
+
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

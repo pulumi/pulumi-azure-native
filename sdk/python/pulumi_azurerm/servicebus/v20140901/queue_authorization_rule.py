@@ -5,56 +5,30 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+
+__all__ = ['QueueAuthorizationRule']
 
 
 class QueueAuthorizationRule(pulumi.CustomResource):
-    claim_type: pulumi.Output[str]
-    """
-    A string that describes Claim Type for authorization rule.
-    """
-    claim_value: pulumi.Output[str]
-    """
-    A string that describes Claim Value of authorization rule.
-    """
-    created_time: pulumi.Output[str]
-    """
-    The time the namespace was created.
-    """
-    key_name: pulumi.Output[str]
-    """
-    A string that describes the Key Name of authorization rule.
-    """
-    location: pulumi.Output[str]
-    """
-    Resource location.
-    """
-    modified_time: pulumi.Output[str]
-    """
-    The time the namespace was updated.
-    """
-    name: pulumi.Output[str]
-    """
-    Resource name
-    """
-    primary_key: pulumi.Output[str]
-    """
-    A base64-encoded 256-bit primary key for signing and validating the SAS token.
-    """
-    rights: pulumi.Output[list]
-    """
-    The rights associated with the rule.
-    """
-    secondary_key: pulumi.Output[str]
-    """
-    A base64-encoded 256-bit primary key for signing and validating the SAS token.
-    """
-    type: pulumi.Output[str]
-    """
-    Resource type
-    """
-    def __init__(__self__, resource_name, opts=None, claim_type=None, claim_value=None, key_name=None, location=None, name=None, namespace_name=None, primary_key=None, queue_name=None, resource_group_name=None, rights=None, secondary_key=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 claim_type: Optional[pulumi.Input[str]] = None,
+                 claim_value: Optional[pulumi.Input[str]] = None,
+                 key_name: Optional[pulumi.Input[str]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 namespace_name: Optional[pulumi.Input[str]] = None,
+                 primary_key: Optional[pulumi.Input[str]] = None,
+                 queue_name: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 rights: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 secondary_key: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         Description of a namespace authorization rule.
 
@@ -69,7 +43,7 @@ class QueueAuthorizationRule(pulumi.CustomResource):
         :param pulumi.Input[str] primary_key: A base64-encoded 256-bit primary key for signing and validating the SAS token.
         :param pulumi.Input[str] queue_name: The queue name.
         :param pulumi.Input[str] resource_group_name: Name of the Resource group within the Azure subscription.
-        :param pulumi.Input[list] rights: The rights associated with the rule.
+        :param pulumi.Input[List[pulumi.Input[str]]] rights: The rights associated with the rule.
         :param pulumi.Input[str] secondary_key: A base64-encoded 256-bit primary key for signing and validating the SAS token.
         """
         if __name__ is not None:
@@ -122,13 +96,15 @@ class QueueAuthorizationRule(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None) -> 'QueueAuthorizationRule':
         """
         Get an existing QueueAuthorizationRule resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -137,8 +113,97 @@ class QueueAuthorizationRule(pulumi.CustomResource):
 
         return QueueAuthorizationRule(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter(name="claimType")
+    def claim_type(self) -> Optional[str]:
+        """
+        A string that describes Claim Type for authorization rule.
+        """
+        return pulumi.get(self, "claim_type")
+
+    @property
+    @pulumi.getter(name="claimValue")
+    def claim_value(self) -> Optional[str]:
+        """
+        A string that describes Claim Value of authorization rule.
+        """
+        return pulumi.get(self, "claim_value")
+
+    @property
+    @pulumi.getter(name="createdTime")
+    def created_time(self) -> str:
+        """
+        The time the namespace was created.
+        """
+        return pulumi.get(self, "created_time")
+
+    @property
+    @pulumi.getter(name="keyName")
+    def key_name(self) -> Optional[str]:
+        """
+        A string that describes the Key Name of authorization rule.
+        """
+        return pulumi.get(self, "key_name")
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[str]:
+        """
+        Resource location.
+        """
+        return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter(name="modifiedTime")
+    def modified_time(self) -> str:
+        """
+        The time the namespace was updated.
+        """
+        return pulumi.get(self, "modified_time")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Resource name
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="primaryKey")
+    def primary_key(self) -> Optional[str]:
+        """
+        A base64-encoded 256-bit primary key for signing and validating the SAS token.
+        """
+        return pulumi.get(self, "primary_key")
+
+    @property
+    @pulumi.getter
+    def rights(self) -> List[str]:
+        """
+        The rights associated with the rule.
+        """
+        return pulumi.get(self, "rights")
+
+    @property
+    @pulumi.getter(name="secondaryKey")
+    def secondary_key(self) -> Optional[str]:
+        """
+        A base64-encoded 256-bit primary key for signing and validating the SAS token.
+        """
+        return pulumi.get(self, "secondary_key")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Resource type
+        """
+        return pulumi.get(self, "type")
+
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

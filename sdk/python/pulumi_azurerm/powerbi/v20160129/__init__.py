@@ -6,3 +6,5 @@
 from .get_workspace_collection import *
 from .list_workspace_collection_access_keys import *
 from .workspace_collection import *
+from ._inputs import *
+from . import outputs

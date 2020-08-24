@@ -5,32 +5,24 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+
+__all__ = ['VirtualNetworkRule']
 
 
 class VirtualNetworkRule(pulumi.CustomResource):
-    ignore_missing_vnet_service_endpoint: pulumi.Output[bool]
-    """
-    Create firewall rule before the virtual network has vnet service endpoint enabled.
-    """
-    name: pulumi.Output[str]
-    """
-    The name of the resource
-    """
-    state: pulumi.Output[str]
-    """
-    Virtual Network Rule State
-    """
-    type: pulumi.Output[str]
-    """
-    The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
-    """
-    virtual_network_subnet_id: pulumi.Output[str]
-    """
-    The ARM resource id of the virtual network subnet.
-    """
-    def __init__(__self__, resource_name, opts=None, ignore_missing_vnet_service_endpoint=None, name=None, resource_group_name=None, server_name=None, virtual_network_subnet_id=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 ignore_missing_vnet_service_endpoint: Optional[pulumi.Input[bool]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 server_name: Optional[pulumi.Input[str]] = None,
+                 virtual_network_subnet_id: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         A virtual network rule.
 
@@ -81,13 +73,15 @@ class VirtualNetworkRule(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None) -> 'VirtualNetworkRule':
         """
         Get an existing VirtualNetworkRule resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -96,8 +90,49 @@ class VirtualNetworkRule(pulumi.CustomResource):
 
         return VirtualNetworkRule(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter(name="ignoreMissingVnetServiceEndpoint")
+    def ignore_missing_vnet_service_endpoint(self) -> Optional[bool]:
+        """
+        Create firewall rule before the virtual network has vnet service endpoint enabled.
+        """
+        return pulumi.get(self, "ignore_missing_vnet_service_endpoint")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the resource
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def state(self) -> str:
+        """
+        Virtual Network Rule State
+        """
+        return pulumi.get(self, "state")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="virtualNetworkSubnetId")
+    def virtual_network_subnet_id(self) -> str:
+        """
+        The ARM resource id of the virtual network subnet.
+        """
+        return pulumi.get(self, "virtual_network_subnet_id")
+
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

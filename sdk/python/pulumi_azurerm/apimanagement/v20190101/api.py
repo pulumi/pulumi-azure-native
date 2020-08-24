@@ -5,107 +5,45 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+from . import outputs
+from ._inputs import *
+
+__all__ = ['Api']
 
 
 class Api(pulumi.CustomResource):
-    api_revision: pulumi.Output[str]
-    """
-    Describes the Revision of the Api. If no value is provided, default revision 1 is created
-    """
-    api_revision_description: pulumi.Output[str]
-    """
-    Description of the Api Revision.
-    """
-    api_type: pulumi.Output[str]
-    """
-    Type of API.
-    """
-    api_version: pulumi.Output[str]
-    """
-    Indicates the Version identifier of the API if the API is versioned
-    """
-    api_version_description: pulumi.Output[str]
-    """
-    Description of the Api Version.
-    """
-    api_version_set: pulumi.Output[dict]
-    """
-    Version set details
-      * `description` (`str`) - Description of API Version Set.
-      * `id` (`str`) - Identifier for existing API Version Set. Omit this value to create a new Version Set.
-      * `name` (`str`) - The display Name of the API Version Set.
-      * `version_header_name` (`str`) - Name of HTTP header parameter that indicates the API Version if versioningScheme is set to `header`.
-      * `version_query_name` (`str`) - Name of query parameter that indicates the API Version if versioningScheme is set to `query`.
-      * `versioning_scheme` (`str`) - An value that determines where the API Version identifer will be located in a HTTP request.
-    """
-    api_version_set_id: pulumi.Output[str]
-    """
-    A resource identifier for the related ApiVersionSet.
-    """
-    authentication_settings: pulumi.Output[dict]
-    """
-    Collection of authentication settings included into this API.
-      * `o_auth2` (`dict`) - OAuth2 Authentication settings
-        * `authorization_server_id` (`str`) - OAuth authorization server identifier.
-        * `scope` (`str`) - operations scope.
-
-      * `openid` (`dict`) - OpenID Connect Authentication Settings
-        * `bearer_token_sending_methods` (`list`) - How to send token to the server.
-        * `openid_provider_id` (`str`) - OAuth authorization server identifier.
-    """
-    description: pulumi.Output[str]
-    """
-    Description of the API. May include HTML formatting tags.
-    """
-    display_name: pulumi.Output[str]
-    """
-    API name. Must be 1 to 300 characters long.
-    """
-    is_current: pulumi.Output[bool]
-    """
-    Indicates if API revision is current api revision.
-    """
-    is_online: pulumi.Output[bool]
-    """
-    Indicates if API revision is accessible via the gateway.
-    """
-    name: pulumi.Output[str]
-    """
-    Resource name.
-    """
-    path: pulumi.Output[str]
-    """
-    Relative URL uniquely identifying this API and all of its resource paths within the API Management service instance. It is appended to the API endpoint base URL specified during the service instance creation to form a public URL for this API.
-    """
-    protocols: pulumi.Output[list]
-    """
-    Describes on which protocols the operations in this API can be invoked.
-    """
-    service_url: pulumi.Output[str]
-    """
-    Absolute URL of the backend service implementing this API. Cannot be more than 2000 characters long.
-    """
-    source_api_id: pulumi.Output[str]
-    """
-    API identifier of the source API.
-    """
-    subscription_key_parameter_names: pulumi.Output[dict]
-    """
-    Protocols over which API is made available.
-      * `header` (`str`) - Subscription key header name.
-      * `query` (`str`) - Subscription key query string parameter name.
-    """
-    subscription_required: pulumi.Output[bool]
-    """
-    Specifies whether an API or Product subscription is required for accessing the API.
-    """
-    type: pulumi.Output[str]
-    """
-    Resource type for API Management resource.
-    """
-    def __init__(__self__, resource_name, opts=None, api_revision=None, api_revision_description=None, api_type=None, api_version=None, api_version_description=None, api_version_set=None, api_version_set_id=None, authentication_settings=None, description=None, display_name=None, format=None, is_current=None, name=None, path=None, protocols=None, resource_group_name=None, service_name=None, service_url=None, soap_api_type=None, source_api_id=None, subscription_key_parameter_names=None, subscription_required=None, value=None, wsdl_selector=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 api_revision: Optional[pulumi.Input[str]] = None,
+                 api_revision_description: Optional[pulumi.Input[str]] = None,
+                 api_type: Optional[pulumi.Input[str]] = None,
+                 api_version: Optional[pulumi.Input[str]] = None,
+                 api_version_description: Optional[pulumi.Input[str]] = None,
+                 api_version_set: Optional[pulumi.Input[pulumi.InputType['ApiVersionSetContractDetailsArgs']]] = None,
+                 api_version_set_id: Optional[pulumi.Input[str]] = None,
+                 authentication_settings: Optional[pulumi.Input[pulumi.InputType['AuthenticationSettingsContractArgs']]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 display_name: Optional[pulumi.Input[str]] = None,
+                 format: Optional[pulumi.Input[str]] = None,
+                 is_current: Optional[pulumi.Input[bool]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 path: Optional[pulumi.Input[str]] = None,
+                 protocols: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 service_name: Optional[pulumi.Input[str]] = None,
+                 service_url: Optional[pulumi.Input[str]] = None,
+                 soap_api_type: Optional[pulumi.Input[str]] = None,
+                 source_api_id: Optional[pulumi.Input[str]] = None,
+                 subscription_key_parameter_names: Optional[pulumi.Input[pulumi.InputType['SubscriptionKeyParameterNamesContractArgs']]] = None,
+                 subscription_required: Optional[pulumi.Input[bool]] = None,
+                 value: Optional[pulumi.Input[str]] = None,
+                 wsdl_selector: Optional[pulumi.Input[pulumi.InputType['ApiCreateOrUpdatePropertiesWsdlSelectorArgs']]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         Api details.
 
@@ -116,16 +54,16 @@ class Api(pulumi.CustomResource):
         :param pulumi.Input[str] api_type: Type of API.
         :param pulumi.Input[str] api_version: Indicates the Version identifier of the API if the API is versioned
         :param pulumi.Input[str] api_version_description: Description of the Api Version.
-        :param pulumi.Input[dict] api_version_set: Version set details
+        :param pulumi.Input[pulumi.InputType['ApiVersionSetContractDetailsArgs']] api_version_set: Version set details
         :param pulumi.Input[str] api_version_set_id: A resource identifier for the related ApiVersionSet.
-        :param pulumi.Input[dict] authentication_settings: Collection of authentication settings included into this API.
+        :param pulumi.Input[pulumi.InputType['AuthenticationSettingsContractArgs']] authentication_settings: Collection of authentication settings included into this API.
         :param pulumi.Input[str] description: Description of the API. May include HTML formatting tags.
         :param pulumi.Input[str] display_name: API name. Must be 1 to 300 characters long.
         :param pulumi.Input[str] format: Format of the Content in which the API is getting imported.
         :param pulumi.Input[bool] is_current: Indicates if API revision is current api revision.
         :param pulumi.Input[str] name: API revision identifier. Must be unique in the current API Management service instance. Non-current revision has ;rev=n as a suffix where n is the revision number.
         :param pulumi.Input[str] path: Relative URL uniquely identifying this API and all of its resource paths within the API Management service instance. It is appended to the API endpoint base URL specified during the service instance creation to form a public URL for this API.
-        :param pulumi.Input[list] protocols: Describes on which protocols the operations in this API can be invoked.
+        :param pulumi.Input[List[pulumi.Input[str]]] protocols: Describes on which protocols the operations in this API can be invoked.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[str] service_name: The name of the API Management service.
         :param pulumi.Input[str] service_url: Absolute URL of the backend service implementing this API. Cannot be more than 2000 characters long.
@@ -133,39 +71,10 @@ class Api(pulumi.CustomResource):
                 * `http` creates a SOAP to REST API 
                 * `soap` creates a SOAP pass-through API .
         :param pulumi.Input[str] source_api_id: API identifier of the source API.
-        :param pulumi.Input[dict] subscription_key_parameter_names: Protocols over which API is made available.
+        :param pulumi.Input[pulumi.InputType['SubscriptionKeyParameterNamesContractArgs']] subscription_key_parameter_names: Protocols over which API is made available.
         :param pulumi.Input[bool] subscription_required: Specifies whether an API or Product subscription is required for accessing the API.
         :param pulumi.Input[str] value: Content value when Importing an API.
-        :param pulumi.Input[dict] wsdl_selector: Criteria to limit import of WSDL to a subset of the document.
-
-        The **api_version_set** object supports the following:
-
-          * `description` (`pulumi.Input[str]`) - Description of API Version Set.
-          * `id` (`pulumi.Input[str]`) - Identifier for existing API Version Set. Omit this value to create a new Version Set.
-          * `name` (`pulumi.Input[str]`) - The display Name of the API Version Set.
-          * `version_header_name` (`pulumi.Input[str]`) - Name of HTTP header parameter that indicates the API Version if versioningScheme is set to `header`.
-          * `version_query_name` (`pulumi.Input[str]`) - Name of query parameter that indicates the API Version if versioningScheme is set to `query`.
-          * `versioning_scheme` (`pulumi.Input[str]`) - An value that determines where the API Version identifer will be located in a HTTP request.
-
-        The **authentication_settings** object supports the following:
-
-          * `o_auth2` (`pulumi.Input[dict]`) - OAuth2 Authentication settings
-            * `authorization_server_id` (`pulumi.Input[str]`) - OAuth authorization server identifier.
-            * `scope` (`pulumi.Input[str]`) - operations scope.
-
-          * `openid` (`pulumi.Input[dict]`) - OpenID Connect Authentication Settings
-            * `bearer_token_sending_methods` (`pulumi.Input[list]`) - How to send token to the server.
-            * `openid_provider_id` (`pulumi.Input[str]`) - OAuth authorization server identifier.
-
-        The **subscription_key_parameter_names** object supports the following:
-
-          * `header` (`pulumi.Input[str]`) - Subscription key header name.
-          * `query` (`pulumi.Input[str]`) - Subscription key query string parameter name.
-
-        The **wsdl_selector** object supports the following:
-
-          * `wsdl_endpoint_name` (`pulumi.Input[str]`) - Name of endpoint(port) to import from WSDL
-          * `wsdl_service_name` (`pulumi.Input[str]`) - Name of service to import from WSDL
+        :param pulumi.Input[pulumi.InputType['ApiCreateOrUpdatePropertiesWsdlSelectorArgs']] wsdl_selector: Criteria to limit import of WSDL to a subset of the document.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -227,13 +136,15 @@ class Api(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None) -> 'Api':
         """
         Get an existing Api resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -242,8 +153,169 @@ class Api(pulumi.CustomResource):
 
         return Api(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter(name="apiRevision")
+    def api_revision(self) -> Optional[str]:
+        """
+        Describes the Revision of the Api. If no value is provided, default revision 1 is created
+        """
+        return pulumi.get(self, "api_revision")
+
+    @property
+    @pulumi.getter(name="apiRevisionDescription")
+    def api_revision_description(self) -> Optional[str]:
+        """
+        Description of the Api Revision.
+        """
+        return pulumi.get(self, "api_revision_description")
+
+    @property
+    @pulumi.getter(name="apiType")
+    def api_type(self) -> Optional[str]:
+        """
+        Type of API.
+        """
+        return pulumi.get(self, "api_type")
+
+    @property
+    @pulumi.getter(name="apiVersion")
+    def api_version(self) -> Optional[str]:
+        """
+        Indicates the Version identifier of the API if the API is versioned
+        """
+        return pulumi.get(self, "api_version")
+
+    @property
+    @pulumi.getter(name="apiVersionDescription")
+    def api_version_description(self) -> Optional[str]:
+        """
+        Description of the Api Version.
+        """
+        return pulumi.get(self, "api_version_description")
+
+    @property
+    @pulumi.getter(name="apiVersionSet")
+    def api_version_set(self) -> Optional['outputs.ApiVersionSetContractDetailsResponse']:
+        """
+        Version set details
+        """
+        return pulumi.get(self, "api_version_set")
+
+    @property
+    @pulumi.getter(name="apiVersionSetId")
+    def api_version_set_id(self) -> Optional[str]:
+        """
+        A resource identifier for the related ApiVersionSet.
+        """
+        return pulumi.get(self, "api_version_set_id")
+
+    @property
+    @pulumi.getter(name="authenticationSettings")
+    def authentication_settings(self) -> Optional['outputs.AuthenticationSettingsContractResponse']:
+        """
+        Collection of authentication settings included into this API.
+        """
+        return pulumi.get(self, "authentication_settings")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        """
+        Description of the API. May include HTML formatting tags.
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="displayName")
+    def display_name(self) -> Optional[str]:
+        """
+        API name. Must be 1 to 300 characters long.
+        """
+        return pulumi.get(self, "display_name")
+
+    @property
+    @pulumi.getter(name="isCurrent")
+    def is_current(self) -> Optional[bool]:
+        """
+        Indicates if API revision is current api revision.
+        """
+        return pulumi.get(self, "is_current")
+
+    @property
+    @pulumi.getter(name="isOnline")
+    def is_online(self) -> bool:
+        """
+        Indicates if API revision is accessible via the gateway.
+        """
+        return pulumi.get(self, "is_online")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Resource name.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def path(self) -> str:
+        """
+        Relative URL uniquely identifying this API and all of its resource paths within the API Management service instance. It is appended to the API endpoint base URL specified during the service instance creation to form a public URL for this API.
+        """
+        return pulumi.get(self, "path")
+
+    @property
+    @pulumi.getter
+    def protocols(self) -> Optional[List[str]]:
+        """
+        Describes on which protocols the operations in this API can be invoked.
+        """
+        return pulumi.get(self, "protocols")
+
+    @property
+    @pulumi.getter(name="serviceUrl")
+    def service_url(self) -> Optional[str]:
+        """
+        Absolute URL of the backend service implementing this API. Cannot be more than 2000 characters long.
+        """
+        return pulumi.get(self, "service_url")
+
+    @property
+    @pulumi.getter(name="sourceApiId")
+    def source_api_id(self) -> Optional[str]:
+        """
+        API identifier of the source API.
+        """
+        return pulumi.get(self, "source_api_id")
+
+    @property
+    @pulumi.getter(name="subscriptionKeyParameterNames")
+    def subscription_key_parameter_names(self) -> Optional['outputs.SubscriptionKeyParameterNamesContractResponse']:
+        """
+        Protocols over which API is made available.
+        """
+        return pulumi.get(self, "subscription_key_parameter_names")
+
+    @property
+    @pulumi.getter(name="subscriptionRequired")
+    def subscription_required(self) -> Optional[bool]:
+        """
+        Specifies whether an API or Product subscription is required for accessing the API.
+        """
+        return pulumi.get(self, "subscription_required")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Resource type for API Management resource.
+        """
+        return pulumi.get(self, "type")
+
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

@@ -5,10 +5,17 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+from . import outputs
 
+__all__ = [
+    'GetAppResult',
+    'AwaitableGetAppResult',
+    'get_app',
+]
 
+@pulumi.output_type
 class GetAppResult:
     """
     App resource payload
@@ -16,34 +23,59 @@ class GetAppResult:
     def __init__(__self__, identity=None, location=None, name=None, properties=None, type=None):
         if identity and not isinstance(identity, dict):
             raise TypeError("Expected argument 'identity' to be a dict")
-        __self__.identity = identity
+        pulumi.set(__self__, "identity", identity)
+        if location and not isinstance(location, str):
+            raise TypeError("Expected argument 'location' to be a str")
+        pulumi.set(__self__, "location", location)
+        if name and not isinstance(name, str):
+            raise TypeError("Expected argument 'name' to be a str")
+        pulumi.set(__self__, "name", name)
+        if properties and not isinstance(properties, dict):
+            raise TypeError("Expected argument 'properties' to be a dict")
+        pulumi.set(__self__, "properties", properties)
+        if type and not isinstance(type, str):
+            raise TypeError("Expected argument 'type' to be a str")
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def identity(self) -> Optional['outputs.ManagedIdentityPropertiesResponse']:
         """
         The Managed Identity type of the app resource
         """
-        if location and not isinstance(location, str):
-            raise TypeError("Expected argument 'location' to be a str")
-        __self__.location = location
+        return pulumi.get(self, "identity")
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[str]:
         """
         The GEO location of the application, always the same with its parent resource
         """
-        if name and not isinstance(name, str):
-            raise TypeError("Expected argument 'name' to be a str")
-        __self__.name = name
+        return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
         """
         The name of the resource.
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def properties(self) -> 'outputs.AppResourcePropertiesResponse':
         """
         Properties of the App resource
         """
-        if type and not isinstance(type, str):
-            raise TypeError("Expected argument 'type' to be a str")
-        __self__.type = type
+        return pulumi.get(self, "properties")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
         """
         The type of the resource.
         """
+        return pulumi.get(self, "type")
 
 
 class AwaitableGetAppResult(GetAppResult):
@@ -59,7 +91,11 @@ class AwaitableGetAppResult(GetAppResult):
             type=self.type)
 
 
-def get_app(name=None, resource_group_name=None, service_name=None, sync_status=None, opts=None):
+def get_app(name: Optional[str] = None,
+            resource_group_name: Optional[str] = None,
+            service_name: Optional[str] = None,
+            sync_status: Optional[str] = None,
+            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAppResult:
     """
     Use this data source to access information about an existing resource.
 
@@ -77,11 +113,11 @@ def get_app(name=None, resource_group_name=None, service_name=None, sync_status=
         opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = _utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('azurerm:appplatform/v20200701:getApp', __args__, opts=opts).value
+    __ret__ = pulumi.runtime.invoke('azurerm:appplatform/v20200701:getApp', __args__, opts=opts, typ=GetAppResult).value
 
     return AwaitableGetAppResult(
-        identity=__ret__.get('identity'),
-        location=__ret__.get('location'),
-        name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
-        type=__ret__.get('type'))
+        identity=__ret__.identity,
+        location=__ret__.location,
+        name=__ret__.name,
+        properties=__ret__.properties,
+        type=__ret__.type)

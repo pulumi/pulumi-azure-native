@@ -5,10 +5,17 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+from . import outputs
 
+__all__ = [
+    'GetDscConfigurationResult',
+    'AwaitableGetDscConfigurationResult',
+    'get_dsc_configuration',
+]
 
+@pulumi.output_type
 class GetDscConfigurationResult:
     """
     Definition of the configuration type.
@@ -16,94 +23,169 @@ class GetDscConfigurationResult:
     def __init__(__self__, creation_time=None, description=None, etag=None, job_count=None, last_modified_time=None, location=None, log_verbose=None, name=None, node_configuration_count=None, parameters=None, provisioning_state=None, source=None, state=None, tags=None, type=None):
         if creation_time and not isinstance(creation_time, str):
             raise TypeError("Expected argument 'creation_time' to be a str")
-        __self__.creation_time = creation_time
+        pulumi.set(__self__, "creation_time", creation_time)
+        if description and not isinstance(description, str):
+            raise TypeError("Expected argument 'description' to be a str")
+        pulumi.set(__self__, "description", description)
+        if etag and not isinstance(etag, str):
+            raise TypeError("Expected argument 'etag' to be a str")
+        pulumi.set(__self__, "etag", etag)
+        if job_count and not isinstance(job_count, float):
+            raise TypeError("Expected argument 'job_count' to be a float")
+        pulumi.set(__self__, "job_count", job_count)
+        if last_modified_time and not isinstance(last_modified_time, str):
+            raise TypeError("Expected argument 'last_modified_time' to be a str")
+        pulumi.set(__self__, "last_modified_time", last_modified_time)
+        if location and not isinstance(location, str):
+            raise TypeError("Expected argument 'location' to be a str")
+        pulumi.set(__self__, "location", location)
+        if log_verbose and not isinstance(log_verbose, bool):
+            raise TypeError("Expected argument 'log_verbose' to be a bool")
+        pulumi.set(__self__, "log_verbose", log_verbose)
+        if name and not isinstance(name, str):
+            raise TypeError("Expected argument 'name' to be a str")
+        pulumi.set(__self__, "name", name)
+        if node_configuration_count and not isinstance(node_configuration_count, float):
+            raise TypeError("Expected argument 'node_configuration_count' to be a float")
+        pulumi.set(__self__, "node_configuration_count", node_configuration_count)
+        if parameters and not isinstance(parameters, dict):
+            raise TypeError("Expected argument 'parameters' to be a dict")
+        pulumi.set(__self__, "parameters", parameters)
+        if provisioning_state and not isinstance(provisioning_state, str):
+            raise TypeError("Expected argument 'provisioning_state' to be a str")
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if source and not isinstance(source, dict):
+            raise TypeError("Expected argument 'source' to be a dict")
+        pulumi.set(__self__, "source", source)
+        if state and not isinstance(state, str):
+            raise TypeError("Expected argument 'state' to be a str")
+        pulumi.set(__self__, "state", state)
+        if tags and not isinstance(tags, dict):
+            raise TypeError("Expected argument 'tags' to be a dict")
+        pulumi.set(__self__, "tags", tags)
+        if type and not isinstance(type, str):
+            raise TypeError("Expected argument 'type' to be a str")
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="creationTime")
+    def creation_time(self) -> Optional[str]:
         """
         Gets or sets the creation time.
         """
-        if description and not isinstance(description, str):
-            raise TypeError("Expected argument 'description' to be a str")
-        __self__.description = description
+        return pulumi.get(self, "creation_time")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
         """
         Gets or sets the description.
         """
-        if etag and not isinstance(etag, str):
-            raise TypeError("Expected argument 'etag' to be a str")
-        __self__.etag = etag
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def etag(self) -> Optional[str]:
         """
         Gets or sets the etag of the resource.
         """
-        if job_count and not isinstance(job_count, float):
-            raise TypeError("Expected argument 'job_count' to be a float")
-        __self__.job_count = job_count
+        return pulumi.get(self, "etag")
+
+    @property
+    @pulumi.getter(name="jobCount")
+    def job_count(self) -> Optional[float]:
         """
         Gets or sets the job count of the configuration.
         """
-        if last_modified_time and not isinstance(last_modified_time, str):
-            raise TypeError("Expected argument 'last_modified_time' to be a str")
-        __self__.last_modified_time = last_modified_time
+        return pulumi.get(self, "job_count")
+
+    @property
+    @pulumi.getter(name="lastModifiedTime")
+    def last_modified_time(self) -> Optional[str]:
         """
         Gets or sets the last modified time.
         """
-        if location and not isinstance(location, str):
-            raise TypeError("Expected argument 'location' to be a str")
-        __self__.location = location
+        return pulumi.get(self, "last_modified_time")
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[str]:
         """
         The Azure Region where the resource lives
         """
-        if log_verbose and not isinstance(log_verbose, bool):
-            raise TypeError("Expected argument 'log_verbose' to be a bool")
-        __self__.log_verbose = log_verbose
+        return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter(name="logVerbose")
+    def log_verbose(self) -> Optional[bool]:
         """
         Gets or sets verbose log option.
         """
-        if name and not isinstance(name, str):
-            raise TypeError("Expected argument 'name' to be a str")
-        __self__.name = name
+        return pulumi.get(self, "log_verbose")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
         """
         The name of the resource
         """
-        if node_configuration_count and not isinstance(node_configuration_count, float):
-            raise TypeError("Expected argument 'node_configuration_count' to be a float")
-        __self__.node_configuration_count = node_configuration_count
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="nodeConfigurationCount")
+    def node_configuration_count(self) -> Optional[float]:
         """
         Gets the number of compiled node configurations.
         """
-        if parameters and not isinstance(parameters, dict):
-            raise TypeError("Expected argument 'parameters' to be a dict")
-        __self__.parameters = parameters
+        return pulumi.get(self, "node_configuration_count")
+
+    @property
+    @pulumi.getter
+    def parameters(self) -> Optional[Mapping[str, 'outputs.DscConfigurationParameterResponse']]:
         """
         Gets or sets the configuration parameters.
         """
-        if provisioning_state and not isinstance(provisioning_state, str):
-            raise TypeError("Expected argument 'provisioning_state' to be a str")
-        __self__.provisioning_state = provisioning_state
+        return pulumi.get(self, "parameters")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> Optional[str]:
         """
         Gets or sets the provisioning state of the configuration.
         """
-        if source and not isinstance(source, dict):
-            raise TypeError("Expected argument 'source' to be a dict")
-        __self__.source = source
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter
+    def source(self) -> Optional['outputs.ContentSourceResponse']:
         """
         Gets or sets the source.
         """
-        if state and not isinstance(state, str):
-            raise TypeError("Expected argument 'state' to be a str")
-        __self__.state = state
+        return pulumi.get(self, "source")
+
+    @property
+    @pulumi.getter
+    def state(self) -> Optional[str]:
         """
         Gets or sets the state of the configuration.
         """
-        if tags and not isinstance(tags, dict):
-            raise TypeError("Expected argument 'tags' to be a dict")
-        __self__.tags = tags
+        return pulumi.get(self, "state")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Mapping[str, str]]:
         """
         Resource tags.
         """
-        if type and not isinstance(type, str):
-            raise TypeError("Expected argument 'type' to be a str")
-        __self__.type = type
+        return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
         """
         The type of the resource.
         """
+        return pulumi.get(self, "type")
 
 
 class AwaitableGetDscConfigurationResult(GetDscConfigurationResult):
@@ -129,7 +211,10 @@ class AwaitableGetDscConfigurationResult(GetDscConfigurationResult):
             type=self.type)
 
 
-def get_dsc_configuration(automation_account_name=None, name=None, resource_group_name=None, opts=None):
+def get_dsc_configuration(automation_account_name: Optional[str] = None,
+                          name: Optional[str] = None,
+                          resource_group_name: Optional[str] = None,
+                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDscConfigurationResult:
     """
     Use this data source to access information about an existing resource.
 
@@ -145,21 +230,21 @@ def get_dsc_configuration(automation_account_name=None, name=None, resource_grou
         opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = _utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('azurerm:automation/v20151031:getDscConfiguration', __args__, opts=opts).value
+    __ret__ = pulumi.runtime.invoke('azurerm:automation/v20151031:getDscConfiguration', __args__, opts=opts, typ=GetDscConfigurationResult).value
 
     return AwaitableGetDscConfigurationResult(
-        creation_time=__ret__.get('creationTime'),
-        description=__ret__.get('description'),
-        etag=__ret__.get('etag'),
-        job_count=__ret__.get('jobCount'),
-        last_modified_time=__ret__.get('lastModifiedTime'),
-        location=__ret__.get('location'),
-        log_verbose=__ret__.get('logVerbose'),
-        name=__ret__.get('name'),
-        node_configuration_count=__ret__.get('nodeConfigurationCount'),
-        parameters=__ret__.get('parameters'),
-        provisioning_state=__ret__.get('provisioningState'),
-        source=__ret__.get('source'),
-        state=__ret__.get('state'),
-        tags=__ret__.get('tags'),
-        type=__ret__.get('type'))
+        creation_time=__ret__.creation_time,
+        description=__ret__.description,
+        etag=__ret__.etag,
+        job_count=__ret__.job_count,
+        last_modified_time=__ret__.last_modified_time,
+        location=__ret__.location,
+        log_verbose=__ret__.log_verbose,
+        name=__ret__.name,
+        node_configuration_count=__ret__.node_configuration_count,
+        parameters=__ret__.parameters,
+        provisioning_state=__ret__.provisioning_state,
+        source=__ret__.source,
+        state=__ret__.state,
+        tags=__ret__.tags,
+        type=__ret__.type)

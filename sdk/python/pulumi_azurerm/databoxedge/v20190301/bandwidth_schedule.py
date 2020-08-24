@@ -5,42 +5,32 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+
+__all__ = ['BandwidthSchedule']
 
 
 class BandwidthSchedule(pulumi.CustomResource):
-    days: pulumi.Output[list]
-    """
-    The days of the week when this schedule is applicable.
-    """
-    name: pulumi.Output[str]
-    """
-    The object name.
-    """
-    rate_in_mbps: pulumi.Output[float]
-    """
-    The bandwidth rate in Mbps.
-    """
-    start: pulumi.Output[str]
-    """
-    The start time of the schedule in UTC.
-    """
-    stop: pulumi.Output[str]
-    """
-    The stop time of the schedule in UTC.
-    """
-    type: pulumi.Output[str]
-    """
-    The hierarchical type of the object.
-    """
-    def __init__(__self__, resource_name, opts=None, days=None, device_name=None, name=None, rate_in_mbps=None, resource_group_name=None, start=None, stop=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 days: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 device_name: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 rate_in_mbps: Optional[pulumi.Input[float]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 start: Optional[pulumi.Input[str]] = None,
+                 stop: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         The bandwidth schedule details.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[list] days: The days of the week when this schedule is applicable.
+        :param pulumi.Input[List[pulumi.Input[str]]] days: The days of the week when this schedule is applicable.
         :param pulumi.Input[str] device_name: The device name.
         :param pulumi.Input[str] name: The bandwidth schedule name which needs to be added/updated.
         :param pulumi.Input[float] rate_in_mbps: The bandwidth rate in Mbps.
@@ -96,13 +86,15 @@ class BandwidthSchedule(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None) -> 'BandwidthSchedule':
         """
         Get an existing BandwidthSchedule resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -111,8 +103,57 @@ class BandwidthSchedule(pulumi.CustomResource):
 
         return BandwidthSchedule(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter
+    def days(self) -> List[str]:
+        """
+        The days of the week when this schedule is applicable.
+        """
+        return pulumi.get(self, "days")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The object name.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="rateInMbps")
+    def rate_in_mbps(self) -> float:
+        """
+        The bandwidth rate in Mbps.
+        """
+        return pulumi.get(self, "rate_in_mbps")
+
+    @property
+    @pulumi.getter
+    def start(self) -> str:
+        """
+        The start time of the schedule in UTC.
+        """
+        return pulumi.get(self, "start")
+
+    @property
+    @pulumi.getter
+    def stop(self) -> str:
+        """
+        The stop time of the schedule in UTC.
+        """
+        return pulumi.get(self, "stop")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        The hierarchical type of the object.
+        """
+        return pulumi.get(self, "type")
+
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

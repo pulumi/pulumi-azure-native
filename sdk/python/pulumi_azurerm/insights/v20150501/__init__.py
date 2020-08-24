@@ -15,3 +15,5 @@ from .get_web_test import *
 from .get_workbook import *
 from .web_test import *
 from .workbook import *
+from ._inputs import *
+from . import outputs

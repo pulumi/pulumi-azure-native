@@ -5,10 +5,16 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
 
+__all__ = [
+    'GetServerAdministratorResult',
+    'AwaitableGetServerAdministratorResult',
+    'get_server_administrator',
+]
 
+@pulumi.output_type
 class GetServerAdministratorResult:
     """
     Represents a and external administrator to be created.
@@ -16,40 +22,70 @@ class GetServerAdministratorResult:
     def __init__(__self__, administrator_type=None, login=None, name=None, sid=None, tenant_id=None, type=None):
         if administrator_type and not isinstance(administrator_type, str):
             raise TypeError("Expected argument 'administrator_type' to be a str")
-        __self__.administrator_type = administrator_type
+        pulumi.set(__self__, "administrator_type", administrator_type)
+        if login and not isinstance(login, str):
+            raise TypeError("Expected argument 'login' to be a str")
+        pulumi.set(__self__, "login", login)
+        if name and not isinstance(name, str):
+            raise TypeError("Expected argument 'name' to be a str")
+        pulumi.set(__self__, "name", name)
+        if sid and not isinstance(sid, str):
+            raise TypeError("Expected argument 'sid' to be a str")
+        pulumi.set(__self__, "sid", sid)
+        if tenant_id and not isinstance(tenant_id, str):
+            raise TypeError("Expected argument 'tenant_id' to be a str")
+        pulumi.set(__self__, "tenant_id", tenant_id)
+        if type and not isinstance(type, str):
+            raise TypeError("Expected argument 'type' to be a str")
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="administratorType")
+    def administrator_type(self) -> str:
         """
         The type of administrator.
         """
-        if login and not isinstance(login, str):
-            raise TypeError("Expected argument 'login' to be a str")
-        __self__.login = login
+        return pulumi.get(self, "administrator_type")
+
+    @property
+    @pulumi.getter
+    def login(self) -> str:
         """
         The server administrator login account name.
         """
-        if name and not isinstance(name, str):
-            raise TypeError("Expected argument 'name' to be a str")
-        __self__.name = name
+        return pulumi.get(self, "login")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
         """
         The name of the resource
         """
-        if sid and not isinstance(sid, str):
-            raise TypeError("Expected argument 'sid' to be a str")
-        __self__.sid = sid
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def sid(self) -> str:
         """
         The server administrator Sid (Secure ID).
         """
-        if tenant_id and not isinstance(tenant_id, str):
-            raise TypeError("Expected argument 'tenant_id' to be a str")
-        __self__.tenant_id = tenant_id
+        return pulumi.get(self, "sid")
+
+    @property
+    @pulumi.getter(name="tenantId")
+    def tenant_id(self) -> str:
         """
         The server Active Directory Administrator tenant id.
         """
-        if type and not isinstance(type, str):
-            raise TypeError("Expected argument 'type' to be a str")
-        __self__.type = type
+        return pulumi.get(self, "tenant_id")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
         """
         The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
         """
+        return pulumi.get(self, "type")
 
 
 class AwaitableGetServerAdministratorResult(GetServerAdministratorResult):
@@ -66,7 +102,9 @@ class AwaitableGetServerAdministratorResult(GetServerAdministratorResult):
             type=self.type)
 
 
-def get_server_administrator(name=None, resource_group_name=None, opts=None):
+def get_server_administrator(name: Optional[str] = None,
+                             resource_group_name: Optional[str] = None,
+                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetServerAdministratorResult:
     """
     Use this data source to access information about an existing resource.
 
@@ -80,12 +118,12 @@ def get_server_administrator(name=None, resource_group_name=None, opts=None):
         opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = _utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('azurerm:dbformysql/v20171201:getServerAdministrator', __args__, opts=opts).value
+    __ret__ = pulumi.runtime.invoke('azurerm:dbformysql/v20171201:getServerAdministrator', __args__, opts=opts, typ=GetServerAdministratorResult).value
 
     return AwaitableGetServerAdministratorResult(
-        administrator_type=__ret__.get('administratorType'),
-        login=__ret__.get('login'),
-        name=__ret__.get('name'),
-        sid=__ret__.get('sid'),
-        tenant_id=__ret__.get('tenantId'),
-        type=__ret__.get('type'))
+        administrator_type=__ret__.administrator_type,
+        login=__ret__.login,
+        name=__ret__.name,
+        sid=__ret__.sid,
+        tenant_id=__ret__.tenant_id,
+        type=__ret__.type)

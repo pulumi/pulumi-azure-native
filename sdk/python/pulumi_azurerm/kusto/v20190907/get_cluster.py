@@ -5,10 +5,17 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+from . import outputs
 
+__all__ = [
+    'GetClusterResult',
+    'AwaitableGetClusterResult',
+    'get_cluster',
+]
 
+@pulumi.output_type
 class GetClusterResult:
     """
     Class representing a Kusto cluster.
@@ -16,106 +23,191 @@ class GetClusterResult:
     def __init__(__self__, data_ingestion_uri=None, enable_disk_encryption=None, enable_streaming_ingest=None, identity=None, key_vault_properties=None, location=None, name=None, optimized_autoscale=None, provisioning_state=None, sku=None, state=None, tags=None, trusted_external_tenants=None, type=None, uri=None, virtual_network_configuration=None, zones=None):
         if data_ingestion_uri and not isinstance(data_ingestion_uri, str):
             raise TypeError("Expected argument 'data_ingestion_uri' to be a str")
-        __self__.data_ingestion_uri = data_ingestion_uri
+        pulumi.set(__self__, "data_ingestion_uri", data_ingestion_uri)
+        if enable_disk_encryption and not isinstance(enable_disk_encryption, bool):
+            raise TypeError("Expected argument 'enable_disk_encryption' to be a bool")
+        pulumi.set(__self__, "enable_disk_encryption", enable_disk_encryption)
+        if enable_streaming_ingest and not isinstance(enable_streaming_ingest, bool):
+            raise TypeError("Expected argument 'enable_streaming_ingest' to be a bool")
+        pulumi.set(__self__, "enable_streaming_ingest", enable_streaming_ingest)
+        if identity and not isinstance(identity, dict):
+            raise TypeError("Expected argument 'identity' to be a dict")
+        pulumi.set(__self__, "identity", identity)
+        if key_vault_properties and not isinstance(key_vault_properties, dict):
+            raise TypeError("Expected argument 'key_vault_properties' to be a dict")
+        pulumi.set(__self__, "key_vault_properties", key_vault_properties)
+        if location and not isinstance(location, str):
+            raise TypeError("Expected argument 'location' to be a str")
+        pulumi.set(__self__, "location", location)
+        if name and not isinstance(name, str):
+            raise TypeError("Expected argument 'name' to be a str")
+        pulumi.set(__self__, "name", name)
+        if optimized_autoscale and not isinstance(optimized_autoscale, dict):
+            raise TypeError("Expected argument 'optimized_autoscale' to be a dict")
+        pulumi.set(__self__, "optimized_autoscale", optimized_autoscale)
+        if provisioning_state and not isinstance(provisioning_state, str):
+            raise TypeError("Expected argument 'provisioning_state' to be a str")
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if sku and not isinstance(sku, dict):
+            raise TypeError("Expected argument 'sku' to be a dict")
+        pulumi.set(__self__, "sku", sku)
+        if state and not isinstance(state, str):
+            raise TypeError("Expected argument 'state' to be a str")
+        pulumi.set(__self__, "state", state)
+        if tags and not isinstance(tags, dict):
+            raise TypeError("Expected argument 'tags' to be a dict")
+        pulumi.set(__self__, "tags", tags)
+        if trusted_external_tenants and not isinstance(trusted_external_tenants, list):
+            raise TypeError("Expected argument 'trusted_external_tenants' to be a list")
+        pulumi.set(__self__, "trusted_external_tenants", trusted_external_tenants)
+        if type and not isinstance(type, str):
+            raise TypeError("Expected argument 'type' to be a str")
+        pulumi.set(__self__, "type", type)
+        if uri and not isinstance(uri, str):
+            raise TypeError("Expected argument 'uri' to be a str")
+        pulumi.set(__self__, "uri", uri)
+        if virtual_network_configuration and not isinstance(virtual_network_configuration, dict):
+            raise TypeError("Expected argument 'virtual_network_configuration' to be a dict")
+        pulumi.set(__self__, "virtual_network_configuration", virtual_network_configuration)
+        if zones and not isinstance(zones, list):
+            raise TypeError("Expected argument 'zones' to be a list")
+        pulumi.set(__self__, "zones", zones)
+
+    @property
+    @pulumi.getter(name="dataIngestionUri")
+    def data_ingestion_uri(self) -> str:
         """
         The cluster data ingestion URI.
         """
-        if enable_disk_encryption and not isinstance(enable_disk_encryption, bool):
-            raise TypeError("Expected argument 'enable_disk_encryption' to be a bool")
-        __self__.enable_disk_encryption = enable_disk_encryption
+        return pulumi.get(self, "data_ingestion_uri")
+
+    @property
+    @pulumi.getter(name="enableDiskEncryption")
+    def enable_disk_encryption(self) -> Optional[bool]:
         """
         A boolean value that indicates if the cluster's disks are encrypted.
         """
-        if enable_streaming_ingest and not isinstance(enable_streaming_ingest, bool):
-            raise TypeError("Expected argument 'enable_streaming_ingest' to be a bool")
-        __self__.enable_streaming_ingest = enable_streaming_ingest
+        return pulumi.get(self, "enable_disk_encryption")
+
+    @property
+    @pulumi.getter(name="enableStreamingIngest")
+    def enable_streaming_ingest(self) -> Optional[bool]:
         """
         A boolean value that indicates if the streaming ingest is enabled.
         """
-        if identity and not isinstance(identity, dict):
-            raise TypeError("Expected argument 'identity' to be a dict")
-        __self__.identity = identity
+        return pulumi.get(self, "enable_streaming_ingest")
+
+    @property
+    @pulumi.getter
+    def identity(self) -> Optional['outputs.IdentityResponse']:
         """
         The identity of the cluster, if configured.
         """
-        if key_vault_properties and not isinstance(key_vault_properties, dict):
-            raise TypeError("Expected argument 'key_vault_properties' to be a dict")
-        __self__.key_vault_properties = key_vault_properties
+        return pulumi.get(self, "identity")
+
+    @property
+    @pulumi.getter(name="keyVaultProperties")
+    def key_vault_properties(self) -> Optional['outputs.KeyVaultPropertiesResponse']:
         """
         KeyVault properties for the cluster encryption.
         """
-        if location and not isinstance(location, str):
-            raise TypeError("Expected argument 'location' to be a str")
-        __self__.location = location
+        return pulumi.get(self, "key_vault_properties")
+
+    @property
+    @pulumi.getter
+    def location(self) -> str:
         """
         The geo-location where the resource lives
         """
-        if name and not isinstance(name, str):
-            raise TypeError("Expected argument 'name' to be a str")
-        __self__.name = name
+        return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
         """
         The name of the resource
         """
-        if optimized_autoscale and not isinstance(optimized_autoscale, dict):
-            raise TypeError("Expected argument 'optimized_autoscale' to be a dict")
-        __self__.optimized_autoscale = optimized_autoscale
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="optimizedAutoscale")
+    def optimized_autoscale(self) -> Optional['outputs.OptimizedAutoscaleResponse']:
         """
         Optimized auto scale definition.
         """
-        if provisioning_state and not isinstance(provisioning_state, str):
-            raise TypeError("Expected argument 'provisioning_state' to be a str")
-        __self__.provisioning_state = provisioning_state
+        return pulumi.get(self, "optimized_autoscale")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
         """
         The provisioned state of the resource.
         """
-        if sku and not isinstance(sku, dict):
-            raise TypeError("Expected argument 'sku' to be a dict")
-        __self__.sku = sku
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter
+    def sku(self) -> 'outputs.AzureSkuResponse':
         """
         The SKU of the cluster.
         """
-        if state and not isinstance(state, str):
-            raise TypeError("Expected argument 'state' to be a str")
-        __self__.state = state
+        return pulumi.get(self, "sku")
+
+    @property
+    @pulumi.getter
+    def state(self) -> str:
         """
         The state of the resource.
         """
-        if tags and not isinstance(tags, dict):
-            raise TypeError("Expected argument 'tags' to be a dict")
-        __self__.tags = tags
+        return pulumi.get(self, "state")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Mapping[str, str]]:
         """
         Resource tags.
         """
-        if trusted_external_tenants and not isinstance(trusted_external_tenants, list):
-            raise TypeError("Expected argument 'trusted_external_tenants' to be a list")
-        __self__.trusted_external_tenants = trusted_external_tenants
+        return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter(name="trustedExternalTenants")
+    def trusted_external_tenants(self) -> Optional[List['outputs.TrustedExternalTenantResponse']]:
         """
         The cluster's external tenants.
         """
-        if type and not isinstance(type, str):
-            raise TypeError("Expected argument 'type' to be a str")
-        __self__.type = type
+        return pulumi.get(self, "trusted_external_tenants")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
         """
         The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
         """
-        if uri and not isinstance(uri, str):
-            raise TypeError("Expected argument 'uri' to be a str")
-        __self__.uri = uri
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def uri(self) -> str:
         """
         The cluster URI.
         """
-        if virtual_network_configuration and not isinstance(virtual_network_configuration, dict):
-            raise TypeError("Expected argument 'virtual_network_configuration' to be a dict")
-        __self__.virtual_network_configuration = virtual_network_configuration
+        return pulumi.get(self, "uri")
+
+    @property
+    @pulumi.getter(name="virtualNetworkConfiguration")
+    def virtual_network_configuration(self) -> Optional['outputs.VirtualNetworkConfigurationResponse']:
         """
         Virtual network definition.
         """
-        if zones and not isinstance(zones, list):
-            raise TypeError("Expected argument 'zones' to be a list")
-        __self__.zones = zones
+        return pulumi.get(self, "virtual_network_configuration")
+
+    @property
+    @pulumi.getter
+    def zones(self) -> Optional[List[str]]:
         """
         The availability zones of the cluster.
         """
+        return pulumi.get(self, "zones")
 
 
 class AwaitableGetClusterResult(GetClusterResult):
@@ -143,7 +235,9 @@ class AwaitableGetClusterResult(GetClusterResult):
             zones=self.zones)
 
 
-def get_cluster(name=None, resource_group_name=None, opts=None):
+def get_cluster(name: Optional[str] = None,
+                resource_group_name: Optional[str] = None,
+                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetClusterResult:
     """
     Use this data source to access information about an existing resource.
 
@@ -157,23 +251,23 @@ def get_cluster(name=None, resource_group_name=None, opts=None):
         opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = _utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('azurerm:kusto/v20190907:getCluster', __args__, opts=opts).value
+    __ret__ = pulumi.runtime.invoke('azurerm:kusto/v20190907:getCluster', __args__, opts=opts, typ=GetClusterResult).value
 
     return AwaitableGetClusterResult(
-        data_ingestion_uri=__ret__.get('dataIngestionUri'),
-        enable_disk_encryption=__ret__.get('enableDiskEncryption'),
-        enable_streaming_ingest=__ret__.get('enableStreamingIngest'),
-        identity=__ret__.get('identity'),
-        key_vault_properties=__ret__.get('keyVaultProperties'),
-        location=__ret__.get('location'),
-        name=__ret__.get('name'),
-        optimized_autoscale=__ret__.get('optimizedAutoscale'),
-        provisioning_state=__ret__.get('provisioningState'),
-        sku=__ret__.get('sku'),
-        state=__ret__.get('state'),
-        tags=__ret__.get('tags'),
-        trusted_external_tenants=__ret__.get('trustedExternalTenants'),
-        type=__ret__.get('type'),
-        uri=__ret__.get('uri'),
-        virtual_network_configuration=__ret__.get('virtualNetworkConfiguration'),
-        zones=__ret__.get('zones'))
+        data_ingestion_uri=__ret__.data_ingestion_uri,
+        enable_disk_encryption=__ret__.enable_disk_encryption,
+        enable_streaming_ingest=__ret__.enable_streaming_ingest,
+        identity=__ret__.identity,
+        key_vault_properties=__ret__.key_vault_properties,
+        location=__ret__.location,
+        name=__ret__.name,
+        optimized_autoscale=__ret__.optimized_autoscale,
+        provisioning_state=__ret__.provisioning_state,
+        sku=__ret__.sku,
+        state=__ret__.state,
+        tags=__ret__.tags,
+        trusted_external_tenants=__ret__.trusted_external_tenants,
+        type=__ret__.type,
+        uri=__ret__.uri,
+        virtual_network_configuration=__ret__.virtual_network_configuration,
+        zones=__ret__.zones)

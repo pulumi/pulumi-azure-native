@@ -5,41 +5,24 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+from . import outputs
+from ._inputs import *
+
+__all__ = ['HybridUseBenefit']
 
 
 class HybridUseBenefit(pulumi.CustomResource):
-    created_date: pulumi.Output[str]
-    """
-    Created date
-    """
-    etag: pulumi.Output[float]
-    """
-    Indicates the revision of the hybrid use benefit
-    """
-    last_updated_date: pulumi.Output[str]
-    """
-    Last updated date
-    """
-    name: pulumi.Output[str]
-    """
-    The name of the resource
-    """
-    provisioning_state: pulumi.Output[str]
-    """
-    Provisioning state
-    """
-    sku: pulumi.Output[dict]
-    """
-    Hybrid use benefit SKU
-      * `name` (`str`) - Name of the SKU to be applied
-    """
-    type: pulumi.Output[str]
-    """
-    The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
-    """
-    def __init__(__self__, resource_name, opts=None, name=None, scope=None, sku=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 scope: Optional[pulumi.Input[str]] = None,
+                 sku: Optional[pulumi.Input[pulumi.InputType['SkuArgs']]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         Response on GET of a hybrid use benefit
 
@@ -47,11 +30,7 @@ class HybridUseBenefit(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] name: This is a unique identifier for a plan. Should be a guid.
         :param pulumi.Input[str] scope: The scope at which the operation is performed. This is limited to Microsoft.Compute/virtualMachines and Microsoft.Compute/hostGroups/hosts for now
-        :param pulumi.Input[dict] sku: Hybrid use benefit SKU
-
-        The **sku** object supports the following:
-
-          * `name` (`pulumi.Input[str]`) - Name of the SKU to be applied
+        :param pulumi.Input[pulumi.InputType['SkuArgs']] sku: Hybrid use benefit SKU
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -91,13 +70,15 @@ class HybridUseBenefit(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None) -> 'HybridUseBenefit':
         """
         Get an existing HybridUseBenefit resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -106,8 +87,65 @@ class HybridUseBenefit(pulumi.CustomResource):
 
         return HybridUseBenefit(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter(name="createdDate")
+    def created_date(self) -> str:
+        """
+        Created date
+        """
+        return pulumi.get(self, "created_date")
+
+    @property
+    @pulumi.getter
+    def etag(self) -> float:
+        """
+        Indicates the revision of the hybrid use benefit
+        """
+        return pulumi.get(self, "etag")
+
+    @property
+    @pulumi.getter(name="lastUpdatedDate")
+    def last_updated_date(self) -> str:
+        """
+        Last updated date
+        """
+        return pulumi.get(self, "last_updated_date")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the resource
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        Provisioning state
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter
+    def sku(self) -> 'outputs.SkuResponse':
+        """
+        Hybrid use benefit SKU
+        """
+        return pulumi.get(self, "sku")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+        """
+        return pulumi.get(self, "type")
+
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

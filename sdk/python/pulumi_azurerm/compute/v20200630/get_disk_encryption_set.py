@@ -5,10 +5,17 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+from . import outputs
 
+__all__ = [
+    'GetDiskEncryptionSetResult',
+    'AwaitableGetDiskEncryptionSetResult',
+    'get_disk_encryption_set',
+]
 
+@pulumi.output_type
 class GetDiskEncryptionSetResult:
     """
     disk encryption set resource.
@@ -16,58 +23,103 @@ class GetDiskEncryptionSetResult:
     def __init__(__self__, active_key=None, encryption_type=None, identity=None, location=None, name=None, previous_keys=None, provisioning_state=None, tags=None, type=None):
         if active_key and not isinstance(active_key, dict):
             raise TypeError("Expected argument 'active_key' to be a dict")
-        __self__.active_key = active_key
+        pulumi.set(__self__, "active_key", active_key)
+        if encryption_type and not isinstance(encryption_type, str):
+            raise TypeError("Expected argument 'encryption_type' to be a str")
+        pulumi.set(__self__, "encryption_type", encryption_type)
+        if identity and not isinstance(identity, dict):
+            raise TypeError("Expected argument 'identity' to be a dict")
+        pulumi.set(__self__, "identity", identity)
+        if location and not isinstance(location, str):
+            raise TypeError("Expected argument 'location' to be a str")
+        pulumi.set(__self__, "location", location)
+        if name and not isinstance(name, str):
+            raise TypeError("Expected argument 'name' to be a str")
+        pulumi.set(__self__, "name", name)
+        if previous_keys and not isinstance(previous_keys, list):
+            raise TypeError("Expected argument 'previous_keys' to be a list")
+        pulumi.set(__self__, "previous_keys", previous_keys)
+        if provisioning_state and not isinstance(provisioning_state, str):
+            raise TypeError("Expected argument 'provisioning_state' to be a str")
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if tags and not isinstance(tags, dict):
+            raise TypeError("Expected argument 'tags' to be a dict")
+        pulumi.set(__self__, "tags", tags)
+        if type and not isinstance(type, str):
+            raise TypeError("Expected argument 'type' to be a str")
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="activeKey")
+    def active_key(self) -> Optional['outputs.KeyVaultAndKeyReferenceResponse']:
         """
         The key vault key which is currently used by this disk encryption set.
         """
-        if encryption_type and not isinstance(encryption_type, str):
-            raise TypeError("Expected argument 'encryption_type' to be a str")
-        __self__.encryption_type = encryption_type
+        return pulumi.get(self, "active_key")
+
+    @property
+    @pulumi.getter(name="encryptionType")
+    def encryption_type(self) -> Optional[str]:
         """
         The type of key used to encrypt the data of the disk.
         """
-        if identity and not isinstance(identity, dict):
-            raise TypeError("Expected argument 'identity' to be a dict")
-        __self__.identity = identity
+        return pulumi.get(self, "encryption_type")
+
+    @property
+    @pulumi.getter
+    def identity(self) -> Optional['outputs.EncryptionSetIdentityResponse']:
         """
         The managed identity for the disk encryption set. It should be given permission on the key vault before it can be used to encrypt disks.
         """
-        if location and not isinstance(location, str):
-            raise TypeError("Expected argument 'location' to be a str")
-        __self__.location = location
+        return pulumi.get(self, "identity")
+
+    @property
+    @pulumi.getter
+    def location(self) -> str:
         """
         Resource location
         """
-        if name and not isinstance(name, str):
-            raise TypeError("Expected argument 'name' to be a str")
-        __self__.name = name
+        return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
         """
         Resource name
         """
-        if previous_keys and not isinstance(previous_keys, list):
-            raise TypeError("Expected argument 'previous_keys' to be a list")
-        __self__.previous_keys = previous_keys
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="previousKeys")
+    def previous_keys(self) -> List['outputs.KeyVaultAndKeyReferenceResponse']:
         """
         A readonly collection of key vault keys previously used by this disk encryption set while a key rotation is in progress. It will be empty if there is no ongoing key rotation.
         """
-        if provisioning_state and not isinstance(provisioning_state, str):
-            raise TypeError("Expected argument 'provisioning_state' to be a str")
-        __self__.provisioning_state = provisioning_state
+        return pulumi.get(self, "previous_keys")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
         """
         The disk encryption set provisioning state.
         """
-        if tags and not isinstance(tags, dict):
-            raise TypeError("Expected argument 'tags' to be a dict")
-        __self__.tags = tags
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Mapping[str, str]]:
         """
         Resource tags
         """
-        if type and not isinstance(type, str):
-            raise TypeError("Expected argument 'type' to be a str")
-        __self__.type = type
+        return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
         """
         Resource type
         """
+        return pulumi.get(self, "type")
 
 
 class AwaitableGetDiskEncryptionSetResult(GetDiskEncryptionSetResult):
@@ -87,7 +139,9 @@ class AwaitableGetDiskEncryptionSetResult(GetDiskEncryptionSetResult):
             type=self.type)
 
 
-def get_disk_encryption_set(name=None, resource_group_name=None, opts=None):
+def get_disk_encryption_set(name: Optional[str] = None,
+                            resource_group_name: Optional[str] = None,
+                            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDiskEncryptionSetResult:
     """
     Use this data source to access information about an existing resource.
 
@@ -101,15 +155,15 @@ def get_disk_encryption_set(name=None, resource_group_name=None, opts=None):
         opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = _utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('azurerm:compute/v20200630:getDiskEncryptionSet', __args__, opts=opts).value
+    __ret__ = pulumi.runtime.invoke('azurerm:compute/v20200630:getDiskEncryptionSet', __args__, opts=opts, typ=GetDiskEncryptionSetResult).value
 
     return AwaitableGetDiskEncryptionSetResult(
-        active_key=__ret__.get('activeKey'),
-        encryption_type=__ret__.get('encryptionType'),
-        identity=__ret__.get('identity'),
-        location=__ret__.get('location'),
-        name=__ret__.get('name'),
-        previous_keys=__ret__.get('previousKeys'),
-        provisioning_state=__ret__.get('provisioningState'),
-        tags=__ret__.get('tags'),
-        type=__ret__.get('type'))
+        active_key=__ret__.active_key,
+        encryption_type=__ret__.encryption_type,
+        identity=__ret__.identity,
+        location=__ret__.location,
+        name=__ret__.name,
+        previous_keys=__ret__.previous_keys,
+        provisioning_state=__ret__.provisioning_state,
+        tags=__ret__.tags,
+        type=__ret__.type)

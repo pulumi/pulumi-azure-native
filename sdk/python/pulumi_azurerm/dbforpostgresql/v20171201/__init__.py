@@ -13,3 +13,5 @@ from .get_virtual_network_rule import *
 from .server import *
 from .server_administrator import *
 from .virtual_network_rule import *
+from ._inputs import *
+from . import outputs

@@ -5,10 +5,17 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+from . import outputs
 
+__all__ = [
+    'ListManagedClusterClusterUserCredentialsResult',
+    'AwaitableListManagedClusterClusterUserCredentialsResult',
+    'list_managed_cluster_cluster_user_credentials',
+]
 
+@pulumi.output_type
 class ListManagedClusterClusterUserCredentialsResult:
     """
     The list of credential result response.
@@ -16,10 +23,15 @@ class ListManagedClusterClusterUserCredentialsResult:
     def __init__(__self__, kubeconfigs=None):
         if kubeconfigs and not isinstance(kubeconfigs, list):
             raise TypeError("Expected argument 'kubeconfigs' to be a list")
-        __self__.kubeconfigs = kubeconfigs
+        pulumi.set(__self__, "kubeconfigs", kubeconfigs)
+
+    @property
+    @pulumi.getter
+    def kubeconfigs(self) -> List['outputs.CredentialResultResponseResult']:
         """
         Base64-encoded Kubernetes configuration file.
         """
+        return pulumi.get(self, "kubeconfigs")
 
 
 class AwaitableListManagedClusterClusterUserCredentialsResult(ListManagedClusterClusterUserCredentialsResult):
@@ -31,7 +43,9 @@ class AwaitableListManagedClusterClusterUserCredentialsResult(ListManagedCluster
             kubeconfigs=self.kubeconfigs)
 
 
-def list_managed_cluster_cluster_user_credentials(resource_group_name=None, resource_name=None, opts=None):
+def list_managed_cluster_cluster_user_credentials(resource_group_name: Optional[str] = None,
+                                                  resource_name: Optional[str] = None,
+                                                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListManagedClusterClusterUserCredentialsResult:
     """
     Use this data source to access information about an existing resource.
 
@@ -45,7 +59,7 @@ def list_managed_cluster_cluster_user_credentials(resource_group_name=None, reso
         opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = _utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('azurerm:containerservice/v20190801:listManagedClusterClusterUserCredentials', __args__, opts=opts).value
+    __ret__ = pulumi.runtime.invoke('azurerm:containerservice/v20190801:listManagedClusterClusterUserCredentials', __args__, opts=opts, typ=ListManagedClusterClusterUserCredentialsResult).value
 
     return AwaitableListManagedClusterClusterUserCredentialsResult(
-        kubeconfigs=__ret__.get('kubeconfigs'))
+        kubeconfigs=__ret__.kubeconfigs)

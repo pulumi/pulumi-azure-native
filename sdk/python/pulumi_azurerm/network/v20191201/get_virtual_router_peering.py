@@ -5,10 +5,16 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
 
+__all__ = [
+    'GetVirtualRouterPeeringResult',
+    'AwaitableGetVirtualRouterPeeringResult',
+    'get_virtual_router_peering',
+]
 
+@pulumi.output_type
 class GetVirtualRouterPeeringResult:
     """
     Virtual Router Peering resource.
@@ -16,40 +22,70 @@ class GetVirtualRouterPeeringResult:
     def __init__(__self__, etag=None, name=None, peer_asn=None, peer_ip=None, provisioning_state=None, type=None):
         if etag and not isinstance(etag, str):
             raise TypeError("Expected argument 'etag' to be a str")
-        __self__.etag = etag
+        pulumi.set(__self__, "etag", etag)
+        if name and not isinstance(name, str):
+            raise TypeError("Expected argument 'name' to be a str")
+        pulumi.set(__self__, "name", name)
+        if peer_asn and not isinstance(peer_asn, float):
+            raise TypeError("Expected argument 'peer_asn' to be a float")
+        pulumi.set(__self__, "peer_asn", peer_asn)
+        if peer_ip and not isinstance(peer_ip, str):
+            raise TypeError("Expected argument 'peer_ip' to be a str")
+        pulumi.set(__self__, "peer_ip", peer_ip)
+        if provisioning_state and not isinstance(provisioning_state, str):
+            raise TypeError("Expected argument 'provisioning_state' to be a str")
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if type and not isinstance(type, str):
+            raise TypeError("Expected argument 'type' to be a str")
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def etag(self) -> str:
         """
         A unique read-only string that changes whenever the resource is updated.
         """
-        if name and not isinstance(name, str):
-            raise TypeError("Expected argument 'name' to be a str")
-        __self__.name = name
+        return pulumi.get(self, "etag")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
         """
         Name of the virtual router peering that is unique within a virtual router.
         """
-        if peer_asn and not isinstance(peer_asn, float):
-            raise TypeError("Expected argument 'peer_asn' to be a float")
-        __self__.peer_asn = peer_asn
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="peerAsn")
+    def peer_asn(self) -> Optional[float]:
         """
         Peer ASN.
         """
-        if peer_ip and not isinstance(peer_ip, str):
-            raise TypeError("Expected argument 'peer_ip' to be a str")
-        __self__.peer_ip = peer_ip
+        return pulumi.get(self, "peer_asn")
+
+    @property
+    @pulumi.getter(name="peerIp")
+    def peer_ip(self) -> Optional[str]:
         """
         Peer IP.
         """
-        if provisioning_state and not isinstance(provisioning_state, str):
-            raise TypeError("Expected argument 'provisioning_state' to be a str")
-        __self__.provisioning_state = provisioning_state
+        return pulumi.get(self, "peer_ip")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
         """
         The provisioning state of the resource.
         """
-        if type and not isinstance(type, str):
-            raise TypeError("Expected argument 'type' to be a str")
-        __self__.type = type
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
         """
         Peering type.
         """
+        return pulumi.get(self, "type")
 
 
 class AwaitableGetVirtualRouterPeeringResult(GetVirtualRouterPeeringResult):
@@ -66,7 +102,10 @@ class AwaitableGetVirtualRouterPeeringResult(GetVirtualRouterPeeringResult):
             type=self.type)
 
 
-def get_virtual_router_peering(name=None, resource_group_name=None, virtual_router_name=None, opts=None):
+def get_virtual_router_peering(name: Optional[str] = None,
+                               resource_group_name: Optional[str] = None,
+                               virtual_router_name: Optional[str] = None,
+                               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVirtualRouterPeeringResult:
     """
     Use this data source to access information about an existing resource.
 
@@ -82,12 +121,12 @@ def get_virtual_router_peering(name=None, resource_group_name=None, virtual_rout
         opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = _utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('azurerm:network/v20191201:getVirtualRouterPeering', __args__, opts=opts).value
+    __ret__ = pulumi.runtime.invoke('azurerm:network/v20191201:getVirtualRouterPeering', __args__, opts=opts, typ=GetVirtualRouterPeeringResult).value
 
     return AwaitableGetVirtualRouterPeeringResult(
-        etag=__ret__.get('etag'),
-        name=__ret__.get('name'),
-        peer_asn=__ret__.get('peerAsn'),
-        peer_ip=__ret__.get('peerIp'),
-        provisioning_state=__ret__.get('provisioningState'),
-        type=__ret__.get('type'))
+        etag=__ret__.etag,
+        name=__ret__.name,
+        peer_asn=__ret__.peer_asn,
+        peer_ip=__ret__.peer_ip,
+        provisioning_state=__ret__.provisioning_state,
+        type=__ret__.type)

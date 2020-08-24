@@ -5,10 +5,17 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+from . import outputs
 
+__all__ = [
+    'GetOriginGroupResult',
+    'AwaitableGetOriginGroupResult',
+    'get_origin_group',
+]
 
+@pulumi.output_type
 class GetOriginGroupResult:
     """
     Origin group comprising of origins is used for load balancing to origins when the content cannot be served from CDN.
@@ -16,52 +23,92 @@ class GetOriginGroupResult:
     def __init__(__self__, health_probe_settings=None, name=None, origins=None, provisioning_state=None, resource_state=None, response_based_origin_error_detection_settings=None, traffic_restoration_time_to_healed_or_new_endpoints_in_minutes=None, type=None):
         if health_probe_settings and not isinstance(health_probe_settings, dict):
             raise TypeError("Expected argument 'health_probe_settings' to be a dict")
-        __self__.health_probe_settings = health_probe_settings
+        pulumi.set(__self__, "health_probe_settings", health_probe_settings)
+        if name and not isinstance(name, str):
+            raise TypeError("Expected argument 'name' to be a str")
+        pulumi.set(__self__, "name", name)
+        if origins and not isinstance(origins, list):
+            raise TypeError("Expected argument 'origins' to be a list")
+        pulumi.set(__self__, "origins", origins)
+        if provisioning_state and not isinstance(provisioning_state, str):
+            raise TypeError("Expected argument 'provisioning_state' to be a str")
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if resource_state and not isinstance(resource_state, str):
+            raise TypeError("Expected argument 'resource_state' to be a str")
+        pulumi.set(__self__, "resource_state", resource_state)
+        if response_based_origin_error_detection_settings and not isinstance(response_based_origin_error_detection_settings, dict):
+            raise TypeError("Expected argument 'response_based_origin_error_detection_settings' to be a dict")
+        pulumi.set(__self__, "response_based_origin_error_detection_settings", response_based_origin_error_detection_settings)
+        if traffic_restoration_time_to_healed_or_new_endpoints_in_minutes and not isinstance(traffic_restoration_time_to_healed_or_new_endpoints_in_minutes, float):
+            raise TypeError("Expected argument 'traffic_restoration_time_to_healed_or_new_endpoints_in_minutes' to be a float")
+        pulumi.set(__self__, "traffic_restoration_time_to_healed_or_new_endpoints_in_minutes", traffic_restoration_time_to_healed_or_new_endpoints_in_minutes)
+        if type and not isinstance(type, str):
+            raise TypeError("Expected argument 'type' to be a str")
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="healthProbeSettings")
+    def health_probe_settings(self) -> Optional['outputs.HealthProbeParametersResponse']:
         """
         Health probe settings to the origin that is used to determine the health of the origin.
         """
-        if name and not isinstance(name, str):
-            raise TypeError("Expected argument 'name' to be a str")
-        __self__.name = name
+        return pulumi.get(self, "health_probe_settings")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
         """
         Resource name.
         """
-        if origins and not isinstance(origins, list):
-            raise TypeError("Expected argument 'origins' to be a list")
-        __self__.origins = origins
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def origins(self) -> List['outputs.ResourceReferenceResponse']:
         """
         The source of the content being delivered via CDN within given origin group.
         """
-        if provisioning_state and not isinstance(provisioning_state, str):
-            raise TypeError("Expected argument 'provisioning_state' to be a str")
-        __self__.provisioning_state = provisioning_state
+        return pulumi.get(self, "origins")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
         """
         Provisioning status of the origin group.
         """
-        if resource_state and not isinstance(resource_state, str):
-            raise TypeError("Expected argument 'resource_state' to be a str")
-        __self__.resource_state = resource_state
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="resourceState")
+    def resource_state(self) -> str:
         """
         Resource status of the origin group.
         """
-        if response_based_origin_error_detection_settings and not isinstance(response_based_origin_error_detection_settings, dict):
-            raise TypeError("Expected argument 'response_based_origin_error_detection_settings' to be a dict")
-        __self__.response_based_origin_error_detection_settings = response_based_origin_error_detection_settings
+        return pulumi.get(self, "resource_state")
+
+    @property
+    @pulumi.getter(name="responseBasedOriginErrorDetectionSettings")
+    def response_based_origin_error_detection_settings(self) -> Optional['outputs.ResponseBasedOriginErrorDetectionParametersResponse']:
         """
         The JSON object that contains the properties to determine origin health using real requests/responses. This property is currently not supported.
         """
-        if traffic_restoration_time_to_healed_or_new_endpoints_in_minutes and not isinstance(traffic_restoration_time_to_healed_or_new_endpoints_in_minutes, float):
-            raise TypeError("Expected argument 'traffic_restoration_time_to_healed_or_new_endpoints_in_minutes' to be a float")
-        __self__.traffic_restoration_time_to_healed_or_new_endpoints_in_minutes = traffic_restoration_time_to_healed_or_new_endpoints_in_minutes
+        return pulumi.get(self, "response_based_origin_error_detection_settings")
+
+    @property
+    @pulumi.getter(name="trafficRestorationTimeToHealedOrNewEndpointsInMinutes")
+    def traffic_restoration_time_to_healed_or_new_endpoints_in_minutes(self) -> Optional[float]:
         """
         Time in minutes to shift the traffic to the endpoint gradually when an unhealthy endpoint comes healthy or a new endpoint is added. Default is 10 mins. This property is currently not supported.
         """
-        if type and not isinstance(type, str):
-            raise TypeError("Expected argument 'type' to be a str")
-        __self__.type = type
+        return pulumi.get(self, "traffic_restoration_time_to_healed_or_new_endpoints_in_minutes")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
         """
         Resource type.
         """
+        return pulumi.get(self, "type")
 
 
 class AwaitableGetOriginGroupResult(GetOriginGroupResult):
@@ -80,7 +127,11 @@ class AwaitableGetOriginGroupResult(GetOriginGroupResult):
             type=self.type)
 
 
-def get_origin_group(endpoint_name=None, name=None, profile_name=None, resource_group_name=None, opts=None):
+def get_origin_group(endpoint_name: Optional[str] = None,
+                     name: Optional[str] = None,
+                     profile_name: Optional[str] = None,
+                     resource_group_name: Optional[str] = None,
+                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetOriginGroupResult:
     """
     Use this data source to access information about an existing resource.
 
@@ -98,14 +149,14 @@ def get_origin_group(endpoint_name=None, name=None, profile_name=None, resource_
         opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = _utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('azurerm:cdn/v20200415:getOriginGroup', __args__, opts=opts).value
+    __ret__ = pulumi.runtime.invoke('azurerm:cdn/v20200415:getOriginGroup', __args__, opts=opts, typ=GetOriginGroupResult).value
 
     return AwaitableGetOriginGroupResult(
-        health_probe_settings=__ret__.get('healthProbeSettings'),
-        name=__ret__.get('name'),
-        origins=__ret__.get('origins'),
-        provisioning_state=__ret__.get('provisioningState'),
-        resource_state=__ret__.get('resourceState'),
-        response_based_origin_error_detection_settings=__ret__.get('responseBasedOriginErrorDetectionSettings'),
-        traffic_restoration_time_to_healed_or_new_endpoints_in_minutes=__ret__.get('trafficRestorationTimeToHealedOrNewEndpointsInMinutes'),
-        type=__ret__.get('type'))
+        health_probe_settings=__ret__.health_probe_settings,
+        name=__ret__.name,
+        origins=__ret__.origins,
+        provisioning_state=__ret__.provisioning_state,
+        resource_state=__ret__.resource_state,
+        response_based_origin_error_detection_settings=__ret__.response_based_origin_error_detection_settings,
+        traffic_restoration_time_to_healed_or_new_endpoints_in_minutes=__ret__.traffic_restoration_time_to_healed_or_new_endpoints_in_minutes,
+        type=__ret__.type)

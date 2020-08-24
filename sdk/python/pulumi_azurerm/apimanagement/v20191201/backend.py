@@ -5,125 +5,50 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+from . import outputs
+from ._inputs import *
+
+__all__ = ['Backend']
 
 
 class Backend(pulumi.CustomResource):
-    credentials: pulumi.Output[dict]
-    """
-    Backend Credentials Contract Properties
-      * `authorization` (`dict`) - Authorization header authentication
-        * `parameter` (`str`) - Authentication Parameter value.
-        * `scheme` (`str`) - Authentication Scheme name.
-
-      * `certificate` (`list`) - List of Client Certificate Thumbprint.
-      * `header` (`dict`) - Header Parameter description.
-      * `query` (`dict`) - Query Parameter description.
-    """
-    description: pulumi.Output[str]
-    """
-    Backend Description.
-    """
-    name: pulumi.Output[str]
-    """
-    Resource name.
-    """
-    properties: pulumi.Output[dict]
-    """
-    Backend Properties contract
-      * `service_fabric_cluster` (`dict`) - Backend Service Fabric Cluster Properties
-        * `client_certificatethumbprint` (`str`) - The client certificate thumbprint for the management endpoint.
-        * `management_endpoints` (`list`) - The cluster management endpoint.
-        * `max_partition_resolution_retries` (`float`) - Maximum number of retries while attempting resolve the partition.
-        * `server_certificate_thumbprints` (`list`) - Thumbprints of certificates cluster management service uses for tls communication
-        * `server_x509_names` (`list`) - Server X509 Certificate Names Collection
-          * `issuer_certificate_thumbprint` (`str`) - Thumbprint for the Issuer of the Certificate.
-          * `name` (`str`) - Common Name of the Certificate.
-    """
-    protocol: pulumi.Output[str]
-    """
-    Backend communication protocol.
-    """
-    proxy: pulumi.Output[dict]
-    """
-    Backend Proxy Contract Properties
-      * `password` (`str`) - Password to connect to the WebProxy Server
-      * `url` (`str`) - WebProxy Server AbsoluteUri property which includes the entire URI stored in the Uri instance, including all fragments and query strings.
-      * `username` (`str`) - Username to connect to the WebProxy server
-    """
-    resource_id: pulumi.Output[str]
-    """
-    Management Uri of the Resource in External System. This url can be the Arm Resource Id of Logic Apps, Function Apps or Api Apps.
-    """
-    title: pulumi.Output[str]
-    """
-    Backend Title.
-    """
-    tls: pulumi.Output[dict]
-    """
-    Backend TLS Properties
-      * `validate_certificate_chain` (`bool`) - Flag indicating whether SSL certificate chain validation should be done when using self-signed certificates for this backend host.
-      * `validate_certificate_name` (`bool`) - Flag indicating whether SSL certificate name validation should be done when using self-signed certificates for this backend host.
-    """
-    type: pulumi.Output[str]
-    """
-    Resource type for API Management resource.
-    """
-    url: pulumi.Output[str]
-    """
-    Runtime Url of the Backend.
-    """
-    def __init__(__self__, resource_name, opts=None, credentials=None, description=None, name=None, properties=None, protocol=None, proxy=None, resource_group_name=None, resource_id=None, service_name=None, title=None, tls=None, url=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 credentials: Optional[pulumi.Input[pulumi.InputType['BackendCredentialsContractArgs']]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 properties: Optional[pulumi.Input[pulumi.InputType['BackendPropertiesArgs']]] = None,
+                 protocol: Optional[pulumi.Input[str]] = None,
+                 proxy: Optional[pulumi.Input[pulumi.InputType['BackendProxyContractArgs']]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 resource_id: Optional[pulumi.Input[str]] = None,
+                 service_name: Optional[pulumi.Input[str]] = None,
+                 title: Optional[pulumi.Input[str]] = None,
+                 tls: Optional[pulumi.Input[pulumi.InputType['BackendTlsPropertiesArgs']]] = None,
+                 url: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         Backend details.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[dict] credentials: Backend Credentials Contract Properties
+        :param pulumi.Input[pulumi.InputType['BackendCredentialsContractArgs']] credentials: Backend Credentials Contract Properties
         :param pulumi.Input[str] description: Backend Description.
         :param pulumi.Input[str] name: Identifier of the Backend entity. Must be unique in the current API Management service instance.
-        :param pulumi.Input[dict] properties: Backend Properties contract
+        :param pulumi.Input[pulumi.InputType['BackendPropertiesArgs']] properties: Backend Properties contract
         :param pulumi.Input[str] protocol: Backend communication protocol.
-        :param pulumi.Input[dict] proxy: Backend Proxy Contract Properties
+        :param pulumi.Input[pulumi.InputType['BackendProxyContractArgs']] proxy: Backend Proxy Contract Properties
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[str] resource_id: Management Uri of the Resource in External System. This url can be the Arm Resource Id of Logic Apps, Function Apps or Api Apps.
         :param pulumi.Input[str] service_name: The name of the API Management service.
         :param pulumi.Input[str] title: Backend Title.
-        :param pulumi.Input[dict] tls: Backend TLS Properties
+        :param pulumi.Input[pulumi.InputType['BackendTlsPropertiesArgs']] tls: Backend TLS Properties
         :param pulumi.Input[str] url: Runtime Url of the Backend.
-
-        The **credentials** object supports the following:
-
-          * `authorization` (`pulumi.Input[dict]`) - Authorization header authentication
-            * `parameter` (`pulumi.Input[str]`) - Authentication Parameter value.
-            * `scheme` (`pulumi.Input[str]`) - Authentication Scheme name.
-
-          * `certificate` (`pulumi.Input[list]`) - List of Client Certificate Thumbprint.
-          * `header` (`pulumi.Input[dict]`) - Header Parameter description.
-          * `query` (`pulumi.Input[dict]`) - Query Parameter description.
-
-        The **properties** object supports the following:
-
-          * `service_fabric_cluster` (`pulumi.Input[dict]`) - Backend Service Fabric Cluster Properties
-            * `client_certificatethumbprint` (`pulumi.Input[str]`) - The client certificate thumbprint for the management endpoint.
-            * `management_endpoints` (`pulumi.Input[list]`) - The cluster management endpoint.
-            * `max_partition_resolution_retries` (`pulumi.Input[float]`) - Maximum number of retries while attempting resolve the partition.
-            * `server_certificate_thumbprints` (`pulumi.Input[list]`) - Thumbprints of certificates cluster management service uses for tls communication
-            * `server_x509_names` (`pulumi.Input[list]`) - Server X509 Certificate Names Collection
-              * `issuer_certificate_thumbprint` (`pulumi.Input[str]`) - Thumbprint for the Issuer of the Certificate.
-              * `name` (`pulumi.Input[str]`) - Common Name of the Certificate.
-
-        The **proxy** object supports the following:
-
-          * `password` (`pulumi.Input[str]`) - Password to connect to the WebProxy Server
-          * `url` (`pulumi.Input[str]`) - WebProxy Server AbsoluteUri property which includes the entire URI stored in the Uri instance, including all fragments and query strings.
-          * `username` (`pulumi.Input[str]`) - Username to connect to the WebProxy server
-
-        The **tls** object supports the following:
-
-          * `validate_certificate_chain` (`pulumi.Input[bool]`) - Flag indicating whether SSL certificate chain validation should be done when using self-signed certificates for this backend host.
-          * `validate_certificate_name` (`pulumi.Input[bool]`) - Flag indicating whether SSL certificate name validation should be done when using self-signed certificates for this backend host.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -174,13 +99,15 @@ class Backend(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None) -> 'Backend':
         """
         Get an existing Backend resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -189,8 +116,97 @@ class Backend(pulumi.CustomResource):
 
         return Backend(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter
+    def credentials(self) -> Optional['outputs.BackendCredentialsContractResponse']:
+        """
+        Backend Credentials Contract Properties
+        """
+        return pulumi.get(self, "credentials")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        """
+        Backend Description.
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Resource name.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def properties(self) -> 'outputs.BackendPropertiesResponse':
+        """
+        Backend Properties contract
+        """
+        return pulumi.get(self, "properties")
+
+    @property
+    @pulumi.getter
+    def protocol(self) -> str:
+        """
+        Backend communication protocol.
+        """
+        return pulumi.get(self, "protocol")
+
+    @property
+    @pulumi.getter
+    def proxy(self) -> Optional['outputs.BackendProxyContractResponse']:
+        """
+        Backend Proxy Contract Properties
+        """
+        return pulumi.get(self, "proxy")
+
+    @property
+    @pulumi.getter(name="resourceId")
+    def resource_id(self) -> Optional[str]:
+        """
+        Management Uri of the Resource in External System. This url can be the Arm Resource Id of Logic Apps, Function Apps or Api Apps.
+        """
+        return pulumi.get(self, "resource_id")
+
+    @property
+    @pulumi.getter
+    def title(self) -> Optional[str]:
+        """
+        Backend Title.
+        """
+        return pulumi.get(self, "title")
+
+    @property
+    @pulumi.getter
+    def tls(self) -> Optional['outputs.BackendTlsPropertiesResponse']:
+        """
+        Backend TLS Properties
+        """
+        return pulumi.get(self, "tls")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Resource type for API Management resource.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def url(self) -> str:
+        """
+        Runtime Url of the Backend.
+        """
+        return pulumi.get(self, "url")
+
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

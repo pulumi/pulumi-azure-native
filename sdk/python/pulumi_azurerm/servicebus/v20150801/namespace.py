@@ -5,63 +5,29 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+from . import outputs
+from ._inputs import *
+
+__all__ = ['Namespace']
 
 
 class Namespace(pulumi.CustomResource):
-    create_acs_namespace: pulumi.Output[bool]
-    """
-    Indicates whether to create an ACS namespace.
-    """
-    created_at: pulumi.Output[str]
-    """
-    The time the namespace was created.
-    """
-    enabled: pulumi.Output[bool]
-    """
-    Specifies whether this instance is enabled.
-    """
-    location: pulumi.Output[str]
-    """
-    Resource location.
-    """
-    name: pulumi.Output[str]
-    """
-    Resource name
-    """
-    provisioning_state: pulumi.Output[str]
-    """
-    Provisioning state of the namespace.
-    """
-    service_bus_endpoint: pulumi.Output[str]
-    """
-    Endpoint you can use to perform Service Bus operations.
-    """
-    sku: pulumi.Output[dict]
-    """
-    SKU of the namespace.
-      * `capacity` (`float`) - The specified messaging units for the tier.
-      * `name` (`str`) - Name of this SKU.
-      * `tier` (`str`) - The billing tier of this particular SKU.
-    """
-    status: pulumi.Output[str]
-    """
-    State of the namespace.
-    """
-    tags: pulumi.Output[dict]
-    """
-    Resource tags
-    """
-    type: pulumi.Output[str]
-    """
-    Resource type
-    """
-    updated_at: pulumi.Output[str]
-    """
-    The time the namespace was updated.
-    """
-    def __init__(__self__, resource_name, opts=None, create_acs_namespace=None, enabled=None, location=None, name=None, resource_group_name=None, sku=None, status=None, tags=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 create_acs_namespace: Optional[pulumi.Input[bool]] = None,
+                 enabled: Optional[pulumi.Input[bool]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 sku: Optional[pulumi.Input[pulumi.InputType['SkuArgs']]] = None,
+                 status: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         Description of a namespace resource.
 
@@ -72,15 +38,9 @@ class Namespace(pulumi.CustomResource):
         :param pulumi.Input[str] location: Namespace location.
         :param pulumi.Input[str] name: The namespace name.
         :param pulumi.Input[str] resource_group_name: Name of the Resource group within the Azure subscription.
-        :param pulumi.Input[dict] sku: SKU of the namespace.
+        :param pulumi.Input[pulumi.InputType['SkuArgs']] sku: SKU of the namespace.
         :param pulumi.Input[str] status: State of the namespace.
-        :param pulumi.Input[dict] tags: Namespace tags.
-
-        The **sku** object supports the following:
-
-          * `capacity` (`pulumi.Input[float]`) - The specified messaging units for the tier.
-          * `name` (`pulumi.Input[str]`) - Name of this SKU.
-          * `tier` (`pulumi.Input[str]`) - The billing tier of this particular SKU.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Namespace tags.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -127,13 +87,15 @@ class Namespace(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None) -> 'Namespace':
         """
         Get an existing Namespace resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -142,8 +104,105 @@ class Namespace(pulumi.CustomResource):
 
         return Namespace(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter(name="createACSNamespace")
+    def create_acs_namespace(self) -> Optional[bool]:
+        """
+        Indicates whether to create an ACS namespace.
+        """
+        return pulumi.get(self, "create_acs_namespace")
+
+    @property
+    @pulumi.getter(name="createdAt")
+    def created_at(self) -> str:
+        """
+        The time the namespace was created.
+        """
+        return pulumi.get(self, "created_at")
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[bool]:
+        """
+        Specifies whether this instance is enabled.
+        """
+        return pulumi.get(self, "enabled")
+
+    @property
+    @pulumi.getter
+    def location(self) -> str:
+        """
+        Resource location.
+        """
+        return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Resource name
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        Provisioning state of the namespace.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="serviceBusEndpoint")
+    def service_bus_endpoint(self) -> str:
+        """
+        Endpoint you can use to perform Service Bus operations.
+        """
+        return pulumi.get(self, "service_bus_endpoint")
+
+    @property
+    @pulumi.getter
+    def sku(self) -> Optional['outputs.SkuResponse']:
+        """
+        SKU of the namespace.
+        """
+        return pulumi.get(self, "sku")
+
+    @property
+    @pulumi.getter
+    def status(self) -> Optional[str]:
+        """
+        State of the namespace.
+        """
+        return pulumi.get(self, "status")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Mapping[str, str]]:
+        """
+        Resource tags
+        """
+        return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Resource type
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="updatedAt")
+    def updated_at(self) -> str:
+        """
+        The time the namespace was updated.
+        """
+        return pulumi.get(self, "updated_at")
+
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

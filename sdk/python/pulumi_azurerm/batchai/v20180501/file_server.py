@@ -5,96 +5,40 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+from . import outputs
+from ._inputs import *
+
+__all__ = ['FileServer']
 
 
 class FileServer(pulumi.CustomResource):
-    creation_time: pulumi.Output[str]
-    """
-    Time when the FileServer was created.
-    """
-    data_disks: pulumi.Output[dict]
-    """
-    Information about disks attached to File Server VM.
-      * `caching_type` (`str`) - Caching type for the disks. Available values are none (default), readonly, readwrite. Caching type can be set only for VM sizes supporting premium storage.
-      * `disk_count` (`float`) - Number of data disks attached to the File Server. If multiple disks attached, they will be configured in RAID level 0.
-      * `disk_size_in_gb` (`float`) - Disk size in GB for the blank data disks.
-      * `storage_account_type` (`str`) - Type of storage account to be used on the disk. Possible values are: Standard_LRS or Premium_LRS. Premium storage account type can only be used with VM sizes supporting premium storage.
-    """
-    mount_settings: pulumi.Output[dict]
-    """
-    File Server mount settings.
-      * `file_server_internal_ip` (`str`) - Internal IP address of the File Server which can be used to access the File Server from within the subnet.
-      * `file_server_public_ip` (`str`) - Public IP address of the File Server which can be used to SSH to the node from outside of the subnet.
-      * `mount_point` (`str`) - Path where the data disks are mounted on the File Server.
-    """
-    name: pulumi.Output[str]
-    """
-    The name of the resource.
-    """
-    provisioning_state: pulumi.Output[str]
-    """
-    Provisioning state of the File Server. Possible values: creating - The File Server is getting created; updating - The File Server creation has been accepted and it is getting updated; deleting - The user has requested that the File Server be deleted, and it is in the process of being deleted; failed - The File Server creation has failed with the specified error code. Details about the error code are specified in the message field; succeeded - The File Server creation has succeeded.
-    """
-    provisioning_state_transition_time: pulumi.Output[str]
-    """
-    Time when the provisioning state was changed.
-    """
-    ssh_configuration: pulumi.Output[dict]
-    """
-    SSH configuration for accessing the File Server node.
-      * `public_i_ps_to_allow` (`list`) - List of source IP ranges to allow SSH connection from. The default value is '*' (all source IPs are allowed). Maximum number of IP ranges that can be specified is 400.
-      * `user_account_settings` (`dict`) - Settings for administrator user account to be created on a node. The account can be used to establish SSH connection to the node.
-        * `admin_user_name` (`str`) - Name of the administrator user account which can be used to SSH to nodes.
-        * `admin_user_password` (`str`) - Password of the administrator user account.
-        * `admin_user_ssh_public_key` (`str`) - SSH public key of the administrator user account.
-    """
-    subnet: pulumi.Output[dict]
-    """
-    File Server virtual network subnet resource ID.
-      * `id` (`str`) - The ID of the resource
-    """
-    type: pulumi.Output[str]
-    """
-    The type of the resource.
-    """
-    vm_size: pulumi.Output[str]
-    """
-    VM size of the File Server.
-    """
-    def __init__(__self__, resource_name, opts=None, data_disks=None, name=None, resource_group_name=None, ssh_configuration=None, subnet=None, vm_size=None, workspace_name=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 data_disks: Optional[pulumi.Input[pulumi.InputType['DataDisksArgs']]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 ssh_configuration: Optional[pulumi.Input[pulumi.InputType['SshConfigurationArgs']]] = None,
+                 subnet: Optional[pulumi.Input[pulumi.InputType['ResourceIdArgs']]] = None,
+                 vm_size: Optional[pulumi.Input[str]] = None,
+                 workspace_name: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         File Server information.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[dict] data_disks: Settings for the data disks which will be created for the File Server.
+        :param pulumi.Input[pulumi.InputType['DataDisksArgs']] data_disks: Settings for the data disks which will be created for the File Server.
         :param pulumi.Input[str] name: The name of the file server within the specified resource group. File server names can only contain a combination of alphanumeric characters along with dash (-) and underscore (_). The name must be from 1 through 64 characters long.
         :param pulumi.Input[str] resource_group_name: Name of the resource group to which the resource belongs.
-        :param pulumi.Input[dict] ssh_configuration: SSH configuration for the File Server node.
-        :param pulumi.Input[dict] subnet: Identifier of an existing virtual network subnet to put the File Server in. If not provided, a new virtual network and subnet will be created.
+        :param pulumi.Input[pulumi.InputType['SshConfigurationArgs']] ssh_configuration: SSH configuration for the File Server node.
+        :param pulumi.Input[pulumi.InputType['ResourceIdArgs']] subnet: Identifier of an existing virtual network subnet to put the File Server in. If not provided, a new virtual network and subnet will be created.
         :param pulumi.Input[str] vm_size: The size of the virtual machine for the File Server. For information about available VM sizes from the Virtual Machines Marketplace, see Sizes for Virtual Machines (Linux).
         :param pulumi.Input[str] workspace_name: The name of the workspace. Workspace names can only contain a combination of alphanumeric characters along with dash (-) and underscore (_). The name must be from 1 through 64 characters long.
-
-        The **data_disks** object supports the following:
-
-          * `caching_type` (`pulumi.Input[str]`) - Caching type for the disks. Available values are none (default), readonly, readwrite. Caching type can be set only for VM sizes supporting premium storage.
-          * `disk_count` (`pulumi.Input[float]`) - Number of data disks attached to the File Server. If multiple disks attached, they will be configured in RAID level 0.
-          * `disk_size_in_gb` (`pulumi.Input[float]`) - Disk size in GB for the blank data disks.
-          * `storage_account_type` (`pulumi.Input[str]`) - Type of storage account to be used on the disk. Possible values are: Standard_LRS or Premium_LRS. Premium storage account type can only be used with VM sizes supporting premium storage.
-
-        The **ssh_configuration** object supports the following:
-
-          * `public_i_ps_to_allow` (`pulumi.Input[list]`) - List of source IP ranges to allow SSH connection from. The default value is '*' (all source IPs are allowed). Maximum number of IP ranges that can be specified is 400.
-          * `user_account_settings` (`pulumi.Input[dict]`) - Settings for administrator user account to be created on a node. The account can be used to establish SSH connection to the node.
-            * `admin_user_name` (`pulumi.Input[str]`) - Name of the administrator user account which can be used to SSH to nodes.
-            * `admin_user_password` (`pulumi.Input[str]`) - Password of the administrator user account.
-            * `admin_user_ssh_public_key` (`pulumi.Input[str]`) - SSH public key of the administrator user account.
-
-        The **subnet** object supports the following:
-
-          * `id` (`pulumi.Input[str]`) - The ID of the resource
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -144,13 +88,15 @@ class FileServer(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None) -> 'FileServer':
         """
         Get an existing FileServer resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -159,8 +105,89 @@ class FileServer(pulumi.CustomResource):
 
         return FileServer(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter(name="creationTime")
+    def creation_time(self) -> str:
+        """
+        Time when the FileServer was created.
+        """
+        return pulumi.get(self, "creation_time")
+
+    @property
+    @pulumi.getter(name="dataDisks")
+    def data_disks(self) -> Optional['outputs.DataDisksResponse']:
+        """
+        Information about disks attached to File Server VM.
+        """
+        return pulumi.get(self, "data_disks")
+
+    @property
+    @pulumi.getter(name="mountSettings")
+    def mount_settings(self) -> 'outputs.MountSettingsResponse':
+        """
+        File Server mount settings.
+        """
+        return pulumi.get(self, "mount_settings")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the resource.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        Provisioning state of the File Server. Possible values: creating - The File Server is getting created; updating - The File Server creation has been accepted and it is getting updated; deleting - The user has requested that the File Server be deleted, and it is in the process of being deleted; failed - The File Server creation has failed with the specified error code. Details about the error code are specified in the message field; succeeded - The File Server creation has succeeded.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="provisioningStateTransitionTime")
+    def provisioning_state_transition_time(self) -> str:
+        """
+        Time when the provisioning state was changed.
+        """
+        return pulumi.get(self, "provisioning_state_transition_time")
+
+    @property
+    @pulumi.getter(name="sshConfiguration")
+    def ssh_configuration(self) -> Optional['outputs.SshConfigurationResponse']:
+        """
+        SSH configuration for accessing the File Server node.
+        """
+        return pulumi.get(self, "ssh_configuration")
+
+    @property
+    @pulumi.getter
+    def subnet(self) -> Optional['outputs.ResourceIdResponse']:
+        """
+        File Server virtual network subnet resource ID.
+        """
+        return pulumi.get(self, "subnet")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        The type of the resource.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="vmSize")
+    def vm_size(self) -> Optional[str]:
+        """
+        VM size of the File Server.
+        """
+        return pulumi.get(self, "vm_size")
+
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

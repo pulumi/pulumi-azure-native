@@ -5,740 +5,56 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+from . import outputs
+from ._inputs import *
+
+__all__ = ['LoadBalancer']
 
 
 class LoadBalancer(pulumi.CustomResource):
-    backend_address_pools: pulumi.Output[list]
-    """
-    Collection of backend address pools used by a load balancer
-      * `backend_ip_configurations` (`list`) - Gets collection of references to IP addresses defined in network interfaces.
-        * `etag` (`str`) - A unique read-only string that changes whenever the resource is updated.
-        * `id` (`str`) - Resource Identifier.
-        * `load_balancer_backend_address_pools` (`list`) - The reference of LoadBalancerBackendAddressPool resource.
-        * `load_balancer_inbound_nat_rules` (`list`) - A list of references of LoadBalancerInboundNatRules.
-          * `backend_ip_configuration` (`dict`) - A reference to a private IP address defined on a network interface of a VM. Traffic sent to the frontend port of each of the frontend IP configurations is forwarded to the backed IP.
-          * `backend_port` (`float`) - The port used for the internal endpoint. Acceptable values range from 1 to 65535.
-          * `enable_floating_ip` (`bool`) - Configures a virtual machine's endpoint for the floating IP capability required to configure a SQL AlwaysOn Availability Group. This setting is required when using the SQL AlwaysOn Availability Groups in SQL server. This setting can't be changed after you create the endpoint.
-          * `etag` (`str`) - A unique read-only string that changes whenever the resource is updated.
-          * `frontend_ip_configuration` (`dict`) - A reference to frontend IP addresses.
-            * `id` (`str`) - Resource Identifier.
-
-          * `frontend_port` (`float`) - The port for the external endpoint. Port numbers for each rule must be unique within the Load Balancer. Acceptable values range from 1 to 65534.
-          * `id` (`str`) - Resource Identifier.
-          * `idle_timeout_in_minutes` (`float`) - The timeout for the TCP idle connection. The value can be set between 4 and 30 minutes. The default value is 4 minutes. This element is only used when the protocol is set to TCP.
-          * `name` (`str`) - Gets name of the resource that is unique within a resource group. This name can be used to access the resource.
-          * `protocol` (`str`) - The transport protocol for the endpoint. Possible values are: 'Udp' or 'Tcp'
-          * `provisioning_state` (`str`) - Gets the provisioning state of the public IP resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
-
-        * `name` (`str`) - The name of the resource that is unique within a resource group. This name can be used to access the resource.
-        * `primary` (`bool`) - Gets whether this is a primary customer address on the network interface.
-        * `private_ip_address` (`str`)
-        * `private_ip_allocation_method` (`str`) - Defines how a private IP address is assigned. Possible values are: 'Static' and 'Dynamic'.
-        * `provisioning_state` (`str`)
-        * `public_ip_address` (`dict`) - Public IP address resource.
-          * `dns_settings` (`dict`) - The FQDN of the DNS record associated with the public IP address.
-            * `domain_name_label` (`str`) - Gets or sets the Domain name label.The concatenation of the domain name label and the regionalized DNS zone make up the fully qualified domain name associated with the public IP address. If a domain name label is specified, an A DNS record is created for the public IP in the Microsoft Azure DNS system.
-            * `fqdn` (`str`) - Gets the FQDN, Fully qualified domain name of the A DNS record associated with the public IP. This is the concatenation of the domainNameLabel and the regionalized DNS zone.
-            * `reverse_fqdn` (`str`) - Gets or Sets the Reverse FQDN. A user-visible, fully qualified domain name that resolves to this public IP address. If the reverseFqdn is specified, then a PTR DNS record is created pointing from the IP address in the in-addr.arpa domain to the reverse FQDN. 
-
-          * `etag` (`str`) - A unique read-only string that changes whenever the resource is updated.
-          * `id` (`str`) - Resource Identifier.
-          * `idle_timeout_in_minutes` (`float`) - The idle timeout of the public IP address.
-          * `ip_address` (`str`)
-          * `ip_configuration` (`dict`) - IPConfiguration
-            * `etag` (`str`) - A unique read-only string that changes whenever the resource is updated.
-            * `id` (`str`) - Resource Identifier.
-            * `name` (`str`) - The name of the resource that is unique within a resource group. This name can be used to access the resource.
-            * `private_ip_address` (`str`) - The private IP address of the IP configuration.
-            * `private_ip_allocation_method` (`str`) - The private IP allocation method. Possible values are 'Static' and 'Dynamic'.
-            * `provisioning_state` (`str`) - Gets the provisioning state of the public IP resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
-            * `public_ip_address` (`dict`) - The reference of the public IP resource.
-            * `subnet` (`dict`) - The reference of the subnet resource.
-              * `address_prefix` (`str`) - The address prefix for the subnet.
-              * `etag` (`str`) - A unique read-only string that changes whenever the resource is updated.
-              * `id` (`str`) - Resource Identifier.
-              * `ip_configurations` (`list`) - Gets an array of references to the network interface IP configurations using subnet.
-              * `name` (`str`) - The name of the resource that is unique within a resource group. This name can be used to access the resource.
-              * `network_security_group` (`dict`) - The reference of the NetworkSecurityGroup resource.
-                * `default_security_rules` (`list`) - The default security rules of network security group.
-                  * `access` (`str`) - The network traffic is allowed or denied. Possible values are: 'Allow' and 'Deny'.
-                  * `description` (`str`) - A description for this rule. Restricted to 140 chars.
-                  * `destination_address_prefix` (`str`) - The destination address prefix. CIDR or source IP range. Asterisk '*' can also be used to match all source IPs. Default tags such as 'VirtualNetwork', 'AzureLoadBalancer' and 'Internet' can also be used.
-                  * `destination_port_range` (`str`) - The destination port or range. Integer or range between 0 and 65535. Asterisk '*' can also be used to match all ports.
-                  * `direction` (`str`) - The direction of the rule. The direction specifies if rule will be evaluated on incoming or outgoing traffic. Possible values are: 'Inbound' and 'Outbound'.
-                  * `etag` (`str`) - A unique read-only string that changes whenever the resource is updated.
-                  * `id` (`str`) - Resource Identifier.
-                  * `name` (`str`) - The name of the resource that is unique within a resource group. This name can be used to access the resource.
-                  * `priority` (`float`) - The priority of the rule. The value can be between 100 and 4096. The priority number must be unique for each rule in the collection. The lower the priority number, the higher the priority of the rule.
-                  * `protocol` (`str`) - Network protocol this rule applies to. Possible values are 'Tcp', 'Udp', and '*'.
-                  * `provisioning_state` (`str`) - The provisioning state of the public IP resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
-                  * `source_address_prefix` (`str`) - The CIDR or source IP range. Asterisk '*' can also be used to match all source IPs. Default tags such as 'VirtualNetwork', 'AzureLoadBalancer' and 'Internet' can also be used. If this is an ingress rule, specifies where network traffic originates from. 
-                  * `source_port_range` (`str`) - The source port or range. Integer or range between 0 and 65535. Asterisk '*' can also be used to match all ports.
-
-                * `etag` (`str`) - A unique read-only string that changes whenever the resource is updated.
-                * `id` (`str`) - Resource Identifier.
-                * `location` (`str`) - Resource location.
-                * `name` (`str`) - Resource name.
-                * `network_interfaces` (`list`) - A collection of references to network interfaces.
-                  * `dns_settings` (`dict`) - The DNS settings in network interface.
-                    * `applied_dns_servers` (`list`) - If the VM that uses this NIC is part of an Availability Set, then this list will have the union of all DNS servers from all NICs that are part of the Availability Set. This property is what is configured on each of those VMs.
-                    * `dns_servers` (`list`) - List of DNS servers IP addresses. Use 'AzureProvidedDNS' to switch to azure provided DNS resolution. 'AzureProvidedDNS' value cannot be combined with other IPs, it must be the only value in dnsServers collection.
-                    * `internal_dns_name_label` (`str`) - Relative DNS name for this NIC used for internal communications between VMs in the same virtual network.
-                    * `internal_fqdn` (`str`) - Fully qualified DNS name supporting internal communications between VMs in the same virtual network.
-
-                  * `enable_ip_forwarding` (`bool`) - Indicates whether IP forwarding is enabled on this network interface.
-                  * `etag` (`str`) - A unique read-only string that changes whenever the resource is updated.
-                  * `id` (`str`) - Resource Identifier.
-                  * `ip_configurations` (`list`) - A list of IPConfigurations of the network interface.
-                  * `location` (`str`) - Resource location.
-                  * `mac_address` (`str`) - The MAC address of the network interface.
-                  * `name` (`str`) - Resource name.
-                  * `network_security_group` (`dict`) - The reference of the NetworkSecurityGroup resource.
-                  * `primary` (`bool`) - Gets whether this is a primary network interface on a virtual machine.
-                  * `provisioning_state` (`str`) - The provisioning state of the public IP resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
-                  * `resource_guid` (`str`) - The resource GUID property of the network interface resource.
-                  * `tags` (`dict`) - Resource tags.
-                  * `type` (`str`) - Resource type.
-                  * `virtual_machine` (`dict`) - The reference of a virtual machine.
-
-                * `provisioning_state` (`str`) - The provisioning state of the public IP resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
-                * `resource_guid` (`str`) - The resource GUID property of the network security group resource.
-                * `security_rules` (`list`) - A collection of security rules of the network security group.
-                * `subnets` (`list`) - A collection of references to subnets.
-                * `tags` (`dict`) - Resource tags.
-                * `type` (`str`) - Resource type.
-
-              * `provisioning_state` (`str`) - The provisioning state of the resource.
-              * `route_table` (`dict`) - The reference of the RouteTable resource.
-                * `etag` (`str`) - Gets a unique read-only string that changes whenever the resource is updated.
-                * `id` (`str`) - Resource Identifier.
-                * `location` (`str`) - Resource location.
-                * `name` (`str`) - Resource name.
-                * `provisioning_state` (`str`) - The provisioning state of the resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
-                * `routes` (`list`) - Collection of routes contained within a route table.
-                  * `address_prefix` (`str`) - The destination CIDR to which the route applies.
-                  * `etag` (`str`) - A unique read-only string that changes whenever the resource is updated.
-                  * `id` (`str`) - Resource Identifier.
-                  * `name` (`str`) - The name of the resource that is unique within a resource group. This name can be used to access the resource.
-                  * `next_hop_ip_address` (`str`) - The IP address packets should be forwarded to. Next hop values are only allowed in routes where the next hop type is VirtualAppliance.
-                  * `next_hop_type` (`str`) - The type of Azure hop the packet should be sent to. Possible values are: 'VirtualNetworkGateway', 'VnetLocal', 'Internet', 'VirtualAppliance', and 'None'
-                  * `provisioning_state` (`str`) - The provisioning state of the resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
-
-                * `subnets` (`list`) - A collection of references to subnets.
-                * `tags` (`dict`) - Resource tags.
-                * `type` (`str`) - Resource type.
-
-          * `location` (`str`) - Resource location.
-          * `name` (`str`) - Resource name.
-          * `provisioning_state` (`str`) - The provisioning state of the PublicIP resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
-          * `public_ip_allocation_method` (`str`) - The public IP allocation method. Possible values are: 'Static' and 'Dynamic'.
-          * `resource_guid` (`str`) - The resource GUID property of the public IP resource.
-          * `tags` (`dict`) - Resource tags.
-          * `type` (`str`) - Resource type.
-
-        * `subnet` (`dict`) - Subnet in a virtual network resource.
-
-      * `etag` (`str`) - A unique read-only string that changes whenever the resource is updated.
-      * `id` (`str`) - Resource Identifier.
-      * `load_balancing_rules` (`list`) - Gets load balancing rules that use this backend address pool.
-      * `name` (`str`) - Gets name of the resource that is unique within a resource group. This name can be used to access the resource.
-      * `outbound_nat_rule` (`dict`) - Gets outbound rules that use this backend address pool.
-      * `provisioning_state` (`str`) - Get provisioning state of the public IP resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
-    """
-    etag: pulumi.Output[str]
-    """
-    A unique read-only string that changes whenever the resource is updated.
-    """
-    frontend_ip_configurations: pulumi.Output[list]
-    """
-    Object representing the frontend IPs to be used for the load balancer
-      * `etag` (`str`) - A unique read-only string that changes whenever the resource is updated.
-      * `id` (`str`) - Resource Identifier.
-      * `inbound_nat_pools` (`list`) - Read only. Inbound pools URIs that use this frontend IP.
-        * `id` (`str`) - Resource Identifier.
-
-      * `inbound_nat_rules` (`list`) - Read only. Inbound rules URIs that use this frontend IP.
-      * `load_balancing_rules` (`list`) - Gets load balancing rules URIs that use this frontend IP.
-      * `name` (`str`) - The name of the resource that is unique within a resource group. This name can be used to access the resource.
-      * `outbound_nat_rules` (`list`) - Read only. Outbound rules URIs that use this frontend IP.
-      * `private_ip_address` (`str`) - The private IP address of the IP configuration.
-      * `private_ip_allocation_method` (`str`) - The Private IP allocation method. Possible values are: 'Static' and 'Dynamic'.
-      * `provisioning_state` (`str`) - Gets the provisioning state of the public IP resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
-      * `public_ip_address` (`dict`) - The reference of the Public IP resource.
-        * `dns_settings` (`dict`) - The FQDN of the DNS record associated with the public IP address.
-          * `domain_name_label` (`str`) - Gets or sets the Domain name label.The concatenation of the domain name label and the regionalized DNS zone make up the fully qualified domain name associated with the public IP address. If a domain name label is specified, an A DNS record is created for the public IP in the Microsoft Azure DNS system.
-          * `fqdn` (`str`) - Gets the FQDN, Fully qualified domain name of the A DNS record associated with the public IP. This is the concatenation of the domainNameLabel and the regionalized DNS zone.
-          * `reverse_fqdn` (`str`) - Gets or Sets the Reverse FQDN. A user-visible, fully qualified domain name that resolves to this public IP address. If the reverseFqdn is specified, then a PTR DNS record is created pointing from the IP address in the in-addr.arpa domain to the reverse FQDN. 
-
-        * `etag` (`str`) - A unique read-only string that changes whenever the resource is updated.
-        * `id` (`str`) - Resource Identifier.
-        * `idle_timeout_in_minutes` (`float`) - The idle timeout of the public IP address.
-        * `ip_address` (`str`)
-        * `ip_configuration` (`dict`) - IPConfiguration
-          * `etag` (`str`) - A unique read-only string that changes whenever the resource is updated.
-          * `id` (`str`) - Resource Identifier.
-          * `name` (`str`) - The name of the resource that is unique within a resource group. This name can be used to access the resource.
-          * `private_ip_address` (`str`) - The private IP address of the IP configuration.
-          * `private_ip_allocation_method` (`str`) - The private IP allocation method. Possible values are 'Static' and 'Dynamic'.
-          * `provisioning_state` (`str`) - Gets the provisioning state of the public IP resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
-          * `public_ip_address` (`dict`) - The reference of the public IP resource.
-          * `subnet` (`dict`) - The reference of the subnet resource.
-            * `address_prefix` (`str`) - The address prefix for the subnet.
-            * `etag` (`str`) - A unique read-only string that changes whenever the resource is updated.
-            * `id` (`str`) - Resource Identifier.
-            * `ip_configurations` (`list`) - Gets an array of references to the network interface IP configurations using subnet.
-            * `name` (`str`) - The name of the resource that is unique within a resource group. This name can be used to access the resource.
-            * `network_security_group` (`dict`) - The reference of the NetworkSecurityGroup resource.
-              * `default_security_rules` (`list`) - The default security rules of network security group.
-                * `access` (`str`) - The network traffic is allowed or denied. Possible values are: 'Allow' and 'Deny'.
-                * `description` (`str`) - A description for this rule. Restricted to 140 chars.
-                * `destination_address_prefix` (`str`) - The destination address prefix. CIDR or source IP range. Asterisk '*' can also be used to match all source IPs. Default tags such as 'VirtualNetwork', 'AzureLoadBalancer' and 'Internet' can also be used.
-                * `destination_port_range` (`str`) - The destination port or range. Integer or range between 0 and 65535. Asterisk '*' can also be used to match all ports.
-                * `direction` (`str`) - The direction of the rule. The direction specifies if rule will be evaluated on incoming or outgoing traffic. Possible values are: 'Inbound' and 'Outbound'.
-                * `etag` (`str`) - A unique read-only string that changes whenever the resource is updated.
-                * `id` (`str`) - Resource Identifier.
-                * `name` (`str`) - The name of the resource that is unique within a resource group. This name can be used to access the resource.
-                * `priority` (`float`) - The priority of the rule. The value can be between 100 and 4096. The priority number must be unique for each rule in the collection. The lower the priority number, the higher the priority of the rule.
-                * `protocol` (`str`) - Network protocol this rule applies to. Possible values are 'Tcp', 'Udp', and '*'.
-                * `provisioning_state` (`str`) - The provisioning state of the public IP resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
-                * `source_address_prefix` (`str`) - The CIDR or source IP range. Asterisk '*' can also be used to match all source IPs. Default tags such as 'VirtualNetwork', 'AzureLoadBalancer' and 'Internet' can also be used. If this is an ingress rule, specifies where network traffic originates from. 
-                * `source_port_range` (`str`) - The source port or range. Integer or range between 0 and 65535. Asterisk '*' can also be used to match all ports.
-
-              * `etag` (`str`) - A unique read-only string that changes whenever the resource is updated.
-              * `id` (`str`) - Resource Identifier.
-              * `location` (`str`) - Resource location.
-              * `name` (`str`) - Resource name.
-              * `network_interfaces` (`list`) - A collection of references to network interfaces.
-                * `dns_settings` (`dict`) - The DNS settings in network interface.
-                  * `applied_dns_servers` (`list`) - If the VM that uses this NIC is part of an Availability Set, then this list will have the union of all DNS servers from all NICs that are part of the Availability Set. This property is what is configured on each of those VMs.
-                  * `dns_servers` (`list`) - List of DNS servers IP addresses. Use 'AzureProvidedDNS' to switch to azure provided DNS resolution. 'AzureProvidedDNS' value cannot be combined with other IPs, it must be the only value in dnsServers collection.
-                  * `internal_dns_name_label` (`str`) - Relative DNS name for this NIC used for internal communications between VMs in the same virtual network.
-                  * `internal_fqdn` (`str`) - Fully qualified DNS name supporting internal communications between VMs in the same virtual network.
-
-                * `enable_ip_forwarding` (`bool`) - Indicates whether IP forwarding is enabled on this network interface.
-                * `etag` (`str`) - A unique read-only string that changes whenever the resource is updated.
-                * `id` (`str`) - Resource Identifier.
-                * `ip_configurations` (`list`) - A list of IPConfigurations of the network interface.
-                  * `etag` (`str`) - A unique read-only string that changes whenever the resource is updated.
-                  * `id` (`str`) - Resource Identifier.
-                  * `load_balancer_backend_address_pools` (`list`) - The reference of LoadBalancerBackendAddressPool resource.
-                    * `backend_ip_configurations` (`list`) - Gets collection of references to IP addresses defined in network interfaces.
-                    * `etag` (`str`) - A unique read-only string that changes whenever the resource is updated.
-                    * `id` (`str`) - Resource Identifier.
-                    * `load_balancing_rules` (`list`) - Gets load balancing rules that use this backend address pool.
-                    * `name` (`str`) - Gets name of the resource that is unique within a resource group. This name can be used to access the resource.
-                    * `outbound_nat_rule` (`dict`) - Gets outbound rules that use this backend address pool.
-                    * `provisioning_state` (`str`) - Get provisioning state of the public IP resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
-
-                  * `load_balancer_inbound_nat_rules` (`list`) - A list of references of LoadBalancerInboundNatRules.
-                    * `backend_ip_configuration` (`dict`) - A reference to a private IP address defined on a network interface of a VM. Traffic sent to the frontend port of each of the frontend IP configurations is forwarded to the backed IP.
-                    * `backend_port` (`float`) - The port used for the internal endpoint. Acceptable values range from 1 to 65535.
-                    * `enable_floating_ip` (`bool`) - Configures a virtual machine's endpoint for the floating IP capability required to configure a SQL AlwaysOn Availability Group. This setting is required when using the SQL AlwaysOn Availability Groups in SQL server. This setting can't be changed after you create the endpoint.
-                    * `etag` (`str`) - A unique read-only string that changes whenever the resource is updated.
-                    * `frontend_ip_configuration` (`dict`) - A reference to frontend IP addresses.
-                    * `frontend_port` (`float`) - The port for the external endpoint. Port numbers for each rule must be unique within the Load Balancer. Acceptable values range from 1 to 65534.
-                    * `id` (`str`) - Resource Identifier.
-                    * `idle_timeout_in_minutes` (`float`) - The timeout for the TCP idle connection. The value can be set between 4 and 30 minutes. The default value is 4 minutes. This element is only used when the protocol is set to TCP.
-                    * `name` (`str`) - Gets name of the resource that is unique within a resource group. This name can be used to access the resource.
-                    * `protocol` (`str`) - The transport protocol for the endpoint. Possible values are: 'Udp' or 'Tcp'
-                    * `provisioning_state` (`str`) - Gets the provisioning state of the public IP resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
-
-                  * `name` (`str`) - The name of the resource that is unique within a resource group. This name can be used to access the resource.
-                  * `primary` (`bool`) - Gets whether this is a primary customer address on the network interface.
-                  * `private_ip_address` (`str`)
-                  * `private_ip_allocation_method` (`str`) - Defines how a private IP address is assigned. Possible values are: 'Static' and 'Dynamic'.
-                  * `provisioning_state` (`str`)
-                  * `public_ip_address` (`dict`) - Public IP address resource.
-                  * `subnet` (`dict`) - Subnet in a virtual network resource.
-
-                * `location` (`str`) - Resource location.
-                * `mac_address` (`str`) - The MAC address of the network interface.
-                * `name` (`str`) - Resource name.
-                * `network_security_group` (`dict`) - The reference of the NetworkSecurityGroup resource.
-                * `primary` (`bool`) - Gets whether this is a primary network interface on a virtual machine.
-                * `provisioning_state` (`str`) - The provisioning state of the public IP resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
-                * `resource_guid` (`str`) - The resource GUID property of the network interface resource.
-                * `tags` (`dict`) - Resource tags.
-                * `type` (`str`) - Resource type.
-                * `virtual_machine` (`dict`) - The reference of a virtual machine.
-
-              * `provisioning_state` (`str`) - The provisioning state of the public IP resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
-              * `resource_guid` (`str`) - The resource GUID property of the network security group resource.
-              * `security_rules` (`list`) - A collection of security rules of the network security group.
-              * `subnets` (`list`) - A collection of references to subnets.
-              * `tags` (`dict`) - Resource tags.
-              * `type` (`str`) - Resource type.
-
-            * `provisioning_state` (`str`) - The provisioning state of the resource.
-            * `route_table` (`dict`) - The reference of the RouteTable resource.
-              * `etag` (`str`) - Gets a unique read-only string that changes whenever the resource is updated.
-              * `id` (`str`) - Resource Identifier.
-              * `location` (`str`) - Resource location.
-              * `name` (`str`) - Resource name.
-              * `provisioning_state` (`str`) - The provisioning state of the resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
-              * `routes` (`list`) - Collection of routes contained within a route table.
-                * `address_prefix` (`str`) - The destination CIDR to which the route applies.
-                * `etag` (`str`) - A unique read-only string that changes whenever the resource is updated.
-                * `id` (`str`) - Resource Identifier.
-                * `name` (`str`) - The name of the resource that is unique within a resource group. This name can be used to access the resource.
-                * `next_hop_ip_address` (`str`) - The IP address packets should be forwarded to. Next hop values are only allowed in routes where the next hop type is VirtualAppliance.
-                * `next_hop_type` (`str`) - The type of Azure hop the packet should be sent to. Possible values are: 'VirtualNetworkGateway', 'VnetLocal', 'Internet', 'VirtualAppliance', and 'None'
-                * `provisioning_state` (`str`) - The provisioning state of the resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
-
-              * `subnets` (`list`) - A collection of references to subnets.
-              * `tags` (`dict`) - Resource tags.
-              * `type` (`str`) - Resource type.
-
-        * `location` (`str`) - Resource location.
-        * `name` (`str`) - Resource name.
-        * `provisioning_state` (`str`) - The provisioning state of the PublicIP resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
-        * `public_ip_allocation_method` (`str`) - The public IP allocation method. Possible values are: 'Static' and 'Dynamic'.
-        * `resource_guid` (`str`) - The resource GUID property of the public IP resource.
-        * `tags` (`dict`) - Resource tags.
-        * `type` (`str`) - Resource type.
-
-      * `subnet` (`dict`) - The reference of the subnet resource.
-    """
-    inbound_nat_pools: pulumi.Output[list]
-    """
-    Defines an external port range for inbound NAT to a single backend port on NICs associated with a load balancer. Inbound NAT rules are created automatically for each NIC associated with the Load Balancer using an external port from this range. Defining an Inbound NAT pool on your Load Balancer is mutually exclusive with defining inbound Nat rules. Inbound NAT pools are referenced from virtual machine scale sets. NICs that are associated with individual virtual machines cannot reference an inbound NAT pool. They have to reference individual inbound NAT rules.
-      * `backend_port` (`float`) - The port used for internal connections on the endpoint. Acceptable values are between 1 and 65535.
-      * `etag` (`str`) - A unique read-only string that changes whenever the resource is updated.
-      * `frontend_ip_configuration` (`dict`) - A reference to frontend IP addresses.
-        * `id` (`str`) - Resource Identifier.
-
-      * `frontend_port_range_end` (`float`) - The last port number in the range of external ports that will be used to provide Inbound Nat to NICs associated with a load balancer. Acceptable values range between 1 and 65535.
-      * `frontend_port_range_start` (`float`) - The first port number in the range of external ports that will be used to provide Inbound Nat to NICs associated with a load balancer. Acceptable values range between 1 and 65534.
-      * `id` (`str`) - Resource Identifier.
-      * `name` (`str`) - The name of the resource that is unique within a resource group. This name can be used to access the resource.
-      * `protocol` (`str`) - The transport protocol for the endpoint. Possible values are: 'Udp' or 'Tcp'.
-      * `provisioning_state` (`str`) - Gets the provisioning state of the PublicIP resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
-    """
-    inbound_nat_rules: pulumi.Output[list]
-    """
-    Collection of inbound NAT Rules used by a load balancer. Defining inbound NAT rules on your load balancer is mutually exclusive with defining an inbound NAT pool. Inbound NAT pools are referenced from virtual machine scale sets. NICs that are associated with individual virtual machines cannot reference an Inbound NAT pool. They have to reference individual inbound NAT rules.
-      * `backend_ip_configuration` (`dict`) - A reference to a private IP address defined on a network interface of a VM. Traffic sent to the frontend port of each of the frontend IP configurations is forwarded to the backed IP.
-        * `etag` (`str`) - A unique read-only string that changes whenever the resource is updated.
-        * `id` (`str`) - Resource Identifier.
-        * `load_balancer_backend_address_pools` (`list`) - The reference of LoadBalancerBackendAddressPool resource.
-          * `backend_ip_configurations` (`list`) - Gets collection of references to IP addresses defined in network interfaces.
-          * `etag` (`str`) - A unique read-only string that changes whenever the resource is updated.
-          * `id` (`str`) - Resource Identifier.
-          * `load_balancing_rules` (`list`) - Gets load balancing rules that use this backend address pool.
-            * `id` (`str`) - Resource Identifier.
-
-          * `name` (`str`) - Gets name of the resource that is unique within a resource group. This name can be used to access the resource.
-          * `outbound_nat_rule` (`dict`) - Gets outbound rules that use this backend address pool.
-          * `provisioning_state` (`str`) - Get provisioning state of the public IP resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
-
-        * `load_balancer_inbound_nat_rules` (`list`) - A list of references of LoadBalancerInboundNatRules.
-        * `name` (`str`) - The name of the resource that is unique within a resource group. This name can be used to access the resource.
-        * `primary` (`bool`) - Gets whether this is a primary customer address on the network interface.
-        * `private_ip_address` (`str`)
-        * `private_ip_allocation_method` (`str`) - Defines how a private IP address is assigned. Possible values are: 'Static' and 'Dynamic'.
-        * `provisioning_state` (`str`)
-        * `public_ip_address` (`dict`) - Public IP address resource.
-          * `dns_settings` (`dict`) - The FQDN of the DNS record associated with the public IP address.
-            * `domain_name_label` (`str`) - Gets or sets the Domain name label.The concatenation of the domain name label and the regionalized DNS zone make up the fully qualified domain name associated with the public IP address. If a domain name label is specified, an A DNS record is created for the public IP in the Microsoft Azure DNS system.
-            * `fqdn` (`str`) - Gets the FQDN, Fully qualified domain name of the A DNS record associated with the public IP. This is the concatenation of the domainNameLabel and the regionalized DNS zone.
-            * `reverse_fqdn` (`str`) - Gets or Sets the Reverse FQDN. A user-visible, fully qualified domain name that resolves to this public IP address. If the reverseFqdn is specified, then a PTR DNS record is created pointing from the IP address in the in-addr.arpa domain to the reverse FQDN. 
-
-          * `etag` (`str`) - A unique read-only string that changes whenever the resource is updated.
-          * `id` (`str`) - Resource Identifier.
-          * `idle_timeout_in_minutes` (`float`) - The idle timeout of the public IP address.
-          * `ip_address` (`str`)
-          * `ip_configuration` (`dict`) - IPConfiguration
-            * `etag` (`str`) - A unique read-only string that changes whenever the resource is updated.
-            * `id` (`str`) - Resource Identifier.
-            * `name` (`str`) - The name of the resource that is unique within a resource group. This name can be used to access the resource.
-            * `private_ip_address` (`str`) - The private IP address of the IP configuration.
-            * `private_ip_allocation_method` (`str`) - The private IP allocation method. Possible values are 'Static' and 'Dynamic'.
-            * `provisioning_state` (`str`) - Gets the provisioning state of the public IP resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
-            * `public_ip_address` (`dict`) - The reference of the public IP resource.
-            * `subnet` (`dict`) - The reference of the subnet resource.
-              * `address_prefix` (`str`) - The address prefix for the subnet.
-              * `etag` (`str`) - A unique read-only string that changes whenever the resource is updated.
-              * `id` (`str`) - Resource Identifier.
-              * `ip_configurations` (`list`) - Gets an array of references to the network interface IP configurations using subnet.
-              * `name` (`str`) - The name of the resource that is unique within a resource group. This name can be used to access the resource.
-              * `network_security_group` (`dict`) - The reference of the NetworkSecurityGroup resource.
-                * `default_security_rules` (`list`) - The default security rules of network security group.
-                  * `access` (`str`) - The network traffic is allowed or denied. Possible values are: 'Allow' and 'Deny'.
-                  * `description` (`str`) - A description for this rule. Restricted to 140 chars.
-                  * `destination_address_prefix` (`str`) - The destination address prefix. CIDR or source IP range. Asterisk '*' can also be used to match all source IPs. Default tags such as 'VirtualNetwork', 'AzureLoadBalancer' and 'Internet' can also be used.
-                  * `destination_port_range` (`str`) - The destination port or range. Integer or range between 0 and 65535. Asterisk '*' can also be used to match all ports.
-                  * `direction` (`str`) - The direction of the rule. The direction specifies if rule will be evaluated on incoming or outgoing traffic. Possible values are: 'Inbound' and 'Outbound'.
-                  * `etag` (`str`) - A unique read-only string that changes whenever the resource is updated.
-                  * `id` (`str`) - Resource Identifier.
-                  * `name` (`str`) - The name of the resource that is unique within a resource group. This name can be used to access the resource.
-                  * `priority` (`float`) - The priority of the rule. The value can be between 100 and 4096. The priority number must be unique for each rule in the collection. The lower the priority number, the higher the priority of the rule.
-                  * `protocol` (`str`) - Network protocol this rule applies to. Possible values are 'Tcp', 'Udp', and '*'.
-                  * `provisioning_state` (`str`) - The provisioning state of the public IP resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
-                  * `source_address_prefix` (`str`) - The CIDR or source IP range. Asterisk '*' can also be used to match all source IPs. Default tags such as 'VirtualNetwork', 'AzureLoadBalancer' and 'Internet' can also be used. If this is an ingress rule, specifies where network traffic originates from. 
-                  * `source_port_range` (`str`) - The source port or range. Integer or range between 0 and 65535. Asterisk '*' can also be used to match all ports.
-
-                * `etag` (`str`) - A unique read-only string that changes whenever the resource is updated.
-                * `id` (`str`) - Resource Identifier.
-                * `location` (`str`) - Resource location.
-                * `name` (`str`) - Resource name.
-                * `network_interfaces` (`list`) - A collection of references to network interfaces.
-                  * `dns_settings` (`dict`) - The DNS settings in network interface.
-                    * `applied_dns_servers` (`list`) - If the VM that uses this NIC is part of an Availability Set, then this list will have the union of all DNS servers from all NICs that are part of the Availability Set. This property is what is configured on each of those VMs.
-                    * `dns_servers` (`list`) - List of DNS servers IP addresses. Use 'AzureProvidedDNS' to switch to azure provided DNS resolution. 'AzureProvidedDNS' value cannot be combined with other IPs, it must be the only value in dnsServers collection.
-                    * `internal_dns_name_label` (`str`) - Relative DNS name for this NIC used for internal communications between VMs in the same virtual network.
-                    * `internal_fqdn` (`str`) - Fully qualified DNS name supporting internal communications between VMs in the same virtual network.
-
-                  * `enable_ip_forwarding` (`bool`) - Indicates whether IP forwarding is enabled on this network interface.
-                  * `etag` (`str`) - A unique read-only string that changes whenever the resource is updated.
-                  * `id` (`str`) - Resource Identifier.
-                  * `ip_configurations` (`list`) - A list of IPConfigurations of the network interface.
-                  * `location` (`str`) - Resource location.
-                  * `mac_address` (`str`) - The MAC address of the network interface.
-                  * `name` (`str`) - Resource name.
-                  * `network_security_group` (`dict`) - The reference of the NetworkSecurityGroup resource.
-                  * `primary` (`bool`) - Gets whether this is a primary network interface on a virtual machine.
-                  * `provisioning_state` (`str`) - The provisioning state of the public IP resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
-                  * `resource_guid` (`str`) - The resource GUID property of the network interface resource.
-                  * `tags` (`dict`) - Resource tags.
-                  * `type` (`str`) - Resource type.
-                  * `virtual_machine` (`dict`) - The reference of a virtual machine.
-
-                * `provisioning_state` (`str`) - The provisioning state of the public IP resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
-                * `resource_guid` (`str`) - The resource GUID property of the network security group resource.
-                * `security_rules` (`list`) - A collection of security rules of the network security group.
-                * `subnets` (`list`) - A collection of references to subnets.
-                * `tags` (`dict`) - Resource tags.
-                * `type` (`str`) - Resource type.
-
-              * `provisioning_state` (`str`) - The provisioning state of the resource.
-              * `route_table` (`dict`) - The reference of the RouteTable resource.
-                * `etag` (`str`) - Gets a unique read-only string that changes whenever the resource is updated.
-                * `id` (`str`) - Resource Identifier.
-                * `location` (`str`) - Resource location.
-                * `name` (`str`) - Resource name.
-                * `provisioning_state` (`str`) - The provisioning state of the resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
-                * `routes` (`list`) - Collection of routes contained within a route table.
-                  * `address_prefix` (`str`) - The destination CIDR to which the route applies.
-                  * `etag` (`str`) - A unique read-only string that changes whenever the resource is updated.
-                  * `id` (`str`) - Resource Identifier.
-                  * `name` (`str`) - The name of the resource that is unique within a resource group. This name can be used to access the resource.
-                  * `next_hop_ip_address` (`str`) - The IP address packets should be forwarded to. Next hop values are only allowed in routes where the next hop type is VirtualAppliance.
-                  * `next_hop_type` (`str`) - The type of Azure hop the packet should be sent to. Possible values are: 'VirtualNetworkGateway', 'VnetLocal', 'Internet', 'VirtualAppliance', and 'None'
-                  * `provisioning_state` (`str`) - The provisioning state of the resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
-
-                * `subnets` (`list`) - A collection of references to subnets.
-                * `tags` (`dict`) - Resource tags.
-                * `type` (`str`) - Resource type.
-
-          * `location` (`str`) - Resource location.
-          * `name` (`str`) - Resource name.
-          * `provisioning_state` (`str`) - The provisioning state of the PublicIP resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
-          * `public_ip_allocation_method` (`str`) - The public IP allocation method. Possible values are: 'Static' and 'Dynamic'.
-          * `resource_guid` (`str`) - The resource GUID property of the public IP resource.
-          * `tags` (`dict`) - Resource tags.
-          * `type` (`str`) - Resource type.
-
-        * `subnet` (`dict`) - Subnet in a virtual network resource.
-
-      * `backend_port` (`float`) - The port used for the internal endpoint. Acceptable values range from 1 to 65535.
-      * `enable_floating_ip` (`bool`) - Configures a virtual machine's endpoint for the floating IP capability required to configure a SQL AlwaysOn Availability Group. This setting is required when using the SQL AlwaysOn Availability Groups in SQL server. This setting can't be changed after you create the endpoint.
-      * `etag` (`str`) - A unique read-only string that changes whenever the resource is updated.
-      * `frontend_ip_configuration` (`dict`) - A reference to frontend IP addresses.
-      * `frontend_port` (`float`) - The port for the external endpoint. Port numbers for each rule must be unique within the Load Balancer. Acceptable values range from 1 to 65534.
-      * `id` (`str`) - Resource Identifier.
-      * `idle_timeout_in_minutes` (`float`) - The timeout for the TCP idle connection. The value can be set between 4 and 30 minutes. The default value is 4 minutes. This element is only used when the protocol is set to TCP.
-      * `name` (`str`) - Gets name of the resource that is unique within a resource group. This name can be used to access the resource.
-      * `protocol` (`str`) - The transport protocol for the endpoint. Possible values are: 'Udp' or 'Tcp'
-      * `provisioning_state` (`str`) - Gets the provisioning state of the public IP resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
-    """
-    load_balancing_rules: pulumi.Output[list]
-    """
-    Object collection representing the load balancing rules Gets the provisioning 
-      * `backend_address_pool` (`dict`) - A reference to a pool of DIPs. Inbound traffic is randomly load balanced across IPs in the backend IPs.
-        * `id` (`str`) - Resource Identifier.
-
-      * `backend_port` (`float`) - The port used for internal connections on the endpoint. Acceptable values are between 1 and 65535. 
-      * `enable_floating_ip` (`bool`) - Configures a virtual machine's endpoint for the floating IP capability required to configure a SQL AlwaysOn Availability Group. This setting is required when using the SQL AlwaysOn Availability Groups in SQL server. This setting can't be changed after you create the endpoint.
-      * `etag` (`str`) - A unique read-only string that changes whenever the resource is updated.
-      * `frontend_ip_configuration` (`dict`) - A reference to frontend IP addresses.
-      * `frontend_port` (`float`) - The port for the external endpoint. Port numbers for each rule must be unique within the Load Balancer. Acceptable values are between 1 and 65534.
-      * `id` (`str`) - Resource Identifier.
-      * `idle_timeout_in_minutes` (`float`) - The timeout for the TCP idle connection. The value can be set between 4 and 30 minutes. The default value is 4 minutes. This element is only used when the protocol is set to TCP.
-      * `load_distribution` (`str`) - The load distribution policy for this rule. Possible values are 'Default', 'SourceIP', and 'SourceIPProtocol'.
-      * `name` (`str`) - The name of the resource that is unique within a resource group. This name can be used to access the resource.
-      * `probe` (`dict`) - The reference of the load balancer probe used by the load balancing rule.
-      * `protocol` (`str`) - The transport protocol for the external endpoint. Possible values are 'Udp' or 'Tcp'
-      * `provisioning_state` (`str`) - Gets the provisioning state of the PublicIP resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
-    """
-    location: pulumi.Output[str]
-    """
-    Resource location.
-    """
-    name: pulumi.Output[str]
-    """
-    Resource name.
-    """
-    outbound_nat_rules: pulumi.Output[list]
-    """
-    The outbound NAT rules.
-      * `allocated_outbound_ports` (`float`) - The number of outbound ports to be used for NAT.
-      * `backend_address_pool` (`dict`) - A reference to a pool of DIPs. Outbound traffic is randomly load balanced across IPs in the backend IPs.
-        * `id` (`str`) - Resource Identifier.
-
-      * `etag` (`str`) - A unique read-only string that changes whenever the resource is updated.
-      * `frontend_ip_configurations` (`list`) - The Frontend IP addresses of the load balancer.
-      * `id` (`str`) - Resource Identifier.
-      * `name` (`str`) - The name of the resource that is unique within a resource group. This name can be used to access the resource.
-      * `provisioning_state` (`str`) - Gets the provisioning state of the PublicIP resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
-    """
-    probes: pulumi.Output[list]
-    """
-    Collection of probe objects used in the load balancer
-      * `etag` (`str`) - A unique read-only string that changes whenever the resource is updated.
-      * `id` (`str`) - Resource Identifier.
-      * `interval_in_seconds` (`float`) - The interval, in seconds, for how frequently to probe the endpoint for health status. Typically, the interval is slightly less than half the allocated timeout period (in seconds) which allows two full probes before taking the instance out of rotation. The default value is 15, the minimum value is 5.
-      * `load_balancing_rules` (`list`) - The load balancer rules that use this probe.
-        * `id` (`str`) - Resource Identifier.
-
-      * `name` (`str`) - Gets name of the resource that is unique within a resource group. This name can be used to access the resource.
-      * `number_of_probes` (`float`) - The number of probes where if no response, will result in stopping further traffic from being delivered to the endpoint. This values allows endpoints to be taken out of rotation faster or slower than the typical times used in Azure.
-      * `port` (`float`) - The port for communicating the probe. Possible values range from 1 to 65535, inclusive.
-      * `protocol` (`str`) - The protocol of the end point. Possible values are: 'Http' or 'Tcp'. If 'Tcp' is specified, a received ACK is required for the probe to be successful. If 'Http' is specified, a 200 OK response from the specifies URI is required for the probe to be successful.
-      * `provisioning_state` (`str`) - Gets the provisioning state of the public IP resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
-      * `request_path` (`str`) - The URI used for requesting health status from the VM. Path is required if a protocol is set to http. Otherwise, it is not allowed. There is no default value.
-    """
-    provisioning_state: pulumi.Output[str]
-    """
-    Gets the provisioning state of the PublicIP resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
-    """
-    resource_guid: pulumi.Output[str]
-    """
-    The resource GUID property of the load balancer resource.
-    """
-    tags: pulumi.Output[dict]
-    """
-    Resource tags.
-    """
-    type: pulumi.Output[str]
-    """
-    Resource type.
-    """
-    def __init__(__self__, resource_name, opts=None, backend_address_pools=None, etag=None, frontend_ip_configurations=None, id=None, inbound_nat_pools=None, inbound_nat_rules=None, load_balancing_rules=None, location=None, name=None, outbound_nat_rules=None, probes=None, provisioning_state=None, resource_group_name=None, resource_guid=None, tags=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 backend_address_pools: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['BackendAddressPoolArgs']]]]] = None,
+                 etag: Optional[pulumi.Input[str]] = None,
+                 frontend_ip_configurations: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['FrontendIPConfigurationArgs']]]]] = None,
+                 id: Optional[pulumi.Input[str]] = None,
+                 inbound_nat_pools: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['InboundNatPoolArgs']]]]] = None,
+                 inbound_nat_rules: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['InboundNatRuleArgs']]]]] = None,
+                 load_balancing_rules: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['LoadBalancingRuleArgs']]]]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 outbound_nat_rules: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['OutboundNatRuleArgs']]]]] = None,
+                 probes: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['ProbeArgs']]]]] = None,
+                 provisioning_state: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 resource_guid: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         LoadBalancer resource
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[list] backend_address_pools: Collection of backend address pools used by a load balancer
+        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['BackendAddressPoolArgs']]]] backend_address_pools: Collection of backend address pools used by a load balancer
         :param pulumi.Input[str] etag: A unique read-only string that changes whenever the resource is updated.
-        :param pulumi.Input[list] frontend_ip_configurations: Object representing the frontend IPs to be used for the load balancer
+        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['FrontendIPConfigurationArgs']]]] frontend_ip_configurations: Object representing the frontend IPs to be used for the load balancer
         :param pulumi.Input[str] id: Resource Identifier.
-        :param pulumi.Input[list] inbound_nat_pools: Defines an external port range for inbound NAT to a single backend port on NICs associated with a load balancer. Inbound NAT rules are created automatically for each NIC associated with the Load Balancer using an external port from this range. Defining an Inbound NAT pool on your Load Balancer is mutually exclusive with defining inbound Nat rules. Inbound NAT pools are referenced from virtual machine scale sets. NICs that are associated with individual virtual machines cannot reference an inbound NAT pool. They have to reference individual inbound NAT rules.
-        :param pulumi.Input[list] inbound_nat_rules: Collection of inbound NAT Rules used by a load balancer. Defining inbound NAT rules on your load balancer is mutually exclusive with defining an inbound NAT pool. Inbound NAT pools are referenced from virtual machine scale sets. NICs that are associated with individual virtual machines cannot reference an Inbound NAT pool. They have to reference individual inbound NAT rules.
-        :param pulumi.Input[list] load_balancing_rules: Object collection representing the load balancing rules Gets the provisioning 
+        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['InboundNatPoolArgs']]]] inbound_nat_pools: Defines an external port range for inbound NAT to a single backend port on NICs associated with a load balancer. Inbound NAT rules are created automatically for each NIC associated with the Load Balancer using an external port from this range. Defining an Inbound NAT pool on your Load Balancer is mutually exclusive with defining inbound Nat rules. Inbound NAT pools are referenced from virtual machine scale sets. NICs that are associated with individual virtual machines cannot reference an inbound NAT pool. They have to reference individual inbound NAT rules.
+        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['InboundNatRuleArgs']]]] inbound_nat_rules: Collection of inbound NAT Rules used by a load balancer. Defining inbound NAT rules on your load balancer is mutually exclusive with defining an inbound NAT pool. Inbound NAT pools are referenced from virtual machine scale sets. NICs that are associated with individual virtual machines cannot reference an Inbound NAT pool. They have to reference individual inbound NAT rules.
+        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['LoadBalancingRuleArgs']]]] load_balancing_rules: Object collection representing the load balancing rules Gets the provisioning 
         :param pulumi.Input[str] location: Resource location.
         :param pulumi.Input[str] name: The name of the load balancer.
-        :param pulumi.Input[list] outbound_nat_rules: The outbound NAT rules.
-        :param pulumi.Input[list] probes: Collection of probe objects used in the load balancer
+        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['OutboundNatRuleArgs']]]] outbound_nat_rules: The outbound NAT rules.
+        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['ProbeArgs']]]] probes: Collection of probe objects used in the load balancer
         :param pulumi.Input[str] provisioning_state: Gets the provisioning state of the PublicIP resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[str] resource_guid: The resource GUID property of the load balancer resource.
-        :param pulumi.Input[dict] tags: Resource tags.
-
-        The **backend_address_pools** object supports the following:
-
-          * `backend_ip_configurations` (`pulumi.Input[list]`) - Gets collection of references to IP addresses defined in network interfaces.
-            * `etag` (`pulumi.Input[str]`) - A unique read-only string that changes whenever the resource is updated.
-            * `id` (`pulumi.Input[str]`) - Resource Identifier.
-            * `load_balancer_backend_address_pools` (`pulumi.Input[list]`) - The reference of LoadBalancerBackendAddressPool resource.
-            * `load_balancer_inbound_nat_rules` (`pulumi.Input[list]`) - A list of references of LoadBalancerInboundNatRules.
-              * `backend_ip_configuration` (`pulumi.Input[dict]`) - A reference to a private IP address defined on a network interface of a VM. Traffic sent to the frontend port of each of the frontend IP configurations is forwarded to the backed IP.
-              * `backend_port` (`pulumi.Input[float]`) - The port used for the internal endpoint. Acceptable values range from 1 to 65535.
-              * `enable_floating_ip` (`pulumi.Input[bool]`) - Configures a virtual machine's endpoint for the floating IP capability required to configure a SQL AlwaysOn Availability Group. This setting is required when using the SQL AlwaysOn Availability Groups in SQL server. This setting can't be changed after you create the endpoint.
-              * `etag` (`pulumi.Input[str]`) - A unique read-only string that changes whenever the resource is updated.
-              * `frontend_ip_configuration` (`pulumi.Input[dict]`) - A reference to frontend IP addresses.
-                * `id` (`pulumi.Input[str]`) - Resource Identifier.
-
-              * `frontend_port` (`pulumi.Input[float]`) - The port for the external endpoint. Port numbers for each rule must be unique within the Load Balancer. Acceptable values range from 1 to 65534.
-              * `id` (`pulumi.Input[str]`) - Resource Identifier.
-              * `idle_timeout_in_minutes` (`pulumi.Input[float]`) - The timeout for the TCP idle connection. The value can be set between 4 and 30 minutes. The default value is 4 minutes. This element is only used when the protocol is set to TCP.
-              * `name` (`pulumi.Input[str]`) - Gets name of the resource that is unique within a resource group. This name can be used to access the resource.
-              * `protocol` (`pulumi.Input[str]`) - The transport protocol for the endpoint. Possible values are: 'Udp' or 'Tcp'
-              * `provisioning_state` (`pulumi.Input[str]`) - Gets the provisioning state of the public IP resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
-
-            * `name` (`pulumi.Input[str]`) - The name of the resource that is unique within a resource group. This name can be used to access the resource.
-            * `primary` (`pulumi.Input[bool]`) - Gets whether this is a primary customer address on the network interface.
-            * `private_ip_address` (`pulumi.Input[str]`)
-            * `private_ip_allocation_method` (`pulumi.Input[str]`) - Defines how a private IP address is assigned. Possible values are: 'Static' and 'Dynamic'.
-            * `provisioning_state` (`pulumi.Input[str]`)
-            * `public_ip_address` (`pulumi.Input[dict]`) - Public IP address resource.
-              * `dns_settings` (`pulumi.Input[dict]`) - The FQDN of the DNS record associated with the public IP address.
-                * `domain_name_label` (`pulumi.Input[str]`) - Gets or sets the Domain name label.The concatenation of the domain name label and the regionalized DNS zone make up the fully qualified domain name associated with the public IP address. If a domain name label is specified, an A DNS record is created for the public IP in the Microsoft Azure DNS system.
-                * `fqdn` (`pulumi.Input[str]`) - Gets the FQDN, Fully qualified domain name of the A DNS record associated with the public IP. This is the concatenation of the domainNameLabel and the regionalized DNS zone.
-                * `reverse_fqdn` (`pulumi.Input[str]`) - Gets or Sets the Reverse FQDN. A user-visible, fully qualified domain name that resolves to this public IP address. If the reverseFqdn is specified, then a PTR DNS record is created pointing from the IP address in the in-addr.arpa domain to the reverse FQDN. 
-
-              * `etag` (`pulumi.Input[str]`) - A unique read-only string that changes whenever the resource is updated.
-              * `id` (`pulumi.Input[str]`) - Resource Identifier.
-              * `idle_timeout_in_minutes` (`pulumi.Input[float]`) - The idle timeout of the public IP address.
-              * `ip_address` (`pulumi.Input[str]`)
-              * `ip_configuration` (`pulumi.Input[dict]`) - IPConfiguration
-                * `etag` (`pulumi.Input[str]`) - A unique read-only string that changes whenever the resource is updated.
-                * `id` (`pulumi.Input[str]`) - Resource Identifier.
-                * `name` (`pulumi.Input[str]`) - The name of the resource that is unique within a resource group. This name can be used to access the resource.
-                * `private_ip_address` (`pulumi.Input[str]`) - The private IP address of the IP configuration.
-                * `private_ip_allocation_method` (`pulumi.Input[str]`) - The private IP allocation method. Possible values are 'Static' and 'Dynamic'.
-                * `provisioning_state` (`pulumi.Input[str]`) - Gets the provisioning state of the public IP resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
-                * `public_ip_address` (`pulumi.Input[dict]`) - The reference of the public IP resource.
-                * `subnet` (`pulumi.Input[dict]`) - The reference of the subnet resource.
-                  * `address_prefix` (`pulumi.Input[str]`) - The address prefix for the subnet.
-                  * `etag` (`pulumi.Input[str]`) - A unique read-only string that changes whenever the resource is updated.
-                  * `id` (`pulumi.Input[str]`) - Resource Identifier.
-                  * `ip_configurations` (`pulumi.Input[list]`) - Gets an array of references to the network interface IP configurations using subnet.
-                  * `name` (`pulumi.Input[str]`) - The name of the resource that is unique within a resource group. This name can be used to access the resource.
-                  * `network_security_group` (`pulumi.Input[dict]`) - The reference of the NetworkSecurityGroup resource.
-                    * `default_security_rules` (`pulumi.Input[list]`) - The default security rules of network security group.
-                      * `access` (`pulumi.Input[str]`) - The network traffic is allowed or denied. Possible values are: 'Allow' and 'Deny'.
-                      * `description` (`pulumi.Input[str]`) - A description for this rule. Restricted to 140 chars.
-                      * `destination_address_prefix` (`pulumi.Input[str]`) - The destination address prefix. CIDR or source IP range. Asterisk '*' can also be used to match all source IPs. Default tags such as 'VirtualNetwork', 'AzureLoadBalancer' and 'Internet' can also be used.
-                      * `destination_port_range` (`pulumi.Input[str]`) - The destination port or range. Integer or range between 0 and 65535. Asterisk '*' can also be used to match all ports.
-                      * `direction` (`pulumi.Input[str]`) - The direction of the rule. The direction specifies if rule will be evaluated on incoming or outgoing traffic. Possible values are: 'Inbound' and 'Outbound'.
-                      * `etag` (`pulumi.Input[str]`) - A unique read-only string that changes whenever the resource is updated.
-                      * `id` (`pulumi.Input[str]`) - Resource Identifier.
-                      * `name` (`pulumi.Input[str]`) - The name of the resource that is unique within a resource group. This name can be used to access the resource.
-                      * `priority` (`pulumi.Input[float]`) - The priority of the rule. The value can be between 100 and 4096. The priority number must be unique for each rule in the collection. The lower the priority number, the higher the priority of the rule.
-                      * `protocol` (`pulumi.Input[str]`) - Network protocol this rule applies to. Possible values are 'Tcp', 'Udp', and '*'.
-                      * `provisioning_state` (`pulumi.Input[str]`) - The provisioning state of the public IP resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
-                      * `source_address_prefix` (`pulumi.Input[str]`) - The CIDR or source IP range. Asterisk '*' can also be used to match all source IPs. Default tags such as 'VirtualNetwork', 'AzureLoadBalancer' and 'Internet' can also be used. If this is an ingress rule, specifies where network traffic originates from. 
-                      * `source_port_range` (`pulumi.Input[str]`) - The source port or range. Integer or range between 0 and 65535. Asterisk '*' can also be used to match all ports.
-
-                    * `etag` (`pulumi.Input[str]`) - A unique read-only string that changes whenever the resource is updated.
-                    * `id` (`pulumi.Input[str]`) - Resource Identifier.
-                    * `location` (`pulumi.Input[str]`) - Resource location.
-                    * `network_interfaces` (`pulumi.Input[list]`) - A collection of references to network interfaces.
-                      * `dns_settings` (`pulumi.Input[dict]`) - The DNS settings in network interface.
-                        * `applied_dns_servers` (`pulumi.Input[list]`) - If the VM that uses this NIC is part of an Availability Set, then this list will have the union of all DNS servers from all NICs that are part of the Availability Set. This property is what is configured on each of those VMs.
-                        * `dns_servers` (`pulumi.Input[list]`) - List of DNS servers IP addresses. Use 'AzureProvidedDNS' to switch to azure provided DNS resolution. 'AzureProvidedDNS' value cannot be combined with other IPs, it must be the only value in dnsServers collection.
-                        * `internal_dns_name_label` (`pulumi.Input[str]`) - Relative DNS name for this NIC used for internal communications between VMs in the same virtual network.
-                        * `internal_fqdn` (`pulumi.Input[str]`) - Fully qualified DNS name supporting internal communications between VMs in the same virtual network.
-
-                      * `enable_ip_forwarding` (`pulumi.Input[bool]`) - Indicates whether IP forwarding is enabled on this network interface.
-                      * `etag` (`pulumi.Input[str]`) - A unique read-only string that changes whenever the resource is updated.
-                      * `id` (`pulumi.Input[str]`) - Resource Identifier.
-                      * `ip_configurations` (`pulumi.Input[list]`) - A list of IPConfigurations of the network interface.
-                      * `location` (`pulumi.Input[str]`) - Resource location.
-                      * `mac_address` (`pulumi.Input[str]`) - The MAC address of the network interface.
-                      * `network_security_group` (`pulumi.Input[dict]`) - The reference of the NetworkSecurityGroup resource.
-                      * `primary` (`pulumi.Input[bool]`) - Gets whether this is a primary network interface on a virtual machine.
-                      * `provisioning_state` (`pulumi.Input[str]`) - The provisioning state of the public IP resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
-                      * `resource_guid` (`pulumi.Input[str]`) - The resource GUID property of the network interface resource.
-                      * `tags` (`pulumi.Input[dict]`) - Resource tags.
-                      * `virtual_machine` (`pulumi.Input[dict]`) - The reference of a virtual machine.
-
-                    * `provisioning_state` (`pulumi.Input[str]`) - The provisioning state of the public IP resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
-                    * `resource_guid` (`pulumi.Input[str]`) - The resource GUID property of the network security group resource.
-                    * `security_rules` (`pulumi.Input[list]`) - A collection of security rules of the network security group.
-                    * `subnets` (`pulumi.Input[list]`) - A collection of references to subnets.
-                    * `tags` (`pulumi.Input[dict]`) - Resource tags.
-
-                  * `provisioning_state` (`pulumi.Input[str]`) - The provisioning state of the resource.
-                  * `route_table` (`pulumi.Input[dict]`) - The reference of the RouteTable resource.
-                    * `etag` (`pulumi.Input[str]`) - Gets a unique read-only string that changes whenever the resource is updated.
-                    * `id` (`pulumi.Input[str]`) - Resource Identifier.
-                    * `location` (`pulumi.Input[str]`) - Resource location.
-                    * `provisioning_state` (`pulumi.Input[str]`) - The provisioning state of the resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
-                    * `routes` (`pulumi.Input[list]`) - Collection of routes contained within a route table.
-                      * `address_prefix` (`pulumi.Input[str]`) - The destination CIDR to which the route applies.
-                      * `etag` (`pulumi.Input[str]`) - A unique read-only string that changes whenever the resource is updated.
-                      * `id` (`pulumi.Input[str]`) - Resource Identifier.
-                      * `name` (`pulumi.Input[str]`) - The name of the resource that is unique within a resource group. This name can be used to access the resource.
-                      * `next_hop_ip_address` (`pulumi.Input[str]`) - The IP address packets should be forwarded to. Next hop values are only allowed in routes where the next hop type is VirtualAppliance.
-                      * `next_hop_type` (`pulumi.Input[str]`) - The type of Azure hop the packet should be sent to. Possible values are: 'VirtualNetworkGateway', 'VnetLocal', 'Internet', 'VirtualAppliance', and 'None'
-                      * `provisioning_state` (`pulumi.Input[str]`) - The provisioning state of the resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
-
-                    * `subnets` (`pulumi.Input[list]`) - A collection of references to subnets.
-                    * `tags` (`pulumi.Input[dict]`) - Resource tags.
-
-              * `location` (`pulumi.Input[str]`) - Resource location.
-              * `provisioning_state` (`pulumi.Input[str]`) - The provisioning state of the PublicIP resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
-              * `public_ip_allocation_method` (`pulumi.Input[str]`) - The public IP allocation method. Possible values are: 'Static' and 'Dynamic'.
-              * `resource_guid` (`pulumi.Input[str]`) - The resource GUID property of the public IP resource.
-              * `tags` (`pulumi.Input[dict]`) - Resource tags.
-
-            * `subnet` (`pulumi.Input[dict]`) - Subnet in a virtual network resource.
-
-          * `etag` (`pulumi.Input[str]`) - A unique read-only string that changes whenever the resource is updated.
-          * `id` (`pulumi.Input[str]`) - Resource Identifier.
-          * `name` (`pulumi.Input[str]`) - Gets name of the resource that is unique within a resource group. This name can be used to access the resource.
-          * `outbound_nat_rule` (`pulumi.Input[dict]`) - Gets outbound rules that use this backend address pool.
-          * `provisioning_state` (`pulumi.Input[str]`) - Get provisioning state of the public IP resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
-
-        The **frontend_ip_configurations** object supports the following:
-
-          * `etag` (`pulumi.Input[str]`) - A unique read-only string that changes whenever the resource is updated.
-          * `id` (`pulumi.Input[str]`) - Resource Identifier.
-          * `inbound_nat_pools` (`pulumi.Input[list]`) - Read only. Inbound pools URIs that use this frontend IP.
-          * `inbound_nat_rules` (`pulumi.Input[list]`) - Read only. Inbound rules URIs that use this frontend IP.
-          * `load_balancing_rules` (`pulumi.Input[list]`) - Gets load balancing rules URIs that use this frontend IP.
-          * `name` (`pulumi.Input[str]`) - The name of the resource that is unique within a resource group. This name can be used to access the resource.
-          * `outbound_nat_rules` (`pulumi.Input[list]`) - Read only. Outbound rules URIs that use this frontend IP.
-          * `private_ip_address` (`pulumi.Input[str]`) - The private IP address of the IP configuration.
-          * `private_ip_allocation_method` (`pulumi.Input[str]`) - The Private IP allocation method. Possible values are: 'Static' and 'Dynamic'.
-          * `provisioning_state` (`pulumi.Input[str]`) - Gets the provisioning state of the public IP resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
-          * `public_ip_address` (`pulumi.Input[dict]`) - The reference of the Public IP resource.
-          * `subnet` (`pulumi.Input[dict]`) - The reference of the subnet resource.
-
-        The **inbound_nat_pools** object supports the following:
-
-          * `backend_port` (`pulumi.Input[float]`) - The port used for internal connections on the endpoint. Acceptable values are between 1 and 65535.
-          * `etag` (`pulumi.Input[str]`) - A unique read-only string that changes whenever the resource is updated.
-          * `frontend_ip_configuration` (`pulumi.Input[dict]`) - A reference to frontend IP addresses.
-          * `frontend_port_range_end` (`pulumi.Input[float]`) - The last port number in the range of external ports that will be used to provide Inbound Nat to NICs associated with a load balancer. Acceptable values range between 1 and 65535.
-          * `frontend_port_range_start` (`pulumi.Input[float]`) - The first port number in the range of external ports that will be used to provide Inbound Nat to NICs associated with a load balancer. Acceptable values range between 1 and 65534.
-          * `id` (`pulumi.Input[str]`) - Resource Identifier.
-          * `name` (`pulumi.Input[str]`) - The name of the resource that is unique within a resource group. This name can be used to access the resource.
-          * `protocol` (`pulumi.Input[str]`) - The transport protocol for the endpoint. Possible values are: 'Udp' or 'Tcp'.
-          * `provisioning_state` (`pulumi.Input[str]`) - Gets the provisioning state of the PublicIP resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
-
-        The **load_balancing_rules** object supports the following:
-
-          * `backend_address_pool` (`pulumi.Input[dict]`) - A reference to a pool of DIPs. Inbound traffic is randomly load balanced across IPs in the backend IPs.
-          * `backend_port` (`pulumi.Input[float]`) - The port used for internal connections on the endpoint. Acceptable values are between 1 and 65535. 
-          * `enable_floating_ip` (`pulumi.Input[bool]`) - Configures a virtual machine's endpoint for the floating IP capability required to configure a SQL AlwaysOn Availability Group. This setting is required when using the SQL AlwaysOn Availability Groups in SQL server. This setting can't be changed after you create the endpoint.
-          * `etag` (`pulumi.Input[str]`) - A unique read-only string that changes whenever the resource is updated.
-          * `frontend_ip_configuration` (`pulumi.Input[dict]`) - A reference to frontend IP addresses.
-          * `frontend_port` (`pulumi.Input[float]`) - The port for the external endpoint. Port numbers for each rule must be unique within the Load Balancer. Acceptable values are between 1 and 65534.
-          * `id` (`pulumi.Input[str]`) - Resource Identifier.
-          * `idle_timeout_in_minutes` (`pulumi.Input[float]`) - The timeout for the TCP idle connection. The value can be set between 4 and 30 minutes. The default value is 4 minutes. This element is only used when the protocol is set to TCP.
-          * `load_distribution` (`pulumi.Input[str]`) - The load distribution policy for this rule. Possible values are 'Default', 'SourceIP', and 'SourceIPProtocol'.
-          * `name` (`pulumi.Input[str]`) - The name of the resource that is unique within a resource group. This name can be used to access the resource.
-          * `probe` (`pulumi.Input[dict]`) - The reference of the load balancer probe used by the load balancing rule.
-          * `protocol` (`pulumi.Input[str]`) - The transport protocol for the external endpoint. Possible values are 'Udp' or 'Tcp'
-          * `provisioning_state` (`pulumi.Input[str]`) - Gets the provisioning state of the PublicIP resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
-
-        The **outbound_nat_rules** object supports the following:
-
-          * `allocated_outbound_ports` (`pulumi.Input[float]`) - The number of outbound ports to be used for NAT.
-          * `backend_address_pool` (`pulumi.Input[dict]`) - A reference to a pool of DIPs. Outbound traffic is randomly load balanced across IPs in the backend IPs.
-          * `etag` (`pulumi.Input[str]`) - A unique read-only string that changes whenever the resource is updated.
-          * `frontend_ip_configurations` (`pulumi.Input[list]`) - The Frontend IP addresses of the load balancer.
-          * `id` (`pulumi.Input[str]`) - Resource Identifier.
-          * `name` (`pulumi.Input[str]`) - The name of the resource that is unique within a resource group. This name can be used to access the resource.
-          * `provisioning_state` (`pulumi.Input[str]`) - Gets the provisioning state of the PublicIP resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
-
-        The **probes** object supports the following:
-
-          * `etag` (`pulumi.Input[str]`) - A unique read-only string that changes whenever the resource is updated.
-          * `id` (`pulumi.Input[str]`) - Resource Identifier.
-          * `interval_in_seconds` (`pulumi.Input[float]`) - The interval, in seconds, for how frequently to probe the endpoint for health status. Typically, the interval is slightly less than half the allocated timeout period (in seconds) which allows two full probes before taking the instance out of rotation. The default value is 15, the minimum value is 5.
-          * `load_balancing_rules` (`pulumi.Input[list]`) - The load balancer rules that use this probe.
-          * `name` (`pulumi.Input[str]`) - Gets name of the resource that is unique within a resource group. This name can be used to access the resource.
-          * `number_of_probes` (`pulumi.Input[float]`) - The number of probes where if no response, will result in stopping further traffic from being delivered to the endpoint. This values allows endpoints to be taken out of rotation faster or slower than the typical times used in Azure.
-          * `port` (`pulumi.Input[float]`) - The port for communicating the probe. Possible values range from 1 to 65535, inclusive.
-          * `protocol` (`pulumi.Input[str]`) - The protocol of the end point. Possible values are: 'Http' or 'Tcp'. If 'Tcp' is specified, a received ACK is required for the probe to be successful. If 'Http' is specified, a 200 OK response from the specifies URI is required for the probe to be successful.
-          * `provisioning_state` (`pulumi.Input[str]`) - Gets the provisioning state of the public IP resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
-          * `request_path` (`pulumi.Input[str]`) - The URI used for requesting health status from the VM. Path is required if a protocol is set to http. Otherwise, it is not allowed. There is no default value.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -786,13 +102,15 @@ class LoadBalancer(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None) -> 'LoadBalancer':
         """
         Get an existing LoadBalancer resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -801,8 +119,121 @@ class LoadBalancer(pulumi.CustomResource):
 
         return LoadBalancer(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter(name="backendAddressPools")
+    def backend_address_pools(self) -> Optional[List['outputs.BackendAddressPoolResponse']]:
+        """
+        Collection of backend address pools used by a load balancer
+        """
+        return pulumi.get(self, "backend_address_pools")
+
+    @property
+    @pulumi.getter
+    def etag(self) -> Optional[str]:
+        """
+        A unique read-only string that changes whenever the resource is updated.
+        """
+        return pulumi.get(self, "etag")
+
+    @property
+    @pulumi.getter(name="frontendIPConfigurations")
+    def frontend_ip_configurations(self) -> Optional[List['outputs.FrontendIPConfigurationResponse']]:
+        """
+        Object representing the frontend IPs to be used for the load balancer
+        """
+        return pulumi.get(self, "frontend_ip_configurations")
+
+    @property
+    @pulumi.getter(name="inboundNatPools")
+    def inbound_nat_pools(self) -> Optional[List['outputs.InboundNatPoolResponse']]:
+        """
+        Defines an external port range for inbound NAT to a single backend port on NICs associated with a load balancer. Inbound NAT rules are created automatically for each NIC associated with the Load Balancer using an external port from this range. Defining an Inbound NAT pool on your Load Balancer is mutually exclusive with defining inbound Nat rules. Inbound NAT pools are referenced from virtual machine scale sets. NICs that are associated with individual virtual machines cannot reference an inbound NAT pool. They have to reference individual inbound NAT rules.
+        """
+        return pulumi.get(self, "inbound_nat_pools")
+
+    @property
+    @pulumi.getter(name="inboundNatRules")
+    def inbound_nat_rules(self) -> Optional[List['outputs.InboundNatRuleResponse']]:
+        """
+        Collection of inbound NAT Rules used by a load balancer. Defining inbound NAT rules on your load balancer is mutually exclusive with defining an inbound NAT pool. Inbound NAT pools are referenced from virtual machine scale sets. NICs that are associated with individual virtual machines cannot reference an Inbound NAT pool. They have to reference individual inbound NAT rules.
+        """
+        return pulumi.get(self, "inbound_nat_rules")
+
+    @property
+    @pulumi.getter(name="loadBalancingRules")
+    def load_balancing_rules(self) -> Optional[List['outputs.LoadBalancingRuleResponse']]:
+        """
+        Object collection representing the load balancing rules Gets the provisioning 
+        """
+        return pulumi.get(self, "load_balancing_rules")
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[str]:
+        """
+        Resource location.
+        """
+        return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Resource name.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="outboundNatRules")
+    def outbound_nat_rules(self) -> Optional[List['outputs.OutboundNatRuleResponse']]:
+        """
+        The outbound NAT rules.
+        """
+        return pulumi.get(self, "outbound_nat_rules")
+
+    @property
+    @pulumi.getter
+    def probes(self) -> Optional[List['outputs.ProbeResponse']]:
+        """
+        Collection of probe objects used in the load balancer
+        """
+        return pulumi.get(self, "probes")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> Optional[str]:
+        """
+        Gets the provisioning state of the PublicIP resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="resourceGuid")
+    def resource_guid(self) -> Optional[str]:
+        """
+        The resource GUID property of the load balancer resource.
+        """
+        return pulumi.get(self, "resource_guid")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Mapping[str, str]]:
+        """
+        Resource tags.
+        """
+        return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Resource type.
+        """
+        return pulumi.get(self, "type")
+
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

@@ -5,10 +5,17 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+from . import outputs
 
+__all__ = [
+    'GetGroupResult',
+    'AwaitableGetGroupResult',
+    'get_group',
+]
 
+@pulumi.output_type
 class GetGroupResult:
     """
     A group created in a Migration project.
@@ -16,28 +23,48 @@ class GetGroupResult:
     def __init__(__self__, e_tag=None, name=None, properties=None, type=None):
         if e_tag and not isinstance(e_tag, str):
             raise TypeError("Expected argument 'e_tag' to be a str")
-        __self__.e_tag = e_tag
+        pulumi.set(__self__, "e_tag", e_tag)
+        if name and not isinstance(name, str):
+            raise TypeError("Expected argument 'name' to be a str")
+        pulumi.set(__self__, "name", name)
+        if properties and not isinstance(properties, dict):
+            raise TypeError("Expected argument 'properties' to be a dict")
+        pulumi.set(__self__, "properties", properties)
+        if type and not isinstance(type, str):
+            raise TypeError("Expected argument 'type' to be a str")
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="eTag")
+    def e_tag(self) -> Optional[str]:
         """
         For optimistic concurrency control.
         """
-        if name and not isinstance(name, str):
-            raise TypeError("Expected argument 'name' to be a str")
-        __self__.name = name
+        return pulumi.get(self, "e_tag")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
         """
         Name of the group.
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def properties(self) -> 'outputs.GroupPropertiesResponse':
         """
         Properties of the group.
         """
-        if type and not isinstance(type, str):
-            raise TypeError("Expected argument 'type' to be a str")
-        __self__.type = type
+        return pulumi.get(self, "properties")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
         """
         Type of the object = [Microsoft.Migrate/assessmentProjects/groups].
         """
+        return pulumi.get(self, "type")
 
 
 class AwaitableGetGroupResult(GetGroupResult):
@@ -52,7 +79,10 @@ class AwaitableGetGroupResult(GetGroupResult):
             type=self.type)
 
 
-def get_group(name=None, project_name=None, resource_group_name=None, opts=None):
+def get_group(name: Optional[str] = None,
+              project_name: Optional[str] = None,
+              resource_group_name: Optional[str] = None,
+              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetGroupResult:
     """
     Use this data source to access information about an existing resource.
 
@@ -68,10 +98,10 @@ def get_group(name=None, project_name=None, resource_group_name=None, opts=None)
         opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = _utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('azurerm:migrate/v20191001:getGroup', __args__, opts=opts).value
+    __ret__ = pulumi.runtime.invoke('azurerm:migrate/v20191001:getGroup', __args__, opts=opts, typ=GetGroupResult).value
 
     return AwaitableGetGroupResult(
-        e_tag=__ret__.get('eTag'),
-        name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
-        type=__ret__.get('type'))
+        e_tag=__ret__.e_tag,
+        name=__ret__.name,
+        properties=__ret__.properties,
+        type=__ret__.type)

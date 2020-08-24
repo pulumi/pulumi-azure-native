@@ -5,10 +5,16 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
 
+__all__ = [
+    'GetMaintenanceConfigurationResult',
+    'AwaitableGetMaintenanceConfigurationResult',
+    'get_maintenance_configuration',
+]
 
+@pulumi.output_type
 class GetMaintenanceConfigurationResult:
     """
     Maintenance configuration record type
@@ -16,46 +22,81 @@ class GetMaintenanceConfigurationResult:
     def __init__(__self__, extension_properties=None, location=None, maintenance_scope=None, name=None, namespace=None, tags=None, type=None):
         if extension_properties and not isinstance(extension_properties, dict):
             raise TypeError("Expected argument 'extension_properties' to be a dict")
-        __self__.extension_properties = extension_properties
+        pulumi.set(__self__, "extension_properties", extension_properties)
+        if location and not isinstance(location, str):
+            raise TypeError("Expected argument 'location' to be a str")
+        pulumi.set(__self__, "location", location)
+        if maintenance_scope and not isinstance(maintenance_scope, str):
+            raise TypeError("Expected argument 'maintenance_scope' to be a str")
+        pulumi.set(__self__, "maintenance_scope", maintenance_scope)
+        if name and not isinstance(name, str):
+            raise TypeError("Expected argument 'name' to be a str")
+        pulumi.set(__self__, "name", name)
+        if namespace and not isinstance(namespace, str):
+            raise TypeError("Expected argument 'namespace' to be a str")
+        pulumi.set(__self__, "namespace", namespace)
+        if tags and not isinstance(tags, dict):
+            raise TypeError("Expected argument 'tags' to be a dict")
+        pulumi.set(__self__, "tags", tags)
+        if type and not isinstance(type, str):
+            raise TypeError("Expected argument 'type' to be a str")
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="extensionProperties")
+    def extension_properties(self) -> Optional[Mapping[str, str]]:
         """
         Gets or sets extensionProperties of the maintenanceConfiguration. This is for future use only and would be a set of key value pairs for additional information e.g. whether to follow SDP etc.
         """
-        if location and not isinstance(location, str):
-            raise TypeError("Expected argument 'location' to be a str")
-        __self__.location = location
+        return pulumi.get(self, "extension_properties")
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[str]:
         """
         Gets or sets location of the resource
         """
-        if maintenance_scope and not isinstance(maintenance_scope, str):
-            raise TypeError("Expected argument 'maintenance_scope' to be a str")
-        __self__.maintenance_scope = maintenance_scope
+        return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter(name="maintenanceScope")
+    def maintenance_scope(self) -> Optional[str]:
         """
         Gets or sets maintenanceScope of the configuration. It represent the impact area of the maintenance
         """
-        if name and not isinstance(name, str):
-            raise TypeError("Expected argument 'name' to be a str")
-        __self__.name = name
+        return pulumi.get(self, "maintenance_scope")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
         """
         Name of the resource
         """
-        if namespace and not isinstance(namespace, str):
-            raise TypeError("Expected argument 'namespace' to be a str")
-        __self__.namespace = namespace
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def namespace(self) -> Optional[str]:
         """
         Gets or sets namespace of the resource e.g. Microsoft.Maintenance or Microsoft.Sql
         """
-        if tags and not isinstance(tags, dict):
-            raise TypeError("Expected argument 'tags' to be a dict")
-        __self__.tags = tags
+        return pulumi.get(self, "namespace")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Mapping[str, str]]:
         """
         Gets or sets tags of the resource
         """
-        if type and not isinstance(type, str):
-            raise TypeError("Expected argument 'type' to be a str")
-        __self__.type = type
+        return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
         """
         Type of the resource
         """
+        return pulumi.get(self, "type")
 
 
 class AwaitableGetMaintenanceConfigurationResult(GetMaintenanceConfigurationResult):
@@ -73,7 +114,9 @@ class AwaitableGetMaintenanceConfigurationResult(GetMaintenanceConfigurationResu
             type=self.type)
 
 
-def get_maintenance_configuration(name=None, resource_group_name=None, opts=None):
+def get_maintenance_configuration(name: Optional[str] = None,
+                                  resource_group_name: Optional[str] = None,
+                                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetMaintenanceConfigurationResult:
     """
     Use this data source to access information about an existing resource.
 
@@ -87,13 +130,13 @@ def get_maintenance_configuration(name=None, resource_group_name=None, opts=None
         opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = _utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('azurerm:maintenance/v20200401:getMaintenanceConfiguration', __args__, opts=opts).value
+    __ret__ = pulumi.runtime.invoke('azurerm:maintenance/v20200401:getMaintenanceConfiguration', __args__, opts=opts, typ=GetMaintenanceConfigurationResult).value
 
     return AwaitableGetMaintenanceConfigurationResult(
-        extension_properties=__ret__.get('extensionProperties'),
-        location=__ret__.get('location'),
-        maintenance_scope=__ret__.get('maintenanceScope'),
-        name=__ret__.get('name'),
-        namespace=__ret__.get('namespace'),
-        tags=__ret__.get('tags'),
-        type=__ret__.get('type'))
+        extension_properties=__ret__.extension_properties,
+        location=__ret__.location,
+        maintenance_scope=__ret__.maintenance_scope,
+        name=__ret__.name,
+        namespace=__ret__.namespace,
+        tags=__ret__.tags,
+        type=__ret__.type)

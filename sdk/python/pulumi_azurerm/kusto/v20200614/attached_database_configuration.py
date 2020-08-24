@@ -5,44 +5,26 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+
+__all__ = ['AttachedDatabaseConfiguration']
 
 
 class AttachedDatabaseConfiguration(pulumi.CustomResource):
-    attached_database_names: pulumi.Output[list]
-    """
-    The list of databases from the clusterResourceId which are currently attached to the cluster.
-    """
-    cluster_resource_id: pulumi.Output[str]
-    """
-    The resource id of the cluster where the databases you would like to attach reside.
-    """
-    database_name: pulumi.Output[str]
-    """
-    The name of the database which you would like to attach, use * if you want to follow all current and future databases.
-    """
-    default_principals_modification_kind: pulumi.Output[str]
-    """
-    The default principals modification kind
-    """
-    location: pulumi.Output[str]
-    """
-    Resource location.
-    """
-    name: pulumi.Output[str]
-    """
-    The name of the resource
-    """
-    provisioning_state: pulumi.Output[str]
-    """
-    The provisioned state of the resource.
-    """
-    type: pulumi.Output[str]
-    """
-    The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
-    """
-    def __init__(__self__, resource_name, opts=None, cluster_name=None, cluster_resource_id=None, database_name=None, default_principals_modification_kind=None, location=None, name=None, resource_group_name=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 cluster_name: Optional[pulumi.Input[str]] = None,
+                 cluster_resource_id: Optional[pulumi.Input[str]] = None,
+                 database_name: Optional[pulumi.Input[str]] = None,
+                 default_principals_modification_kind: Optional[pulumi.Input[str]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         Class representing an attached database configuration.
 
@@ -104,13 +86,15 @@ class AttachedDatabaseConfiguration(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None) -> 'AttachedDatabaseConfiguration':
         """
         Get an existing AttachedDatabaseConfiguration resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -119,8 +103,73 @@ class AttachedDatabaseConfiguration(pulumi.CustomResource):
 
         return AttachedDatabaseConfiguration(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter(name="attachedDatabaseNames")
+    def attached_database_names(self) -> List[str]:
+        """
+        The list of databases from the clusterResourceId which are currently attached to the cluster.
+        """
+        return pulumi.get(self, "attached_database_names")
+
+    @property
+    @pulumi.getter(name="clusterResourceId")
+    def cluster_resource_id(self) -> str:
+        """
+        The resource id of the cluster where the databases you would like to attach reside.
+        """
+        return pulumi.get(self, "cluster_resource_id")
+
+    @property
+    @pulumi.getter(name="databaseName")
+    def database_name(self) -> str:
+        """
+        The name of the database which you would like to attach, use * if you want to follow all current and future databases.
+        """
+        return pulumi.get(self, "database_name")
+
+    @property
+    @pulumi.getter(name="defaultPrincipalsModificationKind")
+    def default_principals_modification_kind(self) -> str:
+        """
+        The default principals modification kind
+        """
+        return pulumi.get(self, "default_principals_modification_kind")
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[str]:
+        """
+        Resource location.
+        """
+        return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the resource
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        The provisioned state of the resource.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+        """
+        return pulumi.get(self, "type")
+
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

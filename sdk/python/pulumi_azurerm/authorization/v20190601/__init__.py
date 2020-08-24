@@ -9,3 +9,5 @@ from .get_policy_set_definition import *
 from .policy_assignment import *
 from .policy_definition import *
 from .policy_set_definition import *
+from ._inputs import *
+from . import outputs

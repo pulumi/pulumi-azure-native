@@ -7,3 +7,5 @@ from .action_group import *
 from .get_action_group import *
 from .get_metric_alert import *
 from .metric_alert import *
+from ._inputs import *
+from . import outputs

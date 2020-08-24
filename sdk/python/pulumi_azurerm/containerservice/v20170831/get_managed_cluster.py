@@ -5,10 +5,17 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+from . import outputs
 
+__all__ = [
+    'GetManagedClusterResult',
+    'AwaitableGetManagedClusterResult',
+    'get_managed_cluster',
+]
 
+@pulumi.output_type
 class GetManagedClusterResult:
     """
     Managed cluster.
@@ -16,70 +23,125 @@ class GetManagedClusterResult:
     def __init__(__self__, agent_pool_profiles=None, dns_prefix=None, fqdn=None, kubernetes_version=None, linux_profile=None, location=None, name=None, provisioning_state=None, service_principal_profile=None, tags=None, type=None):
         if agent_pool_profiles and not isinstance(agent_pool_profiles, list):
             raise TypeError("Expected argument 'agent_pool_profiles' to be a list")
-        __self__.agent_pool_profiles = agent_pool_profiles
+        pulumi.set(__self__, "agent_pool_profiles", agent_pool_profiles)
+        if dns_prefix and not isinstance(dns_prefix, str):
+            raise TypeError("Expected argument 'dns_prefix' to be a str")
+        pulumi.set(__self__, "dns_prefix", dns_prefix)
+        if fqdn and not isinstance(fqdn, str):
+            raise TypeError("Expected argument 'fqdn' to be a str")
+        pulumi.set(__self__, "fqdn", fqdn)
+        if kubernetes_version and not isinstance(kubernetes_version, str):
+            raise TypeError("Expected argument 'kubernetes_version' to be a str")
+        pulumi.set(__self__, "kubernetes_version", kubernetes_version)
+        if linux_profile and not isinstance(linux_profile, dict):
+            raise TypeError("Expected argument 'linux_profile' to be a dict")
+        pulumi.set(__self__, "linux_profile", linux_profile)
+        if location and not isinstance(location, str):
+            raise TypeError("Expected argument 'location' to be a str")
+        pulumi.set(__self__, "location", location)
+        if name and not isinstance(name, str):
+            raise TypeError("Expected argument 'name' to be a str")
+        pulumi.set(__self__, "name", name)
+        if provisioning_state and not isinstance(provisioning_state, str):
+            raise TypeError("Expected argument 'provisioning_state' to be a str")
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if service_principal_profile and not isinstance(service_principal_profile, dict):
+            raise TypeError("Expected argument 'service_principal_profile' to be a dict")
+        pulumi.set(__self__, "service_principal_profile", service_principal_profile)
+        if tags and not isinstance(tags, dict):
+            raise TypeError("Expected argument 'tags' to be a dict")
+        pulumi.set(__self__, "tags", tags)
+        if type and not isinstance(type, str):
+            raise TypeError("Expected argument 'type' to be a str")
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="agentPoolProfiles")
+    def agent_pool_profiles(self) -> Optional[List['outputs.ContainerServiceAgentPoolProfileResponse']]:
         """
         Properties of the agent pool.
         """
-        if dns_prefix and not isinstance(dns_prefix, str):
-            raise TypeError("Expected argument 'dns_prefix' to be a str")
-        __self__.dns_prefix = dns_prefix
+        return pulumi.get(self, "agent_pool_profiles")
+
+    @property
+    @pulumi.getter(name="dnsPrefix")
+    def dns_prefix(self) -> Optional[str]:
         """
         DNS prefix specified when creating the managed cluster.
         """
-        if fqdn and not isinstance(fqdn, str):
-            raise TypeError("Expected argument 'fqdn' to be a str")
-        __self__.fqdn = fqdn
+        return pulumi.get(self, "dns_prefix")
+
+    @property
+    @pulumi.getter
+    def fqdn(self) -> str:
         """
         FQDN for the master pool.
         """
-        if kubernetes_version and not isinstance(kubernetes_version, str):
-            raise TypeError("Expected argument 'kubernetes_version' to be a str")
-        __self__.kubernetes_version = kubernetes_version
+        return pulumi.get(self, "fqdn")
+
+    @property
+    @pulumi.getter(name="kubernetesVersion")
+    def kubernetes_version(self) -> Optional[str]:
         """
         Version of Kubernetes specified when creating the managed cluster.
         """
-        if linux_profile and not isinstance(linux_profile, dict):
-            raise TypeError("Expected argument 'linux_profile' to be a dict")
-        __self__.linux_profile = linux_profile
+        return pulumi.get(self, "kubernetes_version")
+
+    @property
+    @pulumi.getter(name="linuxProfile")
+    def linux_profile(self) -> Optional['outputs.ContainerServiceLinuxProfileResponse']:
         """
         Profile for Linux VMs in the container service cluster.
         """
-        if location and not isinstance(location, str):
-            raise TypeError("Expected argument 'location' to be a str")
-        __self__.location = location
+        return pulumi.get(self, "linux_profile")
+
+    @property
+    @pulumi.getter
+    def location(self) -> str:
         """
         Resource location
         """
-        if name and not isinstance(name, str):
-            raise TypeError("Expected argument 'name' to be a str")
-        __self__.name = name
+        return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
         """
         Resource name
         """
-        if provisioning_state and not isinstance(provisioning_state, str):
-            raise TypeError("Expected argument 'provisioning_state' to be a str")
-        __self__.provisioning_state = provisioning_state
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
         """
         The current deployment or provisioning state, which only appears in the response.
         """
-        if service_principal_profile and not isinstance(service_principal_profile, dict):
-            raise TypeError("Expected argument 'service_principal_profile' to be a dict")
-        __self__.service_principal_profile = service_principal_profile
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="servicePrincipalProfile")
+    def service_principal_profile(self) -> Optional['outputs.ContainerServiceServicePrincipalProfileResponse']:
         """
         Information about a service principal identity for the cluster to use for manipulating Azure APIs. Either secret or keyVaultSecretRef must be specified.
         """
-        if tags and not isinstance(tags, dict):
-            raise TypeError("Expected argument 'tags' to be a dict")
-        __self__.tags = tags
+        return pulumi.get(self, "service_principal_profile")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Mapping[str, str]]:
         """
         Resource tags
         """
-        if type and not isinstance(type, str):
-            raise TypeError("Expected argument 'type' to be a str")
-        __self__.type = type
+        return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
         """
         Resource type
         """
+        return pulumi.get(self, "type")
 
 
 class AwaitableGetManagedClusterResult(GetManagedClusterResult):
@@ -101,7 +163,9 @@ class AwaitableGetManagedClusterResult(GetManagedClusterResult):
             type=self.type)
 
 
-def get_managed_cluster(name=None, resource_group_name=None, opts=None):
+def get_managed_cluster(name: Optional[str] = None,
+                        resource_group_name: Optional[str] = None,
+                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetManagedClusterResult:
     """
     Use this data source to access information about an existing resource.
 
@@ -115,17 +179,17 @@ def get_managed_cluster(name=None, resource_group_name=None, opts=None):
         opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = _utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('azurerm:containerservice/v20170831:getManagedCluster', __args__, opts=opts).value
+    __ret__ = pulumi.runtime.invoke('azurerm:containerservice/v20170831:getManagedCluster', __args__, opts=opts, typ=GetManagedClusterResult).value
 
     return AwaitableGetManagedClusterResult(
-        agent_pool_profiles=__ret__.get('agentPoolProfiles'),
-        dns_prefix=__ret__.get('dnsPrefix'),
-        fqdn=__ret__.get('fqdn'),
-        kubernetes_version=__ret__.get('kubernetesVersion'),
-        linux_profile=__ret__.get('linuxProfile'),
-        location=__ret__.get('location'),
-        name=__ret__.get('name'),
-        provisioning_state=__ret__.get('provisioningState'),
-        service_principal_profile=__ret__.get('servicePrincipalProfile'),
-        tags=__ret__.get('tags'),
-        type=__ret__.get('type'))
+        agent_pool_profiles=__ret__.agent_pool_profiles,
+        dns_prefix=__ret__.dns_prefix,
+        fqdn=__ret__.fqdn,
+        kubernetes_version=__ret__.kubernetes_version,
+        linux_profile=__ret__.linux_profile,
+        location=__ret__.location,
+        name=__ret__.name,
+        provisioning_state=__ret__.provisioning_state,
+        service_principal_profile=__ret__.service_principal_profile,
+        tags=__ret__.tags,
+        type=__ret__.type)

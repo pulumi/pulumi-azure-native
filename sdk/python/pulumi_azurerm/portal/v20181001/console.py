@@ -5,32 +5,30 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+from . import outputs
+from ._inputs import *
+
+__all__ = ['Console']
 
 
 class Console(pulumi.CustomResource):
-    properties: pulumi.Output[dict]
-    """
-    Cloud shell console properties.
-      * `os_type` (`str`) - The operating system type of the cloud shell.
-      * `provisioning_state` (`str`) - Provisioning state of the console.
-      * `uri` (`str`) - Uri of the console.
-    """
-    def __init__(__self__, resource_name, opts=None, console_name=None, properties=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 console_name: Optional[pulumi.Input[str]] = None,
+                 properties: Optional[pulumi.Input[pulumi.InputType['ConsoleCreatePropertiesArgs']]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         Cloud shell console
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] console_name: The name of the console
-        :param pulumi.Input[dict] properties: Cloud shell properties for creating a console.
-
-        The **properties** object supports the following:
-
-          * `os_type` (`pulumi.Input[str]`) - The operating system type of the cloud shell.
-          * `provisioning_state` (`pulumi.Input[str]`) - Provisioning state of the console.
-          * `uri` (`pulumi.Input[str]`) - Uri of the console.
+        :param pulumi.Input[pulumi.InputType['ConsoleCreatePropertiesArgs']] properties: Cloud shell properties for creating a console.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -62,13 +60,15 @@ class Console(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None) -> 'Console':
         """
         Get an existing Console resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -77,8 +77,17 @@ class Console(pulumi.CustomResource):
 
         return Console(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter
+    def properties(self) -> 'outputs.ConsolePropertiesResponse':
+        """
+        Cloud shell console properties.
+        """
+        return pulumi.get(self, "properties")
+
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

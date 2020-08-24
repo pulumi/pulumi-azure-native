@@ -5,10 +5,16 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
 
+__all__ = [
+    'GetWebAppPremierAddOnSlotResult',
+    'AwaitableGetWebAppPremierAddOnSlotResult',
+    'get_web_app_premier_add_on_slot',
+]
 
+@pulumi.output_type
 class GetWebAppPremierAddOnSlotResult:
     """
     Premier add-on.
@@ -16,64 +22,114 @@ class GetWebAppPremierAddOnSlotResult:
     def __init__(__self__, kind=None, location=None, marketplace_offer=None, marketplace_publisher=None, name=None, product=None, sku=None, tags=None, type=None, vendor=None):
         if kind and not isinstance(kind, str):
             raise TypeError("Expected argument 'kind' to be a str")
-        __self__.kind = kind
+        pulumi.set(__self__, "kind", kind)
+        if location and not isinstance(location, str):
+            raise TypeError("Expected argument 'location' to be a str")
+        pulumi.set(__self__, "location", location)
+        if marketplace_offer and not isinstance(marketplace_offer, str):
+            raise TypeError("Expected argument 'marketplace_offer' to be a str")
+        pulumi.set(__self__, "marketplace_offer", marketplace_offer)
+        if marketplace_publisher and not isinstance(marketplace_publisher, str):
+            raise TypeError("Expected argument 'marketplace_publisher' to be a str")
+        pulumi.set(__self__, "marketplace_publisher", marketplace_publisher)
+        if name and not isinstance(name, str):
+            raise TypeError("Expected argument 'name' to be a str")
+        pulumi.set(__self__, "name", name)
+        if product and not isinstance(product, str):
+            raise TypeError("Expected argument 'product' to be a str")
+        pulumi.set(__self__, "product", product)
+        if sku and not isinstance(sku, str):
+            raise TypeError("Expected argument 'sku' to be a str")
+        pulumi.set(__self__, "sku", sku)
+        if tags and not isinstance(tags, dict):
+            raise TypeError("Expected argument 'tags' to be a dict")
+        pulumi.set(__self__, "tags", tags)
+        if type and not isinstance(type, str):
+            raise TypeError("Expected argument 'type' to be a str")
+        pulumi.set(__self__, "type", type)
+        if vendor and not isinstance(vendor, str):
+            raise TypeError("Expected argument 'vendor' to be a str")
+        pulumi.set(__self__, "vendor", vendor)
+
+    @property
+    @pulumi.getter
+    def kind(self) -> Optional[str]:
         """
         Kind of resource.
         """
-        if location and not isinstance(location, str):
-            raise TypeError("Expected argument 'location' to be a str")
-        __self__.location = location
+        return pulumi.get(self, "kind")
+
+    @property
+    @pulumi.getter
+    def location(self) -> str:
         """
         Resource Location.
         """
-        if marketplace_offer and not isinstance(marketplace_offer, str):
-            raise TypeError("Expected argument 'marketplace_offer' to be a str")
-        __self__.marketplace_offer = marketplace_offer
+        return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter(name="marketplaceOffer")
+    def marketplace_offer(self) -> Optional[str]:
         """
         Premier add on Marketplace offer.
         """
-        if marketplace_publisher and not isinstance(marketplace_publisher, str):
-            raise TypeError("Expected argument 'marketplace_publisher' to be a str")
-        __self__.marketplace_publisher = marketplace_publisher
+        return pulumi.get(self, "marketplace_offer")
+
+    @property
+    @pulumi.getter(name="marketplacePublisher")
+    def marketplace_publisher(self) -> Optional[str]:
         """
         Premier add on Marketplace publisher.
         """
-        if name and not isinstance(name, str):
-            raise TypeError("Expected argument 'name' to be a str")
-        __self__.name = name
+        return pulumi.get(self, "marketplace_publisher")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
         """
         Resource Name.
         """
-        if product and not isinstance(product, str):
-            raise TypeError("Expected argument 'product' to be a str")
-        __self__.product = product
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def product(self) -> Optional[str]:
         """
         Premier add on Product.
         """
-        if sku and not isinstance(sku, str):
-            raise TypeError("Expected argument 'sku' to be a str")
-        __self__.sku = sku
+        return pulumi.get(self, "product")
+
+    @property
+    @pulumi.getter
+    def sku(self) -> Optional[str]:
         """
         Premier add on SKU.
         """
-        if tags and not isinstance(tags, dict):
-            raise TypeError("Expected argument 'tags' to be a dict")
-        __self__.tags = tags
+        return pulumi.get(self, "sku")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Mapping[str, str]]:
         """
         Resource tags.
         """
-        if type and not isinstance(type, str):
-            raise TypeError("Expected argument 'type' to be a str")
-        __self__.type = type
+        return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
         """
         Resource type.
         """
-        if vendor and not isinstance(vendor, str):
-            raise TypeError("Expected argument 'vendor' to be a str")
-        __self__.vendor = vendor
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def vendor(self) -> Optional[str]:
         """
         Premier add on Vendor.
         """
+        return pulumi.get(self, "vendor")
 
 
 class AwaitableGetWebAppPremierAddOnSlotResult(GetWebAppPremierAddOnSlotResult):
@@ -94,7 +150,10 @@ class AwaitableGetWebAppPremierAddOnSlotResult(GetWebAppPremierAddOnSlotResult):
             vendor=self.vendor)
 
 
-def get_web_app_premier_add_on_slot(name=None, resource_group_name=None, slot=None, opts=None):
+def get_web_app_premier_add_on_slot(name: Optional[str] = None,
+                                    resource_group_name: Optional[str] = None,
+                                    slot: Optional[str] = None,
+                                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetWebAppPremierAddOnSlotResult:
     """
     Use this data source to access information about an existing resource.
 
@@ -110,16 +169,16 @@ def get_web_app_premier_add_on_slot(name=None, resource_group_name=None, slot=No
         opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = _utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('azurerm:web/v20181101:getWebAppPremierAddOnSlot', __args__, opts=opts).value
+    __ret__ = pulumi.runtime.invoke('azurerm:web/v20181101:getWebAppPremierAddOnSlot', __args__, opts=opts, typ=GetWebAppPremierAddOnSlotResult).value
 
     return AwaitableGetWebAppPremierAddOnSlotResult(
-        kind=__ret__.get('kind'),
-        location=__ret__.get('location'),
-        marketplace_offer=__ret__.get('marketplaceOffer'),
-        marketplace_publisher=__ret__.get('marketplacePublisher'),
-        name=__ret__.get('name'),
-        product=__ret__.get('product'),
-        sku=__ret__.get('sku'),
-        tags=__ret__.get('tags'),
-        type=__ret__.get('type'),
-        vendor=__ret__.get('vendor'))
+        kind=__ret__.kind,
+        location=__ret__.location,
+        marketplace_offer=__ret__.marketplace_offer,
+        marketplace_publisher=__ret__.marketplace_publisher,
+        name=__ret__.name,
+        product=__ret__.product,
+        sku=__ret__.sku,
+        tags=__ret__.tags,
+        type=__ret__.type,
+        vendor=__ret__.vendor)

@@ -5,49 +5,36 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+from . import outputs
+from ._inputs import *
+
+__all__ = ['Gateway']
 
 
 class Gateway(pulumi.CustomResource):
-    description: pulumi.Output[str]
-    """
-    Gateway description
-    """
-    location_data: pulumi.Output[dict]
-    """
-    Gateway location.
-      * `city` (`str`) - The city or locality where the resource is located.
-      * `country_or_region` (`str`) - The country or region where the resource is located.
-      * `district` (`str`) - The district, state, or province where the resource is located.
-      * `name` (`str`) - A canonical name for the geographic or physical location.
-    """
-    name: pulumi.Output[str]
-    """
-    Resource name.
-    """
-    type: pulumi.Output[str]
-    """
-    Resource type for API Management resource.
-    """
-    def __init__(__self__, resource_name, opts=None, description=None, location_data=None, name=None, resource_group_name=None, service_name=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 location_data: Optional[pulumi.Input[pulumi.InputType['ResourceLocationDataContractArgs']]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 service_name: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         Gateway details.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: Gateway description
-        :param pulumi.Input[dict] location_data: Gateway location.
+        :param pulumi.Input[pulumi.InputType['ResourceLocationDataContractArgs']] location_data: Gateway location.
         :param pulumi.Input[str] name: Gateway entity identifier. Must be unique in the current API Management service instance. Must not have value 'managed'
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[str] service_name: The name of the API Management service.
-
-        The **location_data** object supports the following:
-
-          * `city` (`pulumi.Input[str]`) - The city or locality where the resource is located.
-          * `country_or_region` (`pulumi.Input[str]`) - The country or region where the resource is located.
-          * `district` (`pulumi.Input[str]`) - The district, state, or province where the resource is located.
-          * `name` (`pulumi.Input[str]`) - A canonical name for the geographic or physical location.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -85,13 +72,15 @@ class Gateway(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None) -> 'Gateway':
         """
         Get an existing Gateway resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -100,8 +89,41 @@ class Gateway(pulumi.CustomResource):
 
         return Gateway(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        """
+        Gateway description
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="locationData")
+    def location_data(self) -> Optional['outputs.ResourceLocationDataContractResponse']:
+        """
+        Gateway location.
+        """
+        return pulumi.get(self, "location_data")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Resource name.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Resource type for API Management resource.
+        """
+        return pulumi.get(self, "type")
+
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

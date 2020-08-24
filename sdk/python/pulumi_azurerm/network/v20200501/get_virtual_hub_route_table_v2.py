@@ -5,10 +5,17 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+from . import outputs
 
+__all__ = [
+    'GetVirtualHubRouteTableV2Result',
+    'AwaitableGetVirtualHubRouteTableV2Result',
+    'get_virtual_hub_route_table_v2',
+]
 
+@pulumi.output_type
 class GetVirtualHubRouteTableV2Result:
     """
     VirtualHubRouteTableV2 Resource.
@@ -16,34 +23,59 @@ class GetVirtualHubRouteTableV2Result:
     def __init__(__self__, attached_connections=None, etag=None, name=None, provisioning_state=None, routes=None):
         if attached_connections and not isinstance(attached_connections, list):
             raise TypeError("Expected argument 'attached_connections' to be a list")
-        __self__.attached_connections = attached_connections
+        pulumi.set(__self__, "attached_connections", attached_connections)
+        if etag and not isinstance(etag, str):
+            raise TypeError("Expected argument 'etag' to be a str")
+        pulumi.set(__self__, "etag", etag)
+        if name and not isinstance(name, str):
+            raise TypeError("Expected argument 'name' to be a str")
+        pulumi.set(__self__, "name", name)
+        if provisioning_state and not isinstance(provisioning_state, str):
+            raise TypeError("Expected argument 'provisioning_state' to be a str")
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if routes and not isinstance(routes, list):
+            raise TypeError("Expected argument 'routes' to be a list")
+        pulumi.set(__self__, "routes", routes)
+
+    @property
+    @pulumi.getter(name="attachedConnections")
+    def attached_connections(self) -> Optional[List[str]]:
         """
         List of all connections attached to this route table v2.
         """
-        if etag and not isinstance(etag, str):
-            raise TypeError("Expected argument 'etag' to be a str")
-        __self__.etag = etag
+        return pulumi.get(self, "attached_connections")
+
+    @property
+    @pulumi.getter
+    def etag(self) -> str:
         """
         A unique read-only string that changes whenever the resource is updated.
         """
-        if name and not isinstance(name, str):
-            raise TypeError("Expected argument 'name' to be a str")
-        __self__.name = name
+        return pulumi.get(self, "etag")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
         """
         The name of the resource that is unique within a resource group. This name can be used to access the resource.
         """
-        if provisioning_state and not isinstance(provisioning_state, str):
-            raise TypeError("Expected argument 'provisioning_state' to be a str")
-        __self__.provisioning_state = provisioning_state
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
         """
         The provisioning state of the virtual hub route table v2 resource.
         """
-        if routes and not isinstance(routes, list):
-            raise TypeError("Expected argument 'routes' to be a list")
-        __self__.routes = routes
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter
+    def routes(self) -> Optional[List['outputs.VirtualHubRouteV2Response']]:
         """
         List of all routes.
         """
+        return pulumi.get(self, "routes")
 
 
 class AwaitableGetVirtualHubRouteTableV2Result(GetVirtualHubRouteTableV2Result):
@@ -59,7 +91,10 @@ class AwaitableGetVirtualHubRouteTableV2Result(GetVirtualHubRouteTableV2Result):
             routes=self.routes)
 
 
-def get_virtual_hub_route_table_v2(name=None, resource_group_name=None, virtual_hub_name=None, opts=None):
+def get_virtual_hub_route_table_v2(name: Optional[str] = None,
+                                   resource_group_name: Optional[str] = None,
+                                   virtual_hub_name: Optional[str] = None,
+                                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVirtualHubRouteTableV2Result:
     """
     Use this data source to access information about an existing resource.
 
@@ -75,11 +110,11 @@ def get_virtual_hub_route_table_v2(name=None, resource_group_name=None, virtual_
         opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = _utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('azurerm:network/v20200501:getVirtualHubRouteTableV2', __args__, opts=opts).value
+    __ret__ = pulumi.runtime.invoke('azurerm:network/v20200501:getVirtualHubRouteTableV2', __args__, opts=opts, typ=GetVirtualHubRouteTableV2Result).value
 
     return AwaitableGetVirtualHubRouteTableV2Result(
-        attached_connections=__ret__.get('attachedConnections'),
-        etag=__ret__.get('etag'),
-        name=__ret__.get('name'),
-        provisioning_state=__ret__.get('provisioningState'),
-        routes=__ret__.get('routes'))
+        attached_connections=__ret__.attached_connections,
+        etag=__ret__.etag,
+        name=__ret__.name,
+        provisioning_state=__ret__.provisioning_state,
+        routes=__ret__.routes)

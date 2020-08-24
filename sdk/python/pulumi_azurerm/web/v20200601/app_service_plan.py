@@ -5,140 +5,46 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+from . import outputs
+from ._inputs import *
+
+__all__ = ['AppServicePlan']
 
 
 class AppServicePlan(pulumi.CustomResource):
-    free_offer_expiration_time: pulumi.Output[str]
-    """
-    The time when the server farm free offer expires.
-    """
-    geo_region: pulumi.Output[str]
-    """
-    Geographical location for the App Service plan.
-    """
-    hosting_environment_profile: pulumi.Output[dict]
-    """
-    Specification for the App Service Environment to use for the App Service plan.
-      * `id` (`str`) - Resource ID of the App Service Environment.
-      * `name` (`str`) - Name of the App Service Environment.
-      * `type` (`str`) - Resource type of the App Service Environment.
-    """
-    hyper_v: pulumi.Output[bool]
-    """
-    If Hyper-V container app service plan <code>true</code>, <code>false</code> otherwise.
-    """
-    is_spot: pulumi.Output[bool]
-    """
-    If <code>true</code>, this App Service Plan owns spot instances.
-    """
-    is_xenon: pulumi.Output[bool]
-    """
-    Obsolete: If Hyper-V container app service plan <code>true</code>, <code>false</code> otherwise.
-    """
-    kind: pulumi.Output[str]
-    """
-    Kind of resource.
-    """
-    location: pulumi.Output[str]
-    """
-    Resource Location.
-    """
-    maximum_elastic_worker_count: pulumi.Output[float]
-    """
-    Maximum number of total workers allowed for this ElasticScaleEnabled App Service Plan
-    """
-    maximum_number_of_workers: pulumi.Output[float]
-    """
-    Maximum number of instances that can be assigned to this App Service plan.
-    """
-    name: pulumi.Output[str]
-    """
-    Resource Name.
-    """
-    number_of_sites: pulumi.Output[float]
-    """
-    Number of apps assigned to this App Service plan.
-    """
-    per_site_scaling: pulumi.Output[bool]
-    """
-    If <code>true</code>, apps assigned to this App Service plan can be scaled independently.
-    If <code>false</code>, apps assigned to this App Service plan will scale to all instances of the plan.
-    """
-    provisioning_state: pulumi.Output[str]
-    """
-    Provisioning state of the App Service Environment.
-    """
-    reserved: pulumi.Output[bool]
-    """
-    If Linux app service plan <code>true</code>, <code>false</code> otherwise.
-    """
-    resource_group: pulumi.Output[str]
-    """
-    Resource group of the App Service plan.
-    """
-    sku: pulumi.Output[dict]
-    """
-    Description of a SKU for a scalable resource.
-      * `capabilities` (`list`) - Capabilities of the SKU, e.g., is traffic manager enabled?
-        * `name` (`str`) - Name of the SKU capability.
-        * `reason` (`str`) - Reason of the SKU capability.
-        * `value` (`str`) - Value of the SKU capability.
-
-      * `capacity` (`float`) - Current number of instances assigned to the resource.
-      * `family` (`str`) - Family code of the resource SKU.
-      * `locations` (`list`) - Locations of the SKU.
-      * `name` (`str`) - Name of the resource SKU.
-      * `size` (`str`) - Size specifier of the resource SKU.
-      * `sku_capacity` (`dict`) - Min, max, and default scale values of the SKU.
-        * `default` (`float`) - Default number of workers for this App Service plan SKU.
-        * `maximum` (`float`) - Maximum number of workers for this App Service plan SKU.
-        * `minimum` (`float`) - Minimum number of workers for this App Service plan SKU.
-        * `scale_type` (`str`) - Available scale configurations for an App Service plan.
-
-      * `tier` (`str`) - Service tier of the resource SKU.
-    """
-    spot_expiration_time: pulumi.Output[str]
-    """
-    The time when the server farm expires. Valid only if it is a spot server farm.
-    """
-    status: pulumi.Output[str]
-    """
-    App Service plan status.
-    """
-    subscription: pulumi.Output[str]
-    """
-    App Service plan subscription.
-    """
-    tags: pulumi.Output[dict]
-    """
-    Resource tags.
-    """
-    target_worker_count: pulumi.Output[float]
-    """
-    Scaling worker count.
-    """
-    target_worker_size_id: pulumi.Output[float]
-    """
-    Scaling worker size ID.
-    """
-    type: pulumi.Output[str]
-    """
-    Resource type.
-    """
-    worker_tier_name: pulumi.Output[str]
-    """
-    Target worker tier assigned to the App Service plan.
-    """
-    def __init__(__self__, resource_name, opts=None, free_offer_expiration_time=None, hosting_environment_profile=None, hyper_v=None, is_spot=None, is_xenon=None, kind=None, location=None, maximum_elastic_worker_count=None, name=None, per_site_scaling=None, reserved=None, resource_group_name=None, sku=None, spot_expiration_time=None, tags=None, target_worker_count=None, target_worker_size_id=None, worker_tier_name=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 free_offer_expiration_time: Optional[pulumi.Input[str]] = None,
+                 hosting_environment_profile: Optional[pulumi.Input[pulumi.InputType['HostingEnvironmentProfileArgs']]] = None,
+                 hyper_v: Optional[pulumi.Input[bool]] = None,
+                 is_spot: Optional[pulumi.Input[bool]] = None,
+                 is_xenon: Optional[pulumi.Input[bool]] = None,
+                 kind: Optional[pulumi.Input[str]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 maximum_elastic_worker_count: Optional[pulumi.Input[float]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 per_site_scaling: Optional[pulumi.Input[bool]] = None,
+                 reserved: Optional[pulumi.Input[bool]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 sku: Optional[pulumi.Input[pulumi.InputType['SkuDescriptionArgs']]] = None,
+                 spot_expiration_time: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 target_worker_count: Optional[pulumi.Input[float]] = None,
+                 target_worker_size_id: Optional[pulumi.Input[float]] = None,
+                 worker_tier_name: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         App Service plan.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] free_offer_expiration_time: The time when the server farm free offer expires.
-        :param pulumi.Input[dict] hosting_environment_profile: Specification for the App Service Environment to use for the App Service plan.
+        :param pulumi.Input[pulumi.InputType['HostingEnvironmentProfileArgs']] hosting_environment_profile: Specification for the App Service Environment to use for the App Service plan.
         :param pulumi.Input[bool] hyper_v: If Hyper-V container app service plan <code>true</code>, <code>false</code> otherwise.
         :param pulumi.Input[bool] is_spot: If <code>true</code>, this App Service Plan owns spot instances.
         :param pulumi.Input[bool] is_xenon: Obsolete: If Hyper-V container app service plan <code>true</code>, <code>false</code> otherwise.
@@ -150,36 +56,12 @@ class AppServicePlan(pulumi.CustomResource):
                If <code>false</code>, apps assigned to this App Service plan will scale to all instances of the plan.
         :param pulumi.Input[bool] reserved: If Linux app service plan <code>true</code>, <code>false</code> otherwise.
         :param pulumi.Input[str] resource_group_name: Name of the resource group to which the resource belongs.
-        :param pulumi.Input[dict] sku: Description of a SKU for a scalable resource.
+        :param pulumi.Input[pulumi.InputType['SkuDescriptionArgs']] sku: Description of a SKU for a scalable resource.
         :param pulumi.Input[str] spot_expiration_time: The time when the server farm expires. Valid only if it is a spot server farm.
-        :param pulumi.Input[dict] tags: Resource tags.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         :param pulumi.Input[float] target_worker_count: Scaling worker count.
         :param pulumi.Input[float] target_worker_size_id: Scaling worker size ID.
         :param pulumi.Input[str] worker_tier_name: Target worker tier assigned to the App Service plan.
-
-        The **hosting_environment_profile** object supports the following:
-
-          * `id` (`pulumi.Input[str]`) - Resource ID of the App Service Environment.
-
-        The **sku** object supports the following:
-
-          * `capabilities` (`pulumi.Input[list]`) - Capabilities of the SKU, e.g., is traffic manager enabled?
-            * `name` (`pulumi.Input[str]`) - Name of the SKU capability.
-            * `reason` (`pulumi.Input[str]`) - Reason of the SKU capability.
-            * `value` (`pulumi.Input[str]`) - Value of the SKU capability.
-
-          * `capacity` (`pulumi.Input[float]`) - Current number of instances assigned to the resource.
-          * `family` (`pulumi.Input[str]`) - Family code of the resource SKU.
-          * `locations` (`pulumi.Input[list]`) - Locations of the SKU.
-          * `name` (`pulumi.Input[str]`) - Name of the resource SKU.
-          * `size` (`pulumi.Input[str]`) - Size specifier of the resource SKU.
-          * `sku_capacity` (`pulumi.Input[dict]`) - Min, max, and default scale values of the SKU.
-            * `default` (`pulumi.Input[float]`) - Default number of workers for this App Service plan SKU.
-            * `maximum` (`pulumi.Input[float]`) - Maximum number of workers for this App Service plan SKU.
-            * `minimum` (`pulumi.Input[float]`) - Minimum number of workers for this App Service plan SKU.
-            * `scale_type` (`pulumi.Input[str]`) - Available scale configurations for an App Service plan.
-
-          * `tier` (`pulumi.Input[str]`) - Service tier of the resource SKU.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -239,13 +121,15 @@ class AppServicePlan(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None) -> 'AppServicePlan':
         """
         Get an existing AppServicePlan resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -254,8 +138,210 @@ class AppServicePlan(pulumi.CustomResource):
 
         return AppServicePlan(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter(name="freeOfferExpirationTime")
+    def free_offer_expiration_time(self) -> Optional[str]:
+        """
+        The time when the server farm free offer expires.
+        """
+        return pulumi.get(self, "free_offer_expiration_time")
+
+    @property
+    @pulumi.getter(name="geoRegion")
+    def geo_region(self) -> str:
+        """
+        Geographical location for the App Service plan.
+        """
+        return pulumi.get(self, "geo_region")
+
+    @property
+    @pulumi.getter(name="hostingEnvironmentProfile")
+    def hosting_environment_profile(self) -> Optional['outputs.HostingEnvironmentProfileResponse']:
+        """
+        Specification for the App Service Environment to use for the App Service plan.
+        """
+        return pulumi.get(self, "hosting_environment_profile")
+
+    @property
+    @pulumi.getter(name="hyperV")
+    def hyper_v(self) -> Optional[bool]:
+        """
+        If Hyper-V container app service plan <code>true</code>, <code>false</code> otherwise.
+        """
+        return pulumi.get(self, "hyper_v")
+
+    @property
+    @pulumi.getter(name="isSpot")
+    def is_spot(self) -> Optional[bool]:
+        """
+        If <code>true</code>, this App Service Plan owns spot instances.
+        """
+        return pulumi.get(self, "is_spot")
+
+    @property
+    @pulumi.getter(name="isXenon")
+    def is_xenon(self) -> Optional[bool]:
+        """
+        Obsolete: If Hyper-V container app service plan <code>true</code>, <code>false</code> otherwise.
+        """
+        return pulumi.get(self, "is_xenon")
+
+    @property
+    @pulumi.getter
+    def kind(self) -> Optional[str]:
+        """
+        Kind of resource.
+        """
+        return pulumi.get(self, "kind")
+
+    @property
+    @pulumi.getter
+    def location(self) -> str:
+        """
+        Resource Location.
+        """
+        return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter(name="maximumElasticWorkerCount")
+    def maximum_elastic_worker_count(self) -> Optional[float]:
+        """
+        Maximum number of total workers allowed for this ElasticScaleEnabled App Service Plan
+        """
+        return pulumi.get(self, "maximum_elastic_worker_count")
+
+    @property
+    @pulumi.getter(name="maximumNumberOfWorkers")
+    def maximum_number_of_workers(self) -> float:
+        """
+        Maximum number of instances that can be assigned to this App Service plan.
+        """
+        return pulumi.get(self, "maximum_number_of_workers")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Resource Name.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="numberOfSites")
+    def number_of_sites(self) -> float:
+        """
+        Number of apps assigned to this App Service plan.
+        """
+        return pulumi.get(self, "number_of_sites")
+
+    @property
+    @pulumi.getter(name="perSiteScaling")
+    def per_site_scaling(self) -> Optional[bool]:
+        """
+        If <code>true</code>, apps assigned to this App Service plan can be scaled independently.
+        If <code>false</code>, apps assigned to this App Service plan will scale to all instances of the plan.
+        """
+        return pulumi.get(self, "per_site_scaling")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        Provisioning state of the App Service Environment.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter
+    def reserved(self) -> Optional[bool]:
+        """
+        If Linux app service plan <code>true</code>, <code>false</code> otherwise.
+        """
+        return pulumi.get(self, "reserved")
+
+    @property
+    @pulumi.getter(name="resourceGroup")
+    def resource_group(self) -> str:
+        """
+        Resource group of the App Service plan.
+        """
+        return pulumi.get(self, "resource_group")
+
+    @property
+    @pulumi.getter
+    def sku(self) -> Optional['outputs.SkuDescriptionResponse']:
+        """
+        Description of a SKU for a scalable resource.
+        """
+        return pulumi.get(self, "sku")
+
+    @property
+    @pulumi.getter(name="spotExpirationTime")
+    def spot_expiration_time(self) -> Optional[str]:
+        """
+        The time when the server farm expires. Valid only if it is a spot server farm.
+        """
+        return pulumi.get(self, "spot_expiration_time")
+
+    @property
+    @pulumi.getter
+    def status(self) -> str:
+        """
+        App Service plan status.
+        """
+        return pulumi.get(self, "status")
+
+    @property
+    @pulumi.getter
+    def subscription(self) -> str:
+        """
+        App Service plan subscription.
+        """
+        return pulumi.get(self, "subscription")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Mapping[str, str]]:
+        """
+        Resource tags.
+        """
+        return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter(name="targetWorkerCount")
+    def target_worker_count(self) -> Optional[float]:
+        """
+        Scaling worker count.
+        """
+        return pulumi.get(self, "target_worker_count")
+
+    @property
+    @pulumi.getter(name="targetWorkerSizeId")
+    def target_worker_size_id(self) -> Optional[float]:
+        """
+        Scaling worker size ID.
+        """
+        return pulumi.get(self, "target_worker_size_id")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Resource type.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="workerTierName")
+    def worker_tier_name(self) -> Optional[str]:
+        """
+        Target worker tier assigned to the App Service plan.
+        """
+        return pulumi.get(self, "worker_tier_name")
+
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

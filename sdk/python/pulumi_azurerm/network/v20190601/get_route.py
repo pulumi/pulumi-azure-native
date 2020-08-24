@@ -5,10 +5,16 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
 
+__all__ = [
+    'GetRouteResult',
+    'AwaitableGetRouteResult',
+    'get_route',
+]
 
+@pulumi.output_type
 class GetRouteResult:
     """
     Route resource.
@@ -16,40 +22,70 @@ class GetRouteResult:
     def __init__(__self__, address_prefix=None, etag=None, name=None, next_hop_ip_address=None, next_hop_type=None, provisioning_state=None):
         if address_prefix and not isinstance(address_prefix, str):
             raise TypeError("Expected argument 'address_prefix' to be a str")
-        __self__.address_prefix = address_prefix
+        pulumi.set(__self__, "address_prefix", address_prefix)
+        if etag and not isinstance(etag, str):
+            raise TypeError("Expected argument 'etag' to be a str")
+        pulumi.set(__self__, "etag", etag)
+        if name and not isinstance(name, str):
+            raise TypeError("Expected argument 'name' to be a str")
+        pulumi.set(__self__, "name", name)
+        if next_hop_ip_address and not isinstance(next_hop_ip_address, str):
+            raise TypeError("Expected argument 'next_hop_ip_address' to be a str")
+        pulumi.set(__self__, "next_hop_ip_address", next_hop_ip_address)
+        if next_hop_type and not isinstance(next_hop_type, str):
+            raise TypeError("Expected argument 'next_hop_type' to be a str")
+        pulumi.set(__self__, "next_hop_type", next_hop_type)
+        if provisioning_state and not isinstance(provisioning_state, str):
+            raise TypeError("Expected argument 'provisioning_state' to be a str")
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+
+    @property
+    @pulumi.getter(name="addressPrefix")
+    def address_prefix(self) -> Optional[str]:
         """
         The destination CIDR to which the route applies.
         """
-        if etag and not isinstance(etag, str):
-            raise TypeError("Expected argument 'etag' to be a str")
-        __self__.etag = etag
+        return pulumi.get(self, "address_prefix")
+
+    @property
+    @pulumi.getter
+    def etag(self) -> Optional[str]:
         """
         A unique read-only string that changes whenever the resource is updated.
         """
-        if name and not isinstance(name, str):
-            raise TypeError("Expected argument 'name' to be a str")
-        __self__.name = name
+        return pulumi.get(self, "etag")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
         """
         The name of the resource that is unique within a resource group. This name can be used to access the resource.
         """
-        if next_hop_ip_address and not isinstance(next_hop_ip_address, str):
-            raise TypeError("Expected argument 'next_hop_ip_address' to be a str")
-        __self__.next_hop_ip_address = next_hop_ip_address
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="nextHopIpAddress")
+    def next_hop_ip_address(self) -> Optional[str]:
         """
         The IP address packets should be forwarded to. Next hop values are only allowed in routes where the next hop type is VirtualAppliance.
         """
-        if next_hop_type and not isinstance(next_hop_type, str):
-            raise TypeError("Expected argument 'next_hop_type' to be a str")
-        __self__.next_hop_type = next_hop_type
+        return pulumi.get(self, "next_hop_ip_address")
+
+    @property
+    @pulumi.getter(name="nextHopType")
+    def next_hop_type(self) -> str:
         """
         The type of Azure hop the packet should be sent to.
         """
-        if provisioning_state and not isinstance(provisioning_state, str):
-            raise TypeError("Expected argument 'provisioning_state' to be a str")
-        __self__.provisioning_state = provisioning_state
+        return pulumi.get(self, "next_hop_type")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> Optional[str]:
         """
         The provisioning state of the resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
         """
+        return pulumi.get(self, "provisioning_state")
 
 
 class AwaitableGetRouteResult(GetRouteResult):
@@ -66,7 +102,10 @@ class AwaitableGetRouteResult(GetRouteResult):
             provisioning_state=self.provisioning_state)
 
 
-def get_route(name=None, resource_group_name=None, route_table_name=None, opts=None):
+def get_route(name: Optional[str] = None,
+              resource_group_name: Optional[str] = None,
+              route_table_name: Optional[str] = None,
+              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetRouteResult:
     """
     Use this data source to access information about an existing resource.
 
@@ -82,12 +121,12 @@ def get_route(name=None, resource_group_name=None, route_table_name=None, opts=N
         opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = _utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('azurerm:network/v20190601:getRoute', __args__, opts=opts).value
+    __ret__ = pulumi.runtime.invoke('azurerm:network/v20190601:getRoute', __args__, opts=opts, typ=GetRouteResult).value
 
     return AwaitableGetRouteResult(
-        address_prefix=__ret__.get('addressPrefix'),
-        etag=__ret__.get('etag'),
-        name=__ret__.get('name'),
-        next_hop_ip_address=__ret__.get('nextHopIpAddress'),
-        next_hop_type=__ret__.get('nextHopType'),
-        provisioning_state=__ret__.get('provisioningState'))
+        address_prefix=__ret__.address_prefix,
+        etag=__ret__.etag,
+        name=__ret__.name,
+        next_hop_ip_address=__ret__.next_hop_ip_address,
+        next_hop_type=__ret__.next_hop_type,
+        provisioning_state=__ret__.provisioning_state)

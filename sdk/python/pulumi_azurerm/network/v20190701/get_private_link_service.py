@@ -5,10 +5,17 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+from . import outputs
 
+__all__ = [
+    'GetPrivateLinkServiceResult',
+    'AwaitableGetPrivateLinkServiceResult',
+    'get_private_link_service',
+]
 
+@pulumi.output_type
 class GetPrivateLinkServiceResult:
     """
     Private link service resource.
@@ -16,88 +23,158 @@ class GetPrivateLinkServiceResult:
     def __init__(__self__, alias=None, auto_approval=None, etag=None, fqdns=None, ip_configurations=None, load_balancer_frontend_ip_configurations=None, location=None, name=None, network_interfaces=None, private_endpoint_connections=None, provisioning_state=None, tags=None, type=None, visibility=None):
         if alias and not isinstance(alias, str):
             raise TypeError("Expected argument 'alias' to be a str")
-        __self__.alias = alias
+        pulumi.set(__self__, "alias", alias)
+        if auto_approval and not isinstance(auto_approval, dict):
+            raise TypeError("Expected argument 'auto_approval' to be a dict")
+        pulumi.set(__self__, "auto_approval", auto_approval)
+        if etag and not isinstance(etag, str):
+            raise TypeError("Expected argument 'etag' to be a str")
+        pulumi.set(__self__, "etag", etag)
+        if fqdns and not isinstance(fqdns, list):
+            raise TypeError("Expected argument 'fqdns' to be a list")
+        pulumi.set(__self__, "fqdns", fqdns)
+        if ip_configurations and not isinstance(ip_configurations, list):
+            raise TypeError("Expected argument 'ip_configurations' to be a list")
+        pulumi.set(__self__, "ip_configurations", ip_configurations)
+        if load_balancer_frontend_ip_configurations and not isinstance(load_balancer_frontend_ip_configurations, list):
+            raise TypeError("Expected argument 'load_balancer_frontend_ip_configurations' to be a list")
+        pulumi.set(__self__, "load_balancer_frontend_ip_configurations", load_balancer_frontend_ip_configurations)
+        if location and not isinstance(location, str):
+            raise TypeError("Expected argument 'location' to be a str")
+        pulumi.set(__self__, "location", location)
+        if name and not isinstance(name, str):
+            raise TypeError("Expected argument 'name' to be a str")
+        pulumi.set(__self__, "name", name)
+        if network_interfaces and not isinstance(network_interfaces, list):
+            raise TypeError("Expected argument 'network_interfaces' to be a list")
+        pulumi.set(__self__, "network_interfaces", network_interfaces)
+        if private_endpoint_connections and not isinstance(private_endpoint_connections, list):
+            raise TypeError("Expected argument 'private_endpoint_connections' to be a list")
+        pulumi.set(__self__, "private_endpoint_connections", private_endpoint_connections)
+        if provisioning_state and not isinstance(provisioning_state, str):
+            raise TypeError("Expected argument 'provisioning_state' to be a str")
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if tags and not isinstance(tags, dict):
+            raise TypeError("Expected argument 'tags' to be a dict")
+        pulumi.set(__self__, "tags", tags)
+        if type and not isinstance(type, str):
+            raise TypeError("Expected argument 'type' to be a str")
+        pulumi.set(__self__, "type", type)
+        if visibility and not isinstance(visibility, dict):
+            raise TypeError("Expected argument 'visibility' to be a dict")
+        pulumi.set(__self__, "visibility", visibility)
+
+    @property
+    @pulumi.getter
+    def alias(self) -> str:
         """
         The alias of the private link service.
         """
-        if auto_approval and not isinstance(auto_approval, dict):
-            raise TypeError("Expected argument 'auto_approval' to be a dict")
-        __self__.auto_approval = auto_approval
+        return pulumi.get(self, "alias")
+
+    @property
+    @pulumi.getter(name="autoApproval")
+    def auto_approval(self) -> Optional['outputs.PrivateLinkServicePropertiesResponseAutoApproval']:
         """
         The auto-approval list of the private link service.
         """
-        if etag and not isinstance(etag, str):
-            raise TypeError("Expected argument 'etag' to be a str")
-        __self__.etag = etag
+        return pulumi.get(self, "auto_approval")
+
+    @property
+    @pulumi.getter
+    def etag(self) -> Optional[str]:
         """
         A unique read-only string that changes whenever the resource is updated.
         """
-        if fqdns and not isinstance(fqdns, list):
-            raise TypeError("Expected argument 'fqdns' to be a list")
-        __self__.fqdns = fqdns
+        return pulumi.get(self, "etag")
+
+    @property
+    @pulumi.getter
+    def fqdns(self) -> Optional[List[str]]:
         """
         The list of Fqdn.
         """
-        if ip_configurations and not isinstance(ip_configurations, list):
-            raise TypeError("Expected argument 'ip_configurations' to be a list")
-        __self__.ip_configurations = ip_configurations
+        return pulumi.get(self, "fqdns")
+
+    @property
+    @pulumi.getter(name="ipConfigurations")
+    def ip_configurations(self) -> Optional[List['outputs.PrivateLinkServiceIpConfigurationResponse']]:
         """
         An array of private link service IP configurations.
         """
-        if load_balancer_frontend_ip_configurations and not isinstance(load_balancer_frontend_ip_configurations, list):
-            raise TypeError("Expected argument 'load_balancer_frontend_ip_configurations' to be a list")
-        __self__.load_balancer_frontend_ip_configurations = load_balancer_frontend_ip_configurations
+        return pulumi.get(self, "ip_configurations")
+
+    @property
+    @pulumi.getter(name="loadBalancerFrontendIpConfigurations")
+    def load_balancer_frontend_ip_configurations(self) -> Optional[List['outputs.FrontendIPConfigurationResponse']]:
         """
         An array of references to the load balancer IP configurations.
         """
-        if location and not isinstance(location, str):
-            raise TypeError("Expected argument 'location' to be a str")
-        __self__.location = location
+        return pulumi.get(self, "load_balancer_frontend_ip_configurations")
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[str]:
         """
         Resource location.
         """
-        if name and not isinstance(name, str):
-            raise TypeError("Expected argument 'name' to be a str")
-        __self__.name = name
+        return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
         """
         Resource name.
         """
-        if network_interfaces and not isinstance(network_interfaces, list):
-            raise TypeError("Expected argument 'network_interfaces' to be a list")
-        __self__.network_interfaces = network_interfaces
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="networkInterfaces")
+    def network_interfaces(self) -> List['outputs.NetworkInterfaceResponse']:
         """
         An array of references to the network interfaces created for this private link service.
         """
-        if private_endpoint_connections and not isinstance(private_endpoint_connections, list):
-            raise TypeError("Expected argument 'private_endpoint_connections' to be a list")
-        __self__.private_endpoint_connections = private_endpoint_connections
+        return pulumi.get(self, "network_interfaces")
+
+    @property
+    @pulumi.getter(name="privateEndpointConnections")
+    def private_endpoint_connections(self) -> Optional[List['outputs.PrivateEndpointConnectionResponse']]:
         """
         An array of list about connections to the private endpoint.
         """
-        if provisioning_state and not isinstance(provisioning_state, str):
-            raise TypeError("Expected argument 'provisioning_state' to be a str")
-        __self__.provisioning_state = provisioning_state
+        return pulumi.get(self, "private_endpoint_connections")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> Optional[str]:
         """
         The provisioning state of the private link service resource.
         """
-        if tags and not isinstance(tags, dict):
-            raise TypeError("Expected argument 'tags' to be a dict")
-        __self__.tags = tags
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Mapping[str, str]]:
         """
         Resource tags.
         """
-        if type and not isinstance(type, str):
-            raise TypeError("Expected argument 'type' to be a str")
-        __self__.type = type
+        return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
         """
         Resource type.
         """
-        if visibility and not isinstance(visibility, dict):
-            raise TypeError("Expected argument 'visibility' to be a dict")
-        __self__.visibility = visibility
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def visibility(self) -> Optional['outputs.PrivateLinkServicePropertiesResponseVisibility']:
         """
         The visibility list of the private link service.
         """
+        return pulumi.get(self, "visibility")
 
 
 class AwaitableGetPrivateLinkServiceResult(GetPrivateLinkServiceResult):
@@ -122,7 +199,10 @@ class AwaitableGetPrivateLinkServiceResult(GetPrivateLinkServiceResult):
             visibility=self.visibility)
 
 
-def get_private_link_service(expand=None, name=None, resource_group_name=None, opts=None):
+def get_private_link_service(expand: Optional[str] = None,
+                             name: Optional[str] = None,
+                             resource_group_name: Optional[str] = None,
+                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPrivateLinkServiceResult:
     """
     Use this data source to access information about an existing resource.
 
@@ -138,20 +218,20 @@ def get_private_link_service(expand=None, name=None, resource_group_name=None, o
         opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = _utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('azurerm:network/v20190701:getPrivateLinkService', __args__, opts=opts).value
+    __ret__ = pulumi.runtime.invoke('azurerm:network/v20190701:getPrivateLinkService', __args__, opts=opts, typ=GetPrivateLinkServiceResult).value
 
     return AwaitableGetPrivateLinkServiceResult(
-        alias=__ret__.get('alias'),
-        auto_approval=__ret__.get('autoApproval'),
-        etag=__ret__.get('etag'),
-        fqdns=__ret__.get('fqdns'),
-        ip_configurations=__ret__.get('ipConfigurations'),
-        load_balancer_frontend_ip_configurations=__ret__.get('loadBalancerFrontendIpConfigurations'),
-        location=__ret__.get('location'),
-        name=__ret__.get('name'),
-        network_interfaces=__ret__.get('networkInterfaces'),
-        private_endpoint_connections=__ret__.get('privateEndpointConnections'),
-        provisioning_state=__ret__.get('provisioningState'),
-        tags=__ret__.get('tags'),
-        type=__ret__.get('type'),
-        visibility=__ret__.get('visibility'))
+        alias=__ret__.alias,
+        auto_approval=__ret__.auto_approval,
+        etag=__ret__.etag,
+        fqdns=__ret__.fqdns,
+        ip_configurations=__ret__.ip_configurations,
+        load_balancer_frontend_ip_configurations=__ret__.load_balancer_frontend_ip_configurations,
+        location=__ret__.location,
+        name=__ret__.name,
+        network_interfaces=__ret__.network_interfaces,
+        private_endpoint_connections=__ret__.private_endpoint_connections,
+        provisioning_state=__ret__.provisioning_state,
+        tags=__ret__.tags,
+        type=__ret__.type,
+        visibility=__ret__.visibility)

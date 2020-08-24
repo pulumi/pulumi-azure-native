@@ -5,97 +5,44 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+from . import outputs
+from ._inputs import *
+
+__all__ = ['Topic']
 
 
 class Topic(pulumi.CustomResource):
-    endpoint: pulumi.Output[str]
-    """
-    Endpoint for the topic.
-    """
-    inbound_ip_rules: pulumi.Output[list]
-    """
-    This can be used to restrict traffic from specific IPs instead of all IPs. Note: These are considered only if PublicNetworkAccess is enabled.
-      * `action` (`str`) - Action to perform based on the match or no match of the IpMask.
-      * `ip_mask` (`str`) - IP Address in CIDR notation e.g., 10.0.0.0/8.
-    """
-    input_schema: pulumi.Output[str]
-    """
-    This determines the format that Event Grid should expect for incoming events published to the topic.
-    """
-    input_schema_mapping: pulumi.Output[dict]
-    """
-    This enables publishing using custom event schemas. An InputSchemaMapping can be specified to map various properties of a source schema to various required properties of the EventGridEvent schema.
-      * `input_schema_mapping_type` (`str`) - Type of the custom mapping
-    """
-    location: pulumi.Output[str]
-    """
-    Location of the resource.
-    """
-    metric_resource_id: pulumi.Output[str]
-    """
-    Metric resource id for the topic.
-    """
-    name: pulumi.Output[str]
-    """
-    Name of the resource.
-    """
-    private_endpoint_connections: pulumi.Output[list]
-    provisioning_state: pulumi.Output[str]
-    """
-    Provisioning state of the topic.
-    """
-    public_network_access: pulumi.Output[str]
-    """
-    This determines if traffic is allowed over public network. By default it is enabled. 
-    You can further restrict to specific IPs by configuring <seealso cref="P:Microsoft.Azure.Events.ResourceProvider.Common.Contracts.TopicProperties.InboundIpRules" />
-    """
-    tags: pulumi.Output[dict]
-    """
-    Tags of the resource.
-    """
-    type: pulumi.Output[str]
-    """
-    Type of the resource.
-    """
-    def __init__(__self__, resource_name, opts=None, inbound_ip_rules=None, input_schema=None, input_schema_mapping=None, location=None, name=None, private_endpoint_connections=None, public_network_access=None, resource_group_name=None, tags=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 inbound_ip_rules: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['InboundIpRuleArgs']]]]] = None,
+                 input_schema: Optional[pulumi.Input[str]] = None,
+                 input_schema_mapping: Optional[pulumi.Input[pulumi.InputType['InputSchemaMappingArgs']]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 private_endpoint_connections: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['PrivateEndpointConnectionArgs']]]]] = None,
+                 public_network_access: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         EventGrid Topic
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[list] inbound_ip_rules: This can be used to restrict traffic from specific IPs instead of all IPs. Note: These are considered only if PublicNetworkAccess is enabled.
+        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['InboundIpRuleArgs']]]] inbound_ip_rules: This can be used to restrict traffic from specific IPs instead of all IPs. Note: These are considered only if PublicNetworkAccess is enabled.
         :param pulumi.Input[str] input_schema: This determines the format that Event Grid should expect for incoming events published to the topic.
-        :param pulumi.Input[dict] input_schema_mapping: This enables publishing using custom event schemas. An InputSchemaMapping can be specified to map various properties of a source schema to various required properties of the EventGridEvent schema.
+        :param pulumi.Input[pulumi.InputType['InputSchemaMappingArgs']] input_schema_mapping: This enables publishing using custom event schemas. An InputSchemaMapping can be specified to map various properties of a source schema to various required properties of the EventGridEvent schema.
         :param pulumi.Input[str] location: Location of the resource.
         :param pulumi.Input[str] name: Name of the topic.
         :param pulumi.Input[str] public_network_access: This determines if traffic is allowed over public network. By default it is enabled. 
                You can further restrict to specific IPs by configuring <seealso cref="P:Microsoft.Azure.Events.ResourceProvider.Common.Contracts.TopicProperties.InboundIpRules" />
         :param pulumi.Input[str] resource_group_name: The name of the resource group within the user's subscription.
-        :param pulumi.Input[dict] tags: Tags of the resource.
-
-        The **inbound_ip_rules** object supports the following:
-
-          * `action` (`pulumi.Input[str]`) - Action to perform based on the match or no match of the IpMask.
-          * `ip_mask` (`pulumi.Input[str]`) - IP Address in CIDR notation e.g., 10.0.0.0/8.
-
-        The **input_schema_mapping** object supports the following:
-
-          * `input_schema_mapping_type` (`pulumi.Input[str]`) - Type of the custom mapping
-
-        The **private_endpoint_connections** object supports the following:
-
-          * `group_ids` (`pulumi.Input[list]`) - GroupIds from the private link service resource.
-          * `private_endpoint` (`pulumi.Input[dict]`) - The Private Endpoint resource for this Connection.
-            * `id` (`pulumi.Input[str]`) - The ARM identifier for Private Endpoint.
-
-          * `private_link_service_connection_state` (`pulumi.Input[dict]`) - Details about the state of the connection.
-            * `actions_required` (`pulumi.Input[str]`) - Actions required (if any).
-            * `description` (`pulumi.Input[str]`) - Description of the connection state.
-            * `status` (`pulumi.Input[str]`) - Status of the connection.
-
-          * `provisioning_state` (`pulumi.Input[str]`) - Provisioning state of the Private Endpoint Connection.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Tags of the resource.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -142,13 +89,15 @@ class Topic(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None) -> 'Topic':
         """
         Get an existing Topic resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -157,8 +106,103 @@ class Topic(pulumi.CustomResource):
 
         return Topic(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter
+    def endpoint(self) -> str:
+        """
+        Endpoint for the topic.
+        """
+        return pulumi.get(self, "endpoint")
+
+    @property
+    @pulumi.getter(name="inboundIpRules")
+    def inbound_ip_rules(self) -> Optional[List['outputs.InboundIpRuleResponse']]:
+        """
+        This can be used to restrict traffic from specific IPs instead of all IPs. Note: These are considered only if PublicNetworkAccess is enabled.
+        """
+        return pulumi.get(self, "inbound_ip_rules")
+
+    @property
+    @pulumi.getter(name="inputSchema")
+    def input_schema(self) -> Optional[str]:
+        """
+        This determines the format that Event Grid should expect for incoming events published to the topic.
+        """
+        return pulumi.get(self, "input_schema")
+
+    @property
+    @pulumi.getter(name="inputSchemaMapping")
+    def input_schema_mapping(self) -> Optional['outputs.InputSchemaMappingResponse']:
+        """
+        This enables publishing using custom event schemas. An InputSchemaMapping can be specified to map various properties of a source schema to various required properties of the EventGridEvent schema.
+        """
+        return pulumi.get(self, "input_schema_mapping")
+
+    @property
+    @pulumi.getter
+    def location(self) -> str:
+        """
+        Location of the resource.
+        """
+        return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter(name="metricResourceId")
+    def metric_resource_id(self) -> str:
+        """
+        Metric resource id for the topic.
+        """
+        return pulumi.get(self, "metric_resource_id")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Name of the resource.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="privateEndpointConnections")
+    def private_endpoint_connections(self) -> Optional[List['outputs.PrivateEndpointConnectionResponse']]:
+        return pulumi.get(self, "private_endpoint_connections")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        Provisioning state of the topic.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="publicNetworkAccess")
+    def public_network_access(self) -> Optional[str]:
+        """
+        This determines if traffic is allowed over public network. By default it is enabled. 
+        You can further restrict to specific IPs by configuring <seealso cref="P:Microsoft.Azure.Events.ResourceProvider.Common.Contracts.TopicProperties.InboundIpRules" />
+        """
+        return pulumi.get(self, "public_network_access")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Mapping[str, str]]:
+        """
+        Tags of the resource.
+        """
+        return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Type of the resource.
+        """
+        return pulumi.get(self, "type")
+
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

@@ -5,87 +5,44 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+from . import outputs
+from ._inputs import *
+
+__all__ = ['PrivateEndpointConnection']
 
 
 class PrivateEndpointConnection(pulumi.CustomResource):
-    identity: pulumi.Output[dict]
-    """
-    The identity of the resource.
-      * `principal_id` (`str`) - The principal ID of resource identity.
-      * `tenant_id` (`str`) - The tenant ID of resource.
-      * `type` (`str`) - The identity type.
-      * `user_assigned_identities` (`dict`) - The list of user identities associated with resource. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
-    """
-    location: pulumi.Output[str]
-    """
-    Specifies the location of the resource.
-    """
-    name: pulumi.Output[str]
-    """
-    Specifies the name of the resource.
-    """
-    private_endpoint: pulumi.Output[dict]
-    """
-    The resource of private end point.
-      * `id` (`str`) - The ARM identifier for Private Endpoint
-    """
-    private_link_service_connection_state: pulumi.Output[dict]
-    """
-    A collection of information about the state of the connection between service consumer and provider.
-      * `actions_required` (`str`) - A message indicating if changes on the service provider require any updates on the consumer.
-      * `description` (`str`) - The reason for approval/rejection of the connection.
-      * `status` (`str`) - Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
-    """
-    provisioning_state: pulumi.Output[str]
-    """
-    The provisioning state of the private endpoint connection resource.
-    """
-    sku: pulumi.Output[dict]
-    """
-    The sku of the workspace.
-      * `name` (`str`) - Name of the sku
-      * `tier` (`str`) - Tier of the sku like Basic or Enterprise
-    """
-    tags: pulumi.Output[dict]
-    """
-    Contains resource tags defined as key/value pairs.
-    """
-    type: pulumi.Output[str]
-    """
-    Specifies the type of the resource.
-    """
-    def __init__(__self__, resource_name, opts=None, identity=None, location=None, name=None, private_link_service_connection_state=None, provisioning_state=None, resource_group_name=None, sku=None, tags=None, workspace_name=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 identity: Optional[pulumi.Input[pulumi.InputType['IdentityArgs']]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 private_link_service_connection_state: Optional[pulumi.Input[pulumi.InputType['PrivateLinkServiceConnectionStateArgs']]] = None,
+                 provisioning_state: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 sku: Optional[pulumi.Input[pulumi.InputType['SkuArgs']]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 workspace_name: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         The Private Endpoint Connection resource.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[dict] identity: The identity of the resource.
+        :param pulumi.Input[pulumi.InputType['IdentityArgs']] identity: The identity of the resource.
         :param pulumi.Input[str] location: Specifies the location of the resource.
         :param pulumi.Input[str] name: The name of the private endpoint connection associated with the workspace
-        :param pulumi.Input[dict] private_link_service_connection_state: A collection of information about the state of the connection between service consumer and provider.
+        :param pulumi.Input[pulumi.InputType['PrivateLinkServiceConnectionStateArgs']] private_link_service_connection_state: A collection of information about the state of the connection between service consumer and provider.
         :param pulumi.Input[str] provisioning_state: The provisioning state of the private endpoint connection resource.
         :param pulumi.Input[str] resource_group_name: Name of the resource group in which workspace is located.
-        :param pulumi.Input[dict] sku: The sku of the workspace.
-        :param pulumi.Input[dict] tags: Contains resource tags defined as key/value pairs.
+        :param pulumi.Input[pulumi.InputType['SkuArgs']] sku: The sku of the workspace.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Contains resource tags defined as key/value pairs.
         :param pulumi.Input[str] workspace_name: Name of Azure Machine Learning workspace.
-
-        The **identity** object supports the following:
-
-          * `type` (`pulumi.Input[str]`) - The identity type.
-
-        The **private_link_service_connection_state** object supports the following:
-
-          * `actions_required` (`pulumi.Input[str]`) - A message indicating if changes on the service provider require any updates on the consumer.
-          * `description` (`pulumi.Input[str]`) - The reason for approval/rejection of the connection.
-          * `status` (`pulumi.Input[str]`) - Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
-
-        The **sku** object supports the following:
-
-          * `name` (`pulumi.Input[str]`) - Name of the sku
-          * `tier` (`pulumi.Input[str]`) - Tier of the sku like Basic or Enterprise
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -132,13 +89,15 @@ class PrivateEndpointConnection(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None) -> 'PrivateEndpointConnection':
         """
         Get an existing PrivateEndpointConnection resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -147,8 +106,81 @@ class PrivateEndpointConnection(pulumi.CustomResource):
 
         return PrivateEndpointConnection(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter
+    def identity(self) -> Optional['outputs.IdentityResponse']:
+        """
+        The identity of the resource.
+        """
+        return pulumi.get(self, "identity")
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[str]:
+        """
+        Specifies the location of the resource.
+        """
+        return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Specifies the name of the resource.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="privateEndpoint")
+    def private_endpoint(self) -> Optional['outputs.PrivateEndpointResponse']:
+        """
+        The resource of private end point.
+        """
+        return pulumi.get(self, "private_endpoint")
+
+    @property
+    @pulumi.getter(name="privateLinkServiceConnectionState")
+    def private_link_service_connection_state(self) -> 'outputs.PrivateLinkServiceConnectionStateResponse':
+        """
+        A collection of information about the state of the connection between service consumer and provider.
+        """
+        return pulumi.get(self, "private_link_service_connection_state")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> Optional[str]:
+        """
+        The provisioning state of the private endpoint connection resource.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter
+    def sku(self) -> Optional['outputs.SkuResponse']:
+        """
+        The sku of the workspace.
+        """
+        return pulumi.get(self, "sku")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Mapping[str, str]]:
+        """
+        Contains resource tags defined as key/value pairs.
+        """
+        return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Specifies the type of the resource.
+        """
+        return pulumi.get(self, "type")
+
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

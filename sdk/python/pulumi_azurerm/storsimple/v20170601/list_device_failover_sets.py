@@ -5,10 +5,17 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+from . import outputs
 
+__all__ = [
+    'ListDeviceFailoverSetsResult',
+    'AwaitableListDeviceFailoverSetsResult',
+    'list_device_failover_sets',
+]
 
+@pulumi.output_type
 class ListDeviceFailoverSetsResult:
     """
     The list of failover sets.
@@ -16,10 +23,15 @@ class ListDeviceFailoverSetsResult:
     def __init__(__self__, value=None):
         if value and not isinstance(value, list):
             raise TypeError("Expected argument 'value' to be a list")
-        __self__.value = value
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[List['outputs.FailoverSetResponseResult']]:
         """
         The list of failover sets.
         """
+        return pulumi.get(self, "value")
 
 
 class AwaitableListDeviceFailoverSetsResult(ListDeviceFailoverSetsResult):
@@ -31,7 +43,10 @@ class AwaitableListDeviceFailoverSetsResult(ListDeviceFailoverSetsResult):
             value=self.value)
 
 
-def list_device_failover_sets(device_name=None, manager_name=None, resource_group_name=None, opts=None):
+def list_device_failover_sets(device_name: Optional[str] = None,
+                              manager_name: Optional[str] = None,
+                              resource_group_name: Optional[str] = None,
+                              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListDeviceFailoverSetsResult:
     """
     Use this data source to access information about an existing resource.
 
@@ -47,7 +62,7 @@ def list_device_failover_sets(device_name=None, manager_name=None, resource_grou
         opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = _utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('azurerm:storsimple/v20170601:listDeviceFailoverSets', __args__, opts=opts).value
+    __ret__ = pulumi.runtime.invoke('azurerm:storsimple/v20170601:listDeviceFailoverSets', __args__, opts=opts, typ=ListDeviceFailoverSetsResult).value
 
     return AwaitableListDeviceFailoverSetsResult(
-        value=__ret__.get('value'))
+        value=__ret__.value)

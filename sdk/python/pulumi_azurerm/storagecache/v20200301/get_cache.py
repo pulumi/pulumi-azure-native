@@ -5,10 +5,17 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+from . import outputs
 
+__all__ = [
+    'GetCacheResult',
+    'AwaitableGetCacheResult',
+    'get_cache',
+]
 
+@pulumi.output_type
 class GetCacheResult:
     """
     A Cache instance. Follows Azure Resource Manager standards: https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/resource-api-reference.md
@@ -16,94 +23,169 @@ class GetCacheResult:
     def __init__(__self__, cache_size_gb=None, encryption_settings=None, health=None, identity=None, location=None, mount_addresses=None, name=None, network_settings=None, provisioning_state=None, security_settings=None, sku=None, subnet=None, tags=None, type=None, upgrade_status=None):
         if cache_size_gb and not isinstance(cache_size_gb, float):
             raise TypeError("Expected argument 'cache_size_gb' to be a float")
-        __self__.cache_size_gb = cache_size_gb
+        pulumi.set(__self__, "cache_size_gb", cache_size_gb)
+        if encryption_settings and not isinstance(encryption_settings, dict):
+            raise TypeError("Expected argument 'encryption_settings' to be a dict")
+        pulumi.set(__self__, "encryption_settings", encryption_settings)
+        if health and not isinstance(health, dict):
+            raise TypeError("Expected argument 'health' to be a dict")
+        pulumi.set(__self__, "health", health)
+        if identity and not isinstance(identity, dict):
+            raise TypeError("Expected argument 'identity' to be a dict")
+        pulumi.set(__self__, "identity", identity)
+        if location and not isinstance(location, str):
+            raise TypeError("Expected argument 'location' to be a str")
+        pulumi.set(__self__, "location", location)
+        if mount_addresses and not isinstance(mount_addresses, list):
+            raise TypeError("Expected argument 'mount_addresses' to be a list")
+        pulumi.set(__self__, "mount_addresses", mount_addresses)
+        if name and not isinstance(name, str):
+            raise TypeError("Expected argument 'name' to be a str")
+        pulumi.set(__self__, "name", name)
+        if network_settings and not isinstance(network_settings, dict):
+            raise TypeError("Expected argument 'network_settings' to be a dict")
+        pulumi.set(__self__, "network_settings", network_settings)
+        if provisioning_state and not isinstance(provisioning_state, str):
+            raise TypeError("Expected argument 'provisioning_state' to be a str")
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if security_settings and not isinstance(security_settings, dict):
+            raise TypeError("Expected argument 'security_settings' to be a dict")
+        pulumi.set(__self__, "security_settings", security_settings)
+        if sku and not isinstance(sku, dict):
+            raise TypeError("Expected argument 'sku' to be a dict")
+        pulumi.set(__self__, "sku", sku)
+        if subnet and not isinstance(subnet, str):
+            raise TypeError("Expected argument 'subnet' to be a str")
+        pulumi.set(__self__, "subnet", subnet)
+        if tags and not isinstance(tags, dict):
+            raise TypeError("Expected argument 'tags' to be a dict")
+        pulumi.set(__self__, "tags", tags)
+        if type and not isinstance(type, str):
+            raise TypeError("Expected argument 'type' to be a str")
+        pulumi.set(__self__, "type", type)
+        if upgrade_status and not isinstance(upgrade_status, dict):
+            raise TypeError("Expected argument 'upgrade_status' to be a dict")
+        pulumi.set(__self__, "upgrade_status", upgrade_status)
+
+    @property
+    @pulumi.getter(name="cacheSizeGB")
+    def cache_size_gb(self) -> Optional[float]:
         """
         The size of this Cache, in GB.
         """
-        if encryption_settings and not isinstance(encryption_settings, dict):
-            raise TypeError("Expected argument 'encryption_settings' to be a dict")
-        __self__.encryption_settings = encryption_settings
+        return pulumi.get(self, "cache_size_gb")
+
+    @property
+    @pulumi.getter(name="encryptionSettings")
+    def encryption_settings(self) -> Optional['outputs.CacheEncryptionSettingsResponse']:
         """
         Specifies encryption settings of the cache.
         """
-        if health and not isinstance(health, dict):
-            raise TypeError("Expected argument 'health' to be a dict")
-        __self__.health = health
+        return pulumi.get(self, "encryption_settings")
+
+    @property
+    @pulumi.getter
+    def health(self) -> 'outputs.CacheHealthResponse':
         """
         Health of the Cache.
         """
-        if identity and not isinstance(identity, dict):
-            raise TypeError("Expected argument 'identity' to be a dict")
-        __self__.identity = identity
+        return pulumi.get(self, "health")
+
+    @property
+    @pulumi.getter
+    def identity(self) -> Optional['outputs.CacheIdentityResponse']:
         """
         The identity of the cache, if configured.
         """
-        if location and not isinstance(location, str):
-            raise TypeError("Expected argument 'location' to be a str")
-        __self__.location = location
+        return pulumi.get(self, "identity")
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[str]:
         """
         Region name string.
         """
-        if mount_addresses and not isinstance(mount_addresses, list):
-            raise TypeError("Expected argument 'mount_addresses' to be a list")
-        __self__.mount_addresses = mount_addresses
+        return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter(name="mountAddresses")
+    def mount_addresses(self) -> List[str]:
         """
         Array of IP addresses that can be used by clients mounting this Cache.
         """
-        if name and not isinstance(name, str):
-            raise TypeError("Expected argument 'name' to be a str")
-        __self__.name = name
+        return pulumi.get(self, "mount_addresses")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
         """
         Name of Cache.
         """
-        if network_settings and not isinstance(network_settings, dict):
-            raise TypeError("Expected argument 'network_settings' to be a dict")
-        __self__.network_settings = network_settings
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="networkSettings")
+    def network_settings(self) -> Optional['outputs.CacheNetworkSettingsResponse']:
         """
         Specifies network settings of the cache.
         """
-        if provisioning_state and not isinstance(provisioning_state, str):
-            raise TypeError("Expected argument 'provisioning_state' to be a str")
-        __self__.provisioning_state = provisioning_state
+        return pulumi.get(self, "network_settings")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> Optional[str]:
         """
         ARM provisioning state, see https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/Addendum.md#provisioningstate-property
         """
-        if security_settings and not isinstance(security_settings, dict):
-            raise TypeError("Expected argument 'security_settings' to be a dict")
-        __self__.security_settings = security_settings
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="securitySettings")
+    def security_settings(self) -> Optional['outputs.CacheSecuritySettingsResponse']:
         """
         Specifies security settings of the cache.
         """
-        if sku and not isinstance(sku, dict):
-            raise TypeError("Expected argument 'sku' to be a dict")
-        __self__.sku = sku
+        return pulumi.get(self, "security_settings")
+
+    @property
+    @pulumi.getter
+    def sku(self) -> Optional['outputs.CacheResponseSku']:
         """
         SKU for the Cache.
         """
-        if subnet and not isinstance(subnet, str):
-            raise TypeError("Expected argument 'subnet' to be a str")
-        __self__.subnet = subnet
+        return pulumi.get(self, "sku")
+
+    @property
+    @pulumi.getter
+    def subnet(self) -> Optional[str]:
         """
         Subnet used for the Cache.
         """
-        if tags and not isinstance(tags, dict):
-            raise TypeError("Expected argument 'tags' to be a dict")
-        __self__.tags = tags
+        return pulumi.get(self, "subnet")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Mapping[str, Any]]:
         """
         ARM tags as name/value pairs.
         """
-        if type and not isinstance(type, str):
-            raise TypeError("Expected argument 'type' to be a str")
-        __self__.type = type
+        return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
         """
         Type of the Cache; Microsoft.StorageCache/Cache
         """
-        if upgrade_status and not isinstance(upgrade_status, dict):
-            raise TypeError("Expected argument 'upgrade_status' to be a dict")
-        __self__.upgrade_status = upgrade_status
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="upgradeStatus")
+    def upgrade_status(self) -> Optional['outputs.CacheUpgradeStatusResponse']:
         """
         Upgrade status of the Cache.
         """
+        return pulumi.get(self, "upgrade_status")
 
 
 class AwaitableGetCacheResult(GetCacheResult):
@@ -129,7 +211,9 @@ class AwaitableGetCacheResult(GetCacheResult):
             upgrade_status=self.upgrade_status)
 
 
-def get_cache(name=None, resource_group_name=None, opts=None):
+def get_cache(name: Optional[str] = None,
+              resource_group_name: Optional[str] = None,
+              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetCacheResult:
     """
     Use this data source to access information about an existing resource.
 
@@ -143,21 +227,21 @@ def get_cache(name=None, resource_group_name=None, opts=None):
         opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = _utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('azurerm:storagecache/v20200301:getCache', __args__, opts=opts).value
+    __ret__ = pulumi.runtime.invoke('azurerm:storagecache/v20200301:getCache', __args__, opts=opts, typ=GetCacheResult).value
 
     return AwaitableGetCacheResult(
-        cache_size_gb=__ret__.get('cacheSizeGB'),
-        encryption_settings=__ret__.get('encryptionSettings'),
-        health=__ret__.get('health'),
-        identity=__ret__.get('identity'),
-        location=__ret__.get('location'),
-        mount_addresses=__ret__.get('mountAddresses'),
-        name=__ret__.get('name'),
-        network_settings=__ret__.get('networkSettings'),
-        provisioning_state=__ret__.get('provisioningState'),
-        security_settings=__ret__.get('securitySettings'),
-        sku=__ret__.get('sku'),
-        subnet=__ret__.get('subnet'),
-        tags=__ret__.get('tags'),
-        type=__ret__.get('type'),
-        upgrade_status=__ret__.get('upgradeStatus'))
+        cache_size_gb=__ret__.cache_size_gb,
+        encryption_settings=__ret__.encryption_settings,
+        health=__ret__.health,
+        identity=__ret__.identity,
+        location=__ret__.location,
+        mount_addresses=__ret__.mount_addresses,
+        name=__ret__.name,
+        network_settings=__ret__.network_settings,
+        provisioning_state=__ret__.provisioning_state,
+        security_settings=__ret__.security_settings,
+        sku=__ret__.sku,
+        subnet=__ret__.subnet,
+        tags=__ret__.tags,
+        type=__ret__.type,
+        upgrade_status=__ret__.upgrade_status)

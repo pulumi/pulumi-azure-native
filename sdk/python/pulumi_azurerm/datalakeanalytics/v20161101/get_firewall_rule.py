@@ -5,10 +5,16 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
 
+__all__ = [
+    'GetFirewallRuleResult',
+    'AwaitableGetFirewallRuleResult',
+    'get_firewall_rule',
+]
 
+@pulumi.output_type
 class GetFirewallRuleResult:
     """
     Data Lake Analytics firewall rule information.
@@ -16,28 +22,48 @@ class GetFirewallRuleResult:
     def __init__(__self__, end_ip_address=None, name=None, start_ip_address=None, type=None):
         if end_ip_address and not isinstance(end_ip_address, str):
             raise TypeError("Expected argument 'end_ip_address' to be a str")
-        __self__.end_ip_address = end_ip_address
+        pulumi.set(__self__, "end_ip_address", end_ip_address)
+        if name and not isinstance(name, str):
+            raise TypeError("Expected argument 'name' to be a str")
+        pulumi.set(__self__, "name", name)
+        if start_ip_address and not isinstance(start_ip_address, str):
+            raise TypeError("Expected argument 'start_ip_address' to be a str")
+        pulumi.set(__self__, "start_ip_address", start_ip_address)
+        if type and not isinstance(type, str):
+            raise TypeError("Expected argument 'type' to be a str")
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="endIpAddress")
+    def end_ip_address(self) -> str:
         """
         The end IP address for the firewall rule. This can be either ipv4 or ipv6. Start and End should be in the same protocol.
         """
-        if name and not isinstance(name, str):
-            raise TypeError("Expected argument 'name' to be a str")
-        __self__.name = name
+        return pulumi.get(self, "end_ip_address")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
         """
         The resource name.
         """
-        if start_ip_address and not isinstance(start_ip_address, str):
-            raise TypeError("Expected argument 'start_ip_address' to be a str")
-        __self__.start_ip_address = start_ip_address
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="startIpAddress")
+    def start_ip_address(self) -> str:
         """
         The start IP address for the firewall rule. This can be either ipv4 or ipv6. Start and End should be in the same protocol.
         """
-        if type and not isinstance(type, str):
-            raise TypeError("Expected argument 'type' to be a str")
-        __self__.type = type
+        return pulumi.get(self, "start_ip_address")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
         """
         The resource type.
         """
+        return pulumi.get(self, "type")
 
 
 class AwaitableGetFirewallRuleResult(GetFirewallRuleResult):
@@ -52,7 +78,10 @@ class AwaitableGetFirewallRuleResult(GetFirewallRuleResult):
             type=self.type)
 
 
-def get_firewall_rule(account_name=None, name=None, resource_group_name=None, opts=None):
+def get_firewall_rule(account_name: Optional[str] = None,
+                      name: Optional[str] = None,
+                      resource_group_name: Optional[str] = None,
+                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetFirewallRuleResult:
     """
     Use this data source to access information about an existing resource.
 
@@ -68,10 +97,10 @@ def get_firewall_rule(account_name=None, name=None, resource_group_name=None, op
         opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = _utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('azurerm:datalakeanalytics/v20161101:getFirewallRule', __args__, opts=opts).value
+    __ret__ = pulumi.runtime.invoke('azurerm:datalakeanalytics/v20161101:getFirewallRule', __args__, opts=opts, typ=GetFirewallRuleResult).value
 
     return AwaitableGetFirewallRuleResult(
-        end_ip_address=__ret__.get('endIpAddress'),
-        name=__ret__.get('name'),
-        start_ip_address=__ret__.get('startIpAddress'),
-        type=__ret__.get('type'))
+        end_ip_address=__ret__.end_ip_address,
+        name=__ret__.name,
+        start_ip_address=__ret__.start_ip_address,
+        type=__ret__.type)

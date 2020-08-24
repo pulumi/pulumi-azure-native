@@ -5,10 +5,16 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
 
+__all__ = [
+    'GetApplicationResult',
+    'AwaitableGetApplicationResult',
+    'get_application',
+]
 
+@pulumi.output_type
 class GetApplicationResult:
     """
     Contains information about an application in a Batch account.
@@ -16,40 +22,70 @@ class GetApplicationResult:
     def __init__(__self__, allow_updates=None, default_version=None, display_name=None, etag=None, name=None, type=None):
         if allow_updates and not isinstance(allow_updates, bool):
             raise TypeError("Expected argument 'allow_updates' to be a bool")
-        __self__.allow_updates = allow_updates
+        pulumi.set(__self__, "allow_updates", allow_updates)
+        if default_version and not isinstance(default_version, str):
+            raise TypeError("Expected argument 'default_version' to be a str")
+        pulumi.set(__self__, "default_version", default_version)
+        if display_name and not isinstance(display_name, str):
+            raise TypeError("Expected argument 'display_name' to be a str")
+        pulumi.set(__self__, "display_name", display_name)
+        if etag and not isinstance(etag, str):
+            raise TypeError("Expected argument 'etag' to be a str")
+        pulumi.set(__self__, "etag", etag)
+        if name and not isinstance(name, str):
+            raise TypeError("Expected argument 'name' to be a str")
+        pulumi.set(__self__, "name", name)
+        if type and not isinstance(type, str):
+            raise TypeError("Expected argument 'type' to be a str")
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="allowUpdates")
+    def allow_updates(self) -> Optional[bool]:
         """
         A value indicating whether packages within the application may be overwritten using the same version string.
         """
-        if default_version and not isinstance(default_version, str):
-            raise TypeError("Expected argument 'default_version' to be a str")
-        __self__.default_version = default_version
+        return pulumi.get(self, "allow_updates")
+
+    @property
+    @pulumi.getter(name="defaultVersion")
+    def default_version(self) -> Optional[str]:
         """
         The package to use if a client requests the application but does not specify a version. This property can only be set to the name of an existing package.
         """
-        if display_name and not isinstance(display_name, str):
-            raise TypeError("Expected argument 'display_name' to be a str")
-        __self__.display_name = display_name
+        return pulumi.get(self, "default_version")
+
+    @property
+    @pulumi.getter(name="displayName")
+    def display_name(self) -> Optional[str]:
         """
         The display name for the application.
         """
-        if etag and not isinstance(etag, str):
-            raise TypeError("Expected argument 'etag' to be a str")
-        __self__.etag = etag
+        return pulumi.get(self, "display_name")
+
+    @property
+    @pulumi.getter
+    def etag(self) -> str:
         """
         The ETag of the resource, used for concurrency statements.
         """
-        if name and not isinstance(name, str):
-            raise TypeError("Expected argument 'name' to be a str")
-        __self__.name = name
+        return pulumi.get(self, "etag")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
         """
         The name of the resource.
         """
-        if type and not isinstance(type, str):
-            raise TypeError("Expected argument 'type' to be a str")
-        __self__.type = type
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
         """
         The type of the resource.
         """
+        return pulumi.get(self, "type")
 
 
 class AwaitableGetApplicationResult(GetApplicationResult):
@@ -66,7 +102,10 @@ class AwaitableGetApplicationResult(GetApplicationResult):
             type=self.type)
 
 
-def get_application(account_name=None, name=None, resource_group_name=None, opts=None):
+def get_application(account_name: Optional[str] = None,
+                    name: Optional[str] = None,
+                    resource_group_name: Optional[str] = None,
+                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetApplicationResult:
     """
     Use this data source to access information about an existing resource.
 
@@ -82,12 +121,12 @@ def get_application(account_name=None, name=None, resource_group_name=None, opts
         opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = _utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('azurerm:batch/v20200301:getApplication', __args__, opts=opts).value
+    __ret__ = pulumi.runtime.invoke('azurerm:batch/v20200301:getApplication', __args__, opts=opts, typ=GetApplicationResult).value
 
     return AwaitableGetApplicationResult(
-        allow_updates=__ret__.get('allowUpdates'),
-        default_version=__ret__.get('defaultVersion'),
-        display_name=__ret__.get('displayName'),
-        etag=__ret__.get('etag'),
-        name=__ret__.get('name'),
-        type=__ret__.get('type'))
+        allow_updates=__ret__.allow_updates,
+        default_version=__ret__.default_version,
+        display_name=__ret__.display_name,
+        etag=__ret__.etag,
+        name=__ret__.name,
+        type=__ret__.type)

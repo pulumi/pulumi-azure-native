@@ -5,66 +5,36 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+
+__all__ = ['Volume']
 
 
 class Volume(pulumi.CustomResource):
-    access_control_record_ids: pulumi.Output[list]
-    """
-    The IDs of the access control records, associated with the volume.
-    """
-    backup_policy_ids: pulumi.Output[list]
-    """
-    The IDs of the backup policies, in which this volume is part of.
-    """
-    backup_status: pulumi.Output[str]
-    """
-    The backup status of the volume.
-    """
-    kind: pulumi.Output[str]
-    """
-    The Kind of the object. Currently only Series8000 is supported
-    """
-    monitoring_status: pulumi.Output[str]
-    """
-    The monitoring status of the volume.
-    """
-    name: pulumi.Output[str]
-    """
-    The name of the object.
-    """
-    operation_status: pulumi.Output[str]
-    """
-    The operation status on the volume.
-    """
-    size_in_bytes: pulumi.Output[float]
-    """
-    The size of the volume in bytes.
-    """
-    type: pulumi.Output[str]
-    """
-    The hierarchical type of the object.
-    """
-    volume_container_id: pulumi.Output[str]
-    """
-    The ID of the volume container, in which this volume is created.
-    """
-    volume_status: pulumi.Output[str]
-    """
-    The volume status.
-    """
-    volume_type: pulumi.Output[str]
-    """
-    The type of the volume.
-    """
-    def __init__(__self__, resource_name, opts=None, access_control_record_ids=None, device_name=None, kind=None, manager_name=None, monitoring_status=None, name=None, resource_group_name=None, size_in_bytes=None, volume_container_name=None, volume_status=None, volume_type=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 access_control_record_ids: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 device_name: Optional[pulumi.Input[str]] = None,
+                 kind: Optional[pulumi.Input[str]] = None,
+                 manager_name: Optional[pulumi.Input[str]] = None,
+                 monitoring_status: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 size_in_bytes: Optional[pulumi.Input[float]] = None,
+                 volume_container_name: Optional[pulumi.Input[str]] = None,
+                 volume_status: Optional[pulumi.Input[str]] = None,
+                 volume_type: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         The volume.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[list] access_control_record_ids: The IDs of the access control records, associated with the volume.
+        :param pulumi.Input[List[pulumi.Input[str]]] access_control_record_ids: The IDs of the access control records, associated with the volume.
         :param pulumi.Input[str] device_name: The device name
         :param pulumi.Input[str] kind: The Kind of the object. Currently only Series8000 is supported
         :param pulumi.Input[str] manager_name: The manager name
@@ -136,13 +106,15 @@ class Volume(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None) -> 'Volume':
         """
         Get an existing Volume resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -151,8 +123,105 @@ class Volume(pulumi.CustomResource):
 
         return Volume(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter(name="accessControlRecordIds")
+    def access_control_record_ids(self) -> List[str]:
+        """
+        The IDs of the access control records, associated with the volume.
+        """
+        return pulumi.get(self, "access_control_record_ids")
+
+    @property
+    @pulumi.getter(name="backupPolicyIds")
+    def backup_policy_ids(self) -> List[str]:
+        """
+        The IDs of the backup policies, in which this volume is part of.
+        """
+        return pulumi.get(self, "backup_policy_ids")
+
+    @property
+    @pulumi.getter(name="backupStatus")
+    def backup_status(self) -> str:
+        """
+        The backup status of the volume.
+        """
+        return pulumi.get(self, "backup_status")
+
+    @property
+    @pulumi.getter
+    def kind(self) -> Optional[str]:
+        """
+        The Kind of the object. Currently only Series8000 is supported
+        """
+        return pulumi.get(self, "kind")
+
+    @property
+    @pulumi.getter(name="monitoringStatus")
+    def monitoring_status(self) -> str:
+        """
+        The monitoring status of the volume.
+        """
+        return pulumi.get(self, "monitoring_status")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the object.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="operationStatus")
+    def operation_status(self) -> str:
+        """
+        The operation status on the volume.
+        """
+        return pulumi.get(self, "operation_status")
+
+    @property
+    @pulumi.getter(name="sizeInBytes")
+    def size_in_bytes(self) -> float:
+        """
+        The size of the volume in bytes.
+        """
+        return pulumi.get(self, "size_in_bytes")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        The hierarchical type of the object.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="volumeContainerId")
+    def volume_container_id(self) -> str:
+        """
+        The ID of the volume container, in which this volume is created.
+        """
+        return pulumi.get(self, "volume_container_id")
+
+    @property
+    @pulumi.getter(name="volumeStatus")
+    def volume_status(self) -> str:
+        """
+        The volume status.
+        """
+        return pulumi.get(self, "volume_status")
+
+    @property
+    @pulumi.getter(name="volumeType")
+    def volume_type(self) -> str:
+        """
+        The type of the volume.
+        """
+        return pulumi.get(self, "volume_type")
+
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

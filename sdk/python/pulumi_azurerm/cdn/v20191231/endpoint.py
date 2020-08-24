@@ -5,215 +5,64 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+from . import outputs
+from ._inputs import *
+
+__all__ = ['Endpoint']
 
 
 class Endpoint(pulumi.CustomResource):
-    content_types_to_compress: pulumi.Output[list]
-    """
-    List of content types on which compression applies. The value should be a valid MIME type.
-    """
-    default_origin_group: pulumi.Output[dict]
-    """
-    A reference to the origin group.
-      * `id` (`str`) - Resource ID.
-    """
-    delivery_policy: pulumi.Output[dict]
-    """
-    A policy that specifies the delivery rules to be used for an endpoint.
-      * `description` (`str`) - User-friendly description of the policy.
-      * `rules` (`list`) - A list of the delivery rules.
-        * `actions` (`list`) - A list of actions that are executed when all the conditions of a rule are satisfied.
-          * `name` (`str`) - The name of the action for the delivery rule.
-
-        * `conditions` (`list`) - A list of conditions that must be matched for the actions to be executed
-          * `name` (`str`) - The name of the condition for the delivery rule.
-
-        * `name` (`str`) - Name of the rule
-        * `order` (`float`) - The order in which the rules are applied for the endpoint. Possible values {0,1,2,3,………}. A rule with a lesser order will be applied before a rule with a greater order. Rule with order 0 is a special rule. It does not require any condition and actions listed in it will always be applied.
-    """
-    geo_filters: pulumi.Output[list]
-    """
-    List of rules defining the user's geo access within a CDN endpoint. Each geo filter defines an access rule to a specified path or content, e.g. block APAC for path /pictures/
-      * `action` (`str`) - Action of the geo filter, i.e. allow or block access.
-      * `country_codes` (`list`) - Two letter country codes defining user country access in a geo filter, e.g. AU, MX, US.
-      * `relative_path` (`str`) - Relative path applicable to geo filter. (e.g. '/mypictures', '/mypicture/kitty.jpg', and etc.)
-    """
-    host_name: pulumi.Output[str]
-    """
-    The host name of the endpoint structured as {endpointName}.{DNSZone}, e.g. contoso.azureedge.net
-    """
-    is_compression_enabled: pulumi.Output[bool]
-    """
-    Indicates whether content compression is enabled on CDN. Default value is false. If compression is enabled, content will be served as compressed if user requests for a compressed version. Content won't be compressed on CDN when requested content is smaller than 1 byte or larger than 1 MB.
-    """
-    is_http_allowed: pulumi.Output[bool]
-    """
-    Indicates whether HTTP traffic is allowed on the endpoint. Default value is true. At least one protocol (HTTP or HTTPS) must be allowed.
-    """
-    is_https_allowed: pulumi.Output[bool]
-    """
-    Indicates whether HTTPS traffic is allowed on the endpoint. Default value is true. At least one protocol (HTTP or HTTPS) must be allowed.
-    """
-    location: pulumi.Output[str]
-    """
-    Resource location.
-    """
-    name: pulumi.Output[str]
-    """
-    Resource name.
-    """
-    optimization_type: pulumi.Output[str]
-    """
-    Specifies what scenario the customer wants this CDN endpoint to optimize for, e.g. Download, Media services. With this information, CDN can apply scenario driven optimization.
-    """
-    origin_groups: pulumi.Output[list]
-    """
-    The origin groups comprising of origins that are used for load balancing the traffic based on availability.
-      * `health_probe_settings` (`dict`) - Health probe settings to the origin that is used to determine the health of the origin.
-        * `probe_interval_in_seconds` (`float`) - The number of seconds between health probes.Default is 240sec.
-        * `probe_path` (`str`) - The path relative to the origin that is used to determine the health of the origin.
-        * `probe_protocol` (`str`) - Protocol to use for health probe.
-        * `probe_request_type` (`str`) - The type of health probe request that is made.
-
-      * `name` (`str`) - Origin group name which must be unique within the endpoint.
-      * `origins` (`list`) - The source of the content being delivered via CDN within given origin group.
-        * `id` (`str`) - Resource ID.
-
-      * `response_based_origin_error_detection_settings` (`dict`) - The JSON object that contains the properties to determine origin health using real requests/responses.This property is currently not supported.
-        * `http_error_ranges` (`list`) - The list of Http status code ranges that are considered as server errors for origin and it is marked as unhealthy.
-          * `begin` (`float`) - The inclusive start of the http status code range.
-          * `end` (`float`) - The inclusive end of the http status code range.
-
-        * `response_based_detected_error_types` (`str`) - Type of response errors for real user requests for which origin will be deemed unhealthy
-        * `response_based_failover_threshold_percentage` (`float`) - The percentage of failed requests in the sample where failover should trigger.
-
-      * `traffic_restoration_time_to_healed_or_new_endpoints_in_minutes` (`float`) - Time in minutes to shift the traffic to the endpoint gradually when an unhealthy endpoint comes healthy or a new endpoint is added. Default is 10 mins. This property is currently not supported.
-    """
-    origin_host_header: pulumi.Output[str]
-    """
-    The host header value sent to the origin with each request. This property at Endpoint can only be set allowed when endpoint uses single origin. If you leave this blank, the request hostname determines this value. Azure CDN origins, such as Web Apps, Blob Storage, and Cloud Services require this host header value to match the origin hostname by default.
-    """
-    origin_path: pulumi.Output[str]
-    """
-    A directory path on the origin that CDN can use to retrieve content from, e.g. contoso.cloudapp.net/originpath.
-    """
-    origins: pulumi.Output[list]
-    """
-    The source of the content being delivered via CDN.
-      * `enabled` (`bool`) - Origin is enabled for load balancing or not. By default, origin is always enabled.
-      * `host_name` (`str`) - The address of the origin. It can be a domain name, IPv4 address, or IPv6 address. This should be unique across all origins in an endpoint.
-      * `http_port` (`float`) - The value of the HTTP port. Must be between 1 and 65535.
-      * `https_port` (`float`) - The value of the HTTPS port. Must be between 1 and 65535.
-      * `name` (`str`) - Origin name which must be unique within the endpoint. 
-      * `origin_host_header` (`str`) - The host header value sent to the origin with each request. If you leave this blank, the request hostname determines this value. Azure CDN origins, such as Web Apps, Blob Storage, and Cloud Services require this host header value to match the origin hostname by default. If endpoint uses multiple origins for load balancing, then the host header at endpoint is ignored and this one is considered.
-      * `priority` (`float`) - Priority of origin in given origin group for load balancing. Higher priorities will not be used for load balancing if any lower priority origin is healthy.Must be between 1 and 5.
-      * `weight` (`float`) - Weight of the origin in given origin group for load balancing. Must be between 1 and 1000
-    """
-    probe_path: pulumi.Output[str]
-    """
-    Path to a file hosted on the origin which helps accelerate delivery of the dynamic content and calculate the most optimal routes for the CDN. This is relative to the origin path. This property is only relevant when using a single origin.
-    """
-    provisioning_state: pulumi.Output[str]
-    """
-    Provisioning status of the endpoint.
-    """
-    query_string_caching_behavior: pulumi.Output[str]
-    """
-    Defines how CDN caches requests that include query strings. You can ignore any query strings when caching, bypass caching to prevent requests that contain query strings from being cached, or cache every request with a unique URL.
-    """
-    resource_state: pulumi.Output[str]
-    """
-    Resource status of the endpoint.
-    """
-    tags: pulumi.Output[dict]
-    """
-    Resource tags.
-    """
-    type: pulumi.Output[str]
-    """
-    Resource type.
-    """
-    def __init__(__self__, resource_name, opts=None, content_types_to_compress=None, default_origin_group=None, delivery_policy=None, geo_filters=None, is_compression_enabled=None, is_http_allowed=None, is_https_allowed=None, location=None, name=None, optimization_type=None, origin_groups=None, origin_host_header=None, origin_path=None, origins=None, probe_path=None, profile_name=None, query_string_caching_behavior=None, resource_group_name=None, tags=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 content_types_to_compress: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 default_origin_group: Optional[pulumi.Input[pulumi.InputType['ResourceReferenceArgs']]] = None,
+                 delivery_policy: Optional[pulumi.Input[pulumi.InputType['EndpointPropertiesUpdateParametersDeliveryPolicyArgs']]] = None,
+                 geo_filters: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['GeoFilterArgs']]]]] = None,
+                 is_compression_enabled: Optional[pulumi.Input[bool]] = None,
+                 is_http_allowed: Optional[pulumi.Input[bool]] = None,
+                 is_https_allowed: Optional[pulumi.Input[bool]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 optimization_type: Optional[pulumi.Input[str]] = None,
+                 origin_groups: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['DeepCreatedOriginGroupArgs']]]]] = None,
+                 origin_host_header: Optional[pulumi.Input[str]] = None,
+                 origin_path: Optional[pulumi.Input[str]] = None,
+                 origins: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['DeepCreatedOriginArgs']]]]] = None,
+                 probe_path: Optional[pulumi.Input[str]] = None,
+                 profile_name: Optional[pulumi.Input[str]] = None,
+                 query_string_caching_behavior: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         CDN endpoint is the entity within a CDN profile containing configuration information such as origin, protocol, content caching and delivery behavior. The CDN endpoint uses the URL format <endpointname>.azureedge.net.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[list] content_types_to_compress: List of content types on which compression applies. The value should be a valid MIME type.
-        :param pulumi.Input[dict] default_origin_group: A reference to the origin group.
-        :param pulumi.Input[dict] delivery_policy: A policy that specifies the delivery rules to be used for an endpoint.
-        :param pulumi.Input[list] geo_filters: List of rules defining the user's geo access within a CDN endpoint. Each geo filter defines an access rule to a specified path or content, e.g. block APAC for path /pictures/
+        :param pulumi.Input[List[pulumi.Input[str]]] content_types_to_compress: List of content types on which compression applies. The value should be a valid MIME type.
+        :param pulumi.Input[pulumi.InputType['ResourceReferenceArgs']] default_origin_group: A reference to the origin group.
+        :param pulumi.Input[pulumi.InputType['EndpointPropertiesUpdateParametersDeliveryPolicyArgs']] delivery_policy: A policy that specifies the delivery rules to be used for an endpoint.
+        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['GeoFilterArgs']]]] geo_filters: List of rules defining the user's geo access within a CDN endpoint. Each geo filter defines an access rule to a specified path or content, e.g. block APAC for path /pictures/
         :param pulumi.Input[bool] is_compression_enabled: Indicates whether content compression is enabled on CDN. Default value is false. If compression is enabled, content will be served as compressed if user requests for a compressed version. Content won't be compressed on CDN when requested content is smaller than 1 byte or larger than 1 MB.
         :param pulumi.Input[bool] is_http_allowed: Indicates whether HTTP traffic is allowed on the endpoint. Default value is true. At least one protocol (HTTP or HTTPS) must be allowed.
         :param pulumi.Input[bool] is_https_allowed: Indicates whether HTTPS traffic is allowed on the endpoint. Default value is true. At least one protocol (HTTP or HTTPS) must be allowed.
         :param pulumi.Input[str] location: Resource location.
         :param pulumi.Input[str] name: Name of the endpoint under the profile which is unique globally.
         :param pulumi.Input[str] optimization_type: Specifies what scenario the customer wants this CDN endpoint to optimize for, e.g. Download, Media services. With this information, CDN can apply scenario driven optimization.
-        :param pulumi.Input[list] origin_groups: The origin groups comprising of origins that are used for load balancing the traffic based on availability.
+        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['DeepCreatedOriginGroupArgs']]]] origin_groups: The origin groups comprising of origins that are used for load balancing the traffic based on availability.
         :param pulumi.Input[str] origin_host_header: The host header value sent to the origin with each request. This property at Endpoint can only be set allowed when endpoint uses single origin. If you leave this blank, the request hostname determines this value. Azure CDN origins, such as Web Apps, Blob Storage, and Cloud Services require this host header value to match the origin hostname by default.
         :param pulumi.Input[str] origin_path: A directory path on the origin that CDN can use to retrieve content from, e.g. contoso.cloudapp.net/originpath.
-        :param pulumi.Input[list] origins: The source of the content being delivered via CDN.
+        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['DeepCreatedOriginArgs']]]] origins: The source of the content being delivered via CDN.
         :param pulumi.Input[str] probe_path: Path to a file hosted on the origin which helps accelerate delivery of the dynamic content and calculate the most optimal routes for the CDN. This is relative to the origin path. This property is only relevant when using a single origin.
         :param pulumi.Input[str] profile_name: Name of the CDN profile which is unique within the resource group.
         :param pulumi.Input[str] query_string_caching_behavior: Defines how CDN caches requests that include query strings. You can ignore any query strings when caching, bypass caching to prevent requests that contain query strings from being cached, or cache every request with a unique URL.
         :param pulumi.Input[str] resource_group_name: Name of the Resource group within the Azure subscription.
-        :param pulumi.Input[dict] tags: Resource tags.
-
-        The **default_origin_group** object supports the following:
-
-          * `id` (`pulumi.Input[str]`) - Resource ID.
-
-        The **delivery_policy** object supports the following:
-
-          * `description` (`pulumi.Input[str]`) - User-friendly description of the policy.
-          * `rules` (`pulumi.Input[list]`) - A list of the delivery rules.
-            * `actions` (`pulumi.Input[list]`) - A list of actions that are executed when all the conditions of a rule are satisfied.
-              * `name` (`pulumi.Input[str]`) - The name of the action for the delivery rule.
-
-            * `conditions` (`pulumi.Input[list]`) - A list of conditions that must be matched for the actions to be executed
-              * `name` (`pulumi.Input[str]`) - The name of the condition for the delivery rule.
-
-            * `name` (`pulumi.Input[str]`) - Name of the rule
-            * `order` (`pulumi.Input[float]`) - The order in which the rules are applied for the endpoint. Possible values {0,1,2,3,………}. A rule with a lesser order will be applied before a rule with a greater order. Rule with order 0 is a special rule. It does not require any condition and actions listed in it will always be applied.
-
-        The **geo_filters** object supports the following:
-
-          * `action` (`pulumi.Input[str]`) - Action of the geo filter, i.e. allow or block access.
-          * `country_codes` (`pulumi.Input[list]`) - Two letter country codes defining user country access in a geo filter, e.g. AU, MX, US.
-          * `relative_path` (`pulumi.Input[str]`) - Relative path applicable to geo filter. (e.g. '/mypictures', '/mypicture/kitty.jpg', and etc.)
-
-        The **origin_groups** object supports the following:
-
-          * `health_probe_settings` (`pulumi.Input[dict]`) - Health probe settings to the origin that is used to determine the health of the origin.
-            * `probe_interval_in_seconds` (`pulumi.Input[float]`) - The number of seconds between health probes.Default is 240sec.
-            * `probe_path` (`pulumi.Input[str]`) - The path relative to the origin that is used to determine the health of the origin.
-            * `probe_protocol` (`pulumi.Input[str]`) - Protocol to use for health probe.
-            * `probe_request_type` (`pulumi.Input[str]`) - The type of health probe request that is made.
-
-          * `name` (`pulumi.Input[str]`) - Origin group name which must be unique within the endpoint.
-          * `origins` (`pulumi.Input[list]`) - The source of the content being delivered via CDN within given origin group.
-          * `response_based_origin_error_detection_settings` (`pulumi.Input[dict]`) - The JSON object that contains the properties to determine origin health using real requests/responses.This property is currently not supported.
-            * `http_error_ranges` (`pulumi.Input[list]`) - The list of Http status code ranges that are considered as server errors for origin and it is marked as unhealthy.
-              * `begin` (`pulumi.Input[float]`) - The inclusive start of the http status code range.
-              * `end` (`pulumi.Input[float]`) - The inclusive end of the http status code range.
-
-            * `response_based_detected_error_types` (`pulumi.Input[str]`) - Type of response errors for real user requests for which origin will be deemed unhealthy
-            * `response_based_failover_threshold_percentage` (`pulumi.Input[float]`) - The percentage of failed requests in the sample where failover should trigger.
-
-          * `traffic_restoration_time_to_healed_or_new_endpoints_in_minutes` (`pulumi.Input[float]`) - Time in minutes to shift the traffic to the endpoint gradually when an unhealthy endpoint comes healthy or a new endpoint is added. Default is 10 mins. This property is currently not supported.
-
-        The **origins** object supports the following:
-
-          * `enabled` (`pulumi.Input[bool]`) - Origin is enabled for load balancing or not. By default, origin is always enabled.
-          * `host_name` (`pulumi.Input[str]`) - The address of the origin. It can be a domain name, IPv4 address, or IPv6 address. This should be unique across all origins in an endpoint.
-          * `http_port` (`pulumi.Input[float]`) - The value of the HTTP port. Must be between 1 and 65535.
-          * `https_port` (`pulumi.Input[float]`) - The value of the HTTPS port. Must be between 1 and 65535.
-          * `name` (`pulumi.Input[str]`) - Origin name which must be unique within the endpoint. 
-          * `origin_host_header` (`pulumi.Input[str]`) - The host header value sent to the origin with each request. If you leave this blank, the request hostname determines this value. Azure CDN origins, such as Web Apps, Blob Storage, and Cloud Services require this host header value to match the origin hostname by default. If endpoint uses multiple origins for load balancing, then the host header at endpoint is ignored and this one is considered.
-          * `priority` (`pulumi.Input[float]`) - Priority of origin in given origin group for load balancing. Higher priorities will not be used for load balancing if any lower priority origin is healthy.Must be between 1 and 5.
-          * `weight` (`pulumi.Input[float]`) - Weight of the origin in given origin group for load balancing. Must be between 1 and 1000
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -274,13 +123,15 @@ class Endpoint(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None) -> 'Endpoint':
         """
         Get an existing Endpoint resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -289,8 +140,177 @@ class Endpoint(pulumi.CustomResource):
 
         return Endpoint(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter(name="contentTypesToCompress")
+    def content_types_to_compress(self) -> Optional[List[str]]:
+        """
+        List of content types on which compression applies. The value should be a valid MIME type.
+        """
+        return pulumi.get(self, "content_types_to_compress")
+
+    @property
+    @pulumi.getter(name="defaultOriginGroup")
+    def default_origin_group(self) -> Optional['outputs.ResourceReferenceResponse']:
+        """
+        A reference to the origin group.
+        """
+        return pulumi.get(self, "default_origin_group")
+
+    @property
+    @pulumi.getter(name="deliveryPolicy")
+    def delivery_policy(self) -> Optional['outputs.EndpointPropertiesUpdateParametersResponseDeliveryPolicy']:
+        """
+        A policy that specifies the delivery rules to be used for an endpoint.
+        """
+        return pulumi.get(self, "delivery_policy")
+
+    @property
+    @pulumi.getter(name="geoFilters")
+    def geo_filters(self) -> Optional[List['outputs.GeoFilterResponse']]:
+        """
+        List of rules defining the user's geo access within a CDN endpoint. Each geo filter defines an access rule to a specified path or content, e.g. block APAC for path /pictures/
+        """
+        return pulumi.get(self, "geo_filters")
+
+    @property
+    @pulumi.getter(name="hostName")
+    def host_name(self) -> str:
+        """
+        The host name of the endpoint structured as {endpointName}.{DNSZone}, e.g. contoso.azureedge.net
+        """
+        return pulumi.get(self, "host_name")
+
+    @property
+    @pulumi.getter(name="isCompressionEnabled")
+    def is_compression_enabled(self) -> Optional[bool]:
+        """
+        Indicates whether content compression is enabled on CDN. Default value is false. If compression is enabled, content will be served as compressed if user requests for a compressed version. Content won't be compressed on CDN when requested content is smaller than 1 byte or larger than 1 MB.
+        """
+        return pulumi.get(self, "is_compression_enabled")
+
+    @property
+    @pulumi.getter(name="isHttpAllowed")
+    def is_http_allowed(self) -> Optional[bool]:
+        """
+        Indicates whether HTTP traffic is allowed on the endpoint. Default value is true. At least one protocol (HTTP or HTTPS) must be allowed.
+        """
+        return pulumi.get(self, "is_http_allowed")
+
+    @property
+    @pulumi.getter(name="isHttpsAllowed")
+    def is_https_allowed(self) -> Optional[bool]:
+        """
+        Indicates whether HTTPS traffic is allowed on the endpoint. Default value is true. At least one protocol (HTTP or HTTPS) must be allowed.
+        """
+        return pulumi.get(self, "is_https_allowed")
+
+    @property
+    @pulumi.getter
+    def location(self) -> str:
+        """
+        Resource location.
+        """
+        return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Resource name.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="optimizationType")
+    def optimization_type(self) -> Optional[str]:
+        """
+        Specifies what scenario the customer wants this CDN endpoint to optimize for, e.g. Download, Media services. With this information, CDN can apply scenario driven optimization.
+        """
+        return pulumi.get(self, "optimization_type")
+
+    @property
+    @pulumi.getter(name="originGroups")
+    def origin_groups(self) -> Optional[List['outputs.DeepCreatedOriginGroupResponse']]:
+        """
+        The origin groups comprising of origins that are used for load balancing the traffic based on availability.
+        """
+        return pulumi.get(self, "origin_groups")
+
+    @property
+    @pulumi.getter(name="originHostHeader")
+    def origin_host_header(self) -> Optional[str]:
+        """
+        The host header value sent to the origin with each request. This property at Endpoint can only be set allowed when endpoint uses single origin. If you leave this blank, the request hostname determines this value. Azure CDN origins, such as Web Apps, Blob Storage, and Cloud Services require this host header value to match the origin hostname by default.
+        """
+        return pulumi.get(self, "origin_host_header")
+
+    @property
+    @pulumi.getter(name="originPath")
+    def origin_path(self) -> Optional[str]:
+        """
+        A directory path on the origin that CDN can use to retrieve content from, e.g. contoso.cloudapp.net/originpath.
+        """
+        return pulumi.get(self, "origin_path")
+
+    @property
+    @pulumi.getter
+    def origins(self) -> List['outputs.DeepCreatedOriginResponse']:
+        """
+        The source of the content being delivered via CDN.
+        """
+        return pulumi.get(self, "origins")
+
+    @property
+    @pulumi.getter(name="probePath")
+    def probe_path(self) -> Optional[str]:
+        """
+        Path to a file hosted on the origin which helps accelerate delivery of the dynamic content and calculate the most optimal routes for the CDN. This is relative to the origin path. This property is only relevant when using a single origin.
+        """
+        return pulumi.get(self, "probe_path")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        Provisioning status of the endpoint.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="queryStringCachingBehavior")
+    def query_string_caching_behavior(self) -> Optional[str]:
+        """
+        Defines how CDN caches requests that include query strings. You can ignore any query strings when caching, bypass caching to prevent requests that contain query strings from being cached, or cache every request with a unique URL.
+        """
+        return pulumi.get(self, "query_string_caching_behavior")
+
+    @property
+    @pulumi.getter(name="resourceState")
+    def resource_state(self) -> str:
+        """
+        Resource status of the endpoint.
+        """
+        return pulumi.get(self, "resource_state")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Mapping[str, str]]:
+        """
+        Resource tags.
+        """
+        return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Resource type.
+        """
+        return pulumi.get(self, "type")
+
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

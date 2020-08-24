@@ -5,58 +5,28 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+from . import outputs
+from ._inputs import *
+
+__all__ = ['Controller']
 
 
 class Controller(pulumi.CustomResource):
-    data_plane_fqdn: pulumi.Output[str]
-    """
-    DNS name for accessing DataPlane services
-    """
-    host_suffix: pulumi.Output[str]
-    """
-    DNS suffix for public endpoints running in the Azure Dev Spaces Controller.
-    """
-    location: pulumi.Output[str]
-    """
-    Region where the Azure resource is located.
-    """
-    name: pulumi.Output[str]
-    """
-    The name of the resource.
-    """
-    provisioning_state: pulumi.Output[str]
-    """
-    Provisioning state of the Azure Dev Spaces Controller.
-    """
-    sku: pulumi.Output[dict]
-    """
-    Model representing SKU for Azure Dev Spaces Controller.
-      * `name` (`str`) - The name of the SKU for Azure Dev Spaces Controller.
-      * `tier` (`str`) - The tier of the SKU for Azure Dev Spaces Controller.
-    """
-    tags: pulumi.Output[dict]
-    """
-    Tags for the Azure resource.
-    """
-    target_container_host_api_server_fqdn: pulumi.Output[str]
-    """
-    DNS of the target container host's API server
-    """
-    target_container_host_credentials_base64: pulumi.Output[str]
-    """
-    Credentials of the target container host (base64).
-    """
-    target_container_host_resource_id: pulumi.Output[str]
-    """
-    Resource ID of the target container host
-    """
-    type: pulumi.Output[str]
-    """
-    The type of the resource.
-    """
-    def __init__(__self__, resource_name, opts=None, location=None, name=None, resource_group_name=None, sku=None, tags=None, target_container_host_credentials_base64=None, target_container_host_resource_id=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 sku: Optional[pulumi.Input[pulumi.InputType['SkuArgs']]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 target_container_host_credentials_base64: Optional[pulumi.Input[str]] = None,
+                 target_container_host_resource_id: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         Create a Controller resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
@@ -64,15 +34,10 @@ class Controller(pulumi.CustomResource):
         :param pulumi.Input[str] location: Region where the Azure resource is located.
         :param pulumi.Input[str] name: Name of the resource.
         :param pulumi.Input[str] resource_group_name: Resource group to which the resource belongs.
-        :param pulumi.Input[dict] sku: Model representing SKU for Azure Dev Spaces Controller.
-        :param pulumi.Input[dict] tags: Tags for the Azure resource.
+        :param pulumi.Input[pulumi.InputType['SkuArgs']] sku: Model representing SKU for Azure Dev Spaces Controller.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Tags for the Azure resource.
         :param pulumi.Input[str] target_container_host_credentials_base64: Credentials of the target container host (base64).
         :param pulumi.Input[str] target_container_host_resource_id: Resource ID of the target container host
-
-        The **sku** object supports the following:
-
-          * `name` (`pulumi.Input[str]`) - The name of the SKU for Azure Dev Spaces Controller.
-          * `tier` (`pulumi.Input[str]`) - The tier of the SKU for Azure Dev Spaces Controller.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -122,13 +87,15 @@ class Controller(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None) -> 'Controller':
         """
         Get an existing Controller resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -137,8 +104,97 @@ class Controller(pulumi.CustomResource):
 
         return Controller(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter(name="dataPlaneFqdn")
+    def data_plane_fqdn(self) -> str:
+        """
+        DNS name for accessing DataPlane services
+        """
+        return pulumi.get(self, "data_plane_fqdn")
+
+    @property
+    @pulumi.getter(name="hostSuffix")
+    def host_suffix(self) -> str:
+        """
+        DNS suffix for public endpoints running in the Azure Dev Spaces Controller.
+        """
+        return pulumi.get(self, "host_suffix")
+
+    @property
+    @pulumi.getter
+    def location(self) -> str:
+        """
+        Region where the Azure resource is located.
+        """
+        return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the resource.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        Provisioning state of the Azure Dev Spaces Controller.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter
+    def sku(self) -> 'outputs.SkuResponse':
+        """
+        Model representing SKU for Azure Dev Spaces Controller.
+        """
+        return pulumi.get(self, "sku")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Mapping[str, str]]:
+        """
+        Tags for the Azure resource.
+        """
+        return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter(name="targetContainerHostApiServerFqdn")
+    def target_container_host_api_server_fqdn(self) -> str:
+        """
+        DNS of the target container host's API server
+        """
+        return pulumi.get(self, "target_container_host_api_server_fqdn")
+
+    @property
+    @pulumi.getter(name="targetContainerHostCredentialsBase64")
+    def target_container_host_credentials_base64(self) -> str:
+        """
+        Credentials of the target container host (base64).
+        """
+        return pulumi.get(self, "target_container_host_credentials_base64")
+
+    @property
+    @pulumi.getter(name="targetContainerHostResourceId")
+    def target_container_host_resource_id(self) -> str:
+        """
+        Resource ID of the target container host
+        """
+        return pulumi.get(self, "target_container_host_resource_id")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        The type of the resource.
+        """
+        return pulumi.get(self, "type")
+
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

@@ -9,3 +9,5 @@ from .get_view import *
 from .get_view_by_scope import *
 from .view import *
 from .view_by_scope import *
+from ._inputs import *
+from . import outputs

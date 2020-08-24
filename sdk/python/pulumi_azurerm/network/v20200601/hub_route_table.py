@@ -5,70 +5,38 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+from . import outputs
+from ._inputs import *
+
+__all__ = ['HubRouteTable']
 
 
 class HubRouteTable(pulumi.CustomResource):
-    associated_connections: pulumi.Output[list]
-    """
-    List of all connections associated with this route table.
-      * `id` (`str`) - Resource ID.
-    """
-    etag: pulumi.Output[str]
-    """
-    A unique read-only string that changes whenever the resource is updated.
-    """
-    labels: pulumi.Output[list]
-    """
-    List of labels associated with this route table.
-    """
-    name: pulumi.Output[str]
-    """
-    The name of the resource that is unique within a resource group. This name can be used to access the resource.
-    """
-    propagating_connections: pulumi.Output[list]
-    """
-    List of all connections that advertise to this route table.
-      * `id` (`str`) - Resource ID.
-    """
-    provisioning_state: pulumi.Output[str]
-    """
-    The provisioning state of the RouteTable resource.
-    """
-    routes: pulumi.Output[list]
-    """
-    List of all routes.
-      * `destination_type` (`str`) - The type of destinations (eg: CIDR, ResourceId, Service).
-      * `destinations` (`list`) - List of all destinations.
-      * `name` (`str`) - The name of the Route that is unique within a RouteTable. This name can be used to access this route.
-      * `next_hop` (`str`) - NextHop resource ID.
-      * `next_hop_type` (`str`) - The type of next hop (eg: ResourceId).
-    """
-    type: pulumi.Output[str]
-    """
-    Resource type.
-    """
-    def __init__(__self__, resource_name, opts=None, id=None, labels=None, name=None, resource_group_name=None, routes=None, virtual_hub_name=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 id: Optional[pulumi.Input[str]] = None,
+                 labels: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 routes: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['HubRouteArgs']]]]] = None,
+                 virtual_hub_name: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         RouteTable resource in a virtual hub.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] id: Resource ID.
-        :param pulumi.Input[list] labels: List of labels associated with this route table.
+        :param pulumi.Input[List[pulumi.Input[str]]] labels: List of labels associated with this route table.
         :param pulumi.Input[str] name: The name of the RouteTable.
         :param pulumi.Input[str] resource_group_name: The resource group name of the VirtualHub.
-        :param pulumi.Input[list] routes: List of all routes.
+        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['HubRouteArgs']]]] routes: List of all routes.
         :param pulumi.Input[str] virtual_hub_name: The name of the VirtualHub.
-
-        The **routes** object supports the following:
-
-          * `destination_type` (`pulumi.Input[str]`) - The type of destinations (eg: CIDR, ResourceId, Service).
-          * `destinations` (`pulumi.Input[list]`) - List of all destinations.
-          * `name` (`pulumi.Input[str]`) - The name of the Route that is unique within a RouteTable. This name can be used to access this route.
-          * `next_hop` (`pulumi.Input[str]`) - NextHop resource ID.
-          * `next_hop_type` (`pulumi.Input[str]`) - The type of next hop (eg: ResourceId).
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -113,13 +81,15 @@ class HubRouteTable(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None) -> 'HubRouteTable':
         """
         Get an existing HubRouteTable resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -128,8 +98,73 @@ class HubRouteTable(pulumi.CustomResource):
 
         return HubRouteTable(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter(name="associatedConnections")
+    def associated_connections(self) -> List['outputs.SubResourceResponse']:
+        """
+        List of all connections associated with this route table.
+        """
+        return pulumi.get(self, "associated_connections")
+
+    @property
+    @pulumi.getter
+    def etag(self) -> str:
+        """
+        A unique read-only string that changes whenever the resource is updated.
+        """
+        return pulumi.get(self, "etag")
+
+    @property
+    @pulumi.getter
+    def labels(self) -> Optional[List[str]]:
+        """
+        List of labels associated with this route table.
+        """
+        return pulumi.get(self, "labels")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        The name of the resource that is unique within a resource group. This name can be used to access the resource.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="propagatingConnections")
+    def propagating_connections(self) -> List['outputs.SubResourceResponse']:
+        """
+        List of all connections that advertise to this route table.
+        """
+        return pulumi.get(self, "propagating_connections")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        The provisioning state of the RouteTable resource.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter
+    def routes(self) -> Optional[List['outputs.HubRouteResponse']]:
+        """
+        List of all routes.
+        """
+        return pulumi.get(self, "routes")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Resource type.
+        """
+        return pulumi.get(self, "type")
+
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

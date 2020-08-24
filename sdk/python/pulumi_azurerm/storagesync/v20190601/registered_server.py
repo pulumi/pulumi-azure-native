@@ -5,96 +5,30 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+
+__all__ = ['RegisteredServer']
 
 
 class RegisteredServer(pulumi.CustomResource):
-    agent_version: pulumi.Output[str]
-    """
-    Registered Server Agent Version
-    """
-    cluster_id: pulumi.Output[str]
-    """
-    Registered Server clusterId
-    """
-    cluster_name: pulumi.Output[str]
-    """
-    Registered Server clusterName
-    """
-    discovery_endpoint_uri: pulumi.Output[str]
-    """
-    Resource discoveryEndpointUri
-    """
-    friendly_name: pulumi.Output[str]
-    """
-    Friendly Name
-    """
-    last_heart_beat: pulumi.Output[str]
-    """
-    Registered Server last heart beat
-    """
-    last_operation_name: pulumi.Output[str]
-    """
-    Resource Last Operation Name
-    """
-    last_workflow_id: pulumi.Output[str]
-    """
-    Registered Server lastWorkflowId
-    """
-    management_endpoint_uri: pulumi.Output[str]
-    """
-    Management Endpoint Uri
-    """
-    monitoring_configuration: pulumi.Output[str]
-    """
-    Monitoring Configuration
-    """
-    name: pulumi.Output[str]
-    """
-    The name of the resource
-    """
-    provisioning_state: pulumi.Output[str]
-    """
-    Registered Server Provisioning State
-    """
-    resource_location: pulumi.Output[str]
-    """
-    Resource Location
-    """
-    server_certificate: pulumi.Output[str]
-    """
-    Registered Server Certificate
-    """
-    server_id: pulumi.Output[str]
-    """
-    Registered Server serverId
-    """
-    server_management_error_code: pulumi.Output[float]
-    """
-    Registered Server Management Error Code
-    """
-    server_os_version: pulumi.Output[str]
-    """
-    Registered Server OS Version
-    """
-    server_role: pulumi.Output[str]
-    """
-    Registered Server serverRole
-    """
-    service_location: pulumi.Output[str]
-    """
-    Service Location
-    """
-    storage_sync_service_uid: pulumi.Output[str]
-    """
-    Registered Server storageSyncServiceUid
-    """
-    type: pulumi.Output[str]
-    """
-    The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
-    """
-    def __init__(__self__, resource_name, opts=None, agent_version=None, cluster_id=None, cluster_name=None, friendly_name=None, last_heart_beat=None, name=None, resource_group_name=None, server_certificate=None, server_os_version=None, server_role=None, storage_sync_service_name=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 agent_version: Optional[pulumi.Input[str]] = None,
+                 cluster_id: Optional[pulumi.Input[str]] = None,
+                 cluster_name: Optional[pulumi.Input[str]] = None,
+                 friendly_name: Optional[pulumi.Input[str]] = None,
+                 last_heart_beat: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 server_certificate: Optional[pulumi.Input[str]] = None,
+                 server_os_version: Optional[pulumi.Input[str]] = None,
+                 server_role: Optional[pulumi.Input[str]] = None,
+                 storage_sync_service_name: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         Registered Server resource.
 
@@ -167,13 +101,15 @@ class RegisteredServer(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None) -> 'RegisteredServer':
         """
         Get an existing RegisteredServer resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -182,8 +118,177 @@ class RegisteredServer(pulumi.CustomResource):
 
         return RegisteredServer(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter(name="agentVersion")
+    def agent_version(self) -> Optional[str]:
+        """
+        Registered Server Agent Version
+        """
+        return pulumi.get(self, "agent_version")
+
+    @property
+    @pulumi.getter(name="clusterId")
+    def cluster_id(self) -> Optional[str]:
+        """
+        Registered Server clusterId
+        """
+        return pulumi.get(self, "cluster_id")
+
+    @property
+    @pulumi.getter(name="clusterName")
+    def cluster_name(self) -> Optional[str]:
+        """
+        Registered Server clusterName
+        """
+        return pulumi.get(self, "cluster_name")
+
+    @property
+    @pulumi.getter(name="discoveryEndpointUri")
+    def discovery_endpoint_uri(self) -> Optional[str]:
+        """
+        Resource discoveryEndpointUri
+        """
+        return pulumi.get(self, "discovery_endpoint_uri")
+
+    @property
+    @pulumi.getter(name="friendlyName")
+    def friendly_name(self) -> Optional[str]:
+        """
+        Friendly Name
+        """
+        return pulumi.get(self, "friendly_name")
+
+    @property
+    @pulumi.getter(name="lastHeartBeat")
+    def last_heart_beat(self) -> Optional[str]:
+        """
+        Registered Server last heart beat
+        """
+        return pulumi.get(self, "last_heart_beat")
+
+    @property
+    @pulumi.getter(name="lastOperationName")
+    def last_operation_name(self) -> Optional[str]:
+        """
+        Resource Last Operation Name
+        """
+        return pulumi.get(self, "last_operation_name")
+
+    @property
+    @pulumi.getter(name="lastWorkflowId")
+    def last_workflow_id(self) -> Optional[str]:
+        """
+        Registered Server lastWorkflowId
+        """
+        return pulumi.get(self, "last_workflow_id")
+
+    @property
+    @pulumi.getter(name="managementEndpointUri")
+    def management_endpoint_uri(self) -> Optional[str]:
+        """
+        Management Endpoint Uri
+        """
+        return pulumi.get(self, "management_endpoint_uri")
+
+    @property
+    @pulumi.getter(name="monitoringConfiguration")
+    def monitoring_configuration(self) -> Optional[str]:
+        """
+        Monitoring Configuration
+        """
+        return pulumi.get(self, "monitoring_configuration")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the resource
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> Optional[str]:
+        """
+        Registered Server Provisioning State
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="resourceLocation")
+    def resource_location(self) -> Optional[str]:
+        """
+        Resource Location
+        """
+        return pulumi.get(self, "resource_location")
+
+    @property
+    @pulumi.getter(name="serverCertificate")
+    def server_certificate(self) -> Optional[str]:
+        """
+        Registered Server Certificate
+        """
+        return pulumi.get(self, "server_certificate")
+
+    @property
+    @pulumi.getter(name="serverId")
+    def server_id(self) -> Optional[str]:
+        """
+        Registered Server serverId
+        """
+        return pulumi.get(self, "server_id")
+
+    @property
+    @pulumi.getter(name="serverManagementErrorCode")
+    def server_management_error_code(self) -> Optional[float]:
+        """
+        Registered Server Management Error Code
+        """
+        return pulumi.get(self, "server_management_error_code")
+
+    @property
+    @pulumi.getter(name="serverOSVersion")
+    def server_os_version(self) -> Optional[str]:
+        """
+        Registered Server OS Version
+        """
+        return pulumi.get(self, "server_os_version")
+
+    @property
+    @pulumi.getter(name="serverRole")
+    def server_role(self) -> Optional[str]:
+        """
+        Registered Server serverRole
+        """
+        return pulumi.get(self, "server_role")
+
+    @property
+    @pulumi.getter(name="serviceLocation")
+    def service_location(self) -> Optional[str]:
+        """
+        Service Location
+        """
+        return pulumi.get(self, "service_location")
+
+    @property
+    @pulumi.getter(name="storageSyncServiceUid")
+    def storage_sync_service_uid(self) -> Optional[str]:
+        """
+        Registered Server storageSyncServiceUid
+        """
+        return pulumi.get(self, "storage_sync_service_uid")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+        """
+        return pulumi.get(self, "type")
+
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

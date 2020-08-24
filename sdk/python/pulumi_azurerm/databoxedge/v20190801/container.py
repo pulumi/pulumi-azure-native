@@ -5,40 +5,25 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+from . import outputs
+
+__all__ = ['Container']
 
 
 class Container(pulumi.CustomResource):
-    container_status: pulumi.Output[str]
-    """
-    Current status of the container.
-    """
-    created_date_time: pulumi.Output[str]
-    """
-    The UTC time when container got created.
-    """
-    data_format: pulumi.Output[str]
-    """
-    DataFormat for Container
-    """
-    name: pulumi.Output[str]
-    """
-    The object name.
-    """
-    refresh_details: pulumi.Output[dict]
-    """
-    Details of the refresh job on this container.
-      * `error_manifest_file` (`str`) - Indicates the relative path of the error xml for the last refresh job on this particular share or container, if any. This could be a failed job or a successful job.
-      * `in_progress_refresh_job_id` (`str`) - If a refresh job is currently in progress on this share or container, this field indicates the ARM resource ID of that job. The field is empty if no job is in progress.
-      * `last_completed_refresh_job_time_in_utc` (`str`) - Indicates the completed time for the last refresh job on this particular share or container, if any.This could be a failed job or a successful job.
-      * `last_job` (`str`) - Indicates the id of the last refresh job on this particular share or container,if any. This could be a failed job or a successful job.
-    """
-    type: pulumi.Output[str]
-    """
-    The hierarchical type of the object.
-    """
-    def __init__(__self__, resource_name, opts=None, data_format=None, device_name=None, name=None, resource_group_name=None, storage_account_name=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 data_format: Optional[pulumi.Input[str]] = None,
+                 device_name: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 storage_account_name: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         Represents a container on the  Data Box Edge/Gateway device.
 
@@ -93,13 +78,15 @@ class Container(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None) -> 'Container':
         """
         Get an existing Container resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -108,8 +95,57 @@ class Container(pulumi.CustomResource):
 
         return Container(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter(name="containerStatus")
+    def container_status(self) -> str:
+        """
+        Current status of the container.
+        """
+        return pulumi.get(self, "container_status")
+
+    @property
+    @pulumi.getter(name="createdDateTime")
+    def created_date_time(self) -> str:
+        """
+        The UTC time when container got created.
+        """
+        return pulumi.get(self, "created_date_time")
+
+    @property
+    @pulumi.getter(name="dataFormat")
+    def data_format(self) -> str:
+        """
+        DataFormat for Container
+        """
+        return pulumi.get(self, "data_format")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The object name.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="refreshDetails")
+    def refresh_details(self) -> 'outputs.RefreshDetailsResponse':
+        """
+        Details of the refresh job on this container.
+        """
+        return pulumi.get(self, "refresh_details")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        The hierarchical type of the object.
+        """
+        return pulumi.get(self, "type")
+
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

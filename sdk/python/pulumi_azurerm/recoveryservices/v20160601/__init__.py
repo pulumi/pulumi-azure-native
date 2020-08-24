@@ -7,3 +7,5 @@ from .get_protection_policy import *
 from .get_vault import *
 from .protection_policy import *
 from .vault import *
+from ._inputs import *
+from . import outputs

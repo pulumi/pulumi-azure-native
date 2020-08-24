@@ -9,3 +9,5 @@ from .get_iot_dps_resource import *
 from .iot_dps_resource import *
 from .list_iot_dps_resource_keys import *
 from .list_iot_dps_resource_keys_for_key_name import *
+from ._inputs import *
+from . import outputs

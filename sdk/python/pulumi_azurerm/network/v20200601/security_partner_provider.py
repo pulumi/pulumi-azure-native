@@ -5,49 +5,28 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+from . import outputs
+from ._inputs import *
+
+__all__ = ['SecurityPartnerProvider']
 
 
 class SecurityPartnerProvider(pulumi.CustomResource):
-    connection_status: pulumi.Output[str]
-    """
-    The connection status with the Security Partner Provider.
-    """
-    etag: pulumi.Output[str]
-    """
-    A unique read-only string that changes whenever the resource is updated.
-    """
-    location: pulumi.Output[str]
-    """
-    Resource location.
-    """
-    name: pulumi.Output[str]
-    """
-    Resource name.
-    """
-    provisioning_state: pulumi.Output[str]
-    """
-    The provisioning state of the Security Partner Provider resource.
-    """
-    security_provider_name: pulumi.Output[str]
-    """
-    The security provider name.
-    """
-    tags: pulumi.Output[dict]
-    """
-    Resource tags.
-    """
-    type: pulumi.Output[str]
-    """
-    Resource type.
-    """
-    virtual_hub: pulumi.Output[dict]
-    """
-    The virtualHub to which the Security Partner Provider belongs.
-      * `id` (`str`) - Resource ID.
-    """
-    def __init__(__self__, resource_name, opts=None, id=None, location=None, name=None, resource_group_name=None, security_provider_name=None, tags=None, virtual_hub=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 id: Optional[pulumi.Input[str]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 security_provider_name: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 virtual_hub: Optional[pulumi.Input[pulumi.InputType['SubResourceArgs']]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         Security Partner Provider resource.
 
@@ -58,12 +37,8 @@ class SecurityPartnerProvider(pulumi.CustomResource):
         :param pulumi.Input[str] name: The name of the Security Partner Provider.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[str] security_provider_name: The security provider name.
-        :param pulumi.Input[dict] tags: Resource tags.
-        :param pulumi.Input[dict] virtual_hub: The virtualHub to which the Security Partner Provider belongs.
-
-        The **virtual_hub** object supports the following:
-
-          * `id` (`pulumi.Input[str]`) - Resource ID.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
+        :param pulumi.Input[pulumi.InputType['SubResourceArgs']] virtual_hub: The virtualHub to which the Security Partner Provider belongs.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -106,13 +81,15 @@ class SecurityPartnerProvider(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None) -> 'SecurityPartnerProvider':
         """
         Get an existing SecurityPartnerProvider resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -121,8 +98,81 @@ class SecurityPartnerProvider(pulumi.CustomResource):
 
         return SecurityPartnerProvider(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter(name="connectionStatus")
+    def connection_status(self) -> str:
+        """
+        The connection status with the Security Partner Provider.
+        """
+        return pulumi.get(self, "connection_status")
+
+    @property
+    @pulumi.getter
+    def etag(self) -> str:
+        """
+        A unique read-only string that changes whenever the resource is updated.
+        """
+        return pulumi.get(self, "etag")
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[str]:
+        """
+        Resource location.
+        """
+        return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Resource name.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        The provisioning state of the Security Partner Provider resource.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="securityProviderName")
+    def security_provider_name(self) -> Optional[str]:
+        """
+        The security provider name.
+        """
+        return pulumi.get(self, "security_provider_name")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Mapping[str, str]]:
+        """
+        Resource tags.
+        """
+        return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Resource type.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="virtualHub")
+    def virtual_hub(self) -> Optional['outputs.SubResourceResponse']:
+        """
+        The virtualHub to which the Security Partner Provider belongs.
+        """
+        return pulumi.get(self, "virtual_hub")
+
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

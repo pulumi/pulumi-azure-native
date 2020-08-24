@@ -5,36 +5,26 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+
+__all__ = ['ServiceEndpointPolicyDefinition']
 
 
 class ServiceEndpointPolicyDefinition(pulumi.CustomResource):
-    description: pulumi.Output[str]
-    """
-    A description for this rule. Restricted to 140 chars.
-    """
-    etag: pulumi.Output[str]
-    """
-    A unique read-only string that changes whenever the resource is updated.
-    """
-    name: pulumi.Output[str]
-    """
-    The name of the resource that is unique within a resource group. This name can be used to access the resource.
-    """
-    provisioning_state: pulumi.Output[str]
-    """
-    The provisioning state of the service endpoint policy definition resource.
-    """
-    service: pulumi.Output[str]
-    """
-    Service endpoint name.
-    """
-    service_resources: pulumi.Output[list]
-    """
-    A list of service resources.
-    """
-    def __init__(__self__, resource_name, opts=None, description=None, id=None, name=None, resource_group_name=None, service=None, service_endpoint_policy_name=None, service_resources=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 id: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 service: Optional[pulumi.Input[str]] = None,
+                 service_endpoint_policy_name: Optional[pulumi.Input[str]] = None,
+                 service_resources: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         Service Endpoint policy definitions.
 
@@ -46,7 +36,7 @@ class ServiceEndpointPolicyDefinition(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[str] service: Service endpoint name.
         :param pulumi.Input[str] service_endpoint_policy_name: The name of the service endpoint policy.
-        :param pulumi.Input[list] service_resources: A list of service resources.
+        :param pulumi.Input[List[pulumi.Input[str]]] service_resources: A list of service resources.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -89,13 +79,15 @@ class ServiceEndpointPolicyDefinition(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None) -> 'ServiceEndpointPolicyDefinition':
         """
         Get an existing ServiceEndpointPolicyDefinition resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -104,8 +96,57 @@ class ServiceEndpointPolicyDefinition(pulumi.CustomResource):
 
         return ServiceEndpointPolicyDefinition(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        """
+        A description for this rule. Restricted to 140 chars.
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def etag(self) -> str:
+        """
+        A unique read-only string that changes whenever the resource is updated.
+        """
+        return pulumi.get(self, "etag")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        The name of the resource that is unique within a resource group. This name can be used to access the resource.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        The provisioning state of the service endpoint policy definition resource.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter
+    def service(self) -> Optional[str]:
+        """
+        Service endpoint name.
+        """
+        return pulumi.get(self, "service")
+
+    @property
+    @pulumi.getter(name="serviceResources")
+    def service_resources(self) -> Optional[List[str]]:
+        """
+        A list of service resources.
+        """
+        return pulumi.get(self, "service_resources")
+
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

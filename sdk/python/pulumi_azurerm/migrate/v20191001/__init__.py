@@ -13,3 +13,5 @@ from .group import *
 from .hyper_v_collector import *
 from .project import *
 from .v_mware_collector import *
+from ._inputs import *
+from . import outputs

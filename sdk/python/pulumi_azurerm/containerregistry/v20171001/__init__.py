@@ -11,3 +11,5 @@ from .list_webhook_events import *
 from .registry import *
 from .replication import *
 from .webhook import *
+from ._inputs import *
+from . import outputs

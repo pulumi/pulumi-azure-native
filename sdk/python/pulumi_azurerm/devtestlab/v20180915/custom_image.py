@@ -5,98 +5,43 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+from . import outputs
+from ._inputs import *
+
+__all__ = ['CustomImage']
 
 
 class CustomImage(pulumi.CustomResource):
-    author: pulumi.Output[str]
-    """
-    The author of the custom image.
-    """
-    creation_date: pulumi.Output[str]
-    """
-    The creation date of the custom image.
-    """
-    custom_image_plan: pulumi.Output[dict]
-    """
-    Storage information about the plan related to this custom image
-      * `id` (`str`) - The id of the plan, equivalent to name of the plan
-      * `offer` (`str`) - The offer for the plan from the marketplace image the custom image is derived from
-      * `publisher` (`str`) - The publisher for the plan from the marketplace image the custom image is derived from
-    """
-    data_disk_storage_info: pulumi.Output[list]
-    """
-    Storage information about the data disks present in the custom image
-      * `lun` (`str`) - Disk Lun
-      * `storage_type` (`str`) - Disk Storage Type
-    """
-    description: pulumi.Output[str]
-    """
-    The description of the custom image.
-    """
-    is_plan_authorized: pulumi.Output[bool]
-    """
-    Whether or not the custom images underlying offer/plan has been enabled for programmatic deployment
-    """
-    location: pulumi.Output[str]
-    """
-    The location of the resource.
-    """
-    managed_image_id: pulumi.Output[str]
-    """
-    The Managed Image Id backing the custom image.
-    """
-    managed_snapshot_id: pulumi.Output[str]
-    """
-    The Managed Snapshot Id backing the custom image.
-    """
-    name: pulumi.Output[str]
-    """
-    The name of the resource.
-    """
-    provisioning_state: pulumi.Output[str]
-    """
-    The provisioning status of the resource.
-    """
-    tags: pulumi.Output[dict]
-    """
-    The tags of the resource.
-    """
-    type: pulumi.Output[str]
-    """
-    The type of the resource.
-    """
-    unique_identifier: pulumi.Output[str]
-    """
-    The unique immutable identifier of a resource (Guid).
-    """
-    vhd: pulumi.Output[dict]
-    """
-    The VHD from which the image is to be created.
-      * `image_name` (`str`) - The image name.
-      * `os_type` (`str`) - The OS type of the custom image (i.e. Windows, Linux)
-      * `sys_prep` (`bool`) - Indicates whether sysprep has been run on the VHD.
-    """
-    vm: pulumi.Output[dict]
-    """
-    The virtual machine from which the image is to be created.
-      * `linux_os_info` (`dict`) - The Linux OS information of the VM.
-        * `linux_os_state` (`str`) - The state of the Linux OS (i.e. NonDeprovisioned, DeprovisionRequested, DeprovisionApplied).
-
-      * `source_vm_id` (`str`) - The source vm identifier.
-      * `windows_os_info` (`dict`) - The Windows OS information of the VM.
-        * `windows_os_state` (`str`) - The state of the Windows OS (i.e. NonSysprepped, SysprepRequested, SysprepApplied).
-    """
-    def __init__(__self__, resource_name, opts=None, author=None, custom_image_plan=None, data_disk_storage_info=None, description=None, is_plan_authorized=None, lab_name=None, location=None, managed_image_id=None, managed_snapshot_id=None, name=None, resource_group_name=None, tags=None, vhd=None, vm=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 author: Optional[pulumi.Input[str]] = None,
+                 custom_image_plan: Optional[pulumi.Input[pulumi.InputType['CustomImagePropertiesFromPlanArgs']]] = None,
+                 data_disk_storage_info: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['DataDiskStorageTypeInfoArgs']]]]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 is_plan_authorized: Optional[pulumi.Input[bool]] = None,
+                 lab_name: Optional[pulumi.Input[str]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 managed_image_id: Optional[pulumi.Input[str]] = None,
+                 managed_snapshot_id: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 vhd: Optional[pulumi.Input[pulumi.InputType['CustomImagePropertiesCustomArgs']]] = None,
+                 vm: Optional[pulumi.Input[pulumi.InputType['CustomImagePropertiesFromVmArgs']]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         A custom image.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] author: The author of the custom image.
-        :param pulumi.Input[dict] custom_image_plan: Storage information about the plan related to this custom image
-        :param pulumi.Input[list] data_disk_storage_info: Storage information about the data disks present in the custom image
+        :param pulumi.Input[pulumi.InputType['CustomImagePropertiesFromPlanArgs']] custom_image_plan: Storage information about the plan related to this custom image
+        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['DataDiskStorageTypeInfoArgs']]]] data_disk_storage_info: Storage information about the data disks present in the custom image
         :param pulumi.Input[str] description: The description of the custom image.
         :param pulumi.Input[bool] is_plan_authorized: Whether or not the custom images underlying offer/plan has been enabled for programmatic deployment
         :param pulumi.Input[str] lab_name: The name of the lab.
@@ -105,35 +50,9 @@ class CustomImage(pulumi.CustomResource):
         :param pulumi.Input[str] managed_snapshot_id: The Managed Snapshot Id backing the custom image.
         :param pulumi.Input[str] name: The name of the custom image.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
-        :param pulumi.Input[dict] tags: The tags of the resource.
-        :param pulumi.Input[dict] vhd: The VHD from which the image is to be created.
-        :param pulumi.Input[dict] vm: The virtual machine from which the image is to be created.
-
-        The **custom_image_plan** object supports the following:
-
-          * `id` (`pulumi.Input[str]`) - The id of the plan, equivalent to name of the plan
-          * `offer` (`pulumi.Input[str]`) - The offer for the plan from the marketplace image the custom image is derived from
-          * `publisher` (`pulumi.Input[str]`) - The publisher for the plan from the marketplace image the custom image is derived from
-
-        The **data_disk_storage_info** object supports the following:
-
-          * `lun` (`pulumi.Input[str]`) - Disk Lun
-          * `storage_type` (`pulumi.Input[str]`) - Disk Storage Type
-
-        The **vhd** object supports the following:
-
-          * `image_name` (`pulumi.Input[str]`) - The image name.
-          * `os_type` (`pulumi.Input[str]`) - The OS type of the custom image (i.e. Windows, Linux)
-          * `sys_prep` (`pulumi.Input[bool]`) - Indicates whether sysprep has been run on the VHD.
-
-        The **vm** object supports the following:
-
-          * `linux_os_info` (`pulumi.Input[dict]`) - The Linux OS information of the VM.
-            * `linux_os_state` (`pulumi.Input[str]`) - The state of the Linux OS (i.e. NonDeprovisioned, DeprovisionRequested, DeprovisionApplied).
-
-          * `source_vm_id` (`pulumi.Input[str]`) - The source vm identifier.
-          * `windows_os_info` (`pulumi.Input[dict]`) - The Windows OS information of the VM.
-            * `windows_os_state` (`pulumi.Input[str]`) - The state of the Windows OS (i.e. NonSysprepped, SysprepRequested, SysprepApplied).
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The tags of the resource.
+        :param pulumi.Input[pulumi.InputType['CustomImagePropertiesCustomArgs']] vhd: The VHD from which the image is to be created.
+        :param pulumi.Input[pulumi.InputType['CustomImagePropertiesFromVmArgs']] vm: The virtual machine from which the image is to be created.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -185,13 +104,15 @@ class CustomImage(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None) -> 'CustomImage':
         """
         Get an existing CustomImage resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -200,8 +121,137 @@ class CustomImage(pulumi.CustomResource):
 
         return CustomImage(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter
+    def author(self) -> Optional[str]:
+        """
+        The author of the custom image.
+        """
+        return pulumi.get(self, "author")
+
+    @property
+    @pulumi.getter(name="creationDate")
+    def creation_date(self) -> str:
+        """
+        The creation date of the custom image.
+        """
+        return pulumi.get(self, "creation_date")
+
+    @property
+    @pulumi.getter(name="customImagePlan")
+    def custom_image_plan(self) -> Optional['outputs.CustomImagePropertiesFromPlanResponse']:
+        """
+        Storage information about the plan related to this custom image
+        """
+        return pulumi.get(self, "custom_image_plan")
+
+    @property
+    @pulumi.getter(name="dataDiskStorageInfo")
+    def data_disk_storage_info(self) -> Optional[List['outputs.DataDiskStorageTypeInfoResponse']]:
+        """
+        Storage information about the data disks present in the custom image
+        """
+        return pulumi.get(self, "data_disk_storage_info")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        """
+        The description of the custom image.
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="isPlanAuthorized")
+    def is_plan_authorized(self) -> Optional[bool]:
+        """
+        Whether or not the custom images underlying offer/plan has been enabled for programmatic deployment
+        """
+        return pulumi.get(self, "is_plan_authorized")
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[str]:
+        """
+        The location of the resource.
+        """
+        return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter(name="managedImageId")
+    def managed_image_id(self) -> Optional[str]:
+        """
+        The Managed Image Id backing the custom image.
+        """
+        return pulumi.get(self, "managed_image_id")
+
+    @property
+    @pulumi.getter(name="managedSnapshotId")
+    def managed_snapshot_id(self) -> Optional[str]:
+        """
+        The Managed Snapshot Id backing the custom image.
+        """
+        return pulumi.get(self, "managed_snapshot_id")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the resource.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        The provisioning status of the resource.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Mapping[str, str]]:
+        """
+        The tags of the resource.
+        """
+        return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        The type of the resource.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="uniqueIdentifier")
+    def unique_identifier(self) -> str:
+        """
+        The unique immutable identifier of a resource (Guid).
+        """
+        return pulumi.get(self, "unique_identifier")
+
+    @property
+    @pulumi.getter
+    def vhd(self) -> Optional['outputs.CustomImagePropertiesCustomResponse']:
+        """
+        The VHD from which the image is to be created.
+        """
+        return pulumi.get(self, "vhd")
+
+    @property
+    @pulumi.getter
+    def vm(self) -> Optional['outputs.CustomImagePropertiesFromVmResponse']:
+        """
+        The virtual machine from which the image is to be created.
+        """
+        return pulumi.get(self, "vm")
+
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

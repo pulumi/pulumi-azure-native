@@ -5,27 +5,24 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+from . import outputs
+from ._inputs import *
+
+__all__ = ['PatchSchedule']
 
 
 class PatchSchedule(pulumi.CustomResource):
-    name: pulumi.Output[str]
-    """
-    Resource name.
-    """
-    schedule_entries: pulumi.Output[list]
-    """
-    List of patch schedules for a Redis cache.
-      * `day_of_week` (`str`) - Day of the week when a cache can be patched.
-      * `maintenance_window` (`str`) - ISO8601 timespan specifying how much time cache patching can take. 
-      * `start_hour_utc` (`float`) - Start hour after which cache patching can start.
-    """
-    type: pulumi.Output[str]
-    """
-    Resource type.
-    """
-    def __init__(__self__, resource_name, opts=None, name=None, resource_group_name=None, schedule_entries=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 schedule_entries: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['ScheduleEntryArgs']]]]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         Response to put/get patch schedules for Redis cache.
 
@@ -33,13 +30,7 @@ class PatchSchedule(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] name: Default string modeled as parameter for auto generation to work correctly.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
-        :param pulumi.Input[list] schedule_entries: List of patch schedules for a Redis cache.
-
-        The **schedule_entries** object supports the following:
-
-          * `day_of_week` (`pulumi.Input[str]`) - Day of the week when a cache can be patched.
-          * `maintenance_window` (`pulumi.Input[str]`) - ISO8601 timespan specifying how much time cache patching can take. 
-          * `start_hour_utc` (`pulumi.Input[float]`) - Start hour after which cache patching can start.
+        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['ScheduleEntryArgs']]]] schedule_entries: List of patch schedules for a Redis cache.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -77,13 +68,15 @@ class PatchSchedule(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None) -> 'PatchSchedule':
         """
         Get an existing PatchSchedule resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -92,8 +85,33 @@ class PatchSchedule(pulumi.CustomResource):
 
         return PatchSchedule(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Resource name.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="scheduleEntries")
+    def schedule_entries(self) -> List['outputs.ScheduleEntryResponse']:
+        """
+        List of patch schedules for a Redis cache.
+        """
+        return pulumi.get(self, "schedule_entries")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Resource type.
+        """
+        return pulumi.get(self, "type")
+
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

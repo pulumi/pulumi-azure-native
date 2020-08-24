@@ -5,10 +5,17 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+from . import outputs
 
+__all__ = [
+    'GetExportResult',
+    'AwaitableGetExportResult',
+    'get_export',
+]
 
+@pulumi.output_type
 class GetExportResult:
     """
     An export resource.
@@ -16,58 +23,103 @@ class GetExportResult:
     def __init__(__self__, definition=None, delivery_info=None, e_tag=None, format=None, name=None, next_run_time_estimate=None, run_history=None, schedule=None, type=None):
         if definition and not isinstance(definition, dict):
             raise TypeError("Expected argument 'definition' to be a dict")
-        __self__.definition = definition
+        pulumi.set(__self__, "definition", definition)
+        if delivery_info and not isinstance(delivery_info, dict):
+            raise TypeError("Expected argument 'delivery_info' to be a dict")
+        pulumi.set(__self__, "delivery_info", delivery_info)
+        if e_tag and not isinstance(e_tag, str):
+            raise TypeError("Expected argument 'e_tag' to be a str")
+        pulumi.set(__self__, "e_tag", e_tag)
+        if format and not isinstance(format, str):
+            raise TypeError("Expected argument 'format' to be a str")
+        pulumi.set(__self__, "format", format)
+        if name and not isinstance(name, str):
+            raise TypeError("Expected argument 'name' to be a str")
+        pulumi.set(__self__, "name", name)
+        if next_run_time_estimate and not isinstance(next_run_time_estimate, str):
+            raise TypeError("Expected argument 'next_run_time_estimate' to be a str")
+        pulumi.set(__self__, "next_run_time_estimate", next_run_time_estimate)
+        if run_history and not isinstance(run_history, dict):
+            raise TypeError("Expected argument 'run_history' to be a dict")
+        pulumi.set(__self__, "run_history", run_history)
+        if schedule and not isinstance(schedule, dict):
+            raise TypeError("Expected argument 'schedule' to be a dict")
+        pulumi.set(__self__, "schedule", schedule)
+        if type and not isinstance(type, str):
+            raise TypeError("Expected argument 'type' to be a str")
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def definition(self) -> 'outputs.ExportDefinitionResponse':
         """
         Has the definition for the export.
         """
-        if delivery_info and not isinstance(delivery_info, dict):
-            raise TypeError("Expected argument 'delivery_info' to be a dict")
-        __self__.delivery_info = delivery_info
+        return pulumi.get(self, "definition")
+
+    @property
+    @pulumi.getter(name="deliveryInfo")
+    def delivery_info(self) -> 'outputs.ExportDeliveryInfoResponse':
         """
         Has delivery information for the export.
         """
-        if e_tag and not isinstance(e_tag, str):
-            raise TypeError("Expected argument 'e_tag' to be a str")
-        __self__.e_tag = e_tag
+        return pulumi.get(self, "delivery_info")
+
+    @property
+    @pulumi.getter(name="eTag")
+    def e_tag(self) -> Optional[str]:
         """
         eTag of the resource. To handle concurrent update scenario, this field will be used to determine whether the user is updating the latest version or not.
         """
-        if format and not isinstance(format, str):
-            raise TypeError("Expected argument 'format' to be a str")
-        __self__.format = format
+        return pulumi.get(self, "e_tag")
+
+    @property
+    @pulumi.getter
+    def format(self) -> Optional[str]:
         """
         The format of the export being delivered. Currently only 'Csv' is supported.
         """
-        if name and not isinstance(name, str):
-            raise TypeError("Expected argument 'name' to be a str")
-        __self__.name = name
+        return pulumi.get(self, "format")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
         """
         Resource name.
         """
-        if next_run_time_estimate and not isinstance(next_run_time_estimate, str):
-            raise TypeError("Expected argument 'next_run_time_estimate' to be a str")
-        __self__.next_run_time_estimate = next_run_time_estimate
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="nextRunTimeEstimate")
+    def next_run_time_estimate(self) -> str:
         """
         If the export has an active schedule, provides an estimate of the next execution time.
         """
-        if run_history and not isinstance(run_history, dict):
-            raise TypeError("Expected argument 'run_history' to be a dict")
-        __self__.run_history = run_history
+        return pulumi.get(self, "next_run_time_estimate")
+
+    @property
+    @pulumi.getter(name="runHistory")
+    def run_history(self) -> Optional['outputs.ExportExecutionListResultResponse']:
         """
         If requested, has the most recent execution history for the export.
         """
-        if schedule and not isinstance(schedule, dict):
-            raise TypeError("Expected argument 'schedule' to be a dict")
-        __self__.schedule = schedule
+        return pulumi.get(self, "run_history")
+
+    @property
+    @pulumi.getter
+    def schedule(self) -> Optional['outputs.ExportScheduleResponse']:
         """
         Has schedule information for the export.
         """
-        if type and not isinstance(type, str):
-            raise TypeError("Expected argument 'type' to be a str")
-        __self__.type = type
+        return pulumi.get(self, "schedule")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
         """
         Resource type.
         """
+        return pulumi.get(self, "type")
 
 
 class AwaitableGetExportResult(GetExportResult):
@@ -87,7 +139,10 @@ class AwaitableGetExportResult(GetExportResult):
             type=self.type)
 
 
-def get_export(expand=None, name=None, scope=None, opts=None):
+def get_export(expand: Optional[str] = None,
+               name: Optional[str] = None,
+               scope: Optional[str] = None,
+               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetExportResult:
     """
     Use this data source to access information about an existing resource.
 
@@ -103,15 +158,15 @@ def get_export(expand=None, name=None, scope=None, opts=None):
         opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = _utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('azurerm:costmanagement/v20200601:getExport', __args__, opts=opts).value
+    __ret__ = pulumi.runtime.invoke('azurerm:costmanagement/v20200601:getExport', __args__, opts=opts, typ=GetExportResult).value
 
     return AwaitableGetExportResult(
-        definition=__ret__.get('definition'),
-        delivery_info=__ret__.get('deliveryInfo'),
-        e_tag=__ret__.get('eTag'),
-        format=__ret__.get('format'),
-        name=__ret__.get('name'),
-        next_run_time_estimate=__ret__.get('nextRunTimeEstimate'),
-        run_history=__ret__.get('runHistory'),
-        schedule=__ret__.get('schedule'),
-        type=__ret__.get('type'))
+        definition=__ret__.definition,
+        delivery_info=__ret__.delivery_info,
+        e_tag=__ret__.e_tag,
+        format=__ret__.format,
+        name=__ret__.name,
+        next_run_time_estimate=__ret__.next_run_time_estimate,
+        run_history=__ret__.run_history,
+        schedule=__ret__.schedule,
+        type=__ret__.type)

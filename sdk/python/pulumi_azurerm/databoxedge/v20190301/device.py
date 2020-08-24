@@ -5,90 +5,31 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+from . import outputs
+from ._inputs import *
+
+__all__ = ['Device']
 
 
 class Device(pulumi.CustomResource):
-    configured_role_types: pulumi.Output[list]
-    """
-    Type of compute roles configured.
-    """
-    culture: pulumi.Output[str]
-    """
-    The Data Box Edge/Gateway device culture.
-    """
-    data_box_edge_device_status: pulumi.Output[str]
-    """
-    The status of the Data Box Edge/Gateway device.
-    """
-    description: pulumi.Output[str]
-    """
-    The Description of the Data Box Edge/Gateway device.
-    """
-    device_hcs_version: pulumi.Output[str]
-    """
-    The device software version number of the device (eg: 1.2.18105.6).
-    """
-    device_local_capacity: pulumi.Output[float]
-    """
-    The Data Box Edge/Gateway device local capacity in MB.
-    """
-    device_model: pulumi.Output[str]
-    """
-    The Data Box Edge/Gateway device model.
-    """
-    device_software_version: pulumi.Output[str]
-    """
-    The Data Box Edge/Gateway device software version.
-    """
-    device_type: pulumi.Output[str]
-    """
-    The type of the Data Box Edge/Gateway device.
-    """
-    etag: pulumi.Output[str]
-    """
-    The etag for the devices.
-    """
-    friendly_name: pulumi.Output[str]
-    """
-    The Data Box Edge/Gateway device name.
-    """
-    location: pulumi.Output[str]
-    """
-    The location of the device. This is a supported and registered Azure geographical region (for example, West US, East US, or Southeast Asia). The geographical region of a device cannot be changed once it is created, but if an identical geographical region is specified on update, the request will succeed.
-    """
-    model_description: pulumi.Output[str]
-    """
-    The description of the Data Box Edge/Gateway device model.
-    """
-    name: pulumi.Output[str]
-    """
-    The object name.
-    """
-    serial_number: pulumi.Output[str]
-    """
-    The Serial Number of Data Box Edge/Gateway device.
-    """
-    sku: pulumi.Output[dict]
-    """
-    The SKU type.
-      * `name` (`str`) - SKU name.
-      * `tier` (`str`) - The SKU tier. This is based on the SKU name.
-    """
-    tags: pulumi.Output[dict]
-    """
-    The list of tags that describe the device. These tags can be used to view and group this device (across resource groups).
-    """
-    time_zone: pulumi.Output[str]
-    """
-    The Data Box Edge/Gateway device timezone.
-    """
-    type: pulumi.Output[str]
-    """
-    The hierarchical type of the object.
-    """
-    def __init__(__self__, resource_name, opts=None, data_box_edge_device_status=None, description=None, etag=None, friendly_name=None, location=None, model_description=None, name=None, resource_group_name=None, sku=None, tags=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 data_box_edge_device_status: Optional[pulumi.Input[str]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 etag: Optional[pulumi.Input[str]] = None,
+                 friendly_name: Optional[pulumi.Input[str]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 model_description: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 sku: Optional[pulumi.Input[pulumi.InputType['SkuArgs']]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         The Data Box Edge/Gateway device.
 
@@ -102,13 +43,8 @@ class Device(pulumi.CustomResource):
         :param pulumi.Input[str] model_description: The description of the Data Box Edge/Gateway device model.
         :param pulumi.Input[str] name: The device name.
         :param pulumi.Input[str] resource_group_name: The resource group name.
-        :param pulumi.Input[dict] sku: The SKU type.
-        :param pulumi.Input[dict] tags: The list of tags that describe the device. These tags can be used to view and group this device (across resource groups).
-
-        The **sku** object supports the following:
-
-          * `name` (`pulumi.Input[str]`) - SKU name.
-          * `tier` (`pulumi.Input[str]`) - The SKU tier. This is based on the SKU name.
+        :param pulumi.Input[pulumi.InputType['SkuArgs']] sku: The SKU type.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The list of tags that describe the device. These tags can be used to view and group this device (across resource groups).
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -162,13 +98,15 @@ class Device(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None) -> 'Device':
         """
         Get an existing Device resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -177,8 +115,161 @@ class Device(pulumi.CustomResource):
 
         return Device(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter(name="configuredRoleTypes")
+    def configured_role_types(self) -> List[str]:
+        """
+        Type of compute roles configured.
+        """
+        return pulumi.get(self, "configured_role_types")
+
+    @property
+    @pulumi.getter
+    def culture(self) -> str:
+        """
+        The Data Box Edge/Gateway device culture.
+        """
+        return pulumi.get(self, "culture")
+
+    @property
+    @pulumi.getter(name="dataBoxEdgeDeviceStatus")
+    def data_box_edge_device_status(self) -> Optional[str]:
+        """
+        The status of the Data Box Edge/Gateway device.
+        """
+        return pulumi.get(self, "data_box_edge_device_status")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        """
+        The Description of the Data Box Edge/Gateway device.
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="deviceHcsVersion")
+    def device_hcs_version(self) -> str:
+        """
+        The device software version number of the device (eg: 1.2.18105.6).
+        """
+        return pulumi.get(self, "device_hcs_version")
+
+    @property
+    @pulumi.getter(name="deviceLocalCapacity")
+    def device_local_capacity(self) -> float:
+        """
+        The Data Box Edge/Gateway device local capacity in MB.
+        """
+        return pulumi.get(self, "device_local_capacity")
+
+    @property
+    @pulumi.getter(name="deviceModel")
+    def device_model(self) -> str:
+        """
+        The Data Box Edge/Gateway device model.
+        """
+        return pulumi.get(self, "device_model")
+
+    @property
+    @pulumi.getter(name="deviceSoftwareVersion")
+    def device_software_version(self) -> str:
+        """
+        The Data Box Edge/Gateway device software version.
+        """
+        return pulumi.get(self, "device_software_version")
+
+    @property
+    @pulumi.getter(name="deviceType")
+    def device_type(self) -> str:
+        """
+        The type of the Data Box Edge/Gateway device.
+        """
+        return pulumi.get(self, "device_type")
+
+    @property
+    @pulumi.getter
+    def etag(self) -> Optional[str]:
+        """
+        The etag for the devices.
+        """
+        return pulumi.get(self, "etag")
+
+    @property
+    @pulumi.getter(name="friendlyName")
+    def friendly_name(self) -> Optional[str]:
+        """
+        The Data Box Edge/Gateway device name.
+        """
+        return pulumi.get(self, "friendly_name")
+
+    @property
+    @pulumi.getter
+    def location(self) -> str:
+        """
+        The location of the device. This is a supported and registered Azure geographical region (for example, West US, East US, or Southeast Asia). The geographical region of a device cannot be changed once it is created, but if an identical geographical region is specified on update, the request will succeed.
+        """
+        return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter(name="modelDescription")
+    def model_description(self) -> Optional[str]:
+        """
+        The description of the Data Box Edge/Gateway device model.
+        """
+        return pulumi.get(self, "model_description")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The object name.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="serialNumber")
+    def serial_number(self) -> str:
+        """
+        The Serial Number of Data Box Edge/Gateway device.
+        """
+        return pulumi.get(self, "serial_number")
+
+    @property
+    @pulumi.getter
+    def sku(self) -> Optional['outputs.SkuResponse']:
+        """
+        The SKU type.
+        """
+        return pulumi.get(self, "sku")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Mapping[str, str]]:
+        """
+        The list of tags that describe the device. These tags can be used to view and group this device (across resource groups).
+        """
+        return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter(name="timeZone")
+    def time_zone(self) -> str:
+        """
+        The Data Box Edge/Gateway device timezone.
+        """
+        return pulumi.get(self, "time_zone")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        The hierarchical type of the object.
+        """
+        return pulumi.get(self, "type")
+
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

@@ -14,3 +14,5 @@ from .machine_learning_compute import *
 from .private_endpoint_connection import *
 from .workspace import *
 from .workspace_connection import *
+from ._inputs import *
+from . import outputs

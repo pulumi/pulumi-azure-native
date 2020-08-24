@@ -5,90 +5,35 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+from . import outputs
+from ._inputs import *
+
+__all__ = ['Volume']
 
 
 class Volume(pulumi.CustomResource):
-    baremetal_tenant_id: pulumi.Output[str]
-    """
-    Unique Baremetal Tenant Identifier.
-    """
-    creation_token: pulumi.Output[str]
-    """
-    A unique file path for the volume. Used when creating mount targets
-    """
-    export_policy: pulumi.Output[dict]
-    """
-    Set of export policy rules
-      * `rules` (`list`) - Export policy rule
-        * `allowed_clients` (`str`) - Client ingress specification as comma separated string with IPv4 CIDRs, IPv4 host addresses and host names
-        * `cifs` (`bool`) - Allows CIFS protocol
-        * `nfsv3` (`bool`) - Allows NFSv3 protocol
-        * `nfsv4` (`bool`) - Deprecated: Will use the NFSv4.1 protocol, please use swagger version 2019-07-01 or later
-        * `rule_index` (`float`) - Order index
-        * `unix_read_only` (`bool`) - Read only access
-        * `unix_read_write` (`bool`) - Read and write access
-    """
-    file_system_id: pulumi.Output[str]
-    """
-    Unique FileSystem Identifier.
-    """
-    location: pulumi.Output[str]
-    """
-    Resource location
-    """
-    mount_targets: pulumi.Output[list]
-    """
-    List of mount targets
-      * `end_ip` (`str`) - The end of IPv4 address range to use when creating a new mount target
-      * `file_system_id` (`str`) - UUID v4 used to identify the MountTarget
-      * `gateway` (`str`) - The gateway of the IPv4 address range to use when creating a new mount target
-      * `ip_address` (`str`) - The mount target's IPv4 address
-      * `mount_target_id` (`str`) - UUID v4 used to identify the MountTarget
-      * `netmask` (`str`) - The netmask of the IPv4 address range to use when creating a new mount target
-      * `provisioning_state` (`str`) - Azure lifecycle management
-      * `smb_server_fqdn` (`str`) - The SMB server's Fully Qualified Domain Name, FQDN
-      * `start_ip` (`str`) - The start of IPv4 address range to use when creating a new mount target
-      * `subnet` (`str`) - The subnet
-    """
-    name: pulumi.Output[str]
-    """
-    Resource name
-    """
-    protocol_types: pulumi.Output[list]
-    """
-    Set of protocol types
-    """
-    provisioning_state: pulumi.Output[str]
-    """
-    Azure lifecycle management
-    """
-    service_level: pulumi.Output[str]
-    """
-    The service level of the file system
-    """
-    snapshot_id: pulumi.Output[str]
-    """
-    UUID v4 or resource identifier used to identify the Snapshot.
-    """
-    subnet_id: pulumi.Output[str]
-    """
-    The Azure Resource URI for a delegated subnet. Must have the delegation Microsoft.NetApp/volumes
-    """
-    tags: pulumi.Output[dict]
-    """
-    Resource tags
-    """
-    type: pulumi.Output[str]
-    """
-    Resource type
-    """
-    usage_threshold: pulumi.Output[float]
-    """
-    Maximum storage quota allowed for a file system in bytes. This is a soft quota used for alerting only. Minimum size is 100 GiB. Upper limit is 100TiB. Specified in bytes.
-    """
-    def __init__(__self__, resource_name, opts=None, account_name=None, creation_token=None, export_policy=None, location=None, mount_targets=None, name=None, pool_name=None, protocol_types=None, resource_group_name=None, service_level=None, snapshot_id=None, subnet_id=None, tags=None, usage_threshold=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 account_name: Optional[pulumi.Input[str]] = None,
+                 creation_token: Optional[pulumi.Input[str]] = None,
+                 export_policy: Optional[pulumi.Input[pulumi.InputType['VolumePropertiesExportPolicyArgs']]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 mount_targets: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['MountTargetPropertiesArgs']]]]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 pool_name: Optional[pulumi.Input[str]] = None,
+                 protocol_types: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 service_level: Optional[pulumi.Input[str]] = None,
+                 snapshot_id: Optional[pulumi.Input[str]] = None,
+                 subnet_id: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 usage_threshold: Optional[pulumi.Input[float]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         Volume resource
 
@@ -96,39 +41,18 @@ class Volume(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_name: The name of the NetApp account
         :param pulumi.Input[str] creation_token: A unique file path for the volume. Used when creating mount targets
-        :param pulumi.Input[dict] export_policy: Set of export policy rules
+        :param pulumi.Input[pulumi.InputType['VolumePropertiesExportPolicyArgs']] export_policy: Set of export policy rules
         :param pulumi.Input[str] location: Resource location
-        :param pulumi.Input[list] mount_targets: List of mount targets
+        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['MountTargetPropertiesArgs']]]] mount_targets: List of mount targets
         :param pulumi.Input[str] name: The name of the volume
         :param pulumi.Input[str] pool_name: The name of the capacity pool
-        :param pulumi.Input[list] protocol_types: Set of protocol types
+        :param pulumi.Input[List[pulumi.Input[str]]] protocol_types: Set of protocol types
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[str] service_level: The service level of the file system
         :param pulumi.Input[str] snapshot_id: UUID v4 or resource identifier used to identify the Snapshot.
         :param pulumi.Input[str] subnet_id: The Azure Resource URI for a delegated subnet. Must have the delegation Microsoft.NetApp/volumes
-        :param pulumi.Input[dict] tags: Resource tags
+        :param pulumi.Input[Mapping[str, Any]] tags: Resource tags
         :param pulumi.Input[float] usage_threshold: Maximum storage quota allowed for a file system in bytes. This is a soft quota used for alerting only. Minimum size is 100 GiB. Upper limit is 100TiB. Specified in bytes.
-
-        The **export_policy** object supports the following:
-
-          * `rules` (`pulumi.Input[list]`) - Export policy rule
-            * `allowed_clients` (`pulumi.Input[str]`) - Client ingress specification as comma separated string with IPv4 CIDRs, IPv4 host addresses and host names
-            * `cifs` (`pulumi.Input[bool]`) - Allows CIFS protocol
-            * `nfsv3` (`pulumi.Input[bool]`) - Allows NFSv3 protocol
-            * `nfsv4` (`pulumi.Input[bool]`) - Deprecated: Will use the NFSv4.1 protocol, please use swagger version 2019-07-01 or later
-            * `rule_index` (`pulumi.Input[float]`) - Order index
-            * `unix_read_only` (`pulumi.Input[bool]`) - Read only access
-            * `unix_read_write` (`pulumi.Input[bool]`) - Read and write access
-
-        The **mount_targets** object supports the following:
-
-          * `end_ip` (`pulumi.Input[str]`) - The end of IPv4 address range to use when creating a new mount target
-          * `file_system_id` (`pulumi.Input[str]`) - UUID v4 used to identify the MountTarget
-          * `gateway` (`pulumi.Input[str]`) - The gateway of the IPv4 address range to use when creating a new mount target
-          * `netmask` (`pulumi.Input[str]`) - The netmask of the IPv4 address range to use when creating a new mount target
-          * `smb_server_fqdn` (`pulumi.Input[str]`) - The SMB server's Fully Qualified Domain Name, FQDN
-          * `start_ip` (`pulumi.Input[str]`) - The start of IPv4 address range to use when creating a new mount target
-          * `subnet` (`pulumi.Input[str]`) - The subnet
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -190,13 +114,15 @@ class Volume(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None) -> 'Volume':
         """
         Get an existing Volume resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -205,8 +131,129 @@ class Volume(pulumi.CustomResource):
 
         return Volume(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter(name="baremetalTenantId")
+    def baremetal_tenant_id(self) -> str:
+        """
+        Unique Baremetal Tenant Identifier.
+        """
+        return pulumi.get(self, "baremetal_tenant_id")
+
+    @property
+    @pulumi.getter(name="creationToken")
+    def creation_token(self) -> str:
+        """
+        A unique file path for the volume. Used when creating mount targets
+        """
+        return pulumi.get(self, "creation_token")
+
+    @property
+    @pulumi.getter(name="exportPolicy")
+    def export_policy(self) -> Optional['outputs.VolumePropertiesResponseExportPolicy']:
+        """
+        Set of export policy rules
+        """
+        return pulumi.get(self, "export_policy")
+
+    @property
+    @pulumi.getter(name="fileSystemId")
+    def file_system_id(self) -> str:
+        """
+        Unique FileSystem Identifier.
+        """
+        return pulumi.get(self, "file_system_id")
+
+    @property
+    @pulumi.getter
+    def location(self) -> str:
+        """
+        Resource location
+        """
+        return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter(name="mountTargets")
+    def mount_targets(self) -> Optional[List['outputs.MountTargetPropertiesResponse']]:
+        """
+        List of mount targets
+        """
+        return pulumi.get(self, "mount_targets")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Resource name
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="protocolTypes")
+    def protocol_types(self) -> Optional[List[str]]:
+        """
+        Set of protocol types
+        """
+        return pulumi.get(self, "protocol_types")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        Azure lifecycle management
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="serviceLevel")
+    def service_level(self) -> Optional[str]:
+        """
+        The service level of the file system
+        """
+        return pulumi.get(self, "service_level")
+
+    @property
+    @pulumi.getter(name="snapshotId")
+    def snapshot_id(self) -> Optional[str]:
+        """
+        UUID v4 or resource identifier used to identify the Snapshot.
+        """
+        return pulumi.get(self, "snapshot_id")
+
+    @property
+    @pulumi.getter(name="subnetId")
+    def subnet_id(self) -> str:
+        """
+        The Azure Resource URI for a delegated subnet. Must have the delegation Microsoft.NetApp/volumes
+        """
+        return pulumi.get(self, "subnet_id")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Mapping[str, Any]]:
+        """
+        Resource tags
+        """
+        return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Resource type
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="usageThreshold")
+    def usage_threshold(self) -> float:
+        """
+        Maximum storage quota allowed for a file system in bytes. This is a soft quota used for alerting only. Minimum size is 100 GiB. Upper limit is 100TiB. Specified in bytes.
+        """
+        return pulumi.get(self, "usage_threshold")
+
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

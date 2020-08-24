@@ -5,42 +5,25 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+from . import outputs
+from ._inputs import *
+
+__all__ = ['Dataset']
 
 
 class Dataset(pulumi.CustomResource):
-    etag: pulumi.Output[str]
-    """
-    Etag identifies change in the resource.
-    """
-    name: pulumi.Output[str]
-    """
-    The resource name.
-    """
-    properties: pulumi.Output[dict]
-    """
-    Dataset properties.
-      * `annotations` (`list`) - List of tags that can be used for describing the Dataset.
-      * `description` (`str`) - Dataset description.
-      * `folder` (`dict`) - The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
-        * `name` (`str`) - The name of the folder that this Dataset is in.
-
-      * `linked_service_name` (`dict`) - Linked service reference.
-        * `parameters` (`dict`) - Arguments for LinkedService.
-        * `reference_name` (`str`) - Reference LinkedService name.
-        * `type` (`str`) - Linked service reference type.
-
-      * `parameters` (`dict`) - Parameters for dataset.
-      * `schema` (`dict`) - Columns that define the physical type schema of the dataset. Type: array (or Expression with resultType array), itemType: DatasetSchemaDataElement.
-      * `structure` (`dict`) - Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
-      * `type` (`str`) - Type of dataset.
-    """
-    type: pulumi.Output[str]
-    """
-    The resource type.
-    """
-    def __init__(__self__, resource_name, opts=None, factory_name=None, name=None, properties=None, resource_group_name=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 factory_name: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 properties: Optional[pulumi.Input[pulumi.InputType['DatasetArgs']]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         Dataset resource type.
 
@@ -48,25 +31,8 @@ class Dataset(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] factory_name: The factory name.
         :param pulumi.Input[str] name: The dataset name.
-        :param pulumi.Input[dict] properties: Dataset properties.
+        :param pulumi.Input[pulumi.InputType['DatasetArgs']] properties: Dataset properties.
         :param pulumi.Input[str] resource_group_name: The resource group name.
-
-        The **properties** object supports the following:
-
-          * `annotations` (`pulumi.Input[list]`) - List of tags that can be used for describing the Dataset.
-          * `description` (`pulumi.Input[str]`) - Dataset description.
-          * `folder` (`pulumi.Input[dict]`) - The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
-            * `name` (`pulumi.Input[str]`) - The name of the folder that this Dataset is in.
-
-          * `linked_service_name` (`pulumi.Input[dict]`) - Linked service reference.
-            * `parameters` (`pulumi.Input[dict]`) - Arguments for LinkedService.
-            * `reference_name` (`pulumi.Input[str]`) - Reference LinkedService name.
-            * `type` (`pulumi.Input[str]`) - Linked service reference type.
-
-          * `parameters` (`pulumi.Input[dict]`) - Parameters for dataset.
-          * `schema` (`pulumi.Input[dict]`) - Columns that define the physical type schema of the dataset. Type: array (or Expression with resultType array), itemType: DatasetSchemaDataElement.
-          * `structure` (`pulumi.Input[dict]`) - Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
-          * `type` (`pulumi.Input[str]`) - Type of dataset.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -106,13 +72,15 @@ class Dataset(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None) -> 'Dataset':
         """
         Get an existing Dataset resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -121,8 +89,41 @@ class Dataset(pulumi.CustomResource):
 
         return Dataset(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter
+    def etag(self) -> str:
+        """
+        Etag identifies change in the resource.
+        """
+        return pulumi.get(self, "etag")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The resource name.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def properties(self) -> 'outputs.DatasetResponse':
+        """
+        Dataset properties.
+        """
+        return pulumi.get(self, "properties")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        The resource type.
+        """
+        return pulumi.get(self, "type")
+
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

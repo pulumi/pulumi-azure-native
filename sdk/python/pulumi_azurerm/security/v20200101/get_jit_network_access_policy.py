@@ -5,51 +5,93 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+from . import outputs
 
+__all__ = [
+    'GetJitNetworkAccessPolicyResult',
+    'AwaitableGetJitNetworkAccessPolicyResult',
+    'get_jit_network_access_policy',
+]
 
+@pulumi.output_type
 class GetJitNetworkAccessPolicyResult:
     def __init__(__self__, kind=None, location=None, name=None, provisioning_state=None, requests=None, type=None, virtual_machines=None):
         if kind and not isinstance(kind, str):
             raise TypeError("Expected argument 'kind' to be a str")
-        __self__.kind = kind
+        pulumi.set(__self__, "kind", kind)
+        if location and not isinstance(location, str):
+            raise TypeError("Expected argument 'location' to be a str")
+        pulumi.set(__self__, "location", location)
+        if name and not isinstance(name, str):
+            raise TypeError("Expected argument 'name' to be a str")
+        pulumi.set(__self__, "name", name)
+        if provisioning_state and not isinstance(provisioning_state, str):
+            raise TypeError("Expected argument 'provisioning_state' to be a str")
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if requests and not isinstance(requests, list):
+            raise TypeError("Expected argument 'requests' to be a list")
+        pulumi.set(__self__, "requests", requests)
+        if type and not isinstance(type, str):
+            raise TypeError("Expected argument 'type' to be a str")
+        pulumi.set(__self__, "type", type)
+        if virtual_machines and not isinstance(virtual_machines, list):
+            raise TypeError("Expected argument 'virtual_machines' to be a list")
+        pulumi.set(__self__, "virtual_machines", virtual_machines)
+
+    @property
+    @pulumi.getter
+    def kind(self) -> Optional[str]:
         """
         Kind of the resource
         """
-        if location and not isinstance(location, str):
-            raise TypeError("Expected argument 'location' to be a str")
-        __self__.location = location
+        return pulumi.get(self, "kind")
+
+    @property
+    @pulumi.getter
+    def location(self) -> str:
         """
         Location where the resource is stored
         """
-        if name and not isinstance(name, str):
-            raise TypeError("Expected argument 'name' to be a str")
-        __self__.name = name
+        return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
         """
         Resource name
         """
-        if provisioning_state and not isinstance(provisioning_state, str):
-            raise TypeError("Expected argument 'provisioning_state' to be a str")
-        __self__.provisioning_state = provisioning_state
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
         """
         Gets the provisioning state of the Just-in-Time policy.
         """
-        if requests and not isinstance(requests, list):
-            raise TypeError("Expected argument 'requests' to be a list")
-        __self__.requests = requests
-        if type and not isinstance(type, str):
-            raise TypeError("Expected argument 'type' to be a str")
-        __self__.type = type
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter
+    def requests(self) -> Optional[List['outputs.JitNetworkAccessRequestResponse']]:
+        return pulumi.get(self, "requests")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
         """
         Resource type
         """
-        if virtual_machines and not isinstance(virtual_machines, list):
-            raise TypeError("Expected argument 'virtual_machines' to be a list")
-        __self__.virtual_machines = virtual_machines
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="virtualMachines")
+    def virtual_machines(self) -> List['outputs.JitNetworkAccessPolicyVirtualMachineResponse']:
         """
         Configurations for Microsoft.Compute/virtualMachines resource type.
         """
+        return pulumi.get(self, "virtual_machines")
 
 
 class AwaitableGetJitNetworkAccessPolicyResult(GetJitNetworkAccessPolicyResult):
@@ -67,7 +109,10 @@ class AwaitableGetJitNetworkAccessPolicyResult(GetJitNetworkAccessPolicyResult):
             virtual_machines=self.virtual_machines)
 
 
-def get_jit_network_access_policy(asc_location=None, name=None, resource_group_name=None, opts=None):
+def get_jit_network_access_policy(asc_location: Optional[str] = None,
+                                  name: Optional[str] = None,
+                                  resource_group_name: Optional[str] = None,
+                                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetJitNetworkAccessPolicyResult:
     """
     Use this data source to access information about an existing resource.
 
@@ -83,13 +128,13 @@ def get_jit_network_access_policy(asc_location=None, name=None, resource_group_n
         opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = _utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('azurerm:security/v20200101:getJitNetworkAccessPolicy', __args__, opts=opts).value
+    __ret__ = pulumi.runtime.invoke('azurerm:security/v20200101:getJitNetworkAccessPolicy', __args__, opts=opts, typ=GetJitNetworkAccessPolicyResult).value
 
     return AwaitableGetJitNetworkAccessPolicyResult(
-        kind=__ret__.get('kind'),
-        location=__ret__.get('location'),
-        name=__ret__.get('name'),
-        provisioning_state=__ret__.get('provisioningState'),
-        requests=__ret__.get('requests'),
-        type=__ret__.get('type'),
-        virtual_machines=__ret__.get('virtualMachines'))
+        kind=__ret__.kind,
+        location=__ret__.location,
+        name=__ret__.name,
+        provisioning_state=__ret__.provisioning_state,
+        requests=__ret__.requests,
+        type=__ret__.type,
+        virtual_machines=__ret__.virtual_machines)

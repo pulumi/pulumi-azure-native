@@ -5,10 +5,16 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
 
+__all__ = [
+    'GetDiagnosticResult',
+    'AwaitableGetDiagnosticResult',
+    'get_diagnostic',
+]
 
+@pulumi.output_type
 class GetDiagnosticResult:
     """
     Diagnostic details.
@@ -16,22 +22,37 @@ class GetDiagnosticResult:
     def __init__(__self__, enabled=None, name=None, type=None):
         if enabled and not isinstance(enabled, bool):
             raise TypeError("Expected argument 'enabled' to be a bool")
-        __self__.enabled = enabled
+        pulumi.set(__self__, "enabled", enabled)
+        if name and not isinstance(name, str):
+            raise TypeError("Expected argument 'name' to be a str")
+        pulumi.set(__self__, "name", name)
+        if type and not isinstance(type, str):
+            raise TypeError("Expected argument 'type' to be a str")
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> bool:
         """
         Indicates whether a diagnostic should receive data or not.
         """
-        if name and not isinstance(name, str):
-            raise TypeError("Expected argument 'name' to be a str")
-        __self__.name = name
+        return pulumi.get(self, "enabled")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
         """
         Resource name.
         """
-        if type and not isinstance(type, str):
-            raise TypeError("Expected argument 'type' to be a str")
-        __self__.type = type
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
         """
         Resource type for API Management resource.
         """
+        return pulumi.get(self, "type")
 
 
 class AwaitableGetDiagnosticResult(GetDiagnosticResult):
@@ -45,7 +66,10 @@ class AwaitableGetDiagnosticResult(GetDiagnosticResult):
             type=self.type)
 
 
-def get_diagnostic(name=None, resource_group_name=None, service_name=None, opts=None):
+def get_diagnostic(name: Optional[str] = None,
+                   resource_group_name: Optional[str] = None,
+                   service_name: Optional[str] = None,
+                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDiagnosticResult:
     """
     Use this data source to access information about an existing resource.
 
@@ -61,9 +85,9 @@ def get_diagnostic(name=None, resource_group_name=None, service_name=None, opts=
         opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = _utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('azurerm:apimanagement/v20170301:getDiagnostic', __args__, opts=opts).value
+    __ret__ = pulumi.runtime.invoke('azurerm:apimanagement/v20170301:getDiagnostic', __args__, opts=opts, typ=GetDiagnosticResult).value
 
     return AwaitableGetDiagnosticResult(
-        enabled=__ret__.get('enabled'),
-        name=__ret__.get('name'),
-        type=__ret__.get('type'))
+        enabled=__ret__.enabled,
+        name=__ret__.name,
+        type=__ret__.type)

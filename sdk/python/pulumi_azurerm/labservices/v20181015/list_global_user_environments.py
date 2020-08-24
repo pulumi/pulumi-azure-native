@@ -5,10 +5,17 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+from . import outputs
 
+__all__ = [
+    'ListGlobalUserEnvironmentsResult',
+    'AwaitableListGlobalUserEnvironmentsResult',
+    'list_global_user_environments',
+]
 
+@pulumi.output_type
 class ListGlobalUserEnvironmentsResult:
     """
     Represents the list of environments owned by a user
@@ -16,10 +23,15 @@ class ListGlobalUserEnvironmentsResult:
     def __init__(__self__, environments=None):
         if environments and not isinstance(environments, list):
             raise TypeError("Expected argument 'environments' to be a list")
-        __self__.environments = environments
+        pulumi.set(__self__, "environments", environments)
+
+    @property
+    @pulumi.getter
+    def environments(self) -> Optional[List['outputs.EnvironmentDetailsResponseResult']]:
         """
         List of all the environments
         """
+        return pulumi.get(self, "environments")
 
 
 class AwaitableListGlobalUserEnvironmentsResult(ListGlobalUserEnvironmentsResult):
@@ -31,7 +43,9 @@ class AwaitableListGlobalUserEnvironmentsResult(ListGlobalUserEnvironmentsResult
             environments=self.environments)
 
 
-def list_global_user_environments(lab_id=None, user_name=None, opts=None):
+def list_global_user_environments(lab_id: Optional[str] = None,
+                                  user_name: Optional[str] = None,
+                                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListGlobalUserEnvironmentsResult:
     """
     Use this data source to access information about an existing resource.
 
@@ -45,7 +59,7 @@ def list_global_user_environments(lab_id=None, user_name=None, opts=None):
         opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = _utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('azurerm:labservices/v20181015:listGlobalUserEnvironments', __args__, opts=opts).value
+    __ret__ = pulumi.runtime.invoke('azurerm:labservices/v20181015:listGlobalUserEnvironments', __args__, opts=opts, typ=ListGlobalUserEnvironmentsResult).value
 
     return AwaitableListGlobalUserEnvironmentsResult(
-        environments=__ret__.get('environments'))
+        environments=__ret__.environments)

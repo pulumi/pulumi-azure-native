@@ -5,10 +5,16 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
 
+__all__ = [
+    'ListServiceTestKeysResult',
+    'AwaitableListServiceTestKeysResult',
+    'list_service_test_keys',
+]
 
+@pulumi.output_type
 class ListServiceTestKeysResult:
     """
     Test keys payload
@@ -16,34 +22,59 @@ class ListServiceTestKeysResult:
     def __init__(__self__, enabled=None, primary_key=None, primary_test_endpoint=None, secondary_key=None, secondary_test_endpoint=None):
         if enabled and not isinstance(enabled, bool):
             raise TypeError("Expected argument 'enabled' to be a bool")
-        __self__.enabled = enabled
+        pulumi.set(__self__, "enabled", enabled)
+        if primary_key and not isinstance(primary_key, str):
+            raise TypeError("Expected argument 'primary_key' to be a str")
+        pulumi.set(__self__, "primary_key", primary_key)
+        if primary_test_endpoint and not isinstance(primary_test_endpoint, str):
+            raise TypeError("Expected argument 'primary_test_endpoint' to be a str")
+        pulumi.set(__self__, "primary_test_endpoint", primary_test_endpoint)
+        if secondary_key and not isinstance(secondary_key, str):
+            raise TypeError("Expected argument 'secondary_key' to be a str")
+        pulumi.set(__self__, "secondary_key", secondary_key)
+        if secondary_test_endpoint and not isinstance(secondary_test_endpoint, str):
+            raise TypeError("Expected argument 'secondary_test_endpoint' to be a str")
+        pulumi.set(__self__, "secondary_test_endpoint", secondary_test_endpoint)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[bool]:
         """
         Indicates whether the test endpoint feature enabled or not
         """
-        if primary_key and not isinstance(primary_key, str):
-            raise TypeError("Expected argument 'primary_key' to be a str")
-        __self__.primary_key = primary_key
+        return pulumi.get(self, "enabled")
+
+    @property
+    @pulumi.getter(name="primaryKey")
+    def primary_key(self) -> Optional[str]:
         """
         Primary key
         """
-        if primary_test_endpoint and not isinstance(primary_test_endpoint, str):
-            raise TypeError("Expected argument 'primary_test_endpoint' to be a str")
-        __self__.primary_test_endpoint = primary_test_endpoint
+        return pulumi.get(self, "primary_key")
+
+    @property
+    @pulumi.getter(name="primaryTestEndpoint")
+    def primary_test_endpoint(self) -> Optional[str]:
         """
         Primary test endpoint
         """
-        if secondary_key and not isinstance(secondary_key, str):
-            raise TypeError("Expected argument 'secondary_key' to be a str")
-        __self__.secondary_key = secondary_key
+        return pulumi.get(self, "primary_test_endpoint")
+
+    @property
+    @pulumi.getter(name="secondaryKey")
+    def secondary_key(self) -> Optional[str]:
         """
         Secondary key
         """
-        if secondary_test_endpoint and not isinstance(secondary_test_endpoint, str):
-            raise TypeError("Expected argument 'secondary_test_endpoint' to be a str")
-        __self__.secondary_test_endpoint = secondary_test_endpoint
+        return pulumi.get(self, "secondary_key")
+
+    @property
+    @pulumi.getter(name="secondaryTestEndpoint")
+    def secondary_test_endpoint(self) -> Optional[str]:
         """
         Secondary test endpoint
         """
+        return pulumi.get(self, "secondary_test_endpoint")
 
 
 class AwaitableListServiceTestKeysResult(ListServiceTestKeysResult):
@@ -59,7 +90,9 @@ class AwaitableListServiceTestKeysResult(ListServiceTestKeysResult):
             secondary_test_endpoint=self.secondary_test_endpoint)
 
 
-def list_service_test_keys(resource_group_name=None, service_name=None, opts=None):
+def list_service_test_keys(resource_group_name: Optional[str] = None,
+                           service_name: Optional[str] = None,
+                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListServiceTestKeysResult:
     """
     Use this data source to access information about an existing resource.
 
@@ -73,11 +106,11 @@ def list_service_test_keys(resource_group_name=None, service_name=None, opts=Non
         opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = _utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('azurerm:appplatform/v20200701:listServiceTestKeys', __args__, opts=opts).value
+    __ret__ = pulumi.runtime.invoke('azurerm:appplatform/v20200701:listServiceTestKeys', __args__, opts=opts, typ=ListServiceTestKeysResult).value
 
     return AwaitableListServiceTestKeysResult(
-        enabled=__ret__.get('enabled'),
-        primary_key=__ret__.get('primaryKey'),
-        primary_test_endpoint=__ret__.get('primaryTestEndpoint'),
-        secondary_key=__ret__.get('secondaryKey'),
-        secondary_test_endpoint=__ret__.get('secondaryTestEndpoint'))
+        enabled=__ret__.enabled,
+        primary_key=__ret__.primary_key,
+        primary_test_endpoint=__ret__.primary_test_endpoint,
+        secondary_key=__ret__.secondary_key,
+        secondary_test_endpoint=__ret__.secondary_test_endpoint)

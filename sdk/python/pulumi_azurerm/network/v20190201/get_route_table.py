@@ -5,10 +5,17 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+from . import outputs
 
+__all__ = [
+    'GetRouteTableResult',
+    'AwaitableGetRouteTableResult',
+    'get_route_table',
+]
 
+@pulumi.output_type
 class GetRouteTableResult:
     """
     Route table resource.
@@ -16,58 +23,103 @@ class GetRouteTableResult:
     def __init__(__self__, disable_bgp_route_propagation=None, etag=None, location=None, name=None, provisioning_state=None, routes=None, subnets=None, tags=None, type=None):
         if disable_bgp_route_propagation and not isinstance(disable_bgp_route_propagation, bool):
             raise TypeError("Expected argument 'disable_bgp_route_propagation' to be a bool")
-        __self__.disable_bgp_route_propagation = disable_bgp_route_propagation
+        pulumi.set(__self__, "disable_bgp_route_propagation", disable_bgp_route_propagation)
+        if etag and not isinstance(etag, str):
+            raise TypeError("Expected argument 'etag' to be a str")
+        pulumi.set(__self__, "etag", etag)
+        if location and not isinstance(location, str):
+            raise TypeError("Expected argument 'location' to be a str")
+        pulumi.set(__self__, "location", location)
+        if name and not isinstance(name, str):
+            raise TypeError("Expected argument 'name' to be a str")
+        pulumi.set(__self__, "name", name)
+        if provisioning_state and not isinstance(provisioning_state, str):
+            raise TypeError("Expected argument 'provisioning_state' to be a str")
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if routes and not isinstance(routes, list):
+            raise TypeError("Expected argument 'routes' to be a list")
+        pulumi.set(__self__, "routes", routes)
+        if subnets and not isinstance(subnets, list):
+            raise TypeError("Expected argument 'subnets' to be a list")
+        pulumi.set(__self__, "subnets", subnets)
+        if tags and not isinstance(tags, dict):
+            raise TypeError("Expected argument 'tags' to be a dict")
+        pulumi.set(__self__, "tags", tags)
+        if type and not isinstance(type, str):
+            raise TypeError("Expected argument 'type' to be a str")
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="disableBgpRoutePropagation")
+    def disable_bgp_route_propagation(self) -> Optional[bool]:
         """
         Gets or sets whether to disable the routes learned by BGP on that route table. True means disable.
         """
-        if etag and not isinstance(etag, str):
-            raise TypeError("Expected argument 'etag' to be a str")
-        __self__.etag = etag
+        return pulumi.get(self, "disable_bgp_route_propagation")
+
+    @property
+    @pulumi.getter
+    def etag(self) -> Optional[str]:
         """
         Gets a unique read-only string that changes whenever the resource is updated.
         """
-        if location and not isinstance(location, str):
-            raise TypeError("Expected argument 'location' to be a str")
-        __self__.location = location
+        return pulumi.get(self, "etag")
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[str]:
         """
         Resource location.
         """
-        if name and not isinstance(name, str):
-            raise TypeError("Expected argument 'name' to be a str")
-        __self__.name = name
+        return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
         """
         Resource name.
         """
-        if provisioning_state and not isinstance(provisioning_state, str):
-            raise TypeError("Expected argument 'provisioning_state' to be a str")
-        __self__.provisioning_state = provisioning_state
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> Optional[str]:
         """
         The provisioning state of the resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
         """
-        if routes and not isinstance(routes, list):
-            raise TypeError("Expected argument 'routes' to be a list")
-        __self__.routes = routes
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter
+    def routes(self) -> Optional[List['outputs.RouteResponse']]:
         """
         Collection of routes contained within a route table.
         """
-        if subnets and not isinstance(subnets, list):
-            raise TypeError("Expected argument 'subnets' to be a list")
-        __self__.subnets = subnets
+        return pulumi.get(self, "routes")
+
+    @property
+    @pulumi.getter
+    def subnets(self) -> List['outputs.SubnetResponse']:
         """
         A collection of references to subnets.
         """
-        if tags and not isinstance(tags, dict):
-            raise TypeError("Expected argument 'tags' to be a dict")
-        __self__.tags = tags
+        return pulumi.get(self, "subnets")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Mapping[str, str]]:
         """
         Resource tags.
         """
-        if type and not isinstance(type, str):
-            raise TypeError("Expected argument 'type' to be a str")
-        __self__.type = type
+        return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
         """
         Resource type.
         """
+        return pulumi.get(self, "type")
 
 
 class AwaitableGetRouteTableResult(GetRouteTableResult):
@@ -87,7 +139,10 @@ class AwaitableGetRouteTableResult(GetRouteTableResult):
             type=self.type)
 
 
-def get_route_table(expand=None, name=None, resource_group_name=None, opts=None):
+def get_route_table(expand: Optional[str] = None,
+                    name: Optional[str] = None,
+                    resource_group_name: Optional[str] = None,
+                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetRouteTableResult:
     """
     Use this data source to access information about an existing resource.
 
@@ -103,15 +158,15 @@ def get_route_table(expand=None, name=None, resource_group_name=None, opts=None)
         opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = _utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('azurerm:network/v20190201:getRouteTable', __args__, opts=opts).value
+    __ret__ = pulumi.runtime.invoke('azurerm:network/v20190201:getRouteTable', __args__, opts=opts, typ=GetRouteTableResult).value
 
     return AwaitableGetRouteTableResult(
-        disable_bgp_route_propagation=__ret__.get('disableBgpRoutePropagation'),
-        etag=__ret__.get('etag'),
-        location=__ret__.get('location'),
-        name=__ret__.get('name'),
-        provisioning_state=__ret__.get('provisioningState'),
-        routes=__ret__.get('routes'),
-        subnets=__ret__.get('subnets'),
-        tags=__ret__.get('tags'),
-        type=__ret__.get('type'))
+        disable_bgp_route_propagation=__ret__.disable_bgp_route_propagation,
+        etag=__ret__.etag,
+        location=__ret__.location,
+        name=__ret__.name,
+        provisioning_state=__ret__.provisioning_state,
+        routes=__ret__.routes,
+        subnets=__ret__.subnets,
+        tags=__ret__.tags,
+        type=__ret__.type)

@@ -5,10 +5,17 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+from . import outputs
 
+__all__ = [
+    'GetAlertRuleResult',
+    'AwaitableGetAlertRuleResult',
+    'get_alert_rule',
+]
 
+@pulumi.output_type
 class GetAlertRuleResult:
     """
     The alert rule resource.
@@ -16,58 +23,103 @@ class GetAlertRuleResult:
     def __init__(__self__, actions=None, condition=None, description=None, is_enabled=None, last_updated_time=None, location=None, name=None, tags=None, type=None):
         if actions and not isinstance(actions, list):
             raise TypeError("Expected argument 'actions' to be a list")
-        __self__.actions = actions
+        pulumi.set(__self__, "actions", actions)
+        if condition and not isinstance(condition, dict):
+            raise TypeError("Expected argument 'condition' to be a dict")
+        pulumi.set(__self__, "condition", condition)
+        if description and not isinstance(description, str):
+            raise TypeError("Expected argument 'description' to be a str")
+        pulumi.set(__self__, "description", description)
+        if is_enabled and not isinstance(is_enabled, bool):
+            raise TypeError("Expected argument 'is_enabled' to be a bool")
+        pulumi.set(__self__, "is_enabled", is_enabled)
+        if last_updated_time and not isinstance(last_updated_time, str):
+            raise TypeError("Expected argument 'last_updated_time' to be a str")
+        pulumi.set(__self__, "last_updated_time", last_updated_time)
+        if location and not isinstance(location, str):
+            raise TypeError("Expected argument 'location' to be a str")
+        pulumi.set(__self__, "location", location)
+        if name and not isinstance(name, str):
+            raise TypeError("Expected argument 'name' to be a str")
+        pulumi.set(__self__, "name", name)
+        if tags and not isinstance(tags, dict):
+            raise TypeError("Expected argument 'tags' to be a dict")
+        pulumi.set(__self__, "tags", tags)
+        if type and not isinstance(type, str):
+            raise TypeError("Expected argument 'type' to be a str")
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def actions(self) -> Optional[List['outputs.RuleActionResponse']]:
         """
         the array of actions that are performed when the alert rule becomes active, and when an alert condition is resolved.
         """
-        if condition and not isinstance(condition, dict):
-            raise TypeError("Expected argument 'condition' to be a dict")
-        __self__.condition = condition
+        return pulumi.get(self, "actions")
+
+    @property
+    @pulumi.getter
+    def condition(self) -> 'outputs.RuleConditionResponse':
         """
         the condition that results in the alert rule being activated.
         """
-        if description and not isinstance(description, str):
-            raise TypeError("Expected argument 'description' to be a str")
-        __self__.description = description
+        return pulumi.get(self, "condition")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
         """
         the description of the alert rule that will be included in the alert email.
         """
-        if is_enabled and not isinstance(is_enabled, bool):
-            raise TypeError("Expected argument 'is_enabled' to be a bool")
-        __self__.is_enabled = is_enabled
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="isEnabled")
+    def is_enabled(self) -> bool:
         """
         the flag that indicates whether the alert rule is enabled.
         """
-        if last_updated_time and not isinstance(last_updated_time, str):
-            raise TypeError("Expected argument 'last_updated_time' to be a str")
-        __self__.last_updated_time = last_updated_time
+        return pulumi.get(self, "is_enabled")
+
+    @property
+    @pulumi.getter(name="lastUpdatedTime")
+    def last_updated_time(self) -> str:
         """
         Last time the rule was updated in ISO8601 format.
         """
-        if location and not isinstance(location, str):
-            raise TypeError("Expected argument 'location' to be a str")
-        __self__.location = location
+        return pulumi.get(self, "last_updated_time")
+
+    @property
+    @pulumi.getter
+    def location(self) -> str:
         """
         Resource location
         """
-        if name and not isinstance(name, str):
-            raise TypeError("Expected argument 'name' to be a str")
-        __self__.name = name
+        return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
         """
         Azure resource name
         """
-        if tags and not isinstance(tags, dict):
-            raise TypeError("Expected argument 'tags' to be a dict")
-        __self__.tags = tags
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Mapping[str, str]]:
         """
         Resource tags
         """
-        if type and not isinstance(type, str):
-            raise TypeError("Expected argument 'type' to be a str")
-        __self__.type = type
+        return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
         """
         Azure resource type
         """
+        return pulumi.get(self, "type")
 
 
 class AwaitableGetAlertRuleResult(GetAlertRuleResult):
@@ -87,7 +139,9 @@ class AwaitableGetAlertRuleResult(GetAlertRuleResult):
             type=self.type)
 
 
-def get_alert_rule(name=None, resource_group_name=None, opts=None):
+def get_alert_rule(name: Optional[str] = None,
+                   resource_group_name: Optional[str] = None,
+                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAlertRuleResult:
     """
     Use this data source to access information about an existing resource.
 
@@ -101,15 +155,15 @@ def get_alert_rule(name=None, resource_group_name=None, opts=None):
         opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = _utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('azurerm:insights/v20160301:getAlertRule', __args__, opts=opts).value
+    __ret__ = pulumi.runtime.invoke('azurerm:insights/v20160301:getAlertRule', __args__, opts=opts, typ=GetAlertRuleResult).value
 
     return AwaitableGetAlertRuleResult(
-        actions=__ret__.get('actions'),
-        condition=__ret__.get('condition'),
-        description=__ret__.get('description'),
-        is_enabled=__ret__.get('isEnabled'),
-        last_updated_time=__ret__.get('lastUpdatedTime'),
-        location=__ret__.get('location'),
-        name=__ret__.get('name'),
-        tags=__ret__.get('tags'),
-        type=__ret__.get('type'))
+        actions=__ret__.actions,
+        condition=__ret__.condition,
+        description=__ret__.description,
+        is_enabled=__ret__.is_enabled,
+        last_updated_time=__ret__.last_updated_time,
+        location=__ret__.location,
+        name=__ret__.name,
+        tags=__ret__.tags,
+        type=__ret__.type)

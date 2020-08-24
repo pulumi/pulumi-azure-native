@@ -7,3 +7,5 @@ from .alert_rule import *
 from .get_alert_rule import *
 from .get_log_profile import *
 from .log_profile import *
+from ._inputs import *
+from . import outputs

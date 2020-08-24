@@ -5,48 +5,25 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+
+__all__ = ['Share']
 
 
 class Share(pulumi.CustomResource):
-    created_at: pulumi.Output[str]
-    """
-    Time at which the share was created.
-    """
-    description: pulumi.Output[str]
-    """
-    Share description.
-    """
-    name: pulumi.Output[str]
-    """
-    Name of the azure resource
-    """
-    provisioning_state: pulumi.Output[str]
-    """
-    Gets or sets the provisioning state
-    """
-    share_kind: pulumi.Output[str]
-    """
-    Share kind.
-    """
-    terms: pulumi.Output[str]
-    """
-    Share terms.
-    """
-    type: pulumi.Output[str]
-    """
-    Type of the azure resource
-    """
-    user_email: pulumi.Output[str]
-    """
-    Email of the user who created the resource
-    """
-    user_name: pulumi.Output[str]
-    """
-    Name of the user who created the resource
-    """
-    def __init__(__self__, resource_name, opts=None, account_name=None, description=None, name=None, resource_group_name=None, share_kind=None, terms=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 account_name: Optional[pulumi.Input[str]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 share_kind: Optional[pulumi.Input[str]] = None,
+                 terms: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         A share data transfer object.
 
@@ -100,13 +77,15 @@ class Share(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None) -> 'Share':
         """
         Get an existing Share resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -115,8 +94,81 @@ class Share(pulumi.CustomResource):
 
         return Share(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter(name="createdAt")
+    def created_at(self) -> str:
+        """
+        Time at which the share was created.
+        """
+        return pulumi.get(self, "created_at")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        """
+        Share description.
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Name of the azure resource
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        Gets or sets the provisioning state
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="shareKind")
+    def share_kind(self) -> Optional[str]:
+        """
+        Share kind.
+        """
+        return pulumi.get(self, "share_kind")
+
+    @property
+    @pulumi.getter
+    def terms(self) -> Optional[str]:
+        """
+        Share terms.
+        """
+        return pulumi.get(self, "terms")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Type of the azure resource
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="userEmail")
+    def user_email(self) -> str:
+        """
+        Email of the user who created the resource
+        """
+        return pulumi.get(self, "user_email")
+
+    @property
+    @pulumi.getter(name="userName")
+    def user_name(self) -> str:
+        """
+        Name of the user who created the resource
+        """
+        return pulumi.get(self, "user_name")
+
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

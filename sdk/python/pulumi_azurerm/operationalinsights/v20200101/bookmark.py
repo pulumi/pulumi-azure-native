@@ -5,104 +5,54 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+from . import outputs
+from ._inputs import *
+
+__all__ = ['Bookmark']
 
 
 class Bookmark(pulumi.CustomResource):
-    created: pulumi.Output[str]
-    """
-    The time the bookmark was created
-    """
-    created_by: pulumi.Output[dict]
-    """
-    Describes a user that created the bookmark
-      * `email` (`str`) - The email of the user.
-      * `name` (`str`) - The name of the user.
-      * `object_id` (`str`) - The object id of the user.
-    """
-    display_name: pulumi.Output[str]
-    """
-    The display name of the bookmark
-    """
-    etag: pulumi.Output[str]
-    """
-    Etag of the azure resource
-    """
-    incident_info: pulumi.Output[dict]
-    """
-    Describes an incident that relates to bookmark
-      * `incident_id` (`str`) - Incident Id
-      * `relation_name` (`str`) - Relation Name
-      * `severity` (`str`) - The severity of the incident
-      * `title` (`str`) - The title of the incident
-    """
-    labels: pulumi.Output[list]
-    """
-    List of labels relevant to this bookmark
-    """
-    name: pulumi.Output[str]
-    """
-    Azure resource name
-    """
-    notes: pulumi.Output[str]
-    """
-    The notes of the bookmark
-    """
-    query: pulumi.Output[str]
-    """
-    The query of the bookmark.
-    """
-    query_result: pulumi.Output[str]
-    """
-    The query result of the bookmark.
-    """
-    type: pulumi.Output[str]
-    """
-    Azure resource type
-    """
-    updated: pulumi.Output[str]
-    """
-    The last time the bookmark was updated
-    """
-    updated_by: pulumi.Output[dict]
-    """
-    Describes a user that updated the bookmark
-      * `email` (`str`) - The email of the user.
-      * `name` (`str`) - The name of the user.
-      * `object_id` (`str`) - The object id of the user.
-    """
-    def __init__(__self__, resource_name, opts=None, created=None, created_by=None, display_name=None, etag=None, incident_info=None, labels=None, name=None, notes=None, query=None, query_result=None, resource_group_name=None, updated=None, updated_by=None, workspace_name=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 created: Optional[pulumi.Input[str]] = None,
+                 created_by: Optional[pulumi.Input[pulumi.InputType['UserInfoArgs']]] = None,
+                 display_name: Optional[pulumi.Input[str]] = None,
+                 etag: Optional[pulumi.Input[str]] = None,
+                 incident_info: Optional[pulumi.Input[pulumi.InputType['IncidentInfoArgs']]] = None,
+                 labels: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 notes: Optional[pulumi.Input[str]] = None,
+                 query: Optional[pulumi.Input[str]] = None,
+                 query_result: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 updated: Optional[pulumi.Input[str]] = None,
+                 updated_by: Optional[pulumi.Input[pulumi.InputType['UserInfoArgs']]] = None,
+                 workspace_name: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         Represents a bookmark in Azure Security Insights.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] created: The time the bookmark was created
-        :param pulumi.Input[dict] created_by: Describes a user that created the bookmark
+        :param pulumi.Input[pulumi.InputType['UserInfoArgs']] created_by: Describes a user that created the bookmark
         :param pulumi.Input[str] display_name: The display name of the bookmark
         :param pulumi.Input[str] etag: Etag of the azure resource
-        :param pulumi.Input[dict] incident_info: Describes an incident that relates to bookmark
-        :param pulumi.Input[list] labels: List of labels relevant to this bookmark
+        :param pulumi.Input[pulumi.InputType['IncidentInfoArgs']] incident_info: Describes an incident that relates to bookmark
+        :param pulumi.Input[List[pulumi.Input[str]]] labels: List of labels relevant to this bookmark
         :param pulumi.Input[str] name: Bookmark ID
         :param pulumi.Input[str] notes: The notes of the bookmark
         :param pulumi.Input[str] query: The query of the bookmark.
         :param pulumi.Input[str] query_result: The query result of the bookmark.
         :param pulumi.Input[str] resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.
         :param pulumi.Input[str] updated: The last time the bookmark was updated
-        :param pulumi.Input[dict] updated_by: Describes a user that updated the bookmark
+        :param pulumi.Input[pulumi.InputType['UserInfoArgs']] updated_by: Describes a user that updated the bookmark
         :param pulumi.Input[str] workspace_name: The name of the workspace.
-
-        The **created_by** object supports the following:
-
-          * `object_id` (`pulumi.Input[str]`) - The object id of the user.
-
-        The **incident_info** object supports the following:
-
-          * `incident_id` (`pulumi.Input[str]`) - Incident Id
-          * `relation_name` (`pulumi.Input[str]`) - Relation Name
-          * `severity` (`pulumi.Input[str]`) - The severity of the incident
-          * `title` (`pulumi.Input[str]`) - The title of the incident
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -153,13 +103,15 @@ class Bookmark(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None) -> 'Bookmark':
         """
         Get an existing Bookmark resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -168,8 +120,113 @@ class Bookmark(pulumi.CustomResource):
 
         return Bookmark(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter
+    def created(self) -> Optional[str]:
+        """
+        The time the bookmark was created
+        """
+        return pulumi.get(self, "created")
+
+    @property
+    @pulumi.getter(name="createdBy")
+    def created_by(self) -> Optional['outputs.UserInfoResponse']:
+        """
+        Describes a user that created the bookmark
+        """
+        return pulumi.get(self, "created_by")
+
+    @property
+    @pulumi.getter(name="displayName")
+    def display_name(self) -> str:
+        """
+        The display name of the bookmark
+        """
+        return pulumi.get(self, "display_name")
+
+    @property
+    @pulumi.getter
+    def etag(self) -> Optional[str]:
+        """
+        Etag of the azure resource
+        """
+        return pulumi.get(self, "etag")
+
+    @property
+    @pulumi.getter(name="incidentInfo")
+    def incident_info(self) -> Optional['outputs.IncidentInfoResponse']:
+        """
+        Describes an incident that relates to bookmark
+        """
+        return pulumi.get(self, "incident_info")
+
+    @property
+    @pulumi.getter
+    def labels(self) -> Optional[List[str]]:
+        """
+        List of labels relevant to this bookmark
+        """
+        return pulumi.get(self, "labels")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Azure resource name
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def notes(self) -> Optional[str]:
+        """
+        The notes of the bookmark
+        """
+        return pulumi.get(self, "notes")
+
+    @property
+    @pulumi.getter
+    def query(self) -> str:
+        """
+        The query of the bookmark.
+        """
+        return pulumi.get(self, "query")
+
+    @property
+    @pulumi.getter(name="queryResult")
+    def query_result(self) -> Optional[str]:
+        """
+        The query result of the bookmark.
+        """
+        return pulumi.get(self, "query_result")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Azure resource type
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def updated(self) -> Optional[str]:
+        """
+        The last time the bookmark was updated
+        """
+        return pulumi.get(self, "updated")
+
+    @property
+    @pulumi.getter(name="updatedBy")
+    def updated_by(self) -> Optional['outputs.UserInfoResponse']:
+        """
+        Describes a user that updated the bookmark
+        """
+        return pulumi.get(self, "updated_by")
+
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

@@ -5,10 +5,17 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+from . import outputs
 
+__all__ = [
+    'GetP2sVpnServerConfigurationResult',
+    'AwaitableGetP2sVpnServerConfigurationResult',
+    'get_p2s_vpn_server_configuration',
+]
 
+@pulumi.output_type
 class GetP2sVpnServerConfigurationResult:
     """
     P2SVpnServerConfiguration Resource.
@@ -16,76 +23,136 @@ class GetP2sVpnServerConfigurationResult:
     def __init__(__self__, etag=None, name=None, p2_s_vpn_gateways=None, p2_s_vpn_server_config_radius_client_root_certificates=None, p2_s_vpn_server_config_radius_server_root_certificates=None, p2_s_vpn_server_config_vpn_client_revoked_certificates=None, p2_s_vpn_server_config_vpn_client_root_certificates=None, provisioning_state=None, radius_server_address=None, radius_server_secret=None, vpn_client_ipsec_policies=None, vpn_protocols=None):
         if etag and not isinstance(etag, str):
             raise TypeError("Expected argument 'etag' to be a str")
-        __self__.etag = etag
+        pulumi.set(__self__, "etag", etag)
+        if name and not isinstance(name, str):
+            raise TypeError("Expected argument 'name' to be a str")
+        pulumi.set(__self__, "name", name)
+        if p2_s_vpn_gateways and not isinstance(p2_s_vpn_gateways, list):
+            raise TypeError("Expected argument 'p2_s_vpn_gateways' to be a list")
+        pulumi.set(__self__, "p2_s_vpn_gateways", p2_s_vpn_gateways)
+        if p2_s_vpn_server_config_radius_client_root_certificates and not isinstance(p2_s_vpn_server_config_radius_client_root_certificates, list):
+            raise TypeError("Expected argument 'p2_s_vpn_server_config_radius_client_root_certificates' to be a list")
+        pulumi.set(__self__, "p2_s_vpn_server_config_radius_client_root_certificates", p2_s_vpn_server_config_radius_client_root_certificates)
+        if p2_s_vpn_server_config_radius_server_root_certificates and not isinstance(p2_s_vpn_server_config_radius_server_root_certificates, list):
+            raise TypeError("Expected argument 'p2_s_vpn_server_config_radius_server_root_certificates' to be a list")
+        pulumi.set(__self__, "p2_s_vpn_server_config_radius_server_root_certificates", p2_s_vpn_server_config_radius_server_root_certificates)
+        if p2_s_vpn_server_config_vpn_client_revoked_certificates and not isinstance(p2_s_vpn_server_config_vpn_client_revoked_certificates, list):
+            raise TypeError("Expected argument 'p2_s_vpn_server_config_vpn_client_revoked_certificates' to be a list")
+        pulumi.set(__self__, "p2_s_vpn_server_config_vpn_client_revoked_certificates", p2_s_vpn_server_config_vpn_client_revoked_certificates)
+        if p2_s_vpn_server_config_vpn_client_root_certificates and not isinstance(p2_s_vpn_server_config_vpn_client_root_certificates, list):
+            raise TypeError("Expected argument 'p2_s_vpn_server_config_vpn_client_root_certificates' to be a list")
+        pulumi.set(__self__, "p2_s_vpn_server_config_vpn_client_root_certificates", p2_s_vpn_server_config_vpn_client_root_certificates)
+        if provisioning_state and not isinstance(provisioning_state, str):
+            raise TypeError("Expected argument 'provisioning_state' to be a str")
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if radius_server_address and not isinstance(radius_server_address, str):
+            raise TypeError("Expected argument 'radius_server_address' to be a str")
+        pulumi.set(__self__, "radius_server_address", radius_server_address)
+        if radius_server_secret and not isinstance(radius_server_secret, str):
+            raise TypeError("Expected argument 'radius_server_secret' to be a str")
+        pulumi.set(__self__, "radius_server_secret", radius_server_secret)
+        if vpn_client_ipsec_policies and not isinstance(vpn_client_ipsec_policies, list):
+            raise TypeError("Expected argument 'vpn_client_ipsec_policies' to be a list")
+        pulumi.set(__self__, "vpn_client_ipsec_policies", vpn_client_ipsec_policies)
+        if vpn_protocols and not isinstance(vpn_protocols, list):
+            raise TypeError("Expected argument 'vpn_protocols' to be a list")
+        pulumi.set(__self__, "vpn_protocols", vpn_protocols)
+
+    @property
+    @pulumi.getter
+    def etag(self) -> str:
         """
         A unique read-only string that changes whenever the resource is updated.
         """
-        if name and not isinstance(name, str):
-            raise TypeError("Expected argument 'name' to be a str")
-        __self__.name = name
+        return pulumi.get(self, "etag")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
         """
         The name of the P2SVpnServerConfiguration that is unique within a VirtualWan in a resource group. This name can be used to access the resource along with Paren VirtualWan resource name.
         """
-        if p2_s_vpn_gateways and not isinstance(p2_s_vpn_gateways, list):
-            raise TypeError("Expected argument 'p2_s_vpn_gateways' to be a list")
-        __self__.p2_s_vpn_gateways = p2_s_vpn_gateways
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="p2SVpnGateways")
+    def p2_s_vpn_gateways(self) -> List['outputs.SubResourceResponse']:
         """
         List of references to P2SVpnGateways.
         """
-        if p2_s_vpn_server_config_radius_client_root_certificates and not isinstance(p2_s_vpn_server_config_radius_client_root_certificates, list):
-            raise TypeError("Expected argument 'p2_s_vpn_server_config_radius_client_root_certificates' to be a list")
-        __self__.p2_s_vpn_server_config_radius_client_root_certificates = p2_s_vpn_server_config_radius_client_root_certificates
+        return pulumi.get(self, "p2_s_vpn_gateways")
+
+    @property
+    @pulumi.getter(name="p2SVpnServerConfigRadiusClientRootCertificates")
+    def p2_s_vpn_server_config_radius_client_root_certificates(self) -> Optional[List['outputs.P2SVpnServerConfigRadiusClientRootCertificateResponse']]:
         """
         Radius client root certificate of P2SVpnServerConfiguration.
         """
-        if p2_s_vpn_server_config_radius_server_root_certificates and not isinstance(p2_s_vpn_server_config_radius_server_root_certificates, list):
-            raise TypeError("Expected argument 'p2_s_vpn_server_config_radius_server_root_certificates' to be a list")
-        __self__.p2_s_vpn_server_config_radius_server_root_certificates = p2_s_vpn_server_config_radius_server_root_certificates
+        return pulumi.get(self, "p2_s_vpn_server_config_radius_client_root_certificates")
+
+    @property
+    @pulumi.getter(name="p2SVpnServerConfigRadiusServerRootCertificates")
+    def p2_s_vpn_server_config_radius_server_root_certificates(self) -> Optional[List['outputs.P2SVpnServerConfigRadiusServerRootCertificateResponse']]:
         """
         Radius Server root certificate of P2SVpnServerConfiguration.
         """
-        if p2_s_vpn_server_config_vpn_client_revoked_certificates and not isinstance(p2_s_vpn_server_config_vpn_client_revoked_certificates, list):
-            raise TypeError("Expected argument 'p2_s_vpn_server_config_vpn_client_revoked_certificates' to be a list")
-        __self__.p2_s_vpn_server_config_vpn_client_revoked_certificates = p2_s_vpn_server_config_vpn_client_revoked_certificates
+        return pulumi.get(self, "p2_s_vpn_server_config_radius_server_root_certificates")
+
+    @property
+    @pulumi.getter(name="p2SVpnServerConfigVpnClientRevokedCertificates")
+    def p2_s_vpn_server_config_vpn_client_revoked_certificates(self) -> Optional[List['outputs.P2SVpnServerConfigVpnClientRevokedCertificateResponse']]:
         """
         VPN client revoked certificate of P2SVpnServerConfiguration.
         """
-        if p2_s_vpn_server_config_vpn_client_root_certificates and not isinstance(p2_s_vpn_server_config_vpn_client_root_certificates, list):
-            raise TypeError("Expected argument 'p2_s_vpn_server_config_vpn_client_root_certificates' to be a list")
-        __self__.p2_s_vpn_server_config_vpn_client_root_certificates = p2_s_vpn_server_config_vpn_client_root_certificates
+        return pulumi.get(self, "p2_s_vpn_server_config_vpn_client_revoked_certificates")
+
+    @property
+    @pulumi.getter(name="p2SVpnServerConfigVpnClientRootCertificates")
+    def p2_s_vpn_server_config_vpn_client_root_certificates(self) -> Optional[List['outputs.P2SVpnServerConfigVpnClientRootCertificateResponse']]:
         """
         VPN client root certificate of P2SVpnServerConfiguration.
         """
-        if provisioning_state and not isinstance(provisioning_state, str):
-            raise TypeError("Expected argument 'provisioning_state' to be a str")
-        __self__.provisioning_state = provisioning_state
+        return pulumi.get(self, "p2_s_vpn_server_config_vpn_client_root_certificates")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
         """
         The provisioning state of the P2S VPN server configuration resource.
         """
-        if radius_server_address and not isinstance(radius_server_address, str):
-            raise TypeError("Expected argument 'radius_server_address' to be a str")
-        __self__.radius_server_address = radius_server_address
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="radiusServerAddress")
+    def radius_server_address(self) -> Optional[str]:
         """
         The radius server address property of the P2SVpnServerConfiguration resource for point to site client connection.
         """
-        if radius_server_secret and not isinstance(radius_server_secret, str):
-            raise TypeError("Expected argument 'radius_server_secret' to be a str")
-        __self__.radius_server_secret = radius_server_secret
+        return pulumi.get(self, "radius_server_address")
+
+    @property
+    @pulumi.getter(name="radiusServerSecret")
+    def radius_server_secret(self) -> Optional[str]:
         """
         The radius secret property of the P2SVpnServerConfiguration resource for point to site client connection.
         """
-        if vpn_client_ipsec_policies and not isinstance(vpn_client_ipsec_policies, list):
-            raise TypeError("Expected argument 'vpn_client_ipsec_policies' to be a list")
-        __self__.vpn_client_ipsec_policies = vpn_client_ipsec_policies
+        return pulumi.get(self, "radius_server_secret")
+
+    @property
+    @pulumi.getter(name="vpnClientIpsecPolicies")
+    def vpn_client_ipsec_policies(self) -> Optional[List['outputs.IpsecPolicyResponse']]:
         """
         VpnClientIpsecPolicies for P2SVpnServerConfiguration.
         """
-        if vpn_protocols and not isinstance(vpn_protocols, list):
-            raise TypeError("Expected argument 'vpn_protocols' to be a list")
-        __self__.vpn_protocols = vpn_protocols
+        return pulumi.get(self, "vpn_client_ipsec_policies")
+
+    @property
+    @pulumi.getter(name="vpnProtocols")
+    def vpn_protocols(self) -> Optional[List[str]]:
         """
         VPN protocols for the P2SVpnServerConfiguration.
         """
+        return pulumi.get(self, "vpn_protocols")
 
 
 class AwaitableGetP2sVpnServerConfigurationResult(GetP2sVpnServerConfigurationResult):
@@ -108,7 +175,10 @@ class AwaitableGetP2sVpnServerConfigurationResult(GetP2sVpnServerConfigurationRe
             vpn_protocols=self.vpn_protocols)
 
 
-def get_p2s_vpn_server_configuration(name=None, resource_group_name=None, virtual_wan_name=None, opts=None):
+def get_p2s_vpn_server_configuration(name: Optional[str] = None,
+                                     resource_group_name: Optional[str] = None,
+                                     virtual_wan_name: Optional[str] = None,
+                                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetP2sVpnServerConfigurationResult:
     """
     Use this data source to access information about an existing resource.
 
@@ -124,18 +194,18 @@ def get_p2s_vpn_server_configuration(name=None, resource_group_name=None, virtua
         opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = _utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('azurerm:network/v20190701:getP2sVpnServerConfiguration', __args__, opts=opts).value
+    __ret__ = pulumi.runtime.invoke('azurerm:network/v20190701:getP2sVpnServerConfiguration', __args__, opts=opts, typ=GetP2sVpnServerConfigurationResult).value
 
     return AwaitableGetP2sVpnServerConfigurationResult(
-        etag=__ret__.get('etag'),
-        name=__ret__.get('name'),
-        p2_s_vpn_gateways=__ret__.get('p2SVpnGateways'),
-        p2_s_vpn_server_config_radius_client_root_certificates=__ret__.get('p2SVpnServerConfigRadiusClientRootCertificates'),
-        p2_s_vpn_server_config_radius_server_root_certificates=__ret__.get('p2SVpnServerConfigRadiusServerRootCertificates'),
-        p2_s_vpn_server_config_vpn_client_revoked_certificates=__ret__.get('p2SVpnServerConfigVpnClientRevokedCertificates'),
-        p2_s_vpn_server_config_vpn_client_root_certificates=__ret__.get('p2SVpnServerConfigVpnClientRootCertificates'),
-        provisioning_state=__ret__.get('provisioningState'),
-        radius_server_address=__ret__.get('radiusServerAddress'),
-        radius_server_secret=__ret__.get('radiusServerSecret'),
-        vpn_client_ipsec_policies=__ret__.get('vpnClientIpsecPolicies'),
-        vpn_protocols=__ret__.get('vpnProtocols'))
+        etag=__ret__.etag,
+        name=__ret__.name,
+        p2_s_vpn_gateways=__ret__.p2_s_vpn_gateways,
+        p2_s_vpn_server_config_radius_client_root_certificates=__ret__.p2_s_vpn_server_config_radius_client_root_certificates,
+        p2_s_vpn_server_config_radius_server_root_certificates=__ret__.p2_s_vpn_server_config_radius_server_root_certificates,
+        p2_s_vpn_server_config_vpn_client_revoked_certificates=__ret__.p2_s_vpn_server_config_vpn_client_revoked_certificates,
+        p2_s_vpn_server_config_vpn_client_root_certificates=__ret__.p2_s_vpn_server_config_vpn_client_root_certificates,
+        provisioning_state=__ret__.provisioning_state,
+        radius_server_address=__ret__.radius_server_address,
+        radius_server_secret=__ret__.radius_server_secret,
+        vpn_client_ipsec_policies=__ret__.vpn_client_ipsec_policies,
+        vpn_protocols=__ret__.vpn_protocols)

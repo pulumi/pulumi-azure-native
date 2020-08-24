@@ -5,113 +5,46 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+from . import outputs
+from ._inputs import *
+
+__all__ = ['ServerDetails']
 
 
 class ServerDetails(pulumi.CustomResource):
-    as_administrators: pulumi.Output[dict]
-    """
-    A collection of AS server administrators
-      * `members` (`list`) - An array of administrator user identities.
-    """
-    backup_blob_container_uri: pulumi.Output[str]
-    """
-    The SAS container URI to the backup container.
-    """
-    gateway_details: pulumi.Output[dict]
-    """
-    The gateway details configured for the AS server.
-      * `dmts_cluster_uri` (`str`) - Uri of the DMTS cluster.
-      * `gateway_object_id` (`str`) - Gateway object id from in the DMTS cluster for the gateway resource.
-      * `gateway_resource_id` (`str`) - Gateway resource to be associated with the server.
-    """
-    ip_v4_firewall_settings: pulumi.Output[dict]
-    """
-    The firewall settings for the AS server.
-      * `enable_power_bi_service` (`bool`) - The indicator of enabling PBI service.
-      * `firewall_rules` (`list`) - An array of firewall rules.
-        * `firewall_rule_name` (`str`) - The rule name.
-        * `range_end` (`str`) - The end range of IPv4.
-        * `range_start` (`str`) - The start range of IPv4.
-    """
-    location: pulumi.Output[str]
-    """
-    Location of the Analysis Services resource.
-    """
-    name: pulumi.Output[str]
-    """
-    The name of the Analysis Services resource.
-    """
-    provisioning_state: pulumi.Output[str]
-    """
-    The current deployment state of Analysis Services resource. The provisioningState is to indicate states for resource provisioning.
-    """
-    querypool_connection_mode: pulumi.Output[str]
-    """
-    How the read-write server's participation in the query pool is controlled.<br/>It can have the following values: <ul><li>readOnly - indicates that the read-write server is intended not to participate in query operations</li><li>all - indicates that the read-write server can participate in query operations</li></ul>Specifying readOnly when capacity is 1 results in error.
-    """
-    server_full_name: pulumi.Output[str]
-    """
-    The full name of the Analysis Services resource.
-    """
-    sku: pulumi.Output[dict]
-    """
-    The SKU of the Analysis Services resource.
-      * `capacity` (`float`) - The number of instances in the read only query pool.
-      * `name` (`str`) - Name of the SKU level.
-      * `tier` (`str`) - The name of the Azure pricing tier to which the SKU applies.
-    """
-    state: pulumi.Output[str]
-    """
-    The current state of Analysis Services resource. The state is to indicate more states outside of resource provisioning.
-    """
-    tags: pulumi.Output[dict]
-    """
-    Key-value pairs of additional resource provisioning properties.
-    """
-    type: pulumi.Output[str]
-    """
-    The type of the Analysis Services resource.
-    """
-    def __init__(__self__, resource_name, opts=None, as_administrators=None, backup_blob_container_uri=None, gateway_details=None, ip_v4_firewall_settings=None, location=None, name=None, querypool_connection_mode=None, resource_group_name=None, sku=None, tags=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 as_administrators: Optional[pulumi.Input[pulumi.InputType['ServerAdministratorsArgs']]] = None,
+                 backup_blob_container_uri: Optional[pulumi.Input[str]] = None,
+                 gateway_details: Optional[pulumi.Input[pulumi.InputType['GatewayDetailsArgs']]] = None,
+                 ip_v4_firewall_settings: Optional[pulumi.Input[pulumi.InputType['IPv4FirewallSettingsArgs']]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 querypool_connection_mode: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 sku: Optional[pulumi.Input[pulumi.InputType['ResourceSkuArgs']]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         Represents an instance of an Analysis Services resource.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[dict] as_administrators: A collection of AS server administrators
+        :param pulumi.Input[pulumi.InputType['ServerAdministratorsArgs']] as_administrators: A collection of AS server administrators
         :param pulumi.Input[str] backup_blob_container_uri: The SAS container URI to the backup container.
-        :param pulumi.Input[dict] gateway_details: The gateway details configured for the AS server.
-        :param pulumi.Input[dict] ip_v4_firewall_settings: The firewall settings for the AS server.
+        :param pulumi.Input[pulumi.InputType['GatewayDetailsArgs']] gateway_details: The gateway details configured for the AS server.
+        :param pulumi.Input[pulumi.InputType['IPv4FirewallSettingsArgs']] ip_v4_firewall_settings: The firewall settings for the AS server.
         :param pulumi.Input[str] location: Location of the Analysis Services resource.
         :param pulumi.Input[str] name: The name of the Analysis Services server. It must be a minimum of 3 characters, and a maximum of 63.
         :param pulumi.Input[str] querypool_connection_mode: How the read-write server's participation in the query pool is controlled.<br/>It can have the following values: <ul><li>readOnly - indicates that the read-write server is intended not to participate in query operations</li><li>all - indicates that the read-write server can participate in query operations</li></ul>Specifying readOnly when capacity is 1 results in error.
         :param pulumi.Input[str] resource_group_name: The name of the Azure Resource group of which a given Analysis Services server is part. This name must be at least 1 character in length, and no more than 90.
-        :param pulumi.Input[dict] sku: The SKU of the Analysis Services resource.
-        :param pulumi.Input[dict] tags: Key-value pairs of additional resource provisioning properties.
-
-        The **as_administrators** object supports the following:
-
-          * `members` (`pulumi.Input[list]`) - An array of administrator user identities.
-
-        The **gateway_details** object supports the following:
-
-          * `gateway_resource_id` (`pulumi.Input[str]`) - Gateway resource to be associated with the server.
-
-        The **ip_v4_firewall_settings** object supports the following:
-
-          * `enable_power_bi_service` (`pulumi.Input[bool]`) - The indicator of enabling PBI service.
-          * `firewall_rules` (`pulumi.Input[list]`) - An array of firewall rules.
-            * `firewall_rule_name` (`pulumi.Input[str]`) - The rule name.
-            * `range_end` (`pulumi.Input[str]`) - The end range of IPv4.
-            * `range_start` (`pulumi.Input[str]`) - The start range of IPv4.
-
-        The **sku** object supports the following:
-
-          * `capacity` (`pulumi.Input[float]`) - The number of instances in the read only query pool.
-          * `name` (`pulumi.Input[str]`) - Name of the SKU level.
-          * `tier` (`pulumi.Input[str]`) - The name of the Azure pricing tier to which the SKU applies.
+        :param pulumi.Input[pulumi.InputType['ResourceSkuArgs']] sku: The SKU of the Analysis Services resource.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value pairs of additional resource provisioning properties.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -161,13 +94,15 @@ class ServerDetails(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None) -> 'ServerDetails':
         """
         Get an existing ServerDetails resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -176,8 +111,113 @@ class ServerDetails(pulumi.CustomResource):
 
         return ServerDetails(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter(name="asAdministrators")
+    def as_administrators(self) -> Optional['outputs.ServerAdministratorsResponse']:
+        """
+        A collection of AS server administrators
+        """
+        return pulumi.get(self, "as_administrators")
+
+    @property
+    @pulumi.getter(name="backupBlobContainerUri")
+    def backup_blob_container_uri(self) -> Optional[str]:
+        """
+        The SAS container URI to the backup container.
+        """
+        return pulumi.get(self, "backup_blob_container_uri")
+
+    @property
+    @pulumi.getter(name="gatewayDetails")
+    def gateway_details(self) -> Optional['outputs.GatewayDetailsResponse']:
+        """
+        The gateway details configured for the AS server.
+        """
+        return pulumi.get(self, "gateway_details")
+
+    @property
+    @pulumi.getter(name="ipV4FirewallSettings")
+    def ip_v4_firewall_settings(self) -> Optional['outputs.IPv4FirewallSettingsResponse']:
+        """
+        The firewall settings for the AS server.
+        """
+        return pulumi.get(self, "ip_v4_firewall_settings")
+
+    @property
+    @pulumi.getter
+    def location(self) -> str:
+        """
+        Location of the Analysis Services resource.
+        """
+        return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the Analysis Services resource.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        The current deployment state of Analysis Services resource. The provisioningState is to indicate states for resource provisioning.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="querypoolConnectionMode")
+    def querypool_connection_mode(self) -> Optional[str]:
+        """
+        How the read-write server's participation in the query pool is controlled.<br/>It can have the following values: <ul><li>readOnly - indicates that the read-write server is intended not to participate in query operations</li><li>all - indicates that the read-write server can participate in query operations</li></ul>Specifying readOnly when capacity is 1 results in error.
+        """
+        return pulumi.get(self, "querypool_connection_mode")
+
+    @property
+    @pulumi.getter(name="serverFullName")
+    def server_full_name(self) -> str:
+        """
+        The full name of the Analysis Services resource.
+        """
+        return pulumi.get(self, "server_full_name")
+
+    @property
+    @pulumi.getter
+    def sku(self) -> 'outputs.ResourceSkuResponse':
+        """
+        The SKU of the Analysis Services resource.
+        """
+        return pulumi.get(self, "sku")
+
+    @property
+    @pulumi.getter
+    def state(self) -> str:
+        """
+        The current state of Analysis Services resource. The state is to indicate more states outside of resource provisioning.
+        """
+        return pulumi.get(self, "state")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Mapping[str, str]]:
+        """
+        Key-value pairs of additional resource provisioning properties.
+        """
+        return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        The type of the Analysis Services resource.
+        """
+        return pulumi.get(self, "type")
+
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

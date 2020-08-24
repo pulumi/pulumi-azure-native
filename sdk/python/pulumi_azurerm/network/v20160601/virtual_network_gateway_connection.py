@@ -5,210 +5,41 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+from . import outputs
+from ._inputs import *
+
+__all__ = ['VirtualNetworkGatewayConnection']
 
 
 class VirtualNetworkGatewayConnection(pulumi.CustomResource):
-    authorization_key: pulumi.Output[str]
-    """
-    The authorizationKey.
-    """
-    connection_status: pulumi.Output[str]
-    """
-    Virtual network Gateway connection status
-    """
-    connection_type: pulumi.Output[str]
-    """
-    Gateway connection type IPsec/Dedicated/VpnClient/Vnet2Vnet
-    """
-    egress_bytes_transferred: pulumi.Output[float]
-    """
-    The Egress Bytes Transferred in this connection
-    """
-    enable_bgp: pulumi.Output[bool]
-    """
-    EnableBgp Flag
-    """
-    etag: pulumi.Output[str]
-    """
-    Gets a unique read-only string that changes whenever the resource is updated
-    """
-    ingress_bytes_transferred: pulumi.Output[float]
-    """
-    The Ingress Bytes Transferred in this connection
-    """
-    local_network_gateway2: pulumi.Output[dict]
-    """
-    A common class for general resource information
-      * `bgp_settings` (`dict`) - Local network gateway's BGP speaker settings
-        * `asn` (`float`) - Gets or sets this BGP speaker's ASN
-        * `bgp_peering_address` (`str`) - Gets or sets the BGP peering address and BGP identifier of this BGP speaker
-        * `peer_weight` (`float`) - Gets or sets the weight added to routes learned from this BGP speaker
-
-      * `etag` (`str`) - Gets a unique read-only string that changes whenever the resource is updated
-      * `gateway_ip_address` (`str`) - IP address of local network gateway.
-      * `id` (`str`) - Resource Id
-      * `local_network_address_space` (`dict`) - Local network site Address space
-        * `address_prefixes` (`list`) - Gets or sets list of address blocks reserved for this virtual network in CIDR notation
-
-      * `location` (`str`) - Resource location
-      * `name` (`str`) - Resource name
-      * `provisioning_state` (`str`) - Gets provisioning state of the LocalNetworkGateway resource Updating/Deleting/Failed
-      * `resource_guid` (`str`) - Gets or sets resource guid property of the LocalNetworkGateway resource
-      * `tags` (`dict`) - Resource tags
-      * `type` (`str`) - Resource type
-    """
-    location: pulumi.Output[str]
-    """
-    Resource location
-    """
-    name: pulumi.Output[str]
-    """
-    Resource name
-    """
-    peer: pulumi.Output[dict]
-    """
-    The reference to peerings resource.
-      * `id` (`str`) - Resource Id
-    """
-    provisioning_state: pulumi.Output[str]
-    """
-    Gets provisioning state of the VirtualNetworkGatewayConnection resource Updating/Deleting/Failed
-    """
-    resource_guid: pulumi.Output[str]
-    """
-    Gets or sets resource guid property of the VirtualNetworkGatewayConnection resource
-    """
-    routing_weight: pulumi.Output[float]
-    """
-    The Routing weight.
-    """
-    shared_key: pulumi.Output[str]
-    """
-    The IPsec share key.
-    """
-    tags: pulumi.Output[dict]
-    """
-    Resource tags
-    """
-    type: pulumi.Output[str]
-    """
-    Resource type
-    """
-    virtual_network_gateway1: pulumi.Output[dict]
-    """
-    A common class for general resource information
-      * `active_active` (`bool`) - ActiveActive flag
-      * `bgp_settings` (`dict`) - Virtual network gateway's BGP speaker settings
-        * `asn` (`float`) - Gets or sets this BGP speaker's ASN
-        * `bgp_peering_address` (`str`) - Gets or sets the BGP peering address and BGP identifier of this BGP speaker
-        * `peer_weight` (`float`) - Gets or sets the weight added to routes learned from this BGP speaker
-
-      * `enable_bgp` (`bool`) - EnableBgp Flag
-      * `etag` (`str`) - Gets a unique read-only string that changes whenever the resource is updated
-      * `gateway_default_site` (`dict`) - Gets or sets the reference of the LocalNetworkGateway resource which represents Local network site having default routes. Assign Null value in case of removing existing default site setting.
-        * `id` (`str`) - Resource Id
-
-      * `gateway_type` (`str`) - The type of this virtual network gateway.
-      * `id` (`str`) - Resource Id
-      * `ip_configurations` (`list`) - IpConfigurations for Virtual network gateway.
-        * `etag` (`str`) - A unique read-only string that changes whenever the resource is updated
-        * `id` (`str`) - Resource Id
-        * `name` (`str`) - Gets name of the resource that is unique within a resource group. This name can be used to access the resource
-        * `private_ip_allocation_method` (`str`) - Gets or sets PrivateIP allocation method
-        * `provisioning_state` (`str`) - Gets provisioning state of the PublicIP resource Updating/Deleting/Failed
-        * `public_ip_address` (`dict`) - Gets or sets the reference of the PublicIP resource
-        * `subnet` (`dict`) - Gets or sets the reference of the subnet resource
-
-      * `location` (`str`) - Resource location
-      * `name` (`str`) - Resource name
-      * `provisioning_state` (`str`) - Gets provisioning state of the VirtualNetworkGateway resource Updating/Deleting/Failed
-      * `resource_guid` (`str`) - Gets or sets resource guid property of the VirtualNetworkGateway resource
-      * `sku` (`dict`) - Gets or sets the reference of the VirtualNetworkGatewaySku resource which represents the sku selected for Virtual network gateway.
-        * `capacity` (`float`) - The capacity
-        * `name` (`str`) - Gateway sku name -Basic/HighPerformance/Standard/UltraPerformance
-        * `tier` (`str`) - Gateway sku tier -Basic/HighPerformance/Standard/UltraPerformance
-
-      * `tags` (`dict`) - Resource tags
-      * `type` (`str`) - Resource type
-      * `vpn_client_configuration` (`dict`) - Gets or sets the reference of the VpnClientConfiguration resource which represents the P2S VpnClient configurations.
-        * `vpn_client_address_pool` (`dict`) - Gets or sets the reference of the Address space resource which represents Address space for P2S VpnClient.
-          * `address_prefixes` (`list`) - Gets or sets list of address blocks reserved for this virtual network in CIDR notation
-
-        * `vpn_client_revoked_certificates` (`list`) - VpnClientRevokedCertificate for Virtual network gateway.
-          * `etag` (`str`) - A unique read-only string that changes whenever the resource is updated
-          * `id` (`str`) - Resource Id
-          * `name` (`str`) - Gets name of the resource that is unique within a resource group. This name can be used to access the resource
-          * `provisioning_state` (`str`) - Gets provisioning state of the VPN client revoked certificate resource Updating/Deleting/Failed
-          * `thumbprint` (`str`) - Gets or sets the revoked Vpn client certificate thumbprint
-
-        * `vpn_client_root_certificates` (`list`) - VpnClientRootCertificate for Virtual network gateway.
-          * `etag` (`str`) - A unique read-only string that changes whenever the resource is updated
-          * `id` (`str`) - Resource Id
-          * `name` (`str`) - Gets name of the resource that is unique within a resource group. This name can be used to access the resource
-          * `provisioning_state` (`str`) - Gets provisioning state of the VPN client root certificate resource Updating/Deleting/Failed
-          * `public_cert_data` (`str`) - Gets or sets the certificate public data
-
-      * `vpn_type` (`str`) - The type of this virtual network gateway.
-    """
-    virtual_network_gateway2: pulumi.Output[dict]
-    """
-    A common class for general resource information
-      * `active_active` (`bool`) - ActiveActive flag
-      * `bgp_settings` (`dict`) - Virtual network gateway's BGP speaker settings
-        * `asn` (`float`) - Gets or sets this BGP speaker's ASN
-        * `bgp_peering_address` (`str`) - Gets or sets the BGP peering address and BGP identifier of this BGP speaker
-        * `peer_weight` (`float`) - Gets or sets the weight added to routes learned from this BGP speaker
-
-      * `enable_bgp` (`bool`) - EnableBgp Flag
-      * `etag` (`str`) - Gets a unique read-only string that changes whenever the resource is updated
-      * `gateway_default_site` (`dict`) - Gets or sets the reference of the LocalNetworkGateway resource which represents Local network site having default routes. Assign Null value in case of removing existing default site setting.
-        * `id` (`str`) - Resource Id
-
-      * `gateway_type` (`str`) - The type of this virtual network gateway.
-      * `id` (`str`) - Resource Id
-      * `ip_configurations` (`list`) - IpConfigurations for Virtual network gateway.
-        * `etag` (`str`) - A unique read-only string that changes whenever the resource is updated
-        * `id` (`str`) - Resource Id
-        * `name` (`str`) - Gets name of the resource that is unique within a resource group. This name can be used to access the resource
-        * `private_ip_allocation_method` (`str`) - Gets or sets PrivateIP allocation method
-        * `provisioning_state` (`str`) - Gets provisioning state of the PublicIP resource Updating/Deleting/Failed
-        * `public_ip_address` (`dict`) - Gets or sets the reference of the PublicIP resource
-        * `subnet` (`dict`) - Gets or sets the reference of the subnet resource
-
-      * `location` (`str`) - Resource location
-      * `name` (`str`) - Resource name
-      * `provisioning_state` (`str`) - Gets provisioning state of the VirtualNetworkGateway resource Updating/Deleting/Failed
-      * `resource_guid` (`str`) - Gets or sets resource guid property of the VirtualNetworkGateway resource
-      * `sku` (`dict`) - Gets or sets the reference of the VirtualNetworkGatewaySku resource which represents the sku selected for Virtual network gateway.
-        * `capacity` (`float`) - The capacity
-        * `name` (`str`) - Gateway sku name -Basic/HighPerformance/Standard/UltraPerformance
-        * `tier` (`str`) - Gateway sku tier -Basic/HighPerformance/Standard/UltraPerformance
-
-      * `tags` (`dict`) - Resource tags
-      * `type` (`str`) - Resource type
-      * `vpn_client_configuration` (`dict`) - Gets or sets the reference of the VpnClientConfiguration resource which represents the P2S VpnClient configurations.
-        * `vpn_client_address_pool` (`dict`) - Gets or sets the reference of the Address space resource which represents Address space for P2S VpnClient.
-          * `address_prefixes` (`list`) - Gets or sets list of address blocks reserved for this virtual network in CIDR notation
-
-        * `vpn_client_revoked_certificates` (`list`) - VpnClientRevokedCertificate for Virtual network gateway.
-          * `etag` (`str`) - A unique read-only string that changes whenever the resource is updated
-          * `id` (`str`) - Resource Id
-          * `name` (`str`) - Gets name of the resource that is unique within a resource group. This name can be used to access the resource
-          * `provisioning_state` (`str`) - Gets provisioning state of the VPN client revoked certificate resource Updating/Deleting/Failed
-          * `thumbprint` (`str`) - Gets or sets the revoked Vpn client certificate thumbprint
-
-        * `vpn_client_root_certificates` (`list`) - VpnClientRootCertificate for Virtual network gateway.
-          * `etag` (`str`) - A unique read-only string that changes whenever the resource is updated
-          * `id` (`str`) - Resource Id
-          * `name` (`str`) - Gets name of the resource that is unique within a resource group. This name can be used to access the resource
-          * `provisioning_state` (`str`) - Gets provisioning state of the VPN client root certificate resource Updating/Deleting/Failed
-          * `public_cert_data` (`str`) - Gets or sets the certificate public data
-
-      * `vpn_type` (`str`) - The type of this virtual network gateway.
-    """
-    def __init__(__self__, resource_name, opts=None, authorization_key=None, connection_status=None, connection_type=None, egress_bytes_transferred=None, enable_bgp=None, etag=None, id=None, ingress_bytes_transferred=None, local_network_gateway2=None, location=None, name=None, peer=None, provisioning_state=None, resource_group_name=None, resource_guid=None, routing_weight=None, shared_key=None, tags=None, virtual_network_gateway1=None, virtual_network_gateway2=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 authorization_key: Optional[pulumi.Input[str]] = None,
+                 connection_status: Optional[pulumi.Input[str]] = None,
+                 connection_type: Optional[pulumi.Input[str]] = None,
+                 egress_bytes_transferred: Optional[pulumi.Input[float]] = None,
+                 enable_bgp: Optional[pulumi.Input[bool]] = None,
+                 etag: Optional[pulumi.Input[str]] = None,
+                 id: Optional[pulumi.Input[str]] = None,
+                 ingress_bytes_transferred: Optional[pulumi.Input[float]] = None,
+                 local_network_gateway2: Optional[pulumi.Input[pulumi.InputType['LocalNetworkGatewayArgs']]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 peer: Optional[pulumi.Input[pulumi.InputType['SubResourceArgs']]] = None,
+                 provisioning_state: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 resource_guid: Optional[pulumi.Input[str]] = None,
+                 routing_weight: Optional[pulumi.Input[float]] = None,
+                 shared_key: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 virtual_network_gateway1: Optional[pulumi.Input[pulumi.InputType['VirtualNetworkGatewayArgs']]] = None,
+                 virtual_network_gateway2: Optional[pulumi.Input[pulumi.InputType['VirtualNetworkGatewayArgs']]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         A common class for general resource information
 
@@ -222,85 +53,18 @@ class VirtualNetworkGatewayConnection(pulumi.CustomResource):
         :param pulumi.Input[str] etag: Gets a unique read-only string that changes whenever the resource is updated
         :param pulumi.Input[str] id: Resource Id
         :param pulumi.Input[float] ingress_bytes_transferred: The Ingress Bytes Transferred in this connection
-        :param pulumi.Input[dict] local_network_gateway2: A common class for general resource information
+        :param pulumi.Input[pulumi.InputType['LocalNetworkGatewayArgs']] local_network_gateway2: A common class for general resource information
         :param pulumi.Input[str] location: Resource location
         :param pulumi.Input[str] name: The name of the virtual network gateway connection.
-        :param pulumi.Input[dict] peer: The reference to peerings resource.
+        :param pulumi.Input[pulumi.InputType['SubResourceArgs']] peer: The reference to peerings resource.
         :param pulumi.Input[str] provisioning_state: Gets provisioning state of the VirtualNetworkGatewayConnection resource Updating/Deleting/Failed
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[str] resource_guid: Gets or sets resource guid property of the VirtualNetworkGatewayConnection resource
         :param pulumi.Input[float] routing_weight: The Routing weight.
         :param pulumi.Input[str] shared_key: The IPsec share key.
-        :param pulumi.Input[dict] tags: Resource tags
-        :param pulumi.Input[dict] virtual_network_gateway1: A common class for general resource information
-        :param pulumi.Input[dict] virtual_network_gateway2: A common class for general resource information
-
-        The **local_network_gateway2** object supports the following:
-
-          * `bgp_settings` (`pulumi.Input[dict]`) - Local network gateway's BGP speaker settings
-            * `asn` (`pulumi.Input[float]`) - Gets or sets this BGP speaker's ASN
-            * `bgp_peering_address` (`pulumi.Input[str]`) - Gets or sets the BGP peering address and BGP identifier of this BGP speaker
-            * `peer_weight` (`pulumi.Input[float]`) - Gets or sets the weight added to routes learned from this BGP speaker
-
-          * `etag` (`pulumi.Input[str]`) - Gets a unique read-only string that changes whenever the resource is updated
-          * `gateway_ip_address` (`pulumi.Input[str]`) - IP address of local network gateway.
-          * `id` (`pulumi.Input[str]`) - Resource Id
-          * `local_network_address_space` (`pulumi.Input[dict]`) - Local network site Address space
-            * `address_prefixes` (`pulumi.Input[list]`) - Gets or sets list of address blocks reserved for this virtual network in CIDR notation
-
-          * `location` (`pulumi.Input[str]`) - Resource location
-          * `provisioning_state` (`pulumi.Input[str]`) - Gets provisioning state of the LocalNetworkGateway resource Updating/Deleting/Failed
-          * `resource_guid` (`pulumi.Input[str]`) - Gets or sets resource guid property of the LocalNetworkGateway resource
-          * `tags` (`pulumi.Input[dict]`) - Resource tags
-
-        The **peer** object supports the following:
-
-          * `id` (`pulumi.Input[str]`) - Resource Id
-
-        The **virtual_network_gateway1** object supports the following:
-
-          * `active_active` (`pulumi.Input[bool]`) - ActiveActive flag
-          * `bgp_settings` (`pulumi.Input[dict]`) - Virtual network gateway's BGP speaker settings
-          * `enable_bgp` (`pulumi.Input[bool]`) - EnableBgp Flag
-          * `etag` (`pulumi.Input[str]`) - Gets a unique read-only string that changes whenever the resource is updated
-          * `gateway_default_site` (`pulumi.Input[dict]`) - Gets or sets the reference of the LocalNetworkGateway resource which represents Local network site having default routes. Assign Null value in case of removing existing default site setting.
-          * `gateway_type` (`pulumi.Input[str]`) - The type of this virtual network gateway.
-          * `id` (`pulumi.Input[str]`) - Resource Id
-          * `ip_configurations` (`pulumi.Input[list]`) - IpConfigurations for Virtual network gateway.
-            * `etag` (`pulumi.Input[str]`) - A unique read-only string that changes whenever the resource is updated
-            * `id` (`pulumi.Input[str]`) - Resource Id
-            * `name` (`pulumi.Input[str]`) - Gets name of the resource that is unique within a resource group. This name can be used to access the resource
-            * `private_ip_allocation_method` (`pulumi.Input[str]`) - Gets or sets PrivateIP allocation method
-            * `provisioning_state` (`pulumi.Input[str]`) - Gets provisioning state of the PublicIP resource Updating/Deleting/Failed
-            * `public_ip_address` (`pulumi.Input[dict]`) - Gets or sets the reference of the PublicIP resource
-            * `subnet` (`pulumi.Input[dict]`) - Gets or sets the reference of the subnet resource
-
-          * `location` (`pulumi.Input[str]`) - Resource location
-          * `provisioning_state` (`pulumi.Input[str]`) - Gets provisioning state of the VirtualNetworkGateway resource Updating/Deleting/Failed
-          * `resource_guid` (`pulumi.Input[str]`) - Gets or sets resource guid property of the VirtualNetworkGateway resource
-          * `sku` (`pulumi.Input[dict]`) - Gets or sets the reference of the VirtualNetworkGatewaySku resource which represents the sku selected for Virtual network gateway.
-            * `capacity` (`pulumi.Input[float]`) - The capacity
-            * `name` (`pulumi.Input[str]`) - Gateway sku name -Basic/HighPerformance/Standard/UltraPerformance
-            * `tier` (`pulumi.Input[str]`) - Gateway sku tier -Basic/HighPerformance/Standard/UltraPerformance
-
-          * `tags` (`pulumi.Input[dict]`) - Resource tags
-          * `vpn_client_configuration` (`pulumi.Input[dict]`) - Gets or sets the reference of the VpnClientConfiguration resource which represents the P2S VpnClient configurations.
-            * `vpn_client_address_pool` (`pulumi.Input[dict]`) - Gets or sets the reference of the Address space resource which represents Address space for P2S VpnClient.
-            * `vpn_client_revoked_certificates` (`pulumi.Input[list]`) - VpnClientRevokedCertificate for Virtual network gateway.
-              * `etag` (`pulumi.Input[str]`) - A unique read-only string that changes whenever the resource is updated
-              * `id` (`pulumi.Input[str]`) - Resource Id
-              * `name` (`pulumi.Input[str]`) - Gets name of the resource that is unique within a resource group. This name can be used to access the resource
-              * `provisioning_state` (`pulumi.Input[str]`) - Gets provisioning state of the VPN client revoked certificate resource Updating/Deleting/Failed
-              * `thumbprint` (`pulumi.Input[str]`) - Gets or sets the revoked Vpn client certificate thumbprint
-
-            * `vpn_client_root_certificates` (`pulumi.Input[list]`) - VpnClientRootCertificate for Virtual network gateway.
-              * `etag` (`pulumi.Input[str]`) - A unique read-only string that changes whenever the resource is updated
-              * `id` (`pulumi.Input[str]`) - Resource Id
-              * `name` (`pulumi.Input[str]`) - Gets name of the resource that is unique within a resource group. This name can be used to access the resource
-              * `provisioning_state` (`pulumi.Input[str]`) - Gets provisioning state of the VPN client root certificate resource Updating/Deleting/Failed
-              * `public_cert_data` (`pulumi.Input[str]`) - Gets or sets the certificate public data
-
-          * `vpn_type` (`pulumi.Input[str]`) - The type of this virtual network gateway.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags
+        :param pulumi.Input[pulumi.InputType['VirtualNetworkGatewayArgs']] virtual_network_gateway1: A common class for general resource information
+        :param pulumi.Input[pulumi.InputType['VirtualNetworkGatewayArgs']] virtual_network_gateway2: A common class for general resource information
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -353,13 +117,15 @@ class VirtualNetworkGatewayConnection(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None) -> 'VirtualNetworkGatewayConnection':
         """
         Get an existing VirtualNetworkGatewayConnection resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -368,8 +134,161 @@ class VirtualNetworkGatewayConnection(pulumi.CustomResource):
 
         return VirtualNetworkGatewayConnection(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter(name="authorizationKey")
+    def authorization_key(self) -> Optional[str]:
+        """
+        The authorizationKey.
+        """
+        return pulumi.get(self, "authorization_key")
+
+    @property
+    @pulumi.getter(name="connectionStatus")
+    def connection_status(self) -> Optional[str]:
+        """
+        Virtual network Gateway connection status
+        """
+        return pulumi.get(self, "connection_status")
+
+    @property
+    @pulumi.getter(name="connectionType")
+    def connection_type(self) -> Optional[str]:
+        """
+        Gateway connection type IPsec/Dedicated/VpnClient/Vnet2Vnet
+        """
+        return pulumi.get(self, "connection_type")
+
+    @property
+    @pulumi.getter(name="egressBytesTransferred")
+    def egress_bytes_transferred(self) -> Optional[float]:
+        """
+        The Egress Bytes Transferred in this connection
+        """
+        return pulumi.get(self, "egress_bytes_transferred")
+
+    @property
+    @pulumi.getter(name="enableBgp")
+    def enable_bgp(self) -> Optional[bool]:
+        """
+        EnableBgp Flag
+        """
+        return pulumi.get(self, "enable_bgp")
+
+    @property
+    @pulumi.getter
+    def etag(self) -> Optional[str]:
+        """
+        Gets a unique read-only string that changes whenever the resource is updated
+        """
+        return pulumi.get(self, "etag")
+
+    @property
+    @pulumi.getter(name="ingressBytesTransferred")
+    def ingress_bytes_transferred(self) -> Optional[float]:
+        """
+        The Ingress Bytes Transferred in this connection
+        """
+        return pulumi.get(self, "ingress_bytes_transferred")
+
+    @property
+    @pulumi.getter(name="localNetworkGateway2")
+    def local_network_gateway2(self) -> Optional['outputs.LocalNetworkGatewayResponse']:
+        """
+        A common class for general resource information
+        """
+        return pulumi.get(self, "local_network_gateway2")
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[str]:
+        """
+        Resource location
+        """
+        return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Resource name
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def peer(self) -> Optional['outputs.SubResourceResponse']:
+        """
+        The reference to peerings resource.
+        """
+        return pulumi.get(self, "peer")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> Optional[str]:
+        """
+        Gets provisioning state of the VirtualNetworkGatewayConnection resource Updating/Deleting/Failed
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="resourceGuid")
+    def resource_guid(self) -> Optional[str]:
+        """
+        Gets or sets resource guid property of the VirtualNetworkGatewayConnection resource
+        """
+        return pulumi.get(self, "resource_guid")
+
+    @property
+    @pulumi.getter(name="routingWeight")
+    def routing_weight(self) -> Optional[float]:
+        """
+        The Routing weight.
+        """
+        return pulumi.get(self, "routing_weight")
+
+    @property
+    @pulumi.getter(name="sharedKey")
+    def shared_key(self) -> Optional[str]:
+        """
+        The IPsec share key.
+        """
+        return pulumi.get(self, "shared_key")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Mapping[str, str]]:
+        """
+        Resource tags
+        """
+        return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Resource type
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="virtualNetworkGateway1")
+    def virtual_network_gateway1(self) -> Optional['outputs.VirtualNetworkGatewayResponse']:
+        """
+        A common class for general resource information
+        """
+        return pulumi.get(self, "virtual_network_gateway1")
+
+    @property
+    @pulumi.getter(name="virtualNetworkGateway2")
+    def virtual_network_gateway2(self) -> Optional['outputs.VirtualNetworkGatewayResponse']:
+        """
+        A common class for general resource information
+        """
+        return pulumi.get(self, "virtual_network_gateway2")
+
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

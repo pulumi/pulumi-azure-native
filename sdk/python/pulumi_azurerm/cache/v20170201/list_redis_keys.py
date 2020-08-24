@@ -5,10 +5,16 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
 
+__all__ = [
+    'ListRedisKeysResult',
+    'AwaitableListRedisKeysResult',
+    'list_redis_keys',
+]
 
+@pulumi.output_type
 class ListRedisKeysResult:
     """
     Redis cache access keys.
@@ -16,16 +22,26 @@ class ListRedisKeysResult:
     def __init__(__self__, primary_key=None, secondary_key=None):
         if primary_key and not isinstance(primary_key, str):
             raise TypeError("Expected argument 'primary_key' to be a str")
-        __self__.primary_key = primary_key
+        pulumi.set(__self__, "primary_key", primary_key)
+        if secondary_key and not isinstance(secondary_key, str):
+            raise TypeError("Expected argument 'secondary_key' to be a str")
+        pulumi.set(__self__, "secondary_key", secondary_key)
+
+    @property
+    @pulumi.getter(name="primaryKey")
+    def primary_key(self) -> str:
         """
         The current primary key that clients can use to authenticate with Redis cache.
         """
-        if secondary_key and not isinstance(secondary_key, str):
-            raise TypeError("Expected argument 'secondary_key' to be a str")
-        __self__.secondary_key = secondary_key
+        return pulumi.get(self, "primary_key")
+
+    @property
+    @pulumi.getter(name="secondaryKey")
+    def secondary_key(self) -> str:
         """
         The current secondary key that clients can use to authenticate with Redis cache.
         """
+        return pulumi.get(self, "secondary_key")
 
 
 class AwaitableListRedisKeysResult(ListRedisKeysResult):
@@ -38,7 +54,9 @@ class AwaitableListRedisKeysResult(ListRedisKeysResult):
             secondary_key=self.secondary_key)
 
 
-def list_redis_keys(name=None, resource_group_name=None, opts=None):
+def list_redis_keys(name: Optional[str] = None,
+                    resource_group_name: Optional[str] = None,
+                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListRedisKeysResult:
     """
     Use this data source to access information about an existing resource.
 
@@ -52,8 +70,8 @@ def list_redis_keys(name=None, resource_group_name=None, opts=None):
         opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = _utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('azurerm:cache/v20170201:listRedisKeys', __args__, opts=opts).value
+    __ret__ = pulumi.runtime.invoke('azurerm:cache/v20170201:listRedisKeys', __args__, opts=opts, typ=ListRedisKeysResult).value
 
     return AwaitableListRedisKeysResult(
-        primary_key=__ret__.get('primaryKey'),
-        secondary_key=__ret__.get('secondaryKey'))
+        primary_key=__ret__.primary_key,
+        secondary_key=__ret__.secondary_key)

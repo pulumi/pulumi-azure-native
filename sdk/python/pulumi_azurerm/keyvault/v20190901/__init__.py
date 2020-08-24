@@ -7,3 +7,5 @@ from .get_private_endpoint_connection import *
 from .get_vault import *
 from .private_endpoint_connection import *
 from .vault import *
+from ._inputs import *
+from . import outputs

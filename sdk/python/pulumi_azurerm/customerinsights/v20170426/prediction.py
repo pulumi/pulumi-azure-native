@@ -5,111 +5,51 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+from . import outputs
+from ._inputs import *
+
+__all__ = ['Prediction']
 
 
 class Prediction(pulumi.CustomResource):
-    auto_analyze: pulumi.Output[bool]
-    """
-    Whether do auto analyze.
-    """
-    description: pulumi.Output[dict]
-    """
-    Description of the prediction.
-    """
-    display_name: pulumi.Output[dict]
-    """
-    Display name of the prediction.
-    """
-    grades: pulumi.Output[list]
-    """
-    The prediction grades.
-      * `grade_name` (`str`) - Name of the grade.
-      * `max_score_threshold` (`float`) - Maximum score threshold.
-      * `min_score_threshold` (`float`) - Minimum score threshold.
-    """
-    involved_interaction_types: pulumi.Output[list]
-    """
-    Interaction types involved in the prediction.
-    """
-    involved_kpi_types: pulumi.Output[list]
-    """
-    KPI types involved in the prediction.
-    """
-    involved_relationships: pulumi.Output[list]
-    """
-    Relationships involved in the prediction.
-    """
-    mappings: pulumi.Output[dict]
-    """
-    Definition of the link mapping of prediction.
-      * `grade` (`str`) - The grade of the link mapping.
-      * `reason` (`str`) - The reason of the link mapping.
-      * `score` (`str`) - The score of the link mapping.
-    """
-    name: pulumi.Output[str]
-    """
-    Resource name.
-    """
-    negative_outcome_expression: pulumi.Output[str]
-    """
-    Negative outcome expression.
-    """
-    positive_outcome_expression: pulumi.Output[str]
-    """
-    Positive outcome expression.
-    """
-    prediction_name: pulumi.Output[str]
-    """
-    Name of the prediction.
-    """
-    primary_profile_type: pulumi.Output[str]
-    """
-    Primary profile type.
-    """
-    provisioning_state: pulumi.Output[str]
-    """
-    Provisioning state.
-    """
-    scope_expression: pulumi.Output[str]
-    """
-    Scope expression.
-    """
-    score_label: pulumi.Output[str]
-    """
-    Score label.
-    """
-    system_generated_entities: pulumi.Output[dict]
-    """
-    System generated entities.
-      * `generated_interaction_types` (`list`) - Generated interaction types.
-      * `generated_kpis` (`dict`) - Generated KPIs.
-      * `generated_links` (`list`) - Generated links.
-    """
-    tenant_id: pulumi.Output[str]
-    """
-    The hub name.
-    """
-    type: pulumi.Output[str]
-    """
-    Resource type.
-    """
-    def __init__(__self__, resource_name, opts=None, auto_analyze=None, description=None, display_name=None, grades=None, hub_name=None, involved_interaction_types=None, involved_kpi_types=None, involved_relationships=None, mappings=None, name=None, negative_outcome_expression=None, positive_outcome_expression=None, primary_profile_type=None, resource_group_name=None, scope_expression=None, score_label=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 auto_analyze: Optional[pulumi.Input[bool]] = None,
+                 description: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 display_name: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 grades: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['PredictionGradesArgs']]]]] = None,
+                 hub_name: Optional[pulumi.Input[str]] = None,
+                 involved_interaction_types: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 involved_kpi_types: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 involved_relationships: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 mappings: Optional[pulumi.Input[pulumi.InputType['PredictionMappingsArgs']]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 negative_outcome_expression: Optional[pulumi.Input[str]] = None,
+                 positive_outcome_expression: Optional[pulumi.Input[str]] = None,
+                 primary_profile_type: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 scope_expression: Optional[pulumi.Input[str]] = None,
+                 score_label: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         The prediction resource format.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] auto_analyze: Whether do auto analyze.
-        :param pulumi.Input[dict] description: Description of the prediction.
-        :param pulumi.Input[dict] display_name: Display name of the prediction.
-        :param pulumi.Input[list] grades: The prediction grades.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] description: Description of the prediction.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] display_name: Display name of the prediction.
+        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['PredictionGradesArgs']]]] grades: The prediction grades.
         :param pulumi.Input[str] hub_name: The name of the hub.
-        :param pulumi.Input[list] involved_interaction_types: Interaction types involved in the prediction.
-        :param pulumi.Input[list] involved_kpi_types: KPI types involved in the prediction.
-        :param pulumi.Input[list] involved_relationships: Relationships involved in the prediction.
-        :param pulumi.Input[dict] mappings: Definition of the link mapping of prediction.
+        :param pulumi.Input[List[pulumi.Input[str]]] involved_interaction_types: Interaction types involved in the prediction.
+        :param pulumi.Input[List[pulumi.Input[str]]] involved_kpi_types: KPI types involved in the prediction.
+        :param pulumi.Input[List[pulumi.Input[str]]] involved_relationships: Relationships involved in the prediction.
+        :param pulumi.Input[pulumi.InputType['PredictionMappingsArgs']] mappings: Definition of the link mapping of prediction.
         :param pulumi.Input[str] name: Name of the prediction.
         :param pulumi.Input[str] negative_outcome_expression: Negative outcome expression.
         :param pulumi.Input[str] positive_outcome_expression: Positive outcome expression.
@@ -117,18 +57,6 @@ class Prediction(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[str] scope_expression: Scope expression.
         :param pulumi.Input[str] score_label: Score label.
-
-        The **grades** object supports the following:
-
-          * `grade_name` (`pulumi.Input[str]`) - Name of the grade.
-          * `max_score_threshold` (`pulumi.Input[float]`) - Maximum score threshold.
-          * `min_score_threshold` (`pulumi.Input[float]`) - Minimum score threshold.
-
-        The **mappings** object supports the following:
-
-          * `grade` (`pulumi.Input[str]`) - The grade of the link mapping.
-          * `reason` (`pulumi.Input[str]`) - The reason of the link mapping.
-          * `score` (`pulumi.Input[str]`) - The score of the link mapping.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -195,13 +123,15 @@ class Prediction(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None) -> 'Prediction':
         """
         Get an existing Prediction resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -210,8 +140,161 @@ class Prediction(pulumi.CustomResource):
 
         return Prediction(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter(name="autoAnalyze")
+    def auto_analyze(self) -> bool:
+        """
+        Whether do auto analyze.
+        """
+        return pulumi.get(self, "auto_analyze")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[Mapping[str, str]]:
+        """
+        Description of the prediction.
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="displayName")
+    def display_name(self) -> Optional[Mapping[str, str]]:
+        """
+        Display name of the prediction.
+        """
+        return pulumi.get(self, "display_name")
+
+    @property
+    @pulumi.getter
+    def grades(self) -> Optional[List['outputs.PredictionResponseGrades']]:
+        """
+        The prediction grades.
+        """
+        return pulumi.get(self, "grades")
+
+    @property
+    @pulumi.getter(name="involvedInteractionTypes")
+    def involved_interaction_types(self) -> Optional[List[str]]:
+        """
+        Interaction types involved in the prediction.
+        """
+        return pulumi.get(self, "involved_interaction_types")
+
+    @property
+    @pulumi.getter(name="involvedKpiTypes")
+    def involved_kpi_types(self) -> Optional[List[str]]:
+        """
+        KPI types involved in the prediction.
+        """
+        return pulumi.get(self, "involved_kpi_types")
+
+    @property
+    @pulumi.getter(name="involvedRelationships")
+    def involved_relationships(self) -> Optional[List[str]]:
+        """
+        Relationships involved in the prediction.
+        """
+        return pulumi.get(self, "involved_relationships")
+
+    @property
+    @pulumi.getter
+    def mappings(self) -> 'outputs.PredictionResponseMappings':
+        """
+        Definition of the link mapping of prediction.
+        """
+        return pulumi.get(self, "mappings")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Resource name.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="negativeOutcomeExpression")
+    def negative_outcome_expression(self) -> str:
+        """
+        Negative outcome expression.
+        """
+        return pulumi.get(self, "negative_outcome_expression")
+
+    @property
+    @pulumi.getter(name="positiveOutcomeExpression")
+    def positive_outcome_expression(self) -> str:
+        """
+        Positive outcome expression.
+        """
+        return pulumi.get(self, "positive_outcome_expression")
+
+    @property
+    @pulumi.getter(name="predictionName")
+    def prediction_name(self) -> Optional[str]:
+        """
+        Name of the prediction.
+        """
+        return pulumi.get(self, "prediction_name")
+
+    @property
+    @pulumi.getter(name="primaryProfileType")
+    def primary_profile_type(self) -> str:
+        """
+        Primary profile type.
+        """
+        return pulumi.get(self, "primary_profile_type")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        Provisioning state.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="scopeExpression")
+    def scope_expression(self) -> str:
+        """
+        Scope expression.
+        """
+        return pulumi.get(self, "scope_expression")
+
+    @property
+    @pulumi.getter(name="scoreLabel")
+    def score_label(self) -> str:
+        """
+        Score label.
+        """
+        return pulumi.get(self, "score_label")
+
+    @property
+    @pulumi.getter(name="systemGeneratedEntities")
+    def system_generated_entities(self) -> 'outputs.PredictionResponseSystemGeneratedEntities':
+        """
+        System generated entities.
+        """
+        return pulumi.get(self, "system_generated_entities")
+
+    @property
+    @pulumi.getter(name="tenantId")
+    def tenant_id(self) -> str:
+        """
+        The hub name.
+        """
+        return pulumi.get(self, "tenant_id")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Resource type.
+        """
+        return pulumi.get(self, "type")
+
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

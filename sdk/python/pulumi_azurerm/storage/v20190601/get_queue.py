@@ -5,36 +5,62 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
 
+__all__ = [
+    'GetQueueResult',
+    'AwaitableGetQueueResult',
+    'get_queue',
+]
 
+@pulumi.output_type
 class GetQueueResult:
     def __init__(__self__, approximate_message_count=None, metadata=None, name=None, type=None):
         if approximate_message_count and not isinstance(approximate_message_count, float):
             raise TypeError("Expected argument 'approximate_message_count' to be a float")
-        __self__.approximate_message_count = approximate_message_count
+        pulumi.set(__self__, "approximate_message_count", approximate_message_count)
+        if metadata and not isinstance(metadata, dict):
+            raise TypeError("Expected argument 'metadata' to be a dict")
+        pulumi.set(__self__, "metadata", metadata)
+        if name and not isinstance(name, str):
+            raise TypeError("Expected argument 'name' to be a str")
+        pulumi.set(__self__, "name", name)
+        if type and not isinstance(type, str):
+            raise TypeError("Expected argument 'type' to be a str")
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="approximateMessageCount")
+    def approximate_message_count(self) -> float:
         """
         Integer indicating an approximate number of messages in the queue. This number is not lower than the actual number of messages in the queue, but could be higher.
         """
-        if metadata and not isinstance(metadata, dict):
-            raise TypeError("Expected argument 'metadata' to be a dict")
-        __self__.metadata = metadata
+        return pulumi.get(self, "approximate_message_count")
+
+    @property
+    @pulumi.getter
+    def metadata(self) -> Optional[Mapping[str, str]]:
         """
         A name-value pair that represents queue metadata.
         """
-        if name and not isinstance(name, str):
-            raise TypeError("Expected argument 'name' to be a str")
-        __self__.name = name
+        return pulumi.get(self, "metadata")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
         """
         The name of the resource
         """
-        if type and not isinstance(type, str):
-            raise TypeError("Expected argument 'type' to be a str")
-        __self__.type = type
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
         """
         The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
         """
+        return pulumi.get(self, "type")
 
 
 class AwaitableGetQueueResult(GetQueueResult):
@@ -49,7 +75,10 @@ class AwaitableGetQueueResult(GetQueueResult):
             type=self.type)
 
 
-def get_queue(account_name=None, name=None, resource_group_name=None, opts=None):
+def get_queue(account_name: Optional[str] = None,
+              name: Optional[str] = None,
+              resource_group_name: Optional[str] = None,
+              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetQueueResult:
     """
     Use this data source to access information about an existing resource.
 
@@ -65,10 +94,10 @@ def get_queue(account_name=None, name=None, resource_group_name=None, opts=None)
         opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = _utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('azurerm:storage/v20190601:getQueue', __args__, opts=opts).value
+    __ret__ = pulumi.runtime.invoke('azurerm:storage/v20190601:getQueue', __args__, opts=opts, typ=GetQueueResult).value
 
     return AwaitableGetQueueResult(
-        approximate_message_count=__ret__.get('approximateMessageCount'),
-        metadata=__ret__.get('metadata'),
-        name=__ret__.get('name'),
-        type=__ret__.get('type'))
+        approximate_message_count=__ret__.approximate_message_count,
+        metadata=__ret__.metadata,
+        name=__ret__.name,
+        type=__ret__.type)

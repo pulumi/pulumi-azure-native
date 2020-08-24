@@ -5,10 +5,16 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
 
+__all__ = [
+    'GetLinkedServiceResult',
+    'AwaitableGetLinkedServiceResult',
+    'get_linked_service',
+]
 
+@pulumi.output_type
 class GetLinkedServiceResult:
     """
     The top level Linked service resource container.
@@ -16,40 +22,70 @@ class GetLinkedServiceResult:
     def __init__(__self__, name=None, provisioning_state=None, resource_id=None, tags=None, type=None, write_access_resource_id=None):
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
-        __self__.name = name
+        pulumi.set(__self__, "name", name)
+        if provisioning_state and not isinstance(provisioning_state, str):
+            raise TypeError("Expected argument 'provisioning_state' to be a str")
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if resource_id and not isinstance(resource_id, str):
+            raise TypeError("Expected argument 'resource_id' to be a str")
+        pulumi.set(__self__, "resource_id", resource_id)
+        if tags and not isinstance(tags, dict):
+            raise TypeError("Expected argument 'tags' to be a dict")
+        pulumi.set(__self__, "tags", tags)
+        if type and not isinstance(type, str):
+            raise TypeError("Expected argument 'type' to be a str")
+        pulumi.set(__self__, "type", type)
+        if write_access_resource_id and not isinstance(write_access_resource_id, str):
+            raise TypeError("Expected argument 'write_access_resource_id' to be a str")
+        pulumi.set(__self__, "write_access_resource_id", write_access_resource_id)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
         """
         The name of the resource
         """
-        if provisioning_state and not isinstance(provisioning_state, str):
-            raise TypeError("Expected argument 'provisioning_state' to be a str")
-        __self__.provisioning_state = provisioning_state
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> Optional[str]:
         """
         The provisioning state of the linked service.
         """
-        if resource_id and not isinstance(resource_id, str):
-            raise TypeError("Expected argument 'resource_id' to be a str")
-        __self__.resource_id = resource_id
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="resourceId")
+    def resource_id(self) -> Optional[str]:
         """
         The resource id of the resource that will be linked to the workspace. This should be used for linking resources which require read access
         """
-        if tags and not isinstance(tags, dict):
-            raise TypeError("Expected argument 'tags' to be a dict")
-        __self__.tags = tags
+        return pulumi.get(self, "resource_id")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Mapping[str, str]]:
         """
         Resource tags.
         """
-        if type and not isinstance(type, str):
-            raise TypeError("Expected argument 'type' to be a str")
-        __self__.type = type
+        return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
         """
         The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
         """
-        if write_access_resource_id and not isinstance(write_access_resource_id, str):
-            raise TypeError("Expected argument 'write_access_resource_id' to be a str")
-        __self__.write_access_resource_id = write_access_resource_id
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="writeAccessResourceId")
+    def write_access_resource_id(self) -> Optional[str]:
         """
         The resource id of the resource that will be linked to the workspace. This should be used for linking resources which require write access
         """
+        return pulumi.get(self, "write_access_resource_id")
 
 
 class AwaitableGetLinkedServiceResult(GetLinkedServiceResult):
@@ -66,7 +102,10 @@ class AwaitableGetLinkedServiceResult(GetLinkedServiceResult):
             write_access_resource_id=self.write_access_resource_id)
 
 
-def get_linked_service(name=None, resource_group_name=None, workspace_name=None, opts=None):
+def get_linked_service(name: Optional[str] = None,
+                       resource_group_name: Optional[str] = None,
+                       workspace_name: Optional[str] = None,
+                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetLinkedServiceResult:
     """
     Use this data source to access information about an existing resource.
 
@@ -82,12 +121,12 @@ def get_linked_service(name=None, resource_group_name=None, workspace_name=None,
         opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = _utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('azurerm:operationalinsights/v20200801:getLinkedService', __args__, opts=opts).value
+    __ret__ = pulumi.runtime.invoke('azurerm:operationalinsights/v20200801:getLinkedService', __args__, opts=opts, typ=GetLinkedServiceResult).value
 
     return AwaitableGetLinkedServiceResult(
-        name=__ret__.get('name'),
-        provisioning_state=__ret__.get('provisioningState'),
-        resource_id=__ret__.get('resourceId'),
-        tags=__ret__.get('tags'),
-        type=__ret__.get('type'),
-        write_access_resource_id=__ret__.get('writeAccessResourceId'))
+        name=__ret__.name,
+        provisioning_state=__ret__.provisioning_state,
+        resource_id=__ret__.resource_id,
+        tags=__ret__.tags,
+        type=__ret__.type,
+        write_access_resource_id=__ret__.write_access_resource_id)

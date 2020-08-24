@@ -5,10 +5,17 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+from . import outputs
 
+__all__ = [
+    'GetSavedSearchResult',
+    'AwaitableGetSavedSearchResult',
+    'get_saved_search',
+]
 
+@pulumi.output_type
 class GetSavedSearchResult:
     """
     Value object for saved search results.
@@ -16,52 +23,92 @@ class GetSavedSearchResult:
     def __init__(__self__, category=None, display_name=None, e_tag=None, name=None, query=None, tags=None, type=None, version=None):
         if category and not isinstance(category, str):
             raise TypeError("Expected argument 'category' to be a str")
-        __self__.category = category
+        pulumi.set(__self__, "category", category)
+        if display_name and not isinstance(display_name, str):
+            raise TypeError("Expected argument 'display_name' to be a str")
+        pulumi.set(__self__, "display_name", display_name)
+        if e_tag and not isinstance(e_tag, str):
+            raise TypeError("Expected argument 'e_tag' to be a str")
+        pulumi.set(__self__, "e_tag", e_tag)
+        if name and not isinstance(name, str):
+            raise TypeError("Expected argument 'name' to be a str")
+        pulumi.set(__self__, "name", name)
+        if query and not isinstance(query, str):
+            raise TypeError("Expected argument 'query' to be a str")
+        pulumi.set(__self__, "query", query)
+        if tags and not isinstance(tags, list):
+            raise TypeError("Expected argument 'tags' to be a list")
+        pulumi.set(__self__, "tags", tags)
+        if type and not isinstance(type, str):
+            raise TypeError("Expected argument 'type' to be a str")
+        pulumi.set(__self__, "type", type)
+        if version and not isinstance(version, float):
+            raise TypeError("Expected argument 'version' to be a float")
+        pulumi.set(__self__, "version", version)
+
+    @property
+    @pulumi.getter
+    def category(self) -> str:
         """
         The category of the saved search. This helps the user to find a saved search faster. 
         """
-        if display_name and not isinstance(display_name, str):
-            raise TypeError("Expected argument 'display_name' to be a str")
-        __self__.display_name = display_name
+        return pulumi.get(self, "category")
+
+    @property
+    @pulumi.getter(name="displayName")
+    def display_name(self) -> str:
         """
         Saved search display name.
         """
-        if e_tag and not isinstance(e_tag, str):
-            raise TypeError("Expected argument 'e_tag' to be a str")
-        __self__.e_tag = e_tag
+        return pulumi.get(self, "display_name")
+
+    @property
+    @pulumi.getter(name="eTag")
+    def e_tag(self) -> Optional[str]:
         """
         The ETag of the saved search.
         """
-        if name and not isinstance(name, str):
-            raise TypeError("Expected argument 'name' to be a str")
-        __self__.name = name
+        return pulumi.get(self, "e_tag")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
         """
         The name of the saved search.
         """
-        if query and not isinstance(query, str):
-            raise TypeError("Expected argument 'query' to be a str")
-        __self__.query = query
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def query(self) -> str:
         """
         The query expression for the saved search. Please see https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-search-reference for reference.
         """
-        if tags and not isinstance(tags, list):
-            raise TypeError("Expected argument 'tags' to be a list")
-        __self__.tags = tags
+        return pulumi.get(self, "query")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[List['outputs.TagResponse']]:
         """
         The tags attached to the saved search.
         """
-        if type and not isinstance(type, str):
-            raise TypeError("Expected argument 'type' to be a str")
-        __self__.type = type
+        return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
         """
         The type of the saved search.
         """
-        if version and not isinstance(version, float):
-            raise TypeError("Expected argument 'version' to be a float")
-        __self__.version = version
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def version(self) -> Optional[float]:
         """
         The version number of the query language. The current version is 2 and is the default.
         """
+        return pulumi.get(self, "version")
 
 
 class AwaitableGetSavedSearchResult(GetSavedSearchResult):
@@ -80,7 +127,10 @@ class AwaitableGetSavedSearchResult(GetSavedSearchResult):
             version=self.version)
 
 
-def get_saved_search(name=None, resource_group_name=None, workspace_name=None, opts=None):
+def get_saved_search(name: Optional[str] = None,
+                     resource_group_name: Optional[str] = None,
+                     workspace_name: Optional[str] = None,
+                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSavedSearchResult:
     """
     Use this data source to access information about an existing resource.
 
@@ -96,14 +146,14 @@ def get_saved_search(name=None, resource_group_name=None, workspace_name=None, o
         opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = _utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('azurerm:operationalinsights/v20150320:getSavedSearch', __args__, opts=opts).value
+    __ret__ = pulumi.runtime.invoke('azurerm:operationalinsights/v20150320:getSavedSearch', __args__, opts=opts, typ=GetSavedSearchResult).value
 
     return AwaitableGetSavedSearchResult(
-        category=__ret__.get('category'),
-        display_name=__ret__.get('displayName'),
-        e_tag=__ret__.get('eTag'),
-        name=__ret__.get('name'),
-        query=__ret__.get('query'),
-        tags=__ret__.get('tags'),
-        type=__ret__.get('type'),
-        version=__ret__.get('version'))
+        category=__ret__.category,
+        display_name=__ret__.display_name,
+        e_tag=__ret__.e_tag,
+        name=__ret__.name,
+        query=__ret__.query,
+        tags=__ret__.tags,
+        type=__ret__.type,
+        version=__ret__.version)

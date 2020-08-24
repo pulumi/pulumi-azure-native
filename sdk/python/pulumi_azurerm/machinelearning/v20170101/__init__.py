@@ -5,3 +5,5 @@
 # Export this package's modules as members:
 from .get_web_service import *
 from .web_service import *
+from ._inputs import *
+from . import outputs

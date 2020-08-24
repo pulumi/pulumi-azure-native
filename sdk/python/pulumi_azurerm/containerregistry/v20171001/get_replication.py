@@ -5,10 +5,17 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+from . import outputs
 
+__all__ = [
+    'GetReplicationResult',
+    'AwaitableGetReplicationResult',
+    'get_replication',
+]
 
+@pulumi.output_type
 class GetReplicationResult:
     """
     An object that represents a replication for a container registry.
@@ -16,40 +23,70 @@ class GetReplicationResult:
     def __init__(__self__, location=None, name=None, provisioning_state=None, status=None, tags=None, type=None):
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
-        __self__.location = location
+        pulumi.set(__self__, "location", location)
+        if name and not isinstance(name, str):
+            raise TypeError("Expected argument 'name' to be a str")
+        pulumi.set(__self__, "name", name)
+        if provisioning_state and not isinstance(provisioning_state, str):
+            raise TypeError("Expected argument 'provisioning_state' to be a str")
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if status and not isinstance(status, dict):
+            raise TypeError("Expected argument 'status' to be a dict")
+        pulumi.set(__self__, "status", status)
+        if tags and not isinstance(tags, dict):
+            raise TypeError("Expected argument 'tags' to be a dict")
+        pulumi.set(__self__, "tags", tags)
+        if type and not isinstance(type, str):
+            raise TypeError("Expected argument 'type' to be a str")
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def location(self) -> str:
         """
         The location of the resource. This cannot be changed after the resource is created.
         """
-        if name and not isinstance(name, str):
-            raise TypeError("Expected argument 'name' to be a str")
-        __self__.name = name
+        return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
         """
         The name of the resource.
         """
-        if provisioning_state and not isinstance(provisioning_state, str):
-            raise TypeError("Expected argument 'provisioning_state' to be a str")
-        __self__.provisioning_state = provisioning_state
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
         """
         The provisioning state of the replication at the time the operation was called.
         """
-        if status and not isinstance(status, dict):
-            raise TypeError("Expected argument 'status' to be a dict")
-        __self__.status = status
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter
+    def status(self) -> 'outputs.StatusResponse':
         """
         The status of the replication at the time the operation was called.
         """
-        if tags and not isinstance(tags, dict):
-            raise TypeError("Expected argument 'tags' to be a dict")
-        __self__.tags = tags
+        return pulumi.get(self, "status")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Mapping[str, str]]:
         """
         The tags of the resource.
         """
-        if type and not isinstance(type, str):
-            raise TypeError("Expected argument 'type' to be a str")
-        __self__.type = type
+        return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
         """
         The type of the resource.
         """
+        return pulumi.get(self, "type")
 
 
 class AwaitableGetReplicationResult(GetReplicationResult):
@@ -66,7 +103,10 @@ class AwaitableGetReplicationResult(GetReplicationResult):
             type=self.type)
 
 
-def get_replication(name=None, registry_name=None, resource_group_name=None, opts=None):
+def get_replication(name: Optional[str] = None,
+                    registry_name: Optional[str] = None,
+                    resource_group_name: Optional[str] = None,
+                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetReplicationResult:
     """
     Use this data source to access information about an existing resource.
 
@@ -82,12 +122,12 @@ def get_replication(name=None, registry_name=None, resource_group_name=None, opt
         opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = _utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('azurerm:containerregistry/v20171001:getReplication', __args__, opts=opts).value
+    __ret__ = pulumi.runtime.invoke('azurerm:containerregistry/v20171001:getReplication', __args__, opts=opts, typ=GetReplicationResult).value
 
     return AwaitableGetReplicationResult(
-        location=__ret__.get('location'),
-        name=__ret__.get('name'),
-        provisioning_state=__ret__.get('provisioningState'),
-        status=__ret__.get('status'),
-        tags=__ret__.get('tags'),
-        type=__ret__.get('type'))
+        location=__ret__.location,
+        name=__ret__.name,
+        provisioning_state=__ret__.provisioning_state,
+        status=__ret__.status,
+        tags=__ret__.tags,
+        type=__ret__.type)

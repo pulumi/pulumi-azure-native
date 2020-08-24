@@ -5,36 +5,23 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+
+__all__ = ['ApplicationPackage']
 
 
 class ApplicationPackage(pulumi.CustomResource):
-    format: pulumi.Output[str]
-    """
-    The format of the application package, if the package is active.
-    """
-    last_activation_time: pulumi.Output[str]
-    """
-    The time at which the package was last activated, if the package is active.
-    """
-    state: pulumi.Output[str]
-    """
-    The current state of the application package.
-    """
-    storage_url: pulumi.Output[str]
-    """
-    The URL for the application package in Azure Storage.
-    """
-    storage_url_expiry: pulumi.Output[str]
-    """
-    The UTC time at which the Azure Storage URL will expire.
-    """
-    version: pulumi.Output[str]
-    """
-    The version of the application package.
-    """
-    def __init__(__self__, resource_name, opts=None, account_name=None, application_id=None, resource_group_name=None, version=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 account_name: Optional[pulumi.Input[str]] = None,
+                 application_id: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 version: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         An application package which represents a particular version of an application.
 
@@ -88,13 +75,15 @@ class ApplicationPackage(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None) -> 'ApplicationPackage':
         """
         Get an existing ApplicationPackage resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -103,8 +92,57 @@ class ApplicationPackage(pulumi.CustomResource):
 
         return ApplicationPackage(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter
+    def format(self) -> str:
+        """
+        The format of the application package, if the package is active.
+        """
+        return pulumi.get(self, "format")
+
+    @property
+    @pulumi.getter(name="lastActivationTime")
+    def last_activation_time(self) -> str:
+        """
+        The time at which the package was last activated, if the package is active.
+        """
+        return pulumi.get(self, "last_activation_time")
+
+    @property
+    @pulumi.getter
+    def state(self) -> str:
+        """
+        The current state of the application package.
+        """
+        return pulumi.get(self, "state")
+
+    @property
+    @pulumi.getter(name="storageUrl")
+    def storage_url(self) -> str:
+        """
+        The URL for the application package in Azure Storage.
+        """
+        return pulumi.get(self, "storage_url")
+
+    @property
+    @pulumi.getter(name="storageUrlExpiry")
+    def storage_url_expiry(self) -> str:
+        """
+        The UTC time at which the Azure Storage URL will expire.
+        """
+        return pulumi.get(self, "storage_url_expiry")
+
+    @property
+    @pulumi.getter
+    def version(self) -> str:
+        """
+        The version of the application package.
+        """
+        return pulumi.get(self, "version")
+
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

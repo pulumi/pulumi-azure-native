@@ -5,115 +5,50 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+from . import outputs
+from ._inputs import *
+
+__all__ = ['Share']
 
 
 class Share(pulumi.CustomResource):
-    access_protocol: pulumi.Output[str]
-    """
-    Access protocol to be used by the share.
-    """
-    azure_container_info: pulumi.Output[dict]
-    """
-    Azure container mapping for the share.
-      * `container_name` (`str`) - Container name (Based on the data format specified, this represents the name of Azure Files/Page blob/Block blob).
-      * `data_format` (`str`) - Storage format used for the file represented by the share.
-      * `storage_account_credential_id` (`str`) - ID of the storage account credential used to access storage.
-    """
-    client_access_rights: pulumi.Output[list]
-    """
-    List of IP addresses and corresponding access rights on the share(required for NFS protocol).
-      * `access_permission` (`str`) - Type of access to be allowed for the client.
-      * `client` (`str`) - IP of the client.
-    """
-    data_policy: pulumi.Output[str]
-    """
-    Data policy of the share.
-    """
-    description: pulumi.Output[str]
-    """
-    Description for the share.
-    """
-    monitoring_status: pulumi.Output[str]
-    """
-    Current monitoring status of the share.
-    """
-    name: pulumi.Output[str]
-    """
-    The object name.
-    """
-    refresh_details: pulumi.Output[dict]
-    """
-    Details of the refresh job on this share.
-      * `error_manifest_file` (`str`) - Indicates the relative path of the error xml for the last refresh job on this particular share, if any. This could be a failed job or a successful job.
-      * `in_progress_refresh_job_id` (`str`) - If a refresh share job is currently in progress on this share, this field indicates the ARM resource ID of that job. The field is empty if no job is in progress.
-      * `last_completed_refresh_job_time_in_utc` (`str`) - Indicates the completed time for the last refresh job on this particular share, if any.This could be a failed job or a successful job.
-      * `last_job` (`str`) - Indicates the id of the last refresh job on this particular share,if any. This could be a failed job or a successful job.
-    """
-    share_mappings: pulumi.Output[list]
-    """
-    Share mount point to the role.
-      * `mount_point` (`str`) - Mount point for the share.
-      * `role_id` (`str`) - ID of the role to which share is mounted.
-      * `role_type` (`str`) - Role type.
-      * `share_id` (`str`) - ID of the share mounted to the role VM.
-    """
-    share_status: pulumi.Output[str]
-    """
-    Current status of the share.
-    """
-    type: pulumi.Output[str]
-    """
-    The hierarchical type of the object.
-    """
-    user_access_rights: pulumi.Output[list]
-    """
-    Mapping of users and corresponding access rights on the share (required for SMB protocol).
-      * `access_type` (`str`) - Type of access to be allowed for the user.
-      * `user_id` (`str`) - User ID (already existing in the device).
-    """
-    def __init__(__self__, resource_name, opts=None, access_protocol=None, azure_container_info=None, client_access_rights=None, data_policy=None, description=None, device_name=None, monitoring_status=None, name=None, refresh_details=None, resource_group_name=None, share_status=None, user_access_rights=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 access_protocol: Optional[pulumi.Input[str]] = None,
+                 azure_container_info: Optional[pulumi.Input[pulumi.InputType['AzureContainerInfoArgs']]] = None,
+                 client_access_rights: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['ClientAccessRightArgs']]]]] = None,
+                 data_policy: Optional[pulumi.Input[str]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 device_name: Optional[pulumi.Input[str]] = None,
+                 monitoring_status: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 refresh_details: Optional[pulumi.Input[pulumi.InputType['RefreshDetailsArgs']]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 share_status: Optional[pulumi.Input[str]] = None,
+                 user_access_rights: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['UserAccessRightArgs']]]]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         Represents a share on the  Data Box Edge/Gateway device.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] access_protocol: Access protocol to be used by the share.
-        :param pulumi.Input[dict] azure_container_info: Azure container mapping for the share.
-        :param pulumi.Input[list] client_access_rights: List of IP addresses and corresponding access rights on the share(required for NFS protocol).
+        :param pulumi.Input[pulumi.InputType['AzureContainerInfoArgs']] azure_container_info: Azure container mapping for the share.
+        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['ClientAccessRightArgs']]]] client_access_rights: List of IP addresses and corresponding access rights on the share(required for NFS protocol).
         :param pulumi.Input[str] data_policy: Data policy of the share.
         :param pulumi.Input[str] description: Description for the share.
         :param pulumi.Input[str] device_name: The device name.
         :param pulumi.Input[str] monitoring_status: Current monitoring status of the share.
         :param pulumi.Input[str] name: The share name.
-        :param pulumi.Input[dict] refresh_details: Details of the refresh job on this share.
+        :param pulumi.Input[pulumi.InputType['RefreshDetailsArgs']] refresh_details: Details of the refresh job on this share.
         :param pulumi.Input[str] resource_group_name: The resource group name.
         :param pulumi.Input[str] share_status: Current status of the share.
-        :param pulumi.Input[list] user_access_rights: Mapping of users and corresponding access rights on the share (required for SMB protocol).
-
-        The **azure_container_info** object supports the following:
-
-          * `container_name` (`pulumi.Input[str]`) - Container name (Based on the data format specified, this represents the name of Azure Files/Page blob/Block blob).
-          * `data_format` (`pulumi.Input[str]`) - Storage format used for the file represented by the share.
-          * `storage_account_credential_id` (`pulumi.Input[str]`) - ID of the storage account credential used to access storage.
-
-        The **client_access_rights** object supports the following:
-
-          * `access_permission` (`pulumi.Input[str]`) - Type of access to be allowed for the client.
-          * `client` (`pulumi.Input[str]`) - IP of the client.
-
-        The **refresh_details** object supports the following:
-
-          * `error_manifest_file` (`pulumi.Input[str]`) - Indicates the relative path of the error xml for the last refresh job on this particular share, if any. This could be a failed job or a successful job.
-          * `in_progress_refresh_job_id` (`pulumi.Input[str]`) - If a refresh share job is currently in progress on this share, this field indicates the ARM resource ID of that job. The field is empty if no job is in progress.
-          * `last_completed_refresh_job_time_in_utc` (`pulumi.Input[str]`) - Indicates the completed time for the last refresh job on this particular share, if any.This could be a failed job or a successful job.
-          * `last_job` (`pulumi.Input[str]`) - Indicates the id of the last refresh job on this particular share,if any. This could be a failed job or a successful job.
-
-        The **user_access_rights** object supports the following:
-
-          * `access_type` (`pulumi.Input[str]`) - Type of access to be allowed for the user.
-          * `user_id` (`pulumi.Input[str]`) - User ID (already existing in the device).
+        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['UserAccessRightArgs']]]] user_access_rights: Mapping of users and corresponding access rights on the share (required for SMB protocol).
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -167,13 +102,15 @@ class Share(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None) -> 'Share':
         """
         Get an existing Share resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -182,8 +119,105 @@ class Share(pulumi.CustomResource):
 
         return Share(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter(name="accessProtocol")
+    def access_protocol(self) -> str:
+        """
+        Access protocol to be used by the share.
+        """
+        return pulumi.get(self, "access_protocol")
+
+    @property
+    @pulumi.getter(name="azureContainerInfo")
+    def azure_container_info(self) -> Optional['outputs.AzureContainerInfoResponse']:
+        """
+        Azure container mapping for the share.
+        """
+        return pulumi.get(self, "azure_container_info")
+
+    @property
+    @pulumi.getter(name="clientAccessRights")
+    def client_access_rights(self) -> Optional[List['outputs.ClientAccessRightResponse']]:
+        """
+        List of IP addresses and corresponding access rights on the share(required for NFS protocol).
+        """
+        return pulumi.get(self, "client_access_rights")
+
+    @property
+    @pulumi.getter(name="dataPolicy")
+    def data_policy(self) -> Optional[str]:
+        """
+        Data policy of the share.
+        """
+        return pulumi.get(self, "data_policy")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        """
+        Description for the share.
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="monitoringStatus")
+    def monitoring_status(self) -> str:
+        """
+        Current monitoring status of the share.
+        """
+        return pulumi.get(self, "monitoring_status")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The object name.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="refreshDetails")
+    def refresh_details(self) -> Optional['outputs.RefreshDetailsResponse']:
+        """
+        Details of the refresh job on this share.
+        """
+        return pulumi.get(self, "refresh_details")
+
+    @property
+    @pulumi.getter(name="shareMappings")
+    def share_mappings(self) -> List['outputs.MountPointMapResponse']:
+        """
+        Share mount point to the role.
+        """
+        return pulumi.get(self, "share_mappings")
+
+    @property
+    @pulumi.getter(name="shareStatus")
+    def share_status(self) -> str:
+        """
+        Current status of the share.
+        """
+        return pulumi.get(self, "share_status")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        The hierarchical type of the object.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="userAccessRights")
+    def user_access_rights(self) -> Optional[List['outputs.UserAccessRightResponse']]:
+        """
+        Mapping of users and corresponding access rights on the share (required for SMB protocol).
+        """
+        return pulumi.get(self, "user_access_rights")
+
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

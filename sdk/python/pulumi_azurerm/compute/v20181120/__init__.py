@@ -5,3 +5,5 @@
 # Export this package's modules as members:
 from .get_guest_configuration_assignment import *
 from .guest_configuration_assignment import *
+from ._inputs import *
+from . import outputs

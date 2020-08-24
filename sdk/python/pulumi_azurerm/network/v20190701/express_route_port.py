@@ -5,100 +5,32 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+from . import outputs
+from ._inputs import *
+
+__all__ = ['ExpressRoutePort']
 
 
 class ExpressRoutePort(pulumi.CustomResource):
-    allocation_date: pulumi.Output[str]
-    """
-    Date of the physical port allocation to be used in Letter of Authorization.
-    """
-    bandwidth_in_gbps: pulumi.Output[float]
-    """
-    Bandwidth of procured ports in Gbps.
-    """
-    circuits: pulumi.Output[list]
-    """
-    Reference the ExpressRoute circuit(s) that are provisioned on this ExpressRoutePort resource.
-      * `id` (`str`) - Resource ID.
-    """
-    encapsulation: pulumi.Output[str]
-    """
-    Encapsulation method on physical ports.
-    """
-    etag: pulumi.Output[str]
-    """
-    A unique read-only string that changes whenever the resource is updated.
-    """
-    ether_type: pulumi.Output[str]
-    """
-    Ether type of the physical port.
-    """
-    identity: pulumi.Output[dict]
-    """
-    The identity of ExpressRoutePort, if configured.
-      * `principal_id` (`str`) - The principal id of the system assigned identity. This property will only be provided for a system assigned identity.
-      * `tenant_id` (`str`) - The tenant id of the system assigned identity. This property will only be provided for a system assigned identity.
-      * `type` (`str`) - The type of identity used for the resource. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user assigned identities. The type 'None' will remove any identities from the virtual machine.
-      * `user_assigned_identities` (`dict`) - The list of user identities associated with resource. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
-    """
-    links: pulumi.Output[list]
-    """
-    The set of physical links of the ExpressRoutePort resource.
-      * `admin_state` (`str`) - Administrative state of the physical port.
-      * `connector_type` (`str`) - Physical fiber port type.
-      * `etag` (`str`) - A unique read-only string that changes whenever the resource is updated.
-      * `id` (`str`) - Resource ID.
-      * `interface_name` (`str`) - Name of Azure router interface.
-      * `mac_sec_config` (`dict`) - MacSec configuration.
-        * `cak_secret_identifier` (`str`) - Keyvault Secret Identifier URL containing Mac security CAK key.
-        * `cipher` (`str`) - Mac security cipher.
-        * `ckn_secret_identifier` (`str`) - Keyvault Secret Identifier URL containing Mac security CKN key.
-
-      * `name` (`str`) - Name of child port resource that is unique among child port resources of the parent.
-      * `patch_panel_id` (`str`) - Mapping between physical port to patch panel port.
-      * `provisioning_state` (`str`) - The provisioning state of the express route link resource.
-      * `rack_id` (`str`) - Mapping of physical patch panel to rack.
-      * `router_name` (`str`) - Name of Azure router associated with physical port.
-    """
-    location: pulumi.Output[str]
-    """
-    Resource location.
-    """
-    mtu: pulumi.Output[str]
-    """
-    Maximum transmission unit of the physical port pair(s).
-    """
-    name: pulumi.Output[str]
-    """
-    Resource name.
-    """
-    peering_location: pulumi.Output[str]
-    """
-    The name of the peering location that the ExpressRoutePort is mapped to physically.
-    """
-    provisioned_bandwidth_in_gbps: pulumi.Output[float]
-    """
-    Aggregate Gbps of associated circuit bandwidths.
-    """
-    provisioning_state: pulumi.Output[str]
-    """
-    The provisioning state of the express route port resource.
-    """
-    resource_guid: pulumi.Output[str]
-    """
-    The resource GUID property of the express route port resource.
-    """
-    tags: pulumi.Output[dict]
-    """
-    Resource tags.
-    """
-    type: pulumi.Output[str]
-    """
-    Resource type.
-    """
-    def __init__(__self__, resource_name, opts=None, bandwidth_in_gbps=None, encapsulation=None, id=None, identity=None, links=None, location=None, name=None, peering_location=None, resource_group_name=None, resource_guid=None, tags=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 bandwidth_in_gbps: Optional[pulumi.Input[float]] = None,
+                 encapsulation: Optional[pulumi.Input[str]] = None,
+                 id: Optional[pulumi.Input[str]] = None,
+                 identity: Optional[pulumi.Input[pulumi.InputType['ManagedServiceIdentityArgs']]] = None,
+                 links: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['ExpressRouteLinkArgs']]]]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 peering_location: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 resource_guid: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         ExpressRoutePort resource definition.
 
@@ -107,29 +39,14 @@ class ExpressRoutePort(pulumi.CustomResource):
         :param pulumi.Input[float] bandwidth_in_gbps: Bandwidth of procured ports in Gbps.
         :param pulumi.Input[str] encapsulation: Encapsulation method on physical ports.
         :param pulumi.Input[str] id: Resource ID.
-        :param pulumi.Input[dict] identity: The identity of ExpressRoutePort, if configured.
-        :param pulumi.Input[list] links: The set of physical links of the ExpressRoutePort resource.
+        :param pulumi.Input[pulumi.InputType['ManagedServiceIdentityArgs']] identity: The identity of ExpressRoutePort, if configured.
+        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['ExpressRouteLinkArgs']]]] links: The set of physical links of the ExpressRoutePort resource.
         :param pulumi.Input[str] location: Resource location.
         :param pulumi.Input[str] name: The name of the ExpressRoutePort resource.
         :param pulumi.Input[str] peering_location: The name of the peering location that the ExpressRoutePort is mapped to physically.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[str] resource_guid: The resource GUID property of the express route port resource.
-        :param pulumi.Input[dict] tags: Resource tags.
-
-        The **identity** object supports the following:
-
-          * `type` (`pulumi.Input[str]`) - The type of identity used for the resource. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user assigned identities. The type 'None' will remove any identities from the virtual machine.
-
-        The **links** object supports the following:
-
-          * `admin_state` (`pulumi.Input[str]`) - Administrative state of the physical port.
-          * `id` (`pulumi.Input[str]`) - Resource ID.
-          * `mac_sec_config` (`pulumi.Input[dict]`) - MacSec configuration.
-            * `cak_secret_identifier` (`pulumi.Input[str]`) - Keyvault Secret Identifier URL containing Mac security CAK key.
-            * `cipher` (`pulumi.Input[str]`) - Mac security cipher.
-            * `ckn_secret_identifier` (`pulumi.Input[str]`) - Keyvault Secret Identifier URL containing Mac security CKN key.
-
-          * `name` (`pulumi.Input[str]`) - Name of child port resource that is unique among child port resources of the parent.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -180,13 +97,15 @@ class ExpressRoutePort(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None) -> 'ExpressRoutePort':
         """
         Get an existing ExpressRoutePort resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -195,8 +114,145 @@ class ExpressRoutePort(pulumi.CustomResource):
 
         return ExpressRoutePort(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter(name="allocationDate")
+    def allocation_date(self) -> str:
+        """
+        Date of the physical port allocation to be used in Letter of Authorization.
+        """
+        return pulumi.get(self, "allocation_date")
+
+    @property
+    @pulumi.getter(name="bandwidthInGbps")
+    def bandwidth_in_gbps(self) -> Optional[float]:
+        """
+        Bandwidth of procured ports in Gbps.
+        """
+        return pulumi.get(self, "bandwidth_in_gbps")
+
+    @property
+    @pulumi.getter
+    def circuits(self) -> List['outputs.SubResourceResponse']:
+        """
+        Reference the ExpressRoute circuit(s) that are provisioned on this ExpressRoutePort resource.
+        """
+        return pulumi.get(self, "circuits")
+
+    @property
+    @pulumi.getter
+    def encapsulation(self) -> Optional[str]:
+        """
+        Encapsulation method on physical ports.
+        """
+        return pulumi.get(self, "encapsulation")
+
+    @property
+    @pulumi.getter
+    def etag(self) -> str:
+        """
+        A unique read-only string that changes whenever the resource is updated.
+        """
+        return pulumi.get(self, "etag")
+
+    @property
+    @pulumi.getter(name="etherType")
+    def ether_type(self) -> str:
+        """
+        Ether type of the physical port.
+        """
+        return pulumi.get(self, "ether_type")
+
+    @property
+    @pulumi.getter
+    def identity(self) -> Optional['outputs.ManagedServiceIdentityResponse']:
+        """
+        The identity of ExpressRoutePort, if configured.
+        """
+        return pulumi.get(self, "identity")
+
+    @property
+    @pulumi.getter
+    def links(self) -> Optional[List['outputs.ExpressRouteLinkResponse']]:
+        """
+        The set of physical links of the ExpressRoutePort resource.
+        """
+        return pulumi.get(self, "links")
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[str]:
+        """
+        Resource location.
+        """
+        return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter
+    def mtu(self) -> str:
+        """
+        Maximum transmission unit of the physical port pair(s).
+        """
+        return pulumi.get(self, "mtu")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Resource name.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="peeringLocation")
+    def peering_location(self) -> Optional[str]:
+        """
+        The name of the peering location that the ExpressRoutePort is mapped to physically.
+        """
+        return pulumi.get(self, "peering_location")
+
+    @property
+    @pulumi.getter(name="provisionedBandwidthInGbps")
+    def provisioned_bandwidth_in_gbps(self) -> float:
+        """
+        Aggregate Gbps of associated circuit bandwidths.
+        """
+        return pulumi.get(self, "provisioned_bandwidth_in_gbps")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        The provisioning state of the express route port resource.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="resourceGuid")
+    def resource_guid(self) -> Optional[str]:
+        """
+        The resource GUID property of the express route port resource.
+        """
+        return pulumi.get(self, "resource_guid")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Mapping[str, str]]:
+        """
+        Resource tags.
+        """
+        return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Resource type.
+        """
+        return pulumi.get(self, "type")
+
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

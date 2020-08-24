@@ -5,36 +5,26 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+
+__all__ = ['ServerAzureADAdministrator']
 
 
 class ServerAzureADAdministrator(pulumi.CustomResource):
-    administrator_type: pulumi.Output[str]
-    """
-    The type of administrator.
-    """
-    login: pulumi.Output[str]
-    """
-    The server administrator login value.
-    """
-    name: pulumi.Output[str]
-    """
-    Resource name.
-    """
-    sid: pulumi.Output[str]
-    """
-    The server administrator Sid (Secure ID).
-    """
-    tenant_id: pulumi.Output[str]
-    """
-    The server Active Directory Administrator tenant id.
-    """
-    type: pulumi.Output[str]
-    """
-    Resource type.
-    """
-    def __init__(__self__, resource_name, opts=None, administrator_type=None, login=None, name=None, resource_group_name=None, server_name=None, sid=None, tenant_id=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 administrator_type: Optional[pulumi.Input[str]] = None,
+                 login: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 server_name: Optional[pulumi.Input[str]] = None,
+                 sid: Optional[pulumi.Input[str]] = None,
+                 tenant_id: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         An server Active Directory Administrator.
 
@@ -94,13 +84,15 @@ class ServerAzureADAdministrator(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None) -> 'ServerAzureADAdministrator':
         """
         Get an existing ServerAzureADAdministrator resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -109,8 +101,57 @@ class ServerAzureADAdministrator(pulumi.CustomResource):
 
         return ServerAzureADAdministrator(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter(name="administratorType")
+    def administrator_type(self) -> str:
+        """
+        The type of administrator.
+        """
+        return pulumi.get(self, "administrator_type")
+
+    @property
+    @pulumi.getter
+    def login(self) -> str:
+        """
+        The server administrator login value.
+        """
+        return pulumi.get(self, "login")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Resource name.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def sid(self) -> str:
+        """
+        The server administrator Sid (Secure ID).
+        """
+        return pulumi.get(self, "sid")
+
+    @property
+    @pulumi.getter(name="tenantId")
+    def tenant_id(self) -> str:
+        """
+        The server Active Directory Administrator tenant id.
+        """
+        return pulumi.get(self, "tenant_id")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Resource type.
+        """
+        return pulumi.get(self, "type")
+
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

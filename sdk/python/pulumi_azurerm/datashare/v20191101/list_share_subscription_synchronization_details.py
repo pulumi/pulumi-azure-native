@@ -5,10 +5,17 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+from . import outputs
 
+__all__ = [
+    'ListShareSubscriptionSynchronizationDetailsResult',
+    'AwaitableListShareSubscriptionSynchronizationDetailsResult',
+    'list_share_subscription_synchronization_details',
+]
 
+@pulumi.output_type
 class ListShareSubscriptionSynchronizationDetailsResult:
     """
     details of synchronization
@@ -16,16 +23,26 @@ class ListShareSubscriptionSynchronizationDetailsResult:
     def __init__(__self__, next_link=None, value=None):
         if next_link and not isinstance(next_link, str):
             raise TypeError("Expected argument 'next_link' to be a str")
-        __self__.next_link = next_link
+        pulumi.set(__self__, "next_link", next_link)
+        if value and not isinstance(value, list):
+            raise TypeError("Expected argument 'value' to be a list")
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter(name="nextLink")
+    def next_link(self) -> Optional[str]:
         """
         The Url of next result page.
         """
-        if value and not isinstance(value, list):
-            raise TypeError("Expected argument 'value' to be a list")
-        __self__.value = value
+        return pulumi.get(self, "next_link")
+
+    @property
+    @pulumi.getter
+    def value(self) -> List['outputs.SynchronizationDetailsResponseResult']:
         """
         Collection of items of type DataTransferObjects.
         """
+        return pulumi.get(self, "value")
 
 
 class AwaitableListShareSubscriptionSynchronizationDetailsResult(ListShareSubscriptionSynchronizationDetailsResult):
@@ -38,7 +55,14 @@ class AwaitableListShareSubscriptionSynchronizationDetailsResult(ListShareSubscr
             value=self.value)
 
 
-def list_share_subscription_synchronization_details(account_name=None, filter=None, orderby=None, resource_group_name=None, share_subscription_name=None, skip_token=None, synchronization_id=None, opts=None):
+def list_share_subscription_synchronization_details(account_name: Optional[str] = None,
+                                                    filter: Optional[str] = None,
+                                                    orderby: Optional[str] = None,
+                                                    resource_group_name: Optional[str] = None,
+                                                    share_subscription_name: Optional[str] = None,
+                                                    skip_token: Optional[str] = None,
+                                                    synchronization_id: Optional[str] = None,
+                                                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListShareSubscriptionSynchronizationDetailsResult:
     """
     Use this data source to access information about an existing resource.
 
@@ -62,8 +86,8 @@ def list_share_subscription_synchronization_details(account_name=None, filter=No
         opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = _utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('azurerm:datashare/v20191101:listShareSubscriptionSynchronizationDetails', __args__, opts=opts).value
+    __ret__ = pulumi.runtime.invoke('azurerm:datashare/v20191101:listShareSubscriptionSynchronizationDetails', __args__, opts=opts, typ=ListShareSubscriptionSynchronizationDetailsResult).value
 
     return AwaitableListShareSubscriptionSynchronizationDetailsResult(
-        next_link=__ret__.get('nextLink'),
-        value=__ret__.get('value'))
+        next_link=__ret__.next_link,
+        value=__ret__.value)

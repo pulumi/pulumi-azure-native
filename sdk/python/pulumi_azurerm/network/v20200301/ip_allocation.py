@@ -5,68 +5,37 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+from . import outputs
+
+__all__ = ['IpAllocation']
 
 
 class IpAllocation(pulumi.CustomResource):
-    allocation_tags: pulumi.Output[dict]
-    """
-    IpAllocation tags.
-    """
-    etag: pulumi.Output[str]
-    """
-    A unique read-only string that changes whenever the resource is updated.
-    """
-    ipam_allocation_id: pulumi.Output[str]
-    """
-    The IPAM allocation ID.
-    """
-    location: pulumi.Output[str]
-    """
-    Resource location.
-    """
-    name: pulumi.Output[str]
-    """
-    Resource name.
-    """
-    prefix: pulumi.Output[str]
-    """
-    The address prefix for the IpAllocation.
-    """
-    prefix_length: pulumi.Output[float]
-    """
-    The address prefix length for the IpAllocation.
-    """
-    prefix_type: pulumi.Output[str]
-    """
-    The address prefix Type for the IpAllocation.
-    """
-    subnet: pulumi.Output[dict]
-    """
-    The Subnet that using the prefix of this IpAllocation resource.
-      * `id` (`str`) - Resource ID.
-    """
-    tags: pulumi.Output[dict]
-    """
-    Resource tags.
-    """
-    type: pulumi.Output[str]
-    """
-    Resource type.
-    """
-    virtual_network: pulumi.Output[dict]
-    """
-    The VirtualNetwork that using the prefix of this IpAllocation resource.
-      * `id` (`str`) - Resource ID.
-    """
-    def __init__(__self__, resource_name, opts=None, allocation_tags=None, id=None, ipam_allocation_id=None, location=None, name=None, prefix=None, prefix_length=None, prefix_type=None, resource_group_name=None, tags=None, type=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 allocation_tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 id: Optional[pulumi.Input[str]] = None,
+                 ipam_allocation_id: Optional[pulumi.Input[str]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 prefix: Optional[pulumi.Input[str]] = None,
+                 prefix_length: Optional[pulumi.Input[float]] = None,
+                 prefix_type: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 type: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         IpAllocation resource.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[dict] allocation_tags: IpAllocation tags.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] allocation_tags: IpAllocation tags.
         :param pulumi.Input[str] id: Resource ID.
         :param pulumi.Input[str] ipam_allocation_id: The IPAM allocation ID.
         :param pulumi.Input[str] location: Resource location.
@@ -75,7 +44,7 @@ class IpAllocation(pulumi.CustomResource):
         :param pulumi.Input[float] prefix_length: The address prefix length for the IpAllocation.
         :param pulumi.Input[str] prefix_type: The address prefix Type for the IpAllocation.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
-        :param pulumi.Input[dict] tags: Resource tags.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         :param pulumi.Input[str] type: The type for the IpAllocation.
         """
         if __name__ is not None:
@@ -122,13 +91,15 @@ class IpAllocation(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None) -> 'IpAllocation':
         """
         Get an existing IpAllocation resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -137,8 +108,105 @@ class IpAllocation(pulumi.CustomResource):
 
         return IpAllocation(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter(name="allocationTags")
+    def allocation_tags(self) -> Optional[Mapping[str, str]]:
+        """
+        IpAllocation tags.
+        """
+        return pulumi.get(self, "allocation_tags")
+
+    @property
+    @pulumi.getter
+    def etag(self) -> str:
+        """
+        A unique read-only string that changes whenever the resource is updated.
+        """
+        return pulumi.get(self, "etag")
+
+    @property
+    @pulumi.getter(name="ipamAllocationId")
+    def ipam_allocation_id(self) -> Optional[str]:
+        """
+        The IPAM allocation ID.
+        """
+        return pulumi.get(self, "ipam_allocation_id")
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[str]:
+        """
+        Resource location.
+        """
+        return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Resource name.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def prefix(self) -> Optional[str]:
+        """
+        The address prefix for the IpAllocation.
+        """
+        return pulumi.get(self, "prefix")
+
+    @property
+    @pulumi.getter(name="prefixLength")
+    def prefix_length(self) -> Optional[float]:
+        """
+        The address prefix length for the IpAllocation.
+        """
+        return pulumi.get(self, "prefix_length")
+
+    @property
+    @pulumi.getter(name="prefixType")
+    def prefix_type(self) -> Optional[str]:
+        """
+        The address prefix Type for the IpAllocation.
+        """
+        return pulumi.get(self, "prefix_type")
+
+    @property
+    @pulumi.getter
+    def subnet(self) -> 'outputs.SubResourceResponse':
+        """
+        The Subnet that using the prefix of this IpAllocation resource.
+        """
+        return pulumi.get(self, "subnet")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Mapping[str, str]]:
+        """
+        Resource tags.
+        """
+        return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Resource type.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="virtualNetwork")
+    def virtual_network(self) -> 'outputs.SubResourceResponse':
+        """
+        The VirtualNetwork that using the prefix of this IpAllocation resource.
+        """
+        return pulumi.get(self, "virtual_network")
+
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

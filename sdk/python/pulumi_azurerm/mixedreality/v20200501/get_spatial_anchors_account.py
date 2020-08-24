@@ -5,10 +5,16 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
 
+__all__ = [
+    'GetSpatialAnchorsAccountResult',
+    'AwaitableGetSpatialAnchorsAccountResult',
+    'get_spatial_anchors_account',
+]
 
+@pulumi.output_type
 class GetSpatialAnchorsAccountResult:
     """
     SpatialAnchorsAccount Response.
@@ -16,40 +22,70 @@ class GetSpatialAnchorsAccountResult:
     def __init__(__self__, account_domain=None, account_id=None, location=None, name=None, tags=None, type=None):
         if account_domain and not isinstance(account_domain, str):
             raise TypeError("Expected argument 'account_domain' to be a str")
-        __self__.account_domain = account_domain
+        pulumi.set(__self__, "account_domain", account_domain)
+        if account_id and not isinstance(account_id, str):
+            raise TypeError("Expected argument 'account_id' to be a str")
+        pulumi.set(__self__, "account_id", account_id)
+        if location and not isinstance(location, str):
+            raise TypeError("Expected argument 'location' to be a str")
+        pulumi.set(__self__, "location", location)
+        if name and not isinstance(name, str):
+            raise TypeError("Expected argument 'name' to be a str")
+        pulumi.set(__self__, "name", name)
+        if tags and not isinstance(tags, dict):
+            raise TypeError("Expected argument 'tags' to be a dict")
+        pulumi.set(__self__, "tags", tags)
+        if type and not isinstance(type, str):
+            raise TypeError("Expected argument 'type' to be a str")
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="accountDomain")
+    def account_domain(self) -> str:
         """
         Correspond domain name of certain Spatial Anchors Account
         """
-        if account_id and not isinstance(account_id, str):
-            raise TypeError("Expected argument 'account_id' to be a str")
-        __self__.account_id = account_id
+        return pulumi.get(self, "account_domain")
+
+    @property
+    @pulumi.getter(name="accountId")
+    def account_id(self) -> str:
         """
         unique id of certain account.
         """
-        if location and not isinstance(location, str):
-            raise TypeError("Expected argument 'location' to be a str")
-        __self__.location = location
+        return pulumi.get(self, "account_id")
+
+    @property
+    @pulumi.getter
+    def location(self) -> str:
         """
         The geo-location where the resource lives
         """
-        if name and not isinstance(name, str):
-            raise TypeError("Expected argument 'name' to be a str")
-        __self__.name = name
+        return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
         """
         The name of the resource
         """
-        if tags and not isinstance(tags, dict):
-            raise TypeError("Expected argument 'tags' to be a dict")
-        __self__.tags = tags
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Mapping[str, str]]:
         """
         Resource tags.
         """
-        if type and not isinstance(type, str):
-            raise TypeError("Expected argument 'type' to be a str")
-        __self__.type = type
+        return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
         """
         The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
         """
+        return pulumi.get(self, "type")
 
 
 class AwaitableGetSpatialAnchorsAccountResult(GetSpatialAnchorsAccountResult):
@@ -66,7 +102,9 @@ class AwaitableGetSpatialAnchorsAccountResult(GetSpatialAnchorsAccountResult):
             type=self.type)
 
 
-def get_spatial_anchors_account(name=None, resource_group_name=None, opts=None):
+def get_spatial_anchors_account(name: Optional[str] = None,
+                                resource_group_name: Optional[str] = None,
+                                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSpatialAnchorsAccountResult:
     """
     Use this data source to access information about an existing resource.
 
@@ -80,12 +118,12 @@ def get_spatial_anchors_account(name=None, resource_group_name=None, opts=None):
         opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = _utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('azurerm:mixedreality/v20200501:getSpatialAnchorsAccount', __args__, opts=opts).value
+    __ret__ = pulumi.runtime.invoke('azurerm:mixedreality/v20200501:getSpatialAnchorsAccount', __args__, opts=opts, typ=GetSpatialAnchorsAccountResult).value
 
     return AwaitableGetSpatialAnchorsAccountResult(
-        account_domain=__ret__.get('accountDomain'),
-        account_id=__ret__.get('accountId'),
-        location=__ret__.get('location'),
-        name=__ret__.get('name'),
-        tags=__ret__.get('tags'),
-        type=__ret__.get('type'))
+        account_domain=__ret__.account_domain,
+        account_id=__ret__.account_id,
+        location=__ret__.location,
+        name=__ret__.name,
+        tags=__ret__.tags,
+        type=__ret__.type)

@@ -5,10 +5,16 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
 
+__all__ = [
+    'GetStorageAccountResult',
+    'AwaitableGetStorageAccountResult',
+    'get_storage_account',
+]
 
+@pulumi.output_type
 class GetStorageAccountResult:
     """
     Represents a Storage Account on the  Data Box Edge/Gateway device.
@@ -16,52 +22,92 @@ class GetStorageAccountResult:
     def __init__(__self__, blob_endpoint=None, container_count=None, data_policy=None, description=None, name=None, storage_account_credential_id=None, storage_account_status=None, type=None):
         if blob_endpoint and not isinstance(blob_endpoint, str):
             raise TypeError("Expected argument 'blob_endpoint' to be a str")
-        __self__.blob_endpoint = blob_endpoint
+        pulumi.set(__self__, "blob_endpoint", blob_endpoint)
+        if container_count and not isinstance(container_count, float):
+            raise TypeError("Expected argument 'container_count' to be a float")
+        pulumi.set(__self__, "container_count", container_count)
+        if data_policy and not isinstance(data_policy, str):
+            raise TypeError("Expected argument 'data_policy' to be a str")
+        pulumi.set(__self__, "data_policy", data_policy)
+        if description and not isinstance(description, str):
+            raise TypeError("Expected argument 'description' to be a str")
+        pulumi.set(__self__, "description", description)
+        if name and not isinstance(name, str):
+            raise TypeError("Expected argument 'name' to be a str")
+        pulumi.set(__self__, "name", name)
+        if storage_account_credential_id and not isinstance(storage_account_credential_id, str):
+            raise TypeError("Expected argument 'storage_account_credential_id' to be a str")
+        pulumi.set(__self__, "storage_account_credential_id", storage_account_credential_id)
+        if storage_account_status and not isinstance(storage_account_status, str):
+            raise TypeError("Expected argument 'storage_account_status' to be a str")
+        pulumi.set(__self__, "storage_account_status", storage_account_status)
+        if type and not isinstance(type, str):
+            raise TypeError("Expected argument 'type' to be a str")
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="blobEndpoint")
+    def blob_endpoint(self) -> str:
         """
         BlobEndpoint of Storage Account
         """
-        if container_count and not isinstance(container_count, float):
-            raise TypeError("Expected argument 'container_count' to be a float")
-        __self__.container_count = container_count
+        return pulumi.get(self, "blob_endpoint")
+
+    @property
+    @pulumi.getter(name="containerCount")
+    def container_count(self) -> float:
         """
         The Container Count. Present only for Storage Accounts with DataPolicy set to Cloud.
         """
-        if data_policy and not isinstance(data_policy, str):
-            raise TypeError("Expected argument 'data_policy' to be a str")
-        __self__.data_policy = data_policy
+        return pulumi.get(self, "container_count")
+
+    @property
+    @pulumi.getter(name="dataPolicy")
+    def data_policy(self) -> Optional[str]:
         """
         Data policy of the storage Account.
         """
-        if description and not isinstance(description, str):
-            raise TypeError("Expected argument 'description' to be a str")
-        __self__.description = description
+        return pulumi.get(self, "data_policy")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
         """
         Description for the storage Account.
         """
-        if name and not isinstance(name, str):
-            raise TypeError("Expected argument 'name' to be a str")
-        __self__.name = name
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
         """
         The object name.
         """
-        if storage_account_credential_id and not isinstance(storage_account_credential_id, str):
-            raise TypeError("Expected argument 'storage_account_credential_id' to be a str")
-        __self__.storage_account_credential_id = storage_account_credential_id
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="storageAccountCredentialId")
+    def storage_account_credential_id(self) -> Optional[str]:
         """
         Storage Account Credential Id
         """
-        if storage_account_status and not isinstance(storage_account_status, str):
-            raise TypeError("Expected argument 'storage_account_status' to be a str")
-        __self__.storage_account_status = storage_account_status
+        return pulumi.get(self, "storage_account_credential_id")
+
+    @property
+    @pulumi.getter(name="storageAccountStatus")
+    def storage_account_status(self) -> Optional[str]:
         """
         Current status of the storage account
         """
-        if type and not isinstance(type, str):
-            raise TypeError("Expected argument 'type' to be a str")
-        __self__.type = type
+        return pulumi.get(self, "storage_account_status")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
         """
         The hierarchical type of the object.
         """
+        return pulumi.get(self, "type")
 
 
 class AwaitableGetStorageAccountResult(GetStorageAccountResult):
@@ -80,7 +126,10 @@ class AwaitableGetStorageAccountResult(GetStorageAccountResult):
             type=self.type)
 
 
-def get_storage_account(device_name=None, name=None, resource_group_name=None, opts=None):
+def get_storage_account(device_name: Optional[str] = None,
+                        name: Optional[str] = None,
+                        resource_group_name: Optional[str] = None,
+                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetStorageAccountResult:
     """
     Use this data source to access information about an existing resource.
 
@@ -96,14 +145,14 @@ def get_storage_account(device_name=None, name=None, resource_group_name=None, o
         opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = _utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('azurerm:databoxedge/v20190801:getStorageAccount', __args__, opts=opts).value
+    __ret__ = pulumi.runtime.invoke('azurerm:databoxedge/v20190801:getStorageAccount', __args__, opts=opts, typ=GetStorageAccountResult).value
 
     return AwaitableGetStorageAccountResult(
-        blob_endpoint=__ret__.get('blobEndpoint'),
-        container_count=__ret__.get('containerCount'),
-        data_policy=__ret__.get('dataPolicy'),
-        description=__ret__.get('description'),
-        name=__ret__.get('name'),
-        storage_account_credential_id=__ret__.get('storageAccountCredentialId'),
-        storage_account_status=__ret__.get('storageAccountStatus'),
-        type=__ret__.get('type'))
+        blob_endpoint=__ret__.blob_endpoint,
+        container_count=__ret__.container_count,
+        data_policy=__ret__.data_policy,
+        description=__ret__.description,
+        name=__ret__.name,
+        storage_account_credential_id=__ret__.storage_account_credential_id,
+        storage_account_status=__ret__.storage_account_status,
+        type=__ret__.type)

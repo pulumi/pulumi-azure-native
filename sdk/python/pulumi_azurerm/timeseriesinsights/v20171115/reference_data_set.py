@@ -5,46 +5,28 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+from . import outputs
+from ._inputs import *
+
+__all__ = ['ReferenceDataSet']
 
 
 class ReferenceDataSet(pulumi.CustomResource):
-    creation_time: pulumi.Output[str]
-    """
-    The time the resource was created.
-    """
-    data_string_comparison_behavior: pulumi.Output[str]
-    """
-    The reference data set key comparison behavior can be set using this property. By default, the value is 'Ordinal' - which means case sensitive key comparison will be performed while joining reference data with events or while adding new reference data. When 'OrdinalIgnoreCase' is set, case insensitive comparison will be used.
-    """
-    key_properties: pulumi.Output[list]
-    """
-    The list of key properties for the reference data set.
-      * `name` (`str`) - The name of the key property.
-      * `type` (`str`) - The type of the key property.
-    """
-    location: pulumi.Output[str]
-    """
-    Resource location
-    """
-    name: pulumi.Output[str]
-    """
-    Resource name
-    """
-    provisioning_state: pulumi.Output[str]
-    """
-    Provisioning state of the resource.
-    """
-    tags: pulumi.Output[dict]
-    """
-    Resource tags
-    """
-    type: pulumi.Output[str]
-    """
-    Resource type
-    """
-    def __init__(__self__, resource_name, opts=None, data_string_comparison_behavior=None, environment_name=None, key_properties=None, location=None, name=None, resource_group_name=None, tags=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 data_string_comparison_behavior: Optional[pulumi.Input[str]] = None,
+                 environment_name: Optional[pulumi.Input[str]] = None,
+                 key_properties: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['ReferenceDataSetKeyPropertyArgs']]]]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         A reference data set provides metadata about the events in an environment. Metadata in the reference data set will be joined with events as they are read from event sources. The metadata that makes up the reference data set is uploaded or modified through the Time Series Insights data plane APIs.
 
@@ -52,16 +34,11 @@ class ReferenceDataSet(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] data_string_comparison_behavior: The reference data set key comparison behavior can be set using this property. By default, the value is 'Ordinal' - which means case sensitive key comparison will be performed while joining reference data with events or while adding new reference data. When 'OrdinalIgnoreCase' is set, case insensitive comparison will be used.
         :param pulumi.Input[str] environment_name: The name of the Time Series Insights environment associated with the specified resource group.
-        :param pulumi.Input[list] key_properties: The list of key properties for the reference data set.
+        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['ReferenceDataSetKeyPropertyArgs']]]] key_properties: The list of key properties for the reference data set.
         :param pulumi.Input[str] location: The location of the resource.
         :param pulumi.Input[str] name: Name of the reference data set.
         :param pulumi.Input[str] resource_group_name: Name of an Azure Resource group.
-        :param pulumi.Input[dict] tags: Key-value pairs of additional properties for the resource.
-
-        The **key_properties** object supports the following:
-
-          * `name` (`pulumi.Input[str]`) - The name of the key property.
-          * `type` (`pulumi.Input[str]`) - The type of the key property.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value pairs of additional properties for the resource.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -109,13 +86,15 @@ class ReferenceDataSet(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None) -> 'ReferenceDataSet':
         """
         Get an existing ReferenceDataSet resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -124,8 +103,73 @@ class ReferenceDataSet(pulumi.CustomResource):
 
         return ReferenceDataSet(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter(name="creationTime")
+    def creation_time(self) -> str:
+        """
+        The time the resource was created.
+        """
+        return pulumi.get(self, "creation_time")
+
+    @property
+    @pulumi.getter(name="dataStringComparisonBehavior")
+    def data_string_comparison_behavior(self) -> Optional[str]:
+        """
+        The reference data set key comparison behavior can be set using this property. By default, the value is 'Ordinal' - which means case sensitive key comparison will be performed while joining reference data with events or while adding new reference data. When 'OrdinalIgnoreCase' is set, case insensitive comparison will be used.
+        """
+        return pulumi.get(self, "data_string_comparison_behavior")
+
+    @property
+    @pulumi.getter(name="keyProperties")
+    def key_properties(self) -> List['outputs.ReferenceDataSetKeyPropertyResponse']:
+        """
+        The list of key properties for the reference data set.
+        """
+        return pulumi.get(self, "key_properties")
+
+    @property
+    @pulumi.getter
+    def location(self) -> str:
+        """
+        Resource location
+        """
+        return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Resource name
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> Optional[str]:
+        """
+        Provisioning state of the resource.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Mapping[str, str]]:
+        """
+        Resource tags
+        """
+        return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Resource type
+        """
+        return pulumi.get(self, "type")
+
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

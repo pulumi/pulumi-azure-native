@@ -5,10 +5,16 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
 
+__all__ = [
+    'GetDatabasePrincipalAssignmentResult',
+    'AwaitableGetDatabasePrincipalAssignmentResult',
+    'get_database_principal_assignment',
+]
 
+@pulumi.output_type
 class GetDatabasePrincipalAssignmentResult:
     """
     Class representing a database principal assignment.
@@ -16,58 +22,103 @@ class GetDatabasePrincipalAssignmentResult:
     def __init__(__self__, name=None, principal_id=None, principal_name=None, principal_type=None, provisioning_state=None, role=None, tenant_id=None, tenant_name=None, type=None):
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
-        __self__.name = name
+        pulumi.set(__self__, "name", name)
+        if principal_id and not isinstance(principal_id, str):
+            raise TypeError("Expected argument 'principal_id' to be a str")
+        pulumi.set(__self__, "principal_id", principal_id)
+        if principal_name and not isinstance(principal_name, str):
+            raise TypeError("Expected argument 'principal_name' to be a str")
+        pulumi.set(__self__, "principal_name", principal_name)
+        if principal_type and not isinstance(principal_type, str):
+            raise TypeError("Expected argument 'principal_type' to be a str")
+        pulumi.set(__self__, "principal_type", principal_type)
+        if provisioning_state and not isinstance(provisioning_state, str):
+            raise TypeError("Expected argument 'provisioning_state' to be a str")
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if role and not isinstance(role, str):
+            raise TypeError("Expected argument 'role' to be a str")
+        pulumi.set(__self__, "role", role)
+        if tenant_id and not isinstance(tenant_id, str):
+            raise TypeError("Expected argument 'tenant_id' to be a str")
+        pulumi.set(__self__, "tenant_id", tenant_id)
+        if tenant_name and not isinstance(tenant_name, str):
+            raise TypeError("Expected argument 'tenant_name' to be a str")
+        pulumi.set(__self__, "tenant_name", tenant_name)
+        if type and not isinstance(type, str):
+            raise TypeError("Expected argument 'type' to be a str")
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
         """
         The name of the resource
         """
-        if principal_id and not isinstance(principal_id, str):
-            raise TypeError("Expected argument 'principal_id' to be a str")
-        __self__.principal_id = principal_id
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="principalId")
+    def principal_id(self) -> str:
         """
         The principal ID assigned to the database principal. It can be a user email, application ID, or security group name.
         """
-        if principal_name and not isinstance(principal_name, str):
-            raise TypeError("Expected argument 'principal_name' to be a str")
-        __self__.principal_name = principal_name
+        return pulumi.get(self, "principal_id")
+
+    @property
+    @pulumi.getter(name="principalName")
+    def principal_name(self) -> str:
         """
         The principal name
         """
-        if principal_type and not isinstance(principal_type, str):
-            raise TypeError("Expected argument 'principal_type' to be a str")
-        __self__.principal_type = principal_type
+        return pulumi.get(self, "principal_name")
+
+    @property
+    @pulumi.getter(name="principalType")
+    def principal_type(self) -> str:
         """
         Principal type.
         """
-        if provisioning_state and not isinstance(provisioning_state, str):
-            raise TypeError("Expected argument 'provisioning_state' to be a str")
-        __self__.provisioning_state = provisioning_state
+        return pulumi.get(self, "principal_type")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
         """
         The provisioned state of the resource.
         """
-        if role and not isinstance(role, str):
-            raise TypeError("Expected argument 'role' to be a str")
-        __self__.role = role
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter
+    def role(self) -> str:
         """
         Database principal role.
         """
-        if tenant_id and not isinstance(tenant_id, str):
-            raise TypeError("Expected argument 'tenant_id' to be a str")
-        __self__.tenant_id = tenant_id
+        return pulumi.get(self, "role")
+
+    @property
+    @pulumi.getter(name="tenantId")
+    def tenant_id(self) -> Optional[str]:
         """
         The tenant id of the principal
         """
-        if tenant_name and not isinstance(tenant_name, str):
-            raise TypeError("Expected argument 'tenant_name' to be a str")
-        __self__.tenant_name = tenant_name
+        return pulumi.get(self, "tenant_id")
+
+    @property
+    @pulumi.getter(name="tenantName")
+    def tenant_name(self) -> str:
         """
         The tenant name of the principal
         """
-        if type and not isinstance(type, str):
-            raise TypeError("Expected argument 'type' to be a str")
-        __self__.type = type
+        return pulumi.get(self, "tenant_name")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
         """
         The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
         """
+        return pulumi.get(self, "type")
 
 
 class AwaitableGetDatabasePrincipalAssignmentResult(GetDatabasePrincipalAssignmentResult):
@@ -87,7 +138,11 @@ class AwaitableGetDatabasePrincipalAssignmentResult(GetDatabasePrincipalAssignme
             type=self.type)
 
 
-def get_database_principal_assignment(cluster_name=None, database_name=None, name=None, resource_group_name=None, opts=None):
+def get_database_principal_assignment(cluster_name: Optional[str] = None,
+                                      database_name: Optional[str] = None,
+                                      name: Optional[str] = None,
+                                      resource_group_name: Optional[str] = None,
+                                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDatabasePrincipalAssignmentResult:
     """
     Use this data source to access information about an existing resource.
 
@@ -105,15 +160,15 @@ def get_database_principal_assignment(cluster_name=None, database_name=None, nam
         opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = _utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('azurerm:kusto/v20200215:getDatabasePrincipalAssignment', __args__, opts=opts).value
+    __ret__ = pulumi.runtime.invoke('azurerm:kusto/v20200215:getDatabasePrincipalAssignment', __args__, opts=opts, typ=GetDatabasePrincipalAssignmentResult).value
 
     return AwaitableGetDatabasePrincipalAssignmentResult(
-        name=__ret__.get('name'),
-        principal_id=__ret__.get('principalId'),
-        principal_name=__ret__.get('principalName'),
-        principal_type=__ret__.get('principalType'),
-        provisioning_state=__ret__.get('provisioningState'),
-        role=__ret__.get('role'),
-        tenant_id=__ret__.get('tenantId'),
-        tenant_name=__ret__.get('tenantName'),
-        type=__ret__.get('type'))
+        name=__ret__.name,
+        principal_id=__ret__.principal_id,
+        principal_name=__ret__.principal_name,
+        principal_type=__ret__.principal_type,
+        provisioning_state=__ret__.provisioning_state,
+        role=__ret__.role,
+        tenant_id=__ret__.tenant_id,
+        tenant_name=__ret__.tenant_name,
+        type=__ret__.type)

@@ -5,69 +5,42 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+from . import outputs
+from ._inputs import *
+
+__all__ = ['JobDefinition']
 
 
 class JobDefinition(pulumi.CustomResource):
-    customer_secrets: pulumi.Output[list]
-    """
-    List of customer secrets containing a key identifier and key value. The key identifier is a way for the specific data source to understand the key. Value contains customer secret encrypted by the encryptionKeys.
-      * `algorithm` (`str`) - The encryption algorithm used to encrypt data.
-      * `key_identifier` (`str`) - The identifier to the data service input object which this secret corresponds to.
-      * `key_value` (`str`) - It contains the encrypted customer secret.
-    """
-    data_service_input: pulumi.Output[dict]
-    """
-    A generic json used differently by each data service type.
-    """
-    data_sink_id: pulumi.Output[str]
-    """
-    Data Sink Id associated to the job definition.
-    """
-    data_source_id: pulumi.Output[str]
-    """
-    Data Source Id associated to the job definition.
-    """
-    last_modified_time: pulumi.Output[str]
-    """
-    Last modified time of the job definition.
-    """
-    name: pulumi.Output[str]
-    """
-    Name of the object.
-    """
-    run_location: pulumi.Output[str]
-    """
-    This is the preferred geo location for the job to run.
-    """
-    schedules: pulumi.Output[list]
-    """
-    Schedule for running the job definition
-      * `name` (`str`) - Name of the schedule.
-      * `policy_list` (`list`) - A list of repetition intervals in ISO 8601 format.
-    """
-    state: pulumi.Output[str]
-    """
-    State of the job definition.
-    """
-    type: pulumi.Output[str]
-    """
-    Type of the object.
-    """
-    user_confirmation: pulumi.Output[str]
-    """
-    Enum to detect if user confirmation is required. If not passed will default to NotRequired.
-    """
-    def __init__(__self__, resource_name, opts=None, customer_secrets=None, data_manager_name=None, data_service_input=None, data_service_name=None, data_sink_id=None, data_source_id=None, last_modified_time=None, name=None, resource_group_name=None, run_location=None, schedules=None, state=None, user_confirmation=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 customer_secrets: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['CustomerSecretArgs']]]]] = None,
+                 data_manager_name: Optional[pulumi.Input[str]] = None,
+                 data_service_input: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 data_service_name: Optional[pulumi.Input[str]] = None,
+                 data_sink_id: Optional[pulumi.Input[str]] = None,
+                 data_source_id: Optional[pulumi.Input[str]] = None,
+                 last_modified_time: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 run_location: Optional[pulumi.Input[str]] = None,
+                 schedules: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['ScheduleArgs']]]]] = None,
+                 state: Optional[pulumi.Input[str]] = None,
+                 user_confirmation: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         Job Definition.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[list] customer_secrets: List of customer secrets containing a key identifier and key value. The key identifier is a way for the specific data source to understand the key. Value contains customer secret encrypted by the encryptionKeys.
+        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['CustomerSecretArgs']]]] customer_secrets: List of customer secrets containing a key identifier and key value. The key identifier is a way for the specific data source to understand the key. Value contains customer secret encrypted by the encryptionKeys.
         :param pulumi.Input[str] data_manager_name: The name of the DataManager Resource within the specified resource group. DataManager names must be between 3 and 24 characters in length and use any alphanumeric and underscore only
-        :param pulumi.Input[dict] data_service_input: A generic json used differently by each data service type.
+        :param pulumi.Input[Mapping[str, Any]] data_service_input: A generic json used differently by each data service type.
         :param pulumi.Input[str] data_service_name: The data service type of the job definition.
         :param pulumi.Input[str] data_sink_id: Data Sink Id associated to the job definition.
         :param pulumi.Input[str] data_source_id: Data Source Id associated to the job definition.
@@ -75,20 +48,9 @@ class JobDefinition(pulumi.CustomResource):
         :param pulumi.Input[str] name: The job definition name to be created or updated.
         :param pulumi.Input[str] resource_group_name: The Resource Group Name
         :param pulumi.Input[str] run_location: This is the preferred geo location for the job to run.
-        :param pulumi.Input[list] schedules: Schedule for running the job definition
+        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['ScheduleArgs']]]] schedules: Schedule for running the job definition
         :param pulumi.Input[str] state: State of the job definition.
         :param pulumi.Input[str] user_confirmation: Enum to detect if user confirmation is required. If not passed will default to NotRequired.
-
-        The **customer_secrets** object supports the following:
-
-          * `algorithm` (`pulumi.Input[str]`) - The encryption algorithm used to encrypt data.
-          * `key_identifier` (`pulumi.Input[str]`) - The identifier to the data service input object which this secret corresponds to.
-          * `key_value` (`pulumi.Input[str]`) - It contains the encrypted customer secret.
-
-        The **schedules** object supports the following:
-
-          * `name` (`pulumi.Input[str]`) - Name of the schedule.
-          * `policy_list` (`pulumi.Input[list]`) - A list of repetition intervals in ISO 8601 format.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -144,13 +106,15 @@ class JobDefinition(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None) -> 'JobDefinition':
         """
         Get an existing JobDefinition resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -159,8 +123,97 @@ class JobDefinition(pulumi.CustomResource):
 
         return JobDefinition(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter(name="customerSecrets")
+    def customer_secrets(self) -> Optional[List['outputs.CustomerSecretResponse']]:
+        """
+        List of customer secrets containing a key identifier and key value. The key identifier is a way for the specific data source to understand the key. Value contains customer secret encrypted by the encryptionKeys.
+        """
+        return pulumi.get(self, "customer_secrets")
+
+    @property
+    @pulumi.getter(name="dataServiceInput")
+    def data_service_input(self) -> Optional[Mapping[str, Any]]:
+        """
+        A generic json used differently by each data service type.
+        """
+        return pulumi.get(self, "data_service_input")
+
+    @property
+    @pulumi.getter(name="dataSinkId")
+    def data_sink_id(self) -> str:
+        """
+        Data Sink Id associated to the job definition.
+        """
+        return pulumi.get(self, "data_sink_id")
+
+    @property
+    @pulumi.getter(name="dataSourceId")
+    def data_source_id(self) -> str:
+        """
+        Data Source Id associated to the job definition.
+        """
+        return pulumi.get(self, "data_source_id")
+
+    @property
+    @pulumi.getter(name="lastModifiedTime")
+    def last_modified_time(self) -> Optional[str]:
+        """
+        Last modified time of the job definition.
+        """
+        return pulumi.get(self, "last_modified_time")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Name of the object.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="runLocation")
+    def run_location(self) -> Optional[str]:
+        """
+        This is the preferred geo location for the job to run.
+        """
+        return pulumi.get(self, "run_location")
+
+    @property
+    @pulumi.getter
+    def schedules(self) -> Optional[List['outputs.ScheduleResponse']]:
+        """
+        Schedule for running the job definition
+        """
+        return pulumi.get(self, "schedules")
+
+    @property
+    @pulumi.getter
+    def state(self) -> str:
+        """
+        State of the job definition.
+        """
+        return pulumi.get(self, "state")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Type of the object.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="userConfirmation")
+    def user_confirmation(self) -> Optional[str]:
+        """
+        Enum to detect if user confirmation is required. If not passed will default to NotRequired.
+        """
+        return pulumi.get(self, "user_confirmation")
+
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

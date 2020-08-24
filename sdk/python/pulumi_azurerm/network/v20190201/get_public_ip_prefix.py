@@ -5,10 +5,17 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+from . import outputs
 
+__all__ = [
+    'GetPublicIPPrefixResult',
+    'AwaitableGetPublicIPPrefixResult',
+    'get_public_ip_prefix',
+]
 
+@pulumi.output_type
 class GetPublicIPPrefixResult:
     """
     Public IP prefix resource.
@@ -16,94 +23,169 @@ class GetPublicIPPrefixResult:
     def __init__(__self__, etag=None, ip_prefix=None, ip_tags=None, load_balancer_frontend_ip_configuration=None, location=None, name=None, prefix_length=None, provisioning_state=None, public_ip_address_version=None, public_ip_addresses=None, resource_guid=None, sku=None, tags=None, type=None, zones=None):
         if etag and not isinstance(etag, str):
             raise TypeError("Expected argument 'etag' to be a str")
-        __self__.etag = etag
+        pulumi.set(__self__, "etag", etag)
+        if ip_prefix and not isinstance(ip_prefix, str):
+            raise TypeError("Expected argument 'ip_prefix' to be a str")
+        pulumi.set(__self__, "ip_prefix", ip_prefix)
+        if ip_tags and not isinstance(ip_tags, list):
+            raise TypeError("Expected argument 'ip_tags' to be a list")
+        pulumi.set(__self__, "ip_tags", ip_tags)
+        if load_balancer_frontend_ip_configuration and not isinstance(load_balancer_frontend_ip_configuration, dict):
+            raise TypeError("Expected argument 'load_balancer_frontend_ip_configuration' to be a dict")
+        pulumi.set(__self__, "load_balancer_frontend_ip_configuration", load_balancer_frontend_ip_configuration)
+        if location and not isinstance(location, str):
+            raise TypeError("Expected argument 'location' to be a str")
+        pulumi.set(__self__, "location", location)
+        if name and not isinstance(name, str):
+            raise TypeError("Expected argument 'name' to be a str")
+        pulumi.set(__self__, "name", name)
+        if prefix_length and not isinstance(prefix_length, float):
+            raise TypeError("Expected argument 'prefix_length' to be a float")
+        pulumi.set(__self__, "prefix_length", prefix_length)
+        if provisioning_state and not isinstance(provisioning_state, str):
+            raise TypeError("Expected argument 'provisioning_state' to be a str")
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if public_ip_address_version and not isinstance(public_ip_address_version, str):
+            raise TypeError("Expected argument 'public_ip_address_version' to be a str")
+        pulumi.set(__self__, "public_ip_address_version", public_ip_address_version)
+        if public_ip_addresses and not isinstance(public_ip_addresses, list):
+            raise TypeError("Expected argument 'public_ip_addresses' to be a list")
+        pulumi.set(__self__, "public_ip_addresses", public_ip_addresses)
+        if resource_guid and not isinstance(resource_guid, str):
+            raise TypeError("Expected argument 'resource_guid' to be a str")
+        pulumi.set(__self__, "resource_guid", resource_guid)
+        if sku and not isinstance(sku, dict):
+            raise TypeError("Expected argument 'sku' to be a dict")
+        pulumi.set(__self__, "sku", sku)
+        if tags and not isinstance(tags, dict):
+            raise TypeError("Expected argument 'tags' to be a dict")
+        pulumi.set(__self__, "tags", tags)
+        if type and not isinstance(type, str):
+            raise TypeError("Expected argument 'type' to be a str")
+        pulumi.set(__self__, "type", type)
+        if zones and not isinstance(zones, list):
+            raise TypeError("Expected argument 'zones' to be a list")
+        pulumi.set(__self__, "zones", zones)
+
+    @property
+    @pulumi.getter
+    def etag(self) -> Optional[str]:
         """
         A unique read-only string that changes whenever the resource is updated.
         """
-        if ip_prefix and not isinstance(ip_prefix, str):
-            raise TypeError("Expected argument 'ip_prefix' to be a str")
-        __self__.ip_prefix = ip_prefix
+        return pulumi.get(self, "etag")
+
+    @property
+    @pulumi.getter(name="ipPrefix")
+    def ip_prefix(self) -> Optional[str]:
         """
         The allocated Prefix.
         """
-        if ip_tags and not isinstance(ip_tags, list):
-            raise TypeError("Expected argument 'ip_tags' to be a list")
-        __self__.ip_tags = ip_tags
+        return pulumi.get(self, "ip_prefix")
+
+    @property
+    @pulumi.getter(name="ipTags")
+    def ip_tags(self) -> Optional[List['outputs.IpTagResponse']]:
         """
         The list of tags associated with the public IP prefix.
         """
-        if load_balancer_frontend_ip_configuration and not isinstance(load_balancer_frontend_ip_configuration, dict):
-            raise TypeError("Expected argument 'load_balancer_frontend_ip_configuration' to be a dict")
-        __self__.load_balancer_frontend_ip_configuration = load_balancer_frontend_ip_configuration
+        return pulumi.get(self, "ip_tags")
+
+    @property
+    @pulumi.getter(name="loadBalancerFrontendIpConfiguration")
+    def load_balancer_frontend_ip_configuration(self) -> 'outputs.SubResourceResponse':
         """
         The reference to load balancer frontend IP configuration associated with the public IP prefix.
         """
-        if location and not isinstance(location, str):
-            raise TypeError("Expected argument 'location' to be a str")
-        __self__.location = location
+        return pulumi.get(self, "load_balancer_frontend_ip_configuration")
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[str]:
         """
         Resource location.
         """
-        if name and not isinstance(name, str):
-            raise TypeError("Expected argument 'name' to be a str")
-        __self__.name = name
+        return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
         """
         Resource name.
         """
-        if prefix_length and not isinstance(prefix_length, float):
-            raise TypeError("Expected argument 'prefix_length' to be a float")
-        __self__.prefix_length = prefix_length
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="prefixLength")
+    def prefix_length(self) -> Optional[float]:
         """
         The Length of the Public IP Prefix.
         """
-        if provisioning_state and not isinstance(provisioning_state, str):
-            raise TypeError("Expected argument 'provisioning_state' to be a str")
-        __self__.provisioning_state = provisioning_state
+        return pulumi.get(self, "prefix_length")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> Optional[str]:
         """
         The provisioning state of the Public IP prefix resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
         """
-        if public_ip_address_version and not isinstance(public_ip_address_version, str):
-            raise TypeError("Expected argument 'public_ip_address_version' to be a str")
-        __self__.public_ip_address_version = public_ip_address_version
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="publicIPAddressVersion")
+    def public_ip_address_version(self) -> Optional[str]:
         """
         The public IP address version.
         """
-        if public_ip_addresses and not isinstance(public_ip_addresses, list):
-            raise TypeError("Expected argument 'public_ip_addresses' to be a list")
-        __self__.public_ip_addresses = public_ip_addresses
+        return pulumi.get(self, "public_ip_address_version")
+
+    @property
+    @pulumi.getter(name="publicIPAddresses")
+    def public_ip_addresses(self) -> Optional[List['outputs.ReferencedPublicIpAddressResponse']]:
         """
         The list of all referenced PublicIPAddresses.
         """
-        if resource_guid and not isinstance(resource_guid, str):
-            raise TypeError("Expected argument 'resource_guid' to be a str")
-        __self__.resource_guid = resource_guid
+        return pulumi.get(self, "public_ip_addresses")
+
+    @property
+    @pulumi.getter(name="resourceGuid")
+    def resource_guid(self) -> Optional[str]:
         """
         The resource GUID property of the public IP prefix resource.
         """
-        if sku and not isinstance(sku, dict):
-            raise TypeError("Expected argument 'sku' to be a dict")
-        __self__.sku = sku
+        return pulumi.get(self, "resource_guid")
+
+    @property
+    @pulumi.getter
+    def sku(self) -> Optional['outputs.PublicIPPrefixSkuResponse']:
         """
         The public IP prefix SKU.
         """
-        if tags and not isinstance(tags, dict):
-            raise TypeError("Expected argument 'tags' to be a dict")
-        __self__.tags = tags
+        return pulumi.get(self, "sku")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Mapping[str, str]]:
         """
         Resource tags.
         """
-        if type and not isinstance(type, str):
-            raise TypeError("Expected argument 'type' to be a str")
-        __self__.type = type
+        return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
         """
         Resource type.
         """
-        if zones and not isinstance(zones, list):
-            raise TypeError("Expected argument 'zones' to be a list")
-        __self__.zones = zones
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def zones(self) -> Optional[List[str]]:
         """
         A list of availability zones denoting the IP allocated for the resource needs to come from.
         """
+        return pulumi.get(self, "zones")
 
 
 class AwaitableGetPublicIPPrefixResult(GetPublicIPPrefixResult):
@@ -129,7 +211,10 @@ class AwaitableGetPublicIPPrefixResult(GetPublicIPPrefixResult):
             zones=self.zones)
 
 
-def get_public_ip_prefix(expand=None, name=None, resource_group_name=None, opts=None):
+def get_public_ip_prefix(expand: Optional[str] = None,
+                         name: Optional[str] = None,
+                         resource_group_name: Optional[str] = None,
+                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPublicIPPrefixResult:
     """
     Use this data source to access information about an existing resource.
 
@@ -145,21 +230,21 @@ def get_public_ip_prefix(expand=None, name=None, resource_group_name=None, opts=
         opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = _utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('azurerm:network/v20190201:getPublicIPPrefix', __args__, opts=opts).value
+    __ret__ = pulumi.runtime.invoke('azurerm:network/v20190201:getPublicIPPrefix', __args__, opts=opts, typ=GetPublicIPPrefixResult).value
 
     return AwaitableGetPublicIPPrefixResult(
-        etag=__ret__.get('etag'),
-        ip_prefix=__ret__.get('ipPrefix'),
-        ip_tags=__ret__.get('ipTags'),
-        load_balancer_frontend_ip_configuration=__ret__.get('loadBalancerFrontendIpConfiguration'),
-        location=__ret__.get('location'),
-        name=__ret__.get('name'),
-        prefix_length=__ret__.get('prefixLength'),
-        provisioning_state=__ret__.get('provisioningState'),
-        public_ip_address_version=__ret__.get('publicIPAddressVersion'),
-        public_ip_addresses=__ret__.get('publicIPAddresses'),
-        resource_guid=__ret__.get('resourceGuid'),
-        sku=__ret__.get('sku'),
-        tags=__ret__.get('tags'),
-        type=__ret__.get('type'),
-        zones=__ret__.get('zones'))
+        etag=__ret__.etag,
+        ip_prefix=__ret__.ip_prefix,
+        ip_tags=__ret__.ip_tags,
+        load_balancer_frontend_ip_configuration=__ret__.load_balancer_frontend_ip_configuration,
+        location=__ret__.location,
+        name=__ret__.name,
+        prefix_length=__ret__.prefix_length,
+        provisioning_state=__ret__.provisioning_state,
+        public_ip_address_version=__ret__.public_ip_address_version,
+        public_ip_addresses=__ret__.public_ip_addresses,
+        resource_guid=__ret__.resource_guid,
+        sku=__ret__.sku,
+        tags=__ret__.tags,
+        type=__ret__.type,
+        zones=__ret__.zones)

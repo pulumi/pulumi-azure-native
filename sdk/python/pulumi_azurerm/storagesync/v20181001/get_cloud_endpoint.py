@@ -5,10 +5,16 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
 
+__all__ = [
+    'GetCloudEndpointResult',
+    'AwaitableGetCloudEndpointResult',
+    'get_cloud_endpoint',
+]
 
+@pulumi.output_type
 class GetCloudEndpointResult:
     """
     Cloud Endpoint object.
@@ -16,70 +22,125 @@ class GetCloudEndpointResult:
     def __init__(__self__, backup_enabled=None, friendly_name=None, last_operation_name=None, last_workflow_id=None, name=None, partnership_id=None, provisioning_state=None, storage_account_resource_id=None, storage_account_share_name=None, storage_account_tenant_id=None, type=None):
         if backup_enabled and not isinstance(backup_enabled, str):
             raise TypeError("Expected argument 'backup_enabled' to be a str")
-        __self__.backup_enabled = backup_enabled
+        pulumi.set(__self__, "backup_enabled", backup_enabled)
+        if friendly_name and not isinstance(friendly_name, str):
+            raise TypeError("Expected argument 'friendly_name' to be a str")
+        pulumi.set(__self__, "friendly_name", friendly_name)
+        if last_operation_name and not isinstance(last_operation_name, str):
+            raise TypeError("Expected argument 'last_operation_name' to be a str")
+        pulumi.set(__self__, "last_operation_name", last_operation_name)
+        if last_workflow_id and not isinstance(last_workflow_id, str):
+            raise TypeError("Expected argument 'last_workflow_id' to be a str")
+        pulumi.set(__self__, "last_workflow_id", last_workflow_id)
+        if name and not isinstance(name, str):
+            raise TypeError("Expected argument 'name' to be a str")
+        pulumi.set(__self__, "name", name)
+        if partnership_id and not isinstance(partnership_id, str):
+            raise TypeError("Expected argument 'partnership_id' to be a str")
+        pulumi.set(__self__, "partnership_id", partnership_id)
+        if provisioning_state and not isinstance(provisioning_state, str):
+            raise TypeError("Expected argument 'provisioning_state' to be a str")
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if storage_account_resource_id and not isinstance(storage_account_resource_id, str):
+            raise TypeError("Expected argument 'storage_account_resource_id' to be a str")
+        pulumi.set(__self__, "storage_account_resource_id", storage_account_resource_id)
+        if storage_account_share_name and not isinstance(storage_account_share_name, str):
+            raise TypeError("Expected argument 'storage_account_share_name' to be a str")
+        pulumi.set(__self__, "storage_account_share_name", storage_account_share_name)
+        if storage_account_tenant_id and not isinstance(storage_account_tenant_id, str):
+            raise TypeError("Expected argument 'storage_account_tenant_id' to be a str")
+        pulumi.set(__self__, "storage_account_tenant_id", storage_account_tenant_id)
+        if type and not isinstance(type, str):
+            raise TypeError("Expected argument 'type' to be a str")
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="backupEnabled")
+    def backup_enabled(self) -> str:
         """
         Backup Enabled
         """
-        if friendly_name and not isinstance(friendly_name, str):
-            raise TypeError("Expected argument 'friendly_name' to be a str")
-        __self__.friendly_name = friendly_name
+        return pulumi.get(self, "backup_enabled")
+
+    @property
+    @pulumi.getter(name="friendlyName")
+    def friendly_name(self) -> Optional[str]:
         """
         Friendly Name
         """
-        if last_operation_name and not isinstance(last_operation_name, str):
-            raise TypeError("Expected argument 'last_operation_name' to be a str")
-        __self__.last_operation_name = last_operation_name
+        return pulumi.get(self, "friendly_name")
+
+    @property
+    @pulumi.getter(name="lastOperationName")
+    def last_operation_name(self) -> Optional[str]:
         """
         Resource Last Operation Name
         """
-        if last_workflow_id and not isinstance(last_workflow_id, str):
-            raise TypeError("Expected argument 'last_workflow_id' to be a str")
-        __self__.last_workflow_id = last_workflow_id
+        return pulumi.get(self, "last_operation_name")
+
+    @property
+    @pulumi.getter(name="lastWorkflowId")
+    def last_workflow_id(self) -> Optional[str]:
         """
         CloudEndpoint lastWorkflowId
         """
-        if name and not isinstance(name, str):
-            raise TypeError("Expected argument 'name' to be a str")
-        __self__.name = name
+        return pulumi.get(self, "last_workflow_id")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
         """
         The name of the resource
         """
-        if partnership_id and not isinstance(partnership_id, str):
-            raise TypeError("Expected argument 'partnership_id' to be a str")
-        __self__.partnership_id = partnership_id
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="partnershipId")
+    def partnership_id(self) -> Optional[str]:
         """
         Partnership Id
         """
-        if provisioning_state and not isinstance(provisioning_state, str):
-            raise TypeError("Expected argument 'provisioning_state' to be a str")
-        __self__.provisioning_state = provisioning_state
+        return pulumi.get(self, "partnership_id")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> Optional[str]:
         """
         CloudEndpoint Provisioning State
         """
-        if storage_account_resource_id and not isinstance(storage_account_resource_id, str):
-            raise TypeError("Expected argument 'storage_account_resource_id' to be a str")
-        __self__.storage_account_resource_id = storage_account_resource_id
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="storageAccountResourceId")
+    def storage_account_resource_id(self) -> Optional[str]:
         """
         Storage Account Resource Id
         """
-        if storage_account_share_name and not isinstance(storage_account_share_name, str):
-            raise TypeError("Expected argument 'storage_account_share_name' to be a str")
-        __self__.storage_account_share_name = storage_account_share_name
+        return pulumi.get(self, "storage_account_resource_id")
+
+    @property
+    @pulumi.getter(name="storageAccountShareName")
+    def storage_account_share_name(self) -> Optional[str]:
         """
         Storage Account Share name
         """
-        if storage_account_tenant_id and not isinstance(storage_account_tenant_id, str):
-            raise TypeError("Expected argument 'storage_account_tenant_id' to be a str")
-        __self__.storage_account_tenant_id = storage_account_tenant_id
+        return pulumi.get(self, "storage_account_share_name")
+
+    @property
+    @pulumi.getter(name="storageAccountTenantId")
+    def storage_account_tenant_id(self) -> Optional[str]:
         """
         Storage Account Tenant Id
         """
-        if type and not isinstance(type, str):
-            raise TypeError("Expected argument 'type' to be a str")
-        __self__.type = type
+        return pulumi.get(self, "storage_account_tenant_id")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
         """
         The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
         """
+        return pulumi.get(self, "type")
 
 
 class AwaitableGetCloudEndpointResult(GetCloudEndpointResult):
@@ -101,7 +162,11 @@ class AwaitableGetCloudEndpointResult(GetCloudEndpointResult):
             type=self.type)
 
 
-def get_cloud_endpoint(name=None, resource_group_name=None, storage_sync_service_name=None, sync_group_name=None, opts=None):
+def get_cloud_endpoint(name: Optional[str] = None,
+                       resource_group_name: Optional[str] = None,
+                       storage_sync_service_name: Optional[str] = None,
+                       sync_group_name: Optional[str] = None,
+                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetCloudEndpointResult:
     """
     Use this data source to access information about an existing resource.
 
@@ -119,17 +184,17 @@ def get_cloud_endpoint(name=None, resource_group_name=None, storage_sync_service
         opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = _utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('azurerm:storagesync/v20181001:getCloudEndpoint', __args__, opts=opts).value
+    __ret__ = pulumi.runtime.invoke('azurerm:storagesync/v20181001:getCloudEndpoint', __args__, opts=opts, typ=GetCloudEndpointResult).value
 
     return AwaitableGetCloudEndpointResult(
-        backup_enabled=__ret__.get('backupEnabled'),
-        friendly_name=__ret__.get('friendlyName'),
-        last_operation_name=__ret__.get('lastOperationName'),
-        last_workflow_id=__ret__.get('lastWorkflowId'),
-        name=__ret__.get('name'),
-        partnership_id=__ret__.get('partnershipId'),
-        provisioning_state=__ret__.get('provisioningState'),
-        storage_account_resource_id=__ret__.get('storageAccountResourceId'),
-        storage_account_share_name=__ret__.get('storageAccountShareName'),
-        storage_account_tenant_id=__ret__.get('storageAccountTenantId'),
-        type=__ret__.get('type'))
+        backup_enabled=__ret__.backup_enabled,
+        friendly_name=__ret__.friendly_name,
+        last_operation_name=__ret__.last_operation_name,
+        last_workflow_id=__ret__.last_workflow_id,
+        name=__ret__.name,
+        partnership_id=__ret__.partnership_id,
+        provisioning_state=__ret__.provisioning_state,
+        storage_account_resource_id=__ret__.storage_account_resource_id,
+        storage_account_share_name=__ret__.storage_account_share_name,
+        storage_account_tenant_id=__ret__.storage_account_tenant_id,
+        type=__ret__.type)

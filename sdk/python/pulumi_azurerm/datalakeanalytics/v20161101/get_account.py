@@ -5,10 +5,17 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+from . import outputs
 
+__all__ = [
+    'GetAccountResult',
+    'AwaitableGetAccountResult',
+    'get_account',
+]
 
+@pulumi.output_type
 class GetAccountResult:
     """
     A Data Lake Analytics account object, containing all information associated with the named Data Lake Analytics account.
@@ -16,160 +23,290 @@ class GetAccountResult:
     def __init__(__self__, account_id=None, compute_policies=None, creation_time=None, current_tier=None, data_lake_store_accounts=None, default_data_lake_store_account=None, endpoint=None, firewall_allow_azure_ips=None, firewall_rules=None, firewall_state=None, last_modified_time=None, location=None, max_degree_of_parallelism=None, max_degree_of_parallelism_per_job=None, max_job_count=None, min_priority_per_job=None, name=None, new_tier=None, provisioning_state=None, query_store_retention=None, state=None, storage_accounts=None, system_max_degree_of_parallelism=None, system_max_job_count=None, tags=None, type=None):
         if account_id and not isinstance(account_id, str):
             raise TypeError("Expected argument 'account_id' to be a str")
-        __self__.account_id = account_id
+        pulumi.set(__self__, "account_id", account_id)
+        if compute_policies and not isinstance(compute_policies, list):
+            raise TypeError("Expected argument 'compute_policies' to be a list")
+        pulumi.set(__self__, "compute_policies", compute_policies)
+        if creation_time and not isinstance(creation_time, str):
+            raise TypeError("Expected argument 'creation_time' to be a str")
+        pulumi.set(__self__, "creation_time", creation_time)
+        if current_tier and not isinstance(current_tier, str):
+            raise TypeError("Expected argument 'current_tier' to be a str")
+        pulumi.set(__self__, "current_tier", current_tier)
+        if data_lake_store_accounts and not isinstance(data_lake_store_accounts, list):
+            raise TypeError("Expected argument 'data_lake_store_accounts' to be a list")
+        pulumi.set(__self__, "data_lake_store_accounts", data_lake_store_accounts)
+        if default_data_lake_store_account and not isinstance(default_data_lake_store_account, str):
+            raise TypeError("Expected argument 'default_data_lake_store_account' to be a str")
+        pulumi.set(__self__, "default_data_lake_store_account", default_data_lake_store_account)
+        if endpoint and not isinstance(endpoint, str):
+            raise TypeError("Expected argument 'endpoint' to be a str")
+        pulumi.set(__self__, "endpoint", endpoint)
+        if firewall_allow_azure_ips and not isinstance(firewall_allow_azure_ips, str):
+            raise TypeError("Expected argument 'firewall_allow_azure_ips' to be a str")
+        pulumi.set(__self__, "firewall_allow_azure_ips", firewall_allow_azure_ips)
+        if firewall_rules and not isinstance(firewall_rules, list):
+            raise TypeError("Expected argument 'firewall_rules' to be a list")
+        pulumi.set(__self__, "firewall_rules", firewall_rules)
+        if firewall_state and not isinstance(firewall_state, str):
+            raise TypeError("Expected argument 'firewall_state' to be a str")
+        pulumi.set(__self__, "firewall_state", firewall_state)
+        if last_modified_time and not isinstance(last_modified_time, str):
+            raise TypeError("Expected argument 'last_modified_time' to be a str")
+        pulumi.set(__self__, "last_modified_time", last_modified_time)
+        if location and not isinstance(location, str):
+            raise TypeError("Expected argument 'location' to be a str")
+        pulumi.set(__self__, "location", location)
+        if max_degree_of_parallelism and not isinstance(max_degree_of_parallelism, float):
+            raise TypeError("Expected argument 'max_degree_of_parallelism' to be a float")
+        pulumi.set(__self__, "max_degree_of_parallelism", max_degree_of_parallelism)
+        if max_degree_of_parallelism_per_job and not isinstance(max_degree_of_parallelism_per_job, float):
+            raise TypeError("Expected argument 'max_degree_of_parallelism_per_job' to be a float")
+        pulumi.set(__self__, "max_degree_of_parallelism_per_job", max_degree_of_parallelism_per_job)
+        if max_job_count and not isinstance(max_job_count, float):
+            raise TypeError("Expected argument 'max_job_count' to be a float")
+        pulumi.set(__self__, "max_job_count", max_job_count)
+        if min_priority_per_job and not isinstance(min_priority_per_job, float):
+            raise TypeError("Expected argument 'min_priority_per_job' to be a float")
+        pulumi.set(__self__, "min_priority_per_job", min_priority_per_job)
+        if name and not isinstance(name, str):
+            raise TypeError("Expected argument 'name' to be a str")
+        pulumi.set(__self__, "name", name)
+        if new_tier and not isinstance(new_tier, str):
+            raise TypeError("Expected argument 'new_tier' to be a str")
+        pulumi.set(__self__, "new_tier", new_tier)
+        if provisioning_state and not isinstance(provisioning_state, str):
+            raise TypeError("Expected argument 'provisioning_state' to be a str")
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if query_store_retention and not isinstance(query_store_retention, float):
+            raise TypeError("Expected argument 'query_store_retention' to be a float")
+        pulumi.set(__self__, "query_store_retention", query_store_retention)
+        if state and not isinstance(state, str):
+            raise TypeError("Expected argument 'state' to be a str")
+        pulumi.set(__self__, "state", state)
+        if storage_accounts and not isinstance(storage_accounts, list):
+            raise TypeError("Expected argument 'storage_accounts' to be a list")
+        pulumi.set(__self__, "storage_accounts", storage_accounts)
+        if system_max_degree_of_parallelism and not isinstance(system_max_degree_of_parallelism, float):
+            raise TypeError("Expected argument 'system_max_degree_of_parallelism' to be a float")
+        pulumi.set(__self__, "system_max_degree_of_parallelism", system_max_degree_of_parallelism)
+        if system_max_job_count and not isinstance(system_max_job_count, float):
+            raise TypeError("Expected argument 'system_max_job_count' to be a float")
+        pulumi.set(__self__, "system_max_job_count", system_max_job_count)
+        if tags and not isinstance(tags, dict):
+            raise TypeError("Expected argument 'tags' to be a dict")
+        pulumi.set(__self__, "tags", tags)
+        if type and not isinstance(type, str):
+            raise TypeError("Expected argument 'type' to be a str")
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="accountId")
+    def account_id(self) -> str:
         """
         The unique identifier associated with this Data Lake Analytics account.
         """
-        if compute_policies and not isinstance(compute_policies, list):
-            raise TypeError("Expected argument 'compute_policies' to be a list")
-        __self__.compute_policies = compute_policies
+        return pulumi.get(self, "account_id")
+
+    @property
+    @pulumi.getter(name="computePolicies")
+    def compute_policies(self) -> List['outputs.ComputePolicyResponse']:
         """
         The list of compute policies associated with this account.
         """
-        if creation_time and not isinstance(creation_time, str):
-            raise TypeError("Expected argument 'creation_time' to be a str")
-        __self__.creation_time = creation_time
+        return pulumi.get(self, "compute_policies")
+
+    @property
+    @pulumi.getter(name="creationTime")
+    def creation_time(self) -> str:
         """
         The account creation time.
         """
-        if current_tier and not isinstance(current_tier, str):
-            raise TypeError("Expected argument 'current_tier' to be a str")
-        __self__.current_tier = current_tier
+        return pulumi.get(self, "creation_time")
+
+    @property
+    @pulumi.getter(name="currentTier")
+    def current_tier(self) -> str:
         """
         The commitment tier in use for the current month.
         """
-        if data_lake_store_accounts and not isinstance(data_lake_store_accounts, list):
-            raise TypeError("Expected argument 'data_lake_store_accounts' to be a list")
-        __self__.data_lake_store_accounts = data_lake_store_accounts
+        return pulumi.get(self, "current_tier")
+
+    @property
+    @pulumi.getter(name="dataLakeStoreAccounts")
+    def data_lake_store_accounts(self) -> List['outputs.DataLakeStoreAccountInformationResponse']:
         """
         The list of Data Lake Store accounts associated with this account.
         """
-        if default_data_lake_store_account and not isinstance(default_data_lake_store_account, str):
-            raise TypeError("Expected argument 'default_data_lake_store_account' to be a str")
-        __self__.default_data_lake_store_account = default_data_lake_store_account
+        return pulumi.get(self, "data_lake_store_accounts")
+
+    @property
+    @pulumi.getter(name="defaultDataLakeStoreAccount")
+    def default_data_lake_store_account(self) -> str:
         """
         The default Data Lake Store account associated with this account.
         """
-        if endpoint and not isinstance(endpoint, str):
-            raise TypeError("Expected argument 'endpoint' to be a str")
-        __self__.endpoint = endpoint
+        return pulumi.get(self, "default_data_lake_store_account")
+
+    @property
+    @pulumi.getter
+    def endpoint(self) -> str:
         """
         The full CName endpoint for this account.
         """
-        if firewall_allow_azure_ips and not isinstance(firewall_allow_azure_ips, str):
-            raise TypeError("Expected argument 'firewall_allow_azure_ips' to be a str")
-        __self__.firewall_allow_azure_ips = firewall_allow_azure_ips
+        return pulumi.get(self, "endpoint")
+
+    @property
+    @pulumi.getter(name="firewallAllowAzureIps")
+    def firewall_allow_azure_ips(self) -> str:
         """
         The current state of allowing or disallowing IPs originating within Azure through the firewall. If the firewall is disabled, this is not enforced.
         """
-        if firewall_rules and not isinstance(firewall_rules, list):
-            raise TypeError("Expected argument 'firewall_rules' to be a list")
-        __self__.firewall_rules = firewall_rules
+        return pulumi.get(self, "firewall_allow_azure_ips")
+
+    @property
+    @pulumi.getter(name="firewallRules")
+    def firewall_rules(self) -> List['outputs.FirewallRuleResponse']:
         """
         The list of firewall rules associated with this account.
         """
-        if firewall_state and not isinstance(firewall_state, str):
-            raise TypeError("Expected argument 'firewall_state' to be a str")
-        __self__.firewall_state = firewall_state
+        return pulumi.get(self, "firewall_rules")
+
+    @property
+    @pulumi.getter(name="firewallState")
+    def firewall_state(self) -> str:
         """
         The current state of the IP address firewall for this account.
         """
-        if last_modified_time and not isinstance(last_modified_time, str):
-            raise TypeError("Expected argument 'last_modified_time' to be a str")
-        __self__.last_modified_time = last_modified_time
+        return pulumi.get(self, "firewall_state")
+
+    @property
+    @pulumi.getter(name="lastModifiedTime")
+    def last_modified_time(self) -> str:
         """
         The account last modified time.
         """
-        if location and not isinstance(location, str):
-            raise TypeError("Expected argument 'location' to be a str")
-        __self__.location = location
+        return pulumi.get(self, "last_modified_time")
+
+    @property
+    @pulumi.getter
+    def location(self) -> str:
         """
         The resource location.
         """
-        if max_degree_of_parallelism and not isinstance(max_degree_of_parallelism, float):
-            raise TypeError("Expected argument 'max_degree_of_parallelism' to be a float")
-        __self__.max_degree_of_parallelism = max_degree_of_parallelism
+        return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter(name="maxDegreeOfParallelism")
+    def max_degree_of_parallelism(self) -> float:
         """
         The maximum supported degree of parallelism for this account.
         """
-        if max_degree_of_parallelism_per_job and not isinstance(max_degree_of_parallelism_per_job, float):
-            raise TypeError("Expected argument 'max_degree_of_parallelism_per_job' to be a float")
-        __self__.max_degree_of_parallelism_per_job = max_degree_of_parallelism_per_job
+        return pulumi.get(self, "max_degree_of_parallelism")
+
+    @property
+    @pulumi.getter(name="maxDegreeOfParallelismPerJob")
+    def max_degree_of_parallelism_per_job(self) -> float:
         """
         The maximum supported degree of parallelism per job for this account.
         """
-        if max_job_count and not isinstance(max_job_count, float):
-            raise TypeError("Expected argument 'max_job_count' to be a float")
-        __self__.max_job_count = max_job_count
+        return pulumi.get(self, "max_degree_of_parallelism_per_job")
+
+    @property
+    @pulumi.getter(name="maxJobCount")
+    def max_job_count(self) -> float:
         """
         The maximum supported jobs running under the account at the same time.
         """
-        if min_priority_per_job and not isinstance(min_priority_per_job, float):
-            raise TypeError("Expected argument 'min_priority_per_job' to be a float")
-        __self__.min_priority_per_job = min_priority_per_job
+        return pulumi.get(self, "max_job_count")
+
+    @property
+    @pulumi.getter(name="minPriorityPerJob")
+    def min_priority_per_job(self) -> float:
         """
         The minimum supported priority per job for this account.
         """
-        if name and not isinstance(name, str):
-            raise TypeError("Expected argument 'name' to be a str")
-        __self__.name = name
+        return pulumi.get(self, "min_priority_per_job")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
         """
         The resource name.
         """
-        if new_tier and not isinstance(new_tier, str):
-            raise TypeError("Expected argument 'new_tier' to be a str")
-        __self__.new_tier = new_tier
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="newTier")
+    def new_tier(self) -> str:
         """
         The commitment tier for the next month.
         """
-        if provisioning_state and not isinstance(provisioning_state, str):
-            raise TypeError("Expected argument 'provisioning_state' to be a str")
-        __self__.provisioning_state = provisioning_state
+        return pulumi.get(self, "new_tier")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
         """
         The provisioning status of the Data Lake Analytics account.
         """
-        if query_store_retention and not isinstance(query_store_retention, float):
-            raise TypeError("Expected argument 'query_store_retention' to be a float")
-        __self__.query_store_retention = query_store_retention
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="queryStoreRetention")
+    def query_store_retention(self) -> float:
         """
         The number of days that job metadata is retained.
         """
-        if state and not isinstance(state, str):
-            raise TypeError("Expected argument 'state' to be a str")
-        __self__.state = state
+        return pulumi.get(self, "query_store_retention")
+
+    @property
+    @pulumi.getter
+    def state(self) -> str:
         """
         The state of the Data Lake Analytics account.
         """
-        if storage_accounts and not isinstance(storage_accounts, list):
-            raise TypeError("Expected argument 'storage_accounts' to be a list")
-        __self__.storage_accounts = storage_accounts
+        return pulumi.get(self, "state")
+
+    @property
+    @pulumi.getter(name="storageAccounts")
+    def storage_accounts(self) -> List['outputs.StorageAccountInformationResponse']:
         """
         The list of Azure Blob Storage accounts associated with this account.
         """
-        if system_max_degree_of_parallelism and not isinstance(system_max_degree_of_parallelism, float):
-            raise TypeError("Expected argument 'system_max_degree_of_parallelism' to be a float")
-        __self__.system_max_degree_of_parallelism = system_max_degree_of_parallelism
+        return pulumi.get(self, "storage_accounts")
+
+    @property
+    @pulumi.getter(name="systemMaxDegreeOfParallelism")
+    def system_max_degree_of_parallelism(self) -> float:
         """
         The system defined maximum supported degree of parallelism for this account, which restricts the maximum value of parallelism the user can set for the account.
         """
-        if system_max_job_count and not isinstance(system_max_job_count, float):
-            raise TypeError("Expected argument 'system_max_job_count' to be a float")
-        __self__.system_max_job_count = system_max_job_count
+        return pulumi.get(self, "system_max_degree_of_parallelism")
+
+    @property
+    @pulumi.getter(name="systemMaxJobCount")
+    def system_max_job_count(self) -> float:
         """
         The system defined maximum supported jobs running under the account at the same time, which restricts the maximum number of running jobs the user can set for the account.
         """
-        if tags and not isinstance(tags, dict):
-            raise TypeError("Expected argument 'tags' to be a dict")
-        __self__.tags = tags
+        return pulumi.get(self, "system_max_job_count")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Mapping[str, str]:
         """
         The resource tags.
         """
-        if type and not isinstance(type, str):
-            raise TypeError("Expected argument 'type' to be a str")
-        __self__.type = type
+        return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
         """
         The resource type.
         """
+        return pulumi.get(self, "type")
 
 
 class AwaitableGetAccountResult(GetAccountResult):
@@ -206,7 +343,9 @@ class AwaitableGetAccountResult(GetAccountResult):
             type=self.type)
 
 
-def get_account(name=None, resource_group_name=None, opts=None):
+def get_account(name: Optional[str] = None,
+                resource_group_name: Optional[str] = None,
+                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAccountResult:
     """
     Use this data source to access information about an existing resource.
 
@@ -220,32 +359,32 @@ def get_account(name=None, resource_group_name=None, opts=None):
         opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = _utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('azurerm:datalakeanalytics/v20161101:getAccount', __args__, opts=opts).value
+    __ret__ = pulumi.runtime.invoke('azurerm:datalakeanalytics/v20161101:getAccount', __args__, opts=opts, typ=GetAccountResult).value
 
     return AwaitableGetAccountResult(
-        account_id=__ret__.get('accountId'),
-        compute_policies=__ret__.get('computePolicies'),
-        creation_time=__ret__.get('creationTime'),
-        current_tier=__ret__.get('currentTier'),
-        data_lake_store_accounts=__ret__.get('dataLakeStoreAccounts'),
-        default_data_lake_store_account=__ret__.get('defaultDataLakeStoreAccount'),
-        endpoint=__ret__.get('endpoint'),
-        firewall_allow_azure_ips=__ret__.get('firewallAllowAzureIps'),
-        firewall_rules=__ret__.get('firewallRules'),
-        firewall_state=__ret__.get('firewallState'),
-        last_modified_time=__ret__.get('lastModifiedTime'),
-        location=__ret__.get('location'),
-        max_degree_of_parallelism=__ret__.get('maxDegreeOfParallelism'),
-        max_degree_of_parallelism_per_job=__ret__.get('maxDegreeOfParallelismPerJob'),
-        max_job_count=__ret__.get('maxJobCount'),
-        min_priority_per_job=__ret__.get('minPriorityPerJob'),
-        name=__ret__.get('name'),
-        new_tier=__ret__.get('newTier'),
-        provisioning_state=__ret__.get('provisioningState'),
-        query_store_retention=__ret__.get('queryStoreRetention'),
-        state=__ret__.get('state'),
-        storage_accounts=__ret__.get('storageAccounts'),
-        system_max_degree_of_parallelism=__ret__.get('systemMaxDegreeOfParallelism'),
-        system_max_job_count=__ret__.get('systemMaxJobCount'),
-        tags=__ret__.get('tags'),
-        type=__ret__.get('type'))
+        account_id=__ret__.account_id,
+        compute_policies=__ret__.compute_policies,
+        creation_time=__ret__.creation_time,
+        current_tier=__ret__.current_tier,
+        data_lake_store_accounts=__ret__.data_lake_store_accounts,
+        default_data_lake_store_account=__ret__.default_data_lake_store_account,
+        endpoint=__ret__.endpoint,
+        firewall_allow_azure_ips=__ret__.firewall_allow_azure_ips,
+        firewall_rules=__ret__.firewall_rules,
+        firewall_state=__ret__.firewall_state,
+        last_modified_time=__ret__.last_modified_time,
+        location=__ret__.location,
+        max_degree_of_parallelism=__ret__.max_degree_of_parallelism,
+        max_degree_of_parallelism_per_job=__ret__.max_degree_of_parallelism_per_job,
+        max_job_count=__ret__.max_job_count,
+        min_priority_per_job=__ret__.min_priority_per_job,
+        name=__ret__.name,
+        new_tier=__ret__.new_tier,
+        provisioning_state=__ret__.provisioning_state,
+        query_store_retention=__ret__.query_store_retention,
+        state=__ret__.state,
+        storage_accounts=__ret__.storage_accounts,
+        system_max_degree_of_parallelism=__ret__.system_max_degree_of_parallelism,
+        system_max_job_count=__ret__.system_max_job_count,
+        tags=__ret__.tags,
+        type=__ret__.type)

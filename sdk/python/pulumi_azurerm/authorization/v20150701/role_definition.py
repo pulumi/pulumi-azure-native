@@ -5,59 +5,40 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+from . import outputs
+from ._inputs import *
+
+__all__ = ['RoleDefinition']
 
 
 class RoleDefinition(pulumi.CustomResource):
-    assignable_scopes: pulumi.Output[list]
-    """
-    Role definition assignable scopes.
-    """
-    description: pulumi.Output[str]
-    """
-    The role definition description.
-    """
-    name: pulumi.Output[str]
-    """
-    The role definition name.
-    """
-    permissions: pulumi.Output[list]
-    """
-    Role definition permissions.
-      * `actions` (`list`) - Allowed actions.
-      * `not_actions` (`list`) - Denied actions.
-    """
-    role_name: pulumi.Output[str]
-    """
-    The role name.
-    """
-    role_type: pulumi.Output[str]
-    """
-    The role type.
-    """
-    type: pulumi.Output[str]
-    """
-    The role definition type.
-    """
-    def __init__(__self__, resource_name, opts=None, assignable_scopes=None, description=None, name=None, permissions=None, role_name=None, role_type=None, scope=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 assignable_scopes: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 permissions: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['PermissionArgs']]]]] = None,
+                 role_name: Optional[pulumi.Input[str]] = None,
+                 role_type: Optional[pulumi.Input[str]] = None,
+                 scope: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         Role definition.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[list] assignable_scopes: Role definition assignable scopes.
+        :param pulumi.Input[List[pulumi.Input[str]]] assignable_scopes: Role definition assignable scopes.
         :param pulumi.Input[str] description: The role definition description.
         :param pulumi.Input[str] name: The ID of the role definition.
-        :param pulumi.Input[list] permissions: Role definition permissions.
+        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['PermissionArgs']]]] permissions: Role definition permissions.
         :param pulumi.Input[str] role_name: The role name.
         :param pulumi.Input[str] role_type: The role type.
         :param pulumi.Input[str] scope: The scope of the role definition.
-
-        The **permissions** object supports the following:
-
-          * `actions` (`pulumi.Input[list]`) - Allowed actions.
-          * `not_actions` (`pulumi.Input[list]`) - Denied actions.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -95,13 +76,15 @@ class RoleDefinition(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None) -> 'RoleDefinition':
         """
         Get an existing RoleDefinition resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -110,8 +93,65 @@ class RoleDefinition(pulumi.CustomResource):
 
         return RoleDefinition(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter(name="assignableScopes")
+    def assignable_scopes(self) -> Optional[List[str]]:
+        """
+        Role definition assignable scopes.
+        """
+        return pulumi.get(self, "assignable_scopes")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        """
+        The role definition description.
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The role definition name.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def permissions(self) -> Optional[List['outputs.PermissionResponse']]:
+        """
+        Role definition permissions.
+        """
+        return pulumi.get(self, "permissions")
+
+    @property
+    @pulumi.getter(name="roleName")
+    def role_name(self) -> Optional[str]:
+        """
+        The role name.
+        """
+        return pulumi.get(self, "role_name")
+
+    @property
+    @pulumi.getter(name="roleType")
+    def role_type(self) -> Optional[str]:
+        """
+        The role type.
+        """
+        return pulumi.get(self, "role_type")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        The role definition type.
+        """
+        return pulumi.get(self, "type")
+
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

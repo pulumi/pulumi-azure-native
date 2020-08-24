@@ -5,10 +5,16 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
 
+__all__ = [
+    'ListOpenShiftClusterCredentialsResult',
+    'AwaitableListOpenShiftClusterCredentialsResult',
+    'list_open_shift_cluster_credentials',
+]
 
+@pulumi.output_type
 class ListOpenShiftClusterCredentialsResult:
     """
     OpenShiftClusterCredentials represents an OpenShift cluster's credentials
@@ -16,16 +22,26 @@ class ListOpenShiftClusterCredentialsResult:
     def __init__(__self__, kubeadmin_password=None, kubeadmin_username=None):
         if kubeadmin_password and not isinstance(kubeadmin_password, str):
             raise TypeError("Expected argument 'kubeadmin_password' to be a str")
-        __self__.kubeadmin_password = kubeadmin_password
+        pulumi.set(__self__, "kubeadmin_password", kubeadmin_password)
+        if kubeadmin_username and not isinstance(kubeadmin_username, str):
+            raise TypeError("Expected argument 'kubeadmin_username' to be a str")
+        pulumi.set(__self__, "kubeadmin_username", kubeadmin_username)
+
+    @property
+    @pulumi.getter(name="kubeadminPassword")
+    def kubeadmin_password(self) -> Optional[str]:
         """
         The password for the kubeadmin user
         """
-        if kubeadmin_username and not isinstance(kubeadmin_username, str):
-            raise TypeError("Expected argument 'kubeadmin_username' to be a str")
-        __self__.kubeadmin_username = kubeadmin_username
+        return pulumi.get(self, "kubeadmin_password")
+
+    @property
+    @pulumi.getter(name="kubeadminUsername")
+    def kubeadmin_username(self) -> Optional[str]:
         """
         The username for the kubeadmin user
         """
+        return pulumi.get(self, "kubeadmin_username")
 
 
 class AwaitableListOpenShiftClusterCredentialsResult(ListOpenShiftClusterCredentialsResult):
@@ -38,7 +54,9 @@ class AwaitableListOpenShiftClusterCredentialsResult(ListOpenShiftClusterCredent
             kubeadmin_username=self.kubeadmin_username)
 
 
-def list_open_shift_cluster_credentials(resource_group_name=None, resource_name=None, opts=None):
+def list_open_shift_cluster_credentials(resource_group_name: Optional[str] = None,
+                                        resource_name: Optional[str] = None,
+                                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListOpenShiftClusterCredentialsResult:
     """
     Use this data source to access information about an existing resource.
 
@@ -52,8 +70,8 @@ def list_open_shift_cluster_credentials(resource_group_name=None, resource_name=
         opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = _utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('azurerm:redhatopenshift/v20200430:listOpenShiftClusterCredentials', __args__, opts=opts).value
+    __ret__ = pulumi.runtime.invoke('azurerm:redhatopenshift/v20200430:listOpenShiftClusterCredentials', __args__, opts=opts, typ=ListOpenShiftClusterCredentialsResult).value
 
     return AwaitableListOpenShiftClusterCredentialsResult(
-        kubeadmin_password=__ret__.get('kubeadminPassword'),
-        kubeadmin_username=__ret__.get('kubeadminUsername'))
+        kubeadmin_password=__ret__.kubeadmin_password,
+        kubeadmin_username=__ret__.kubeadmin_username)

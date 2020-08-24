@@ -5,51 +5,32 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+from . import outputs
+from ._inputs import *
+
+__all__ = ['BackupSchedule']
 
 
 class BackupSchedule(pulumi.CustomResource):
-    backup_type: pulumi.Output[str]
-    """
-    The type of backup which needs to be taken.
-    """
-    kind: pulumi.Output[str]
-    """
-    The Kind of the object. Currently only Series8000 is supported
-    """
-    last_successful_run: pulumi.Output[str]
-    """
-    The last successful backup run which was triggered for the schedule.
-    """
-    name: pulumi.Output[str]
-    """
-    The name of the object.
-    """
-    retention_count: pulumi.Output[float]
-    """
-    The number of backups to be retained.
-    """
-    schedule_recurrence: pulumi.Output[dict]
-    """
-    The schedule recurrence.
-      * `recurrence_type` (`str`) - The recurrence type.
-      * `recurrence_value` (`float`) - The recurrence value.
-      * `weekly_days_list` (`list`) - The week days list. Applicable only for schedules of recurrence type 'weekly'.
-    """
-    schedule_status: pulumi.Output[str]
-    """
-    The schedule status.
-    """
-    start_time: pulumi.Output[str]
-    """
-    The start time of the schedule.
-    """
-    type: pulumi.Output[str]
-    """
-    The hierarchical type of the object.
-    """
-    def __init__(__self__, resource_name, opts=None, backup_policy_name=None, backup_type=None, device_name=None, kind=None, manager_name=None, name=None, resource_group_name=None, retention_count=None, schedule_recurrence=None, schedule_status=None, start_time=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 backup_policy_name: Optional[pulumi.Input[str]] = None,
+                 backup_type: Optional[pulumi.Input[str]] = None,
+                 device_name: Optional[pulumi.Input[str]] = None,
+                 kind: Optional[pulumi.Input[str]] = None,
+                 manager_name: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 retention_count: Optional[pulumi.Input[float]] = None,
+                 schedule_recurrence: Optional[pulumi.Input[pulumi.InputType['ScheduleRecurrenceArgs']]] = None,
+                 schedule_status: Optional[pulumi.Input[str]] = None,
+                 start_time: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         The backup schedule.
 
@@ -63,15 +44,9 @@ class BackupSchedule(pulumi.CustomResource):
         :param pulumi.Input[str] name: The backup schedule name.
         :param pulumi.Input[str] resource_group_name: The resource group name
         :param pulumi.Input[float] retention_count: The number of backups to be retained.
-        :param pulumi.Input[dict] schedule_recurrence: The schedule recurrence.
+        :param pulumi.Input[pulumi.InputType['ScheduleRecurrenceArgs']] schedule_recurrence: The schedule recurrence.
         :param pulumi.Input[str] schedule_status: The schedule status.
         :param pulumi.Input[str] start_time: The start time of the schedule.
-
-        The **schedule_recurrence** object supports the following:
-
-          * `recurrence_type` (`pulumi.Input[str]`) - The recurrence type.
-          * `recurrence_value` (`pulumi.Input[float]`) - The recurrence value.
-          * `weekly_days_list` (`pulumi.Input[list]`) - The week days list. Applicable only for schedules of recurrence type 'weekly'.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -130,13 +105,15 @@ class BackupSchedule(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None) -> 'BackupSchedule':
         """
         Get an existing BackupSchedule resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -145,8 +122,81 @@ class BackupSchedule(pulumi.CustomResource):
 
         return BackupSchedule(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter(name="backupType")
+    def backup_type(self) -> str:
+        """
+        The type of backup which needs to be taken.
+        """
+        return pulumi.get(self, "backup_type")
+
+    @property
+    @pulumi.getter
+    def kind(self) -> Optional[str]:
+        """
+        The Kind of the object. Currently only Series8000 is supported
+        """
+        return pulumi.get(self, "kind")
+
+    @property
+    @pulumi.getter(name="lastSuccessfulRun")
+    def last_successful_run(self) -> str:
+        """
+        The last successful backup run which was triggered for the schedule.
+        """
+        return pulumi.get(self, "last_successful_run")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the object.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="retentionCount")
+    def retention_count(self) -> float:
+        """
+        The number of backups to be retained.
+        """
+        return pulumi.get(self, "retention_count")
+
+    @property
+    @pulumi.getter(name="scheduleRecurrence")
+    def schedule_recurrence(self) -> 'outputs.ScheduleRecurrenceResponse':
+        """
+        The schedule recurrence.
+        """
+        return pulumi.get(self, "schedule_recurrence")
+
+    @property
+    @pulumi.getter(name="scheduleStatus")
+    def schedule_status(self) -> str:
+        """
+        The schedule status.
+        """
+        return pulumi.get(self, "schedule_status")
+
+    @property
+    @pulumi.getter(name="startTime")
+    def start_time(self) -> str:
+        """
+        The start time of the schedule.
+        """
+        return pulumi.get(self, "start_time")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        The hierarchical type of the object.
+        """
+        return pulumi.get(self, "type")
+
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

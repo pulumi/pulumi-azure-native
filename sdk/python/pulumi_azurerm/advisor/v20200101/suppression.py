@@ -5,28 +5,24 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+
+__all__ = ['Suppression']
 
 
 class Suppression(pulumi.CustomResource):
-    name: pulumi.Output[str]
-    """
-    The name of the resource.
-    """
-    suppression_id: pulumi.Output[str]
-    """
-    The GUID of the suppression.
-    """
-    ttl: pulumi.Output[str]
-    """
-    The duration for which the suppression is valid.
-    """
-    type: pulumi.Output[str]
-    """
-    The type of the resource.
-    """
-    def __init__(__self__, resource_name, opts=None, name=None, recommendation_id=None, resource_uri=None, suppression_id=None, ttl=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 recommendation_id: Optional[pulumi.Input[str]] = None,
+                 resource_uri: Optional[pulumi.Input[str]] = None,
+                 suppression_id: Optional[pulumi.Input[str]] = None,
+                 ttl: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         The details of the snoozed or dismissed rule; for example, the duration, name, and GUID associated with the rule.
 
@@ -76,13 +72,15 @@ class Suppression(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None) -> 'Suppression':
         """
         Get an existing Suppression resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -91,8 +89,41 @@ class Suppression(pulumi.CustomResource):
 
         return Suppression(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the resource.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="suppressionId")
+    def suppression_id(self) -> Optional[str]:
+        """
+        The GUID of the suppression.
+        """
+        return pulumi.get(self, "suppression_id")
+
+    @property
+    @pulumi.getter
+    def ttl(self) -> Optional[str]:
+        """
+        The duration for which the suppression is valid.
+        """
+        return pulumi.get(self, "ttl")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        The type of the resource.
+        """
+        return pulumi.get(self, "type")
+
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

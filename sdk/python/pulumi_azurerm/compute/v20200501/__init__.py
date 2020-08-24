@@ -11,3 +11,5 @@ from .get_disk_access import *
 from .get_disk_encryption_set import *
 from .get_snapshot import *
 from .snapshot import *
+from ._inputs import *
+from . import outputs

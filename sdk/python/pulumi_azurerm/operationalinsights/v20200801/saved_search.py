@@ -5,54 +5,32 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+from . import outputs
+from ._inputs import *
+
+__all__ = ['SavedSearch']
 
 
 class SavedSearch(pulumi.CustomResource):
-    category: pulumi.Output[str]
-    """
-    The category of the saved search. This helps the user to find a saved search faster. 
-    """
-    display_name: pulumi.Output[str]
-    """
-    Saved search display name.
-    """
-    etag: pulumi.Output[str]
-    """
-    The ETag of the saved search.
-    """
-    function_alias: pulumi.Output[str]
-    """
-    The function alias if query serves as a function.
-    """
-    function_parameters: pulumi.Output[str]
-    """
-    The optional function parameters if query serves as a function. Value should be in the following format: 'param-name1:type1 = default_value1, param-name2:type2 = default_value2'. For more examples and proper syntax please refer to https://docs.microsoft.com/en-us/azure/kusto/query/functions/user-defined-functions.
-    """
-    name: pulumi.Output[str]
-    """
-    The name of the resource
-    """
-    query: pulumi.Output[str]
-    """
-    The query expression for the saved search.
-    """
-    tags: pulumi.Output[list]
-    """
-    The tags attached to the saved search.
-      * `name` (`str`) - The tag name.
-      * `value` (`str`) - The tag value.
-    """
-    type: pulumi.Output[str]
-    """
-    The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
-    """
-    version: pulumi.Output[float]
-    """
-    The version number of the query language. The current version is 2 and is the default.
-    """
-    def __init__(__self__, resource_name, opts=None, category=None, display_name=None, etag=None, function_alias=None, function_parameters=None, name=None, query=None, resource_group_name=None, tags=None, version=None, workspace_name=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 category: Optional[pulumi.Input[str]] = None,
+                 display_name: Optional[pulumi.Input[str]] = None,
+                 etag: Optional[pulumi.Input[str]] = None,
+                 function_alias: Optional[pulumi.Input[str]] = None,
+                 function_parameters: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 query: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['TagArgs']]]]] = None,
+                 version: Optional[pulumi.Input[float]] = None,
+                 workspace_name: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         Value object for saved search results.
 
@@ -66,14 +44,9 @@ class SavedSearch(pulumi.CustomResource):
         :param pulumi.Input[str] name: The id of the saved search.
         :param pulumi.Input[str] query: The query expression for the saved search.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input[list] tags: The tags attached to the saved search.
+        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['TagArgs']]]] tags: The tags attached to the saved search.
         :param pulumi.Input[float] version: The version number of the query language. The current version is 2 and is the default.
         :param pulumi.Input[str] workspace_name: The name of the workspace.
-
-        The **tags** object supports the following:
-
-          * `name` (`pulumi.Input[str]`) - The tag name.
-          * `value` (`pulumi.Input[str]`) - The tag value.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -125,13 +98,15 @@ class SavedSearch(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None) -> 'SavedSearch':
         """
         Get an existing SavedSearch resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -140,8 +115,89 @@ class SavedSearch(pulumi.CustomResource):
 
         return SavedSearch(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter
+    def category(self) -> str:
+        """
+        The category of the saved search. This helps the user to find a saved search faster. 
+        """
+        return pulumi.get(self, "category")
+
+    @property
+    @pulumi.getter(name="displayName")
+    def display_name(self) -> str:
+        """
+        Saved search display name.
+        """
+        return pulumi.get(self, "display_name")
+
+    @property
+    @pulumi.getter
+    def etag(self) -> Optional[str]:
+        """
+        The ETag of the saved search.
+        """
+        return pulumi.get(self, "etag")
+
+    @property
+    @pulumi.getter(name="functionAlias")
+    def function_alias(self) -> Optional[str]:
+        """
+        The function alias if query serves as a function.
+        """
+        return pulumi.get(self, "function_alias")
+
+    @property
+    @pulumi.getter(name="functionParameters")
+    def function_parameters(self) -> Optional[str]:
+        """
+        The optional function parameters if query serves as a function. Value should be in the following format: 'param-name1:type1 = default_value1, param-name2:type2 = default_value2'. For more examples and proper syntax please refer to https://docs.microsoft.com/en-us/azure/kusto/query/functions/user-defined-functions.
+        """
+        return pulumi.get(self, "function_parameters")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the resource
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def query(self) -> str:
+        """
+        The query expression for the saved search.
+        """
+        return pulumi.get(self, "query")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[List['outputs.TagResponse']]:
+        """
+        The tags attached to the saved search.
+        """
+        return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def version(self) -> Optional[float]:
+        """
+        The version number of the query language. The current version is 2 and is the default.
+        """
+        return pulumi.get(self, "version")
+
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

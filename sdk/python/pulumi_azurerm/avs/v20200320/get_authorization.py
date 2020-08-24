@@ -5,10 +5,16 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
 
+__all__ = [
+    'GetAuthorizationResult',
+    'AwaitableGetAuthorizationResult',
+    'get_authorization',
+]
 
+@pulumi.output_type
 class GetAuthorizationResult:
     """
     ExpressRoute Circuit Authorization
@@ -16,34 +22,59 @@ class GetAuthorizationResult:
     def __init__(__self__, express_route_authorization_id=None, express_route_authorization_key=None, name=None, provisioning_state=None, type=None):
         if express_route_authorization_id and not isinstance(express_route_authorization_id, str):
             raise TypeError("Expected argument 'express_route_authorization_id' to be a str")
-        __self__.express_route_authorization_id = express_route_authorization_id
+        pulumi.set(__self__, "express_route_authorization_id", express_route_authorization_id)
+        if express_route_authorization_key and not isinstance(express_route_authorization_key, str):
+            raise TypeError("Expected argument 'express_route_authorization_key' to be a str")
+        pulumi.set(__self__, "express_route_authorization_key", express_route_authorization_key)
+        if name and not isinstance(name, str):
+            raise TypeError("Expected argument 'name' to be a str")
+        pulumi.set(__self__, "name", name)
+        if provisioning_state and not isinstance(provisioning_state, str):
+            raise TypeError("Expected argument 'provisioning_state' to be a str")
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if type and not isinstance(type, str):
+            raise TypeError("Expected argument 'type' to be a str")
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="expressRouteAuthorizationId")
+    def express_route_authorization_id(self) -> str:
         """
         The ID of the ExpressRoute Circuit Authorization
         """
-        if express_route_authorization_key and not isinstance(express_route_authorization_key, str):
-            raise TypeError("Expected argument 'express_route_authorization_key' to be a str")
-        __self__.express_route_authorization_key = express_route_authorization_key
+        return pulumi.get(self, "express_route_authorization_id")
+
+    @property
+    @pulumi.getter(name="expressRouteAuthorizationKey")
+    def express_route_authorization_key(self) -> str:
         """
         The key of the ExpressRoute Circuit Authorization
         """
-        if name and not isinstance(name, str):
-            raise TypeError("Expected argument 'name' to be a str")
-        __self__.name = name
+        return pulumi.get(self, "express_route_authorization_key")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
         """
         Resource name.
         """
-        if provisioning_state and not isinstance(provisioning_state, str):
-            raise TypeError("Expected argument 'provisioning_state' to be a str")
-        __self__.provisioning_state = provisioning_state
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
         """
         The state of the  ExpressRoute Circuit Authorization provisioning
         """
-        if type and not isinstance(type, str):
-            raise TypeError("Expected argument 'type' to be a str")
-        __self__.type = type
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
         """
         Resource type.
         """
+        return pulumi.get(self, "type")
 
 
 class AwaitableGetAuthorizationResult(GetAuthorizationResult):
@@ -59,7 +90,10 @@ class AwaitableGetAuthorizationResult(GetAuthorizationResult):
             type=self.type)
 
 
-def get_authorization(name=None, private_cloud_name=None, resource_group_name=None, opts=None):
+def get_authorization(name: Optional[str] = None,
+                      private_cloud_name: Optional[str] = None,
+                      resource_group_name: Optional[str] = None,
+                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAuthorizationResult:
     """
     Use this data source to access information about an existing resource.
 
@@ -75,11 +109,11 @@ def get_authorization(name=None, private_cloud_name=None, resource_group_name=No
         opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = _utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('azurerm:avs/v20200320:getAuthorization', __args__, opts=opts).value
+    __ret__ = pulumi.runtime.invoke('azurerm:avs/v20200320:getAuthorization', __args__, opts=opts, typ=GetAuthorizationResult).value
 
     return AwaitableGetAuthorizationResult(
-        express_route_authorization_id=__ret__.get('expressRouteAuthorizationId'),
-        express_route_authorization_key=__ret__.get('expressRouteAuthorizationKey'),
-        name=__ret__.get('name'),
-        provisioning_state=__ret__.get('provisioningState'),
-        type=__ret__.get('type'))
+        express_route_authorization_id=__ret__.express_route_authorization_id,
+        express_route_authorization_key=__ret__.express_route_authorization_key,
+        name=__ret__.name,
+        provisioning_state=__ret__.provisioning_state,
+        type=__ret__.type)

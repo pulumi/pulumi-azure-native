@@ -5,10 +5,16 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
 
+__all__ = [
+    'GetApiOperationPolicyResult',
+    'AwaitableGetApiOperationPolicyResult',
+    'get_api_operation_policy',
+]
 
+@pulumi.output_type
 class GetApiOperationPolicyResult:
     """
     Policy Contract details.
@@ -16,22 +22,37 @@ class GetApiOperationPolicyResult:
     def __init__(__self__, name=None, policy_content=None, type=None):
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
-        __self__.name = name
+        pulumi.set(__self__, "name", name)
+        if policy_content and not isinstance(policy_content, str):
+            raise TypeError("Expected argument 'policy_content' to be a str")
+        pulumi.set(__self__, "policy_content", policy_content)
+        if type and not isinstance(type, str):
+            raise TypeError("Expected argument 'type' to be a str")
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
         """
         Resource name.
         """
-        if policy_content and not isinstance(policy_content, str):
-            raise TypeError("Expected argument 'policy_content' to be a str")
-        __self__.policy_content = policy_content
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="policyContent")
+    def policy_content(self) -> str:
         """
         Json escaped Xml Encoded contents of the Policy.
         """
-        if type and not isinstance(type, str):
-            raise TypeError("Expected argument 'type' to be a str")
-        __self__.type = type
+        return pulumi.get(self, "policy_content")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
         """
         Resource type for API Management resource.
         """
+        return pulumi.get(self, "type")
 
 
 class AwaitableGetApiOperationPolicyResult(GetApiOperationPolicyResult):
@@ -45,7 +66,12 @@ class AwaitableGetApiOperationPolicyResult(GetApiOperationPolicyResult):
             type=self.type)
 
 
-def get_api_operation_policy(api_id=None, name=None, operation_id=None, resource_group_name=None, service_name=None, opts=None):
+def get_api_operation_policy(api_id: Optional[str] = None,
+                             name: Optional[str] = None,
+                             operation_id: Optional[str] = None,
+                             resource_group_name: Optional[str] = None,
+                             service_name: Optional[str] = None,
+                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetApiOperationPolicyResult:
     """
     Use this data source to access information about an existing resource.
 
@@ -65,9 +91,9 @@ def get_api_operation_policy(api_id=None, name=None, operation_id=None, resource
         opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = _utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('azurerm:apimanagement/v20170301:getApiOperationPolicy', __args__, opts=opts).value
+    __ret__ = pulumi.runtime.invoke('azurerm:apimanagement/v20170301:getApiOperationPolicy', __args__, opts=opts, typ=GetApiOperationPolicyResult).value
 
     return AwaitableGetApiOperationPolicyResult(
-        name=__ret__.get('name'),
-        policy_content=__ret__.get('policyContent'),
-        type=__ret__.get('type'))
+        name=__ret__.name,
+        policy_content=__ret__.policy_content,
+        type=__ret__.type)

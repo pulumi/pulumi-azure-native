@@ -5,10 +5,17 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+from . import outputs
 
+__all__ = [
+    'GetAzureFirewallResult',
+    'AwaitableGetAzureFirewallResult',
+    'get_azure_firewall',
+]
 
+@pulumi.output_type
 class GetAzureFirewallResult:
     """
     Azure Firewall resource
@@ -16,58 +23,103 @@ class GetAzureFirewallResult:
     def __init__(__self__, application_rule_collections=None, etag=None, ip_configurations=None, location=None, name=None, network_rule_collections=None, provisioning_state=None, tags=None, type=None):
         if application_rule_collections and not isinstance(application_rule_collections, list):
             raise TypeError("Expected argument 'application_rule_collections' to be a list")
-        __self__.application_rule_collections = application_rule_collections
+        pulumi.set(__self__, "application_rule_collections", application_rule_collections)
+        if etag and not isinstance(etag, str):
+            raise TypeError("Expected argument 'etag' to be a str")
+        pulumi.set(__self__, "etag", etag)
+        if ip_configurations and not isinstance(ip_configurations, list):
+            raise TypeError("Expected argument 'ip_configurations' to be a list")
+        pulumi.set(__self__, "ip_configurations", ip_configurations)
+        if location and not isinstance(location, str):
+            raise TypeError("Expected argument 'location' to be a str")
+        pulumi.set(__self__, "location", location)
+        if name and not isinstance(name, str):
+            raise TypeError("Expected argument 'name' to be a str")
+        pulumi.set(__self__, "name", name)
+        if network_rule_collections and not isinstance(network_rule_collections, list):
+            raise TypeError("Expected argument 'network_rule_collections' to be a list")
+        pulumi.set(__self__, "network_rule_collections", network_rule_collections)
+        if provisioning_state and not isinstance(provisioning_state, str):
+            raise TypeError("Expected argument 'provisioning_state' to be a str")
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if tags and not isinstance(tags, dict):
+            raise TypeError("Expected argument 'tags' to be a dict")
+        pulumi.set(__self__, "tags", tags)
+        if type and not isinstance(type, str):
+            raise TypeError("Expected argument 'type' to be a str")
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="applicationRuleCollections")
+    def application_rule_collections(self) -> Optional[List['outputs.AzureFirewallApplicationRuleCollectionResponse']]:
         """
         Collection of application rule collections used by a Azure Firewall.
         """
-        if etag and not isinstance(etag, str):
-            raise TypeError("Expected argument 'etag' to be a str")
-        __self__.etag = etag
+        return pulumi.get(self, "application_rule_collections")
+
+    @property
+    @pulumi.getter
+    def etag(self) -> str:
         """
         Gets a unique read-only string that changes whenever the resource is updated.
         """
-        if ip_configurations and not isinstance(ip_configurations, list):
-            raise TypeError("Expected argument 'ip_configurations' to be a list")
-        __self__.ip_configurations = ip_configurations
+        return pulumi.get(self, "etag")
+
+    @property
+    @pulumi.getter(name="ipConfigurations")
+    def ip_configurations(self) -> Optional[List['outputs.AzureFirewallIPConfigurationResponse']]:
         """
         IP configuration of the Azure Firewall resource.
         """
-        if location and not isinstance(location, str):
-            raise TypeError("Expected argument 'location' to be a str")
-        __self__.location = location
+        return pulumi.get(self, "ip_configurations")
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[str]:
         """
         Resource location.
         """
-        if name and not isinstance(name, str):
-            raise TypeError("Expected argument 'name' to be a str")
-        __self__.name = name
+        return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
         """
         Resource name.
         """
-        if network_rule_collections and not isinstance(network_rule_collections, list):
-            raise TypeError("Expected argument 'network_rule_collections' to be a list")
-        __self__.network_rule_collections = network_rule_collections
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="networkRuleCollections")
+    def network_rule_collections(self) -> Optional[List['outputs.AzureFirewallNetworkRuleCollectionResponse']]:
         """
         Collection of network rule collections used by a Azure Firewall.
         """
-        if provisioning_state and not isinstance(provisioning_state, str):
-            raise TypeError("Expected argument 'provisioning_state' to be a str")
-        __self__.provisioning_state = provisioning_state
+        return pulumi.get(self, "network_rule_collections")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> Optional[str]:
         """
         The provisioning state of the resource.
         """
-        if tags and not isinstance(tags, dict):
-            raise TypeError("Expected argument 'tags' to be a dict")
-        __self__.tags = tags
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Mapping[str, str]]:
         """
         Resource tags.
         """
-        if type and not isinstance(type, str):
-            raise TypeError("Expected argument 'type' to be a str")
-        __self__.type = type
+        return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
         """
         Resource type.
         """
+        return pulumi.get(self, "type")
 
 
 class AwaitableGetAzureFirewallResult(GetAzureFirewallResult):
@@ -87,7 +139,9 @@ class AwaitableGetAzureFirewallResult(GetAzureFirewallResult):
             type=self.type)
 
 
-def get_azure_firewall(name=None, resource_group_name=None, opts=None):
+def get_azure_firewall(name: Optional[str] = None,
+                       resource_group_name: Optional[str] = None,
+                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAzureFirewallResult:
     """
     Use this data source to access information about an existing resource.
 
@@ -101,15 +155,15 @@ def get_azure_firewall(name=None, resource_group_name=None, opts=None):
         opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = _utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('azurerm:network/v20180401:getAzureFirewall', __args__, opts=opts).value
+    __ret__ = pulumi.runtime.invoke('azurerm:network/v20180401:getAzureFirewall', __args__, opts=opts, typ=GetAzureFirewallResult).value
 
     return AwaitableGetAzureFirewallResult(
-        application_rule_collections=__ret__.get('applicationRuleCollections'),
-        etag=__ret__.get('etag'),
-        ip_configurations=__ret__.get('ipConfigurations'),
-        location=__ret__.get('location'),
-        name=__ret__.get('name'),
-        network_rule_collections=__ret__.get('networkRuleCollections'),
-        provisioning_state=__ret__.get('provisioningState'),
-        tags=__ret__.get('tags'),
-        type=__ret__.get('type'))
+        application_rule_collections=__ret__.application_rule_collections,
+        etag=__ret__.etag,
+        ip_configurations=__ret__.ip_configurations,
+        location=__ret__.location,
+        name=__ret__.name,
+        network_rule_collections=__ret__.network_rule_collections,
+        provisioning_state=__ret__.provisioning_state,
+        tags=__ret__.tags,
+        type=__ret__.type)

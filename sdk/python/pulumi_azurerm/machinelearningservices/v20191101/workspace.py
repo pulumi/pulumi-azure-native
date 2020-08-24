@@ -5,81 +5,34 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+from . import outputs
+from ._inputs import *
+
+__all__ = ['Workspace']
 
 
 class Workspace(pulumi.CustomResource):
-    application_insights: pulumi.Output[str]
-    """
-    ARM id of the application insights associated with this workspace. This cannot be changed once the workspace has been created
-    """
-    container_registry: pulumi.Output[str]
-    """
-    ARM id of the container registry associated with this workspace. This cannot be changed once the workspace has been created
-    """
-    creation_time: pulumi.Output[str]
-    """
-    The creation time of the machine learning workspace in ISO8601 format.
-    """
-    description: pulumi.Output[str]
-    """
-    The description of this workspace.
-    """
-    discovery_url: pulumi.Output[str]
-    """
-    Url for the discovery service to identify regional endpoints for machine learning experimentation services
-    """
-    friendly_name: pulumi.Output[str]
-    """
-    The friendly name for this workspace. This name in mutable
-    """
-    identity: pulumi.Output[dict]
-    """
-    The identity of the resource.
-      * `principal_id` (`str`) - The principal ID of resource identity.
-      * `tenant_id` (`str`) - The tenant ID of resource.
-      * `type` (`str`) - The identity type.
-    """
-    key_vault: pulumi.Output[str]
-    """
-    ARM id of the key vault associated with this workspace. This cannot be changed once the workspace has been created
-    """
-    location: pulumi.Output[str]
-    """
-    Specifies the location of the resource.
-    """
-    name: pulumi.Output[str]
-    """
-    Specifies the name of the resource.
-    """
-    provisioning_state: pulumi.Output[str]
-    """
-    The current deployment state of workspace resource. The provisioningState is to indicate states for resource provisioning.
-    """
-    sku: pulumi.Output[dict]
-    """
-    The sku of the workspace.
-      * `name` (`str`) - Name of the sku
-      * `tier` (`str`) - Tier of the sku like Basic or Enterprise
-    """
-    storage_account: pulumi.Output[str]
-    """
-    ARM id of the storage account associated with this workspace. This cannot be changed once the workspace has been created
-    """
-    tags: pulumi.Output[dict]
-    """
-    Contains resource tags defined as key/value pairs.
-    """
-    type: pulumi.Output[str]
-    """
-    Specifies the type of the resource.
-    """
-    workspace_id: pulumi.Output[str]
-    """
-    The immutable id associated with this workspace.
-    """
-    def __init__(__self__, resource_name, opts=None, application_insights=None, container_registry=None, description=None, discovery_url=None, friendly_name=None, identity=None, key_vault=None, location=None, name=None, resource_group_name=None, sku=None, storage_account=None, tags=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 application_insights: Optional[pulumi.Input[str]] = None,
+                 container_registry: Optional[pulumi.Input[str]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 discovery_url: Optional[pulumi.Input[str]] = None,
+                 friendly_name: Optional[pulumi.Input[str]] = None,
+                 identity: Optional[pulumi.Input[pulumi.InputType['IdentityArgs']]] = None,
+                 key_vault: Optional[pulumi.Input[str]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 sku: Optional[pulumi.Input[pulumi.InputType['SkuArgs']]] = None,
+                 storage_account: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         An object that represents a machine learning workspace.
 
@@ -90,23 +43,14 @@ class Workspace(pulumi.CustomResource):
         :param pulumi.Input[str] description: The description of this workspace.
         :param pulumi.Input[str] discovery_url: Url for the discovery service to identify regional endpoints for machine learning experimentation services
         :param pulumi.Input[str] friendly_name: The friendly name for this workspace. This name in mutable
-        :param pulumi.Input[dict] identity: The identity of the resource.
+        :param pulumi.Input[pulumi.InputType['IdentityArgs']] identity: The identity of the resource.
         :param pulumi.Input[str] key_vault: ARM id of the key vault associated with this workspace. This cannot be changed once the workspace has been created
         :param pulumi.Input[str] location: Specifies the location of the resource.
         :param pulumi.Input[str] name: Name of Azure Machine Learning workspace.
         :param pulumi.Input[str] resource_group_name: Name of the resource group in which workspace is located.
-        :param pulumi.Input[dict] sku: The sku of the workspace.
+        :param pulumi.Input[pulumi.InputType['SkuArgs']] sku: The sku of the workspace.
         :param pulumi.Input[str] storage_account: ARM id of the storage account associated with this workspace. This cannot be changed once the workspace has been created
-        :param pulumi.Input[dict] tags: Contains resource tags defined as key/value pairs.
-
-        The **identity** object supports the following:
-
-          * `type` (`pulumi.Input[str]`) - The identity type.
-
-        The **sku** object supports the following:
-
-          * `name` (`pulumi.Input[str]`) - Name of the sku
-          * `tier` (`pulumi.Input[str]`) - Tier of the sku like Basic or Enterprise
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Contains resource tags defined as key/value pairs.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -155,13 +99,15 @@ class Workspace(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None) -> 'Workspace':
         """
         Get an existing Workspace resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -170,8 +116,137 @@ class Workspace(pulumi.CustomResource):
 
         return Workspace(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter(name="applicationInsights")
+    def application_insights(self) -> Optional[str]:
+        """
+        ARM id of the application insights associated with this workspace. This cannot be changed once the workspace has been created
+        """
+        return pulumi.get(self, "application_insights")
+
+    @property
+    @pulumi.getter(name="containerRegistry")
+    def container_registry(self) -> Optional[str]:
+        """
+        ARM id of the container registry associated with this workspace. This cannot be changed once the workspace has been created
+        """
+        return pulumi.get(self, "container_registry")
+
+    @property
+    @pulumi.getter(name="creationTime")
+    def creation_time(self) -> str:
+        """
+        The creation time of the machine learning workspace in ISO8601 format.
+        """
+        return pulumi.get(self, "creation_time")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        """
+        The description of this workspace.
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="discoveryUrl")
+    def discovery_url(self) -> Optional[str]:
+        """
+        Url for the discovery service to identify regional endpoints for machine learning experimentation services
+        """
+        return pulumi.get(self, "discovery_url")
+
+    @property
+    @pulumi.getter(name="friendlyName")
+    def friendly_name(self) -> Optional[str]:
+        """
+        The friendly name for this workspace. This name in mutable
+        """
+        return pulumi.get(self, "friendly_name")
+
+    @property
+    @pulumi.getter
+    def identity(self) -> Optional['outputs.IdentityResponse']:
+        """
+        The identity of the resource.
+        """
+        return pulumi.get(self, "identity")
+
+    @property
+    @pulumi.getter(name="keyVault")
+    def key_vault(self) -> Optional[str]:
+        """
+        ARM id of the key vault associated with this workspace. This cannot be changed once the workspace has been created
+        """
+        return pulumi.get(self, "key_vault")
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[str]:
+        """
+        Specifies the location of the resource.
+        """
+        return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Specifies the name of the resource.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        The current deployment state of workspace resource. The provisioningState is to indicate states for resource provisioning.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter
+    def sku(self) -> Optional['outputs.SkuResponse']:
+        """
+        The sku of the workspace.
+        """
+        return pulumi.get(self, "sku")
+
+    @property
+    @pulumi.getter(name="storageAccount")
+    def storage_account(self) -> Optional[str]:
+        """
+        ARM id of the storage account associated with this workspace. This cannot be changed once the workspace has been created
+        """
+        return pulumi.get(self, "storage_account")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Mapping[str, str]]:
+        """
+        Contains resource tags defined as key/value pairs.
+        """
+        return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Specifies the type of the resource.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="workspaceId")
+    def workspace_id(self) -> str:
+        """
+        The immutable id associated with this workspace.
+        """
+        return pulumi.get(self, "workspace_id")
+
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

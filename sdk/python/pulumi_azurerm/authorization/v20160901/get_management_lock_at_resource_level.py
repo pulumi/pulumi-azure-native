@@ -5,10 +5,17 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+from . import outputs
 
+__all__ = [
+    'GetManagementLockAtResourceLevelResult',
+    'AwaitableGetManagementLockAtResourceLevelResult',
+    'get_management_lock_at_resource_level',
+]
 
+@pulumi.output_type
 class GetManagementLockAtResourceLevelResult:
     """
     The lock information.
@@ -16,34 +23,59 @@ class GetManagementLockAtResourceLevelResult:
     def __init__(__self__, level=None, name=None, notes=None, owners=None, type=None):
         if level and not isinstance(level, str):
             raise TypeError("Expected argument 'level' to be a str")
-        __self__.level = level
+        pulumi.set(__self__, "level", level)
+        if name and not isinstance(name, str):
+            raise TypeError("Expected argument 'name' to be a str")
+        pulumi.set(__self__, "name", name)
+        if notes and not isinstance(notes, str):
+            raise TypeError("Expected argument 'notes' to be a str")
+        pulumi.set(__self__, "notes", notes)
+        if owners and not isinstance(owners, list):
+            raise TypeError("Expected argument 'owners' to be a list")
+        pulumi.set(__self__, "owners", owners)
+        if type and not isinstance(type, str):
+            raise TypeError("Expected argument 'type' to be a str")
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def level(self) -> str:
         """
         The level of the lock. Possible values are: NotSpecified, CanNotDelete, ReadOnly. CanNotDelete means authorized users are able to read and modify the resources, but not delete. ReadOnly means authorized users can only read from a resource, but they can't modify or delete it.
         """
-        if name and not isinstance(name, str):
-            raise TypeError("Expected argument 'name' to be a str")
-        __self__.name = name
+        return pulumi.get(self, "level")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
         """
         The name of the lock.
         """
-        if notes and not isinstance(notes, str):
-            raise TypeError("Expected argument 'notes' to be a str")
-        __self__.notes = notes
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def notes(self) -> Optional[str]:
         """
         Notes about the lock. Maximum of 512 characters.
         """
-        if owners and not isinstance(owners, list):
-            raise TypeError("Expected argument 'owners' to be a list")
-        __self__.owners = owners
+        return pulumi.get(self, "notes")
+
+    @property
+    @pulumi.getter
+    def owners(self) -> Optional[List['outputs.ManagementLockOwnerResponse']]:
         """
         The owners of the lock.
         """
-        if type and not isinstance(type, str):
-            raise TypeError("Expected argument 'type' to be a str")
-        __self__.type = type
+        return pulumi.get(self, "owners")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
         """
         The resource type of the lock - Microsoft.Authorization/locks.
         """
+        return pulumi.get(self, "type")
 
 
 class AwaitableGetManagementLockAtResourceLevelResult(GetManagementLockAtResourceLevelResult):
@@ -59,7 +91,13 @@ class AwaitableGetManagementLockAtResourceLevelResult(GetManagementLockAtResourc
             type=self.type)
 
 
-def get_management_lock_at_resource_level(name=None, parent_resource_path=None, resource_group_name=None, resource_name=None, resource_provider_namespace=None, resource_type=None, opts=None):
+def get_management_lock_at_resource_level(name: Optional[str] = None,
+                                          parent_resource_path: Optional[str] = None,
+                                          resource_group_name: Optional[str] = None,
+                                          resource_name: Optional[str] = None,
+                                          resource_provider_namespace: Optional[str] = None,
+                                          resource_type: Optional[str] = None,
+                                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetManagementLockAtResourceLevelResult:
     """
     Use this data source to access information about an existing resource.
 
@@ -81,11 +119,11 @@ def get_management_lock_at_resource_level(name=None, parent_resource_path=None, 
         opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = _utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('azurerm:authorization/v20160901:getManagementLockAtResourceLevel', __args__, opts=opts).value
+    __ret__ = pulumi.runtime.invoke('azurerm:authorization/v20160901:getManagementLockAtResourceLevel', __args__, opts=opts, typ=GetManagementLockAtResourceLevelResult).value
 
     return AwaitableGetManagementLockAtResourceLevelResult(
-        level=__ret__.get('level'),
-        name=__ret__.get('name'),
-        notes=__ret__.get('notes'),
-        owners=__ret__.get('owners'),
-        type=__ret__.get('type'))
+        level=__ret__.level,
+        name=__ret__.name,
+        notes=__ret__.notes,
+        owners=__ret__.owners,
+        type=__ret__.type)

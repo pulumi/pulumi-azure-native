@@ -5,69 +5,31 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+from . import outputs
+from ._inputs import *
+
+__all__ = ['Map']
 
 
 class Map(pulumi.CustomResource):
-    changed_time: pulumi.Output[str]
-    """
-    The changed time.
-    """
-    content: pulumi.Output[str]
-    """
-    The content.
-    """
-    content_link: pulumi.Output[dict]
-    """
-    The content link.
-      * `content_hash` (`dict`) - The content hash.
-        * `algorithm` (`str`) - The algorithm of the content hash.
-        * `value` (`str`) - The value of the content hash.
-
-      * `content_size` (`float`) - The content size.
-      * `content_version` (`str`) - The content version.
-      * `metadata` (`dict`) - The metadata.
-      * `uri` (`str`) - The content link URI.
-    """
-    content_type: pulumi.Output[str]
-    """
-    The content type.
-    """
-    created_time: pulumi.Output[str]
-    """
-    The created time.
-    """
-    location: pulumi.Output[str]
-    """
-    The resource location.
-    """
-    map_type: pulumi.Output[str]
-    """
-    The map type.
-    """
-    metadata: pulumi.Output[dict]
-    """
-    The metadata.
-    """
-    name: pulumi.Output[str]
-    """
-    Gets the resource name.
-    """
-    parameters_schema: pulumi.Output[dict]
-    """
-    The parameters schema of integration account map.
-      * `ref` (`str`) - The reference name.
-    """
-    tags: pulumi.Output[dict]
-    """
-    The resource tags.
-    """
-    type: pulumi.Output[str]
-    """
-    Gets the resource type.
-    """
-    def __init__(__self__, resource_name, opts=None, content=None, content_type=None, integration_account_name=None, location=None, map_type=None, metadata=None, name=None, parameters_schema=None, resource_group_name=None, tags=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 content: Optional[pulumi.Input[str]] = None,
+                 content_type: Optional[pulumi.Input[str]] = None,
+                 integration_account_name: Optional[pulumi.Input[str]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 map_type: Optional[pulumi.Input[str]] = None,
+                 metadata: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 parameters_schema: Optional[pulumi.Input[pulumi.InputType['IntegrationAccountMapPropertiesParametersSchemaArgs']]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         The integration account map.
 
@@ -78,15 +40,11 @@ class Map(pulumi.CustomResource):
         :param pulumi.Input[str] integration_account_name: The integration account name.
         :param pulumi.Input[str] location: The resource location.
         :param pulumi.Input[str] map_type: The map type.
-        :param pulumi.Input[dict] metadata: The metadata.
+        :param pulumi.Input[Mapping[str, Any]] metadata: The metadata.
         :param pulumi.Input[str] name: The integration account map name.
-        :param pulumi.Input[dict] parameters_schema: The parameters schema of integration account map.
+        :param pulumi.Input[pulumi.InputType['IntegrationAccountMapPropertiesParametersSchemaArgs']] parameters_schema: The parameters schema of integration account map.
         :param pulumi.Input[str] resource_group_name: The resource group name.
-        :param pulumi.Input[dict] tags: The resource tags.
-
-        The **parameters_schema** object supports the following:
-
-          * `ref` (`pulumi.Input[str]`) - The reference name.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The resource tags.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -136,13 +94,15 @@ class Map(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None) -> 'Map':
         """
         Get an existing Map resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -151,8 +111,105 @@ class Map(pulumi.CustomResource):
 
         return Map(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter(name="changedTime")
+    def changed_time(self) -> str:
+        """
+        The changed time.
+        """
+        return pulumi.get(self, "changed_time")
+
+    @property
+    @pulumi.getter
+    def content(self) -> Optional[str]:
+        """
+        The content.
+        """
+        return pulumi.get(self, "content")
+
+    @property
+    @pulumi.getter(name="contentLink")
+    def content_link(self) -> 'outputs.ContentLinkResponse':
+        """
+        The content link.
+        """
+        return pulumi.get(self, "content_link")
+
+    @property
+    @pulumi.getter(name="contentType")
+    def content_type(self) -> Optional[str]:
+        """
+        The content type.
+        """
+        return pulumi.get(self, "content_type")
+
+    @property
+    @pulumi.getter(name="createdTime")
+    def created_time(self) -> str:
+        """
+        The created time.
+        """
+        return pulumi.get(self, "created_time")
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[str]:
+        """
+        The resource location.
+        """
+        return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter(name="mapType")
+    def map_type(self) -> str:
+        """
+        The map type.
+        """
+        return pulumi.get(self, "map_type")
+
+    @property
+    @pulumi.getter
+    def metadata(self) -> Optional[Mapping[str, Any]]:
+        """
+        The metadata.
+        """
+        return pulumi.get(self, "metadata")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Gets the resource name.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="parametersSchema")
+    def parameters_schema(self) -> Optional['outputs.IntegrationAccountMapPropertiesResponseParametersSchema']:
+        """
+        The parameters schema of integration account map.
+        """
+        return pulumi.get(self, "parameters_schema")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Mapping[str, str]]:
+        """
+        The resource tags.
+        """
+        return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Gets the resource type.
+        """
+        return pulumi.get(self, "type")
+
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

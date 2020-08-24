@@ -7,3 +7,5 @@ from .get_policy_definition_at_management_group import *
 from .get_policy_set_definition_at_management_group import *
 from .policy_definition_at_management_group import *
 from .policy_set_definition_at_management_group import *
+from ._inputs import *
+from . import outputs

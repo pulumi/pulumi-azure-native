@@ -5,10 +5,16 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
 
+__all__ = [
+    'GetPolicyResult',
+    'AwaitableGetPolicyResult',
+    'get_policy',
+]
 
+@pulumi.output_type
 class GetPolicyResult:
     """
     Policy Contract details.
@@ -16,28 +22,48 @@ class GetPolicyResult:
     def __init__(__self__, content_format=None, name=None, policy_content=None, type=None):
         if content_format and not isinstance(content_format, str):
             raise TypeError("Expected argument 'content_format' to be a str")
-        __self__.content_format = content_format
+        pulumi.set(__self__, "content_format", content_format)
+        if name and not isinstance(name, str):
+            raise TypeError("Expected argument 'name' to be a str")
+        pulumi.set(__self__, "name", name)
+        if policy_content and not isinstance(policy_content, str):
+            raise TypeError("Expected argument 'policy_content' to be a str")
+        pulumi.set(__self__, "policy_content", policy_content)
+        if type and not isinstance(type, str):
+            raise TypeError("Expected argument 'type' to be a str")
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="contentFormat")
+    def content_format(self) -> Optional[str]:
         """
         Format of the policyContent.
         """
-        if name and not isinstance(name, str):
-            raise TypeError("Expected argument 'name' to be a str")
-        __self__.name = name
+        return pulumi.get(self, "content_format")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
         """
         Resource name.
         """
-        if policy_content and not isinstance(policy_content, str):
-            raise TypeError("Expected argument 'policy_content' to be a str")
-        __self__.policy_content = policy_content
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="policyContent")
+    def policy_content(self) -> str:
         """
         Json escaped Xml Encoded contents of the Policy.
         """
-        if type and not isinstance(type, str):
-            raise TypeError("Expected argument 'type' to be a str")
-        __self__.type = type
+        return pulumi.get(self, "policy_content")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
         """
         Resource type for API Management resource.
         """
+        return pulumi.get(self, "type")
 
 
 class AwaitableGetPolicyResult(GetPolicyResult):
@@ -52,7 +78,10 @@ class AwaitableGetPolicyResult(GetPolicyResult):
             type=self.type)
 
 
-def get_policy(name=None, resource_group_name=None, service_name=None, opts=None):
+def get_policy(name: Optional[str] = None,
+               resource_group_name: Optional[str] = None,
+               service_name: Optional[str] = None,
+               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPolicyResult:
     """
     Use this data source to access information about an existing resource.
 
@@ -68,10 +97,10 @@ def get_policy(name=None, resource_group_name=None, service_name=None, opts=None
         opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = _utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('azurerm:apimanagement/v20180101:getPolicy', __args__, opts=opts).value
+    __ret__ = pulumi.runtime.invoke('azurerm:apimanagement/v20180101:getPolicy', __args__, opts=opts, typ=GetPolicyResult).value
 
     return AwaitableGetPolicyResult(
-        content_format=__ret__.get('contentFormat'),
-        name=__ret__.get('name'),
-        policy_content=__ret__.get('policyContent'),
-        type=__ret__.get('type'))
+        content_format=__ret__.content_format,
+        name=__ret__.name,
+        policy_content=__ret__.policy_content,
+        type=__ret__.type)

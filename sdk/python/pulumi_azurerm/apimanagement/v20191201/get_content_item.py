@@ -5,10 +5,16 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
 
+__all__ = [
+    'GetContentItemResult',
+    'AwaitableGetContentItemResult',
+    'get_content_item',
+]
 
+@pulumi.output_type
 class GetContentItemResult:
     """
     Content type contract details.
@@ -16,16 +22,26 @@ class GetContentItemResult:
     def __init__(__self__, name=None, type=None):
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
-        __self__.name = name
+        pulumi.set(__self__, "name", name)
+        if type and not isinstance(type, str):
+            raise TypeError("Expected argument 'type' to be a str")
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
         """
         Resource name.
         """
-        if type and not isinstance(type, str):
-            raise TypeError("Expected argument 'type' to be a str")
-        __self__.type = type
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
         """
         Resource type for API Management resource.
         """
+        return pulumi.get(self, "type")
 
 
 class AwaitableGetContentItemResult(GetContentItemResult):
@@ -38,7 +54,11 @@ class AwaitableGetContentItemResult(GetContentItemResult):
             type=self.type)
 
 
-def get_content_item(content_type_id=None, name=None, resource_group_name=None, service_name=None, opts=None):
+def get_content_item(content_type_id: Optional[str] = None,
+                     name: Optional[str] = None,
+                     resource_group_name: Optional[str] = None,
+                     service_name: Optional[str] = None,
+                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetContentItemResult:
     """
     Use this data source to access information about an existing resource.
 
@@ -56,8 +76,8 @@ def get_content_item(content_type_id=None, name=None, resource_group_name=None, 
         opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = _utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('azurerm:apimanagement/v20191201:getContentItem', __args__, opts=opts).value
+    __ret__ = pulumi.runtime.invoke('azurerm:apimanagement/v20191201:getContentItem', __args__, opts=opts, typ=GetContentItemResult).value
 
     return AwaitableGetContentItemResult(
-        name=__ret__.get('name'),
-        type=__ret__.get('type'))
+        name=__ret__.name,
+        type=__ret__.type)

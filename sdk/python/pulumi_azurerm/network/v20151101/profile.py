@@ -5,107 +5,44 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+from . import outputs
+from ._inputs import *
+
+__all__ = ['Profile']
 
 
 class Profile(pulumi.CustomResource):
-    dns_config: pulumi.Output[dict]
-    """
-    Gets or sets the DNS settings of the Traffic Manager profile.
-      * `fqdn` (`str`) - Gets or sets the fully-qualified domain name (FQDN) of the Traffic Manager profile.  This is formed from the concatenation of the RelativeName with the DNS domain used by Azure Traffic Manager.
-      * `relative_name` (`str`) - Gets or sets the relative DNS name provided by this Traffic Manager profile.  This value is combined with the DNS domain name used by Azure Traffic Manager to form the fully-qualified domain name (FQDN) of the profile.
-      * `ttl` (`float`) - Gets or sets the DNS Time-To-Live (TTL), in seconds.  This informs the local DNS resolvers and DNS clients how long to cache DNS responses provided by this Traffic Manager profile.
-    """
-    endpoints: pulumi.Output[list]
-    """
-    Gets or sets the list of endpoints in the Traffic Manager profile.
-      * `endpoint_location` (`str`) - Specifies the location of the external or nested endpoints when using the ‘Performance’ traffic routing method.
-      * `endpoint_monitor_status` (`str`) - Gets or sets the monitoring status of the endpoint.
-      * `endpoint_status` (`str`) - Gets or sets the status of the endpoint..  If the endpoint is Enabled, it is probed for endpoint health and is included in the traffic routing method.  Possible values are 'Enabled' and 'Disabled'.
-      * `id` (`str`) - Gets or sets the ID of the Traffic Manager endpoint.
-      * `min_child_endpoints` (`float`) - Gets or sets the minimum number of endpoints that must be available in the child profile in order for the parent profile to be considered available. Only applicable to endpoint of type 'NestedEndpoints'.
-      * `name` (`str`) - Gets or sets the name of the Traffic Manager endpoint.
-      * `priority` (`float`) - Gets or sets the priority of this endpoint when using the ‘Priority’ traffic routing method. Possible values are from 1 to 1000, lower values represent higher priority. This is an optional parameter.  If specified, it must be specified on all endpoints, and no two endpoints can share the same priority value.
-      * `target` (`str`) - Gets or sets the fully-qualified DNS name of the endpoint.  Traffic Manager returns this value in DNS responses to direct traffic to this endpoint.
-      * `target_resource_id` (`str`) - Gets or sets the Azure Resource URI of the of the endpoint.  Not applicable to endpoints of type 'ExternalEndpoints'.
-      * `type` (`str`) - Gets or sets the endpoint type of the Traffic Manager endpoint.
-      * `weight` (`float`) - Gets or sets the weight of this endpoint when using the 'Weighted' traffic routing method. Possible values are from 1 to 1000.
-    """
-    location: pulumi.Output[str]
-    """
-    Resource location
-    """
-    monitor_config: pulumi.Output[dict]
-    """
-    Gets or sets the endpoint monitoring settings of the Traffic Manager profile.
-      * `path` (`str`) - Gets or sets the path relative to the endpoint domain name used to probe for endpoint health.
-      * `port` (`float`) - Gets or sets the TCP port used to probe for endpoint health.
-      * `profile_monitor_status` (`str`) - Gets or sets the profile-level monitoring status of the Traffic Manager profile.
-      * `protocol` (`str`) - Gets or sets the protocol (HTTP or HTTPS) used to probe for endpoint health.
-    """
-    name: pulumi.Output[str]
-    """
-    Resource name
-    """
-    profile_status: pulumi.Output[str]
-    """
-    Gets or sets the status of the Traffic Manager profile.  Possible values are 'Enabled' and 'Disabled'.
-    """
-    tags: pulumi.Output[dict]
-    """
-    Resource tags
-    """
-    traffic_routing_method: pulumi.Output[str]
-    """
-    Gets or sets the traffic routing method of the Traffic Manager profile.  Possible values are 'Performance', 'Weighted', or 'Priority'.
-    """
-    type: pulumi.Output[str]
-    """
-    Resource type
-    """
-    def __init__(__self__, resource_name, opts=None, dns_config=None, endpoints=None, location=None, monitor_config=None, name=None, profile_status=None, resource_group_name=None, tags=None, traffic_routing_method=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 dns_config: Optional[pulumi.Input[pulumi.InputType['DnsConfigArgs']]] = None,
+                 endpoints: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['EndpointArgs']]]]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 monitor_config: Optional[pulumi.Input[pulumi.InputType['MonitorConfigArgs']]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 profile_status: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 traffic_routing_method: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         Class representing a Traffic Manager profile.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[dict] dns_config: Gets or sets the DNS settings of the Traffic Manager profile.
-        :param pulumi.Input[list] endpoints: Gets or sets the list of endpoints in the Traffic Manager profile.
+        :param pulumi.Input[pulumi.InputType['DnsConfigArgs']] dns_config: Gets or sets the DNS settings of the Traffic Manager profile.
+        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['EndpointArgs']]]] endpoints: Gets or sets the list of endpoints in the Traffic Manager profile.
         :param pulumi.Input[str] location: Resource location
-        :param pulumi.Input[dict] monitor_config: Gets or sets the endpoint monitoring settings of the Traffic Manager profile.
+        :param pulumi.Input[pulumi.InputType['MonitorConfigArgs']] monitor_config: Gets or sets the endpoint monitoring settings of the Traffic Manager profile.
         :param pulumi.Input[str] name: The name of the Traffic Manager profile.
         :param pulumi.Input[str] profile_status: Gets or sets the status of the Traffic Manager profile.  Possible values are 'Enabled' and 'Disabled'.
         :param pulumi.Input[str] resource_group_name: The name of the resource group containing the Traffic Manager profile.
-        :param pulumi.Input[dict] tags: Resource tags
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags
         :param pulumi.Input[str] traffic_routing_method: Gets or sets the traffic routing method of the Traffic Manager profile.  Possible values are 'Performance', 'Weighted', or 'Priority'.
-
-        The **dns_config** object supports the following:
-
-          * `fqdn` (`pulumi.Input[str]`) - Gets or sets the fully-qualified domain name (FQDN) of the Traffic Manager profile.  This is formed from the concatenation of the RelativeName with the DNS domain used by Azure Traffic Manager.
-          * `relative_name` (`pulumi.Input[str]`) - Gets or sets the relative DNS name provided by this Traffic Manager profile.  This value is combined with the DNS domain name used by Azure Traffic Manager to form the fully-qualified domain name (FQDN) of the profile.
-          * `ttl` (`pulumi.Input[float]`) - Gets or sets the DNS Time-To-Live (TTL), in seconds.  This informs the local DNS resolvers and DNS clients how long to cache DNS responses provided by this Traffic Manager profile.
-
-        The **endpoints** object supports the following:
-
-          * `endpoint_location` (`pulumi.Input[str]`) - Specifies the location of the external or nested endpoints when using the ‘Performance’ traffic routing method.
-          * `endpoint_monitor_status` (`pulumi.Input[str]`) - Gets or sets the monitoring status of the endpoint.
-          * `endpoint_status` (`pulumi.Input[str]`) - Gets or sets the status of the endpoint..  If the endpoint is Enabled, it is probed for endpoint health and is included in the traffic routing method.  Possible values are 'Enabled' and 'Disabled'.
-          * `id` (`pulumi.Input[str]`) - Gets or sets the ID of the Traffic Manager endpoint.
-          * `min_child_endpoints` (`pulumi.Input[float]`) - Gets or sets the minimum number of endpoints that must be available in the child profile in order for the parent profile to be considered available. Only applicable to endpoint of type 'NestedEndpoints'.
-          * `name` (`pulumi.Input[str]`) - Gets or sets the name of the Traffic Manager endpoint.
-          * `priority` (`pulumi.Input[float]`) - Gets or sets the priority of this endpoint when using the ‘Priority’ traffic routing method. Possible values are from 1 to 1000, lower values represent higher priority. This is an optional parameter.  If specified, it must be specified on all endpoints, and no two endpoints can share the same priority value.
-          * `target` (`pulumi.Input[str]`) - Gets or sets the fully-qualified DNS name of the endpoint.  Traffic Manager returns this value in DNS responses to direct traffic to this endpoint.
-          * `target_resource_id` (`pulumi.Input[str]`) - Gets or sets the Azure Resource URI of the of the endpoint.  Not applicable to endpoints of type 'ExternalEndpoints'.
-          * `type` (`pulumi.Input[str]`) - Gets or sets the endpoint type of the Traffic Manager endpoint.
-          * `weight` (`pulumi.Input[float]`) - Gets or sets the weight of this endpoint when using the 'Weighted' traffic routing method. Possible values are from 1 to 1000.
-
-        The **monitor_config** object supports the following:
-
-          * `path` (`pulumi.Input[str]`) - Gets or sets the path relative to the endpoint domain name used to probe for endpoint health.
-          * `port` (`pulumi.Input[float]`) - Gets or sets the TCP port used to probe for endpoint health.
-          * `profile_monitor_status` (`pulumi.Input[str]`) - Gets or sets the profile-level monitoring status of the Traffic Manager profile.
-          * `protocol` (`pulumi.Input[str]`) - Gets or sets the protocol (HTTP or HTTPS) used to probe for endpoint health.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -147,13 +84,15 @@ class Profile(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None) -> 'Profile':
         """
         Get an existing Profile resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -162,8 +101,81 @@ class Profile(pulumi.CustomResource):
 
         return Profile(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter(name="dnsConfig")
+    def dns_config(self) -> Optional['outputs.DnsConfigResponse']:
+        """
+        Gets or sets the DNS settings of the Traffic Manager profile.
+        """
+        return pulumi.get(self, "dns_config")
+
+    @property
+    @pulumi.getter
+    def endpoints(self) -> Optional[List['outputs.EndpointResponse']]:
+        """
+        Gets or sets the list of endpoints in the Traffic Manager profile.
+        """
+        return pulumi.get(self, "endpoints")
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[str]:
+        """
+        Resource location
+        """
+        return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter(name="monitorConfig")
+    def monitor_config(self) -> Optional['outputs.MonitorConfigResponse']:
+        """
+        Gets or sets the endpoint monitoring settings of the Traffic Manager profile.
+        """
+        return pulumi.get(self, "monitor_config")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Resource name
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="profileStatus")
+    def profile_status(self) -> Optional[str]:
+        """
+        Gets or sets the status of the Traffic Manager profile.  Possible values are 'Enabled' and 'Disabled'.
+        """
+        return pulumi.get(self, "profile_status")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Mapping[str, str]]:
+        """
+        Resource tags
+        """
+        return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter(name="trafficRoutingMethod")
+    def traffic_routing_method(self) -> Optional[str]:
+        """
+        Gets or sets the traffic routing method of the Traffic Manager profile.  Possible values are 'Performance', 'Weighted', or 'Priority'.
+        """
+        return pulumi.get(self, "traffic_routing_method")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Resource type
+        """
+        return pulumi.get(self, "type")
+
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

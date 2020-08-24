@@ -5,10 +5,17 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+from . import outputs
 
+__all__ = [
+    'GetVpnSiteResult',
+    'AwaitableGetVpnSiteResult',
+    'get_vpn_site',
+]
 
+@pulumi.output_type
 class GetVpnSiteResult:
     """
     VpnSite Resource.
@@ -16,88 +23,158 @@ class GetVpnSiteResult:
     def __init__(__self__, address_space=None, bgp_properties=None, device_properties=None, etag=None, ip_address=None, is_security_site=None, location=None, name=None, provisioning_state=None, site_key=None, tags=None, type=None, virtual_wan=None, vpn_site_links=None):
         if address_space and not isinstance(address_space, dict):
             raise TypeError("Expected argument 'address_space' to be a dict")
-        __self__.address_space = address_space
+        pulumi.set(__self__, "address_space", address_space)
+        if bgp_properties and not isinstance(bgp_properties, dict):
+            raise TypeError("Expected argument 'bgp_properties' to be a dict")
+        pulumi.set(__self__, "bgp_properties", bgp_properties)
+        if device_properties and not isinstance(device_properties, dict):
+            raise TypeError("Expected argument 'device_properties' to be a dict")
+        pulumi.set(__self__, "device_properties", device_properties)
+        if etag and not isinstance(etag, str):
+            raise TypeError("Expected argument 'etag' to be a str")
+        pulumi.set(__self__, "etag", etag)
+        if ip_address and not isinstance(ip_address, str):
+            raise TypeError("Expected argument 'ip_address' to be a str")
+        pulumi.set(__self__, "ip_address", ip_address)
+        if is_security_site and not isinstance(is_security_site, bool):
+            raise TypeError("Expected argument 'is_security_site' to be a bool")
+        pulumi.set(__self__, "is_security_site", is_security_site)
+        if location and not isinstance(location, str):
+            raise TypeError("Expected argument 'location' to be a str")
+        pulumi.set(__self__, "location", location)
+        if name and not isinstance(name, str):
+            raise TypeError("Expected argument 'name' to be a str")
+        pulumi.set(__self__, "name", name)
+        if provisioning_state and not isinstance(provisioning_state, str):
+            raise TypeError("Expected argument 'provisioning_state' to be a str")
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if site_key and not isinstance(site_key, str):
+            raise TypeError("Expected argument 'site_key' to be a str")
+        pulumi.set(__self__, "site_key", site_key)
+        if tags and not isinstance(tags, dict):
+            raise TypeError("Expected argument 'tags' to be a dict")
+        pulumi.set(__self__, "tags", tags)
+        if type and not isinstance(type, str):
+            raise TypeError("Expected argument 'type' to be a str")
+        pulumi.set(__self__, "type", type)
+        if virtual_wan and not isinstance(virtual_wan, dict):
+            raise TypeError("Expected argument 'virtual_wan' to be a dict")
+        pulumi.set(__self__, "virtual_wan", virtual_wan)
+        if vpn_site_links and not isinstance(vpn_site_links, list):
+            raise TypeError("Expected argument 'vpn_site_links' to be a list")
+        pulumi.set(__self__, "vpn_site_links", vpn_site_links)
+
+    @property
+    @pulumi.getter(name="addressSpace")
+    def address_space(self) -> Optional['outputs.AddressSpaceResponse']:
         """
         The AddressSpace that contains an array of IP address ranges.
         """
-        if bgp_properties and not isinstance(bgp_properties, dict):
-            raise TypeError("Expected argument 'bgp_properties' to be a dict")
-        __self__.bgp_properties = bgp_properties
+        return pulumi.get(self, "address_space")
+
+    @property
+    @pulumi.getter(name="bgpProperties")
+    def bgp_properties(self) -> Optional['outputs.BgpSettingsResponse']:
         """
         The set of bgp properties.
         """
-        if device_properties and not isinstance(device_properties, dict):
-            raise TypeError("Expected argument 'device_properties' to be a dict")
-        __self__.device_properties = device_properties
+        return pulumi.get(self, "bgp_properties")
+
+    @property
+    @pulumi.getter(name="deviceProperties")
+    def device_properties(self) -> Optional['outputs.DevicePropertiesResponse']:
         """
         The device properties.
         """
-        if etag and not isinstance(etag, str):
-            raise TypeError("Expected argument 'etag' to be a str")
-        __self__.etag = etag
+        return pulumi.get(self, "device_properties")
+
+    @property
+    @pulumi.getter
+    def etag(self) -> str:
         """
         A unique read-only string that changes whenever the resource is updated.
         """
-        if ip_address and not isinstance(ip_address, str):
-            raise TypeError("Expected argument 'ip_address' to be a str")
-        __self__.ip_address = ip_address
+        return pulumi.get(self, "etag")
+
+    @property
+    @pulumi.getter(name="ipAddress")
+    def ip_address(self) -> Optional[str]:
         """
         The ip-address for the vpn-site.
         """
-        if is_security_site and not isinstance(is_security_site, bool):
-            raise TypeError("Expected argument 'is_security_site' to be a bool")
-        __self__.is_security_site = is_security_site
+        return pulumi.get(self, "ip_address")
+
+    @property
+    @pulumi.getter(name="isSecuritySite")
+    def is_security_site(self) -> Optional[bool]:
         """
         IsSecuritySite flag.
         """
-        if location and not isinstance(location, str):
-            raise TypeError("Expected argument 'location' to be a str")
-        __self__.location = location
+        return pulumi.get(self, "is_security_site")
+
+    @property
+    @pulumi.getter
+    def location(self) -> str:
         """
         Resource location.
         """
-        if name and not isinstance(name, str):
-            raise TypeError("Expected argument 'name' to be a str")
-        __self__.name = name
+        return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
         """
         Resource name.
         """
-        if provisioning_state and not isinstance(provisioning_state, str):
-            raise TypeError("Expected argument 'provisioning_state' to be a str")
-        __self__.provisioning_state = provisioning_state
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> Optional[str]:
         """
         The provisioning state of the VPN site resource.
         """
-        if site_key and not isinstance(site_key, str):
-            raise TypeError("Expected argument 'site_key' to be a str")
-        __self__.site_key = site_key
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="siteKey")
+    def site_key(self) -> Optional[str]:
         """
         The key for vpn-site that can be used for connections.
         """
-        if tags and not isinstance(tags, dict):
-            raise TypeError("Expected argument 'tags' to be a dict")
-        __self__.tags = tags
+        return pulumi.get(self, "site_key")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Mapping[str, str]]:
         """
         Resource tags.
         """
-        if type and not isinstance(type, str):
-            raise TypeError("Expected argument 'type' to be a str")
-        __self__.type = type
+        return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
         """
         Resource type.
         """
-        if virtual_wan and not isinstance(virtual_wan, dict):
-            raise TypeError("Expected argument 'virtual_wan' to be a dict")
-        __self__.virtual_wan = virtual_wan
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="virtualWan")
+    def virtual_wan(self) -> Optional['outputs.SubResourceResponse']:
         """
         The VirtualWAN to which the vpnSite belongs.
         """
-        if vpn_site_links and not isinstance(vpn_site_links, list):
-            raise TypeError("Expected argument 'vpn_site_links' to be a list")
-        __self__.vpn_site_links = vpn_site_links
+        return pulumi.get(self, "virtual_wan")
+
+    @property
+    @pulumi.getter(name="vpnSiteLinks")
+    def vpn_site_links(self) -> Optional[List['outputs.VpnSiteLinkResponse']]:
         """
         List of all vpn site links.
         """
+        return pulumi.get(self, "vpn_site_links")
 
 
 class AwaitableGetVpnSiteResult(GetVpnSiteResult):
@@ -122,7 +199,9 @@ class AwaitableGetVpnSiteResult(GetVpnSiteResult):
             vpn_site_links=self.vpn_site_links)
 
 
-def get_vpn_site(name=None, resource_group_name=None, opts=None):
+def get_vpn_site(name: Optional[str] = None,
+                 resource_group_name: Optional[str] = None,
+                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVpnSiteResult:
     """
     Use this data source to access information about an existing resource.
 
@@ -136,20 +215,20 @@ def get_vpn_site(name=None, resource_group_name=None, opts=None):
         opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = _utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('azurerm:network/v20190701:getVpnSite', __args__, opts=opts).value
+    __ret__ = pulumi.runtime.invoke('azurerm:network/v20190701:getVpnSite', __args__, opts=opts, typ=GetVpnSiteResult).value
 
     return AwaitableGetVpnSiteResult(
-        address_space=__ret__.get('addressSpace'),
-        bgp_properties=__ret__.get('bgpProperties'),
-        device_properties=__ret__.get('deviceProperties'),
-        etag=__ret__.get('etag'),
-        ip_address=__ret__.get('ipAddress'),
-        is_security_site=__ret__.get('isSecuritySite'),
-        location=__ret__.get('location'),
-        name=__ret__.get('name'),
-        provisioning_state=__ret__.get('provisioningState'),
-        site_key=__ret__.get('siteKey'),
-        tags=__ret__.get('tags'),
-        type=__ret__.get('type'),
-        virtual_wan=__ret__.get('virtualWan'),
-        vpn_site_links=__ret__.get('vpnSiteLinks'))
+        address_space=__ret__.address_space,
+        bgp_properties=__ret__.bgp_properties,
+        device_properties=__ret__.device_properties,
+        etag=__ret__.etag,
+        ip_address=__ret__.ip_address,
+        is_security_site=__ret__.is_security_site,
+        location=__ret__.location,
+        name=__ret__.name,
+        provisioning_state=__ret__.provisioning_state,
+        site_key=__ret__.site_key,
+        tags=__ret__.tags,
+        type=__ret__.type,
+        virtual_wan=__ret__.virtual_wan,
+        vpn_site_links=__ret__.vpn_site_links)

@@ -5,38 +5,26 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+from . import outputs
+from ._inputs import *
+
+__all__ = ['ReplicationvCenter']
 
 
 class ReplicationvCenter(pulumi.CustomResource):
-    location: pulumi.Output[str]
-    """
-    Resource Location
-    """
-    name: pulumi.Output[str]
-    """
-    Resource Name
-    """
-    properties: pulumi.Output[dict]
-    """
-    VCenter related data.
-      * `discovery_status` (`str`) - The VCenter discovery status.
-      * `fabric_arm_resource_name` (`str`) - The ARM resource name of the fabric containing this VCenter.
-      * `friendly_name` (`str`) - Friendly name of the vCenter.
-      * `infrastructure_id` (`str`) - The infrastructure Id of vCenter.
-      * `internal_id` (`str`) - VCenter internal ID.
-      * `ip_address` (`str`) - The IP address of the vCenter.
-      * `last_heartbeat` (`str`) - The time when the last heartbeat was received by vCenter.
-      * `port` (`str`) - The port number for discovery.
-      * `process_server_id` (`str`) - The process server Id.
-      * `run_as_account_id` (`str`) - The account Id which has privileges to discover the vCenter.
-    """
-    type: pulumi.Output[str]
-    """
-    Resource Type
-    """
-    def __init__(__self__, resource_name, opts=None, fabric_name=None, name=None, properties=None, resource_group_name=None, resource_name_=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 fabric_name: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 properties: Optional[pulumi.Input[pulumi.InputType['AddVCenterRequestPropertiesArgs']]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 resource_name_: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         vCenter definition.
 
@@ -44,17 +32,9 @@ class ReplicationvCenter(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] fabric_name: Fabric name.
         :param pulumi.Input[str] name: vCenter name.
-        :param pulumi.Input[dict] properties: The properties of an add vCenter request.
+        :param pulumi.Input[pulumi.InputType['AddVCenterRequestPropertiesArgs']] properties: The properties of an add vCenter request.
         :param pulumi.Input[str] resource_group_name: The name of the resource group where the recovery services vault is present.
         :param pulumi.Input[str] resource_name_: The name of the recovery services vault.
-
-        The **properties** object supports the following:
-
-          * `friendly_name` (`pulumi.Input[str]`) - The friendly name of the vCenter.
-          * `ip_address` (`pulumi.Input[str]`) - The IP address of the vCenter to be discovered.
-          * `port` (`pulumi.Input[str]`) - The port number for discovery.
-          * `process_server_id` (`pulumi.Input[str]`) - The process server Id from where the discovery is orchestrated.
-          * `run_as_account_id` (`pulumi.Input[str]`) - The account Id which has privileges to discover the vCenter.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -97,13 +77,15 @@ class ReplicationvCenter(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None) -> 'ReplicationvCenter':
         """
         Get an existing ReplicationvCenter resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -112,8 +94,41 @@ class ReplicationvCenter(pulumi.CustomResource):
 
         return ReplicationvCenter(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[str]:
+        """
+        Resource Location
+        """
+        return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Resource Name
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def properties(self) -> 'outputs.VCenterPropertiesResponse':
+        """
+        VCenter related data.
+        """
+        return pulumi.get(self, "properties")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Resource Type
+        """
+        return pulumi.get(self, "type")
+
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

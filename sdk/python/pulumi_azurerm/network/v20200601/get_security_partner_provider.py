@@ -5,10 +5,17 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+from . import outputs
 
+__all__ = [
+    'GetSecurityPartnerProviderResult',
+    'AwaitableGetSecurityPartnerProviderResult',
+    'get_security_partner_provider',
+]
 
+@pulumi.output_type
 class GetSecurityPartnerProviderResult:
     """
     Security Partner Provider resource.
@@ -16,58 +23,103 @@ class GetSecurityPartnerProviderResult:
     def __init__(__self__, connection_status=None, etag=None, location=None, name=None, provisioning_state=None, security_provider_name=None, tags=None, type=None, virtual_hub=None):
         if connection_status and not isinstance(connection_status, str):
             raise TypeError("Expected argument 'connection_status' to be a str")
-        __self__.connection_status = connection_status
+        pulumi.set(__self__, "connection_status", connection_status)
+        if etag and not isinstance(etag, str):
+            raise TypeError("Expected argument 'etag' to be a str")
+        pulumi.set(__self__, "etag", etag)
+        if location and not isinstance(location, str):
+            raise TypeError("Expected argument 'location' to be a str")
+        pulumi.set(__self__, "location", location)
+        if name and not isinstance(name, str):
+            raise TypeError("Expected argument 'name' to be a str")
+        pulumi.set(__self__, "name", name)
+        if provisioning_state and not isinstance(provisioning_state, str):
+            raise TypeError("Expected argument 'provisioning_state' to be a str")
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if security_provider_name and not isinstance(security_provider_name, str):
+            raise TypeError("Expected argument 'security_provider_name' to be a str")
+        pulumi.set(__self__, "security_provider_name", security_provider_name)
+        if tags and not isinstance(tags, dict):
+            raise TypeError("Expected argument 'tags' to be a dict")
+        pulumi.set(__self__, "tags", tags)
+        if type and not isinstance(type, str):
+            raise TypeError("Expected argument 'type' to be a str")
+        pulumi.set(__self__, "type", type)
+        if virtual_hub and not isinstance(virtual_hub, dict):
+            raise TypeError("Expected argument 'virtual_hub' to be a dict")
+        pulumi.set(__self__, "virtual_hub", virtual_hub)
+
+    @property
+    @pulumi.getter(name="connectionStatus")
+    def connection_status(self) -> str:
         """
         The connection status with the Security Partner Provider.
         """
-        if etag and not isinstance(etag, str):
-            raise TypeError("Expected argument 'etag' to be a str")
-        __self__.etag = etag
+        return pulumi.get(self, "connection_status")
+
+    @property
+    @pulumi.getter
+    def etag(self) -> str:
         """
         A unique read-only string that changes whenever the resource is updated.
         """
-        if location and not isinstance(location, str):
-            raise TypeError("Expected argument 'location' to be a str")
-        __self__.location = location
+        return pulumi.get(self, "etag")
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[str]:
         """
         Resource location.
         """
-        if name and not isinstance(name, str):
-            raise TypeError("Expected argument 'name' to be a str")
-        __self__.name = name
+        return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
         """
         Resource name.
         """
-        if provisioning_state and not isinstance(provisioning_state, str):
-            raise TypeError("Expected argument 'provisioning_state' to be a str")
-        __self__.provisioning_state = provisioning_state
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
         """
         The provisioning state of the Security Partner Provider resource.
         """
-        if security_provider_name and not isinstance(security_provider_name, str):
-            raise TypeError("Expected argument 'security_provider_name' to be a str")
-        __self__.security_provider_name = security_provider_name
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="securityProviderName")
+    def security_provider_name(self) -> Optional[str]:
         """
         The security provider name.
         """
-        if tags and not isinstance(tags, dict):
-            raise TypeError("Expected argument 'tags' to be a dict")
-        __self__.tags = tags
+        return pulumi.get(self, "security_provider_name")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Mapping[str, str]]:
         """
         Resource tags.
         """
-        if type and not isinstance(type, str):
-            raise TypeError("Expected argument 'type' to be a str")
-        __self__.type = type
+        return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
         """
         Resource type.
         """
-        if virtual_hub and not isinstance(virtual_hub, dict):
-            raise TypeError("Expected argument 'virtual_hub' to be a dict")
-        __self__.virtual_hub = virtual_hub
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="virtualHub")
+    def virtual_hub(self) -> Optional['outputs.SubResourceResponse']:
         """
         The virtualHub to which the Security Partner Provider belongs.
         """
+        return pulumi.get(self, "virtual_hub")
 
 
 class AwaitableGetSecurityPartnerProviderResult(GetSecurityPartnerProviderResult):
@@ -87,7 +139,9 @@ class AwaitableGetSecurityPartnerProviderResult(GetSecurityPartnerProviderResult
             virtual_hub=self.virtual_hub)
 
 
-def get_security_partner_provider(name=None, resource_group_name=None, opts=None):
+def get_security_partner_provider(name: Optional[str] = None,
+                                  resource_group_name: Optional[str] = None,
+                                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSecurityPartnerProviderResult:
     """
     Use this data source to access information about an existing resource.
 
@@ -101,15 +155,15 @@ def get_security_partner_provider(name=None, resource_group_name=None, opts=None
         opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = _utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('azurerm:network/v20200601:getSecurityPartnerProvider', __args__, opts=opts).value
+    __ret__ = pulumi.runtime.invoke('azurerm:network/v20200601:getSecurityPartnerProvider', __args__, opts=opts, typ=GetSecurityPartnerProviderResult).value
 
     return AwaitableGetSecurityPartnerProviderResult(
-        connection_status=__ret__.get('connectionStatus'),
-        etag=__ret__.get('etag'),
-        location=__ret__.get('location'),
-        name=__ret__.get('name'),
-        provisioning_state=__ret__.get('provisioningState'),
-        security_provider_name=__ret__.get('securityProviderName'),
-        tags=__ret__.get('tags'),
-        type=__ret__.get('type'),
-        virtual_hub=__ret__.get('virtualHub'))
+        connection_status=__ret__.connection_status,
+        etag=__ret__.etag,
+        location=__ret__.location,
+        name=__ret__.name,
+        provisioning_state=__ret__.provisioning_state,
+        security_provider_name=__ret__.security_provider_name,
+        tags=__ret__.tags,
+        type=__ret__.type,
+        virtual_hub=__ret__.virtual_hub)

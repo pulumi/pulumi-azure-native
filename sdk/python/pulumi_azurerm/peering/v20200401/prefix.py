@@ -5,53 +5,25 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+from . import outputs
+
+__all__ = ['Prefix']
 
 
 class Prefix(pulumi.CustomResource):
-    error_message: pulumi.Output[str]
-    """
-    The error message for validation state
-    """
-    events: pulumi.Output[list]
-    """
-    The list of events for peering service prefix
-      * `event_description` (`str`) - The description of the event associated with a prefix.
-      * `event_level` (`str`) - The level of the event associated with a prefix.
-      * `event_summary` (`str`) - The summary of the event associated with a prefix.
-      * `event_timestamp` (`str`) - The timestamp of the event associated with a prefix.
-      * `event_type` (`str`) - The type of the event associated with a prefix.
-    """
-    learned_type: pulumi.Output[str]
-    """
-    The prefix learned type
-    """
-    name: pulumi.Output[str]
-    """
-    The name of the resource.
-    """
-    peering_service_prefix_key: pulumi.Output[str]
-    """
-    The peering service prefix key
-    """
-    prefix: pulumi.Output[str]
-    """
-    The prefix from which your traffic originates.
-    """
-    prefix_validation_state: pulumi.Output[str]
-    """
-    The prefix validation state
-    """
-    provisioning_state: pulumi.Output[str]
-    """
-    The provisioning state of the resource.
-    """
-    type: pulumi.Output[str]
-    """
-    The type of the resource.
-    """
-    def __init__(__self__, resource_name, opts=None, name=None, peering_service_name=None, peering_service_prefix_key=None, prefix=None, resource_group_name=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 peering_service_name: Optional[pulumi.Input[str]] = None,
+                 peering_service_prefix_key: Optional[pulumi.Input[str]] = None,
+                 prefix: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         The peering service prefix class.
 
@@ -104,13 +76,15 @@ class Prefix(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None) -> 'Prefix':
         """
         Get an existing Prefix resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -119,8 +93,81 @@ class Prefix(pulumi.CustomResource):
 
         return Prefix(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter(name="errorMessage")
+    def error_message(self) -> str:
+        """
+        The error message for validation state
+        """
+        return pulumi.get(self, "error_message")
+
+    @property
+    @pulumi.getter
+    def events(self) -> List['outputs.PeeringServicePrefixEventResponse']:
+        """
+        The list of events for peering service prefix
+        """
+        return pulumi.get(self, "events")
+
+    @property
+    @pulumi.getter(name="learnedType")
+    def learned_type(self) -> str:
+        """
+        The prefix learned type
+        """
+        return pulumi.get(self, "learned_type")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the resource.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="peeringServicePrefixKey")
+    def peering_service_prefix_key(self) -> Optional[str]:
+        """
+        The peering service prefix key
+        """
+        return pulumi.get(self, "peering_service_prefix_key")
+
+    @property
+    @pulumi.getter
+    def prefix(self) -> Optional[str]:
+        """
+        The prefix from which your traffic originates.
+        """
+        return pulumi.get(self, "prefix")
+
+    @property
+    @pulumi.getter(name="prefixValidationState")
+    def prefix_validation_state(self) -> str:
+        """
+        The prefix validation state
+        """
+        return pulumi.get(self, "prefix_validation_state")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        The provisioning state of the resource.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        The type of the resource.
+        """
+        return pulumi.get(self, "type")
+
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

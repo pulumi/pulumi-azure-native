@@ -5,40 +5,26 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+from . import outputs
+from ._inputs import *
+
+__all__ = ['BandwidthSetting']
 
 
 class BandwidthSetting(pulumi.CustomResource):
-    kind: pulumi.Output[str]
-    """
-    The Kind of the object. Currently only Series8000 is supported
-    """
-    name: pulumi.Output[str]
-    """
-    The name of the object.
-    """
-    schedules: pulumi.Output[list]
-    """
-    The schedules.
-      * `days` (`list`) - The days of the week when this schedule is applicable.
-      * `rate_in_mbps` (`float`) - The rate in Mbps.
-      * `start` (`dict`) - The start time of the schedule.
-        * `hours` (`float`) - The hour.
-        * `minutes` (`float`) - The minute.
-        * `seconds` (`float`) - The second.
-
-      * `stop` (`dict`) - The stop time of the schedule.
-    """
-    type: pulumi.Output[str]
-    """
-    The hierarchical type of the object.
-    """
-    volume_count: pulumi.Output[float]
-    """
-    The number of volumes that uses the bandwidth setting.
-    """
-    def __init__(__self__, resource_name, opts=None, kind=None, manager_name=None, name=None, resource_group_name=None, schedules=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 kind: Optional[pulumi.Input[str]] = None,
+                 manager_name: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 schedules: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['BandwidthScheduleArgs']]]]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         The bandwidth setting.
 
@@ -48,18 +34,7 @@ class BandwidthSetting(pulumi.CustomResource):
         :param pulumi.Input[str] manager_name: The manager name
         :param pulumi.Input[str] name: The bandwidth setting name.
         :param pulumi.Input[str] resource_group_name: The resource group name
-        :param pulumi.Input[list] schedules: The schedules.
-
-        The **schedules** object supports the following:
-
-          * `days` (`pulumi.Input[list]`) - The days of the week when this schedule is applicable.
-          * `rate_in_mbps` (`pulumi.Input[float]`) - The rate in Mbps.
-          * `start` (`pulumi.Input[dict]`) - The start time of the schedule.
-            * `hours` (`pulumi.Input[float]`) - The hour.
-            * `minutes` (`pulumi.Input[float]`) - The minute.
-            * `seconds` (`pulumi.Input[float]`) - The second.
-
-          * `stop` (`pulumi.Input[dict]`) - The stop time of the schedule.
+        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['BandwidthScheduleArgs']]]] schedules: The schedules.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -100,13 +75,15 @@ class BandwidthSetting(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None) -> 'BandwidthSetting':
         """
         Get an existing BandwidthSetting resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -115,8 +92,49 @@ class BandwidthSetting(pulumi.CustomResource):
 
         return BandwidthSetting(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter
+    def kind(self) -> Optional[str]:
+        """
+        The Kind of the object. Currently only Series8000 is supported
+        """
+        return pulumi.get(self, "kind")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the object.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def schedules(self) -> List['outputs.BandwidthScheduleResponse']:
+        """
+        The schedules.
+        """
+        return pulumi.get(self, "schedules")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        The hierarchical type of the object.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="volumeCount")
+    def volume_count(self) -> float:
+        """
+        The number of volumes that uses the bandwidth setting.
+        """
+        return pulumi.get(self, "volume_count")
+
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

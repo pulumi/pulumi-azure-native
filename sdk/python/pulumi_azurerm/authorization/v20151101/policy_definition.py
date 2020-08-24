@@ -5,36 +5,30 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+from . import outputs
+from ._inputs import *
+
+__all__ = ['PolicyDefinition']
 
 
 class PolicyDefinition(pulumi.CustomResource):
-    name: pulumi.Output[str]
-    """
-    Gets or sets the policy definition name.
-    """
-    properties: pulumi.Output[dict]
-    """
-    Gets or sets the policy definition properties.
-      * `description` (`str`) - Gets or sets the policy definition description.
-      * `display_name` (`str`) - Gets or sets the policy definition display name.
-      * `policy_rule` (`dict`) - The policy rule json.
-    """
-    def __init__(__self__, resource_name, opts=None, name=None, properties=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 properties: Optional[pulumi.Input[pulumi.InputType['PolicyDefinitionPropertiesArgs']]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         Policy definition.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] name: The policy definition name.
-        :param pulumi.Input[dict] properties: Gets or sets the policy definition properties.
-
-        The **properties** object supports the following:
-
-          * `description` (`pulumi.Input[str]`) - Gets or sets the policy definition description.
-          * `display_name` (`pulumi.Input[str]`) - Gets or sets the policy definition display name.
-          * `policy_rule` (`pulumi.Input[dict]`) - The policy rule json.
+        :param pulumi.Input[pulumi.InputType['PolicyDefinitionPropertiesArgs']] properties: Gets or sets the policy definition properties.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -66,13 +60,15 @@ class PolicyDefinition(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None) -> 'PolicyDefinition':
         """
         Get an existing PolicyDefinition resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -81,8 +77,25 @@ class PolicyDefinition(pulumi.CustomResource):
 
         return PolicyDefinition(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        Gets or sets the policy definition name.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def properties(self) -> 'outputs.PolicyDefinitionPropertiesResponse':
+        """
+        Gets or sets the policy definition properties.
+        """
+        return pulumi.get(self, "properties")
+
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

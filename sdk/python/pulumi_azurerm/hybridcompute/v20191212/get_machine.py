@@ -5,10 +5,17 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+from . import outputs
 
+__all__ = [
+    'GetMachineResult',
+    'AwaitableGetMachineResult',
+    'get_machine',
+]
 
+@pulumi.output_type
 class GetMachineResult:
     """
     Describes a hybrid machine.
@@ -16,115 +23,210 @@ class GetMachineResult:
     def __init__(__self__, agent_version=None, client_public_key=None, display_name=None, error_details=None, extensions=None, identity=None, last_status_change=None, location=None, location_data=None, machine_fqdn=None, name=None, os_name=None, os_profile=None, os_version=None, provisioning_state=None, status=None, tags=None, type=None, vm_id=None):
         if agent_version and not isinstance(agent_version, str):
             raise TypeError("Expected argument 'agent_version' to be a str")
-        __self__.agent_version = agent_version
+        pulumi.set(__self__, "agent_version", agent_version)
+        if client_public_key and not isinstance(client_public_key, str):
+            raise TypeError("Expected argument 'client_public_key' to be a str")
+        pulumi.set(__self__, "client_public_key", client_public_key)
+        if display_name and not isinstance(display_name, str):
+            raise TypeError("Expected argument 'display_name' to be a str")
+        pulumi.set(__self__, "display_name", display_name)
+        if error_details and not isinstance(error_details, list):
+            raise TypeError("Expected argument 'error_details' to be a list")
+        pulumi.set(__self__, "error_details", error_details)
+        if extensions and not isinstance(extensions, list):
+            raise TypeError("Expected argument 'extensions' to be a list")
+        pulumi.set(__self__, "extensions", extensions)
+        if identity and not isinstance(identity, dict):
+            raise TypeError("Expected argument 'identity' to be a dict")
+        pulumi.set(__self__, "identity", identity)
+        if last_status_change and not isinstance(last_status_change, str):
+            raise TypeError("Expected argument 'last_status_change' to be a str")
+        pulumi.set(__self__, "last_status_change", last_status_change)
+        if location and not isinstance(location, str):
+            raise TypeError("Expected argument 'location' to be a str")
+        pulumi.set(__self__, "location", location)
+        if location_data and not isinstance(location_data, dict):
+            raise TypeError("Expected argument 'location_data' to be a dict")
+        pulumi.set(__self__, "location_data", location_data)
+        if machine_fqdn and not isinstance(machine_fqdn, str):
+            raise TypeError("Expected argument 'machine_fqdn' to be a str")
+        pulumi.set(__self__, "machine_fqdn", machine_fqdn)
+        if name and not isinstance(name, str):
+            raise TypeError("Expected argument 'name' to be a str")
+        pulumi.set(__self__, "name", name)
+        if os_name and not isinstance(os_name, str):
+            raise TypeError("Expected argument 'os_name' to be a str")
+        pulumi.set(__self__, "os_name", os_name)
+        if os_profile and not isinstance(os_profile, dict):
+            raise TypeError("Expected argument 'os_profile' to be a dict")
+        pulumi.set(__self__, "os_profile", os_profile)
+        if os_version and not isinstance(os_version, str):
+            raise TypeError("Expected argument 'os_version' to be a str")
+        pulumi.set(__self__, "os_version", os_version)
+        if provisioning_state and not isinstance(provisioning_state, str):
+            raise TypeError("Expected argument 'provisioning_state' to be a str")
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if status and not isinstance(status, str):
+            raise TypeError("Expected argument 'status' to be a str")
+        pulumi.set(__self__, "status", status)
+        if tags and not isinstance(tags, dict):
+            raise TypeError("Expected argument 'tags' to be a dict")
+        pulumi.set(__self__, "tags", tags)
+        if type and not isinstance(type, str):
+            raise TypeError("Expected argument 'type' to be a str")
+        pulumi.set(__self__, "type", type)
+        if vm_id and not isinstance(vm_id, str):
+            raise TypeError("Expected argument 'vm_id' to be a str")
+        pulumi.set(__self__, "vm_id", vm_id)
+
+    @property
+    @pulumi.getter(name="agentVersion")
+    def agent_version(self) -> str:
         """
         The hybrid machine agent full version.
         """
-        if client_public_key and not isinstance(client_public_key, str):
-            raise TypeError("Expected argument 'client_public_key' to be a str")
-        __self__.client_public_key = client_public_key
+        return pulumi.get(self, "agent_version")
+
+    @property
+    @pulumi.getter(name="clientPublicKey")
+    def client_public_key(self) -> Optional[str]:
         """
         Public Key that the client provides to be used during initial resource onboarding
         """
-        if display_name and not isinstance(display_name, str):
-            raise TypeError("Expected argument 'display_name' to be a str")
-        __self__.display_name = display_name
+        return pulumi.get(self, "client_public_key")
+
+    @property
+    @pulumi.getter(name="displayName")
+    def display_name(self) -> str:
         """
         Specifies the hybrid machine display name.
         """
-        if error_details and not isinstance(error_details, list):
-            raise TypeError("Expected argument 'error_details' to be a list")
-        __self__.error_details = error_details
+        return pulumi.get(self, "display_name")
+
+    @property
+    @pulumi.getter(name="errorDetails")
+    def error_details(self) -> List['outputs.ErrorDetailResponse']:
         """
         Details about the error state.
         """
-        if extensions and not isinstance(extensions, list):
-            raise TypeError("Expected argument 'extensions' to be a list")
-        __self__.extensions = extensions
+        return pulumi.get(self, "error_details")
+
+    @property
+    @pulumi.getter
+    def extensions(self) -> Optional[List['outputs.MachineExtensionInstanceViewResponse']]:
         """
         Machine Extensions information
         """
-        if identity and not isinstance(identity, dict):
-            raise TypeError("Expected argument 'identity' to be a dict")
-        __self__.identity = identity
-        if last_status_change and not isinstance(last_status_change, str):
-            raise TypeError("Expected argument 'last_status_change' to be a str")
-        __self__.last_status_change = last_status_change
+        return pulumi.get(self, "extensions")
+
+    @property
+    @pulumi.getter
+    def identity(self) -> Optional['outputs.MachineResponseIdentity']:
+        return pulumi.get(self, "identity")
+
+    @property
+    @pulumi.getter(name="lastStatusChange")
+    def last_status_change(self) -> str:
         """
         The time of the last status change.
         """
-        if location and not isinstance(location, str):
-            raise TypeError("Expected argument 'location' to be a str")
-        __self__.location = location
+        return pulumi.get(self, "last_status_change")
+
+    @property
+    @pulumi.getter
+    def location(self) -> str:
         """
         The geo-location where the resource lives
         """
-        if location_data and not isinstance(location_data, dict):
-            raise TypeError("Expected argument 'location_data' to be a dict")
-        __self__.location_data = location_data
+        return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter(name="locationData")
+    def location_data(self) -> Optional['outputs.LocationDataResponse']:
         """
         Metadata pertaining to the geographic location of the resource.
         """
-        if machine_fqdn and not isinstance(machine_fqdn, str):
-            raise TypeError("Expected argument 'machine_fqdn' to be a str")
-        __self__.machine_fqdn = machine_fqdn
+        return pulumi.get(self, "location_data")
+
+    @property
+    @pulumi.getter(name="machineFqdn")
+    def machine_fqdn(self) -> str:
         """
         Specifies the hybrid machine FQDN.
         """
-        if name and not isinstance(name, str):
-            raise TypeError("Expected argument 'name' to be a str")
-        __self__.name = name
+        return pulumi.get(self, "machine_fqdn")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
         """
         The name of the resource
         """
-        if os_name and not isinstance(os_name, str):
-            raise TypeError("Expected argument 'os_name' to be a str")
-        __self__.os_name = os_name
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="osName")
+    def os_name(self) -> str:
         """
         The Operating System running on the hybrid machine.
         """
-        if os_profile and not isinstance(os_profile, dict):
-            raise TypeError("Expected argument 'os_profile' to be a dict")
-        __self__.os_profile = os_profile
+        return pulumi.get(self, "os_name")
+
+    @property
+    @pulumi.getter(name="osProfile")
+    def os_profile(self) -> Optional['outputs.MachinePropertiesResponseOsProfile']:
         """
         Specifies the operating system settings for the hybrid machine.
         """
-        if os_version and not isinstance(os_version, str):
-            raise TypeError("Expected argument 'os_version' to be a str")
-        __self__.os_version = os_version
+        return pulumi.get(self, "os_profile")
+
+    @property
+    @pulumi.getter(name="osVersion")
+    def os_version(self) -> str:
         """
         The version of Operating System running on the hybrid machine.
         """
-        if provisioning_state and not isinstance(provisioning_state, str):
-            raise TypeError("Expected argument 'provisioning_state' to be a str")
-        __self__.provisioning_state = provisioning_state
+        return pulumi.get(self, "os_version")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
         """
         The provisioning state, which only appears in the response.
         """
-        if status and not isinstance(status, str):
-            raise TypeError("Expected argument 'status' to be a str")
-        __self__.status = status
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter
+    def status(self) -> str:
         """
         The status of the hybrid machine agent.
         """
-        if tags and not isinstance(tags, dict):
-            raise TypeError("Expected argument 'tags' to be a dict")
-        __self__.tags = tags
+        return pulumi.get(self, "status")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Mapping[str, str]]:
         """
         Resource tags.
         """
-        if type and not isinstance(type, str):
-            raise TypeError("Expected argument 'type' to be a str")
-        __self__.type = type
+        return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
         """
         The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
         """
-        if vm_id and not isinstance(vm_id, str):
-            raise TypeError("Expected argument 'vm_id' to be a str")
-        __self__.vm_id = vm_id
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="vmId")
+    def vm_id(self) -> Optional[str]:
         """
         Specifies the hybrid machine unique ID.
         """
+        return pulumi.get(self, "vm_id")
 
 
 class AwaitableGetMachineResult(GetMachineResult):
@@ -154,7 +256,10 @@ class AwaitableGetMachineResult(GetMachineResult):
             vm_id=self.vm_id)
 
 
-def get_machine(expand=None, name=None, resource_group_name=None, opts=None):
+def get_machine(expand: Optional[str] = None,
+                name: Optional[str] = None,
+                resource_group_name: Optional[str] = None,
+                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetMachineResult:
     """
     Use this data source to access information about an existing resource.
 
@@ -170,25 +275,25 @@ def get_machine(expand=None, name=None, resource_group_name=None, opts=None):
         opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = _utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('azurerm:hybridcompute/v20191212:getMachine', __args__, opts=opts).value
+    __ret__ = pulumi.runtime.invoke('azurerm:hybridcompute/v20191212:getMachine', __args__, opts=opts, typ=GetMachineResult).value
 
     return AwaitableGetMachineResult(
-        agent_version=__ret__.get('agentVersion'),
-        client_public_key=__ret__.get('clientPublicKey'),
-        display_name=__ret__.get('displayName'),
-        error_details=__ret__.get('errorDetails'),
-        extensions=__ret__.get('extensions'),
-        identity=__ret__.get('identity'),
-        last_status_change=__ret__.get('lastStatusChange'),
-        location=__ret__.get('location'),
-        location_data=__ret__.get('locationData'),
-        machine_fqdn=__ret__.get('machineFqdn'),
-        name=__ret__.get('name'),
-        os_name=__ret__.get('osName'),
-        os_profile=__ret__.get('osProfile'),
-        os_version=__ret__.get('osVersion'),
-        provisioning_state=__ret__.get('provisioningState'),
-        status=__ret__.get('status'),
-        tags=__ret__.get('tags'),
-        type=__ret__.get('type'),
-        vm_id=__ret__.get('vmId'))
+        agent_version=__ret__.agent_version,
+        client_public_key=__ret__.client_public_key,
+        display_name=__ret__.display_name,
+        error_details=__ret__.error_details,
+        extensions=__ret__.extensions,
+        identity=__ret__.identity,
+        last_status_change=__ret__.last_status_change,
+        location=__ret__.location,
+        location_data=__ret__.location_data,
+        machine_fqdn=__ret__.machine_fqdn,
+        name=__ret__.name,
+        os_name=__ret__.os_name,
+        os_profile=__ret__.os_profile,
+        os_version=__ret__.os_version,
+        provisioning_state=__ret__.provisioning_state,
+        status=__ret__.status,
+        tags=__ret__.tags,
+        type=__ret__.type,
+        vm_id=__ret__.vm_id)

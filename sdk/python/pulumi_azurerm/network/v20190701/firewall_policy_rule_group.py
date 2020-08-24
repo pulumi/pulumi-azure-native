@@ -5,39 +5,28 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+from . import outputs
+from ._inputs import *
+
+__all__ = ['FirewallPolicyRuleGroup']
 
 
 class FirewallPolicyRuleGroup(pulumi.CustomResource):
-    etag: pulumi.Output[str]
-    """
-    A unique read-only string that changes whenever the resource is updated.
-    """
-    name: pulumi.Output[str]
-    """
-    The name of the resource that is unique within a resource group. This name can be used to access the resource.
-    """
-    priority: pulumi.Output[float]
-    """
-    Priority of the Firewall Policy Rule Group resource.
-    """
-    provisioning_state: pulumi.Output[str]
-    """
-    The provisioning state of the firewall policy rule group resource.
-    """
-    rules: pulumi.Output[list]
-    """
-    Group of Firewall Policy rules.
-      * `name` (`str`) - The name of the rule.
-      * `priority` (`float`) - Priority of the Firewall Policy Rule resource.
-      * `rule_type` (`str`) - The type of the rule.
-    """
-    type: pulumi.Output[str]
-    """
-    Rule Group type.
-    """
-    def __init__(__self__, resource_name, opts=None, firewall_policy_name=None, id=None, name=None, priority=None, provisioning_state=None, resource_group_name=None, rules=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 firewall_policy_name: Optional[pulumi.Input[str]] = None,
+                 id: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 priority: Optional[pulumi.Input[float]] = None,
+                 provisioning_state: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 rules: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['FirewallPolicyRuleArgs']]]]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         Rule Group resource.
 
@@ -49,13 +38,7 @@ class FirewallPolicyRuleGroup(pulumi.CustomResource):
         :param pulumi.Input[float] priority: Priority of the Firewall Policy Rule Group resource.
         :param pulumi.Input[str] provisioning_state: The provisioning state of the firewall policy rule group resource.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
-        :param pulumi.Input[list] rules: Group of Firewall Policy rules.
-
-        The **rules** object supports the following:
-
-          * `name` (`pulumi.Input[str]`) - The name of the rule.
-          * `priority` (`pulumi.Input[float]`) - Priority of the Firewall Policy Rule resource.
-          * `rule_type` (`pulumi.Input[str]`) - The type of the rule.
+        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['FirewallPolicyRuleArgs']]]] rules: Group of Firewall Policy rules.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -98,13 +81,15 @@ class FirewallPolicyRuleGroup(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None) -> 'FirewallPolicyRuleGroup':
         """
         Get an existing FirewallPolicyRuleGroup resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -113,8 +98,57 @@ class FirewallPolicyRuleGroup(pulumi.CustomResource):
 
         return FirewallPolicyRuleGroup(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter
+    def etag(self) -> str:
+        """
+        A unique read-only string that changes whenever the resource is updated.
+        """
+        return pulumi.get(self, "etag")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        The name of the resource that is unique within a resource group. This name can be used to access the resource.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def priority(self) -> Optional[float]:
+        """
+        Priority of the Firewall Policy Rule Group resource.
+        """
+        return pulumi.get(self, "priority")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> Optional[str]:
+        """
+        The provisioning state of the firewall policy rule group resource.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter
+    def rules(self) -> Optional[List['outputs.FirewallPolicyRuleResponse']]:
+        """
+        Group of Firewall Policy rules.
+        """
+        return pulumi.get(self, "rules")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Rule Group type.
+        """
+        return pulumi.get(self, "type")
+
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

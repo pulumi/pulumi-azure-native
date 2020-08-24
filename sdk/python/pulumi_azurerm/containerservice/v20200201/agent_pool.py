@@ -5,102 +5,47 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+
+__all__ = ['AgentPool']
 
 
 class AgentPool(pulumi.CustomResource):
-    availability_zones: pulumi.Output[list]
-    """
-    Availability zones for nodes. Must use VirtualMachineScaleSets AgentPoolType.
-    """
-    count: pulumi.Output[float]
-    """
-    Number of agents (VMs) to host docker containers. Allowed values must be in the range of 1 to 100 (inclusive). The default value is 1.
-    """
-    enable_auto_scaling: pulumi.Output[bool]
-    """
-    Whether to enable auto-scaler
-    """
-    enable_node_public_ip: pulumi.Output[bool]
-    """
-    Enable public IP for nodes
-    """
-    max_count: pulumi.Output[float]
-    """
-    Maximum number of nodes for auto-scaling
-    """
-    max_pods: pulumi.Output[float]
-    """
-    Maximum number of pods that can run on a node.
-    """
-    min_count: pulumi.Output[float]
-    """
-    Minimum number of nodes for auto-scaling
-    """
-    name: pulumi.Output[str]
-    """
-    The name of the resource that is unique within a resource group. This name can be used to access the resource.
-    """
-    node_labels: pulumi.Output[dict]
-    """
-    Agent pool node labels to be persisted across all nodes in agent pool.
-    """
-    node_taints: pulumi.Output[list]
-    """
-    Taints added to new nodes during node pool create and scale. For example, key=value:NoSchedule.
-    """
-    orchestrator_version: pulumi.Output[str]
-    """
-    Version of orchestrator specified when creating the managed cluster.
-    """
-    os_disk_size_gb: pulumi.Output[float]
-    """
-    OS Disk Size in GB to be used to specify the disk size for every machine in this master/agent pool. If you specify 0, it will apply the default osDisk size according to the vmSize specified.
-    """
-    os_type: pulumi.Output[str]
-    """
-    OsType to be used to specify os type. Choose from Linux and Windows. Default to Linux.
-    """
-    provisioning_state: pulumi.Output[str]
-    """
-    The current deployment or provisioning state, which only appears in the response.
-    """
-    scale_set_eviction_policy: pulumi.Output[str]
-    """
-    ScaleSetEvictionPolicy to be used to specify eviction policy for Spot or low priority virtual machine scale set. Default to Delete.
-    """
-    scale_set_priority: pulumi.Output[str]
-    """
-    ScaleSetPriority to be used to specify virtual machine scale set priority. Default to regular.
-    """
-    spot_max_price: pulumi.Output[float]
-    """
-    SpotMaxPrice to be used to specify the maximum price you are willing to pay in US Dollars. Possible values are any decimal value greater than zero or -1 which indicates default price to be up-to on-demand.
-    """
-    tags: pulumi.Output[dict]
-    """
-    Agent pool tags to be persisted on the agent pool virtual machine scale set.
-    """
-    type: pulumi.Output[str]
-    """
-    AgentPoolType represents types of an agent pool
-    """
-    vm_size: pulumi.Output[str]
-    """
-    Size of agent VMs.
-    """
-    vnet_subnet_id: pulumi.Output[str]
-    """
-    VNet SubnetID specifies the VNet's subnet identifier.
-    """
-    def __init__(__self__, resource_name, opts=None, availability_zones=None, count=None, enable_auto_scaling=None, enable_node_public_ip=None, max_count=None, max_pods=None, min_count=None, name=None, node_labels=None, node_taints=None, orchestrator_version=None, os_disk_size_gb=None, os_type=None, resource_group_name=None, resource_name_=None, scale_set_eviction_policy=None, scale_set_priority=None, spot_max_price=None, tags=None, type=None, vm_size=None, vnet_subnet_id=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 availability_zones: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 count: Optional[pulumi.Input[float]] = None,
+                 enable_auto_scaling: Optional[pulumi.Input[bool]] = None,
+                 enable_node_public_ip: Optional[pulumi.Input[bool]] = None,
+                 max_count: Optional[pulumi.Input[float]] = None,
+                 max_pods: Optional[pulumi.Input[float]] = None,
+                 min_count: Optional[pulumi.Input[float]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 node_labels: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 node_taints: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 orchestrator_version: Optional[pulumi.Input[str]] = None,
+                 os_disk_size_gb: Optional[pulumi.Input[float]] = None,
+                 os_type: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 resource_name_: Optional[pulumi.Input[str]] = None,
+                 scale_set_eviction_policy: Optional[pulumi.Input[str]] = None,
+                 scale_set_priority: Optional[pulumi.Input[str]] = None,
+                 spot_max_price: Optional[pulumi.Input[float]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 type: Optional[pulumi.Input[str]] = None,
+                 vm_size: Optional[pulumi.Input[str]] = None,
+                 vnet_subnet_id: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         Agent Pool.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[list] availability_zones: Availability zones for nodes. Must use VirtualMachineScaleSets AgentPoolType.
+        :param pulumi.Input[List[pulumi.Input[str]]] availability_zones: Availability zones for nodes. Must use VirtualMachineScaleSets AgentPoolType.
         :param pulumi.Input[float] count: Number of agents (VMs) to host docker containers. Allowed values must be in the range of 1 to 100 (inclusive). The default value is 1.
         :param pulumi.Input[bool] enable_auto_scaling: Whether to enable auto-scaler
         :param pulumi.Input[bool] enable_node_public_ip: Enable public IP for nodes
@@ -108,8 +53,8 @@ class AgentPool(pulumi.CustomResource):
         :param pulumi.Input[float] max_pods: Maximum number of pods that can run on a node.
         :param pulumi.Input[float] min_count: Minimum number of nodes for auto-scaling
         :param pulumi.Input[str] name: The name of the agent pool.
-        :param pulumi.Input[dict] node_labels: Agent pool node labels to be persisted across all nodes in agent pool.
-        :param pulumi.Input[list] node_taints: Taints added to new nodes during node pool create and scale. For example, key=value:NoSchedule.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] node_labels: Agent pool node labels to be persisted across all nodes in agent pool.
+        :param pulumi.Input[List[pulumi.Input[str]]] node_taints: Taints added to new nodes during node pool create and scale. For example, key=value:NoSchedule.
         :param pulumi.Input[str] orchestrator_version: Version of orchestrator specified when creating the managed cluster.
         :param pulumi.Input[float] os_disk_size_gb: OS Disk Size in GB to be used to specify the disk size for every machine in this master/agent pool. If you specify 0, it will apply the default osDisk size according to the vmSize specified.
         :param pulumi.Input[str] os_type: OsType to be used to specify os type. Choose from Linux and Windows. Default to Linux.
@@ -118,7 +63,7 @@ class AgentPool(pulumi.CustomResource):
         :param pulumi.Input[str] scale_set_eviction_policy: ScaleSetEvictionPolicy to be used to specify eviction policy for Spot or low priority virtual machine scale set. Default to Delete.
         :param pulumi.Input[str] scale_set_priority: ScaleSetPriority to be used to specify virtual machine scale set priority. Default to regular.
         :param pulumi.Input[float] spot_max_price: SpotMaxPrice to be used to specify the maximum price you are willing to pay in US Dollars. Possible values are any decimal value greater than zero or -1 which indicates default price to be up-to on-demand.
-        :param pulumi.Input[dict] tags: Agent pool tags to be persisted on the agent pool virtual machine scale set.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Agent pool tags to be persisted on the agent pool virtual machine scale set.
         :param pulumi.Input[str] type: AgentPoolType represents types of an agent pool
         :param pulumi.Input[str] vm_size: Size of agent VMs.
         :param pulumi.Input[str] vnet_subnet_id: VNet SubnetID specifies the VNet's subnet identifier.
@@ -178,13 +123,15 @@ class AgentPool(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None) -> 'AgentPool':
         """
         Get an existing AgentPool resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -193,8 +140,177 @@ class AgentPool(pulumi.CustomResource):
 
         return AgentPool(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter(name="availabilityZones")
+    def availability_zones(self) -> Optional[List[str]]:
+        """
+        Availability zones for nodes. Must use VirtualMachineScaleSets AgentPoolType.
+        """
+        return pulumi.get(self, "availability_zones")
+
+    @property
+    @pulumi.getter
+    def count(self) -> Optional[float]:
+        """
+        Number of agents (VMs) to host docker containers. Allowed values must be in the range of 1 to 100 (inclusive). The default value is 1.
+        """
+        return pulumi.get(self, "count")
+
+    @property
+    @pulumi.getter(name="enableAutoScaling")
+    def enable_auto_scaling(self) -> Optional[bool]:
+        """
+        Whether to enable auto-scaler
+        """
+        return pulumi.get(self, "enable_auto_scaling")
+
+    @property
+    @pulumi.getter(name="enableNodePublicIP")
+    def enable_node_public_ip(self) -> Optional[bool]:
+        """
+        Enable public IP for nodes
+        """
+        return pulumi.get(self, "enable_node_public_ip")
+
+    @property
+    @pulumi.getter(name="maxCount")
+    def max_count(self) -> Optional[float]:
+        """
+        Maximum number of nodes for auto-scaling
+        """
+        return pulumi.get(self, "max_count")
+
+    @property
+    @pulumi.getter(name="maxPods")
+    def max_pods(self) -> Optional[float]:
+        """
+        Maximum number of pods that can run on a node.
+        """
+        return pulumi.get(self, "max_pods")
+
+    @property
+    @pulumi.getter(name="minCount")
+    def min_count(self) -> Optional[float]:
+        """
+        Minimum number of nodes for auto-scaling
+        """
+        return pulumi.get(self, "min_count")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the resource that is unique within a resource group. This name can be used to access the resource.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="nodeLabels")
+    def node_labels(self) -> Optional[Mapping[str, str]]:
+        """
+        Agent pool node labels to be persisted across all nodes in agent pool.
+        """
+        return pulumi.get(self, "node_labels")
+
+    @property
+    @pulumi.getter(name="nodeTaints")
+    def node_taints(self) -> Optional[List[str]]:
+        """
+        Taints added to new nodes during node pool create and scale. For example, key=value:NoSchedule.
+        """
+        return pulumi.get(self, "node_taints")
+
+    @property
+    @pulumi.getter(name="orchestratorVersion")
+    def orchestrator_version(self) -> Optional[str]:
+        """
+        Version of orchestrator specified when creating the managed cluster.
+        """
+        return pulumi.get(self, "orchestrator_version")
+
+    @property
+    @pulumi.getter(name="osDiskSizeGB")
+    def os_disk_size_gb(self) -> Optional[float]:
+        """
+        OS Disk Size in GB to be used to specify the disk size for every machine in this master/agent pool. If you specify 0, it will apply the default osDisk size according to the vmSize specified.
+        """
+        return pulumi.get(self, "os_disk_size_gb")
+
+    @property
+    @pulumi.getter(name="osType")
+    def os_type(self) -> Optional[str]:
+        """
+        OsType to be used to specify os type. Choose from Linux and Windows. Default to Linux.
+        """
+        return pulumi.get(self, "os_type")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        The current deployment or provisioning state, which only appears in the response.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="scaleSetEvictionPolicy")
+    def scale_set_eviction_policy(self) -> Optional[str]:
+        """
+        ScaleSetEvictionPolicy to be used to specify eviction policy for Spot or low priority virtual machine scale set. Default to Delete.
+        """
+        return pulumi.get(self, "scale_set_eviction_policy")
+
+    @property
+    @pulumi.getter(name="scaleSetPriority")
+    def scale_set_priority(self) -> Optional[str]:
+        """
+        ScaleSetPriority to be used to specify virtual machine scale set priority. Default to regular.
+        """
+        return pulumi.get(self, "scale_set_priority")
+
+    @property
+    @pulumi.getter(name="spotMaxPrice")
+    def spot_max_price(self) -> Optional[float]:
+        """
+        SpotMaxPrice to be used to specify the maximum price you are willing to pay in US Dollars. Possible values are any decimal value greater than zero or -1 which indicates default price to be up-to on-demand.
+        """
+        return pulumi.get(self, "spot_max_price")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Mapping[str, str]]:
+        """
+        Agent pool tags to be persisted on the agent pool virtual machine scale set.
+        """
+        return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        AgentPoolType represents types of an agent pool
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="vmSize")
+    def vm_size(self) -> Optional[str]:
+        """
+        Size of agent VMs.
+        """
+        return pulumi.get(self, "vm_size")
+
+    @property
+    @pulumi.getter(name="vnetSubnetID")
+    def vnet_subnet_id(self) -> Optional[str]:
+        """
+        VNet SubnetID specifies the VNet's subnet identifier.
+        """
+        return pulumi.get(self, "vnet_subnet_id")
+
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

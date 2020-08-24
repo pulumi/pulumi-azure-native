@@ -5,62 +5,30 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+from . import outputs
+
+__all__ = ['VirtualWan']
 
 
 class VirtualWan(pulumi.CustomResource):
-    allow_branch_to_branch_traffic: pulumi.Output[bool]
-    """
-    True if branch to branch traffic is allowed.
-    """
-    allow_vnet_to_vnet_traffic: pulumi.Output[bool]
-    """
-    True if Vnet to Vnet traffic is allowed.
-    """
-    disable_vpn_encryption: pulumi.Output[bool]
-    """
-    Vpn encryption to be disabled or not.
-    """
-    etag: pulumi.Output[str]
-    """
-    A unique read-only string that changes whenever the resource is updated.
-    """
-    location: pulumi.Output[str]
-    """
-    Resource location.
-    """
-    name: pulumi.Output[str]
-    """
-    Resource name.
-    """
-    office365_local_breakout_category: pulumi.Output[str]
-    """
-    The office local breakout category.
-    """
-    provisioning_state: pulumi.Output[str]
-    """
-    The provisioning state of the virtual WAN resource.
-    """
-    tags: pulumi.Output[dict]
-    """
-    Resource tags.
-    """
-    type: pulumi.Output[str]
-    """
-    Resource type.
-    """
-    virtual_hubs: pulumi.Output[list]
-    """
-    List of VirtualHubs in the VirtualWAN.
-      * `id` (`str`) - Resource ID.
-    """
-    vpn_sites: pulumi.Output[list]
-    """
-    List of VpnSites in the VirtualWAN.
-      * `id` (`str`) - Resource ID.
-    """
-    def __init__(__self__, resource_name, opts=None, allow_branch_to_branch_traffic=None, allow_vnet_to_vnet_traffic=None, disable_vpn_encryption=None, id=None, location=None, name=None, office365_local_breakout_category=None, provisioning_state=None, resource_group_name=None, tags=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 allow_branch_to_branch_traffic: Optional[pulumi.Input[bool]] = None,
+                 allow_vnet_to_vnet_traffic: Optional[pulumi.Input[bool]] = None,
+                 disable_vpn_encryption: Optional[pulumi.Input[bool]] = None,
+                 id: Optional[pulumi.Input[str]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 office365_local_breakout_category: Optional[pulumi.Input[str]] = None,
+                 provisioning_state: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         VirtualWAN Resource.
 
@@ -75,7 +43,7 @@ class VirtualWan(pulumi.CustomResource):
         :param pulumi.Input[str] office365_local_breakout_category: The office local breakout category.
         :param pulumi.Input[str] provisioning_state: The provisioning state of the virtual WAN resource.
         :param pulumi.Input[str] resource_group_name: The resource group name of the VirtualWan.
-        :param pulumi.Input[dict] tags: Resource tags.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -123,13 +91,15 @@ class VirtualWan(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None) -> 'VirtualWan':
         """
         Get an existing VirtualWan resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -138,8 +108,105 @@ class VirtualWan(pulumi.CustomResource):
 
         return VirtualWan(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter(name="allowBranchToBranchTraffic")
+    def allow_branch_to_branch_traffic(self) -> Optional[bool]:
+        """
+        True if branch to branch traffic is allowed.
+        """
+        return pulumi.get(self, "allow_branch_to_branch_traffic")
+
+    @property
+    @pulumi.getter(name="allowVnetToVnetTraffic")
+    def allow_vnet_to_vnet_traffic(self) -> Optional[bool]:
+        """
+        True if Vnet to Vnet traffic is allowed.
+        """
+        return pulumi.get(self, "allow_vnet_to_vnet_traffic")
+
+    @property
+    @pulumi.getter(name="disableVpnEncryption")
+    def disable_vpn_encryption(self) -> Optional[bool]:
+        """
+        Vpn encryption to be disabled or not.
+        """
+        return pulumi.get(self, "disable_vpn_encryption")
+
+    @property
+    @pulumi.getter
+    def etag(self) -> str:
+        """
+        A unique read-only string that changes whenever the resource is updated.
+        """
+        return pulumi.get(self, "etag")
+
+    @property
+    @pulumi.getter
+    def location(self) -> str:
+        """
+        Resource location.
+        """
+        return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Resource name.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="office365LocalBreakoutCategory")
+    def office365_local_breakout_category(self) -> Optional[str]:
+        """
+        The office local breakout category.
+        """
+        return pulumi.get(self, "office365_local_breakout_category")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> Optional[str]:
+        """
+        The provisioning state of the virtual WAN resource.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Mapping[str, str]]:
+        """
+        Resource tags.
+        """
+        return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Resource type.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="virtualHubs")
+    def virtual_hubs(self) -> List['outputs.SubResourceResponse']:
+        """
+        List of VirtualHubs in the VirtualWAN.
+        """
+        return pulumi.get(self, "virtual_hubs")
+
+    @property
+    @pulumi.getter(name="vpnSites")
+    def vpn_sites(self) -> List['outputs.SubResourceResponse']:
+        """
+        List of VpnSites in the VirtualWAN.
+        """
+        return pulumi.get(self, "vpn_sites")
+
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

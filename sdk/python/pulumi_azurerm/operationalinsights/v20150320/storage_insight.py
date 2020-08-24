@@ -5,66 +5,42 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+from . import outputs
+from ._inputs import *
+
+__all__ = ['StorageInsight']
 
 
 class StorageInsight(pulumi.CustomResource):
-    containers: pulumi.Output[list]
-    """
-    The names of the blob containers that the workspace should read
-    """
-    e_tag: pulumi.Output[str]
-    """
-    The ETag of the storage insight.
-    """
-    name: pulumi.Output[str]
-    """
-    Resource name.
-    """
-    status: pulumi.Output[dict]
-    """
-    The status of the storage insight
-      * `description` (`str`) - Description of the state of the storage insight.
-      * `state` (`str`) - The state of the storage insight connection to the workspace
-    """
-    storage_account: pulumi.Output[dict]
-    """
-    The storage account connection details
-      * `id` (`str`) - The Azure Resource Manager ID of the storage account resource.
-      * `key` (`str`) - The storage account key.
-    """
-    tables: pulumi.Output[list]
-    """
-    The names of the Azure tables that the workspace should read
-    """
-    tags: pulumi.Output[dict]
-    """
-    Resource tags
-    """
-    type: pulumi.Output[str]
-    """
-    Resource type.
-    """
-    def __init__(__self__, resource_name, opts=None, containers=None, e_tag=None, name=None, resource_group_name=None, storage_account=None, tables=None, tags=None, workspace_name=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 containers: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 e_tag: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 storage_account: Optional[pulumi.Input[pulumi.InputType['StorageAccountArgs']]] = None,
+                 tables: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 workspace_name: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         The top level storage insight resource container.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[list] containers: The names of the blob containers that the workspace should read
+        :param pulumi.Input[List[pulumi.Input[str]]] containers: The names of the blob containers that the workspace should read
         :param pulumi.Input[str] e_tag: The ETag of the storage insight.
         :param pulumi.Input[str] name: Name of the storageInsightsConfigs resource
         :param pulumi.Input[str] resource_group_name: The Resource Group name.
-        :param pulumi.Input[dict] storage_account: The storage account connection details
-        :param pulumi.Input[list] tables: The names of the Azure tables that the workspace should read
-        :param pulumi.Input[dict] tags: Resource tags
+        :param pulumi.Input[pulumi.InputType['StorageAccountArgs']] storage_account: The storage account connection details
+        :param pulumi.Input[List[pulumi.Input[str]]] tables: The names of the Azure tables that the workspace should read
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags
         :param pulumi.Input[str] workspace_name: The Log Analytics Workspace name.
-
-        The **storage_account** object supports the following:
-
-          * `id` (`pulumi.Input[str]`) - The Azure Resource Manager ID of the storage account resource.
-          * `key` (`pulumi.Input[str]`) - The storage account key.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -110,13 +86,15 @@ class StorageInsight(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None) -> 'StorageInsight':
         """
         Get an existing StorageInsight resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -125,8 +103,73 @@ class StorageInsight(pulumi.CustomResource):
 
         return StorageInsight(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter
+    def containers(self) -> Optional[List[str]]:
+        """
+        The names of the blob containers that the workspace should read
+        """
+        return pulumi.get(self, "containers")
+
+    @property
+    @pulumi.getter(name="eTag")
+    def e_tag(self) -> Optional[str]:
+        """
+        The ETag of the storage insight.
+        """
+        return pulumi.get(self, "e_tag")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Resource name.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def status(self) -> 'outputs.StorageInsightStatusResponse':
+        """
+        The status of the storage insight
+        """
+        return pulumi.get(self, "status")
+
+    @property
+    @pulumi.getter(name="storageAccount")
+    def storage_account(self) -> 'outputs.StorageAccountResponse':
+        """
+        The storage account connection details
+        """
+        return pulumi.get(self, "storage_account")
+
+    @property
+    @pulumi.getter
+    def tables(self) -> Optional[List[str]]:
+        """
+        The names of the Azure tables that the workspace should read
+        """
+        return pulumi.get(self, "tables")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Mapping[str, str]]:
+        """
+        Resource tags
+        """
+        return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Resource type.
+        """
+        return pulumi.get(self, "type")
+
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

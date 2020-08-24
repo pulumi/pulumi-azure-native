@@ -5,87 +5,44 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+from . import outputs
+from ._inputs import *
+
+__all__ = ['VirtualHub']
 
 
 class VirtualHub(pulumi.CustomResource):
-    address_prefix: pulumi.Output[str]
-    """
-    Address-prefix for this VirtualHub.
-    """
-    etag: pulumi.Output[str]
-    """
-    Gets a unique read-only string that changes whenever the resource is updated.
-    """
-    hub_virtual_network_connections: pulumi.Output[list]
-    """
-    list of all vnet connections with this VirtualHub.
-      * `allow_hub_to_remote_vnet_transit` (`bool`) - VirtualHub to RemoteVnet transit to enabled or not.
-      * `allow_remote_vnet_to_use_hub_vnet_gateways` (`bool`) - Allow RemoteVnet to use Virtual Hub's gateways.
-      * `etag` (`str`) - Gets a unique read-only string that changes whenever the resource is updated.
-      * `id` (`str`) - Resource ID.
-      * `location` (`str`) - Resource location.
-      * `name` (`str`) - Resource name.
-      * `provisioning_state` (`str`) - The provisioning state of the resource.
-      * `remote_virtual_network` (`dict`) - Reference to the remote virtual network.
-        * `id` (`str`) - Resource ID.
-
-      * `tags` (`dict`) - Resource tags.
-      * `type` (`str`) - Resource type.
-    """
-    location: pulumi.Output[str]
-    """
-    Resource location.
-    """
-    name: pulumi.Output[str]
-    """
-    Resource name.
-    """
-    provisioning_state: pulumi.Output[str]
-    """
-    The provisioning state of the resource.
-    """
-    tags: pulumi.Output[dict]
-    """
-    Resource tags.
-    """
-    type: pulumi.Output[str]
-    """
-    Resource type.
-    """
-    virtual_wan: pulumi.Output[dict]
-    """
-    The VirtualWAN to which the VirtualHub belongs
-      * `id` (`str`) - Resource ID.
-    """
-    def __init__(__self__, resource_name, opts=None, address_prefix=None, hub_virtual_network_connections=None, id=None, location=None, name=None, provisioning_state=None, resource_group_name=None, tags=None, virtual_wan=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 address_prefix: Optional[pulumi.Input[str]] = None,
+                 hub_virtual_network_connections: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['HubVirtualNetworkConnectionArgs']]]]] = None,
+                 id: Optional[pulumi.Input[str]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 provisioning_state: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 virtual_wan: Optional[pulumi.Input[pulumi.InputType['SubResourceArgs']]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         VirtualHub Resource.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] address_prefix: Address-prefix for this VirtualHub.
-        :param pulumi.Input[list] hub_virtual_network_connections: list of all vnet connections with this VirtualHub.
+        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['HubVirtualNetworkConnectionArgs']]]] hub_virtual_network_connections: list of all vnet connections with this VirtualHub.
         :param pulumi.Input[str] id: Resource ID.
         :param pulumi.Input[str] location: Resource location.
         :param pulumi.Input[str] name: The name of the VirtualHub.
         :param pulumi.Input[str] provisioning_state: The provisioning state of the resource.
         :param pulumi.Input[str] resource_group_name: The resource group name of the VirtualHub.
-        :param pulumi.Input[dict] tags: Resource tags.
-        :param pulumi.Input[dict] virtual_wan: The VirtualWAN to which the VirtualHub belongs
-
-        The **hub_virtual_network_connections** object supports the following:
-
-          * `allow_hub_to_remote_vnet_transit` (`pulumi.Input[bool]`) - VirtualHub to RemoteVnet transit to enabled or not.
-          * `allow_remote_vnet_to_use_hub_vnet_gateways` (`pulumi.Input[bool]`) - Allow RemoteVnet to use Virtual Hub's gateways.
-          * `id` (`pulumi.Input[str]`) - Resource ID.
-          * `location` (`pulumi.Input[str]`) - Resource location.
-          * `provisioning_state` (`pulumi.Input[str]`) - The provisioning state of the resource.
-          * `remote_virtual_network` (`pulumi.Input[dict]`) - Reference to the remote virtual network.
-            * `id` (`pulumi.Input[str]`) - Resource ID.
-
-          * `tags` (`pulumi.Input[dict]`) - Resource tags.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
+        :param pulumi.Input[pulumi.InputType['SubResourceArgs']] virtual_wan: The VirtualWAN to which the VirtualHub belongs
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -130,13 +87,15 @@ class VirtualHub(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None) -> 'VirtualHub':
         """
         Get an existing VirtualHub resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -145,8 +104,81 @@ class VirtualHub(pulumi.CustomResource):
 
         return VirtualHub(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter(name="addressPrefix")
+    def address_prefix(self) -> Optional[str]:
+        """
+        Address-prefix for this VirtualHub.
+        """
+        return pulumi.get(self, "address_prefix")
+
+    @property
+    @pulumi.getter
+    def etag(self) -> str:
+        """
+        Gets a unique read-only string that changes whenever the resource is updated.
+        """
+        return pulumi.get(self, "etag")
+
+    @property
+    @pulumi.getter(name="hubVirtualNetworkConnections")
+    def hub_virtual_network_connections(self) -> Optional[List['outputs.HubVirtualNetworkConnectionResponse']]:
+        """
+        list of all vnet connections with this VirtualHub.
+        """
+        return pulumi.get(self, "hub_virtual_network_connections")
+
+    @property
+    @pulumi.getter
+    def location(self) -> str:
+        """
+        Resource location.
+        """
+        return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Resource name.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> Optional[str]:
+        """
+        The provisioning state of the resource.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Mapping[str, str]]:
+        """
+        Resource tags.
+        """
+        return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Resource type.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="virtualWan")
+    def virtual_wan(self) -> Optional['outputs.SubResourceResponse']:
+        """
+        The VirtualWAN to which the VirtualHub belongs
+        """
+        return pulumi.get(self, "virtual_wan")
+
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

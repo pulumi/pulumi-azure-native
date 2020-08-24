@@ -8,3 +8,5 @@ from .get_event_subscription import *
 from .get_topic import *
 from .list_topic_shared_access_keys import *
 from .topic import *
+from ._inputs import *
+from . import outputs

@@ -5,10 +5,17 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+from . import outputs
 
+__all__ = [
+    'GetDiskResult',
+    'AwaitableGetDiskResult',
+    'get_disk',
+]
 
+@pulumi.output_type
 class GetDiskResult:
     """
     Disk resource.
@@ -16,172 +23,312 @@ class GetDiskResult:
     def __init__(__self__, creation_data=None, disk_access_id=None, disk_iops_read_only=None, disk_iops_read_write=None, disk_m_bps_read_only=None, disk_m_bps_read_write=None, disk_size_bytes=None, disk_size_gb=None, disk_state=None, encryption=None, encryption_settings_collection=None, hyper_v_generation=None, location=None, managed_by=None, managed_by_extended=None, max_shares=None, name=None, network_access_policy=None, os_type=None, provisioning_state=None, share_info=None, sku=None, tags=None, tier=None, time_created=None, type=None, unique_id=None, zones=None):
         if creation_data and not isinstance(creation_data, dict):
             raise TypeError("Expected argument 'creation_data' to be a dict")
-        __self__.creation_data = creation_data
+        pulumi.set(__self__, "creation_data", creation_data)
+        if disk_access_id and not isinstance(disk_access_id, str):
+            raise TypeError("Expected argument 'disk_access_id' to be a str")
+        pulumi.set(__self__, "disk_access_id", disk_access_id)
+        if disk_iops_read_only and not isinstance(disk_iops_read_only, float):
+            raise TypeError("Expected argument 'disk_iops_read_only' to be a float")
+        pulumi.set(__self__, "disk_iops_read_only", disk_iops_read_only)
+        if disk_iops_read_write and not isinstance(disk_iops_read_write, float):
+            raise TypeError("Expected argument 'disk_iops_read_write' to be a float")
+        pulumi.set(__self__, "disk_iops_read_write", disk_iops_read_write)
+        if disk_m_bps_read_only and not isinstance(disk_m_bps_read_only, float):
+            raise TypeError("Expected argument 'disk_m_bps_read_only' to be a float")
+        pulumi.set(__self__, "disk_m_bps_read_only", disk_m_bps_read_only)
+        if disk_m_bps_read_write and not isinstance(disk_m_bps_read_write, float):
+            raise TypeError("Expected argument 'disk_m_bps_read_write' to be a float")
+        pulumi.set(__self__, "disk_m_bps_read_write", disk_m_bps_read_write)
+        if disk_size_bytes and not isinstance(disk_size_bytes, float):
+            raise TypeError("Expected argument 'disk_size_bytes' to be a float")
+        pulumi.set(__self__, "disk_size_bytes", disk_size_bytes)
+        if disk_size_gb and not isinstance(disk_size_gb, float):
+            raise TypeError("Expected argument 'disk_size_gb' to be a float")
+        pulumi.set(__self__, "disk_size_gb", disk_size_gb)
+        if disk_state and not isinstance(disk_state, str):
+            raise TypeError("Expected argument 'disk_state' to be a str")
+        pulumi.set(__self__, "disk_state", disk_state)
+        if encryption and not isinstance(encryption, dict):
+            raise TypeError("Expected argument 'encryption' to be a dict")
+        pulumi.set(__self__, "encryption", encryption)
+        if encryption_settings_collection and not isinstance(encryption_settings_collection, dict):
+            raise TypeError("Expected argument 'encryption_settings_collection' to be a dict")
+        pulumi.set(__self__, "encryption_settings_collection", encryption_settings_collection)
+        if hyper_v_generation and not isinstance(hyper_v_generation, str):
+            raise TypeError("Expected argument 'hyper_v_generation' to be a str")
+        pulumi.set(__self__, "hyper_v_generation", hyper_v_generation)
+        if location and not isinstance(location, str):
+            raise TypeError("Expected argument 'location' to be a str")
+        pulumi.set(__self__, "location", location)
+        if managed_by and not isinstance(managed_by, str):
+            raise TypeError("Expected argument 'managed_by' to be a str")
+        pulumi.set(__self__, "managed_by", managed_by)
+        if managed_by_extended and not isinstance(managed_by_extended, list):
+            raise TypeError("Expected argument 'managed_by_extended' to be a list")
+        pulumi.set(__self__, "managed_by_extended", managed_by_extended)
+        if max_shares and not isinstance(max_shares, float):
+            raise TypeError("Expected argument 'max_shares' to be a float")
+        pulumi.set(__self__, "max_shares", max_shares)
+        if name and not isinstance(name, str):
+            raise TypeError("Expected argument 'name' to be a str")
+        pulumi.set(__self__, "name", name)
+        if network_access_policy and not isinstance(network_access_policy, str):
+            raise TypeError("Expected argument 'network_access_policy' to be a str")
+        pulumi.set(__self__, "network_access_policy", network_access_policy)
+        if os_type and not isinstance(os_type, str):
+            raise TypeError("Expected argument 'os_type' to be a str")
+        pulumi.set(__self__, "os_type", os_type)
+        if provisioning_state and not isinstance(provisioning_state, str):
+            raise TypeError("Expected argument 'provisioning_state' to be a str")
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if share_info and not isinstance(share_info, list):
+            raise TypeError("Expected argument 'share_info' to be a list")
+        pulumi.set(__self__, "share_info", share_info)
+        if sku and not isinstance(sku, dict):
+            raise TypeError("Expected argument 'sku' to be a dict")
+        pulumi.set(__self__, "sku", sku)
+        if tags and not isinstance(tags, dict):
+            raise TypeError("Expected argument 'tags' to be a dict")
+        pulumi.set(__self__, "tags", tags)
+        if tier and not isinstance(tier, str):
+            raise TypeError("Expected argument 'tier' to be a str")
+        pulumi.set(__self__, "tier", tier)
+        if time_created and not isinstance(time_created, str):
+            raise TypeError("Expected argument 'time_created' to be a str")
+        pulumi.set(__self__, "time_created", time_created)
+        if type and not isinstance(type, str):
+            raise TypeError("Expected argument 'type' to be a str")
+        pulumi.set(__self__, "type", type)
+        if unique_id and not isinstance(unique_id, str):
+            raise TypeError("Expected argument 'unique_id' to be a str")
+        pulumi.set(__self__, "unique_id", unique_id)
+        if zones and not isinstance(zones, list):
+            raise TypeError("Expected argument 'zones' to be a list")
+        pulumi.set(__self__, "zones", zones)
+
+    @property
+    @pulumi.getter(name="creationData")
+    def creation_data(self) -> 'outputs.CreationDataResponse':
         """
         Disk source information. CreationData information cannot be changed after the disk has been created.
         """
-        if disk_access_id and not isinstance(disk_access_id, str):
-            raise TypeError("Expected argument 'disk_access_id' to be a str")
-        __self__.disk_access_id = disk_access_id
+        return pulumi.get(self, "creation_data")
+
+    @property
+    @pulumi.getter(name="diskAccessId")
+    def disk_access_id(self) -> Optional[str]:
         """
         ARM id of the DiskAccess resource for using private endpoints on disks.
         """
-        if disk_iops_read_only and not isinstance(disk_iops_read_only, float):
-            raise TypeError("Expected argument 'disk_iops_read_only' to be a float")
-        __self__.disk_iops_read_only = disk_iops_read_only
+        return pulumi.get(self, "disk_access_id")
+
+    @property
+    @pulumi.getter(name="diskIOPSReadOnly")
+    def disk_iops_read_only(self) -> Optional[float]:
         """
         The total number of IOPS that will be allowed across all VMs mounting the shared disk as ReadOnly. One operation can transfer between 4k and 256k bytes.
         """
-        if disk_iops_read_write and not isinstance(disk_iops_read_write, float):
-            raise TypeError("Expected argument 'disk_iops_read_write' to be a float")
-        __self__.disk_iops_read_write = disk_iops_read_write
+        return pulumi.get(self, "disk_iops_read_only")
+
+    @property
+    @pulumi.getter(name="diskIOPSReadWrite")
+    def disk_iops_read_write(self) -> Optional[float]:
         """
         The number of IOPS allowed for this disk; only settable for UltraSSD disks. One operation can transfer between 4k and 256k bytes.
         """
-        if disk_m_bps_read_only and not isinstance(disk_m_bps_read_only, float):
-            raise TypeError("Expected argument 'disk_m_bps_read_only' to be a float")
-        __self__.disk_m_bps_read_only = disk_m_bps_read_only
+        return pulumi.get(self, "disk_iops_read_write")
+
+    @property
+    @pulumi.getter(name="diskMBpsReadOnly")
+    def disk_m_bps_read_only(self) -> Optional[float]:
         """
         The total throughput (MBps) that will be allowed across all VMs mounting the shared disk as ReadOnly. MBps means millions of bytes per second - MB here uses the ISO notation, of powers of 10.
         """
-        if disk_m_bps_read_write and not isinstance(disk_m_bps_read_write, float):
-            raise TypeError("Expected argument 'disk_m_bps_read_write' to be a float")
-        __self__.disk_m_bps_read_write = disk_m_bps_read_write
+        return pulumi.get(self, "disk_m_bps_read_only")
+
+    @property
+    @pulumi.getter(name="diskMBpsReadWrite")
+    def disk_m_bps_read_write(self) -> Optional[float]:
         """
         The bandwidth allowed for this disk; only settable for UltraSSD disks. MBps means millions of bytes per second - MB here uses the ISO notation, of powers of 10.
         """
-        if disk_size_bytes and not isinstance(disk_size_bytes, float):
-            raise TypeError("Expected argument 'disk_size_bytes' to be a float")
-        __self__.disk_size_bytes = disk_size_bytes
+        return pulumi.get(self, "disk_m_bps_read_write")
+
+    @property
+    @pulumi.getter(name="diskSizeBytes")
+    def disk_size_bytes(self) -> float:
         """
         The size of the disk in bytes. This field is read only.
         """
-        if disk_size_gb and not isinstance(disk_size_gb, float):
-            raise TypeError("Expected argument 'disk_size_gb' to be a float")
-        __self__.disk_size_gb = disk_size_gb
+        return pulumi.get(self, "disk_size_bytes")
+
+    @property
+    @pulumi.getter(name="diskSizeGB")
+    def disk_size_gb(self) -> Optional[float]:
         """
         If creationData.createOption is Empty, this field is mandatory and it indicates the size of the disk to create. If this field is present for updates or creation with other options, it indicates a resize. Resizes are only allowed if the disk is not attached to a running VM, and can only increase the disk's size.
         """
-        if disk_state and not isinstance(disk_state, str):
-            raise TypeError("Expected argument 'disk_state' to be a str")
-        __self__.disk_state = disk_state
+        return pulumi.get(self, "disk_size_gb")
+
+    @property
+    @pulumi.getter(name="diskState")
+    def disk_state(self) -> Optional[str]:
         """
         The state of the disk.
         """
-        if encryption and not isinstance(encryption, dict):
-            raise TypeError("Expected argument 'encryption' to be a dict")
-        __self__.encryption = encryption
+        return pulumi.get(self, "disk_state")
+
+    @property
+    @pulumi.getter
+    def encryption(self) -> Optional['outputs.EncryptionResponse']:
         """
         Encryption property can be used to encrypt data at rest with customer managed keys or platform managed keys.
         """
-        if encryption_settings_collection and not isinstance(encryption_settings_collection, dict):
-            raise TypeError("Expected argument 'encryption_settings_collection' to be a dict")
-        __self__.encryption_settings_collection = encryption_settings_collection
+        return pulumi.get(self, "encryption")
+
+    @property
+    @pulumi.getter(name="encryptionSettingsCollection")
+    def encryption_settings_collection(self) -> Optional['outputs.EncryptionSettingsCollectionResponse']:
         """
         Encryption settings collection used for Azure Disk Encryption, can contain multiple encryption settings per disk or snapshot.
         """
-        if hyper_v_generation and not isinstance(hyper_v_generation, str):
-            raise TypeError("Expected argument 'hyper_v_generation' to be a str")
-        __self__.hyper_v_generation = hyper_v_generation
+        return pulumi.get(self, "encryption_settings_collection")
+
+    @property
+    @pulumi.getter(name="hyperVGeneration")
+    def hyper_v_generation(self) -> Optional[str]:
         """
         The hypervisor generation of the Virtual Machine. Applicable to OS disks only.
         """
-        if location and not isinstance(location, str):
-            raise TypeError("Expected argument 'location' to be a str")
-        __self__.location = location
+        return pulumi.get(self, "hyper_v_generation")
+
+    @property
+    @pulumi.getter
+    def location(self) -> str:
         """
         Resource location
         """
-        if managed_by and not isinstance(managed_by, str):
-            raise TypeError("Expected argument 'managed_by' to be a str")
-        __self__.managed_by = managed_by
+        return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter(name="managedBy")
+    def managed_by(self) -> str:
         """
         A relative URI containing the ID of the VM that has the disk attached.
         """
-        if managed_by_extended and not isinstance(managed_by_extended, list):
-            raise TypeError("Expected argument 'managed_by_extended' to be a list")
-        __self__.managed_by_extended = managed_by_extended
+        return pulumi.get(self, "managed_by")
+
+    @property
+    @pulumi.getter(name="managedByExtended")
+    def managed_by_extended(self) -> List[str]:
         """
         List of relative URIs containing the IDs of the VMs that have the disk attached. maxShares should be set to a value greater than one for disks to allow attaching them to multiple VMs.
         """
-        if max_shares and not isinstance(max_shares, float):
-            raise TypeError("Expected argument 'max_shares' to be a float")
-        __self__.max_shares = max_shares
+        return pulumi.get(self, "managed_by_extended")
+
+    @property
+    @pulumi.getter(name="maxShares")
+    def max_shares(self) -> Optional[float]:
         """
         The maximum number of VMs that can attach to the disk at the same time. Value greater than one indicates a disk that can be mounted on multiple VMs at the same time.
         """
-        if name and not isinstance(name, str):
-            raise TypeError("Expected argument 'name' to be a str")
-        __self__.name = name
+        return pulumi.get(self, "max_shares")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
         """
         Resource name
         """
-        if network_access_policy and not isinstance(network_access_policy, str):
-            raise TypeError("Expected argument 'network_access_policy' to be a str")
-        __self__.network_access_policy = network_access_policy
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="networkAccessPolicy")
+    def network_access_policy(self) -> Optional[str]:
         """
         Policy for accessing the disk via network.
         """
-        if os_type and not isinstance(os_type, str):
-            raise TypeError("Expected argument 'os_type' to be a str")
-        __self__.os_type = os_type
+        return pulumi.get(self, "network_access_policy")
+
+    @property
+    @pulumi.getter(name="osType")
+    def os_type(self) -> Optional[str]:
         """
         The Operating System type.
         """
-        if provisioning_state and not isinstance(provisioning_state, str):
-            raise TypeError("Expected argument 'provisioning_state' to be a str")
-        __self__.provisioning_state = provisioning_state
+        return pulumi.get(self, "os_type")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
         """
         The disk provisioning state.
         """
-        if share_info and not isinstance(share_info, list):
-            raise TypeError("Expected argument 'share_info' to be a list")
-        __self__.share_info = share_info
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="shareInfo")
+    def share_info(self) -> List['outputs.ShareInfoElementResponse']:
         """
         Details of the list of all VMs that have the disk attached. maxShares should be set to a value greater than one for disks to allow attaching them to multiple VMs.
         """
-        if sku and not isinstance(sku, dict):
-            raise TypeError("Expected argument 'sku' to be a dict")
-        __self__.sku = sku
+        return pulumi.get(self, "share_info")
+
+    @property
+    @pulumi.getter
+    def sku(self) -> Optional['outputs.DiskSkuResponse']:
         """
         The disks sku name. Can be Standard_LRS, Premium_LRS, StandardSSD_LRS, or UltraSSD_LRS.
         """
-        if tags and not isinstance(tags, dict):
-            raise TypeError("Expected argument 'tags' to be a dict")
-        __self__.tags = tags
+        return pulumi.get(self, "sku")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Mapping[str, str]]:
         """
         Resource tags
         """
-        if tier and not isinstance(tier, str):
-            raise TypeError("Expected argument 'tier' to be a str")
-        __self__.tier = tier
+        return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter
+    def tier(self) -> Optional[str]:
         """
         Performance tier of the disk (e.g, P4, S10) as described here: https://azure.microsoft.com/en-us/pricing/details/managed-disks/. Does not apply to Ultra disks.
         """
-        if time_created and not isinstance(time_created, str):
-            raise TypeError("Expected argument 'time_created' to be a str")
-        __self__.time_created = time_created
+        return pulumi.get(self, "tier")
+
+    @property
+    @pulumi.getter(name="timeCreated")
+    def time_created(self) -> str:
         """
         The time when the disk was created.
         """
-        if type and not isinstance(type, str):
-            raise TypeError("Expected argument 'type' to be a str")
-        __self__.type = type
+        return pulumi.get(self, "time_created")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
         """
         Resource type
         """
-        if unique_id and not isinstance(unique_id, str):
-            raise TypeError("Expected argument 'unique_id' to be a str")
-        __self__.unique_id = unique_id
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="uniqueId")
+    def unique_id(self) -> str:
         """
         Unique Guid identifying the resource.
         """
-        if zones and not isinstance(zones, list):
-            raise TypeError("Expected argument 'zones' to be a list")
-        __self__.zones = zones
+        return pulumi.get(self, "unique_id")
+
+    @property
+    @pulumi.getter
+    def zones(self) -> Optional[List[str]]:
         """
         The Logical zone list for Disk.
         """
+        return pulumi.get(self, "zones")
 
 
 class AwaitableGetDiskResult(GetDiskResult):
@@ -220,7 +367,9 @@ class AwaitableGetDiskResult(GetDiskResult):
             zones=self.zones)
 
 
-def get_disk(name=None, resource_group_name=None, opts=None):
+def get_disk(name: Optional[str] = None,
+             resource_group_name: Optional[str] = None,
+             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDiskResult:
     """
     Use this data source to access information about an existing resource.
 
@@ -234,34 +383,34 @@ def get_disk(name=None, resource_group_name=None, opts=None):
         opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = _utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('azurerm:compute/v20200630:getDisk', __args__, opts=opts).value
+    __ret__ = pulumi.runtime.invoke('azurerm:compute/v20200630:getDisk', __args__, opts=opts, typ=GetDiskResult).value
 
     return AwaitableGetDiskResult(
-        creation_data=__ret__.get('creationData'),
-        disk_access_id=__ret__.get('diskAccessId'),
-        disk_iops_read_only=__ret__.get('diskIOPSReadOnly'),
-        disk_iops_read_write=__ret__.get('diskIOPSReadWrite'),
-        disk_m_bps_read_only=__ret__.get('diskMBpsReadOnly'),
-        disk_m_bps_read_write=__ret__.get('diskMBpsReadWrite'),
-        disk_size_bytes=__ret__.get('diskSizeBytes'),
-        disk_size_gb=__ret__.get('diskSizeGB'),
-        disk_state=__ret__.get('diskState'),
-        encryption=__ret__.get('encryption'),
-        encryption_settings_collection=__ret__.get('encryptionSettingsCollection'),
-        hyper_v_generation=__ret__.get('hyperVGeneration'),
-        location=__ret__.get('location'),
-        managed_by=__ret__.get('managedBy'),
-        managed_by_extended=__ret__.get('managedByExtended'),
-        max_shares=__ret__.get('maxShares'),
-        name=__ret__.get('name'),
-        network_access_policy=__ret__.get('networkAccessPolicy'),
-        os_type=__ret__.get('osType'),
-        provisioning_state=__ret__.get('provisioningState'),
-        share_info=__ret__.get('shareInfo'),
-        sku=__ret__.get('sku'),
-        tags=__ret__.get('tags'),
-        tier=__ret__.get('tier'),
-        time_created=__ret__.get('timeCreated'),
-        type=__ret__.get('type'),
-        unique_id=__ret__.get('uniqueId'),
-        zones=__ret__.get('zones'))
+        creation_data=__ret__.creation_data,
+        disk_access_id=__ret__.disk_access_id,
+        disk_iops_read_only=__ret__.disk_iops_read_only,
+        disk_iops_read_write=__ret__.disk_iops_read_write,
+        disk_m_bps_read_only=__ret__.disk_m_bps_read_only,
+        disk_m_bps_read_write=__ret__.disk_m_bps_read_write,
+        disk_size_bytes=__ret__.disk_size_bytes,
+        disk_size_gb=__ret__.disk_size_gb,
+        disk_state=__ret__.disk_state,
+        encryption=__ret__.encryption,
+        encryption_settings_collection=__ret__.encryption_settings_collection,
+        hyper_v_generation=__ret__.hyper_v_generation,
+        location=__ret__.location,
+        managed_by=__ret__.managed_by,
+        managed_by_extended=__ret__.managed_by_extended,
+        max_shares=__ret__.max_shares,
+        name=__ret__.name,
+        network_access_policy=__ret__.network_access_policy,
+        os_type=__ret__.os_type,
+        provisioning_state=__ret__.provisioning_state,
+        share_info=__ret__.share_info,
+        sku=__ret__.sku,
+        tags=__ret__.tags,
+        tier=__ret__.tier,
+        time_created=__ret__.time_created,
+        type=__ret__.type,
+        unique_id=__ret__.unique_id,
+        zones=__ret__.zones)

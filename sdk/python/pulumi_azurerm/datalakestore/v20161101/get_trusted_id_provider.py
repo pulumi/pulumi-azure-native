@@ -5,10 +5,16 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
 
+__all__ = [
+    'GetTrustedIdProviderResult',
+    'AwaitableGetTrustedIdProviderResult',
+    'get_trusted_id_provider',
+]
 
+@pulumi.output_type
 class GetTrustedIdProviderResult:
     """
     Data Lake Store trusted identity provider information.
@@ -16,22 +22,37 @@ class GetTrustedIdProviderResult:
     def __init__(__self__, id_provider=None, name=None, type=None):
         if id_provider and not isinstance(id_provider, str):
             raise TypeError("Expected argument 'id_provider' to be a str")
-        __self__.id_provider = id_provider
+        pulumi.set(__self__, "id_provider", id_provider)
+        if name and not isinstance(name, str):
+            raise TypeError("Expected argument 'name' to be a str")
+        pulumi.set(__self__, "name", name)
+        if type and not isinstance(type, str):
+            raise TypeError("Expected argument 'type' to be a str")
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="idProvider")
+    def id_provider(self) -> str:
         """
         The URL of this trusted identity provider.
         """
-        if name and not isinstance(name, str):
-            raise TypeError("Expected argument 'name' to be a str")
-        __self__.name = name
+        return pulumi.get(self, "id_provider")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
         """
         The resource name.
         """
-        if type and not isinstance(type, str):
-            raise TypeError("Expected argument 'type' to be a str")
-        __self__.type = type
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
         """
         The resource type.
         """
+        return pulumi.get(self, "type")
 
 
 class AwaitableGetTrustedIdProviderResult(GetTrustedIdProviderResult):
@@ -45,7 +66,10 @@ class AwaitableGetTrustedIdProviderResult(GetTrustedIdProviderResult):
             type=self.type)
 
 
-def get_trusted_id_provider(account_name=None, name=None, resource_group_name=None, opts=None):
+def get_trusted_id_provider(account_name: Optional[str] = None,
+                            name: Optional[str] = None,
+                            resource_group_name: Optional[str] = None,
+                            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetTrustedIdProviderResult:
     """
     Use this data source to access information about an existing resource.
 
@@ -61,9 +85,9 @@ def get_trusted_id_provider(account_name=None, name=None, resource_group_name=No
         opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = _utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('azurerm:datalakestore/v20161101:getTrustedIdProvider', __args__, opts=opts).value
+    __ret__ = pulumi.runtime.invoke('azurerm:datalakestore/v20161101:getTrustedIdProvider', __args__, opts=opts, typ=GetTrustedIdProviderResult).value
 
     return AwaitableGetTrustedIdProviderResult(
-        id_provider=__ret__.get('idProvider'),
-        name=__ret__.get('name'),
-        type=__ret__.get('type'))
+        id_provider=__ret__.id_provider,
+        name=__ret__.name,
+        type=__ret__.type)

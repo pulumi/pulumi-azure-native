@@ -5,10 +5,16 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
 
+__all__ = [
+    'GetBlobContainerImmutabilityPolicyResult',
+    'AwaitableGetBlobContainerImmutabilityPolicyResult',
+    'get_blob_container_immutability_policy',
+]
 
+@pulumi.output_type
 class GetBlobContainerImmutabilityPolicyResult:
     """
     The ImmutabilityPolicy property of a blob container, including Id, resource name, resource type, Etag.
@@ -16,40 +22,70 @@ class GetBlobContainerImmutabilityPolicyResult:
     def __init__(__self__, allow_protected_append_writes=None, etag=None, immutability_period_since_creation_in_days=None, name=None, state=None, type=None):
         if allow_protected_append_writes and not isinstance(allow_protected_append_writes, bool):
             raise TypeError("Expected argument 'allow_protected_append_writes' to be a bool")
-        __self__.allow_protected_append_writes = allow_protected_append_writes
+        pulumi.set(__self__, "allow_protected_append_writes", allow_protected_append_writes)
+        if etag and not isinstance(etag, str):
+            raise TypeError("Expected argument 'etag' to be a str")
+        pulumi.set(__self__, "etag", etag)
+        if immutability_period_since_creation_in_days and not isinstance(immutability_period_since_creation_in_days, float):
+            raise TypeError("Expected argument 'immutability_period_since_creation_in_days' to be a float")
+        pulumi.set(__self__, "immutability_period_since_creation_in_days", immutability_period_since_creation_in_days)
+        if name and not isinstance(name, str):
+            raise TypeError("Expected argument 'name' to be a str")
+        pulumi.set(__self__, "name", name)
+        if state and not isinstance(state, str):
+            raise TypeError("Expected argument 'state' to be a str")
+        pulumi.set(__self__, "state", state)
+        if type and not isinstance(type, str):
+            raise TypeError("Expected argument 'type' to be a str")
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="allowProtectedAppendWrites")
+    def allow_protected_append_writes(self) -> Optional[bool]:
         """
         This property can only be changed for unlocked time-based retention policies. When enabled, new blocks can be written to an append blob while maintaining immutability protection and compliance. Only new blocks can be added and any existing blocks cannot be modified or deleted. This property cannot be changed with ExtendImmutabilityPolicy API
         """
-        if etag and not isinstance(etag, str):
-            raise TypeError("Expected argument 'etag' to be a str")
-        __self__.etag = etag
+        return pulumi.get(self, "allow_protected_append_writes")
+
+    @property
+    @pulumi.getter
+    def etag(self) -> str:
         """
         Resource Etag.
         """
-        if immutability_period_since_creation_in_days and not isinstance(immutability_period_since_creation_in_days, float):
-            raise TypeError("Expected argument 'immutability_period_since_creation_in_days' to be a float")
-        __self__.immutability_period_since_creation_in_days = immutability_period_since_creation_in_days
+        return pulumi.get(self, "etag")
+
+    @property
+    @pulumi.getter(name="immutabilityPeriodSinceCreationInDays")
+    def immutability_period_since_creation_in_days(self) -> Optional[float]:
         """
         The immutability period for the blobs in the container since the policy creation, in days.
         """
-        if name and not isinstance(name, str):
-            raise TypeError("Expected argument 'name' to be a str")
-        __self__.name = name
+        return pulumi.get(self, "immutability_period_since_creation_in_days")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
         """
         The name of the resource
         """
-        if state and not isinstance(state, str):
-            raise TypeError("Expected argument 'state' to be a str")
-        __self__.state = state
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def state(self) -> str:
         """
         The ImmutabilityPolicy state of a blob container, possible values include: Locked and Unlocked.
         """
-        if type and not isinstance(type, str):
-            raise TypeError("Expected argument 'type' to be a str")
-        __self__.type = type
+        return pulumi.get(self, "state")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
         """
         The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
         """
+        return pulumi.get(self, "type")
 
 
 class AwaitableGetBlobContainerImmutabilityPolicyResult(GetBlobContainerImmutabilityPolicyResult):
@@ -66,7 +102,11 @@ class AwaitableGetBlobContainerImmutabilityPolicyResult(GetBlobContainerImmutabi
             type=self.type)
 
 
-def get_blob_container_immutability_policy(account_name=None, container_name=None, name=None, resource_group_name=None, opts=None):
+def get_blob_container_immutability_policy(account_name: Optional[str] = None,
+                                           container_name: Optional[str] = None,
+                                           name: Optional[str] = None,
+                                           resource_group_name: Optional[str] = None,
+                                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetBlobContainerImmutabilityPolicyResult:
     """
     Use this data source to access information about an existing resource.
 
@@ -84,12 +124,12 @@ def get_blob_container_immutability_policy(account_name=None, container_name=Non
         opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = _utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('azurerm:storage/v20190601:getBlobContainerImmutabilityPolicy', __args__, opts=opts).value
+    __ret__ = pulumi.runtime.invoke('azurerm:storage/v20190601:getBlobContainerImmutabilityPolicy', __args__, opts=opts, typ=GetBlobContainerImmutabilityPolicyResult).value
 
     return AwaitableGetBlobContainerImmutabilityPolicyResult(
-        allow_protected_append_writes=__ret__.get('allowProtectedAppendWrites'),
-        etag=__ret__.get('etag'),
-        immutability_period_since_creation_in_days=__ret__.get('immutabilityPeriodSinceCreationInDays'),
-        name=__ret__.get('name'),
-        state=__ret__.get('state'),
-        type=__ret__.get('type'))
+        allow_protected_append_writes=__ret__.allow_protected_append_writes,
+        etag=__ret__.etag,
+        immutability_period_since_creation_in_days=__ret__.immutability_period_since_creation_in_days,
+        name=__ret__.name,
+        state=__ret__.state,
+        type=__ret__.type)

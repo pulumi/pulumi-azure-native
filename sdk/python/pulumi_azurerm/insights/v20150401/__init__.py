@@ -5,3 +5,5 @@
 # Export this package's modules as members:
 from .autoscale_setting import *
 from .get_autoscale_setting import *
+from ._inputs import *
+from . import outputs

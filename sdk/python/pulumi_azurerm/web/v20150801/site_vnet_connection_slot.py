@@ -5,72 +5,35 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+from . import outputs
+from ._inputs import *
+
+__all__ = ['SiteVNETConnectionSlot']
 
 
 class SiteVNETConnectionSlot(pulumi.CustomResource):
-    cert_blob: pulumi.Output[str]
-    """
-    A certificate file (.cer) blob containing the public key of the private key used to authenticate a 
-                Point-To-Site VPN connection.
-    """
-    cert_thumbprint: pulumi.Output[str]
-    """
-    The client certificate thumbprint
-    """
-    dns_servers: pulumi.Output[str]
-    """
-    Dns servers to be used by this VNET. This should be a comma-separated list of IP addresses.
-    """
-    kind: pulumi.Output[str]
-    """
-    Kind of resource
-    """
-    location: pulumi.Output[str]
-    """
-    Resource Location
-    """
-    name: pulumi.Output[str]
-    """
-    Resource Name
-    """
-    resync_required: pulumi.Output[bool]
-    """
-    Flag to determine if a resync is required
-    """
-    routes: pulumi.Output[list]
-    """
-    The routes that this virtual network connection uses.
-      * `end_address` (`str`) - The ending address for this route. If the start address is specified in CIDR notation, this must be omitted.
-      * `id` (`str`) - Resource Id
-      * `kind` (`str`) - Kind of resource
-      * `location` (`str`) - Resource Location
-      * `name` (`str`) - Resource Name
-      * `route_type` (`str`) - The type of route this is:
-                    DEFAULT - By default, every web app has routes to the local address ranges specified by RFC1918
-                    INHERITED - Routes inherited from the real Virtual Network routes
-                    STATIC - Static route set on the web app only
-                    
-                    These values will be used for syncing a Web App's routes with those from a Virtual Network. This operation will clear all DEFAULT and INHERITED routes and replace them
-                    with new INHERITED routes.
-      * `start_address` (`str`) - The starting address for this route. This may also include a CIDR notation, in which case the end address must not be specified.
-      * `tags` (`dict`) - Resource tags
-      * `type` (`str`) - Resource type
-    """
-    tags: pulumi.Output[dict]
-    """
-    Resource tags
-    """
-    type: pulumi.Output[str]
-    """
-    Resource type
-    """
-    vnet_resource_id: pulumi.Output[str]
-    """
-    The vnet resource id
-    """
-    def __init__(__self__, resource_name, opts=None, cert_blob=None, cert_thumbprint=None, dns_servers=None, id=None, kind=None, location=None, name=None, resource_group_name=None, resync_required=None, routes=None, slot=None, tags=None, type=None, vnet_resource_id=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 cert_blob: Optional[pulumi.Input[str]] = None,
+                 cert_thumbprint: Optional[pulumi.Input[str]] = None,
+                 dns_servers: Optional[pulumi.Input[str]] = None,
+                 id: Optional[pulumi.Input[str]] = None,
+                 kind: Optional[pulumi.Input[str]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 resync_required: Optional[pulumi.Input[bool]] = None,
+                 routes: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['VnetRouteArgs']]]]] = None,
+                 slot: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 type: Optional[pulumi.Input[str]] = None,
+                 vnet_resource_id: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         VNETInfo contract. This contract is public and is a stripped down version of VNETInfoInternal
 
@@ -86,29 +49,11 @@ class SiteVNETConnectionSlot(pulumi.CustomResource):
         :param pulumi.Input[str] name: The name of the Virtual Network
         :param pulumi.Input[str] resource_group_name: The resource group name
         :param pulumi.Input[bool] resync_required: Flag to determine if a resync is required
-        :param pulumi.Input[list] routes: The routes that this virtual network connection uses.
+        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['VnetRouteArgs']]]] routes: The routes that this virtual network connection uses.
         :param pulumi.Input[str] slot: The name of the slot for this web app.
-        :param pulumi.Input[dict] tags: Resource tags
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags
         :param pulumi.Input[str] type: Resource type
         :param pulumi.Input[str] vnet_resource_id: The vnet resource id
-
-        The **routes** object supports the following:
-
-          * `end_address` (`pulumi.Input[str]`) - The ending address for this route. If the start address is specified in CIDR notation, this must be omitted.
-          * `id` (`pulumi.Input[str]`) - Resource Id
-          * `kind` (`pulumi.Input[str]`) - Kind of resource
-          * `location` (`pulumi.Input[str]`) - Resource Location
-          * `name` (`pulumi.Input[str]`) - Resource Name
-          * `route_type` (`pulumi.Input[str]`) - The type of route this is:
-                        DEFAULT - By default, every web app has routes to the local address ranges specified by RFC1918
-                        INHERITED - Routes inherited from the real Virtual Network routes
-                        STATIC - Static route set on the web app only
-                        
-                        These values will be used for syncing a Web App's routes with those from a Virtual Network. This operation will clear all DEFAULT and INHERITED routes and replace them
-                        with new INHERITED routes.
-          * `start_address` (`pulumi.Input[str]`) - The starting address for this route. This may also include a CIDR notation, in which case the end address must not be specified.
-          * `tags` (`pulumi.Input[dict]`) - Resource tags
-          * `type` (`pulumi.Input[str]`) - Resource type
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -158,13 +103,15 @@ class SiteVNETConnectionSlot(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None) -> 'SiteVNETConnectionSlot':
         """
         Get an existing SiteVNETConnectionSlot resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -173,8 +120,98 @@ class SiteVNETConnectionSlot(pulumi.CustomResource):
 
         return SiteVNETConnectionSlot(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter(name="certBlob")
+    def cert_blob(self) -> Optional[str]:
+        """
+        A certificate file (.cer) blob containing the public key of the private key used to authenticate a 
+                    Point-To-Site VPN connection.
+        """
+        return pulumi.get(self, "cert_blob")
+
+    @property
+    @pulumi.getter(name="certThumbprint")
+    def cert_thumbprint(self) -> Optional[str]:
+        """
+        The client certificate thumbprint
+        """
+        return pulumi.get(self, "cert_thumbprint")
+
+    @property
+    @pulumi.getter(name="dnsServers")
+    def dns_servers(self) -> Optional[str]:
+        """
+        Dns servers to be used by this VNET. This should be a comma-separated list of IP addresses.
+        """
+        return pulumi.get(self, "dns_servers")
+
+    @property
+    @pulumi.getter
+    def kind(self) -> Optional[str]:
+        """
+        Kind of resource
+        """
+        return pulumi.get(self, "kind")
+
+    @property
+    @pulumi.getter
+    def location(self) -> str:
+        """
+        Resource Location
+        """
+        return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        Resource Name
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="resyncRequired")
+    def resync_required(self) -> Optional[bool]:
+        """
+        Flag to determine if a resync is required
+        """
+        return pulumi.get(self, "resync_required")
+
+    @property
+    @pulumi.getter
+    def routes(self) -> Optional[List['outputs.VnetRouteResponse']]:
+        """
+        The routes that this virtual network connection uses.
+        """
+        return pulumi.get(self, "routes")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Mapping[str, str]]:
+        """
+        Resource tags
+        """
+        return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[str]:
+        """
+        Resource type
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="vnetResourceId")
+    def vnet_resource_id(self) -> Optional[str]:
+        """
+        The vnet resource id
+        """
+        return pulumi.get(self, "vnet_resource_id")
+
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

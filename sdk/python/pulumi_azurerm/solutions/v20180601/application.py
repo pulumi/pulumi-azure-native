@@ -5,120 +5,50 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+from . import outputs
+from ._inputs import *
+
+__all__ = ['Application']
 
 
 class Application(pulumi.CustomResource):
-    application_definition_id: pulumi.Output[str]
-    """
-    The fully qualified path of managed application definition Id.
-    """
-    identity: pulumi.Output[dict]
-    """
-    The identity of the resource.
-      * `principal_id` (`str`) - The principal ID of resource identity.
-      * `tenant_id` (`str`) - The tenant ID of resource.
-      * `type` (`str`) - The identity type.
-    """
-    kind: pulumi.Output[str]
-    """
-    The kind of the managed application. Allowed values are MarketPlace and ServiceCatalog.
-    """
-    location: pulumi.Output[str]
-    """
-    Resource location
-    """
-    managed_by: pulumi.Output[str]
-    """
-    ID of the resource that manages this resource.
-    """
-    managed_resource_group_id: pulumi.Output[str]
-    """
-    The managed resource group Id.
-    """
-    name: pulumi.Output[str]
-    """
-    Resource name
-    """
-    outputs: pulumi.Output[dict]
-    """
-    Name and value pairs that define the managed application outputs.
-    """
-    parameters: pulumi.Output[dict]
-    """
-    Name and value pairs that define the managed application parameters. It can be a JObject or a well formed JSON string.
-    """
-    plan: pulumi.Output[dict]
-    """
-    The plan information.
-      * `name` (`str`) - The plan name.
-      * `product` (`str`) - The product code.
-      * `promotion_code` (`str`) - The promotion code.
-      * `publisher` (`str`) - The publisher ID.
-      * `version` (`str`) - The plan's version.
-    """
-    provisioning_state: pulumi.Output[str]
-    """
-    The managed application provisioning state.
-    """
-    sku: pulumi.Output[dict]
-    """
-    The SKU of the resource.
-      * `capacity` (`float`) - The SKU capacity.
-      * `family` (`str`) - The SKU family.
-      * `model` (`str`) - The SKU model.
-      * `name` (`str`) - The SKU name.
-      * `size` (`str`) - The SKU size.
-      * `tier` (`str`) - The SKU tier.
-    """
-    tags: pulumi.Output[dict]
-    """
-    Resource tags
-    """
-    type: pulumi.Output[str]
-    """
-    Resource type
-    """
-    def __init__(__self__, resource_name, opts=None, application_definition_id=None, identity=None, kind=None, location=None, managed_by=None, managed_resource_group_id=None, name=None, parameters=None, plan=None, resource_group_name=None, sku=None, tags=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 application_definition_id: Optional[pulumi.Input[str]] = None,
+                 identity: Optional[pulumi.Input[pulumi.InputType['IdentityArgs']]] = None,
+                 kind: Optional[pulumi.Input[str]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 managed_by: Optional[pulumi.Input[str]] = None,
+                 managed_resource_group_id: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 parameters: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 plan: Optional[pulumi.Input[pulumi.InputType['PlanArgs']]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 sku: Optional[pulumi.Input[pulumi.InputType['SkuArgs']]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         Information about managed application.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] application_definition_id: The fully qualified path of managed application definition Id.
-        :param pulumi.Input[dict] identity: The identity of the resource.
+        :param pulumi.Input[pulumi.InputType['IdentityArgs']] identity: The identity of the resource.
         :param pulumi.Input[str] kind: The kind of the managed application. Allowed values are MarketPlace and ServiceCatalog.
         :param pulumi.Input[str] location: Resource location
         :param pulumi.Input[str] managed_by: ID of the resource that manages this resource.
         :param pulumi.Input[str] managed_resource_group_id: The managed resource group Id.
         :param pulumi.Input[str] name: The name of the managed application.
-        :param pulumi.Input[dict] parameters: Name and value pairs that define the managed application parameters. It can be a JObject or a well formed JSON string.
-        :param pulumi.Input[dict] plan: The plan information.
+        :param pulumi.Input[Mapping[str, Any]] parameters: Name and value pairs that define the managed application parameters. It can be a JObject or a well formed JSON string.
+        :param pulumi.Input[pulumi.InputType['PlanArgs']] plan: The plan information.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input[dict] sku: The SKU of the resource.
-        :param pulumi.Input[dict] tags: Resource tags
-
-        The **identity** object supports the following:
-
-          * `type` (`pulumi.Input[str]`) - The identity type.
-
-        The **plan** object supports the following:
-
-          * `name` (`pulumi.Input[str]`) - The plan name.
-          * `product` (`pulumi.Input[str]`) - The product code.
-          * `promotion_code` (`pulumi.Input[str]`) - The promotion code.
-          * `publisher` (`pulumi.Input[str]`) - The publisher ID.
-          * `version` (`pulumi.Input[str]`) - The plan's version.
-
-        The **sku** object supports the following:
-
-          * `capacity` (`pulumi.Input[float]`) - The SKU capacity.
-          * `family` (`pulumi.Input[str]`) - The SKU family.
-          * `model` (`pulumi.Input[str]`) - The SKU model.
-          * `name` (`pulumi.Input[str]`) - The SKU name.
-          * `size` (`pulumi.Input[str]`) - The SKU size.
-          * `tier` (`pulumi.Input[str]`) - The SKU tier.
+        :param pulumi.Input[pulumi.InputType['SkuArgs']] sku: The SKU of the resource.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -169,13 +99,15 @@ class Application(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None) -> 'Application':
         """
         Get an existing Application resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -184,8 +116,121 @@ class Application(pulumi.CustomResource):
 
         return Application(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter(name="applicationDefinitionId")
+    def application_definition_id(self) -> Optional[str]:
+        """
+        The fully qualified path of managed application definition Id.
+        """
+        return pulumi.get(self, "application_definition_id")
+
+    @property
+    @pulumi.getter
+    def identity(self) -> Optional['outputs.IdentityResponse']:
+        """
+        The identity of the resource.
+        """
+        return pulumi.get(self, "identity")
+
+    @property
+    @pulumi.getter
+    def kind(self) -> str:
+        """
+        The kind of the managed application. Allowed values are MarketPlace and ServiceCatalog.
+        """
+        return pulumi.get(self, "kind")
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[str]:
+        """
+        Resource location
+        """
+        return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter(name="managedBy")
+    def managed_by(self) -> Optional[str]:
+        """
+        ID of the resource that manages this resource.
+        """
+        return pulumi.get(self, "managed_by")
+
+    @property
+    @pulumi.getter(name="managedResourceGroupId")
+    def managed_resource_group_id(self) -> str:
+        """
+        The managed resource group Id.
+        """
+        return pulumi.get(self, "managed_resource_group_id")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Resource name
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def outputs(self) -> Mapping[str, Any]:
+        """
+        Name and value pairs that define the managed application outputs.
+        """
+        return pulumi.get(self, "outputs")
+
+    @property
+    @pulumi.getter
+    def parameters(self) -> Optional[Mapping[str, Any]]:
+        """
+        Name and value pairs that define the managed application parameters. It can be a JObject or a well formed JSON string.
+        """
+        return pulumi.get(self, "parameters")
+
+    @property
+    @pulumi.getter
+    def plan(self) -> Optional['outputs.PlanResponse']:
+        """
+        The plan information.
+        """
+        return pulumi.get(self, "plan")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        The managed application provisioning state.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter
+    def sku(self) -> Optional['outputs.SkuResponse']:
+        """
+        The SKU of the resource.
+        """
+        return pulumi.get(self, "sku")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Mapping[str, str]]:
+        """
+        Resource tags
+        """
+        return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Resource type
+        """
+        return pulumi.get(self, "type")
+
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

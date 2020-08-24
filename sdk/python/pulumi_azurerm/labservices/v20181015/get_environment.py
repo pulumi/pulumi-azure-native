@@ -5,10 +5,17 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+from . import outputs
 
+__all__ = [
+    'GetEnvironmentResult',
+    'AwaitableGetEnvironmentResult',
+    'get_environment',
+]
 
+@pulumi.output_type
 class GetEnvironmentResult:
     """
     Represents an environment instance
@@ -16,100 +23,180 @@ class GetEnvironmentResult:
     def __init__(__self__, claimed_by_user_name=None, claimed_by_user_object_id=None, claimed_by_user_principal_id=None, is_claimed=None, last_known_power_state=None, latest_operation_result=None, location=None, name=None, network_interface=None, password_last_reset=None, provisioning_state=None, resource_sets=None, tags=None, total_usage=None, type=None, unique_identifier=None):
         if claimed_by_user_name and not isinstance(claimed_by_user_name, str):
             raise TypeError("Expected argument 'claimed_by_user_name' to be a str")
-        __self__.claimed_by_user_name = claimed_by_user_name
+        pulumi.set(__self__, "claimed_by_user_name", claimed_by_user_name)
+        if claimed_by_user_object_id and not isinstance(claimed_by_user_object_id, str):
+            raise TypeError("Expected argument 'claimed_by_user_object_id' to be a str")
+        pulumi.set(__self__, "claimed_by_user_object_id", claimed_by_user_object_id)
+        if claimed_by_user_principal_id and not isinstance(claimed_by_user_principal_id, str):
+            raise TypeError("Expected argument 'claimed_by_user_principal_id' to be a str")
+        pulumi.set(__self__, "claimed_by_user_principal_id", claimed_by_user_principal_id)
+        if is_claimed and not isinstance(is_claimed, bool):
+            raise TypeError("Expected argument 'is_claimed' to be a bool")
+        pulumi.set(__self__, "is_claimed", is_claimed)
+        if last_known_power_state and not isinstance(last_known_power_state, str):
+            raise TypeError("Expected argument 'last_known_power_state' to be a str")
+        pulumi.set(__self__, "last_known_power_state", last_known_power_state)
+        if latest_operation_result and not isinstance(latest_operation_result, dict):
+            raise TypeError("Expected argument 'latest_operation_result' to be a dict")
+        pulumi.set(__self__, "latest_operation_result", latest_operation_result)
+        if location and not isinstance(location, str):
+            raise TypeError("Expected argument 'location' to be a str")
+        pulumi.set(__self__, "location", location)
+        if name and not isinstance(name, str):
+            raise TypeError("Expected argument 'name' to be a str")
+        pulumi.set(__self__, "name", name)
+        if network_interface and not isinstance(network_interface, dict):
+            raise TypeError("Expected argument 'network_interface' to be a dict")
+        pulumi.set(__self__, "network_interface", network_interface)
+        if password_last_reset and not isinstance(password_last_reset, str):
+            raise TypeError("Expected argument 'password_last_reset' to be a str")
+        pulumi.set(__self__, "password_last_reset", password_last_reset)
+        if provisioning_state and not isinstance(provisioning_state, str):
+            raise TypeError("Expected argument 'provisioning_state' to be a str")
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if resource_sets and not isinstance(resource_sets, dict):
+            raise TypeError("Expected argument 'resource_sets' to be a dict")
+        pulumi.set(__self__, "resource_sets", resource_sets)
+        if tags and not isinstance(tags, dict):
+            raise TypeError("Expected argument 'tags' to be a dict")
+        pulumi.set(__self__, "tags", tags)
+        if total_usage and not isinstance(total_usage, str):
+            raise TypeError("Expected argument 'total_usage' to be a str")
+        pulumi.set(__self__, "total_usage", total_usage)
+        if type and not isinstance(type, str):
+            raise TypeError("Expected argument 'type' to be a str")
+        pulumi.set(__self__, "type", type)
+        if unique_identifier and not isinstance(unique_identifier, str):
+            raise TypeError("Expected argument 'unique_identifier' to be a str")
+        pulumi.set(__self__, "unique_identifier", unique_identifier)
+
+    @property
+    @pulumi.getter(name="claimedByUserName")
+    def claimed_by_user_name(self) -> str:
         """
         The name or email address of the user who has claimed the environment
         """
-        if claimed_by_user_object_id and not isinstance(claimed_by_user_object_id, str):
-            raise TypeError("Expected argument 'claimed_by_user_object_id' to be a str")
-        __self__.claimed_by_user_object_id = claimed_by_user_object_id
+        return pulumi.get(self, "claimed_by_user_name")
+
+    @property
+    @pulumi.getter(name="claimedByUserObjectId")
+    def claimed_by_user_object_id(self) -> str:
         """
         The AAD object Id of the user who has claimed the environment
         """
-        if claimed_by_user_principal_id and not isinstance(claimed_by_user_principal_id, str):
-            raise TypeError("Expected argument 'claimed_by_user_principal_id' to be a str")
-        __self__.claimed_by_user_principal_id = claimed_by_user_principal_id
+        return pulumi.get(self, "claimed_by_user_object_id")
+
+    @property
+    @pulumi.getter(name="claimedByUserPrincipalId")
+    def claimed_by_user_principal_id(self) -> str:
         """
         The user principal Id of the user who has claimed the environment
         """
-        if is_claimed and not isinstance(is_claimed, bool):
-            raise TypeError("Expected argument 'is_claimed' to be a bool")
-        __self__.is_claimed = is_claimed
+        return pulumi.get(self, "claimed_by_user_principal_id")
+
+    @property
+    @pulumi.getter(name="isClaimed")
+    def is_claimed(self) -> bool:
         """
         Is the environment claimed or not
         """
-        if last_known_power_state and not isinstance(last_known_power_state, str):
-            raise TypeError("Expected argument 'last_known_power_state' to be a str")
-        __self__.last_known_power_state = last_known_power_state
+        return pulumi.get(self, "is_claimed")
+
+    @property
+    @pulumi.getter(name="lastKnownPowerState")
+    def last_known_power_state(self) -> str:
         """
         Last known power state of the environment
         """
-        if latest_operation_result and not isinstance(latest_operation_result, dict):
-            raise TypeError("Expected argument 'latest_operation_result' to be a dict")
-        __self__.latest_operation_result = latest_operation_result
+        return pulumi.get(self, "last_known_power_state")
+
+    @property
+    @pulumi.getter(name="latestOperationResult")
+    def latest_operation_result(self) -> 'outputs.LatestOperationResultResponse':
         """
         The details of the latest operation. ex: status, error
         """
-        if location and not isinstance(location, str):
-            raise TypeError("Expected argument 'location' to be a str")
-        __self__.location = location
+        return pulumi.get(self, "latest_operation_result")
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[str]:
         """
         The location of the resource.
         """
-        if name and not isinstance(name, str):
-            raise TypeError("Expected argument 'name' to be a str")
-        __self__.name = name
+        return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
         """
         The name of the resource.
         """
-        if network_interface and not isinstance(network_interface, dict):
-            raise TypeError("Expected argument 'network_interface' to be a dict")
-        __self__.network_interface = network_interface
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="networkInterface")
+    def network_interface(self) -> 'outputs.NetworkInterfaceResponse':
         """
         Network details of the environment
         """
-        if password_last_reset and not isinstance(password_last_reset, str):
-            raise TypeError("Expected argument 'password_last_reset' to be a str")
-        __self__.password_last_reset = password_last_reset
+        return pulumi.get(self, "network_interface")
+
+    @property
+    @pulumi.getter(name="passwordLastReset")
+    def password_last_reset(self) -> str:
         """
         When the password was last reset on the environment.
         """
-        if provisioning_state and not isinstance(provisioning_state, str):
-            raise TypeError("Expected argument 'provisioning_state' to be a str")
-        __self__.provisioning_state = provisioning_state
+        return pulumi.get(self, "password_last_reset")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> Optional[str]:
         """
         The provisioning status of the resource.
         """
-        if resource_sets and not isinstance(resource_sets, dict):
-            raise TypeError("Expected argument 'resource_sets' to be a dict")
-        __self__.resource_sets = resource_sets
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="resourceSets")
+    def resource_sets(self) -> Optional['outputs.ResourceSetResponse']:
         """
         The set of a VM and the setting id it was created for
         """
-        if tags and not isinstance(tags, dict):
-            raise TypeError("Expected argument 'tags' to be a dict")
-        __self__.tags = tags
+        return pulumi.get(self, "resource_sets")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Mapping[str, str]]:
         """
         The tags of the resource.
         """
-        if total_usage and not isinstance(total_usage, str):
-            raise TypeError("Expected argument 'total_usage' to be a str")
-        __self__.total_usage = total_usage
+        return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter(name="totalUsage")
+    def total_usage(self) -> str:
         """
         How long the environment has been used by a lab user
         """
-        if type and not isinstance(type, str):
-            raise TypeError("Expected argument 'type' to be a str")
-        __self__.type = type
+        return pulumi.get(self, "total_usage")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
         """
         The type of the resource.
         """
-        if unique_identifier and not isinstance(unique_identifier, str):
-            raise TypeError("Expected argument 'unique_identifier' to be a str")
-        __self__.unique_identifier = unique_identifier
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="uniqueIdentifier")
+    def unique_identifier(self) -> Optional[str]:
         """
         The unique immutable identifier of a resource (Guid).
         """
+        return pulumi.get(self, "unique_identifier")
 
 
 class AwaitableGetEnvironmentResult(GetEnvironmentResult):
@@ -136,7 +223,13 @@ class AwaitableGetEnvironmentResult(GetEnvironmentResult):
             unique_identifier=self.unique_identifier)
 
 
-def get_environment(environment_setting_name=None, expand=None, lab_account_name=None, lab_name=None, name=None, resource_group_name=None, opts=None):
+def get_environment(environment_setting_name: Optional[str] = None,
+                    expand: Optional[str] = None,
+                    lab_account_name: Optional[str] = None,
+                    lab_name: Optional[str] = None,
+                    name: Optional[str] = None,
+                    resource_group_name: Optional[str] = None,
+                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetEnvironmentResult:
     """
     Use this data source to access information about an existing resource.
 
@@ -158,22 +251,22 @@ def get_environment(environment_setting_name=None, expand=None, lab_account_name
         opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = _utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('azurerm:labservices/v20181015:getEnvironment', __args__, opts=opts).value
+    __ret__ = pulumi.runtime.invoke('azurerm:labservices/v20181015:getEnvironment', __args__, opts=opts, typ=GetEnvironmentResult).value
 
     return AwaitableGetEnvironmentResult(
-        claimed_by_user_name=__ret__.get('claimedByUserName'),
-        claimed_by_user_object_id=__ret__.get('claimedByUserObjectId'),
-        claimed_by_user_principal_id=__ret__.get('claimedByUserPrincipalId'),
-        is_claimed=__ret__.get('isClaimed'),
-        last_known_power_state=__ret__.get('lastKnownPowerState'),
-        latest_operation_result=__ret__.get('latestOperationResult'),
-        location=__ret__.get('location'),
-        name=__ret__.get('name'),
-        network_interface=__ret__.get('networkInterface'),
-        password_last_reset=__ret__.get('passwordLastReset'),
-        provisioning_state=__ret__.get('provisioningState'),
-        resource_sets=__ret__.get('resourceSets'),
-        tags=__ret__.get('tags'),
-        total_usage=__ret__.get('totalUsage'),
-        type=__ret__.get('type'),
-        unique_identifier=__ret__.get('uniqueIdentifier'))
+        claimed_by_user_name=__ret__.claimed_by_user_name,
+        claimed_by_user_object_id=__ret__.claimed_by_user_object_id,
+        claimed_by_user_principal_id=__ret__.claimed_by_user_principal_id,
+        is_claimed=__ret__.is_claimed,
+        last_known_power_state=__ret__.last_known_power_state,
+        latest_operation_result=__ret__.latest_operation_result,
+        location=__ret__.location,
+        name=__ret__.name,
+        network_interface=__ret__.network_interface,
+        password_last_reset=__ret__.password_last_reset,
+        provisioning_state=__ret__.provisioning_state,
+        resource_sets=__ret__.resource_sets,
+        tags=__ret__.tags,
+        total_usage=__ret__.total_usage,
+        type=__ret__.type,
+        unique_identifier=__ret__.unique_identifier)

@@ -5,10 +5,17 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+from . import outputs
 
+__all__ = [
+    'GetIncidentResult',
+    'AwaitableGetIncidentResult',
+    'get_incident',
+]
 
+@pulumi.output_type
 class GetIncidentResult:
     """
     Represents an incident in Azure Security Insights.
@@ -16,124 +23,224 @@ class GetIncidentResult:
     def __init__(__self__, additional_data=None, classification=None, classification_comment=None, classification_reason=None, created_time_utc=None, description=None, etag=None, first_activity_time_utc=None, incident_number=None, incident_url=None, labels=None, last_activity_time_utc=None, last_modified_time_utc=None, name=None, owner=None, related_analytic_rule_ids=None, severity=None, status=None, title=None, type=None):
         if additional_data and not isinstance(additional_data, dict):
             raise TypeError("Expected argument 'additional_data' to be a dict")
-        __self__.additional_data = additional_data
+        pulumi.set(__self__, "additional_data", additional_data)
+        if classification and not isinstance(classification, str):
+            raise TypeError("Expected argument 'classification' to be a str")
+        pulumi.set(__self__, "classification", classification)
+        if classification_comment and not isinstance(classification_comment, str):
+            raise TypeError("Expected argument 'classification_comment' to be a str")
+        pulumi.set(__self__, "classification_comment", classification_comment)
+        if classification_reason and not isinstance(classification_reason, str):
+            raise TypeError("Expected argument 'classification_reason' to be a str")
+        pulumi.set(__self__, "classification_reason", classification_reason)
+        if created_time_utc and not isinstance(created_time_utc, str):
+            raise TypeError("Expected argument 'created_time_utc' to be a str")
+        pulumi.set(__self__, "created_time_utc", created_time_utc)
+        if description and not isinstance(description, str):
+            raise TypeError("Expected argument 'description' to be a str")
+        pulumi.set(__self__, "description", description)
+        if etag and not isinstance(etag, str):
+            raise TypeError("Expected argument 'etag' to be a str")
+        pulumi.set(__self__, "etag", etag)
+        if first_activity_time_utc and not isinstance(first_activity_time_utc, str):
+            raise TypeError("Expected argument 'first_activity_time_utc' to be a str")
+        pulumi.set(__self__, "first_activity_time_utc", first_activity_time_utc)
+        if incident_number and not isinstance(incident_number, float):
+            raise TypeError("Expected argument 'incident_number' to be a float")
+        pulumi.set(__self__, "incident_number", incident_number)
+        if incident_url and not isinstance(incident_url, str):
+            raise TypeError("Expected argument 'incident_url' to be a str")
+        pulumi.set(__self__, "incident_url", incident_url)
+        if labels and not isinstance(labels, list):
+            raise TypeError("Expected argument 'labels' to be a list")
+        pulumi.set(__self__, "labels", labels)
+        if last_activity_time_utc and not isinstance(last_activity_time_utc, str):
+            raise TypeError("Expected argument 'last_activity_time_utc' to be a str")
+        pulumi.set(__self__, "last_activity_time_utc", last_activity_time_utc)
+        if last_modified_time_utc and not isinstance(last_modified_time_utc, str):
+            raise TypeError("Expected argument 'last_modified_time_utc' to be a str")
+        pulumi.set(__self__, "last_modified_time_utc", last_modified_time_utc)
+        if name and not isinstance(name, str):
+            raise TypeError("Expected argument 'name' to be a str")
+        pulumi.set(__self__, "name", name)
+        if owner and not isinstance(owner, dict):
+            raise TypeError("Expected argument 'owner' to be a dict")
+        pulumi.set(__self__, "owner", owner)
+        if related_analytic_rule_ids and not isinstance(related_analytic_rule_ids, list):
+            raise TypeError("Expected argument 'related_analytic_rule_ids' to be a list")
+        pulumi.set(__self__, "related_analytic_rule_ids", related_analytic_rule_ids)
+        if severity and not isinstance(severity, str):
+            raise TypeError("Expected argument 'severity' to be a str")
+        pulumi.set(__self__, "severity", severity)
+        if status and not isinstance(status, str):
+            raise TypeError("Expected argument 'status' to be a str")
+        pulumi.set(__self__, "status", status)
+        if title and not isinstance(title, str):
+            raise TypeError("Expected argument 'title' to be a str")
+        pulumi.set(__self__, "title", title)
+        if type and not isinstance(type, str):
+            raise TypeError("Expected argument 'type' to be a str")
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="additionalData")
+    def additional_data(self) -> 'outputs.IncidentAdditionalDataResponse':
         """
         Additional data on the incident
         """
-        if classification and not isinstance(classification, str):
-            raise TypeError("Expected argument 'classification' to be a str")
-        __self__.classification = classification
+        return pulumi.get(self, "additional_data")
+
+    @property
+    @pulumi.getter
+    def classification(self) -> Optional[str]:
         """
         The reason the incident was closed
         """
-        if classification_comment and not isinstance(classification_comment, str):
-            raise TypeError("Expected argument 'classification_comment' to be a str")
-        __self__.classification_comment = classification_comment
+        return pulumi.get(self, "classification")
+
+    @property
+    @pulumi.getter(name="classificationComment")
+    def classification_comment(self) -> Optional[str]:
         """
         Describes the reason the incident was closed
         """
-        if classification_reason and not isinstance(classification_reason, str):
-            raise TypeError("Expected argument 'classification_reason' to be a str")
-        __self__.classification_reason = classification_reason
+        return pulumi.get(self, "classification_comment")
+
+    @property
+    @pulumi.getter(name="classificationReason")
+    def classification_reason(self) -> Optional[str]:
         """
         The classification reason the incident was closed with
         """
-        if created_time_utc and not isinstance(created_time_utc, str):
-            raise TypeError("Expected argument 'created_time_utc' to be a str")
-        __self__.created_time_utc = created_time_utc
+        return pulumi.get(self, "classification_reason")
+
+    @property
+    @pulumi.getter(name="createdTimeUtc")
+    def created_time_utc(self) -> str:
         """
         The time the incident was created
         """
-        if description and not isinstance(description, str):
-            raise TypeError("Expected argument 'description' to be a str")
-        __self__.description = description
+        return pulumi.get(self, "created_time_utc")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
         """
         The description of the incident
         """
-        if etag and not isinstance(etag, str):
-            raise TypeError("Expected argument 'etag' to be a str")
-        __self__.etag = etag
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def etag(self) -> Optional[str]:
         """
         Etag of the azure resource
         """
-        if first_activity_time_utc and not isinstance(first_activity_time_utc, str):
-            raise TypeError("Expected argument 'first_activity_time_utc' to be a str")
-        __self__.first_activity_time_utc = first_activity_time_utc
+        return pulumi.get(self, "etag")
+
+    @property
+    @pulumi.getter(name="firstActivityTimeUtc")
+    def first_activity_time_utc(self) -> Optional[str]:
         """
         The time of the first activity in the incident
         """
-        if incident_number and not isinstance(incident_number, float):
-            raise TypeError("Expected argument 'incident_number' to be a float")
-        __self__.incident_number = incident_number
+        return pulumi.get(self, "first_activity_time_utc")
+
+    @property
+    @pulumi.getter(name="incidentNumber")
+    def incident_number(self) -> float:
         """
         A sequential number
         """
-        if incident_url and not isinstance(incident_url, str):
-            raise TypeError("Expected argument 'incident_url' to be a str")
-        __self__.incident_url = incident_url
+        return pulumi.get(self, "incident_number")
+
+    @property
+    @pulumi.getter(name="incidentUrl")
+    def incident_url(self) -> str:
         """
         The deep-link url to the incident in Azure portal
         """
-        if labels and not isinstance(labels, list):
-            raise TypeError("Expected argument 'labels' to be a list")
-        __self__.labels = labels
+        return pulumi.get(self, "incident_url")
+
+    @property
+    @pulumi.getter
+    def labels(self) -> Optional[List['outputs.IncidentLabelResponse']]:
         """
         List of labels relevant to this incident
         """
-        if last_activity_time_utc and not isinstance(last_activity_time_utc, str):
-            raise TypeError("Expected argument 'last_activity_time_utc' to be a str")
-        __self__.last_activity_time_utc = last_activity_time_utc
+        return pulumi.get(self, "labels")
+
+    @property
+    @pulumi.getter(name="lastActivityTimeUtc")
+    def last_activity_time_utc(self) -> Optional[str]:
         """
         The time of the last activity in the incident
         """
-        if last_modified_time_utc and not isinstance(last_modified_time_utc, str):
-            raise TypeError("Expected argument 'last_modified_time_utc' to be a str")
-        __self__.last_modified_time_utc = last_modified_time_utc
+        return pulumi.get(self, "last_activity_time_utc")
+
+    @property
+    @pulumi.getter(name="lastModifiedTimeUtc")
+    def last_modified_time_utc(self) -> str:
         """
         The last time the incident was updated
         """
-        if name and not isinstance(name, str):
-            raise TypeError("Expected argument 'name' to be a str")
-        __self__.name = name
+        return pulumi.get(self, "last_modified_time_utc")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
         """
         Azure resource name
         """
-        if owner and not isinstance(owner, dict):
-            raise TypeError("Expected argument 'owner' to be a dict")
-        __self__.owner = owner
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def owner(self) -> Optional['outputs.IncidentOwnerInfoResponse']:
         """
         Describes a user that the incident is assigned to
         """
-        if related_analytic_rule_ids and not isinstance(related_analytic_rule_ids, list):
-            raise TypeError("Expected argument 'related_analytic_rule_ids' to be a list")
-        __self__.related_analytic_rule_ids = related_analytic_rule_ids
+        return pulumi.get(self, "owner")
+
+    @property
+    @pulumi.getter(name="relatedAnalyticRuleIds")
+    def related_analytic_rule_ids(self) -> List[str]:
         """
         List of resource ids of Analytic rules related to the incident
         """
-        if severity and not isinstance(severity, str):
-            raise TypeError("Expected argument 'severity' to be a str")
-        __self__.severity = severity
+        return pulumi.get(self, "related_analytic_rule_ids")
+
+    @property
+    @pulumi.getter
+    def severity(self) -> str:
         """
         The severity of the incident
         """
-        if status and not isinstance(status, str):
-            raise TypeError("Expected argument 'status' to be a str")
-        __self__.status = status
+        return pulumi.get(self, "severity")
+
+    @property
+    @pulumi.getter
+    def status(self) -> str:
         """
         The status of the incident
         """
-        if title and not isinstance(title, str):
-            raise TypeError("Expected argument 'title' to be a str")
-        __self__.title = title
+        return pulumi.get(self, "status")
+
+    @property
+    @pulumi.getter
+    def title(self) -> str:
         """
         The title of the incident
         """
-        if type and not isinstance(type, str):
-            raise TypeError("Expected argument 'type' to be a str")
-        __self__.type = type
+        return pulumi.get(self, "title")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
         """
         Azure resource type
         """
+        return pulumi.get(self, "type")
 
 
 class AwaitableGetIncidentResult(GetIncidentResult):
@@ -164,7 +271,10 @@ class AwaitableGetIncidentResult(GetIncidentResult):
             type=self.type)
 
 
-def get_incident(name=None, resource_group_name=None, workspace_name=None, opts=None):
+def get_incident(name: Optional[str] = None,
+                 resource_group_name: Optional[str] = None,
+                 workspace_name: Optional[str] = None,
+                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetIncidentResult:
     """
     Use this data source to access information about an existing resource.
 
@@ -180,26 +290,26 @@ def get_incident(name=None, resource_group_name=None, workspace_name=None, opts=
         opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = _utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('azurerm:operationalinsights/v20200101:getIncident', __args__, opts=opts).value
+    __ret__ = pulumi.runtime.invoke('azurerm:operationalinsights/v20200101:getIncident', __args__, opts=opts, typ=GetIncidentResult).value
 
     return AwaitableGetIncidentResult(
-        additional_data=__ret__.get('additionalData'),
-        classification=__ret__.get('classification'),
-        classification_comment=__ret__.get('classificationComment'),
-        classification_reason=__ret__.get('classificationReason'),
-        created_time_utc=__ret__.get('createdTimeUtc'),
-        description=__ret__.get('description'),
-        etag=__ret__.get('etag'),
-        first_activity_time_utc=__ret__.get('firstActivityTimeUtc'),
-        incident_number=__ret__.get('incidentNumber'),
-        incident_url=__ret__.get('incidentUrl'),
-        labels=__ret__.get('labels'),
-        last_activity_time_utc=__ret__.get('lastActivityTimeUtc'),
-        last_modified_time_utc=__ret__.get('lastModifiedTimeUtc'),
-        name=__ret__.get('name'),
-        owner=__ret__.get('owner'),
-        related_analytic_rule_ids=__ret__.get('relatedAnalyticRuleIds'),
-        severity=__ret__.get('severity'),
-        status=__ret__.get('status'),
-        title=__ret__.get('title'),
-        type=__ret__.get('type'))
+        additional_data=__ret__.additional_data,
+        classification=__ret__.classification,
+        classification_comment=__ret__.classification_comment,
+        classification_reason=__ret__.classification_reason,
+        created_time_utc=__ret__.created_time_utc,
+        description=__ret__.description,
+        etag=__ret__.etag,
+        first_activity_time_utc=__ret__.first_activity_time_utc,
+        incident_number=__ret__.incident_number,
+        incident_url=__ret__.incident_url,
+        labels=__ret__.labels,
+        last_activity_time_utc=__ret__.last_activity_time_utc,
+        last_modified_time_utc=__ret__.last_modified_time_utc,
+        name=__ret__.name,
+        owner=__ret__.owner,
+        related_analytic_rule_ids=__ret__.related_analytic_rule_ids,
+        severity=__ret__.severity,
+        status=__ret__.status,
+        title=__ret__.title,
+        type=__ret__.type)

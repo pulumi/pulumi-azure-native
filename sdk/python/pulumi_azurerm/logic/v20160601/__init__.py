@@ -37,3 +37,5 @@ from .rosetta_net_process_configuration import *
 from .schema import *
 from .session import *
 from .workflow import *
+from ._inputs import *
+from . import outputs

@@ -5,88 +5,31 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+
+__all__ = ['ExportConfiguration']
 
 
 class ExportConfiguration(pulumi.CustomResource):
-    application_name: pulumi.Output[str]
-    """
-    The name of the Application Insights component.
-    """
-    container_name: pulumi.Output[str]
-    """
-    The name of the destination storage container.
-    """
-    destination_account_id: pulumi.Output[str]
-    """
-    The name of destination account.
-    """
-    destination_storage_location_id: pulumi.Output[str]
-    """
-    The destination account location ID.
-    """
-    destination_storage_subscription_id: pulumi.Output[str]
-    """
-    The destination storage account subscription ID.
-    """
-    destination_type: pulumi.Output[str]
-    """
-    The destination type.
-    """
-    export_id: pulumi.Output[str]
-    """
-    The unique ID of the export configuration inside an Application Insights component. It is auto generated when the Continuous Export configuration is created.
-    """
-    export_status: pulumi.Output[str]
-    """
-    This indicates current Continuous Export configuration status. The possible values are 'Preparing', 'Success', 'Failure'.
-    """
-    instrumentation_key: pulumi.Output[str]
-    """
-    The instrumentation key of the Application Insights component.
-    """
-    is_user_enabled: pulumi.Output[str]
-    """
-    This will be 'true' if the Continuous Export configuration is enabled, otherwise it will be 'false'.
-    """
-    last_gap_time: pulumi.Output[str]
-    """
-    The last time the Continuous Export configuration started failing.
-    """
-    last_success_time: pulumi.Output[str]
-    """
-    The last time data was successfully delivered to the destination storage container for this Continuous Export configuration.
-    """
-    last_user_update: pulumi.Output[str]
-    """
-    Last time the Continuous Export configuration was updated.
-    """
-    notification_queue_enabled: pulumi.Output[str]
-    """
-    Deprecated
-    """
-    permanent_error_reason: pulumi.Output[str]
-    """
-    This is the reason the Continuous Export configuration started failing. It can be 'AzureStorageNotFound' or 'AzureStorageAccessDenied'.
-    """
-    record_types: pulumi.Output[str]
-    """
-    This comma separated list of document types that will be exported. The possible values include 'Requests', 'Event', 'Exceptions', 'Metrics', 'PageViews', 'PageViewPerformance', 'Rdd', 'PerformanceCounters', 'Availability', 'Messages'.
-    """
-    resource_group: pulumi.Output[str]
-    """
-    The resource group of the Application Insights component.
-    """
-    storage_name: pulumi.Output[str]
-    """
-    The name of the destination storage account.
-    """
-    subscription_id: pulumi.Output[str]
-    """
-    The subscription of the Application Insights component.
-    """
-    def __init__(__self__, resource_name, opts=None, destination_account_id=None, destination_address=None, destination_storage_location_id=None, destination_storage_subscription_id=None, destination_type=None, export_id=None, is_enabled=None, notification_queue_enabled=None, notification_queue_uri=None, record_types=None, resource_group_name=None, resource_name_=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 destination_account_id: Optional[pulumi.Input[str]] = None,
+                 destination_address: Optional[pulumi.Input[str]] = None,
+                 destination_storage_location_id: Optional[pulumi.Input[str]] = None,
+                 destination_storage_subscription_id: Optional[pulumi.Input[str]] = None,
+                 destination_type: Optional[pulumi.Input[str]] = None,
+                 export_id: Optional[pulumi.Input[str]] = None,
+                 is_enabled: Optional[pulumi.Input[str]] = None,
+                 notification_queue_enabled: Optional[pulumi.Input[str]] = None,
+                 notification_queue_uri: Optional[pulumi.Input[str]] = None,
+                 record_types: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 resource_name_: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         Properties that define a Continuous Export configuration.
 
@@ -159,13 +102,15 @@ class ExportConfiguration(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None) -> 'ExportConfiguration':
         """
         Get an existing ExportConfiguration resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -174,8 +119,161 @@ class ExportConfiguration(pulumi.CustomResource):
 
         return ExportConfiguration(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter(name="applicationName")
+    def application_name(self) -> str:
+        """
+        The name of the Application Insights component.
+        """
+        return pulumi.get(self, "application_name")
+
+    @property
+    @pulumi.getter(name="containerName")
+    def container_name(self) -> str:
+        """
+        The name of the destination storage container.
+        """
+        return pulumi.get(self, "container_name")
+
+    @property
+    @pulumi.getter(name="destinationAccountId")
+    def destination_account_id(self) -> str:
+        """
+        The name of destination account.
+        """
+        return pulumi.get(self, "destination_account_id")
+
+    @property
+    @pulumi.getter(name="destinationStorageLocationId")
+    def destination_storage_location_id(self) -> str:
+        """
+        The destination account location ID.
+        """
+        return pulumi.get(self, "destination_storage_location_id")
+
+    @property
+    @pulumi.getter(name="destinationStorageSubscriptionId")
+    def destination_storage_subscription_id(self) -> str:
+        """
+        The destination storage account subscription ID.
+        """
+        return pulumi.get(self, "destination_storage_subscription_id")
+
+    @property
+    @pulumi.getter(name="destinationType")
+    def destination_type(self) -> str:
+        """
+        The destination type.
+        """
+        return pulumi.get(self, "destination_type")
+
+    @property
+    @pulumi.getter(name="exportId")
+    def export_id(self) -> str:
+        """
+        The unique ID of the export configuration inside an Application Insights component. It is auto generated when the Continuous Export configuration is created.
+        """
+        return pulumi.get(self, "export_id")
+
+    @property
+    @pulumi.getter(name="exportStatus")
+    def export_status(self) -> str:
+        """
+        This indicates current Continuous Export configuration status. The possible values are 'Preparing', 'Success', 'Failure'.
+        """
+        return pulumi.get(self, "export_status")
+
+    @property
+    @pulumi.getter(name="instrumentationKey")
+    def instrumentation_key(self) -> str:
+        """
+        The instrumentation key of the Application Insights component.
+        """
+        return pulumi.get(self, "instrumentation_key")
+
+    @property
+    @pulumi.getter(name="isUserEnabled")
+    def is_user_enabled(self) -> str:
+        """
+        This will be 'true' if the Continuous Export configuration is enabled, otherwise it will be 'false'.
+        """
+        return pulumi.get(self, "is_user_enabled")
+
+    @property
+    @pulumi.getter(name="lastGapTime")
+    def last_gap_time(self) -> str:
+        """
+        The last time the Continuous Export configuration started failing.
+        """
+        return pulumi.get(self, "last_gap_time")
+
+    @property
+    @pulumi.getter(name="lastSuccessTime")
+    def last_success_time(self) -> str:
+        """
+        The last time data was successfully delivered to the destination storage container for this Continuous Export configuration.
+        """
+        return pulumi.get(self, "last_success_time")
+
+    @property
+    @pulumi.getter(name="lastUserUpdate")
+    def last_user_update(self) -> str:
+        """
+        Last time the Continuous Export configuration was updated.
+        """
+        return pulumi.get(self, "last_user_update")
+
+    @property
+    @pulumi.getter(name="notificationQueueEnabled")
+    def notification_queue_enabled(self) -> Optional[str]:
+        """
+        Deprecated
+        """
+        return pulumi.get(self, "notification_queue_enabled")
+
+    @property
+    @pulumi.getter(name="permanentErrorReason")
+    def permanent_error_reason(self) -> str:
+        """
+        This is the reason the Continuous Export configuration started failing. It can be 'AzureStorageNotFound' or 'AzureStorageAccessDenied'.
+        """
+        return pulumi.get(self, "permanent_error_reason")
+
+    @property
+    @pulumi.getter(name="recordTypes")
+    def record_types(self) -> Optional[str]:
+        """
+        This comma separated list of document types that will be exported. The possible values include 'Requests', 'Event', 'Exceptions', 'Metrics', 'PageViews', 'PageViewPerformance', 'Rdd', 'PerformanceCounters', 'Availability', 'Messages'.
+        """
+        return pulumi.get(self, "record_types")
+
+    @property
+    @pulumi.getter(name="resourceGroup")
+    def resource_group(self) -> str:
+        """
+        The resource group of the Application Insights component.
+        """
+        return pulumi.get(self, "resource_group")
+
+    @property
+    @pulumi.getter(name="storageName")
+    def storage_name(self) -> str:
+        """
+        The name of the destination storage account.
+        """
+        return pulumi.get(self, "storage_name")
+
+    @property
+    @pulumi.getter(name="subscriptionId")
+    def subscription_id(self) -> str:
+        """
+        The subscription of the Application Insights component.
+        """
+        return pulumi.get(self, "subscription_id")
+
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

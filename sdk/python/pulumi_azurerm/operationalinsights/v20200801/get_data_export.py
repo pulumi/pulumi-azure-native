@@ -5,10 +5,16 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
 
+__all__ = [
+    'GetDataExportResult',
+    'AwaitableGetDataExportResult',
+    'get_data_export',
+]
 
+@pulumi.output_type
 class GetDataExportResult:
     """
     The top level data export resource container.
@@ -16,64 +22,114 @@ class GetDataExportResult:
     def __init__(__self__, all_tables=None, created_date=None, data_export_id=None, enable=None, event_hub_name=None, last_modified_date=None, name=None, resource_id=None, table_names=None, type=None):
         if all_tables and not isinstance(all_tables, bool):
             raise TypeError("Expected argument 'all_tables' to be a bool")
-        __self__.all_tables = all_tables
+        pulumi.set(__self__, "all_tables", all_tables)
+        if created_date and not isinstance(created_date, str):
+            raise TypeError("Expected argument 'created_date' to be a str")
+        pulumi.set(__self__, "created_date", created_date)
+        if data_export_id and not isinstance(data_export_id, str):
+            raise TypeError("Expected argument 'data_export_id' to be a str")
+        pulumi.set(__self__, "data_export_id", data_export_id)
+        if enable and not isinstance(enable, bool):
+            raise TypeError("Expected argument 'enable' to be a bool")
+        pulumi.set(__self__, "enable", enable)
+        if event_hub_name and not isinstance(event_hub_name, str):
+            raise TypeError("Expected argument 'event_hub_name' to be a str")
+        pulumi.set(__self__, "event_hub_name", event_hub_name)
+        if last_modified_date and not isinstance(last_modified_date, str):
+            raise TypeError("Expected argument 'last_modified_date' to be a str")
+        pulumi.set(__self__, "last_modified_date", last_modified_date)
+        if name and not isinstance(name, str):
+            raise TypeError("Expected argument 'name' to be a str")
+        pulumi.set(__self__, "name", name)
+        if resource_id and not isinstance(resource_id, str):
+            raise TypeError("Expected argument 'resource_id' to be a str")
+        pulumi.set(__self__, "resource_id", resource_id)
+        if table_names and not isinstance(table_names, list):
+            raise TypeError("Expected argument 'table_names' to be a list")
+        pulumi.set(__self__, "table_names", table_names)
+        if type and not isinstance(type, str):
+            raise TypeError("Expected argument 'type' to be a str")
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="allTables")
+    def all_tables(self) -> Optional[bool]:
         """
         When ‘true’, all workspace's tables are exported.
         """
-        if created_date and not isinstance(created_date, str):
-            raise TypeError("Expected argument 'created_date' to be a str")
-        __self__.created_date = created_date
+        return pulumi.get(self, "all_tables")
+
+    @property
+    @pulumi.getter(name="createdDate")
+    def created_date(self) -> Optional[str]:
         """
         The latest data export rule modification time.
         """
-        if data_export_id and not isinstance(data_export_id, str):
-            raise TypeError("Expected argument 'data_export_id' to be a str")
-        __self__.data_export_id = data_export_id
+        return pulumi.get(self, "created_date")
+
+    @property
+    @pulumi.getter(name="dataExportId")
+    def data_export_id(self) -> Optional[str]:
         """
         The data export rule ID.
         """
-        if enable and not isinstance(enable, bool):
-            raise TypeError("Expected argument 'enable' to be a bool")
-        __self__.enable = enable
+        return pulumi.get(self, "data_export_id")
+
+    @property
+    @pulumi.getter
+    def enable(self) -> Optional[bool]:
         """
         Active when enabled.
         """
-        if event_hub_name and not isinstance(event_hub_name, str):
-            raise TypeError("Expected argument 'event_hub_name' to be a str")
-        __self__.event_hub_name = event_hub_name
+        return pulumi.get(self, "enable")
+
+    @property
+    @pulumi.getter(name="eventHubName")
+    def event_hub_name(self) -> Optional[str]:
         """
         Optional. Allows to define an Event Hub name. Not applicable when destination is Storage Account.
         """
-        if last_modified_date and not isinstance(last_modified_date, str):
-            raise TypeError("Expected argument 'last_modified_date' to be a str")
-        __self__.last_modified_date = last_modified_date
+        return pulumi.get(self, "event_hub_name")
+
+    @property
+    @pulumi.getter(name="lastModifiedDate")
+    def last_modified_date(self) -> Optional[str]:
         """
         Date and time when the export was last modified.
         """
-        if name and not isinstance(name, str):
-            raise TypeError("Expected argument 'name' to be a str")
-        __self__.name = name
+        return pulumi.get(self, "last_modified_date")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
         """
         The name of the resource
         """
-        if resource_id and not isinstance(resource_id, str):
-            raise TypeError("Expected argument 'resource_id' to be a str")
-        __self__.resource_id = resource_id
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="resourceId")
+    def resource_id(self) -> str:
         """
         The destination resource ID. This can be copied from the Properties entry of the destination resource in Azure.
         """
-        if table_names and not isinstance(table_names, list):
-            raise TypeError("Expected argument 'table_names' to be a list")
-        __self__.table_names = table_names
+        return pulumi.get(self, "resource_id")
+
+    @property
+    @pulumi.getter(name="tableNames")
+    def table_names(self) -> Optional[List[str]]:
         """
         An array of tables to export, for example: [“Heartbeat, SecurityEvent”].
         """
-        if type and not isinstance(type, str):
-            raise TypeError("Expected argument 'type' to be a str")
-        __self__.type = type
+        return pulumi.get(self, "table_names")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
         """
         The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
         """
+        return pulumi.get(self, "type")
 
 
 class AwaitableGetDataExportResult(GetDataExportResult):
@@ -94,7 +150,10 @@ class AwaitableGetDataExportResult(GetDataExportResult):
             type=self.type)
 
 
-def get_data_export(name=None, resource_group_name=None, workspace_name=None, opts=None):
+def get_data_export(name: Optional[str] = None,
+                    resource_group_name: Optional[str] = None,
+                    workspace_name: Optional[str] = None,
+                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDataExportResult:
     """
     Use this data source to access information about an existing resource.
 
@@ -110,16 +169,16 @@ def get_data_export(name=None, resource_group_name=None, workspace_name=None, op
         opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = _utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('azurerm:operationalinsights/v20200801:getDataExport', __args__, opts=opts).value
+    __ret__ = pulumi.runtime.invoke('azurerm:operationalinsights/v20200801:getDataExport', __args__, opts=opts, typ=GetDataExportResult).value
 
     return AwaitableGetDataExportResult(
-        all_tables=__ret__.get('allTables'),
-        created_date=__ret__.get('createdDate'),
-        data_export_id=__ret__.get('dataExportId'),
-        enable=__ret__.get('enable'),
-        event_hub_name=__ret__.get('eventHubName'),
-        last_modified_date=__ret__.get('lastModifiedDate'),
-        name=__ret__.get('name'),
-        resource_id=__ret__.get('resourceId'),
-        table_names=__ret__.get('tableNames'),
-        type=__ret__.get('type'))
+        all_tables=__ret__.all_tables,
+        created_date=__ret__.created_date,
+        data_export_id=__ret__.data_export_id,
+        enable=__ret__.enable,
+        event_hub_name=__ret__.event_hub_name,
+        last_modified_date=__ret__.last_modified_date,
+        name=__ret__.name,
+        resource_id=__ret__.resource_id,
+        table_names=__ret__.table_names,
+        type=__ret__.type)

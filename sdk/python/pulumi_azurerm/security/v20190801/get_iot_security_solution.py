@@ -5,10 +5,17 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+from . import outputs
 
+__all__ = [
+    'GetIotSecuritySolutionResult',
+    'AwaitableGetIotSecuritySolutionResult',
+    'get_iot_security_solution',
+]
 
+@pulumi.output_type
 class GetIotSecuritySolutionResult:
     """
     IoT Security solution configuration and resource information.
@@ -16,88 +23,158 @@ class GetIotSecuritySolutionResult:
     def __init__(__self__, auto_discovered_resources=None, disabled_data_sources=None, display_name=None, export=None, iot_hubs=None, location=None, name=None, recommendations_configuration=None, status=None, tags=None, type=None, unmasked_ip_logging_status=None, user_defined_resources=None, workspace=None):
         if auto_discovered_resources and not isinstance(auto_discovered_resources, list):
             raise TypeError("Expected argument 'auto_discovered_resources' to be a list")
-        __self__.auto_discovered_resources = auto_discovered_resources
+        pulumi.set(__self__, "auto_discovered_resources", auto_discovered_resources)
+        if disabled_data_sources and not isinstance(disabled_data_sources, list):
+            raise TypeError("Expected argument 'disabled_data_sources' to be a list")
+        pulumi.set(__self__, "disabled_data_sources", disabled_data_sources)
+        if display_name and not isinstance(display_name, str):
+            raise TypeError("Expected argument 'display_name' to be a str")
+        pulumi.set(__self__, "display_name", display_name)
+        if export and not isinstance(export, list):
+            raise TypeError("Expected argument 'export' to be a list")
+        pulumi.set(__self__, "export", export)
+        if iot_hubs and not isinstance(iot_hubs, list):
+            raise TypeError("Expected argument 'iot_hubs' to be a list")
+        pulumi.set(__self__, "iot_hubs", iot_hubs)
+        if location and not isinstance(location, str):
+            raise TypeError("Expected argument 'location' to be a str")
+        pulumi.set(__self__, "location", location)
+        if name and not isinstance(name, str):
+            raise TypeError("Expected argument 'name' to be a str")
+        pulumi.set(__self__, "name", name)
+        if recommendations_configuration and not isinstance(recommendations_configuration, list):
+            raise TypeError("Expected argument 'recommendations_configuration' to be a list")
+        pulumi.set(__self__, "recommendations_configuration", recommendations_configuration)
+        if status and not isinstance(status, str):
+            raise TypeError("Expected argument 'status' to be a str")
+        pulumi.set(__self__, "status", status)
+        if tags and not isinstance(tags, dict):
+            raise TypeError("Expected argument 'tags' to be a dict")
+        pulumi.set(__self__, "tags", tags)
+        if type and not isinstance(type, str):
+            raise TypeError("Expected argument 'type' to be a str")
+        pulumi.set(__self__, "type", type)
+        if unmasked_ip_logging_status and not isinstance(unmasked_ip_logging_status, str):
+            raise TypeError("Expected argument 'unmasked_ip_logging_status' to be a str")
+        pulumi.set(__self__, "unmasked_ip_logging_status", unmasked_ip_logging_status)
+        if user_defined_resources and not isinstance(user_defined_resources, dict):
+            raise TypeError("Expected argument 'user_defined_resources' to be a dict")
+        pulumi.set(__self__, "user_defined_resources", user_defined_resources)
+        if workspace and not isinstance(workspace, str):
+            raise TypeError("Expected argument 'workspace' to be a str")
+        pulumi.set(__self__, "workspace", workspace)
+
+    @property
+    @pulumi.getter(name="autoDiscoveredResources")
+    def auto_discovered_resources(self) -> List[str]:
         """
         List of resources that were automatically discovered as relevant to the security solution.
         """
-        if disabled_data_sources and not isinstance(disabled_data_sources, list):
-            raise TypeError("Expected argument 'disabled_data_sources' to be a list")
-        __self__.disabled_data_sources = disabled_data_sources
+        return pulumi.get(self, "auto_discovered_resources")
+
+    @property
+    @pulumi.getter(name="disabledDataSources")
+    def disabled_data_sources(self) -> Optional[List[str]]:
         """
         Disabled data sources. Disabling these data sources compromises the system.
         """
-        if display_name and not isinstance(display_name, str):
-            raise TypeError("Expected argument 'display_name' to be a str")
-        __self__.display_name = display_name
+        return pulumi.get(self, "disabled_data_sources")
+
+    @property
+    @pulumi.getter(name="displayName")
+    def display_name(self) -> str:
         """
         Resource display name.
         """
-        if export and not isinstance(export, list):
-            raise TypeError("Expected argument 'export' to be a list")
-        __self__.export = export
+        return pulumi.get(self, "display_name")
+
+    @property
+    @pulumi.getter
+    def export(self) -> Optional[List[str]]:
         """
         List of additional options for exporting to workspace data.
         """
-        if iot_hubs and not isinstance(iot_hubs, list):
-            raise TypeError("Expected argument 'iot_hubs' to be a list")
-        __self__.iot_hubs = iot_hubs
+        return pulumi.get(self, "export")
+
+    @property
+    @pulumi.getter(name="iotHubs")
+    def iot_hubs(self) -> List[str]:
         """
         IoT Hub resource IDs
         """
-        if location and not isinstance(location, str):
-            raise TypeError("Expected argument 'location' to be a str")
-        __self__.location = location
+        return pulumi.get(self, "iot_hubs")
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[str]:
         """
         The resource location.
         """
-        if name and not isinstance(name, str):
-            raise TypeError("Expected argument 'name' to be a str")
-        __self__.name = name
+        return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
         """
         Resource name
         """
-        if recommendations_configuration and not isinstance(recommendations_configuration, list):
-            raise TypeError("Expected argument 'recommendations_configuration' to be a list")
-        __self__.recommendations_configuration = recommendations_configuration
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="recommendationsConfiguration")
+    def recommendations_configuration(self) -> Optional[List['outputs.RecommendationConfigurationPropertiesResponse']]:
         """
         List of the configuration status for each recommendation type.
         """
-        if status and not isinstance(status, str):
-            raise TypeError("Expected argument 'status' to be a str")
-        __self__.status = status
+        return pulumi.get(self, "recommendations_configuration")
+
+    @property
+    @pulumi.getter
+    def status(self) -> Optional[str]:
         """
         Status of the IoT Security solution.
         """
-        if tags and not isinstance(tags, dict):
-            raise TypeError("Expected argument 'tags' to be a dict")
-        __self__.tags = tags
+        return pulumi.get(self, "status")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Mapping[str, str]]:
         """
         Resource tags
         """
-        if type and not isinstance(type, str):
-            raise TypeError("Expected argument 'type' to be a str")
-        __self__.type = type
+        return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
         """
         Resource type
         """
-        if unmasked_ip_logging_status and not isinstance(unmasked_ip_logging_status, str):
-            raise TypeError("Expected argument 'unmasked_ip_logging_status' to be a str")
-        __self__.unmasked_ip_logging_status = unmasked_ip_logging_status
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="unmaskedIpLoggingStatus")
+    def unmasked_ip_logging_status(self) -> Optional[str]:
         """
         Unmasked IP address logging status
         """
-        if user_defined_resources and not isinstance(user_defined_resources, dict):
-            raise TypeError("Expected argument 'user_defined_resources' to be a dict")
-        __self__.user_defined_resources = user_defined_resources
+        return pulumi.get(self, "unmasked_ip_logging_status")
+
+    @property
+    @pulumi.getter(name="userDefinedResources")
+    def user_defined_resources(self) -> Optional['outputs.UserDefinedResourcesPropertiesResponse']:
         """
         Properties of the IoT Security solution's user defined resources.
         """
-        if workspace and not isinstance(workspace, str):
-            raise TypeError("Expected argument 'workspace' to be a str")
-        __self__.workspace = workspace
+        return pulumi.get(self, "user_defined_resources")
+
+    @property
+    @pulumi.getter
+    def workspace(self) -> Optional[str]:
         """
         Workspace resource ID
         """
+        return pulumi.get(self, "workspace")
 
 
 class AwaitableGetIotSecuritySolutionResult(GetIotSecuritySolutionResult):
@@ -122,7 +199,9 @@ class AwaitableGetIotSecuritySolutionResult(GetIotSecuritySolutionResult):
             workspace=self.workspace)
 
 
-def get_iot_security_solution(name=None, resource_group_name=None, opts=None):
+def get_iot_security_solution(name: Optional[str] = None,
+                              resource_group_name: Optional[str] = None,
+                              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetIotSecuritySolutionResult:
     """
     Use this data source to access information about an existing resource.
 
@@ -136,20 +215,20 @@ def get_iot_security_solution(name=None, resource_group_name=None, opts=None):
         opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = _utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('azurerm:security/v20190801:getIotSecuritySolution', __args__, opts=opts).value
+    __ret__ = pulumi.runtime.invoke('azurerm:security/v20190801:getIotSecuritySolution', __args__, opts=opts, typ=GetIotSecuritySolutionResult).value
 
     return AwaitableGetIotSecuritySolutionResult(
-        auto_discovered_resources=__ret__.get('autoDiscoveredResources'),
-        disabled_data_sources=__ret__.get('disabledDataSources'),
-        display_name=__ret__.get('displayName'),
-        export=__ret__.get('export'),
-        iot_hubs=__ret__.get('iotHubs'),
-        location=__ret__.get('location'),
-        name=__ret__.get('name'),
-        recommendations_configuration=__ret__.get('recommendationsConfiguration'),
-        status=__ret__.get('status'),
-        tags=__ret__.get('tags'),
-        type=__ret__.get('type'),
-        unmasked_ip_logging_status=__ret__.get('unmaskedIpLoggingStatus'),
-        user_defined_resources=__ret__.get('userDefinedResources'),
-        workspace=__ret__.get('workspace'))
+        auto_discovered_resources=__ret__.auto_discovered_resources,
+        disabled_data_sources=__ret__.disabled_data_sources,
+        display_name=__ret__.display_name,
+        export=__ret__.export,
+        iot_hubs=__ret__.iot_hubs,
+        location=__ret__.location,
+        name=__ret__.name,
+        recommendations_configuration=__ret__.recommendations_configuration,
+        status=__ret__.status,
+        tags=__ret__.tags,
+        type=__ret__.type,
+        unmasked_ip_logging_status=__ret__.unmasked_ip_logging_status,
+        user_defined_resources=__ret__.user_defined_resources,
+        workspace=__ret__.workspace)

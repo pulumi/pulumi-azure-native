@@ -5,71 +5,38 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+from . import outputs
+from ._inputs import *
+
+__all__ = ['RemediationAtResource']
 
 
 class RemediationAtResource(pulumi.CustomResource):
-    created_on: pulumi.Output[str]
-    """
-    The time at which the remediation was created.
-    """
-    deployment_status: pulumi.Output[dict]
-    """
-    The deployment status summary for all deployments created by the remediation.
-      * `failed_deployments` (`float`) - The number of deployments required by the remediation that have failed.
-      * `successful_deployments` (`float`) - The number of deployments required by the remediation that have succeeded.
-      * `total_deployments` (`float`) - The number of deployments required by the remediation.
-    """
-    filters: pulumi.Output[dict]
-    """
-    The filters that will be applied to determine which resources to remediate.
-      * `locations` (`list`) - The resource locations that will be remediated.
-    """
-    last_updated_on: pulumi.Output[str]
-    """
-    The time at which the remediation was last updated.
-    """
-    name: pulumi.Output[str]
-    """
-    The name of the remediation.
-    """
-    policy_assignment_id: pulumi.Output[str]
-    """
-    The resource ID of the policy assignment that should be remediated.
-    """
-    policy_definition_reference_id: pulumi.Output[str]
-    """
-    The policy definition reference ID of the individual definition that should be remediated. Required when the policy assignment being remediated assigns a policy set definition.
-    """
-    provisioning_state: pulumi.Output[str]
-    """
-    The status of the remediation.
-    """
-    resource_discovery_mode: pulumi.Output[str]
-    """
-    The way resources to remediate are discovered. Defaults to ExistingNonCompliant if not specified.
-    """
-    type: pulumi.Output[str]
-    """
-    The type of the remediation.
-    """
-    def __init__(__self__, resource_name, opts=None, filters=None, name=None, policy_assignment_id=None, policy_definition_reference_id=None, resource_discovery_mode=None, resource_id=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 filters: Optional[pulumi.Input[pulumi.InputType['RemediationFiltersArgs']]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 policy_assignment_id: Optional[pulumi.Input[str]] = None,
+                 policy_definition_reference_id: Optional[pulumi.Input[str]] = None,
+                 resource_discovery_mode: Optional[pulumi.Input[str]] = None,
+                 resource_id: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         The remediation definition.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[dict] filters: The filters that will be applied to determine which resources to remediate.
+        :param pulumi.Input[pulumi.InputType['RemediationFiltersArgs']] filters: The filters that will be applied to determine which resources to remediate.
         :param pulumi.Input[str] name: The name of the remediation.
         :param pulumi.Input[str] policy_assignment_id: The resource ID of the policy assignment that should be remediated.
         :param pulumi.Input[str] policy_definition_reference_id: The policy definition reference ID of the individual definition that should be remediated. Required when the policy assignment being remediated assigns a policy set definition.
         :param pulumi.Input[str] resource_discovery_mode: The way resources to remediate are discovered. Defaults to ExistingNonCompliant if not specified.
         :param pulumi.Input[str] resource_id: Resource ID.
-
-        The **filters** object supports the following:
-
-          * `locations` (`pulumi.Input[list]`) - The resource locations that will be remediated.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -110,13 +77,15 @@ class RemediationAtResource(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None) -> 'RemediationAtResource':
         """
         Get an existing RemediationAtResource resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -125,8 +94,89 @@ class RemediationAtResource(pulumi.CustomResource):
 
         return RemediationAtResource(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter(name="createdOn")
+    def created_on(self) -> str:
+        """
+        The time at which the remediation was created.
+        """
+        return pulumi.get(self, "created_on")
+
+    @property
+    @pulumi.getter(name="deploymentStatus")
+    def deployment_status(self) -> 'outputs.RemediationDeploymentSummaryResponse':
+        """
+        The deployment status summary for all deployments created by the remediation.
+        """
+        return pulumi.get(self, "deployment_status")
+
+    @property
+    @pulumi.getter
+    def filters(self) -> Optional['outputs.RemediationFiltersResponse']:
+        """
+        The filters that will be applied to determine which resources to remediate.
+        """
+        return pulumi.get(self, "filters")
+
+    @property
+    @pulumi.getter(name="lastUpdatedOn")
+    def last_updated_on(self) -> str:
+        """
+        The time at which the remediation was last updated.
+        """
+        return pulumi.get(self, "last_updated_on")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the remediation.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="policyAssignmentId")
+    def policy_assignment_id(self) -> Optional[str]:
+        """
+        The resource ID of the policy assignment that should be remediated.
+        """
+        return pulumi.get(self, "policy_assignment_id")
+
+    @property
+    @pulumi.getter(name="policyDefinitionReferenceId")
+    def policy_definition_reference_id(self) -> Optional[str]:
+        """
+        The policy definition reference ID of the individual definition that should be remediated. Required when the policy assignment being remediated assigns a policy set definition.
+        """
+        return pulumi.get(self, "policy_definition_reference_id")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        The status of the remediation.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="resourceDiscoveryMode")
+    def resource_discovery_mode(self) -> Optional[str]:
+        """
+        The way resources to remediate are discovered. Defaults to ExistingNonCompliant if not specified.
+        """
+        return pulumi.get(self, "resource_discovery_mode")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        The type of the remediation.
+        """
+        return pulumi.get(self, "type")
+
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

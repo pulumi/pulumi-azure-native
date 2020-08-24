@@ -5,109 +5,42 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+from . import outputs
+from ._inputs import *
+
+__all__ = ['Service']
 
 
 class Service(pulumi.CustomResource):
-    etag: pulumi.Output[str]
-    """
-    An etag associated with the resource, used for optimistic concurrency when editing it.
-    """
-    identity: pulumi.Output[dict]
-    """
-    Setting indicating whether the service has a managed identity associated with it.
-      * `principal_id` (`str`) - The principal ID of the resource identity.
-      * `tenant_id` (`str`) - The tenant ID of the resource.
-      * `type` (`str`) - Type of identity being specified, currently SystemAssigned and None are allowed.
-    """
-    kind: pulumi.Output[str]
-    """
-    The kind of the service.
-    """
-    location: pulumi.Output[str]
-    """
-    The resource location.
-    """
-    name: pulumi.Output[str]
-    """
-    The resource name.
-    """
-    properties: pulumi.Output[dict]
-    """
-    The common properties of a service.
-      * `access_policies` (`list`) - The access policies of the service instance.
-        * `object_id` (`str`) - An Azure AD object ID (User or Apps) that is allowed access to the FHIR service.
-
-      * `authentication_configuration` (`dict`) - The authentication configuration for the service instance.
-        * `audience` (`str`) - The audience url for the service
-        * `authority` (`str`) - The authority url for the service
-        * `smart_proxy_enabled` (`bool`) - If the SMART on FHIR proxy is enabled
-
-      * `cors_configuration` (`dict`) - The settings for the CORS configuration of the service instance.
-        * `allow_credentials` (`bool`) - If credentials are allowed via CORS.
-        * `headers` (`list`) - The headers to be allowed via CORS.
-        * `max_age` (`float`) - The max age to be allowed via CORS.
-        * `methods` (`list`) - The methods to be allowed via CORS.
-        * `origins` (`list`) - The origins to be allowed via CORS.
-
-      * `cosmos_db_configuration` (`dict`) - The settings for the Cosmos DB database backing the service.
-        * `offer_throughput` (`float`) - The provisioned throughput for the backing database.
-
-      * `export_configuration` (`dict`) - The settings for the export operation of the service instance.
-        * `storage_account_name` (`str`) - The name of the default export storage account.
-
-      * `provisioning_state` (`str`) - The provisioning state.
-    """
-    tags: pulumi.Output[dict]
-    """
-    The resource tags.
-    """
-    type: pulumi.Output[str]
-    """
-    The resource type.
-    """
-    def __init__(__self__, resource_name, opts=None, etag=None, identity=None, kind=None, location=None, name=None, properties=None, resource_group_name=None, tags=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 etag: Optional[pulumi.Input[str]] = None,
+                 identity: Optional[pulumi.Input[pulumi.InputType['ResourceIdentityArgs']]] = None,
+                 kind: Optional[pulumi.Input[str]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 properties: Optional[pulumi.Input[pulumi.InputType['ServicesPropertiesArgs']]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         The description of the service.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] etag: An etag associated with the resource, used for optimistic concurrency when editing it.
-        :param pulumi.Input[dict] identity: Setting indicating whether the service has a managed identity associated with it.
+        :param pulumi.Input[pulumi.InputType['ResourceIdentityArgs']] identity: Setting indicating whether the service has a managed identity associated with it.
         :param pulumi.Input[str] kind: The kind of the service.
         :param pulumi.Input[str] location: The resource location.
         :param pulumi.Input[str] name: The name of the service instance.
-        :param pulumi.Input[dict] properties: The common properties of a service.
+        :param pulumi.Input[pulumi.InputType['ServicesPropertiesArgs']] properties: The common properties of a service.
         :param pulumi.Input[str] resource_group_name: The name of the resource group that contains the service instance.
-        :param pulumi.Input[dict] tags: The resource tags.
-
-        The **identity** object supports the following:
-
-          * `type` (`pulumi.Input[str]`) - Type of identity being specified, currently SystemAssigned and None are allowed.
-
-        The **properties** object supports the following:
-
-          * `access_policies` (`pulumi.Input[list]`) - The access policies of the service instance.
-            * `object_id` (`pulumi.Input[str]`) - An Azure AD object ID (User or Apps) that is allowed access to the FHIR service.
-
-          * `authentication_configuration` (`pulumi.Input[dict]`) - The authentication configuration for the service instance.
-            * `audience` (`pulumi.Input[str]`) - The audience url for the service
-            * `authority` (`pulumi.Input[str]`) - The authority url for the service
-            * `smart_proxy_enabled` (`pulumi.Input[bool]`) - If the SMART on FHIR proxy is enabled
-
-          * `cors_configuration` (`pulumi.Input[dict]`) - The settings for the CORS configuration of the service instance.
-            * `allow_credentials` (`pulumi.Input[bool]`) - If credentials are allowed via CORS.
-            * `headers` (`pulumi.Input[list]`) - The headers to be allowed via CORS.
-            * `max_age` (`pulumi.Input[float]`) - The max age to be allowed via CORS.
-            * `methods` (`pulumi.Input[list]`) - The methods to be allowed via CORS.
-            * `origins` (`pulumi.Input[list]`) - The origins to be allowed via CORS.
-
-          * `cosmos_db_configuration` (`pulumi.Input[dict]`) - The settings for the Cosmos DB database backing the service.
-            * `offer_throughput` (`pulumi.Input[float]`) - The provisioned throughput for the backing database.
-
-          * `export_configuration` (`pulumi.Input[dict]`) - The settings for the export operation of the service instance.
-            * `storage_account_name` (`pulumi.Input[str]`) - The name of the default export storage account.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The resource tags.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -150,13 +83,15 @@ class Service(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None) -> 'Service':
         """
         Get an existing Service resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -165,8 +100,73 @@ class Service(pulumi.CustomResource):
 
         return Service(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter
+    def etag(self) -> Optional[str]:
+        """
+        An etag associated with the resource, used for optimistic concurrency when editing it.
+        """
+        return pulumi.get(self, "etag")
+
+    @property
+    @pulumi.getter
+    def identity(self) -> Optional['outputs.ResourceResponseIdentity']:
+        """
+        Setting indicating whether the service has a managed identity associated with it.
+        """
+        return pulumi.get(self, "identity")
+
+    @property
+    @pulumi.getter
+    def kind(self) -> str:
+        """
+        The kind of the service.
+        """
+        return pulumi.get(self, "kind")
+
+    @property
+    @pulumi.getter
+    def location(self) -> str:
+        """
+        The resource location.
+        """
+        return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The resource name.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def properties(self) -> 'outputs.ServicesPropertiesResponse':
+        """
+        The common properties of a service.
+        """
+        return pulumi.get(self, "properties")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Mapping[str, str]]:
+        """
+        The resource tags.
+        """
+        return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        The resource type.
+        """
+        return pulumi.get(self, "type")
+
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

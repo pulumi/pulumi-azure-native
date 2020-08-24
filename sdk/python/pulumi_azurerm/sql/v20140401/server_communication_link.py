@@ -5,36 +5,23 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+
+__all__ = ['ServerCommunicationLink']
 
 
 class ServerCommunicationLink(pulumi.CustomResource):
-    kind: pulumi.Output[str]
-    """
-    Communication link kind.  This property is used for Azure Portal metadata.
-    """
-    location: pulumi.Output[str]
-    """
-    Communication link location.
-    """
-    name: pulumi.Output[str]
-    """
-    Resource name.
-    """
-    partner_server: pulumi.Output[str]
-    """
-    The name of the partner server.
-    """
-    state: pulumi.Output[str]
-    """
-    The state.
-    """
-    type: pulumi.Output[str]
-    """
-    Resource type.
-    """
-    def __init__(__self__, resource_name, opts=None, name=None, partner_server=None, resource_group_name=None, server_name=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 partner_server: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 server_name: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         Server communication link.
 
@@ -85,13 +72,15 @@ class ServerCommunicationLink(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None) -> 'ServerCommunicationLink':
         """
         Get an existing ServerCommunicationLink resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -100,8 +89,57 @@ class ServerCommunicationLink(pulumi.CustomResource):
 
         return ServerCommunicationLink(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter
+    def kind(self) -> str:
+        """
+        Communication link kind.  This property is used for Azure Portal metadata.
+        """
+        return pulumi.get(self, "kind")
+
+    @property
+    @pulumi.getter
+    def location(self) -> str:
+        """
+        Communication link location.
+        """
+        return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Resource name.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="partnerServer")
+    def partner_server(self) -> str:
+        """
+        The name of the partner server.
+        """
+        return pulumi.get(self, "partner_server")
+
+    @property
+    @pulumi.getter
+    def state(self) -> str:
+        """
+        The state.
+        """
+        return pulumi.get(self, "state")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Resource type.
+        """
+        return pulumi.get(self, "type")
+
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

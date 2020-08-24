@@ -5,52 +5,29 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+
+__all__ = ['ManagerExtendedInfo']
 
 
 class ManagerExtendedInfo(pulumi.CustomResource):
-    algorithm: pulumi.Output[str]
-    """
-    Represents the encryption algorithm used to encrypt the keys. None - if Key is saved in plain text format. Algorithm name - if key is encrypted
-    """
-    encryption_key: pulumi.Output[str]
-    """
-    Represents the CEK of the resource.
-    """
-    encryption_key_thumbprint: pulumi.Output[str]
-    """
-    Represents the Cert thumbprint that was used to encrypt the CEK.
-    """
-    etag: pulumi.Output[str]
-    """
-    The etag of the resource.
-    """
-    integrity_key: pulumi.Output[str]
-    """
-    Represents the CIK of the resource.
-    """
-    kind: pulumi.Output[str]
-    """
-    The Kind of the object. Currently only Series8000 is supported
-    """
-    name: pulumi.Output[str]
-    """
-    The name of the object.
-    """
-    portal_certificate_thumbprint: pulumi.Output[str]
-    """
-    Represents the portal thumbprint which can be used optionally to encrypt the entire data before storing it.
-    """
-    type: pulumi.Output[str]
-    """
-    The hierarchical type of the object.
-    """
-    version: pulumi.Output[str]
-    """
-    The version of the extended info being persisted.
-    """
-    def __init__(__self__, resource_name, opts=None, algorithm=None, encryption_key=None, encryption_key_thumbprint=None, etag=None, integrity_key=None, kind=None, name=None, portal_certificate_thumbprint=None, resource_group_name=None, version=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 algorithm: Optional[pulumi.Input[str]] = None,
+                 encryption_key: Optional[pulumi.Input[str]] = None,
+                 encryption_key_thumbprint: Optional[pulumi.Input[str]] = None,
+                 etag: Optional[pulumi.Input[str]] = None,
+                 integrity_key: Optional[pulumi.Input[str]] = None,
+                 kind: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 portal_certificate_thumbprint: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 version: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         The extended info of the manager.
 
@@ -112,13 +89,15 @@ class ManagerExtendedInfo(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None) -> 'ManagerExtendedInfo':
         """
         Get an existing ManagerExtendedInfo resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -127,8 +106,89 @@ class ManagerExtendedInfo(pulumi.CustomResource):
 
         return ManagerExtendedInfo(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter
+    def algorithm(self) -> str:
+        """
+        Represents the encryption algorithm used to encrypt the keys. None - if Key is saved in plain text format. Algorithm name - if key is encrypted
+        """
+        return pulumi.get(self, "algorithm")
+
+    @property
+    @pulumi.getter(name="encryptionKey")
+    def encryption_key(self) -> Optional[str]:
+        """
+        Represents the CEK of the resource.
+        """
+        return pulumi.get(self, "encryption_key")
+
+    @property
+    @pulumi.getter(name="encryptionKeyThumbprint")
+    def encryption_key_thumbprint(self) -> Optional[str]:
+        """
+        Represents the Cert thumbprint that was used to encrypt the CEK.
+        """
+        return pulumi.get(self, "encryption_key_thumbprint")
+
+    @property
+    @pulumi.getter
+    def etag(self) -> Optional[str]:
+        """
+        The etag of the resource.
+        """
+        return pulumi.get(self, "etag")
+
+    @property
+    @pulumi.getter(name="integrityKey")
+    def integrity_key(self) -> str:
+        """
+        Represents the CIK of the resource.
+        """
+        return pulumi.get(self, "integrity_key")
+
+    @property
+    @pulumi.getter
+    def kind(self) -> Optional[str]:
+        """
+        The Kind of the object. Currently only Series8000 is supported
+        """
+        return pulumi.get(self, "kind")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the object.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="portalCertificateThumbprint")
+    def portal_certificate_thumbprint(self) -> Optional[str]:
+        """
+        Represents the portal thumbprint which can be used optionally to encrypt the entire data before storing it.
+        """
+        return pulumi.get(self, "portal_certificate_thumbprint")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        The hierarchical type of the object.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def version(self) -> Optional[str]:
+        """
+        The version of the extended info being persisted.
+        """
+        return pulumi.get(self, "version")
+
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

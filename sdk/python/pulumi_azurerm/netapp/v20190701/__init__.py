@@ -11,3 +11,5 @@ from .get_volume import *
 from .pool import *
 from .snapshot import *
 from .volume import *
+from ._inputs import *
+from . import outputs

@@ -67,3 +67,5 @@ from .tag_by_operation import *
 from .tag_by_product import *
 from .tag_description import *
 from .user import *
+from ._inputs import *
+from . import outputs

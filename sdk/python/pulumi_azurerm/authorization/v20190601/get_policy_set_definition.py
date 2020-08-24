@@ -5,10 +5,17 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+from . import outputs
 
+__all__ = [
+    'GetPolicySetDefinitionResult',
+    'AwaitableGetPolicySetDefinitionResult',
+    'get_policy_set_definition',
+]
 
+@pulumi.output_type
 class GetPolicySetDefinitionResult:
     """
     The policy set definition.
@@ -16,52 +23,92 @@ class GetPolicySetDefinitionResult:
     def __init__(__self__, description=None, display_name=None, metadata=None, name=None, parameters=None, policy_definitions=None, policy_type=None, type=None):
         if description and not isinstance(description, str):
             raise TypeError("Expected argument 'description' to be a str")
-        __self__.description = description
+        pulumi.set(__self__, "description", description)
+        if display_name and not isinstance(display_name, str):
+            raise TypeError("Expected argument 'display_name' to be a str")
+        pulumi.set(__self__, "display_name", display_name)
+        if metadata and not isinstance(metadata, dict):
+            raise TypeError("Expected argument 'metadata' to be a dict")
+        pulumi.set(__self__, "metadata", metadata)
+        if name and not isinstance(name, str):
+            raise TypeError("Expected argument 'name' to be a str")
+        pulumi.set(__self__, "name", name)
+        if parameters and not isinstance(parameters, dict):
+            raise TypeError("Expected argument 'parameters' to be a dict")
+        pulumi.set(__self__, "parameters", parameters)
+        if policy_definitions and not isinstance(policy_definitions, list):
+            raise TypeError("Expected argument 'policy_definitions' to be a list")
+        pulumi.set(__self__, "policy_definitions", policy_definitions)
+        if policy_type and not isinstance(policy_type, str):
+            raise TypeError("Expected argument 'policy_type' to be a str")
+        pulumi.set(__self__, "policy_type", policy_type)
+        if type and not isinstance(type, str):
+            raise TypeError("Expected argument 'type' to be a str")
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
         """
         The policy set definition description.
         """
-        if display_name and not isinstance(display_name, str):
-            raise TypeError("Expected argument 'display_name' to be a str")
-        __self__.display_name = display_name
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="displayName")
+    def display_name(self) -> Optional[str]:
         """
         The display name of the policy set definition.
         """
-        if metadata and not isinstance(metadata, dict):
-            raise TypeError("Expected argument 'metadata' to be a dict")
-        __self__.metadata = metadata
+        return pulumi.get(self, "display_name")
+
+    @property
+    @pulumi.getter
+    def metadata(self) -> Optional[Mapping[str, Any]]:
         """
         The policy set definition metadata.
         """
-        if name and not isinstance(name, str):
-            raise TypeError("Expected argument 'name' to be a str")
-        __self__.name = name
+        return pulumi.get(self, "metadata")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
         """
         The name of the policy set definition.
         """
-        if parameters and not isinstance(parameters, dict):
-            raise TypeError("Expected argument 'parameters' to be a dict")
-        __self__.parameters = parameters
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def parameters(self) -> Optional[Mapping[str, Any]]:
         """
         The policy set definition parameters that can be used in policy definition references.
         """
-        if policy_definitions and not isinstance(policy_definitions, list):
-            raise TypeError("Expected argument 'policy_definitions' to be a list")
-        __self__.policy_definitions = policy_definitions
+        return pulumi.get(self, "parameters")
+
+    @property
+    @pulumi.getter(name="policyDefinitions")
+    def policy_definitions(self) -> List['outputs.PolicyDefinitionReferenceResponse']:
         """
         An array of policy definition references.
         """
-        if policy_type and not isinstance(policy_type, str):
-            raise TypeError("Expected argument 'policy_type' to be a str")
-        __self__.policy_type = policy_type
+        return pulumi.get(self, "policy_definitions")
+
+    @property
+    @pulumi.getter(name="policyType")
+    def policy_type(self) -> Optional[str]:
         """
         The type of policy definition. Possible values are NotSpecified, BuiltIn, and Custom.
         """
-        if type and not isinstance(type, str):
-            raise TypeError("Expected argument 'type' to be a str")
-        __self__.type = type
+        return pulumi.get(self, "policy_type")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
         """
         The type of the resource (Microsoft.Authorization/policySetDefinitions).
         """
+        return pulumi.get(self, "type")
 
 
 class AwaitableGetPolicySetDefinitionResult(GetPolicySetDefinitionResult):
@@ -80,7 +127,8 @@ class AwaitableGetPolicySetDefinitionResult(GetPolicySetDefinitionResult):
             type=self.type)
 
 
-def get_policy_set_definition(name=None, opts=None):
+def get_policy_set_definition(name: Optional[str] = None,
+                              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPolicySetDefinitionResult:
     """
     Use this data source to access information about an existing resource.
 
@@ -92,14 +140,14 @@ def get_policy_set_definition(name=None, opts=None):
         opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = _utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('azurerm:authorization/v20190601:getPolicySetDefinition', __args__, opts=opts).value
+    __ret__ = pulumi.runtime.invoke('azurerm:authorization/v20190601:getPolicySetDefinition', __args__, opts=opts, typ=GetPolicySetDefinitionResult).value
 
     return AwaitableGetPolicySetDefinitionResult(
-        description=__ret__.get('description'),
-        display_name=__ret__.get('displayName'),
-        metadata=__ret__.get('metadata'),
-        name=__ret__.get('name'),
-        parameters=__ret__.get('parameters'),
-        policy_definitions=__ret__.get('policyDefinitions'),
-        policy_type=__ret__.get('policyType'),
-        type=__ret__.get('type'))
+        description=__ret__.description,
+        display_name=__ret__.display_name,
+        metadata=__ret__.metadata,
+        name=__ret__.name,
+        parameters=__ret__.parameters,
+        policy_definitions=__ret__.policy_definitions,
+        policy_type=__ret__.policy_type,
+        type=__ret__.type)

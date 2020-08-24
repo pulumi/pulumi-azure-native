@@ -5,10 +5,16 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
 
+__all__ = [
+    'ListServerGatewayStatusResult',
+    'AwaitableListServerGatewayStatusResult',
+    'list_server_gateway_status',
+]
 
+@pulumi.output_type
 class ListServerGatewayStatusResult:
     """
     Status of gateway is live
@@ -16,10 +22,15 @@ class ListServerGatewayStatusResult:
     def __init__(__self__, status=None):
         if status and not isinstance(status, str):
             raise TypeError("Expected argument 'status' to be a str")
-        __self__.status = status
+        pulumi.set(__self__, "status", status)
+
+    @property
+    @pulumi.getter
+    def status(self) -> Optional[str]:
         """
         Live message of list gateway.
         """
+        return pulumi.get(self, "status")
 
 
 class AwaitableListServerGatewayStatusResult(ListServerGatewayStatusResult):
@@ -31,7 +42,9 @@ class AwaitableListServerGatewayStatusResult(ListServerGatewayStatusResult):
             status=self.status)
 
 
-def list_server_gateway_status(resource_group_name=None, server_name=None, opts=None):
+def list_server_gateway_status(resource_group_name: Optional[str] = None,
+                               server_name: Optional[str] = None,
+                               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListServerGatewayStatusResult:
     """
     Use this data source to access information about an existing resource.
 
@@ -45,7 +58,7 @@ def list_server_gateway_status(resource_group_name=None, server_name=None, opts=
         opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = _utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('azurerm:analysisservices/v20170714:listServerGatewayStatus', __args__, opts=opts).value
+    __ret__ = pulumi.runtime.invoke('azurerm:analysisservices/v20170714:listServerGatewayStatus', __args__, opts=opts, typ=ListServerGatewayStatusResult).value
 
     return AwaitableListServerGatewayStatusResult(
-        status=__ret__.get('status'))
+        status=__ret__.status)

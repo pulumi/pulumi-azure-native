@@ -5,96 +5,38 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+from . import outputs
+from ._inputs import *
+
+__all__ = ['ProximityPlacementGroup']
 
 
 class ProximityPlacementGroup(pulumi.CustomResource):
-    availability_sets: pulumi.Output[list]
-    """
-    A list of references to all availability sets in the proximity placement group.
-      * `colocation_status` (`dict`) - Describes colocation status of a resource in the Proximity Placement Group.
-        * `code` (`str`) - The status code.
-        * `display_status` (`str`) - The short localizable label for the status.
-        * `level` (`str`) - The level code.
-        * `message` (`str`) - The detailed status message, including for alerts and error messages.
-        * `time` (`str`) - The time of the status.
-
-      * `id` (`str`) - Resource Id
-    """
-    colocation_status: pulumi.Output[dict]
-    """
-    Describes colocation status of the Proximity Placement Group.
-      * `code` (`str`) - The status code.
-      * `display_status` (`str`) - The short localizable label for the status.
-      * `level` (`str`) - The level code.
-      * `message` (`str`) - The detailed status message, including for alerts and error messages.
-      * `time` (`str`) - The time of the status.
-    """
-    location: pulumi.Output[str]
-    """
-    Resource location
-    """
-    name: pulumi.Output[str]
-    """
-    Resource name
-    """
-    proximity_placement_group_type: pulumi.Output[str]
-    """
-    Specifies the type of the proximity placement group. <br><br> Possible values are: <br><br> **Standard** : Co-locate resources within an Azure region or Availability Zone. <br><br> **Ultra** : For future use.
-    """
-    tags: pulumi.Output[dict]
-    """
-    Resource tags
-    """
-    type: pulumi.Output[str]
-    """
-    Resource type
-    """
-    virtual_machine_scale_sets: pulumi.Output[list]
-    """
-    A list of references to all virtual machine scale sets in the proximity placement group.
-      * `colocation_status` (`dict`) - Describes colocation status of a resource in the Proximity Placement Group.
-        * `code` (`str`) - The status code.
-        * `display_status` (`str`) - The short localizable label for the status.
-        * `level` (`str`) - The level code.
-        * `message` (`str`) - The detailed status message, including for alerts and error messages.
-        * `time` (`str`) - The time of the status.
-
-      * `id` (`str`) - Resource Id
-    """
-    virtual_machines: pulumi.Output[list]
-    """
-    A list of references to all virtual machines in the proximity placement group.
-      * `colocation_status` (`dict`) - Describes colocation status of a resource in the Proximity Placement Group.
-        * `code` (`str`) - The status code.
-        * `display_status` (`str`) - The short localizable label for the status.
-        * `level` (`str`) - The level code.
-        * `message` (`str`) - The detailed status message, including for alerts and error messages.
-        * `time` (`str`) - The time of the status.
-
-      * `id` (`str`) - Resource Id
-    """
-    def __init__(__self__, resource_name, opts=None, colocation_status=None, location=None, name=None, proximity_placement_group_type=None, resource_group_name=None, tags=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 colocation_status: Optional[pulumi.Input[pulumi.InputType['InstanceViewStatusArgs']]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 proximity_placement_group_type: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         Specifies information about the proximity placement group.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[dict] colocation_status: Describes colocation status of the Proximity Placement Group.
+        :param pulumi.Input[pulumi.InputType['InstanceViewStatusArgs']] colocation_status: Describes colocation status of the Proximity Placement Group.
         :param pulumi.Input[str] location: Resource location
         :param pulumi.Input[str] name: The name of the proximity placement group.
         :param pulumi.Input[str] proximity_placement_group_type: Specifies the type of the proximity placement group. <br><br> Possible values are: <br><br> **Standard** : Co-locate resources within an Azure region or Availability Zone. <br><br> **Ultra** : For future use.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
-        :param pulumi.Input[dict] tags: Resource tags
-
-        The **colocation_status** object supports the following:
-
-          * `code` (`pulumi.Input[str]`) - The status code.
-          * `display_status` (`pulumi.Input[str]`) - The short localizable label for the status.
-          * `level` (`pulumi.Input[str]`) - The level code.
-          * `message` (`pulumi.Input[str]`) - The detailed status message, including for alerts and error messages.
-          * `time` (`pulumi.Input[str]`) - The time of the status.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -138,13 +80,15 @@ class ProximityPlacementGroup(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None) -> 'ProximityPlacementGroup':
         """
         Get an existing ProximityPlacementGroup resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -153,8 +97,81 @@ class ProximityPlacementGroup(pulumi.CustomResource):
 
         return ProximityPlacementGroup(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter(name="availabilitySets")
+    def availability_sets(self) -> List['outputs.SubResourceWithColocationStatusResponse']:
+        """
+        A list of references to all availability sets in the proximity placement group.
+        """
+        return pulumi.get(self, "availability_sets")
+
+    @property
+    @pulumi.getter(name="colocationStatus")
+    def colocation_status(self) -> Optional['outputs.InstanceViewStatusResponse']:
+        """
+        Describes colocation status of the Proximity Placement Group.
+        """
+        return pulumi.get(self, "colocation_status")
+
+    @property
+    @pulumi.getter
+    def location(self) -> str:
+        """
+        Resource location
+        """
+        return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Resource name
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="proximityPlacementGroupType")
+    def proximity_placement_group_type(self) -> Optional[str]:
+        """
+        Specifies the type of the proximity placement group. <br><br> Possible values are: <br><br> **Standard** : Co-locate resources within an Azure region or Availability Zone. <br><br> **Ultra** : For future use.
+        """
+        return pulumi.get(self, "proximity_placement_group_type")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Mapping[str, str]]:
+        """
+        Resource tags
+        """
+        return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Resource type
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="virtualMachineScaleSets")
+    def virtual_machine_scale_sets(self) -> List['outputs.SubResourceWithColocationStatusResponse']:
+        """
+        A list of references to all virtual machine scale sets in the proximity placement group.
+        """
+        return pulumi.get(self, "virtual_machine_scale_sets")
+
+    @property
+    @pulumi.getter(name="virtualMachines")
+    def virtual_machines(self) -> List['outputs.SubResourceWithColocationStatusResponse']:
+        """
+        A list of references to all virtual machines in the proximity placement group.
+        """
+        return pulumi.get(self, "virtual_machines")
+
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

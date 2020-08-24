@@ -5,10 +5,17 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+from . import outputs
 
+__all__ = [
+    'GetVirtualNetworkResult',
+    'AwaitableGetVirtualNetworkResult',
+    'get_virtual_network',
+]
 
+@pulumi.output_type
 class GetVirtualNetworkResult:
     """
     A virtual network.
@@ -16,76 +23,136 @@ class GetVirtualNetworkResult:
     def __init__(__self__, allowed_subnets=None, created_date=None, description=None, external_provider_resource_id=None, external_subnets=None, location=None, name=None, provisioning_state=None, subnet_overrides=None, tags=None, type=None, unique_identifier=None):
         if allowed_subnets and not isinstance(allowed_subnets, list):
             raise TypeError("Expected argument 'allowed_subnets' to be a list")
-        __self__.allowed_subnets = allowed_subnets
+        pulumi.set(__self__, "allowed_subnets", allowed_subnets)
+        if created_date and not isinstance(created_date, str):
+            raise TypeError("Expected argument 'created_date' to be a str")
+        pulumi.set(__self__, "created_date", created_date)
+        if description and not isinstance(description, str):
+            raise TypeError("Expected argument 'description' to be a str")
+        pulumi.set(__self__, "description", description)
+        if external_provider_resource_id and not isinstance(external_provider_resource_id, str):
+            raise TypeError("Expected argument 'external_provider_resource_id' to be a str")
+        pulumi.set(__self__, "external_provider_resource_id", external_provider_resource_id)
+        if external_subnets and not isinstance(external_subnets, list):
+            raise TypeError("Expected argument 'external_subnets' to be a list")
+        pulumi.set(__self__, "external_subnets", external_subnets)
+        if location and not isinstance(location, str):
+            raise TypeError("Expected argument 'location' to be a str")
+        pulumi.set(__self__, "location", location)
+        if name and not isinstance(name, str):
+            raise TypeError("Expected argument 'name' to be a str")
+        pulumi.set(__self__, "name", name)
+        if provisioning_state and not isinstance(provisioning_state, str):
+            raise TypeError("Expected argument 'provisioning_state' to be a str")
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if subnet_overrides and not isinstance(subnet_overrides, list):
+            raise TypeError("Expected argument 'subnet_overrides' to be a list")
+        pulumi.set(__self__, "subnet_overrides", subnet_overrides)
+        if tags and not isinstance(tags, dict):
+            raise TypeError("Expected argument 'tags' to be a dict")
+        pulumi.set(__self__, "tags", tags)
+        if type and not isinstance(type, str):
+            raise TypeError("Expected argument 'type' to be a str")
+        pulumi.set(__self__, "type", type)
+        if unique_identifier and not isinstance(unique_identifier, str):
+            raise TypeError("Expected argument 'unique_identifier' to be a str")
+        pulumi.set(__self__, "unique_identifier", unique_identifier)
+
+    @property
+    @pulumi.getter(name="allowedSubnets")
+    def allowed_subnets(self) -> Optional[List['outputs.SubnetResponse']]:
         """
         The allowed subnets of the virtual network.
         """
-        if created_date and not isinstance(created_date, str):
-            raise TypeError("Expected argument 'created_date' to be a str")
-        __self__.created_date = created_date
+        return pulumi.get(self, "allowed_subnets")
+
+    @property
+    @pulumi.getter(name="createdDate")
+    def created_date(self) -> str:
         """
         The creation date of the virtual network.
         """
-        if description and not isinstance(description, str):
-            raise TypeError("Expected argument 'description' to be a str")
-        __self__.description = description
+        return pulumi.get(self, "created_date")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
         """
         The description of the virtual network.
         """
-        if external_provider_resource_id and not isinstance(external_provider_resource_id, str):
-            raise TypeError("Expected argument 'external_provider_resource_id' to be a str")
-        __self__.external_provider_resource_id = external_provider_resource_id
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="externalProviderResourceId")
+    def external_provider_resource_id(self) -> Optional[str]:
         """
         The Microsoft.Network resource identifier of the virtual network.
         """
-        if external_subnets and not isinstance(external_subnets, list):
-            raise TypeError("Expected argument 'external_subnets' to be a list")
-        __self__.external_subnets = external_subnets
+        return pulumi.get(self, "external_provider_resource_id")
+
+    @property
+    @pulumi.getter(name="externalSubnets")
+    def external_subnets(self) -> List['outputs.ExternalSubnetResponse']:
         """
         The external subnet properties.
         """
-        if location and not isinstance(location, str):
-            raise TypeError("Expected argument 'location' to be a str")
-        __self__.location = location
+        return pulumi.get(self, "external_subnets")
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[str]:
         """
         The location of the resource.
         """
-        if name and not isinstance(name, str):
-            raise TypeError("Expected argument 'name' to be a str")
-        __self__.name = name
+        return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
         """
         The name of the resource.
         """
-        if provisioning_state and not isinstance(provisioning_state, str):
-            raise TypeError("Expected argument 'provisioning_state' to be a str")
-        __self__.provisioning_state = provisioning_state
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
         """
         The provisioning status of the resource.
         """
-        if subnet_overrides and not isinstance(subnet_overrides, list):
-            raise TypeError("Expected argument 'subnet_overrides' to be a list")
-        __self__.subnet_overrides = subnet_overrides
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="subnetOverrides")
+    def subnet_overrides(self) -> Optional[List['outputs.SubnetOverrideResponse']]:
         """
         The subnet overrides of the virtual network.
         """
-        if tags and not isinstance(tags, dict):
-            raise TypeError("Expected argument 'tags' to be a dict")
-        __self__.tags = tags
+        return pulumi.get(self, "subnet_overrides")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Mapping[str, str]]:
         """
         The tags of the resource.
         """
-        if type and not isinstance(type, str):
-            raise TypeError("Expected argument 'type' to be a str")
-        __self__.type = type
+        return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
         """
         The type of the resource.
         """
-        if unique_identifier and not isinstance(unique_identifier, str):
-            raise TypeError("Expected argument 'unique_identifier' to be a str")
-        __self__.unique_identifier = unique_identifier
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="uniqueIdentifier")
+    def unique_identifier(self) -> str:
         """
         The unique immutable identifier of a resource (Guid).
         """
+        return pulumi.get(self, "unique_identifier")
 
 
 class AwaitableGetVirtualNetworkResult(GetVirtualNetworkResult):
@@ -108,7 +175,11 @@ class AwaitableGetVirtualNetworkResult(GetVirtualNetworkResult):
             unique_identifier=self.unique_identifier)
 
 
-def get_virtual_network(expand=None, lab_name=None, name=None, resource_group_name=None, opts=None):
+def get_virtual_network(expand: Optional[str] = None,
+                        lab_name: Optional[str] = None,
+                        name: Optional[str] = None,
+                        resource_group_name: Optional[str] = None,
+                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVirtualNetworkResult:
     """
     Use this data source to access information about an existing resource.
 
@@ -126,18 +197,18 @@ def get_virtual_network(expand=None, lab_name=None, name=None, resource_group_na
         opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = _utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('azurerm:devtestlab/v20180915:getVirtualNetwork', __args__, opts=opts).value
+    __ret__ = pulumi.runtime.invoke('azurerm:devtestlab/v20180915:getVirtualNetwork', __args__, opts=opts, typ=GetVirtualNetworkResult).value
 
     return AwaitableGetVirtualNetworkResult(
-        allowed_subnets=__ret__.get('allowedSubnets'),
-        created_date=__ret__.get('createdDate'),
-        description=__ret__.get('description'),
-        external_provider_resource_id=__ret__.get('externalProviderResourceId'),
-        external_subnets=__ret__.get('externalSubnets'),
-        location=__ret__.get('location'),
-        name=__ret__.get('name'),
-        provisioning_state=__ret__.get('provisioningState'),
-        subnet_overrides=__ret__.get('subnetOverrides'),
-        tags=__ret__.get('tags'),
-        type=__ret__.get('type'),
-        unique_identifier=__ret__.get('uniqueIdentifier'))
+        allowed_subnets=__ret__.allowed_subnets,
+        created_date=__ret__.created_date,
+        description=__ret__.description,
+        external_provider_resource_id=__ret__.external_provider_resource_id,
+        external_subnets=__ret__.external_subnets,
+        location=__ret__.location,
+        name=__ret__.name,
+        provisioning_state=__ret__.provisioning_state,
+        subnet_overrides=__ret__.subnet_overrides,
+        tags=__ret__.tags,
+        type=__ret__.type,
+        unique_identifier=__ret__.unique_identifier)

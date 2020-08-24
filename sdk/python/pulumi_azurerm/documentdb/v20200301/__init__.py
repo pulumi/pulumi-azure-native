@@ -34,3 +34,5 @@ from .sql_resource_sql_stored_procedure import *
 from .sql_resource_sql_trigger import *
 from .sql_resource_sql_user_defined_function import *
 from .table_resource_table import *
+from ._inputs import *
+from . import outputs

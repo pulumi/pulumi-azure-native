@@ -5,76 +5,42 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+from . import outputs
+from ._inputs import *
+
+__all__ = ['Certificate']
 
 
 class Certificate(pulumi.CustomResource):
-    changed_time: pulumi.Output[str]
-    """
-    The changed time.
-    """
-    created_time: pulumi.Output[str]
-    """
-    The created time.
-    """
-    key: pulumi.Output[dict]
-    """
-    The key details in the key vault.
-      * `key_name` (`str`) - The private key name in key vault.
-      * `key_vault` (`dict`) - The key vault reference.
-        * `id` (`str`) - The resource id.
-        * `name` (`str`) - The resource name.
-        * `type` (`str`) - The resource type.
-
-      * `key_version` (`str`) - The private key version in key vault.
-    """
-    location: pulumi.Output[str]
-    """
-    The resource location.
-    """
-    metadata: pulumi.Output[dict]
-    """
-    The metadata.
-    """
-    name: pulumi.Output[str]
-    """
-    Gets the resource name.
-    """
-    public_certificate: pulumi.Output[str]
-    """
-    The public certificate.
-    """
-    tags: pulumi.Output[dict]
-    """
-    The resource tags.
-    """
-    type: pulumi.Output[str]
-    """
-    Gets the resource type.
-    """
-    def __init__(__self__, resource_name, opts=None, integration_account_name=None, key=None, location=None, metadata=None, name=None, public_certificate=None, resource_group_name=None, tags=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 integration_account_name: Optional[pulumi.Input[str]] = None,
+                 key: Optional[pulumi.Input[pulumi.InputType['KeyVaultKeyReferenceArgs']]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 metadata: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 public_certificate: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         The integration account certificate.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] integration_account_name: The integration account name.
-        :param pulumi.Input[dict] key: The key details in the key vault.
+        :param pulumi.Input[pulumi.InputType['KeyVaultKeyReferenceArgs']] key: The key details in the key vault.
         :param pulumi.Input[str] location: The resource location.
-        :param pulumi.Input[dict] metadata: The metadata.
+        :param pulumi.Input[Mapping[str, Any]] metadata: The metadata.
         :param pulumi.Input[str] name: The integration account certificate name.
         :param pulumi.Input[str] public_certificate: The public certificate.
         :param pulumi.Input[str] resource_group_name: The resource group name.
-        :param pulumi.Input[dict] tags: The resource tags.
-
-        The **key** object supports the following:
-
-          * `key_name` (`pulumi.Input[str]`) - The private key name in key vault.
-          * `key_vault` (`pulumi.Input[dict]`) - The key vault reference.
-            * `id` (`pulumi.Input[str]`) - The resource id.
-
-          * `key_version` (`pulumi.Input[str]`) - The private key version in key vault.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The resource tags.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -119,13 +85,15 @@ class Certificate(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None) -> 'Certificate':
         """
         Get an existing Certificate resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -134,8 +102,81 @@ class Certificate(pulumi.CustomResource):
 
         return Certificate(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter(name="changedTime")
+    def changed_time(self) -> str:
+        """
+        The changed time.
+        """
+        return pulumi.get(self, "changed_time")
+
+    @property
+    @pulumi.getter(name="createdTime")
+    def created_time(self) -> str:
+        """
+        The created time.
+        """
+        return pulumi.get(self, "created_time")
+
+    @property
+    @pulumi.getter
+    def key(self) -> Optional['outputs.KeyVaultKeyReferenceResponse']:
+        """
+        The key details in the key vault.
+        """
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[str]:
+        """
+        The resource location.
+        """
+        return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter
+    def metadata(self) -> Optional[Mapping[str, Any]]:
+        """
+        The metadata.
+        """
+        return pulumi.get(self, "metadata")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Gets the resource name.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="publicCertificate")
+    def public_certificate(self) -> Optional[str]:
+        """
+        The public certificate.
+        """
+        return pulumi.get(self, "public_certificate")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Mapping[str, str]]:
+        """
+        The resource tags.
+        """
+        return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Gets the resource type.
+        """
+        return pulumi.get(self, "type")
+
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

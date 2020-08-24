@@ -5,45 +5,28 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+from . import outputs
+from ._inputs import *
+
+__all__ = ['PrivateEndpointConnection']
 
 
 class PrivateEndpointConnection(pulumi.CustomResource):
-    e_tag: pulumi.Output[str]
-    """
-    Optional ETag.
-    """
-    location: pulumi.Output[str]
-    """
-    Resource location.
-    """
-    name: pulumi.Output[str]
-    """
-    Resource name associated with the resource.
-    """
-    properties: pulumi.Output[dict]
-    """
-    PrivateEndpointConnectionResource properties
-      * `private_endpoint` (`dict`) - Gets or sets private endpoint associated with the private endpoint connection
-        * `id` (`str`) - Gets or sets id
-
-      * `private_link_service_connection_state` (`dict`) - Gets or sets private link service connection state
-        * `action_required` (`str`) - Gets or sets actions required
-        * `description` (`str`) - Gets or sets description
-        * `status` (`str`) - Gets or sets the status
-
-      * `provisioning_state` (`str`) - Gets or sets provisioning state of the private endpoint connection
-    """
-    tags: pulumi.Output[dict]
-    """
-    Resource tags.
-    """
-    type: pulumi.Output[str]
-    """
-    Resource type represents the complete path of the form Namespace/ResourceType/ResourceType/...
-    """
-    def __init__(__self__, resource_name, opts=None, e_tag=None, location=None, name=None, properties=None, resource_group_name=None, tags=None, vault_name=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 e_tag: Optional[pulumi.Input[str]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 properties: Optional[pulumi.Input[pulumi.InputType['PrivateEndpointConnectionArgs']]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 vault_name: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         Private Endpoint Connection Response Properties
 
@@ -52,22 +35,10 @@ class PrivateEndpointConnection(pulumi.CustomResource):
         :param pulumi.Input[str] e_tag: Optional ETag.
         :param pulumi.Input[str] location: Resource location.
         :param pulumi.Input[str] name: The name of the private endpoint connection.
-        :param pulumi.Input[dict] properties: PrivateEndpointConnectionResource properties
+        :param pulumi.Input[pulumi.InputType['PrivateEndpointConnectionArgs']] properties: PrivateEndpointConnectionResource properties
         :param pulumi.Input[str] resource_group_name: The name of the resource group where the recovery services vault is present.
-        :param pulumi.Input[dict] tags: Resource tags.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         :param pulumi.Input[str] vault_name: The name of the recovery services vault.
-
-        The **properties** object supports the following:
-
-          * `private_endpoint` (`pulumi.Input[dict]`) - Gets or sets private endpoint associated with the private endpoint connection
-            * `id` (`pulumi.Input[str]`) - Gets or sets id
-
-          * `private_link_service_connection_state` (`pulumi.Input[dict]`) - Gets or sets private link service connection state
-            * `action_required` (`pulumi.Input[str]`) - Gets or sets actions required
-            * `description` (`pulumi.Input[str]`) - Gets or sets description
-            * `status` (`pulumi.Input[str]`) - Gets or sets the status
-
-          * `provisioning_state` (`pulumi.Input[str]`) - Gets or sets provisioning state of the private endpoint connection
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -107,13 +78,15 @@ class PrivateEndpointConnection(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None) -> 'PrivateEndpointConnection':
         """
         Get an existing PrivateEndpointConnection resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -122,8 +95,57 @@ class PrivateEndpointConnection(pulumi.CustomResource):
 
         return PrivateEndpointConnection(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter(name="eTag")
+    def e_tag(self) -> Optional[str]:
+        """
+        Optional ETag.
+        """
+        return pulumi.get(self, "e_tag")
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[str]:
+        """
+        Resource location.
+        """
+        return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Resource name associated with the resource.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def properties(self) -> 'outputs.PrivateEndpointConnectionResponse':
+        """
+        PrivateEndpointConnectionResource properties
+        """
+        return pulumi.get(self, "properties")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Mapping[str, str]]:
+        """
+        Resource tags.
+        """
+        return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Resource type represents the complete path of the form Namespace/ResourceType/ResourceType/...
+        """
+        return pulumi.get(self, "type")
+
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

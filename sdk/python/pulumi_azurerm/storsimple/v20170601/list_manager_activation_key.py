@@ -5,10 +5,16 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
 
+__all__ = [
+    'ListManagerActivationKeyResult',
+    'AwaitableListManagerActivationKeyResult',
+    'list_manager_activation_key',
+]
 
+@pulumi.output_type
 class ListManagerActivationKeyResult:
     """
     The key.
@@ -16,10 +22,15 @@ class ListManagerActivationKeyResult:
     def __init__(__self__, activation_key=None):
         if activation_key and not isinstance(activation_key, str):
             raise TypeError("Expected argument 'activation_key' to be a str")
-        __self__.activation_key = activation_key
+        pulumi.set(__self__, "activation_key", activation_key)
+
+    @property
+    @pulumi.getter(name="activationKey")
+    def activation_key(self) -> str:
         """
         The activation key for the device.
         """
+        return pulumi.get(self, "activation_key")
 
 
 class AwaitableListManagerActivationKeyResult(ListManagerActivationKeyResult):
@@ -31,7 +42,9 @@ class AwaitableListManagerActivationKeyResult(ListManagerActivationKeyResult):
             activation_key=self.activation_key)
 
 
-def list_manager_activation_key(manager_name=None, resource_group_name=None, opts=None):
+def list_manager_activation_key(manager_name: Optional[str] = None,
+                                resource_group_name: Optional[str] = None,
+                                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListManagerActivationKeyResult:
     """
     Use this data source to access information about an existing resource.
 
@@ -45,7 +58,7 @@ def list_manager_activation_key(manager_name=None, resource_group_name=None, opt
         opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = _utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('azurerm:storsimple/v20170601:listManagerActivationKey', __args__, opts=opts).value
+    __ret__ = pulumi.runtime.invoke('azurerm:storsimple/v20170601:listManagerActivationKey', __args__, opts=opts, typ=ListManagerActivationKeyResult).value
 
     return AwaitableListManagerActivationKeyResult(
-        activation_key=__ret__.get('activationKey'))
+        activation_key=__ret__.activation_key)

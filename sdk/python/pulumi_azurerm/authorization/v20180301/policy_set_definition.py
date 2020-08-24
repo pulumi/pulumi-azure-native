@@ -5,46 +5,28 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+from . import outputs
+from ._inputs import *
+
+__all__ = ['PolicySetDefinition']
 
 
 class PolicySetDefinition(pulumi.CustomResource):
-    description: pulumi.Output[str]
-    """
-    The policy set definition description.
-    """
-    display_name: pulumi.Output[str]
-    """
-    The display name of the policy set definition.
-    """
-    metadata: pulumi.Output[dict]
-    """
-    The policy set definition metadata.
-    """
-    name: pulumi.Output[str]
-    """
-    The name of the policy set definition.
-    """
-    parameters: pulumi.Output[dict]
-    """
-    The policy set definition parameters that can be used in policy definition references.
-    """
-    policy_definitions: pulumi.Output[list]
-    """
-    An array of policy definition references.
-      * `parameters` (`dict`) - Required if a parameter is used in policy rule.
-      * `policy_definition_id` (`str`) - The ID of the policy definition or policy set definition.
-    """
-    policy_type: pulumi.Output[str]
-    """
-    The type of policy definition. Possible values are NotSpecified, BuiltIn, and Custom.
-    """
-    type: pulumi.Output[str]
-    """
-    The type of the resource (Microsoft.Authorization/policySetDefinitions).
-    """
-    def __init__(__self__, resource_name, opts=None, description=None, display_name=None, metadata=None, name=None, parameters=None, policy_definitions=None, policy_type=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 display_name: Optional[pulumi.Input[str]] = None,
+                 metadata: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 parameters: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 policy_definitions: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['PolicyDefinitionReferenceArgs']]]]] = None,
+                 policy_type: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         The policy set definition.
 
@@ -52,16 +34,11 @@ class PolicySetDefinition(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: The policy set definition description.
         :param pulumi.Input[str] display_name: The display name of the policy set definition.
-        :param pulumi.Input[dict] metadata: The policy set definition metadata.
+        :param pulumi.Input[Mapping[str, Any]] metadata: The policy set definition metadata.
         :param pulumi.Input[str] name: The name of the policy set definition to create.
-        :param pulumi.Input[dict] parameters: The policy set definition parameters that can be used in policy definition references.
-        :param pulumi.Input[list] policy_definitions: An array of policy definition references.
+        :param pulumi.Input[Mapping[str, Any]] parameters: The policy set definition parameters that can be used in policy definition references.
+        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['PolicyDefinitionReferenceArgs']]]] policy_definitions: An array of policy definition references.
         :param pulumi.Input[str] policy_type: The type of policy definition. Possible values are NotSpecified, BuiltIn, and Custom.
-
-        The **policy_definitions** object supports the following:
-
-          * `parameters` (`pulumi.Input[dict]`) - Required if a parameter is used in policy rule.
-          * `policy_definition_id` (`pulumi.Input[str]`) - The ID of the policy definition or policy set definition.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -101,13 +78,15 @@ class PolicySetDefinition(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None) -> 'PolicySetDefinition':
         """
         Get an existing PolicySetDefinition resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -116,8 +95,73 @@ class PolicySetDefinition(pulumi.CustomResource):
 
         return PolicySetDefinition(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        """
+        The policy set definition description.
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="displayName")
+    def display_name(self) -> Optional[str]:
+        """
+        The display name of the policy set definition.
+        """
+        return pulumi.get(self, "display_name")
+
+    @property
+    @pulumi.getter
+    def metadata(self) -> Optional[Mapping[str, Any]]:
+        """
+        The policy set definition metadata.
+        """
+        return pulumi.get(self, "metadata")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the policy set definition.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def parameters(self) -> Optional[Mapping[str, Any]]:
+        """
+        The policy set definition parameters that can be used in policy definition references.
+        """
+        return pulumi.get(self, "parameters")
+
+    @property
+    @pulumi.getter(name="policyDefinitions")
+    def policy_definitions(self) -> List['outputs.PolicyDefinitionReferenceResponse']:
+        """
+        An array of policy definition references.
+        """
+        return pulumi.get(self, "policy_definitions")
+
+    @property
+    @pulumi.getter(name="policyType")
+    def policy_type(self) -> Optional[str]:
+        """
+        The type of policy definition. Possible values are NotSpecified, BuiltIn, and Custom.
+        """
+        return pulumi.get(self, "policy_type")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        The type of the resource (Microsoft.Authorization/policySetDefinitions).
+        """
+        return pulumi.get(self, "type")
+
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

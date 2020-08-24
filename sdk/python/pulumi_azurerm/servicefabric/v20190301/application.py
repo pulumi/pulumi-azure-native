@@ -5,105 +5,34 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+from . import outputs
+from ._inputs import *
+
+__all__ = ['Application']
 
 
 class Application(pulumi.CustomResource):
-    etag: pulumi.Output[str]
-    """
-    Azure resource etag.
-    """
-    location: pulumi.Output[str]
-    """
-    It will be deprecated in New API, resource location depends on the parent resource.
-    """
-    maximum_nodes: pulumi.Output[float]
-    """
-    The maximum number of nodes where Service Fabric will reserve capacity for this application. Note that this does not mean that the services of this application will be placed on all of those nodes. By default, the value of this property is zero and it means that the services can be placed on any node.
-    """
-    metrics: pulumi.Output[list]
-    """
-    List of application capacity metric description.
-      * `maximum_capacity` (`float`) - The maximum node capacity for Service Fabric application.
-        This is the maximum Load for an instance of this application on a single node. Even if the capacity of node is greater than this value, Service Fabric will limit the total load of services within the application on each node to this value.
-        If set to zero, capacity for this metric is unlimited on each node.
-        When creating a new application with application capacity defined, the product of MaximumNodes and this value must always be smaller than or equal to TotalApplicationCapacity.
-        When updating existing application with application capacity, the product of MaximumNodes and this value must always be smaller than or equal to TotalApplicationCapacity.
-      * `name` (`str`) - The name of the metric.
-      * `reservation_capacity` (`float`) - The node reservation capacity for Service Fabric application.
-        This is the amount of load which is reserved on nodes which have instances of this application.
-        If MinimumNodes is specified, then the product of these values will be the capacity reserved in the cluster for the application.
-        If set to zero, no capacity is reserved for this metric.
-        When setting application capacity or when updating application capacity; this value must be smaller than or equal to MaximumCapacity for each metric.
-      * `total_application_capacity` (`float`) - The total metric capacity for Service Fabric application.
-        This is the total metric capacity for this application in the cluster. Service Fabric will try to limit the sum of loads of services within the application to this value.
-        When creating a new application with application capacity defined, the product of MaximumNodes and MaximumCapacity must always be smaller than or equal to this value.
-    """
-    minimum_nodes: pulumi.Output[float]
-    """
-    The minimum number of nodes where Service Fabric will reserve capacity for this application. Note that this does not mean that the services of this application will be placed on all of those nodes. If this property is set to zero, no capacity will be reserved. The value of this property cannot be more than the value of the MaximumNodes property.
-    """
-    name: pulumi.Output[str]
-    """
-    Azure resource name.
-    """
-    parameters: pulumi.Output[dict]
-    """
-    List of application parameters with overridden values from their default values specified in the application manifest.
-    """
-    provisioning_state: pulumi.Output[str]
-    """
-    The current deployment or provisioning state, which only appears in the response
-    """
-    remove_application_capacity: pulumi.Output[bool]
-    """
-    Remove the current application capacity settings.
-    """
-    tags: pulumi.Output[dict]
-    """
-    Azure resource tags.
-    """
-    type: pulumi.Output[str]
-    """
-    Azure resource type.
-    """
-    type_name: pulumi.Output[str]
-    """
-    The application type name as defined in the application manifest.
-    """
-    type_version: pulumi.Output[str]
-    """
-    The version of the application type as defined in the application manifest.
-    """
-    upgrade_policy: pulumi.Output[dict]
-    """
-    Describes the policy for a monitored application upgrade.
-      * `application_health_policy` (`dict`) - Defines a health policy used to evaluate the health of an application or one of its children entities.
-        * `consider_warning_as_error` (`bool`) - Indicates whether warnings are treated with the same severity as errors.
-        * `default_service_type_health_policy` (`dict`) - The health policy used by default to evaluate the health of a service type.
-          * `max_percent_unhealthy_partitions_per_service` (`float`) - The maximum percentage of partitions per service allowed to be unhealthy before your application is considered in error.
-          * `max_percent_unhealthy_replicas_per_partition` (`float`) - The maximum percentage of replicas per partition allowed to be unhealthy before your application is considered in error.
-          * `max_percent_unhealthy_services` (`float`) - The maximum percentage of services allowed to be unhealthy before your application is considered in error.
-
-        * `max_percent_unhealthy_deployed_applications` (`float`) - The maximum allowed percentage of unhealthy deployed applications. Allowed values are Byte values from zero to 100.
-          The percentage represents the maximum tolerated percentage of deployed applications that can be unhealthy before the application is considered in error.
-          This is calculated by dividing the number of unhealthy deployed applications over the number of nodes where the application is currently deployed on in the cluster.
-          The computation rounds up to tolerate one failure on small numbers of nodes. Default percentage is zero.
-        * `service_type_health_policy_map` (`dict`) - The map with service type health policy per service type name. The map is empty by default.
-
-      * `force_restart` (`bool`) - If true, then processes are forcefully restarted during upgrade even when the code version has not changed (the upgrade only changes configuration or data).
-      * `rolling_upgrade_monitoring_policy` (`dict`) - The policy used for monitoring the application upgrade
-        * `failure_action` (`str`) - The activation Mode of the service package
-        * `health_check_retry_timeout` (`str`) - The amount of time to retry health evaluation when the application or cluster is unhealthy before FailureAction is executed. It is first interpreted as a string representing an ISO 8601 duration. If that fails, then it is interpreted as a number representing the total number of milliseconds.
-        * `health_check_stable_duration` (`str`) - The amount of time that the application or cluster must remain healthy before the upgrade proceeds to the next upgrade domain. It is first interpreted as a string representing an ISO 8601 duration. If that fails, then it is interpreted as a number representing the total number of milliseconds.
-        * `health_check_wait_duration` (`str`) - The amount of time to wait after completing an upgrade domain before applying health policies. It is first interpreted as a string representing an ISO 8601 duration. If that fails, then it is interpreted as a number representing the total number of milliseconds.
-        * `upgrade_domain_timeout` (`str`) - The amount of time each upgrade domain has to complete before FailureAction is executed. It is first interpreted as a string representing an ISO 8601 duration. If that fails, then it is interpreted as a number representing the total number of milliseconds.
-        * `upgrade_timeout` (`str`) - The amount of time the overall upgrade has to complete before FailureAction is executed. It is first interpreted as a string representing an ISO 8601 duration. If that fails, then it is interpreted as a number representing the total number of milliseconds.
-
-      * `upgrade_replica_set_check_timeout` (`str`) - The maximum amount of time to block processing of an upgrade domain and prevent loss of availability when there are unexpected issues. When this timeout expires, processing of the upgrade domain will proceed regardless of availability loss issues. The timeout is reset at the start of each upgrade domain. Valid values are between 0 and 42949672925 inclusive. (unsigned 32-bit integer).
-    """
-    def __init__(__self__, resource_name, opts=None, cluster_name=None, location=None, maximum_nodes=None, metrics=None, minimum_nodes=None, name=None, parameters=None, remove_application_capacity=None, resource_group_name=None, tags=None, type_name=None, type_version=None, upgrade_policy=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 cluster_name: Optional[pulumi.Input[str]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 maximum_nodes: Optional[pulumi.Input[float]] = None,
+                 metrics: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['ApplicationMetricDescriptionArgs']]]]] = None,
+                 minimum_nodes: Optional[pulumi.Input[float]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 remove_application_capacity: Optional[pulumi.Input[bool]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 type_name: Optional[pulumi.Input[str]] = None,
+                 type_version: Optional[pulumi.Input[str]] = None,
+                 upgrade_policy: Optional[pulumi.Input[pulumi.InputType['ApplicationUpgradePolicyArgs']]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         The application resource.
 
@@ -112,59 +41,16 @@ class Application(pulumi.CustomResource):
         :param pulumi.Input[str] cluster_name: The name of the cluster resource.
         :param pulumi.Input[str] location: It will be deprecated in New API, resource location depends on the parent resource.
         :param pulumi.Input[float] maximum_nodes: The maximum number of nodes where Service Fabric will reserve capacity for this application. Note that this does not mean that the services of this application will be placed on all of those nodes. By default, the value of this property is zero and it means that the services can be placed on any node.
-        :param pulumi.Input[list] metrics: List of application capacity metric description.
+        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['ApplicationMetricDescriptionArgs']]]] metrics: List of application capacity metric description.
         :param pulumi.Input[float] minimum_nodes: The minimum number of nodes where Service Fabric will reserve capacity for this application. Note that this does not mean that the services of this application will be placed on all of those nodes. If this property is set to zero, no capacity will be reserved. The value of this property cannot be more than the value of the MaximumNodes property.
         :param pulumi.Input[str] name: The name of the application resource.
-        :param pulumi.Input[dict] parameters: List of application parameters with overridden values from their default values specified in the application manifest.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameters: List of application parameters with overridden values from their default values specified in the application manifest.
         :param pulumi.Input[bool] remove_application_capacity: Remove the current application capacity settings.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
-        :param pulumi.Input[dict] tags: Azure resource tags.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Azure resource tags.
         :param pulumi.Input[str] type_name: The application type name as defined in the application manifest.
         :param pulumi.Input[str] type_version: The version of the application type as defined in the application manifest.
-        :param pulumi.Input[dict] upgrade_policy: Describes the policy for a monitored application upgrade.
-
-        The **metrics** object supports the following:
-
-          * `maximum_capacity` (`pulumi.Input[float]`) - The maximum node capacity for Service Fabric application.
-            This is the maximum Load for an instance of this application on a single node. Even if the capacity of node is greater than this value, Service Fabric will limit the total load of services within the application on each node to this value.
-            If set to zero, capacity for this metric is unlimited on each node.
-            When creating a new application with application capacity defined, the product of MaximumNodes and this value must always be smaller than or equal to TotalApplicationCapacity.
-            When updating existing application with application capacity, the product of MaximumNodes and this value must always be smaller than or equal to TotalApplicationCapacity.
-          * `name` (`pulumi.Input[str]`) - The name of the metric.
-          * `reservation_capacity` (`pulumi.Input[float]`) - The node reservation capacity for Service Fabric application.
-            This is the amount of load which is reserved on nodes which have instances of this application.
-            If MinimumNodes is specified, then the product of these values will be the capacity reserved in the cluster for the application.
-            If set to zero, no capacity is reserved for this metric.
-            When setting application capacity or when updating application capacity; this value must be smaller than or equal to MaximumCapacity for each metric.
-          * `total_application_capacity` (`pulumi.Input[float]`) - The total metric capacity for Service Fabric application.
-            This is the total metric capacity for this application in the cluster. Service Fabric will try to limit the sum of loads of services within the application to this value.
-            When creating a new application with application capacity defined, the product of MaximumNodes and MaximumCapacity must always be smaller than or equal to this value.
-
-        The **upgrade_policy** object supports the following:
-
-          * `application_health_policy` (`pulumi.Input[dict]`) - Defines a health policy used to evaluate the health of an application or one of its children entities.
-            * `consider_warning_as_error` (`pulumi.Input[bool]`) - Indicates whether warnings are treated with the same severity as errors.
-            * `default_service_type_health_policy` (`pulumi.Input[dict]`) - The health policy used by default to evaluate the health of a service type.
-              * `max_percent_unhealthy_partitions_per_service` (`pulumi.Input[float]`) - The maximum percentage of partitions per service allowed to be unhealthy before your application is considered in error.
-              * `max_percent_unhealthy_replicas_per_partition` (`pulumi.Input[float]`) - The maximum percentage of replicas per partition allowed to be unhealthy before your application is considered in error.
-              * `max_percent_unhealthy_services` (`pulumi.Input[float]`) - The maximum percentage of services allowed to be unhealthy before your application is considered in error.
-
-            * `max_percent_unhealthy_deployed_applications` (`pulumi.Input[float]`) - The maximum allowed percentage of unhealthy deployed applications. Allowed values are Byte values from zero to 100.
-              The percentage represents the maximum tolerated percentage of deployed applications that can be unhealthy before the application is considered in error.
-              This is calculated by dividing the number of unhealthy deployed applications over the number of nodes where the application is currently deployed on in the cluster.
-              The computation rounds up to tolerate one failure on small numbers of nodes. Default percentage is zero.
-            * `service_type_health_policy_map` (`pulumi.Input[dict]`) - The map with service type health policy per service type name. The map is empty by default.
-
-          * `force_restart` (`pulumi.Input[bool]`) - If true, then processes are forcefully restarted during upgrade even when the code version has not changed (the upgrade only changes configuration or data).
-          * `rolling_upgrade_monitoring_policy` (`pulumi.Input[dict]`) - The policy used for monitoring the application upgrade
-            * `failure_action` (`pulumi.Input[str]`) - The activation Mode of the service package
-            * `health_check_retry_timeout` (`pulumi.Input[str]`) - The amount of time to retry health evaluation when the application or cluster is unhealthy before FailureAction is executed. It is first interpreted as a string representing an ISO 8601 duration. If that fails, then it is interpreted as a number representing the total number of milliseconds.
-            * `health_check_stable_duration` (`pulumi.Input[str]`) - The amount of time that the application or cluster must remain healthy before the upgrade proceeds to the next upgrade domain. It is first interpreted as a string representing an ISO 8601 duration. If that fails, then it is interpreted as a number representing the total number of milliseconds.
-            * `health_check_wait_duration` (`pulumi.Input[str]`) - The amount of time to wait after completing an upgrade domain before applying health policies. It is first interpreted as a string representing an ISO 8601 duration. If that fails, then it is interpreted as a number representing the total number of milliseconds.
-            * `upgrade_domain_timeout` (`pulumi.Input[str]`) - The amount of time each upgrade domain has to complete before FailureAction is executed. It is first interpreted as a string representing an ISO 8601 duration. If that fails, then it is interpreted as a number representing the total number of milliseconds.
-            * `upgrade_timeout` (`pulumi.Input[str]`) - The amount of time the overall upgrade has to complete before FailureAction is executed. It is first interpreted as a string representing an ISO 8601 duration. If that fails, then it is interpreted as a number representing the total number of milliseconds.
-
-          * `upgrade_replica_set_check_timeout` (`pulumi.Input[str]`) - The maximum amount of time to block processing of an upgrade domain and prevent loss of availability when there are unexpected issues. When this timeout expires, processing of the upgrade domain will proceed regardless of availability loss issues. The timeout is reset at the start of each upgrade domain. Valid values are between 0 and 42949672925 inclusive. (unsigned 32-bit integer).
+        :param pulumi.Input[pulumi.InputType['ApplicationUpgradePolicyArgs']] upgrade_policy: Describes the policy for a monitored application upgrade.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -214,13 +100,15 @@ class Application(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None) -> 'Application':
         """
         Get an existing Application resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -229,8 +117,121 @@ class Application(pulumi.CustomResource):
 
         return Application(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter
+    def etag(self) -> str:
+        """
+        Azure resource etag.
+        """
+        return pulumi.get(self, "etag")
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[str]:
+        """
+        It will be deprecated in New API, resource location depends on the parent resource.
+        """
+        return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter(name="maximumNodes")
+    def maximum_nodes(self) -> Optional[float]:
+        """
+        The maximum number of nodes where Service Fabric will reserve capacity for this application. Note that this does not mean that the services of this application will be placed on all of those nodes. By default, the value of this property is zero and it means that the services can be placed on any node.
+        """
+        return pulumi.get(self, "maximum_nodes")
+
+    @property
+    @pulumi.getter
+    def metrics(self) -> Optional[List['outputs.ApplicationMetricDescriptionResponse']]:
+        """
+        List of application capacity metric description.
+        """
+        return pulumi.get(self, "metrics")
+
+    @property
+    @pulumi.getter(name="minimumNodes")
+    def minimum_nodes(self) -> Optional[float]:
+        """
+        The minimum number of nodes where Service Fabric will reserve capacity for this application. Note that this does not mean that the services of this application will be placed on all of those nodes. If this property is set to zero, no capacity will be reserved. The value of this property cannot be more than the value of the MaximumNodes property.
+        """
+        return pulumi.get(self, "minimum_nodes")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Azure resource name.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def parameters(self) -> Optional[Mapping[str, str]]:
+        """
+        List of application parameters with overridden values from their default values specified in the application manifest.
+        """
+        return pulumi.get(self, "parameters")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        The current deployment or provisioning state, which only appears in the response
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="removeApplicationCapacity")
+    def remove_application_capacity(self) -> Optional[bool]:
+        """
+        Remove the current application capacity settings.
+        """
+        return pulumi.get(self, "remove_application_capacity")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Mapping[str, str]]:
+        """
+        Azure resource tags.
+        """
+        return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Azure resource type.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="typeName")
+    def type_name(self) -> Optional[str]:
+        """
+        The application type name as defined in the application manifest.
+        """
+        return pulumi.get(self, "type_name")
+
+    @property
+    @pulumi.getter(name="typeVersion")
+    def type_version(self) -> Optional[str]:
+        """
+        The version of the application type as defined in the application manifest.
+        """
+        return pulumi.get(self, "type_version")
+
+    @property
+    @pulumi.getter(name="upgradePolicy")
+    def upgrade_policy(self) -> Optional['outputs.ApplicationUpgradePolicyResponse']:
+        """
+        Describes the policy for a monitored application upgrade.
+        """
+        return pulumi.get(self, "upgrade_policy")
+
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

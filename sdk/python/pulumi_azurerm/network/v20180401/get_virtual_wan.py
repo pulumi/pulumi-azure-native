@@ -5,10 +5,17 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+from . import outputs
 
+__all__ = [
+    'GetVirtualWANResult',
+    'AwaitableGetVirtualWANResult',
+    'get_virtual_wan',
+]
 
+@pulumi.output_type
 class GetVirtualWANResult:
     """
     VirtualWAN Resource.
@@ -16,55 +23,100 @@ class GetVirtualWANResult:
     def __init__(__self__, disable_vpn_encryption=None, etag=None, location=None, name=None, provisioning_state=None, tags=None, type=None, virtual_hubs=None, vpn_sites=None):
         if disable_vpn_encryption and not isinstance(disable_vpn_encryption, bool):
             raise TypeError("Expected argument 'disable_vpn_encryption' to be a bool")
-        __self__.disable_vpn_encryption = disable_vpn_encryption
+        pulumi.set(__self__, "disable_vpn_encryption", disable_vpn_encryption)
+        if etag and not isinstance(etag, str):
+            raise TypeError("Expected argument 'etag' to be a str")
+        pulumi.set(__self__, "etag", etag)
+        if location and not isinstance(location, str):
+            raise TypeError("Expected argument 'location' to be a str")
+        pulumi.set(__self__, "location", location)
+        if name and not isinstance(name, str):
+            raise TypeError("Expected argument 'name' to be a str")
+        pulumi.set(__self__, "name", name)
+        if provisioning_state and not isinstance(provisioning_state, str):
+            raise TypeError("Expected argument 'provisioning_state' to be a str")
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if tags and not isinstance(tags, dict):
+            raise TypeError("Expected argument 'tags' to be a dict")
+        pulumi.set(__self__, "tags", tags)
+        if type and not isinstance(type, str):
+            raise TypeError("Expected argument 'type' to be a str")
+        pulumi.set(__self__, "type", type)
+        if virtual_hubs and not isinstance(virtual_hubs, list):
+            raise TypeError("Expected argument 'virtual_hubs' to be a list")
+        pulumi.set(__self__, "virtual_hubs", virtual_hubs)
+        if vpn_sites and not isinstance(vpn_sites, list):
+            raise TypeError("Expected argument 'vpn_sites' to be a list")
+        pulumi.set(__self__, "vpn_sites", vpn_sites)
+
+    @property
+    @pulumi.getter(name="disableVpnEncryption")
+    def disable_vpn_encryption(self) -> Optional[bool]:
         """
         Vpn encryption to be disabled or not.
         """
-        if etag and not isinstance(etag, str):
-            raise TypeError("Expected argument 'etag' to be a str")
-        __self__.etag = etag
+        return pulumi.get(self, "disable_vpn_encryption")
+
+    @property
+    @pulumi.getter
+    def etag(self) -> str:
         """
         Gets a unique read-only string that changes whenever the resource is updated.
         """
-        if location and not isinstance(location, str):
-            raise TypeError("Expected argument 'location' to be a str")
-        __self__.location = location
+        return pulumi.get(self, "etag")
+
+    @property
+    @pulumi.getter
+    def location(self) -> str:
         """
         Resource location.
         """
-        if name and not isinstance(name, str):
-            raise TypeError("Expected argument 'name' to be a str")
-        __self__.name = name
+        return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
         """
         Resource name.
         """
-        if provisioning_state and not isinstance(provisioning_state, str):
-            raise TypeError("Expected argument 'provisioning_state' to be a str")
-        __self__.provisioning_state = provisioning_state
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> Optional[str]:
         """
         The provisioning state of the resource.
         """
-        if tags and not isinstance(tags, dict):
-            raise TypeError("Expected argument 'tags' to be a dict")
-        __self__.tags = tags
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Mapping[str, str]]:
         """
         Resource tags.
         """
-        if type and not isinstance(type, str):
-            raise TypeError("Expected argument 'type' to be a str")
-        __self__.type = type
+        return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
         """
         Resource type.
         """
-        if virtual_hubs and not isinstance(virtual_hubs, list):
-            raise TypeError("Expected argument 'virtual_hubs' to be a list")
-        __self__.virtual_hubs = virtual_hubs
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="virtualHubs")
+    def virtual_hubs(self) -> List['outputs.SubResourceResponse']:
         """
         List of VirtualHubs in the VirtualWAN.
         """
-        if vpn_sites and not isinstance(vpn_sites, list):
-            raise TypeError("Expected argument 'vpn_sites' to be a list")
-        __self__.vpn_sites = vpn_sites
+        return pulumi.get(self, "virtual_hubs")
+
+    @property
+    @pulumi.getter(name="vpnSites")
+    def vpn_sites(self) -> List['outputs.SubResourceResponse']:
+        return pulumi.get(self, "vpn_sites")
 
 
 class AwaitableGetVirtualWANResult(GetVirtualWANResult):
@@ -84,7 +136,9 @@ class AwaitableGetVirtualWANResult(GetVirtualWANResult):
             vpn_sites=self.vpn_sites)
 
 
-def get_virtual_wan(name=None, resource_group_name=None, opts=None):
+def get_virtual_wan(name: Optional[str] = None,
+                    resource_group_name: Optional[str] = None,
+                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVirtualWANResult:
     """
     Use this data source to access information about an existing resource.
 
@@ -98,15 +152,15 @@ def get_virtual_wan(name=None, resource_group_name=None, opts=None):
         opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = _utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('azurerm:network/v20180401:getVirtualWAN', __args__, opts=opts).value
+    __ret__ = pulumi.runtime.invoke('azurerm:network/v20180401:getVirtualWAN', __args__, opts=opts, typ=GetVirtualWANResult).value
 
     return AwaitableGetVirtualWANResult(
-        disable_vpn_encryption=__ret__.get('disableVpnEncryption'),
-        etag=__ret__.get('etag'),
-        location=__ret__.get('location'),
-        name=__ret__.get('name'),
-        provisioning_state=__ret__.get('provisioningState'),
-        tags=__ret__.get('tags'),
-        type=__ret__.get('type'),
-        virtual_hubs=__ret__.get('virtualHubs'),
-        vpn_sites=__ret__.get('vpnSites'))
+        disable_vpn_encryption=__ret__.disable_vpn_encryption,
+        etag=__ret__.etag,
+        location=__ret__.location,
+        name=__ret__.name,
+        provisioning_state=__ret__.provisioning_state,
+        tags=__ret__.tags,
+        type=__ret__.type,
+        virtual_hubs=__ret__.virtual_hubs,
+        vpn_sites=__ret__.vpn_sites)

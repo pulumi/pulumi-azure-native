@@ -5,10 +5,16 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
 
+__all__ = [
+    'GetAlertRuleActionResult',
+    'AwaitableGetAlertRuleActionResult',
+    'get_alert_rule_action',
+]
 
+@pulumi.output_type
 class GetAlertRuleActionResult:
     """
     Action for alert rule.
@@ -16,34 +22,59 @@ class GetAlertRuleActionResult:
     def __init__(__self__, etag=None, logic_app_resource_id=None, name=None, type=None, workflow_id=None):
         if etag and not isinstance(etag, str):
             raise TypeError("Expected argument 'etag' to be a str")
-        __self__.etag = etag
+        pulumi.set(__self__, "etag", etag)
+        if logic_app_resource_id and not isinstance(logic_app_resource_id, str):
+            raise TypeError("Expected argument 'logic_app_resource_id' to be a str")
+        pulumi.set(__self__, "logic_app_resource_id", logic_app_resource_id)
+        if name and not isinstance(name, str):
+            raise TypeError("Expected argument 'name' to be a str")
+        pulumi.set(__self__, "name", name)
+        if type and not isinstance(type, str):
+            raise TypeError("Expected argument 'type' to be a str")
+        pulumi.set(__self__, "type", type)
+        if workflow_id and not isinstance(workflow_id, str):
+            raise TypeError("Expected argument 'workflow_id' to be a str")
+        pulumi.set(__self__, "workflow_id", workflow_id)
+
+    @property
+    @pulumi.getter
+    def etag(self) -> Optional[str]:
         """
         Etag of the action.
         """
-        if logic_app_resource_id and not isinstance(logic_app_resource_id, str):
-            raise TypeError("Expected argument 'logic_app_resource_id' to be a str")
-        __self__.logic_app_resource_id = logic_app_resource_id
+        return pulumi.get(self, "etag")
+
+    @property
+    @pulumi.getter(name="logicAppResourceId")
+    def logic_app_resource_id(self) -> str:
         """
         Logic App Resource Id, /subscriptions/{my-subscription}/resourceGroups/{my-resource-group}/providers/Microsoft.Logic/workflows/{my-workflow-id}.
         """
-        if name and not isinstance(name, str):
-            raise TypeError("Expected argument 'name' to be a str")
-        __self__.name = name
+        return pulumi.get(self, "logic_app_resource_id")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
         """
         Azure resource name
         """
-        if type and not isinstance(type, str):
-            raise TypeError("Expected argument 'type' to be a str")
-        __self__.type = type
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
         """
         Azure resource type
         """
-        if workflow_id and not isinstance(workflow_id, str):
-            raise TypeError("Expected argument 'workflow_id' to be a str")
-        __self__.workflow_id = workflow_id
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="workflowId")
+    def workflow_id(self) -> Optional[str]:
         """
         The name of the logic app's workflow.
         """
+        return pulumi.get(self, "workflow_id")
 
 
 class AwaitableGetAlertRuleActionResult(GetAlertRuleActionResult):
@@ -59,7 +90,11 @@ class AwaitableGetAlertRuleActionResult(GetAlertRuleActionResult):
             workflow_id=self.workflow_id)
 
 
-def get_alert_rule_action(name=None, resource_group_name=None, rule_id=None, workspace_name=None, opts=None):
+def get_alert_rule_action(name: Optional[str] = None,
+                          resource_group_name: Optional[str] = None,
+                          rule_id: Optional[str] = None,
+                          workspace_name: Optional[str] = None,
+                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAlertRuleActionResult:
     """
     Use this data source to access information about an existing resource.
 
@@ -77,11 +112,11 @@ def get_alert_rule_action(name=None, resource_group_name=None, rule_id=None, wor
         opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = _utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('azurerm:operationalinsights/v20200101:getAlertRuleAction', __args__, opts=opts).value
+    __ret__ = pulumi.runtime.invoke('azurerm:operationalinsights/v20200101:getAlertRuleAction', __args__, opts=opts, typ=GetAlertRuleActionResult).value
 
     return AwaitableGetAlertRuleActionResult(
-        etag=__ret__.get('etag'),
-        logic_app_resource_id=__ret__.get('logicAppResourceId'),
-        name=__ret__.get('name'),
-        type=__ret__.get('type'),
-        workflow_id=__ret__.get('workflowId'))
+        etag=__ret__.etag,
+        logic_app_resource_id=__ret__.logic_app_resource_id,
+        name=__ret__.name,
+        type=__ret__.type,
+        workflow_id=__ret__.workflow_id)

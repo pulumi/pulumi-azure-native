@@ -5,10 +5,17 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+from . import outputs
 
+__all__ = [
+    'GetFlowLogResult',
+    'AwaitableGetFlowLogResult',
+    'get_flow_log',
+]
 
+@pulumi.output_type
 class GetFlowLogResult:
     """
     A flow log resource.
@@ -16,82 +23,147 @@ class GetFlowLogResult:
     def __init__(__self__, enabled=None, etag=None, flow_analytics_configuration=None, format=None, location=None, name=None, provisioning_state=None, retention_policy=None, storage_id=None, tags=None, target_resource_guid=None, target_resource_id=None, type=None):
         if enabled and not isinstance(enabled, bool):
             raise TypeError("Expected argument 'enabled' to be a bool")
-        __self__.enabled = enabled
+        pulumi.set(__self__, "enabled", enabled)
+        if etag and not isinstance(etag, str):
+            raise TypeError("Expected argument 'etag' to be a str")
+        pulumi.set(__self__, "etag", etag)
+        if flow_analytics_configuration and not isinstance(flow_analytics_configuration, dict):
+            raise TypeError("Expected argument 'flow_analytics_configuration' to be a dict")
+        pulumi.set(__self__, "flow_analytics_configuration", flow_analytics_configuration)
+        if format and not isinstance(format, dict):
+            raise TypeError("Expected argument 'format' to be a dict")
+        pulumi.set(__self__, "format", format)
+        if location and not isinstance(location, str):
+            raise TypeError("Expected argument 'location' to be a str")
+        pulumi.set(__self__, "location", location)
+        if name and not isinstance(name, str):
+            raise TypeError("Expected argument 'name' to be a str")
+        pulumi.set(__self__, "name", name)
+        if provisioning_state and not isinstance(provisioning_state, str):
+            raise TypeError("Expected argument 'provisioning_state' to be a str")
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if retention_policy and not isinstance(retention_policy, dict):
+            raise TypeError("Expected argument 'retention_policy' to be a dict")
+        pulumi.set(__self__, "retention_policy", retention_policy)
+        if storage_id and not isinstance(storage_id, str):
+            raise TypeError("Expected argument 'storage_id' to be a str")
+        pulumi.set(__self__, "storage_id", storage_id)
+        if tags and not isinstance(tags, dict):
+            raise TypeError("Expected argument 'tags' to be a dict")
+        pulumi.set(__self__, "tags", tags)
+        if target_resource_guid and not isinstance(target_resource_guid, str):
+            raise TypeError("Expected argument 'target_resource_guid' to be a str")
+        pulumi.set(__self__, "target_resource_guid", target_resource_guid)
+        if target_resource_id and not isinstance(target_resource_id, str):
+            raise TypeError("Expected argument 'target_resource_id' to be a str")
+        pulumi.set(__self__, "target_resource_id", target_resource_id)
+        if type and not isinstance(type, str):
+            raise TypeError("Expected argument 'type' to be a str")
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[bool]:
         """
         Flag to enable/disable flow logging.
         """
-        if etag and not isinstance(etag, str):
-            raise TypeError("Expected argument 'etag' to be a str")
-        __self__.etag = etag
+        return pulumi.get(self, "enabled")
+
+    @property
+    @pulumi.getter
+    def etag(self) -> str:
         """
         A unique read-only string that changes whenever the resource is updated.
         """
-        if flow_analytics_configuration and not isinstance(flow_analytics_configuration, dict):
-            raise TypeError("Expected argument 'flow_analytics_configuration' to be a dict")
-        __self__.flow_analytics_configuration = flow_analytics_configuration
+        return pulumi.get(self, "etag")
+
+    @property
+    @pulumi.getter(name="flowAnalyticsConfiguration")
+    def flow_analytics_configuration(self) -> Optional['outputs.TrafficAnalyticsPropertiesResponse']:
         """
         Parameters that define the configuration of traffic analytics.
         """
-        if format and not isinstance(format, dict):
-            raise TypeError("Expected argument 'format' to be a dict")
-        __self__.format = format
+        return pulumi.get(self, "flow_analytics_configuration")
+
+    @property
+    @pulumi.getter
+    def format(self) -> Optional['outputs.FlowLogFormatParametersResponse']:
         """
         Parameters that define the flow log format.
         """
-        if location and not isinstance(location, str):
-            raise TypeError("Expected argument 'location' to be a str")
-        __self__.location = location
+        return pulumi.get(self, "format")
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[str]:
         """
         Resource location.
         """
-        if name and not isinstance(name, str):
-            raise TypeError("Expected argument 'name' to be a str")
-        __self__.name = name
+        return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
         """
         Resource name.
         """
-        if provisioning_state and not isinstance(provisioning_state, str):
-            raise TypeError("Expected argument 'provisioning_state' to be a str")
-        __self__.provisioning_state = provisioning_state
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
         """
         The provisioning state of the flow log.
         """
-        if retention_policy and not isinstance(retention_policy, dict):
-            raise TypeError("Expected argument 'retention_policy' to be a dict")
-        __self__.retention_policy = retention_policy
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="retentionPolicy")
+    def retention_policy(self) -> Optional['outputs.RetentionPolicyParametersResponse']:
         """
         Parameters that define the retention policy for flow log.
         """
-        if storage_id and not isinstance(storage_id, str):
-            raise TypeError("Expected argument 'storage_id' to be a str")
-        __self__.storage_id = storage_id
+        return pulumi.get(self, "retention_policy")
+
+    @property
+    @pulumi.getter(name="storageId")
+    def storage_id(self) -> str:
         """
         ID of the storage account which is used to store the flow log.
         """
-        if tags and not isinstance(tags, dict):
-            raise TypeError("Expected argument 'tags' to be a dict")
-        __self__.tags = tags
+        return pulumi.get(self, "storage_id")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Mapping[str, str]]:
         """
         Resource tags.
         """
-        if target_resource_guid and not isinstance(target_resource_guid, str):
-            raise TypeError("Expected argument 'target_resource_guid' to be a str")
-        __self__.target_resource_guid = target_resource_guid
+        return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter(name="targetResourceGuid")
+    def target_resource_guid(self) -> str:
         """
         Guid of network security group to which flow log will be applied.
         """
-        if target_resource_id and not isinstance(target_resource_id, str):
-            raise TypeError("Expected argument 'target_resource_id' to be a str")
-        __self__.target_resource_id = target_resource_id
+        return pulumi.get(self, "target_resource_guid")
+
+    @property
+    @pulumi.getter(name="targetResourceId")
+    def target_resource_id(self) -> str:
         """
         ID of network security group to which flow log will be applied.
         """
-        if type and not isinstance(type, str):
-            raise TypeError("Expected argument 'type' to be a str")
-        __self__.type = type
+        return pulumi.get(self, "target_resource_id")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
         """
         Resource type.
         """
+        return pulumi.get(self, "type")
 
 
 class AwaitableGetFlowLogResult(GetFlowLogResult):
@@ -115,7 +187,10 @@ class AwaitableGetFlowLogResult(GetFlowLogResult):
             type=self.type)
 
 
-def get_flow_log(name=None, network_watcher_name=None, resource_group_name=None, opts=None):
+def get_flow_log(name: Optional[str] = None,
+                 network_watcher_name: Optional[str] = None,
+                 resource_group_name: Optional[str] = None,
+                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetFlowLogResult:
     """
     Use this data source to access information about an existing resource.
 
@@ -131,19 +206,19 @@ def get_flow_log(name=None, network_watcher_name=None, resource_group_name=None,
         opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = _utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('azurerm:network/v20191101:getFlowLog', __args__, opts=opts).value
+    __ret__ = pulumi.runtime.invoke('azurerm:network/v20191101:getFlowLog', __args__, opts=opts, typ=GetFlowLogResult).value
 
     return AwaitableGetFlowLogResult(
-        enabled=__ret__.get('enabled'),
-        etag=__ret__.get('etag'),
-        flow_analytics_configuration=__ret__.get('flowAnalyticsConfiguration'),
-        format=__ret__.get('format'),
-        location=__ret__.get('location'),
-        name=__ret__.get('name'),
-        provisioning_state=__ret__.get('provisioningState'),
-        retention_policy=__ret__.get('retentionPolicy'),
-        storage_id=__ret__.get('storageId'),
-        tags=__ret__.get('tags'),
-        target_resource_guid=__ret__.get('targetResourceGuid'),
-        target_resource_id=__ret__.get('targetResourceId'),
-        type=__ret__.get('type'))
+        enabled=__ret__.enabled,
+        etag=__ret__.etag,
+        flow_analytics_configuration=__ret__.flow_analytics_configuration,
+        format=__ret__.format,
+        location=__ret__.location,
+        name=__ret__.name,
+        provisioning_state=__ret__.provisioning_state,
+        retention_policy=__ret__.retention_policy,
+        storage_id=__ret__.storage_id,
+        tags=__ret__.tags,
+        target_resource_guid=__ret__.target_resource_guid,
+        target_resource_id=__ret__.target_resource_id,
+        type=__ret__.type)

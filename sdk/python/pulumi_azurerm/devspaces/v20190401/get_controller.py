@@ -5,78 +5,140 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+from . import outputs
 
+__all__ = [
+    'GetControllerResult',
+    'AwaitableGetControllerResult',
+    'get_controller',
+]
 
+@pulumi.output_type
 class GetControllerResult:
     def __init__(__self__, data_plane_fqdn=None, host_suffix=None, location=None, name=None, provisioning_state=None, sku=None, tags=None, target_container_host_api_server_fqdn=None, target_container_host_credentials_base64=None, target_container_host_resource_id=None, type=None):
         if data_plane_fqdn and not isinstance(data_plane_fqdn, str):
             raise TypeError("Expected argument 'data_plane_fqdn' to be a str")
-        __self__.data_plane_fqdn = data_plane_fqdn
+        pulumi.set(__self__, "data_plane_fqdn", data_plane_fqdn)
+        if host_suffix and not isinstance(host_suffix, str):
+            raise TypeError("Expected argument 'host_suffix' to be a str")
+        pulumi.set(__self__, "host_suffix", host_suffix)
+        if location and not isinstance(location, str):
+            raise TypeError("Expected argument 'location' to be a str")
+        pulumi.set(__self__, "location", location)
+        if name and not isinstance(name, str):
+            raise TypeError("Expected argument 'name' to be a str")
+        pulumi.set(__self__, "name", name)
+        if provisioning_state and not isinstance(provisioning_state, str):
+            raise TypeError("Expected argument 'provisioning_state' to be a str")
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if sku and not isinstance(sku, dict):
+            raise TypeError("Expected argument 'sku' to be a dict")
+        pulumi.set(__self__, "sku", sku)
+        if tags and not isinstance(tags, dict):
+            raise TypeError("Expected argument 'tags' to be a dict")
+        pulumi.set(__self__, "tags", tags)
+        if target_container_host_api_server_fqdn and not isinstance(target_container_host_api_server_fqdn, str):
+            raise TypeError("Expected argument 'target_container_host_api_server_fqdn' to be a str")
+        pulumi.set(__self__, "target_container_host_api_server_fqdn", target_container_host_api_server_fqdn)
+        if target_container_host_credentials_base64 and not isinstance(target_container_host_credentials_base64, str):
+            raise TypeError("Expected argument 'target_container_host_credentials_base64' to be a str")
+        pulumi.set(__self__, "target_container_host_credentials_base64", target_container_host_credentials_base64)
+        if target_container_host_resource_id and not isinstance(target_container_host_resource_id, str):
+            raise TypeError("Expected argument 'target_container_host_resource_id' to be a str")
+        pulumi.set(__self__, "target_container_host_resource_id", target_container_host_resource_id)
+        if type and not isinstance(type, str):
+            raise TypeError("Expected argument 'type' to be a str")
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="dataPlaneFqdn")
+    def data_plane_fqdn(self) -> str:
         """
         DNS name for accessing DataPlane services
         """
-        if host_suffix and not isinstance(host_suffix, str):
-            raise TypeError("Expected argument 'host_suffix' to be a str")
-        __self__.host_suffix = host_suffix
+        return pulumi.get(self, "data_plane_fqdn")
+
+    @property
+    @pulumi.getter(name="hostSuffix")
+    def host_suffix(self) -> str:
         """
         DNS suffix for public endpoints running in the Azure Dev Spaces Controller.
         """
-        if location and not isinstance(location, str):
-            raise TypeError("Expected argument 'location' to be a str")
-        __self__.location = location
+        return pulumi.get(self, "host_suffix")
+
+    @property
+    @pulumi.getter
+    def location(self) -> str:
         """
         Region where the Azure resource is located.
         """
-        if name and not isinstance(name, str):
-            raise TypeError("Expected argument 'name' to be a str")
-        __self__.name = name
+        return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
         """
         The name of the resource.
         """
-        if provisioning_state and not isinstance(provisioning_state, str):
-            raise TypeError("Expected argument 'provisioning_state' to be a str")
-        __self__.provisioning_state = provisioning_state
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
         """
         Provisioning state of the Azure Dev Spaces Controller.
         """
-        if sku and not isinstance(sku, dict):
-            raise TypeError("Expected argument 'sku' to be a dict")
-        __self__.sku = sku
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter
+    def sku(self) -> 'outputs.SkuResponse':
         """
         Model representing SKU for Azure Dev Spaces Controller.
         """
-        if tags and not isinstance(tags, dict):
-            raise TypeError("Expected argument 'tags' to be a dict")
-        __self__.tags = tags
+        return pulumi.get(self, "sku")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Mapping[str, str]]:
         """
         Tags for the Azure resource.
         """
-        if target_container_host_api_server_fqdn and not isinstance(target_container_host_api_server_fqdn, str):
-            raise TypeError("Expected argument 'target_container_host_api_server_fqdn' to be a str")
-        __self__.target_container_host_api_server_fqdn = target_container_host_api_server_fqdn
+        return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter(name="targetContainerHostApiServerFqdn")
+    def target_container_host_api_server_fqdn(self) -> str:
         """
         DNS of the target container host's API server
         """
-        if target_container_host_credentials_base64 and not isinstance(target_container_host_credentials_base64, str):
-            raise TypeError("Expected argument 'target_container_host_credentials_base64' to be a str")
-        __self__.target_container_host_credentials_base64 = target_container_host_credentials_base64
+        return pulumi.get(self, "target_container_host_api_server_fqdn")
+
+    @property
+    @pulumi.getter(name="targetContainerHostCredentialsBase64")
+    def target_container_host_credentials_base64(self) -> str:
         """
         Credentials of the target container host (base64).
         """
-        if target_container_host_resource_id and not isinstance(target_container_host_resource_id, str):
-            raise TypeError("Expected argument 'target_container_host_resource_id' to be a str")
-        __self__.target_container_host_resource_id = target_container_host_resource_id
+        return pulumi.get(self, "target_container_host_credentials_base64")
+
+    @property
+    @pulumi.getter(name="targetContainerHostResourceId")
+    def target_container_host_resource_id(self) -> str:
         """
         Resource ID of the target container host
         """
-        if type and not isinstance(type, str):
-            raise TypeError("Expected argument 'type' to be a str")
-        __self__.type = type
+        return pulumi.get(self, "target_container_host_resource_id")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
         """
         The type of the resource.
         """
+        return pulumi.get(self, "type")
 
 
 class AwaitableGetControllerResult(GetControllerResult):
@@ -98,7 +160,9 @@ class AwaitableGetControllerResult(GetControllerResult):
             type=self.type)
 
 
-def get_controller(name=None, resource_group_name=None, opts=None):
+def get_controller(name: Optional[str] = None,
+                   resource_group_name: Optional[str] = None,
+                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetControllerResult:
     """
     Use this data source to access information about an existing resource.
 
@@ -112,17 +176,17 @@ def get_controller(name=None, resource_group_name=None, opts=None):
         opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = _utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('azurerm:devspaces/v20190401:getController', __args__, opts=opts).value
+    __ret__ = pulumi.runtime.invoke('azurerm:devspaces/v20190401:getController', __args__, opts=opts, typ=GetControllerResult).value
 
     return AwaitableGetControllerResult(
-        data_plane_fqdn=__ret__.get('dataPlaneFqdn'),
-        host_suffix=__ret__.get('hostSuffix'),
-        location=__ret__.get('location'),
-        name=__ret__.get('name'),
-        provisioning_state=__ret__.get('provisioningState'),
-        sku=__ret__.get('sku'),
-        tags=__ret__.get('tags'),
-        target_container_host_api_server_fqdn=__ret__.get('targetContainerHostApiServerFqdn'),
-        target_container_host_credentials_base64=__ret__.get('targetContainerHostCredentialsBase64'),
-        target_container_host_resource_id=__ret__.get('targetContainerHostResourceId'),
-        type=__ret__.get('type'))
+        data_plane_fqdn=__ret__.data_plane_fqdn,
+        host_suffix=__ret__.host_suffix,
+        location=__ret__.location,
+        name=__ret__.name,
+        provisioning_state=__ret__.provisioning_state,
+        sku=__ret__.sku,
+        tags=__ret__.tags,
+        target_container_host_api_server_fqdn=__ret__.target_container_host_api_server_fqdn,
+        target_container_host_credentials_base64=__ret__.target_container_host_credentials_base64,
+        target_container_host_resource_id=__ret__.target_container_host_resource_id,
+        type=__ret__.type)

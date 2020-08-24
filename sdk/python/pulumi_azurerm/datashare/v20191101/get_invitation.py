@@ -5,10 +5,16 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
 
+__all__ = [
+    'GetInvitationResult',
+    'AwaitableGetInvitationResult',
+    'get_invitation',
+]
 
+@pulumi.output_type
 class GetInvitationResult:
     """
     A Invitation data transfer object.
@@ -16,72 +22,127 @@ class GetInvitationResult:
     def __init__(__self__, invitation_id=None, invitation_status=None, name=None, responded_at=None, sent_at=None, target_active_directory_id=None, target_email=None, target_object_id=None, type=None, user_email=None, user_name=None):
         if invitation_id and not isinstance(invitation_id, str):
             raise TypeError("Expected argument 'invitation_id' to be a str")
-        __self__.invitation_id = invitation_id
+        pulumi.set(__self__, "invitation_id", invitation_id)
+        if invitation_status and not isinstance(invitation_status, str):
+            raise TypeError("Expected argument 'invitation_status' to be a str")
+        pulumi.set(__self__, "invitation_status", invitation_status)
+        if name and not isinstance(name, str):
+            raise TypeError("Expected argument 'name' to be a str")
+        pulumi.set(__self__, "name", name)
+        if responded_at and not isinstance(responded_at, str):
+            raise TypeError("Expected argument 'responded_at' to be a str")
+        pulumi.set(__self__, "responded_at", responded_at)
+        if sent_at and not isinstance(sent_at, str):
+            raise TypeError("Expected argument 'sent_at' to be a str")
+        pulumi.set(__self__, "sent_at", sent_at)
+        if target_active_directory_id and not isinstance(target_active_directory_id, str):
+            raise TypeError("Expected argument 'target_active_directory_id' to be a str")
+        pulumi.set(__self__, "target_active_directory_id", target_active_directory_id)
+        if target_email and not isinstance(target_email, str):
+            raise TypeError("Expected argument 'target_email' to be a str")
+        pulumi.set(__self__, "target_email", target_email)
+        if target_object_id and not isinstance(target_object_id, str):
+            raise TypeError("Expected argument 'target_object_id' to be a str")
+        pulumi.set(__self__, "target_object_id", target_object_id)
+        if type and not isinstance(type, str):
+            raise TypeError("Expected argument 'type' to be a str")
+        pulumi.set(__self__, "type", type)
+        if user_email and not isinstance(user_email, str):
+            raise TypeError("Expected argument 'user_email' to be a str")
+        pulumi.set(__self__, "user_email", user_email)
+        if user_name and not isinstance(user_name, str):
+            raise TypeError("Expected argument 'user_name' to be a str")
+        pulumi.set(__self__, "user_name", user_name)
+
+    @property
+    @pulumi.getter(name="invitationId")
+    def invitation_id(self) -> str:
         """
         unique invitation id
         """
-        if invitation_status and not isinstance(invitation_status, str):
-            raise TypeError("Expected argument 'invitation_status' to be a str")
-        __self__.invitation_status = invitation_status
+        return pulumi.get(self, "invitation_id")
+
+    @property
+    @pulumi.getter(name="invitationStatus")
+    def invitation_status(self) -> str:
         """
         The status of the invitation.
         """
-        if name and not isinstance(name, str):
-            raise TypeError("Expected argument 'name' to be a str")
-        __self__.name = name
+        return pulumi.get(self, "invitation_status")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
         """
         Name of the azure resource
         """
-        if responded_at and not isinstance(responded_at, str):
-            raise TypeError("Expected argument 'responded_at' to be a str")
-        __self__.responded_at = responded_at
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="respondedAt")
+    def responded_at(self) -> str:
         """
         The time the recipient responded to the invitation.
         """
-        if sent_at and not isinstance(sent_at, str):
-            raise TypeError("Expected argument 'sent_at' to be a str")
-        __self__.sent_at = sent_at
+        return pulumi.get(self, "responded_at")
+
+    @property
+    @pulumi.getter(name="sentAt")
+    def sent_at(self) -> str:
         """
         Gets the time at which the invitation was sent.
         """
-        if target_active_directory_id and not isinstance(target_active_directory_id, str):
-            raise TypeError("Expected argument 'target_active_directory_id' to be a str")
-        __self__.target_active_directory_id = target_active_directory_id
+        return pulumi.get(self, "sent_at")
+
+    @property
+    @pulumi.getter(name="targetActiveDirectoryId")
+    def target_active_directory_id(self) -> Optional[str]:
         """
         The target Azure AD Id. Can't be combined with email.
         """
-        if target_email and not isinstance(target_email, str):
-            raise TypeError("Expected argument 'target_email' to be a str")
-        __self__.target_email = target_email
+        return pulumi.get(self, "target_active_directory_id")
+
+    @property
+    @pulumi.getter(name="targetEmail")
+    def target_email(self) -> Optional[str]:
         """
         The email the invitation is directed to.
         """
-        if target_object_id and not isinstance(target_object_id, str):
-            raise TypeError("Expected argument 'target_object_id' to be a str")
-        __self__.target_object_id = target_object_id
+        return pulumi.get(self, "target_email")
+
+    @property
+    @pulumi.getter(name="targetObjectId")
+    def target_object_id(self) -> Optional[str]:
         """
         The target user or application Id that invitation is being sent to.
         Must be specified along TargetActiveDirectoryId. This enables sending
         invitations to specific users or applications in an AD tenant.
         """
-        if type and not isinstance(type, str):
-            raise TypeError("Expected argument 'type' to be a str")
-        __self__.type = type
+        return pulumi.get(self, "target_object_id")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
         """
         Type of the azure resource
         """
-        if user_email and not isinstance(user_email, str):
-            raise TypeError("Expected argument 'user_email' to be a str")
-        __self__.user_email = user_email
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="userEmail")
+    def user_email(self) -> str:
         """
         Email of the user who created the resource
         """
-        if user_name and not isinstance(user_name, str):
-            raise TypeError("Expected argument 'user_name' to be a str")
-        __self__.user_name = user_name
+        return pulumi.get(self, "user_email")
+
+    @property
+    @pulumi.getter(name="userName")
+    def user_name(self) -> str:
         """
         Name of the user who created the resource
         """
+        return pulumi.get(self, "user_name")
 
 
 class AwaitableGetInvitationResult(GetInvitationResult):
@@ -103,7 +164,11 @@ class AwaitableGetInvitationResult(GetInvitationResult):
             user_name=self.user_name)
 
 
-def get_invitation(account_name=None, name=None, resource_group_name=None, share_name=None, opts=None):
+def get_invitation(account_name: Optional[str] = None,
+                   name: Optional[str] = None,
+                   resource_group_name: Optional[str] = None,
+                   share_name: Optional[str] = None,
+                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetInvitationResult:
     """
     Use this data source to access information about an existing resource.
 
@@ -121,17 +186,17 @@ def get_invitation(account_name=None, name=None, resource_group_name=None, share
         opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = _utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('azurerm:datashare/v20191101:getInvitation', __args__, opts=opts).value
+    __ret__ = pulumi.runtime.invoke('azurerm:datashare/v20191101:getInvitation', __args__, opts=opts, typ=GetInvitationResult).value
 
     return AwaitableGetInvitationResult(
-        invitation_id=__ret__.get('invitationId'),
-        invitation_status=__ret__.get('invitationStatus'),
-        name=__ret__.get('name'),
-        responded_at=__ret__.get('respondedAt'),
-        sent_at=__ret__.get('sentAt'),
-        target_active_directory_id=__ret__.get('targetActiveDirectoryId'),
-        target_email=__ret__.get('targetEmail'),
-        target_object_id=__ret__.get('targetObjectId'),
-        type=__ret__.get('type'),
-        user_email=__ret__.get('userEmail'),
-        user_name=__ret__.get('userName'))
+        invitation_id=__ret__.invitation_id,
+        invitation_status=__ret__.invitation_status,
+        name=__ret__.name,
+        responded_at=__ret__.responded_at,
+        sent_at=__ret__.sent_at,
+        target_active_directory_id=__ret__.target_active_directory_id,
+        target_email=__ret__.target_email,
+        target_object_id=__ret__.target_object_id,
+        type=__ret__.type,
+        user_email=__ret__.user_email,
+        user_name=__ret__.user_name)

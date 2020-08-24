@@ -7,3 +7,5 @@ from .endpoint import *
 from .get_endpoint import *
 from .get_profile import *
 from .profile import *
+from ._inputs import *
+from . import outputs

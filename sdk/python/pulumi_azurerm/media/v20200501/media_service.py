@@ -5,83 +5,41 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+from . import outputs
+from ._inputs import *
+
+__all__ = ['MediaService']
 
 
 class MediaService(pulumi.CustomResource):
-    encryption: pulumi.Output[dict]
-    """
-    The account encryption properties.
-      * `key_vault_properties` (`dict`) - The properties of the key used to encrypt the account.
-        * `current_key_identifier` (`str`) - The current key used to encrypt the Media Services account, including the key version.
-        * `key_identifier` (`str`) - The URL of the Key Vault key used to encrypt the account. The key may either be versioned (for example https://vault/keys/mykey/version1) or reference a key without a version (for example https://vault/keys/mykey).
-
-      * `type` (`str`) - The type of key used to encrypt the Account Key.
-    """
-    identity: pulumi.Output[dict]
-    """
-    The Managed Identity for the Media Services account.
-      * `principal_id` (`str`) - The Principal ID of the identity.
-      * `tenant_id` (`str`) - The Tenant ID of the identity.
-      * `type` (`str`) - The identity type.
-    """
-    location: pulumi.Output[str]
-    """
-    The geo-location where the resource lives
-    """
-    media_service_id: pulumi.Output[str]
-    """
-    The Media Services account ID.
-    """
-    name: pulumi.Output[str]
-    """
-    The name of the resource
-    """
-    storage_accounts: pulumi.Output[list]
-    """
-    The storage accounts for this resource.
-      * `id` (`str`) - The ID of the storage account resource. Media Services relies on tables and queues as well as blobs, so the primary storage account must be a Standard Storage account (either Microsoft.ClassicStorage or Microsoft.Storage). Blob only storage accounts can be added as secondary storage accounts.
-      * `type` (`str`) - The type of the storage account.
-    """
-    storage_authentication: pulumi.Output[str]
-    tags: pulumi.Output[dict]
-    """
-    Resource tags.
-    """
-    type: pulumi.Output[str]
-    """
-    The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
-    """
-    def __init__(__self__, resource_name, opts=None, encryption=None, identity=None, location=None, name=None, resource_group_name=None, storage_accounts=None, storage_authentication=None, tags=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 encryption: Optional[pulumi.Input[pulumi.InputType['AccountEncryptionArgs']]] = None,
+                 identity: Optional[pulumi.Input[pulumi.InputType['MediaServiceIdentityArgs']]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 storage_accounts: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['StorageAccountArgs']]]]] = None,
+                 storage_authentication: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         A Media Services account.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[dict] encryption: The account encryption properties.
-        :param pulumi.Input[dict] identity: The Managed Identity for the Media Services account.
+        :param pulumi.Input[pulumi.InputType['AccountEncryptionArgs']] encryption: The account encryption properties.
+        :param pulumi.Input[pulumi.InputType['MediaServiceIdentityArgs']] identity: The Managed Identity for the Media Services account.
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input[str] name: The Media Services account name.
         :param pulumi.Input[str] resource_group_name: The name of the resource group within the Azure subscription.
-        :param pulumi.Input[list] storage_accounts: The storage accounts for this resource.
-        :param pulumi.Input[dict] tags: Resource tags.
-
-        The **encryption** object supports the following:
-
-          * `key_vault_properties` (`pulumi.Input[dict]`) - The properties of the key used to encrypt the account.
-            * `key_identifier` (`pulumi.Input[str]`) - The URL of the Key Vault key used to encrypt the account. The key may either be versioned (for example https://vault/keys/mykey/version1) or reference a key without a version (for example https://vault/keys/mykey).
-
-          * `type` (`pulumi.Input[str]`) - The type of key used to encrypt the Account Key.
-
-        The **identity** object supports the following:
-
-          * `type` (`pulumi.Input[str]`) - The identity type.
-
-        The **storage_accounts** object supports the following:
-
-          * `id` (`pulumi.Input[str]`) - The ID of the storage account resource. Media Services relies on tables and queues as well as blobs, so the primary storage account must be a Standard Storage account (either Microsoft.ClassicStorage or Microsoft.Storage). Blob only storage accounts can be added as secondary storage accounts.
-          * `type` (`pulumi.Input[str]`) - The type of the storage account.
+        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['StorageAccountArgs']]]] storage_accounts: The storage accounts for this resource.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -125,13 +83,15 @@ class MediaService(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None) -> 'MediaService':
         """
         Get an existing MediaService resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -140,8 +100,78 @@ class MediaService(pulumi.CustomResource):
 
         return MediaService(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter
+    def encryption(self) -> Optional['outputs.AccountEncryptionResponse']:
+        """
+        The account encryption properties.
+        """
+        return pulumi.get(self, "encryption")
+
+    @property
+    @pulumi.getter
+    def identity(self) -> Optional['outputs.MediaServiceIdentityResponse']:
+        """
+        The Managed Identity for the Media Services account.
+        """
+        return pulumi.get(self, "identity")
+
+    @property
+    @pulumi.getter
+    def location(self) -> str:
+        """
+        The geo-location where the resource lives
+        """
+        return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter(name="mediaServiceId")
+    def media_service_id(self) -> str:
+        """
+        The Media Services account ID.
+        """
+        return pulumi.get(self, "media_service_id")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the resource
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="storageAccounts")
+    def storage_accounts(self) -> Optional[List['outputs.StorageAccountResponse']]:
+        """
+        The storage accounts for this resource.
+        """
+        return pulumi.get(self, "storage_accounts")
+
+    @property
+    @pulumi.getter(name="storageAuthentication")
+    def storage_authentication(self) -> Optional[str]:
+        return pulumi.get(self, "storage_authentication")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Mapping[str, str]]:
+        """
+        Resource tags.
+        """
+        return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+        """
+        return pulumi.get(self, "type")
+
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

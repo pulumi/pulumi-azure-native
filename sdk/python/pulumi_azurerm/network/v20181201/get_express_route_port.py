@@ -5,10 +5,17 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+from . import outputs
 
+__all__ = [
+    'GetExpressRoutePortResult',
+    'AwaitableGetExpressRoutePortResult',
+    'get_express_route_port',
+]
 
+@pulumi.output_type
 class GetExpressRoutePortResult:
     """
     ExpressRoutePort resource definition.
@@ -16,100 +23,180 @@ class GetExpressRoutePortResult:
     def __init__(__self__, allocation_date=None, bandwidth_in_gbps=None, circuits=None, encapsulation=None, etag=None, ether_type=None, links=None, location=None, mtu=None, name=None, peering_location=None, provisioned_bandwidth_in_gbps=None, provisioning_state=None, resource_guid=None, tags=None, type=None):
         if allocation_date and not isinstance(allocation_date, str):
             raise TypeError("Expected argument 'allocation_date' to be a str")
-        __self__.allocation_date = allocation_date
+        pulumi.set(__self__, "allocation_date", allocation_date)
+        if bandwidth_in_gbps and not isinstance(bandwidth_in_gbps, float):
+            raise TypeError("Expected argument 'bandwidth_in_gbps' to be a float")
+        pulumi.set(__self__, "bandwidth_in_gbps", bandwidth_in_gbps)
+        if circuits and not isinstance(circuits, list):
+            raise TypeError("Expected argument 'circuits' to be a list")
+        pulumi.set(__self__, "circuits", circuits)
+        if encapsulation and not isinstance(encapsulation, str):
+            raise TypeError("Expected argument 'encapsulation' to be a str")
+        pulumi.set(__self__, "encapsulation", encapsulation)
+        if etag and not isinstance(etag, str):
+            raise TypeError("Expected argument 'etag' to be a str")
+        pulumi.set(__self__, "etag", etag)
+        if ether_type and not isinstance(ether_type, str):
+            raise TypeError("Expected argument 'ether_type' to be a str")
+        pulumi.set(__self__, "ether_type", ether_type)
+        if links and not isinstance(links, list):
+            raise TypeError("Expected argument 'links' to be a list")
+        pulumi.set(__self__, "links", links)
+        if location and not isinstance(location, str):
+            raise TypeError("Expected argument 'location' to be a str")
+        pulumi.set(__self__, "location", location)
+        if mtu and not isinstance(mtu, str):
+            raise TypeError("Expected argument 'mtu' to be a str")
+        pulumi.set(__self__, "mtu", mtu)
+        if name and not isinstance(name, str):
+            raise TypeError("Expected argument 'name' to be a str")
+        pulumi.set(__self__, "name", name)
+        if peering_location and not isinstance(peering_location, str):
+            raise TypeError("Expected argument 'peering_location' to be a str")
+        pulumi.set(__self__, "peering_location", peering_location)
+        if provisioned_bandwidth_in_gbps and not isinstance(provisioned_bandwidth_in_gbps, float):
+            raise TypeError("Expected argument 'provisioned_bandwidth_in_gbps' to be a float")
+        pulumi.set(__self__, "provisioned_bandwidth_in_gbps", provisioned_bandwidth_in_gbps)
+        if provisioning_state and not isinstance(provisioning_state, str):
+            raise TypeError("Expected argument 'provisioning_state' to be a str")
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if resource_guid and not isinstance(resource_guid, str):
+            raise TypeError("Expected argument 'resource_guid' to be a str")
+        pulumi.set(__self__, "resource_guid", resource_guid)
+        if tags and not isinstance(tags, dict):
+            raise TypeError("Expected argument 'tags' to be a dict")
+        pulumi.set(__self__, "tags", tags)
+        if type and not isinstance(type, str):
+            raise TypeError("Expected argument 'type' to be a str")
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="allocationDate")
+    def allocation_date(self) -> str:
         """
         Date of the physical port allocation to be used in Letter of Authorization.
         """
-        if bandwidth_in_gbps and not isinstance(bandwidth_in_gbps, float):
-            raise TypeError("Expected argument 'bandwidth_in_gbps' to be a float")
-        __self__.bandwidth_in_gbps = bandwidth_in_gbps
+        return pulumi.get(self, "allocation_date")
+
+    @property
+    @pulumi.getter(name="bandwidthInGbps")
+    def bandwidth_in_gbps(self) -> Optional[float]:
         """
         Bandwidth of procured ports in Gbps
         """
-        if circuits and not isinstance(circuits, list):
-            raise TypeError("Expected argument 'circuits' to be a list")
-        __self__.circuits = circuits
+        return pulumi.get(self, "bandwidth_in_gbps")
+
+    @property
+    @pulumi.getter
+    def circuits(self) -> List['outputs.SubResourceResponse']:
         """
         Reference the ExpressRoute circuit(s) that are provisioned on this ExpressRoutePort resource.
         """
-        if encapsulation and not isinstance(encapsulation, str):
-            raise TypeError("Expected argument 'encapsulation' to be a str")
-        __self__.encapsulation = encapsulation
+        return pulumi.get(self, "circuits")
+
+    @property
+    @pulumi.getter
+    def encapsulation(self) -> Optional[str]:
         """
         Encapsulation method on physical ports.
         """
-        if etag and not isinstance(etag, str):
-            raise TypeError("Expected argument 'etag' to be a str")
-        __self__.etag = etag
+        return pulumi.get(self, "encapsulation")
+
+    @property
+    @pulumi.getter
+    def etag(self) -> str:
         """
         A unique read-only string that changes whenever the resource is updated.
         """
-        if ether_type and not isinstance(ether_type, str):
-            raise TypeError("Expected argument 'ether_type' to be a str")
-        __self__.ether_type = ether_type
+        return pulumi.get(self, "etag")
+
+    @property
+    @pulumi.getter(name="etherType")
+    def ether_type(self) -> str:
         """
         Ether type of the physical port.
         """
-        if links and not isinstance(links, list):
-            raise TypeError("Expected argument 'links' to be a list")
-        __self__.links = links
+        return pulumi.get(self, "ether_type")
+
+    @property
+    @pulumi.getter
+    def links(self) -> Optional[List['outputs.ExpressRouteLinkResponse']]:
         """
         The set of physical links of the ExpressRoutePort resource
         """
-        if location and not isinstance(location, str):
-            raise TypeError("Expected argument 'location' to be a str")
-        __self__.location = location
+        return pulumi.get(self, "links")
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[str]:
         """
         Resource location.
         """
-        if mtu and not isinstance(mtu, str):
-            raise TypeError("Expected argument 'mtu' to be a str")
-        __self__.mtu = mtu
+        return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter
+    def mtu(self) -> str:
         """
         Maximum transmission unit of the physical port pair(s)
         """
-        if name and not isinstance(name, str):
-            raise TypeError("Expected argument 'name' to be a str")
-        __self__.name = name
+        return pulumi.get(self, "mtu")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
         """
         Resource name.
         """
-        if peering_location and not isinstance(peering_location, str):
-            raise TypeError("Expected argument 'peering_location' to be a str")
-        __self__.peering_location = peering_location
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="peeringLocation")
+    def peering_location(self) -> Optional[str]:
         """
         The name of the peering location that the ExpressRoutePort is mapped to physically.
         """
-        if provisioned_bandwidth_in_gbps and not isinstance(provisioned_bandwidth_in_gbps, float):
-            raise TypeError("Expected argument 'provisioned_bandwidth_in_gbps' to be a float")
-        __self__.provisioned_bandwidth_in_gbps = provisioned_bandwidth_in_gbps
+        return pulumi.get(self, "peering_location")
+
+    @property
+    @pulumi.getter(name="provisionedBandwidthInGbps")
+    def provisioned_bandwidth_in_gbps(self) -> float:
         """
         Aggregate Gbps of associated circuit bandwidths.
         """
-        if provisioning_state and not isinstance(provisioning_state, str):
-            raise TypeError("Expected argument 'provisioning_state' to be a str")
-        __self__.provisioning_state = provisioning_state
+        return pulumi.get(self, "provisioned_bandwidth_in_gbps")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
         """
         The provisioning state of the ExpressRoutePort resource. Possible values are: 'Succeeded', 'Updating', 'Deleting', and 'Failed'.
         """
-        if resource_guid and not isinstance(resource_guid, str):
-            raise TypeError("Expected argument 'resource_guid' to be a str")
-        __self__.resource_guid = resource_guid
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="resourceGuid")
+    def resource_guid(self) -> Optional[str]:
         """
         The resource GUID property of the ExpressRoutePort resource.
         """
-        if tags and not isinstance(tags, dict):
-            raise TypeError("Expected argument 'tags' to be a dict")
-        __self__.tags = tags
+        return pulumi.get(self, "resource_guid")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Mapping[str, str]]:
         """
         Resource tags.
         """
-        if type and not isinstance(type, str):
-            raise TypeError("Expected argument 'type' to be a str")
-        __self__.type = type
+        return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
         """
         Resource type.
         """
+        return pulumi.get(self, "type")
 
 
 class AwaitableGetExpressRoutePortResult(GetExpressRoutePortResult):
@@ -136,7 +223,9 @@ class AwaitableGetExpressRoutePortResult(GetExpressRoutePortResult):
             type=self.type)
 
 
-def get_express_route_port(name=None, resource_group_name=None, opts=None):
+def get_express_route_port(name: Optional[str] = None,
+                           resource_group_name: Optional[str] = None,
+                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetExpressRoutePortResult:
     """
     Use this data source to access information about an existing resource.
 
@@ -150,22 +239,22 @@ def get_express_route_port(name=None, resource_group_name=None, opts=None):
         opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = _utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('azurerm:network/v20181201:getExpressRoutePort', __args__, opts=opts).value
+    __ret__ = pulumi.runtime.invoke('azurerm:network/v20181201:getExpressRoutePort', __args__, opts=opts, typ=GetExpressRoutePortResult).value
 
     return AwaitableGetExpressRoutePortResult(
-        allocation_date=__ret__.get('allocationDate'),
-        bandwidth_in_gbps=__ret__.get('bandwidthInGbps'),
-        circuits=__ret__.get('circuits'),
-        encapsulation=__ret__.get('encapsulation'),
-        etag=__ret__.get('etag'),
-        ether_type=__ret__.get('etherType'),
-        links=__ret__.get('links'),
-        location=__ret__.get('location'),
-        mtu=__ret__.get('mtu'),
-        name=__ret__.get('name'),
-        peering_location=__ret__.get('peeringLocation'),
-        provisioned_bandwidth_in_gbps=__ret__.get('provisionedBandwidthInGbps'),
-        provisioning_state=__ret__.get('provisioningState'),
-        resource_guid=__ret__.get('resourceGuid'),
-        tags=__ret__.get('tags'),
-        type=__ret__.get('type'))
+        allocation_date=__ret__.allocation_date,
+        bandwidth_in_gbps=__ret__.bandwidth_in_gbps,
+        circuits=__ret__.circuits,
+        encapsulation=__ret__.encapsulation,
+        etag=__ret__.etag,
+        ether_type=__ret__.ether_type,
+        links=__ret__.links,
+        location=__ret__.location,
+        mtu=__ret__.mtu,
+        name=__ret__.name,
+        peering_location=__ret__.peering_location,
+        provisioned_bandwidth_in_gbps=__ret__.provisioned_bandwidth_in_gbps,
+        provisioning_state=__ret__.provisioning_state,
+        resource_guid=__ret__.resource_guid,
+        tags=__ret__.tags,
+        type=__ret__.type)

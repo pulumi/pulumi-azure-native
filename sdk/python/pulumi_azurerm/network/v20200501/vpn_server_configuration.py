@@ -5,209 +5,58 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+from . import outputs
+from ._inputs import *
+
+__all__ = ['VpnServerConfiguration']
 
 
 class VpnServerConfiguration(pulumi.CustomResource):
-    aad_authentication_parameters: pulumi.Output[dict]
-    """
-    The set of aad vpn authentication parameters.
-      * `aad_audience` (`str`) - AAD Vpn authentication parameter AAD audience.
-      * `aad_issuer` (`str`) - AAD Vpn authentication parameter AAD issuer.
-      * `aad_tenant` (`str`) - AAD Vpn authentication parameter AAD tenant.
-    """
-    etag: pulumi.Output[str]
-    """
-    A unique read-only string that changes whenever the resource is updated.
-    """
-    location: pulumi.Output[str]
-    """
-    Resource location.
-    """
-    name: pulumi.Output[str]
-    """
-    Resource name.
-    """
-    p2_s_vpn_gateways: pulumi.Output[list]
-    """
-    List of references to P2SVpnGateways.
-      * `custom_dns_servers` (`list`) - List of all customer specified DNS servers IP addresses.
-      * `etag` (`str`) - A unique read-only string that changes whenever the resource is updated.
-      * `id` (`str`) - Resource ID.
-      * `location` (`str`) - Resource location.
-      * `name` (`str`) - Resource name.
-      * `p2_s_connection_configurations` (`list`) - List of all p2s connection configurations of the gateway.
-        * `etag` (`str`) - A unique read-only string that changes whenever the resource is updated.
-        * `id` (`str`) - Resource ID.
-        * `name` (`str`) - The name of the resource that is unique within a resource group. This name can be used to access the resource.
-        * `provisioning_state` (`str`) - The provisioning state of the P2SConnectionConfiguration resource.
-        * `routing_configuration` (`dict`) - The Routing Configuration indicating the associated and propagated route tables on this connection.
-          * `associated_route_table` (`dict`) - The resource id RouteTable associated with this RoutingConfiguration.
-            * `id` (`str`) - Resource ID.
-
-          * `propagated_route_tables` (`dict`) - The list of RouteTables to advertise the routes to.
-            * `ids` (`list`) - The list of resource ids of all the RouteTables.
-            * `labels` (`list`) - The list of labels.
-
-          * `vnet_routes` (`dict`) - List of routes that control routing from VirtualHub into a virtual network connection.
-            * `static_routes` (`list`) - List of all Static Routes.
-              * `address_prefixes` (`list`) - List of all address prefixes.
-              * `name` (`str`) - The name of the StaticRoute that is unique within a VnetRoute.
-              * `next_hop_ip_address` (`str`) - The ip address of the next hop.
-
-        * `vpn_client_address_pool` (`dict`) - The reference to the address space resource which represents Address space for P2S VpnClient.
-          * `address_prefixes` (`list`) - A list of address blocks reserved for this virtual network in CIDR notation.
-
-      * `provisioning_state` (`str`) - The provisioning state of the P2S VPN gateway resource.
-      * `tags` (`dict`) - Resource tags.
-      * `type` (`str`) - Resource type.
-      * `virtual_hub` (`dict`) - The VirtualHub to which the gateway belongs.
-      * `vpn_client_connection_health` (`dict`) - All P2S VPN clients' connection health status.
-        * `allocated_ip_addresses` (`list`) - List of allocated ip addresses to the connected p2s vpn clients.
-        * `total_egress_bytes_transferred` (`float`) - Total of the Egress Bytes Transferred in this connection.
-        * `total_ingress_bytes_transferred` (`float`) - Total of the Ingress Bytes Transferred in this P2S Vpn connection.
-        * `vpn_client_connections_count` (`float`) - The total of p2s vpn clients connected at this time to this P2SVpnGateway.
-
-      * `vpn_gateway_scale_unit` (`float`) - The scale unit for this p2s vpn gateway.
-      * `vpn_server_configuration` (`dict`) - The VpnServerConfiguration to which the p2sVpnGateway is attached to.
-    """
-    provisioning_state: pulumi.Output[str]
-    """
-    The provisioning state of the VpnServerConfiguration resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
-    """
-    radius_client_root_certificates: pulumi.Output[list]
-    """
-    Radius client root certificate of VpnServerConfiguration.
-      * `name` (`str`) - The certificate name.
-      * `thumbprint` (`str`) - The Radius client root certificate thumbprint.
-    """
-    radius_server_address: pulumi.Output[str]
-    """
-    The radius server address property of the VpnServerConfiguration resource for point to site client connection.
-    """
-    radius_server_root_certificates: pulumi.Output[list]
-    """
-    Radius Server root certificate of VpnServerConfiguration.
-      * `name` (`str`) - The certificate name.
-      * `public_cert_data` (`str`) - The certificate public data.
-    """
-    radius_server_secret: pulumi.Output[str]
-    """
-    The radius secret property of the VpnServerConfiguration resource for point to site client connection.
-    """
-    radius_servers: pulumi.Output[list]
-    """
-    Multiple Radius Server configuration for VpnServerConfiguration.
-      * `radius_server_address` (`str`) - The address of this radius server.
-      * `radius_server_score` (`float`) - The initial score assigned to this radius server.
-      * `radius_server_secret` (`str`) - The secret used for this radius server.
-    """
-    tags: pulumi.Output[dict]
-    """
-    Resource tags.
-    """
-    type: pulumi.Output[str]
-    """
-    Resource type.
-    """
-    vpn_authentication_types: pulumi.Output[list]
-    """
-    VPN authentication types for the VpnServerConfiguration.
-    """
-    vpn_client_ipsec_policies: pulumi.Output[list]
-    """
-    VpnClientIpsecPolicies for VpnServerConfiguration.
-      * `dh_group` (`str`) - The DH Group used in IKE Phase 1 for initial SA.
-      * `ike_encryption` (`str`) - The IKE encryption algorithm (IKE phase 2).
-      * `ike_integrity` (`str`) - The IKE integrity algorithm (IKE phase 2).
-      * `ipsec_encryption` (`str`) - The IPSec encryption algorithm (IKE phase 1).
-      * `ipsec_integrity` (`str`) - The IPSec integrity algorithm (IKE phase 1).
-      * `pfs_group` (`str`) - The Pfs Group used in IKE Phase 2 for new child SA.
-      * `sa_data_size_kilobytes` (`float`) - The IPSec Security Association (also called Quick Mode or Phase 2 SA) payload size in KB for a site to site VPN tunnel.
-      * `sa_life_time_seconds` (`float`) - The IPSec Security Association (also called Quick Mode or Phase 2 SA) lifetime in seconds for a site to site VPN tunnel.
-    """
-    vpn_client_revoked_certificates: pulumi.Output[list]
-    """
-    VPN client revoked certificate of VpnServerConfiguration.
-      * `name` (`str`) - The certificate name.
-      * `thumbprint` (`str`) - The revoked VPN client certificate thumbprint.
-    """
-    vpn_client_root_certificates: pulumi.Output[list]
-    """
-    VPN client root certificate of VpnServerConfiguration.
-      * `name` (`str`) - The certificate name.
-      * `public_cert_data` (`str`) - The certificate public data.
-    """
-    vpn_protocols: pulumi.Output[list]
-    """
-    VPN protocols for the VpnServerConfiguration.
-    """
-    def __init__(__self__, resource_name, opts=None, aad_authentication_parameters=None, id=None, location=None, name=None, radius_client_root_certificates=None, radius_server_address=None, radius_server_root_certificates=None, radius_server_secret=None, radius_servers=None, resource_group_name=None, tags=None, vpn_authentication_types=None, vpn_client_ipsec_policies=None, vpn_client_revoked_certificates=None, vpn_client_root_certificates=None, vpn_protocols=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 aad_authentication_parameters: Optional[pulumi.Input[pulumi.InputType['AadAuthenticationParametersArgs']]] = None,
+                 id: Optional[pulumi.Input[str]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 radius_client_root_certificates: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['VpnServerConfigRadiusClientRootCertificateArgs']]]]] = None,
+                 radius_server_address: Optional[pulumi.Input[str]] = None,
+                 radius_server_root_certificates: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['VpnServerConfigRadiusServerRootCertificateArgs']]]]] = None,
+                 radius_server_secret: Optional[pulumi.Input[str]] = None,
+                 radius_servers: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['RadiusServerArgs']]]]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 vpn_authentication_types: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 vpn_client_ipsec_policies: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['IpsecPolicyArgs']]]]] = None,
+                 vpn_client_revoked_certificates: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['VpnServerConfigVpnClientRevokedCertificateArgs']]]]] = None,
+                 vpn_client_root_certificates: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['VpnServerConfigVpnClientRootCertificateArgs']]]]] = None,
+                 vpn_protocols: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         VpnServerConfiguration Resource.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[dict] aad_authentication_parameters: The set of aad vpn authentication parameters.
+        :param pulumi.Input[pulumi.InputType['AadAuthenticationParametersArgs']] aad_authentication_parameters: The set of aad vpn authentication parameters.
         :param pulumi.Input[str] id: Resource ID.
         :param pulumi.Input[str] location: Resource location.
         :param pulumi.Input[str] name: The name of the VpnServerConfiguration being created or updated.
-        :param pulumi.Input[list] radius_client_root_certificates: Radius client root certificate of VpnServerConfiguration.
+        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['VpnServerConfigRadiusClientRootCertificateArgs']]]] radius_client_root_certificates: Radius client root certificate of VpnServerConfiguration.
         :param pulumi.Input[str] radius_server_address: The radius server address property of the VpnServerConfiguration resource for point to site client connection.
-        :param pulumi.Input[list] radius_server_root_certificates: Radius Server root certificate of VpnServerConfiguration.
+        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['VpnServerConfigRadiusServerRootCertificateArgs']]]] radius_server_root_certificates: Radius Server root certificate of VpnServerConfiguration.
         :param pulumi.Input[str] radius_server_secret: The radius secret property of the VpnServerConfiguration resource for point to site client connection.
-        :param pulumi.Input[list] radius_servers: Multiple Radius Server configuration for VpnServerConfiguration.
+        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['RadiusServerArgs']]]] radius_servers: Multiple Radius Server configuration for VpnServerConfiguration.
         :param pulumi.Input[str] resource_group_name: The resource group name of the VpnServerConfiguration.
-        :param pulumi.Input[dict] tags: Resource tags.
-        :param pulumi.Input[list] vpn_authentication_types: VPN authentication types for the VpnServerConfiguration.
-        :param pulumi.Input[list] vpn_client_ipsec_policies: VpnClientIpsecPolicies for VpnServerConfiguration.
-        :param pulumi.Input[list] vpn_client_revoked_certificates: VPN client revoked certificate of VpnServerConfiguration.
-        :param pulumi.Input[list] vpn_client_root_certificates: VPN client root certificate of VpnServerConfiguration.
-        :param pulumi.Input[list] vpn_protocols: VPN protocols for the VpnServerConfiguration.
-
-        The **aad_authentication_parameters** object supports the following:
-
-          * `aad_audience` (`pulumi.Input[str]`) - AAD Vpn authentication parameter AAD audience.
-          * `aad_issuer` (`pulumi.Input[str]`) - AAD Vpn authentication parameter AAD issuer.
-          * `aad_tenant` (`pulumi.Input[str]`) - AAD Vpn authentication parameter AAD tenant.
-
-        The **radius_client_root_certificates** object supports the following:
-
-          * `name` (`pulumi.Input[str]`) - The certificate name.
-          * `thumbprint` (`pulumi.Input[str]`) - The Radius client root certificate thumbprint.
-
-        The **radius_server_root_certificates** object supports the following:
-
-          * `name` (`pulumi.Input[str]`) - The certificate name.
-          * `public_cert_data` (`pulumi.Input[str]`) - The certificate public data.
-
-        The **radius_servers** object supports the following:
-
-          * `radius_server_address` (`pulumi.Input[str]`) - The address of this radius server.
-          * `radius_server_score` (`pulumi.Input[float]`) - The initial score assigned to this radius server.
-          * `radius_server_secret` (`pulumi.Input[str]`) - The secret used for this radius server.
-
-        The **vpn_client_ipsec_policies** object supports the following:
-
-          * `dh_group` (`pulumi.Input[str]`) - The DH Group used in IKE Phase 1 for initial SA.
-          * `ike_encryption` (`pulumi.Input[str]`) - The IKE encryption algorithm (IKE phase 2).
-          * `ike_integrity` (`pulumi.Input[str]`) - The IKE integrity algorithm (IKE phase 2).
-          * `ipsec_encryption` (`pulumi.Input[str]`) - The IPSec encryption algorithm (IKE phase 1).
-          * `ipsec_integrity` (`pulumi.Input[str]`) - The IPSec integrity algorithm (IKE phase 1).
-          * `pfs_group` (`pulumi.Input[str]`) - The Pfs Group used in IKE Phase 2 for new child SA.
-          * `sa_data_size_kilobytes` (`pulumi.Input[float]`) - The IPSec Security Association (also called Quick Mode or Phase 2 SA) payload size in KB for a site to site VPN tunnel.
-          * `sa_life_time_seconds` (`pulumi.Input[float]`) - The IPSec Security Association (also called Quick Mode or Phase 2 SA) lifetime in seconds for a site to site VPN tunnel.
-
-        The **vpn_client_revoked_certificates** object supports the following:
-
-          * `name` (`pulumi.Input[str]`) - The certificate name.
-          * `thumbprint` (`pulumi.Input[str]`) - The revoked VPN client certificate thumbprint.
-
-        The **vpn_client_root_certificates** object supports the following:
-
-          * `name` (`pulumi.Input[str]`) - The certificate name.
-          * `public_cert_data` (`pulumi.Input[str]`) - The certificate public data.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
+        :param pulumi.Input[List[pulumi.Input[str]]] vpn_authentication_types: VPN authentication types for the VpnServerConfiguration.
+        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['IpsecPolicyArgs']]]] vpn_client_ipsec_policies: VpnClientIpsecPolicies for VpnServerConfiguration.
+        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['VpnServerConfigVpnClientRevokedCertificateArgs']]]] vpn_client_revoked_certificates: VPN client revoked certificate of VpnServerConfiguration.
+        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['VpnServerConfigVpnClientRootCertificateArgs']]]] vpn_client_root_certificates: VPN client root certificate of VpnServerConfiguration.
+        :param pulumi.Input[List[pulumi.Input[str]]] vpn_protocols: VPN protocols for the VpnServerConfiguration.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -259,13 +108,15 @@ class VpnServerConfiguration(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None) -> 'VpnServerConfiguration':
         """
         Get an existing VpnServerConfiguration resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -274,8 +125,153 @@ class VpnServerConfiguration(pulumi.CustomResource):
 
         return VpnServerConfiguration(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter(name="aadAuthenticationParameters")
+    def aad_authentication_parameters(self) -> Optional['outputs.AadAuthenticationParametersResponse']:
+        """
+        The set of aad vpn authentication parameters.
+        """
+        return pulumi.get(self, "aad_authentication_parameters")
+
+    @property
+    @pulumi.getter
+    def etag(self) -> str:
+        """
+        A unique read-only string that changes whenever the resource is updated.
+        """
+        return pulumi.get(self, "etag")
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[str]:
+        """
+        Resource location.
+        """
+        return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Resource name.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="p2SVpnGateways")
+    def p2_s_vpn_gateways(self) -> List['outputs.P2SVpnGatewayResponse']:
+        """
+        List of references to P2SVpnGateways.
+        """
+        return pulumi.get(self, "p2_s_vpn_gateways")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        The provisioning state of the VpnServerConfiguration resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="radiusClientRootCertificates")
+    def radius_client_root_certificates(self) -> Optional[List['outputs.VpnServerConfigRadiusClientRootCertificateResponse']]:
+        """
+        Radius client root certificate of VpnServerConfiguration.
+        """
+        return pulumi.get(self, "radius_client_root_certificates")
+
+    @property
+    @pulumi.getter(name="radiusServerAddress")
+    def radius_server_address(self) -> Optional[str]:
+        """
+        The radius server address property of the VpnServerConfiguration resource for point to site client connection.
+        """
+        return pulumi.get(self, "radius_server_address")
+
+    @property
+    @pulumi.getter(name="radiusServerRootCertificates")
+    def radius_server_root_certificates(self) -> Optional[List['outputs.VpnServerConfigRadiusServerRootCertificateResponse']]:
+        """
+        Radius Server root certificate of VpnServerConfiguration.
+        """
+        return pulumi.get(self, "radius_server_root_certificates")
+
+    @property
+    @pulumi.getter(name="radiusServerSecret")
+    def radius_server_secret(self) -> Optional[str]:
+        """
+        The radius secret property of the VpnServerConfiguration resource for point to site client connection.
+        """
+        return pulumi.get(self, "radius_server_secret")
+
+    @property
+    @pulumi.getter(name="radiusServers")
+    def radius_servers(self) -> Optional[List['outputs.RadiusServerResponse']]:
+        """
+        Multiple Radius Server configuration for VpnServerConfiguration.
+        """
+        return pulumi.get(self, "radius_servers")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Mapping[str, str]]:
+        """
+        Resource tags.
+        """
+        return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Resource type.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="vpnAuthenticationTypes")
+    def vpn_authentication_types(self) -> Optional[List[str]]:
+        """
+        VPN authentication types for the VpnServerConfiguration.
+        """
+        return pulumi.get(self, "vpn_authentication_types")
+
+    @property
+    @pulumi.getter(name="vpnClientIpsecPolicies")
+    def vpn_client_ipsec_policies(self) -> Optional[List['outputs.IpsecPolicyResponse']]:
+        """
+        VpnClientIpsecPolicies for VpnServerConfiguration.
+        """
+        return pulumi.get(self, "vpn_client_ipsec_policies")
+
+    @property
+    @pulumi.getter(name="vpnClientRevokedCertificates")
+    def vpn_client_revoked_certificates(self) -> Optional[List['outputs.VpnServerConfigVpnClientRevokedCertificateResponse']]:
+        """
+        VPN client revoked certificate of VpnServerConfiguration.
+        """
+        return pulumi.get(self, "vpn_client_revoked_certificates")
+
+    @property
+    @pulumi.getter(name="vpnClientRootCertificates")
+    def vpn_client_root_certificates(self) -> Optional[List['outputs.VpnServerConfigVpnClientRootCertificateResponse']]:
+        """
+        VPN client root certificate of VpnServerConfiguration.
+        """
+        return pulumi.get(self, "vpn_client_root_certificates")
+
+    @property
+    @pulumi.getter(name="vpnProtocols")
+    def vpn_protocols(self) -> Optional[List[str]]:
+        """
+        VPN protocols for the VpnServerConfiguration.
+        """
+        return pulumi.get(self, "vpn_protocols")
+
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

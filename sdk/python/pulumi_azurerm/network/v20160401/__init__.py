@@ -7,3 +7,5 @@ from .get_record_set import *
 from .get_zone import *
 from .record_set import *
 from .zone import *
+from ._inputs import *
+from . import outputs

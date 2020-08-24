@@ -5,10 +5,17 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+from . import outputs
 
+__all__ = [
+    'GetAssessmentResult',
+    'AwaitableGetAssessmentResult',
+    'get_assessment',
+]
 
+@pulumi.output_type
 class GetAssessmentResult:
     """
     An assessment created for a group in the Migration project.
@@ -16,28 +23,48 @@ class GetAssessmentResult:
     def __init__(__self__, e_tag=None, name=None, properties=None, type=None):
         if e_tag and not isinstance(e_tag, str):
             raise TypeError("Expected argument 'e_tag' to be a str")
-        __self__.e_tag = e_tag
+        pulumi.set(__self__, "e_tag", e_tag)
+        if name and not isinstance(name, str):
+            raise TypeError("Expected argument 'name' to be a str")
+        pulumi.set(__self__, "name", name)
+        if properties and not isinstance(properties, dict):
+            raise TypeError("Expected argument 'properties' to be a dict")
+        pulumi.set(__self__, "properties", properties)
+        if type and not isinstance(type, str):
+            raise TypeError("Expected argument 'type' to be a str")
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="eTag")
+    def e_tag(self) -> Optional[str]:
         """
         For optimistic concurrency control.
         """
-        if name and not isinstance(name, str):
-            raise TypeError("Expected argument 'name' to be a str")
-        __self__.name = name
+        return pulumi.get(self, "e_tag")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
         """
         Unique name of an assessment.
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def properties(self) -> 'outputs.AssessmentPropertiesResponse':
         """
         Properties of the assessment.
         """
-        if type and not isinstance(type, str):
-            raise TypeError("Expected argument 'type' to be a str")
-        __self__.type = type
+        return pulumi.get(self, "properties")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
         """
         Type of the object = [Microsoft.Migrate/assessmentProjects/groups/assessments].
         """
+        return pulumi.get(self, "type")
 
 
 class AwaitableGetAssessmentResult(GetAssessmentResult):
@@ -52,7 +79,11 @@ class AwaitableGetAssessmentResult(GetAssessmentResult):
             type=self.type)
 
 
-def get_assessment(group_name=None, name=None, project_name=None, resource_group_name=None, opts=None):
+def get_assessment(group_name: Optional[str] = None,
+                   name: Optional[str] = None,
+                   project_name: Optional[str] = None,
+                   resource_group_name: Optional[str] = None,
+                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAssessmentResult:
     """
     Use this data source to access information about an existing resource.
 
@@ -70,10 +101,10 @@ def get_assessment(group_name=None, name=None, project_name=None, resource_group
         opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = _utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('azurerm:migrate/v20191001:getAssessment', __args__, opts=opts).value
+    __ret__ = pulumi.runtime.invoke('azurerm:migrate/v20191001:getAssessment', __args__, opts=opts, typ=GetAssessmentResult).value
 
     return AwaitableGetAssessmentResult(
-        e_tag=__ret__.get('eTag'),
-        name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
-        type=__ret__.get('type'))
+        e_tag=__ret__.e_tag,
+        name=__ret__.name,
+        properties=__ret__.properties,
+        type=__ret__.type)

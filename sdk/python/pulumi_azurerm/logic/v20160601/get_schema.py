@@ -5,10 +5,17 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+from . import outputs
 
+__all__ = [
+    'GetSchemaResult',
+    'AwaitableGetSchemaResult',
+    'get_schema',
+]
 
+@pulumi.output_type
 class GetSchemaResult:
     """
     The integration account schema.
@@ -16,88 +23,158 @@ class GetSchemaResult:
     def __init__(__self__, changed_time=None, content=None, content_link=None, content_type=None, created_time=None, document_name=None, file_name=None, location=None, metadata=None, name=None, schema_type=None, tags=None, target_namespace=None, type=None):
         if changed_time and not isinstance(changed_time, str):
             raise TypeError("Expected argument 'changed_time' to be a str")
-        __self__.changed_time = changed_time
+        pulumi.set(__self__, "changed_time", changed_time)
+        if content and not isinstance(content, str):
+            raise TypeError("Expected argument 'content' to be a str")
+        pulumi.set(__self__, "content", content)
+        if content_link and not isinstance(content_link, dict):
+            raise TypeError("Expected argument 'content_link' to be a dict")
+        pulumi.set(__self__, "content_link", content_link)
+        if content_type and not isinstance(content_type, str):
+            raise TypeError("Expected argument 'content_type' to be a str")
+        pulumi.set(__self__, "content_type", content_type)
+        if created_time and not isinstance(created_time, str):
+            raise TypeError("Expected argument 'created_time' to be a str")
+        pulumi.set(__self__, "created_time", created_time)
+        if document_name and not isinstance(document_name, str):
+            raise TypeError("Expected argument 'document_name' to be a str")
+        pulumi.set(__self__, "document_name", document_name)
+        if file_name and not isinstance(file_name, str):
+            raise TypeError("Expected argument 'file_name' to be a str")
+        pulumi.set(__self__, "file_name", file_name)
+        if location and not isinstance(location, str):
+            raise TypeError("Expected argument 'location' to be a str")
+        pulumi.set(__self__, "location", location)
+        if metadata and not isinstance(metadata, dict):
+            raise TypeError("Expected argument 'metadata' to be a dict")
+        pulumi.set(__self__, "metadata", metadata)
+        if name and not isinstance(name, str):
+            raise TypeError("Expected argument 'name' to be a str")
+        pulumi.set(__self__, "name", name)
+        if schema_type and not isinstance(schema_type, str):
+            raise TypeError("Expected argument 'schema_type' to be a str")
+        pulumi.set(__self__, "schema_type", schema_type)
+        if tags and not isinstance(tags, dict):
+            raise TypeError("Expected argument 'tags' to be a dict")
+        pulumi.set(__self__, "tags", tags)
+        if target_namespace and not isinstance(target_namespace, str):
+            raise TypeError("Expected argument 'target_namespace' to be a str")
+        pulumi.set(__self__, "target_namespace", target_namespace)
+        if type and not isinstance(type, str):
+            raise TypeError("Expected argument 'type' to be a str")
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="changedTime")
+    def changed_time(self) -> str:
         """
         The changed time.
         """
-        if content and not isinstance(content, str):
-            raise TypeError("Expected argument 'content' to be a str")
-        __self__.content = content
+        return pulumi.get(self, "changed_time")
+
+    @property
+    @pulumi.getter
+    def content(self) -> Optional[str]:
         """
         The content.
         """
-        if content_link and not isinstance(content_link, dict):
-            raise TypeError("Expected argument 'content_link' to be a dict")
-        __self__.content_link = content_link
+        return pulumi.get(self, "content")
+
+    @property
+    @pulumi.getter(name="contentLink")
+    def content_link(self) -> 'outputs.ContentLinkResponse':
         """
         The content link.
         """
-        if content_type and not isinstance(content_type, str):
-            raise TypeError("Expected argument 'content_type' to be a str")
-        __self__.content_type = content_type
+        return pulumi.get(self, "content_link")
+
+    @property
+    @pulumi.getter(name="contentType")
+    def content_type(self) -> Optional[str]:
         """
         The content type.
         """
-        if created_time and not isinstance(created_time, str):
-            raise TypeError("Expected argument 'created_time' to be a str")
-        __self__.created_time = created_time
+        return pulumi.get(self, "content_type")
+
+    @property
+    @pulumi.getter(name="createdTime")
+    def created_time(self) -> str:
         """
         The created time.
         """
-        if document_name and not isinstance(document_name, str):
-            raise TypeError("Expected argument 'document_name' to be a str")
-        __self__.document_name = document_name
+        return pulumi.get(self, "created_time")
+
+    @property
+    @pulumi.getter(name="documentName")
+    def document_name(self) -> Optional[str]:
         """
         The document name.
         """
-        if file_name and not isinstance(file_name, str):
-            raise TypeError("Expected argument 'file_name' to be a str")
-        __self__.file_name = file_name
+        return pulumi.get(self, "document_name")
+
+    @property
+    @pulumi.getter(name="fileName")
+    def file_name(self) -> Optional[str]:
         """
         The file name.
         """
-        if location and not isinstance(location, str):
-            raise TypeError("Expected argument 'location' to be a str")
-        __self__.location = location
+        return pulumi.get(self, "file_name")
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[str]:
         """
         The resource location.
         """
-        if metadata and not isinstance(metadata, dict):
-            raise TypeError("Expected argument 'metadata' to be a dict")
-        __self__.metadata = metadata
+        return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter
+    def metadata(self) -> Optional[Mapping[str, Any]]:
         """
         The metadata.
         """
-        if name and not isinstance(name, str):
-            raise TypeError("Expected argument 'name' to be a str")
-        __self__.name = name
+        return pulumi.get(self, "metadata")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
         """
         Gets the resource name.
         """
-        if schema_type and not isinstance(schema_type, str):
-            raise TypeError("Expected argument 'schema_type' to be a str")
-        __self__.schema_type = schema_type
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="schemaType")
+    def schema_type(self) -> str:
         """
         The schema type.
         """
-        if tags and not isinstance(tags, dict):
-            raise TypeError("Expected argument 'tags' to be a dict")
-        __self__.tags = tags
+        return pulumi.get(self, "schema_type")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Mapping[str, str]]:
         """
         The resource tags.
         """
-        if target_namespace and not isinstance(target_namespace, str):
-            raise TypeError("Expected argument 'target_namespace' to be a str")
-        __self__.target_namespace = target_namespace
+        return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter(name="targetNamespace")
+    def target_namespace(self) -> Optional[str]:
         """
         The target namespace of the schema.
         """
-        if type and not isinstance(type, str):
-            raise TypeError("Expected argument 'type' to be a str")
-        __self__.type = type
+        return pulumi.get(self, "target_namespace")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
         """
         Gets the resource type.
         """
+        return pulumi.get(self, "type")
 
 
 class AwaitableGetSchemaResult(GetSchemaResult):
@@ -122,7 +199,10 @@ class AwaitableGetSchemaResult(GetSchemaResult):
             type=self.type)
 
 
-def get_schema(integration_account_name=None, name=None, resource_group_name=None, opts=None):
+def get_schema(integration_account_name: Optional[str] = None,
+               name: Optional[str] = None,
+               resource_group_name: Optional[str] = None,
+               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSchemaResult:
     """
     Use this data source to access information about an existing resource.
 
@@ -138,20 +218,20 @@ def get_schema(integration_account_name=None, name=None, resource_group_name=Non
         opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = _utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('azurerm:logic/v20160601:getSchema', __args__, opts=opts).value
+    __ret__ = pulumi.runtime.invoke('azurerm:logic/v20160601:getSchema', __args__, opts=opts, typ=GetSchemaResult).value
 
     return AwaitableGetSchemaResult(
-        changed_time=__ret__.get('changedTime'),
-        content=__ret__.get('content'),
-        content_link=__ret__.get('contentLink'),
-        content_type=__ret__.get('contentType'),
-        created_time=__ret__.get('createdTime'),
-        document_name=__ret__.get('documentName'),
-        file_name=__ret__.get('fileName'),
-        location=__ret__.get('location'),
-        metadata=__ret__.get('metadata'),
-        name=__ret__.get('name'),
-        schema_type=__ret__.get('schemaType'),
-        tags=__ret__.get('tags'),
-        target_namespace=__ret__.get('targetNamespace'),
-        type=__ret__.get('type'))
+        changed_time=__ret__.changed_time,
+        content=__ret__.content,
+        content_link=__ret__.content_link,
+        content_type=__ret__.content_type,
+        created_time=__ret__.created_time,
+        document_name=__ret__.document_name,
+        file_name=__ret__.file_name,
+        location=__ret__.location,
+        metadata=__ret__.metadata,
+        name=__ret__.name,
+        schema_type=__ret__.schema_type,
+        tags=__ret__.tags,
+        target_namespace=__ret__.target_namespace,
+        type=__ret__.type)

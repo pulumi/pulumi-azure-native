@@ -5,10 +5,16 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
 
+__all__ = [
+    'ListWebAppHybridConnectionKeysSlotResult',
+    'AwaitableListWebAppHybridConnectionKeysSlotResult',
+    'list_web_app_hybrid_connection_keys_slot',
+]
 
+@pulumi.output_type
 class ListWebAppHybridConnectionKeysSlotResult:
     """
     Hybrid Connection key contract. This has the send key name and value for a Hybrid Connection.
@@ -16,34 +22,59 @@ class ListWebAppHybridConnectionKeysSlotResult:
     def __init__(__self__, kind=None, name=None, send_key_name=None, send_key_value=None, type=None):
         if kind and not isinstance(kind, str):
             raise TypeError("Expected argument 'kind' to be a str")
-        __self__.kind = kind
+        pulumi.set(__self__, "kind", kind)
+        if name and not isinstance(name, str):
+            raise TypeError("Expected argument 'name' to be a str")
+        pulumi.set(__self__, "name", name)
+        if send_key_name and not isinstance(send_key_name, str):
+            raise TypeError("Expected argument 'send_key_name' to be a str")
+        pulumi.set(__self__, "send_key_name", send_key_name)
+        if send_key_value and not isinstance(send_key_value, str):
+            raise TypeError("Expected argument 'send_key_value' to be a str")
+        pulumi.set(__self__, "send_key_value", send_key_value)
+        if type and not isinstance(type, str):
+            raise TypeError("Expected argument 'type' to be a str")
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def kind(self) -> Optional[str]:
         """
         Kind of resource.
         """
-        if name and not isinstance(name, str):
-            raise TypeError("Expected argument 'name' to be a str")
-        __self__.name = name
+        return pulumi.get(self, "kind")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
         """
         Resource Name.
         """
-        if send_key_name and not isinstance(send_key_name, str):
-            raise TypeError("Expected argument 'send_key_name' to be a str")
-        __self__.send_key_name = send_key_name
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="sendKeyName")
+    def send_key_name(self) -> str:
         """
         The name of the send key.
         """
-        if send_key_value and not isinstance(send_key_value, str):
-            raise TypeError("Expected argument 'send_key_value' to be a str")
-        __self__.send_key_value = send_key_value
+        return pulumi.get(self, "send_key_name")
+
+    @property
+    @pulumi.getter(name="sendKeyValue")
+    def send_key_value(self) -> str:
         """
         The value of the send key.
         """
-        if type and not isinstance(type, str):
-            raise TypeError("Expected argument 'type' to be a str")
-        __self__.type = type
+        return pulumi.get(self, "send_key_value")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
         """
         Resource type.
         """
+        return pulumi.get(self, "type")
 
 
 class AwaitableListWebAppHybridConnectionKeysSlotResult(ListWebAppHybridConnectionKeysSlotResult):
@@ -59,7 +90,11 @@ class AwaitableListWebAppHybridConnectionKeysSlotResult(ListWebAppHybridConnecti
             type=self.type)
 
 
-def list_web_app_hybrid_connection_keys_slot(name=None, namespace_name=None, resource_group_name=None, slot=None, opts=None):
+def list_web_app_hybrid_connection_keys_slot(name: Optional[str] = None,
+                                             namespace_name: Optional[str] = None,
+                                             resource_group_name: Optional[str] = None,
+                                             slot: Optional[str] = None,
+                                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListWebAppHybridConnectionKeysSlotResult:
     """
     Use this data source to access information about an existing resource.
 
@@ -77,11 +112,11 @@ def list_web_app_hybrid_connection_keys_slot(name=None, namespace_name=None, res
         opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = _utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('azurerm:web/v20180201:listWebAppHybridConnectionKeysSlot', __args__, opts=opts).value
+    __ret__ = pulumi.runtime.invoke('azurerm:web/v20180201:listWebAppHybridConnectionKeysSlot', __args__, opts=opts, typ=ListWebAppHybridConnectionKeysSlotResult).value
 
     return AwaitableListWebAppHybridConnectionKeysSlotResult(
-        kind=__ret__.get('kind'),
-        name=__ret__.get('name'),
-        send_key_name=__ret__.get('sendKeyName'),
-        send_key_value=__ret__.get('sendKeyValue'),
-        type=__ret__.get('type'))
+        kind=__ret__.kind,
+        name=__ret__.name,
+        send_key_name=__ret__.send_key_name,
+        send_key_value=__ret__.send_key_value,
+        type=__ret__.type)

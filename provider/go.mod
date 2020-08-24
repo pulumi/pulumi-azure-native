@@ -8,11 +8,11 @@ require (
 	github.com/go-openapi/spec v0.19.7
 	github.com/go-openapi/swag v0.19.9
 	github.com/golang/glog v0.0.0-20160126235308-23def4e6c14b
-	github.com/golang/protobuf v1.3.5
+	github.com/golang/protobuf v1.4.2
 	github.com/hashicorp/go-azure-helpers v0.10.0
 	github.com/pkg/errors v0.9.1
-	github.com/pulumi/pulumi/pkg/v2 v2.7.2-0.20200803183728-996fd85e0095
-	github.com/pulumi/pulumi/sdk/v2 v2.7.2-0.20200803183728-996fd85e0095
+	github.com/pulumi/pulumi/pkg/v2 v2.9.1-0.20200822220021-4c42e5e850f0
+	github.com/pulumi/pulumi/sdk/v2 v2.9.1-0.20200822220021-4c42e5e850f0
 	github.com/stretchr/testify v1.6.1
 )
 

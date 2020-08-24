@@ -5,71 +5,40 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+from . import outputs
+from ._inputs import *
+
+__all__ = ['DscNodeConfiguration']
 
 
 class DscNodeConfiguration(pulumi.CustomResource):
-    configuration: pulumi.Output[dict]
-    """
-    Gets or sets the configuration of the node.
-      * `name` (`str`) - Gets or sets the name of the Dsc configuration.
-    """
-    creation_time: pulumi.Output[str]
-    """
-    Gets or sets creation time.
-    """
-    increment_node_configuration_build: pulumi.Output[bool]
-    """
-    If a new build version of NodeConfiguration is required.
-    """
-    last_modified_time: pulumi.Output[str]
-    """
-    Gets or sets the last modified time.
-    """
-    name: pulumi.Output[str]
-    """
-    The name of the resource
-    """
-    node_count: pulumi.Output[float]
-    """
-    Number of nodes with this node configuration assigned
-    """
-    source: pulumi.Output[str]
-    """
-    Source of node configuration.
-    """
-    type: pulumi.Output[str]
-    """
-    The type of the resource.
-    """
-    def __init__(__self__, resource_name, opts=None, automation_account_name=None, configuration=None, increment_node_configuration_build=None, name=None, resource_group_name=None, source=None, tags=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 automation_account_name: Optional[pulumi.Input[str]] = None,
+                 configuration: Optional[pulumi.Input[pulumi.InputType['DscConfigurationAssociationPropertyArgs']]] = None,
+                 increment_node_configuration_build: Optional[pulumi.Input[bool]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 source: Optional[pulumi.Input[pulumi.InputType['ContentSourceArgs']]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         Definition of the dsc node configuration.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] automation_account_name: The name of the automation account.
-        :param pulumi.Input[dict] configuration: Gets or sets the configuration of the node.
+        :param pulumi.Input[pulumi.InputType['DscConfigurationAssociationPropertyArgs']] configuration: Gets or sets the configuration of the node.
         :param pulumi.Input[bool] increment_node_configuration_build: If a new build version of NodeConfiguration is required.
         :param pulumi.Input[str] name: The Dsc node configuration name.
         :param pulumi.Input[str] resource_group_name: Name of an Azure Resource group.
-        :param pulumi.Input[dict] source: Gets or sets the source.
-        :param pulumi.Input[dict] tags: Gets or sets the tags attached to the resource.
-
-        The **configuration** object supports the following:
-
-          * `name` (`pulumi.Input[str]`) - Gets or sets the name of the Dsc configuration.
-
-        The **source** object supports the following:
-
-          * `hash` (`pulumi.Input[dict]`) - Gets or sets the hash.
-            * `algorithm` (`pulumi.Input[str]`) - Gets or sets the content hash algorithm used to hash the content.
-            * `value` (`pulumi.Input[str]`) - Gets or sets expected hash value of the content.
-
-          * `type` (`pulumi.Input[str]`) - Gets or sets the content source type.
-          * `value` (`pulumi.Input[str]`) - Gets or sets the value of the content. This is based on the content source type.
-          * `version` (`pulumi.Input[str]`) - Gets or sets the version of the content.
+        :param pulumi.Input[pulumi.InputType['ContentSourceArgs']] source: Gets or sets the source.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Gets or sets the tags attached to the resource.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -118,13 +87,15 @@ class DscNodeConfiguration(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None) -> 'DscNodeConfiguration':
         """
         Get an existing DscNodeConfiguration resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -133,8 +104,73 @@ class DscNodeConfiguration(pulumi.CustomResource):
 
         return DscNodeConfiguration(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter
+    def configuration(self) -> Optional['outputs.DscConfigurationAssociationPropertyResponse']:
+        """
+        Gets or sets the configuration of the node.
+        """
+        return pulumi.get(self, "configuration")
+
+    @property
+    @pulumi.getter(name="creationTime")
+    def creation_time(self) -> Optional[str]:
+        """
+        Gets or sets creation time.
+        """
+        return pulumi.get(self, "creation_time")
+
+    @property
+    @pulumi.getter(name="incrementNodeConfigurationBuild")
+    def increment_node_configuration_build(self) -> Optional[bool]:
+        """
+        If a new build version of NodeConfiguration is required.
+        """
+        return pulumi.get(self, "increment_node_configuration_build")
+
+    @property
+    @pulumi.getter(name="lastModifiedTime")
+    def last_modified_time(self) -> Optional[str]:
+        """
+        Gets or sets the last modified time.
+        """
+        return pulumi.get(self, "last_modified_time")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the resource
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="nodeCount")
+    def node_count(self) -> Optional[float]:
+        """
+        Number of nodes with this node configuration assigned
+        """
+        return pulumi.get(self, "node_count")
+
+    @property
+    @pulumi.getter
+    def source(self) -> Optional[str]:
+        """
+        Source of node configuration.
+        """
+        return pulumi.get(self, "source")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        The type of the resource.
+        """
+        return pulumi.get(self, "type")
+
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

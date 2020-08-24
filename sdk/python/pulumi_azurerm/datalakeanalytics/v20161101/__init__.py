@@ -10,3 +10,5 @@ from .get_account import *
 from .get_compute_policy import *
 from .get_firewall_rule import *
 from .list_storage_account_sas_tokens import *
+from ._inputs import *
+from . import outputs

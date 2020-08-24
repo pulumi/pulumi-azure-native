@@ -5,10 +5,17 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+from . import outputs
 
+__all__ = [
+    'GetContainerServiceResult',
+    'AwaitableGetContainerServiceResult',
+    'get_container_service',
+]
 
+@pulumi.output_type
 class GetContainerServiceResult:
     """
     Container service.
@@ -16,82 +23,147 @@ class GetContainerServiceResult:
     def __init__(__self__, agent_pool_profiles=None, custom_profile=None, diagnostics_profile=None, linux_profile=None, location=None, master_profile=None, name=None, orchestrator_profile=None, provisioning_state=None, service_principal_profile=None, tags=None, type=None, windows_profile=None):
         if agent_pool_profiles and not isinstance(agent_pool_profiles, list):
             raise TypeError("Expected argument 'agent_pool_profiles' to be a list")
-        __self__.agent_pool_profiles = agent_pool_profiles
+        pulumi.set(__self__, "agent_pool_profiles", agent_pool_profiles)
+        if custom_profile and not isinstance(custom_profile, dict):
+            raise TypeError("Expected argument 'custom_profile' to be a dict")
+        pulumi.set(__self__, "custom_profile", custom_profile)
+        if diagnostics_profile and not isinstance(diagnostics_profile, dict):
+            raise TypeError("Expected argument 'diagnostics_profile' to be a dict")
+        pulumi.set(__self__, "diagnostics_profile", diagnostics_profile)
+        if linux_profile and not isinstance(linux_profile, dict):
+            raise TypeError("Expected argument 'linux_profile' to be a dict")
+        pulumi.set(__self__, "linux_profile", linux_profile)
+        if location and not isinstance(location, str):
+            raise TypeError("Expected argument 'location' to be a str")
+        pulumi.set(__self__, "location", location)
+        if master_profile and not isinstance(master_profile, dict):
+            raise TypeError("Expected argument 'master_profile' to be a dict")
+        pulumi.set(__self__, "master_profile", master_profile)
+        if name and not isinstance(name, str):
+            raise TypeError("Expected argument 'name' to be a str")
+        pulumi.set(__self__, "name", name)
+        if orchestrator_profile and not isinstance(orchestrator_profile, dict):
+            raise TypeError("Expected argument 'orchestrator_profile' to be a dict")
+        pulumi.set(__self__, "orchestrator_profile", orchestrator_profile)
+        if provisioning_state and not isinstance(provisioning_state, str):
+            raise TypeError("Expected argument 'provisioning_state' to be a str")
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if service_principal_profile and not isinstance(service_principal_profile, dict):
+            raise TypeError("Expected argument 'service_principal_profile' to be a dict")
+        pulumi.set(__self__, "service_principal_profile", service_principal_profile)
+        if tags and not isinstance(tags, dict):
+            raise TypeError("Expected argument 'tags' to be a dict")
+        pulumi.set(__self__, "tags", tags)
+        if type and not isinstance(type, str):
+            raise TypeError("Expected argument 'type' to be a str")
+        pulumi.set(__self__, "type", type)
+        if windows_profile and not isinstance(windows_profile, dict):
+            raise TypeError("Expected argument 'windows_profile' to be a dict")
+        pulumi.set(__self__, "windows_profile", windows_profile)
+
+    @property
+    @pulumi.getter(name="agentPoolProfiles")
+    def agent_pool_profiles(self) -> Optional[List['outputs.ContainerServiceAgentPoolProfileResponse']]:
         """
         Properties of the agent pool.
         """
-        if custom_profile and not isinstance(custom_profile, dict):
-            raise TypeError("Expected argument 'custom_profile' to be a dict")
-        __self__.custom_profile = custom_profile
+        return pulumi.get(self, "agent_pool_profiles")
+
+    @property
+    @pulumi.getter(name="customProfile")
+    def custom_profile(self) -> Optional['outputs.ContainerServiceCustomProfileResponse']:
         """
         Properties to configure a custom container service cluster.
         """
-        if diagnostics_profile and not isinstance(diagnostics_profile, dict):
-            raise TypeError("Expected argument 'diagnostics_profile' to be a dict")
-        __self__.diagnostics_profile = diagnostics_profile
+        return pulumi.get(self, "custom_profile")
+
+    @property
+    @pulumi.getter(name="diagnosticsProfile")
+    def diagnostics_profile(self) -> Optional['outputs.ContainerServiceDiagnosticsProfileResponse']:
         """
         Profile for diagnostics in the container service cluster.
         """
-        if linux_profile and not isinstance(linux_profile, dict):
-            raise TypeError("Expected argument 'linux_profile' to be a dict")
-        __self__.linux_profile = linux_profile
+        return pulumi.get(self, "diagnostics_profile")
+
+    @property
+    @pulumi.getter(name="linuxProfile")
+    def linux_profile(self) -> 'outputs.ContainerServiceLinuxProfileResponse':
         """
         Profile for Linux VMs in the container service cluster.
         """
-        if location and not isinstance(location, str):
-            raise TypeError("Expected argument 'location' to be a str")
-        __self__.location = location
+        return pulumi.get(self, "linux_profile")
+
+    @property
+    @pulumi.getter
+    def location(self) -> str:
         """
         Resource location
         """
-        if master_profile and not isinstance(master_profile, dict):
-            raise TypeError("Expected argument 'master_profile' to be a dict")
-        __self__.master_profile = master_profile
+        return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter(name="masterProfile")
+    def master_profile(self) -> 'outputs.ContainerServiceMasterProfileResponse':
         """
         Profile for the container service master.
         """
-        if name and not isinstance(name, str):
-            raise TypeError("Expected argument 'name' to be a str")
-        __self__.name = name
+        return pulumi.get(self, "master_profile")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
         """
         Resource name
         """
-        if orchestrator_profile and not isinstance(orchestrator_profile, dict):
-            raise TypeError("Expected argument 'orchestrator_profile' to be a dict")
-        __self__.orchestrator_profile = orchestrator_profile
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="orchestratorProfile")
+    def orchestrator_profile(self) -> 'outputs.ContainerServiceOrchestratorProfileResponse':
         """
         Profile for the container service orchestrator.
         """
-        if provisioning_state and not isinstance(provisioning_state, str):
-            raise TypeError("Expected argument 'provisioning_state' to be a str")
-        __self__.provisioning_state = provisioning_state
+        return pulumi.get(self, "orchestrator_profile")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
         """
         The current deployment or provisioning state, which only appears in the response.
         """
-        if service_principal_profile and not isinstance(service_principal_profile, dict):
-            raise TypeError("Expected argument 'service_principal_profile' to be a dict")
-        __self__.service_principal_profile = service_principal_profile
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="servicePrincipalProfile")
+    def service_principal_profile(self) -> Optional['outputs.ContainerServiceServicePrincipalProfileResponse']:
         """
         Information about a service principal identity for the cluster to use for manipulating Azure APIs. Exact one of secret or keyVaultSecretRef need to be specified.
         """
-        if tags and not isinstance(tags, dict):
-            raise TypeError("Expected argument 'tags' to be a dict")
-        __self__.tags = tags
+        return pulumi.get(self, "service_principal_profile")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Mapping[str, str]]:
         """
         Resource tags
         """
-        if type and not isinstance(type, str):
-            raise TypeError("Expected argument 'type' to be a str")
-        __self__.type = type
+        return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
         """
         Resource type
         """
-        if windows_profile and not isinstance(windows_profile, dict):
-            raise TypeError("Expected argument 'windows_profile' to be a dict")
-        __self__.windows_profile = windows_profile
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="windowsProfile")
+    def windows_profile(self) -> Optional['outputs.ContainerServiceWindowsProfileResponse']:
         """
         Profile for Windows VMs in the container service cluster.
         """
+        return pulumi.get(self, "windows_profile")
 
 
 class AwaitableGetContainerServiceResult(GetContainerServiceResult):
@@ -115,7 +187,9 @@ class AwaitableGetContainerServiceResult(GetContainerServiceResult):
             windows_profile=self.windows_profile)
 
 
-def get_container_service(name=None, resource_group_name=None, opts=None):
+def get_container_service(name: Optional[str] = None,
+                          resource_group_name: Optional[str] = None,
+                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetContainerServiceResult:
     """
     Use this data source to access information about an existing resource.
 
@@ -129,19 +203,19 @@ def get_container_service(name=None, resource_group_name=None, opts=None):
         opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = _utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('azurerm:containerservice/v20170701:getContainerService', __args__, opts=opts).value
+    __ret__ = pulumi.runtime.invoke('azurerm:containerservice/v20170701:getContainerService', __args__, opts=opts, typ=GetContainerServiceResult).value
 
     return AwaitableGetContainerServiceResult(
-        agent_pool_profiles=__ret__.get('agentPoolProfiles'),
-        custom_profile=__ret__.get('customProfile'),
-        diagnostics_profile=__ret__.get('diagnosticsProfile'),
-        linux_profile=__ret__.get('linuxProfile'),
-        location=__ret__.get('location'),
-        master_profile=__ret__.get('masterProfile'),
-        name=__ret__.get('name'),
-        orchestrator_profile=__ret__.get('orchestratorProfile'),
-        provisioning_state=__ret__.get('provisioningState'),
-        service_principal_profile=__ret__.get('servicePrincipalProfile'),
-        tags=__ret__.get('tags'),
-        type=__ret__.get('type'),
-        windows_profile=__ret__.get('windowsProfile'))
+        agent_pool_profiles=__ret__.agent_pool_profiles,
+        custom_profile=__ret__.custom_profile,
+        diagnostics_profile=__ret__.diagnostics_profile,
+        linux_profile=__ret__.linux_profile,
+        location=__ret__.location,
+        master_profile=__ret__.master_profile,
+        name=__ret__.name,
+        orchestrator_profile=__ret__.orchestrator_profile,
+        provisioning_state=__ret__.provisioning_state,
+        service_principal_profile=__ret__.service_principal_profile,
+        tags=__ret__.tags,
+        type=__ret__.type,
+        windows_profile=__ret__.windows_profile)

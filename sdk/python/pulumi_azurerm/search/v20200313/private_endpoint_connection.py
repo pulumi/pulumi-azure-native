@@ -5,50 +5,34 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+from . import outputs
+from ._inputs import *
+
+__all__ = ['PrivateEndpointConnection']
 
 
 class PrivateEndpointConnection(pulumi.CustomResource):
-    name: pulumi.Output[str]
-    """
-    The name of the private endpoint connection.
-    """
-    properties: pulumi.Output[dict]
-    """
-    Describes the properties of an existing Private Endpoint connection to the Azure Cognitive Search service.
-      * `private_endpoint` (`dict`) - The private endpoint resource from Microsoft.Network provider.
-        * `id` (`str`) - The resource id of the private endpoint resource from Microsoft.Network provider.
-
-      * `private_link_service_connection_state` (`dict`) - Describes the current state of an existing Private Link Service connection to the Azure Private Endpoint.
-        * `actions_required` (`str`) - A description of any extra actions that may be required.
-        * `description` (`str`) - The description for the private link service connection state.
-        * `status` (`str`) - Status of the the private link service connection. Can be Pending, Approved, Rejected, or Disconnected.
-    """
-    type: pulumi.Output[str]
-    """
-    The resource type.
-    """
-    def __init__(__self__, resource_name, opts=None, name=None, properties=None, resource_group_name=None, search_service_name=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 properties: Optional[pulumi.Input[pulumi.InputType['PrivateEndpointConnectionPropertiesArgs']]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 search_service_name: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         Describes an existing Private Endpoint connection to the Azure Cognitive Search service.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] name: The name of the private endpoint connection to the Azure Cognitive Search service with the specified resource group.
-        :param pulumi.Input[dict] properties: Describes the properties of an existing Private Endpoint connection to the Azure Cognitive Search service.
+        :param pulumi.Input[pulumi.InputType['PrivateEndpointConnectionPropertiesArgs']] properties: Describes the properties of an existing Private Endpoint connection to the Azure Cognitive Search service.
         :param pulumi.Input[str] resource_group_name: The name of the resource group within the current subscription. You can obtain this value from the Azure Resource Manager API or the portal.
         :param pulumi.Input[str] search_service_name: The name of the Azure Cognitive Search service associated with the specified resource group.
-
-        The **properties** object supports the following:
-
-          * `private_endpoint` (`pulumi.Input[dict]`) - The private endpoint resource from Microsoft.Network provider.
-            * `id` (`pulumi.Input[str]`) - The resource id of the private endpoint resource from Microsoft.Network provider.
-
-          * `private_link_service_connection_state` (`pulumi.Input[dict]`) - Describes the current state of an existing Private Link Service connection to the Azure Private Endpoint.
-            * `actions_required` (`pulumi.Input[str]`) - A description of any extra actions that may be required.
-            * `description` (`pulumi.Input[str]`) - The description for the private link service connection state.
-            * `status` (`pulumi.Input[str]`) - Status of the the private link service connection. Can be Pending, Approved, Rejected, or Disconnected.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -85,13 +69,15 @@ class PrivateEndpointConnection(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None) -> 'PrivateEndpointConnection':
         """
         Get an existing PrivateEndpointConnection resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -100,8 +86,33 @@ class PrivateEndpointConnection(pulumi.CustomResource):
 
         return PrivateEndpointConnection(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the private endpoint connection.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def properties(self) -> 'outputs.PrivateEndpointConnectionPropertiesResponse':
+        """
+        Describes the properties of an existing Private Endpoint connection to the Azure Cognitive Search service.
+        """
+        return pulumi.get(self, "properties")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        The resource type.
+        """
+        return pulumi.get(self, "type")
+
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

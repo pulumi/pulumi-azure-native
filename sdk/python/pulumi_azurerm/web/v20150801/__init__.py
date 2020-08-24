@@ -56,3 +56,5 @@ from .site_source_control import *
 from .site_source_control_slot import *
 from .site_vnet_connection import *
 from .site_vnet_connection_slot import *
+from ._inputs import *
+from . import outputs

@@ -5,10 +5,17 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+from . import outputs
 
+__all__ = [
+    'GetGatewayResult',
+    'AwaitableGetGatewayResult',
+    'get_gateway',
+]
 
+@pulumi.output_type
 class GetGatewayResult:
     """
     Gateway details.
@@ -16,28 +23,48 @@ class GetGatewayResult:
     def __init__(__self__, description=None, location_data=None, name=None, type=None):
         if description and not isinstance(description, str):
             raise TypeError("Expected argument 'description' to be a str")
-        __self__.description = description
+        pulumi.set(__self__, "description", description)
+        if location_data and not isinstance(location_data, dict):
+            raise TypeError("Expected argument 'location_data' to be a dict")
+        pulumi.set(__self__, "location_data", location_data)
+        if name and not isinstance(name, str):
+            raise TypeError("Expected argument 'name' to be a str")
+        pulumi.set(__self__, "name", name)
+        if type and not isinstance(type, str):
+            raise TypeError("Expected argument 'type' to be a str")
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
         """
         Gateway description
         """
-        if location_data and not isinstance(location_data, dict):
-            raise TypeError("Expected argument 'location_data' to be a dict")
-        __self__.location_data = location_data
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="locationData")
+    def location_data(self) -> Optional['outputs.ResourceLocationDataContractResponse']:
         """
         Gateway location.
         """
-        if name and not isinstance(name, str):
-            raise TypeError("Expected argument 'name' to be a str")
-        __self__.name = name
+        return pulumi.get(self, "location_data")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
         """
         Resource name.
         """
-        if type and not isinstance(type, str):
-            raise TypeError("Expected argument 'type' to be a str")
-        __self__.type = type
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
         """
         Resource type for API Management resource.
         """
+        return pulumi.get(self, "type")
 
 
 class AwaitableGetGatewayResult(GetGatewayResult):
@@ -52,7 +79,10 @@ class AwaitableGetGatewayResult(GetGatewayResult):
             type=self.type)
 
 
-def get_gateway(name=None, resource_group_name=None, service_name=None, opts=None):
+def get_gateway(name: Optional[str] = None,
+                resource_group_name: Optional[str] = None,
+                service_name: Optional[str] = None,
+                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetGatewayResult:
     """
     Use this data source to access information about an existing resource.
 
@@ -68,10 +98,10 @@ def get_gateway(name=None, resource_group_name=None, service_name=None, opts=Non
         opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = _utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('azurerm:apimanagement/v20191201:getGateway', __args__, opts=opts).value
+    __ret__ = pulumi.runtime.invoke('azurerm:apimanagement/v20191201:getGateway', __args__, opts=opts, typ=GetGatewayResult).value
 
     return AwaitableGetGatewayResult(
-        description=__ret__.get('description'),
-        location_data=__ret__.get('locationData'),
-        name=__ret__.get('name'),
-        type=__ret__.get('type'))
+        description=__ret__.description,
+        location_data=__ret__.location_data,
+        name=__ret__.name,
+        type=__ret__.type)

@@ -5,115 +5,64 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+from . import outputs
+from ._inputs import *
+
+__all__ = ['AuthorizationServer']
 
 
 class AuthorizationServer(pulumi.CustomResource):
-    authorization_endpoint: pulumi.Output[str]
-    """
-    OAuth authorization endpoint. See http://tools.ietf.org/html/rfc6749#section-3.2.
-    """
-    authorization_methods: pulumi.Output[list]
-    """
-    HTTP verbs supported by the authorization endpoint. GET must be always present. POST is optional.
-    """
-    bearer_token_sending_methods: pulumi.Output[list]
-    """
-    Specifies the mechanism by which access token is passed to the API. 
-    """
-    client_authentication_method: pulumi.Output[list]
-    """
-    Method of authentication supported by the token endpoint of this authorization server. Possible values are Basic and/or Body. When Body is specified, client credentials and other parameters are passed within the request body in the application/x-www-form-urlencoded format.
-    """
-    client_id: pulumi.Output[str]
-    """
-    Client or app id registered with this authorization server.
-    """
-    client_registration_endpoint: pulumi.Output[str]
-    """
-    Optional reference to a page where client or app registration for this authorization server is performed. Contains absolute URL to entity being referenced.
-    """
-    client_secret: pulumi.Output[str]
-    """
-    Client or app secret registered with this authorization server. This property will not be filled on 'GET' operations! Use '/listSecrets' POST request to get the value.
-    """
-    default_scope: pulumi.Output[str]
-    """
-    Access token scope that is going to be requested by default. Can be overridden at the API level. Should be provided in the form of a string containing space-delimited values.
-    """
-    description: pulumi.Output[str]
-    """
-    Description of the authorization server. Can contain HTML formatting tags.
-    """
-    display_name: pulumi.Output[str]
-    """
-    User-friendly authorization server name.
-    """
-    grant_types: pulumi.Output[list]
-    """
-    Form of an authorization grant, which the client uses to request the access token.
-    """
-    name: pulumi.Output[str]
-    """
-    Resource name.
-    """
-    resource_owner_password: pulumi.Output[str]
-    """
-    Can be optionally specified when resource owner password grant type is supported by this authorization server. Default resource owner password.
-    """
-    resource_owner_username: pulumi.Output[str]
-    """
-    Can be optionally specified when resource owner password grant type is supported by this authorization server. Default resource owner username.
-    """
-    support_state: pulumi.Output[bool]
-    """
-    If true, authorization server will include state parameter from the authorization request to its response. Client may use state parameter to raise protocol security.
-    """
-    token_body_parameters: pulumi.Output[list]
-    """
-    Additional parameters required by the token endpoint of this authorization server represented as an array of JSON objects with name and value string properties, i.e. {"name" : "name value", "value": "a value"}.
-      * `name` (`str`) - body parameter name.
-      * `value` (`str`) - body parameter value.
-    """
-    token_endpoint: pulumi.Output[str]
-    """
-    OAuth token endpoint. Contains absolute URI to entity being referenced.
-    """
-    type: pulumi.Output[str]
-    """
-    Resource type for API Management resource.
-    """
-    def __init__(__self__, resource_name, opts=None, authorization_endpoint=None, authorization_methods=None, bearer_token_sending_methods=None, client_authentication_method=None, client_id=None, client_registration_endpoint=None, client_secret=None, default_scope=None, description=None, display_name=None, grant_types=None, name=None, resource_group_name=None, resource_owner_password=None, resource_owner_username=None, service_name=None, support_state=None, token_body_parameters=None, token_endpoint=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 authorization_endpoint: Optional[pulumi.Input[str]] = None,
+                 authorization_methods: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 bearer_token_sending_methods: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 client_authentication_method: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 client_id: Optional[pulumi.Input[str]] = None,
+                 client_registration_endpoint: Optional[pulumi.Input[str]] = None,
+                 client_secret: Optional[pulumi.Input[str]] = None,
+                 default_scope: Optional[pulumi.Input[str]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 display_name: Optional[pulumi.Input[str]] = None,
+                 grant_types: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 resource_owner_password: Optional[pulumi.Input[str]] = None,
+                 resource_owner_username: Optional[pulumi.Input[str]] = None,
+                 service_name: Optional[pulumi.Input[str]] = None,
+                 support_state: Optional[pulumi.Input[bool]] = None,
+                 token_body_parameters: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['TokenBodyParameterContractArgs']]]]] = None,
+                 token_endpoint: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         External OAuth authorization server settings.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] authorization_endpoint: OAuth authorization endpoint. See http://tools.ietf.org/html/rfc6749#section-3.2.
-        :param pulumi.Input[list] authorization_methods: HTTP verbs supported by the authorization endpoint. GET must be always present. POST is optional.
-        :param pulumi.Input[list] bearer_token_sending_methods: Specifies the mechanism by which access token is passed to the API. 
-        :param pulumi.Input[list] client_authentication_method: Method of authentication supported by the token endpoint of this authorization server. Possible values are Basic and/or Body. When Body is specified, client credentials and other parameters are passed within the request body in the application/x-www-form-urlencoded format.
+        :param pulumi.Input[List[pulumi.Input[str]]] authorization_methods: HTTP verbs supported by the authorization endpoint. GET must be always present. POST is optional.
+        :param pulumi.Input[List[pulumi.Input[str]]] bearer_token_sending_methods: Specifies the mechanism by which access token is passed to the API. 
+        :param pulumi.Input[List[pulumi.Input[str]]] client_authentication_method: Method of authentication supported by the token endpoint of this authorization server. Possible values are Basic and/or Body. When Body is specified, client credentials and other parameters are passed within the request body in the application/x-www-form-urlencoded format.
         :param pulumi.Input[str] client_id: Client or app id registered with this authorization server.
         :param pulumi.Input[str] client_registration_endpoint: Optional reference to a page where client or app registration for this authorization server is performed. Contains absolute URL to entity being referenced.
         :param pulumi.Input[str] client_secret: Client or app secret registered with this authorization server. This property will not be filled on 'GET' operations! Use '/listSecrets' POST request to get the value.
         :param pulumi.Input[str] default_scope: Access token scope that is going to be requested by default. Can be overridden at the API level. Should be provided in the form of a string containing space-delimited values.
         :param pulumi.Input[str] description: Description of the authorization server. Can contain HTML formatting tags.
         :param pulumi.Input[str] display_name: User-friendly authorization server name.
-        :param pulumi.Input[list] grant_types: Form of an authorization grant, which the client uses to request the access token.
+        :param pulumi.Input[List[pulumi.Input[str]]] grant_types: Form of an authorization grant, which the client uses to request the access token.
         :param pulumi.Input[str] name: Identifier of the authorization server.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[str] resource_owner_password: Can be optionally specified when resource owner password grant type is supported by this authorization server. Default resource owner password.
         :param pulumi.Input[str] resource_owner_username: Can be optionally specified when resource owner password grant type is supported by this authorization server. Default resource owner username.
         :param pulumi.Input[str] service_name: The name of the API Management service.
         :param pulumi.Input[bool] support_state: If true, authorization server will include state parameter from the authorization request to its response. Client may use state parameter to raise protocol security.
-        :param pulumi.Input[list] token_body_parameters: Additional parameters required by the token endpoint of this authorization server represented as an array of JSON objects with name and value string properties, i.e. {"name" : "name value", "value": "a value"}.
+        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['TokenBodyParameterContractArgs']]]] token_body_parameters: Additional parameters required by the token endpoint of this authorization server represented as an array of JSON objects with name and value string properties, i.e. {"name" : "name value", "value": "a value"}.
         :param pulumi.Input[str] token_endpoint: OAuth token endpoint. Contains absolute URI to entity being referenced.
-
-        The **token_body_parameters** object supports the following:
-
-          * `name` (`pulumi.Input[str]`) - body parameter name.
-          * `value` (`pulumi.Input[str]`) - body parameter value.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -177,13 +126,15 @@ class AuthorizationServer(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None) -> 'AuthorizationServer':
         """
         Get an existing AuthorizationServer resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -192,8 +143,153 @@ class AuthorizationServer(pulumi.CustomResource):
 
         return AuthorizationServer(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter(name="authorizationEndpoint")
+    def authorization_endpoint(self) -> str:
+        """
+        OAuth authorization endpoint. See http://tools.ietf.org/html/rfc6749#section-3.2.
+        """
+        return pulumi.get(self, "authorization_endpoint")
+
+    @property
+    @pulumi.getter(name="authorizationMethods")
+    def authorization_methods(self) -> Optional[List[str]]:
+        """
+        HTTP verbs supported by the authorization endpoint. GET must be always present. POST is optional.
+        """
+        return pulumi.get(self, "authorization_methods")
+
+    @property
+    @pulumi.getter(name="bearerTokenSendingMethods")
+    def bearer_token_sending_methods(self) -> Optional[List[str]]:
+        """
+        Specifies the mechanism by which access token is passed to the API. 
+        """
+        return pulumi.get(self, "bearer_token_sending_methods")
+
+    @property
+    @pulumi.getter(name="clientAuthenticationMethod")
+    def client_authentication_method(self) -> Optional[List[str]]:
+        """
+        Method of authentication supported by the token endpoint of this authorization server. Possible values are Basic and/or Body. When Body is specified, client credentials and other parameters are passed within the request body in the application/x-www-form-urlencoded format.
+        """
+        return pulumi.get(self, "client_authentication_method")
+
+    @property
+    @pulumi.getter(name="clientId")
+    def client_id(self) -> str:
+        """
+        Client or app id registered with this authorization server.
+        """
+        return pulumi.get(self, "client_id")
+
+    @property
+    @pulumi.getter(name="clientRegistrationEndpoint")
+    def client_registration_endpoint(self) -> str:
+        """
+        Optional reference to a page where client or app registration for this authorization server is performed. Contains absolute URL to entity being referenced.
+        """
+        return pulumi.get(self, "client_registration_endpoint")
+
+    @property
+    @pulumi.getter(name="clientSecret")
+    def client_secret(self) -> Optional[str]:
+        """
+        Client or app secret registered with this authorization server. This property will not be filled on 'GET' operations! Use '/listSecrets' POST request to get the value.
+        """
+        return pulumi.get(self, "client_secret")
+
+    @property
+    @pulumi.getter(name="defaultScope")
+    def default_scope(self) -> Optional[str]:
+        """
+        Access token scope that is going to be requested by default. Can be overridden at the API level. Should be provided in the form of a string containing space-delimited values.
+        """
+        return pulumi.get(self, "default_scope")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        """
+        Description of the authorization server. Can contain HTML formatting tags.
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="displayName")
+    def display_name(self) -> str:
+        """
+        User-friendly authorization server name.
+        """
+        return pulumi.get(self, "display_name")
+
+    @property
+    @pulumi.getter(name="grantTypes")
+    def grant_types(self) -> List[str]:
+        """
+        Form of an authorization grant, which the client uses to request the access token.
+        """
+        return pulumi.get(self, "grant_types")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Resource name.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="resourceOwnerPassword")
+    def resource_owner_password(self) -> Optional[str]:
+        """
+        Can be optionally specified when resource owner password grant type is supported by this authorization server. Default resource owner password.
+        """
+        return pulumi.get(self, "resource_owner_password")
+
+    @property
+    @pulumi.getter(name="resourceOwnerUsername")
+    def resource_owner_username(self) -> Optional[str]:
+        """
+        Can be optionally specified when resource owner password grant type is supported by this authorization server. Default resource owner username.
+        """
+        return pulumi.get(self, "resource_owner_username")
+
+    @property
+    @pulumi.getter(name="supportState")
+    def support_state(self) -> Optional[bool]:
+        """
+        If true, authorization server will include state parameter from the authorization request to its response. Client may use state parameter to raise protocol security.
+        """
+        return pulumi.get(self, "support_state")
+
+    @property
+    @pulumi.getter(name="tokenBodyParameters")
+    def token_body_parameters(self) -> Optional[List['outputs.TokenBodyParameterContractResponse']]:
+        """
+        Additional parameters required by the token endpoint of this authorization server represented as an array of JSON objects with name and value string properties, i.e. {"name" : "name value", "value": "a value"}.
+        """
+        return pulumi.get(self, "token_body_parameters")
+
+    @property
+    @pulumi.getter(name="tokenEndpoint")
+    def token_endpoint(self) -> Optional[str]:
+        """
+        OAuth token endpoint. Contains absolute URI to entity being referenced.
+        """
+        return pulumi.get(self, "token_endpoint")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Resource type for API Management resource.
+        """
+        return pulumi.get(self, "type")
+
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

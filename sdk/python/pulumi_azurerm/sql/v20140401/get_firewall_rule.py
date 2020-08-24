@@ -5,10 +5,16 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
 
+__all__ = [
+    'GetFirewallRuleResult',
+    'AwaitableGetFirewallRuleResult',
+    'get_firewall_rule',
+]
 
+@pulumi.output_type
 class GetFirewallRuleResult:
     """
     Represents a server firewall rule.
@@ -16,40 +22,70 @@ class GetFirewallRuleResult:
     def __init__(__self__, end_ip_address=None, kind=None, location=None, name=None, start_ip_address=None, type=None):
         if end_ip_address and not isinstance(end_ip_address, str):
             raise TypeError("Expected argument 'end_ip_address' to be a str")
-        __self__.end_ip_address = end_ip_address
+        pulumi.set(__self__, "end_ip_address", end_ip_address)
+        if kind and not isinstance(kind, str):
+            raise TypeError("Expected argument 'kind' to be a str")
+        pulumi.set(__self__, "kind", kind)
+        if location and not isinstance(location, str):
+            raise TypeError("Expected argument 'location' to be a str")
+        pulumi.set(__self__, "location", location)
+        if name and not isinstance(name, str):
+            raise TypeError("Expected argument 'name' to be a str")
+        pulumi.set(__self__, "name", name)
+        if start_ip_address and not isinstance(start_ip_address, str):
+            raise TypeError("Expected argument 'start_ip_address' to be a str")
+        pulumi.set(__self__, "start_ip_address", start_ip_address)
+        if type and not isinstance(type, str):
+            raise TypeError("Expected argument 'type' to be a str")
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="endIpAddress")
+    def end_ip_address(self) -> str:
         """
         The end IP address of the firewall rule. Must be IPv4 format. Must be greater than or equal to startIpAddress. Use value '0.0.0.0' to represent all Azure-internal IP addresses.
         """
-        if kind and not isinstance(kind, str):
-            raise TypeError("Expected argument 'kind' to be a str")
-        __self__.kind = kind
+        return pulumi.get(self, "end_ip_address")
+
+    @property
+    @pulumi.getter
+    def kind(self) -> str:
         """
         Kind of server that contains this firewall rule.
         """
-        if location and not isinstance(location, str):
-            raise TypeError("Expected argument 'location' to be a str")
-        __self__.location = location
+        return pulumi.get(self, "kind")
+
+    @property
+    @pulumi.getter
+    def location(self) -> str:
         """
         Location of the server that contains this firewall rule.
         """
-        if name and not isinstance(name, str):
-            raise TypeError("Expected argument 'name' to be a str")
-        __self__.name = name
+        return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
         """
         Resource name.
         """
-        if start_ip_address and not isinstance(start_ip_address, str):
-            raise TypeError("Expected argument 'start_ip_address' to be a str")
-        __self__.start_ip_address = start_ip_address
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="startIpAddress")
+    def start_ip_address(self) -> str:
         """
         The start IP address of the firewall rule. Must be IPv4 format. Use value '0.0.0.0' to represent all Azure-internal IP addresses.
         """
-        if type and not isinstance(type, str):
-            raise TypeError("Expected argument 'type' to be a str")
-        __self__.type = type
+        return pulumi.get(self, "start_ip_address")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
         """
         Resource type.
         """
+        return pulumi.get(self, "type")
 
 
 class AwaitableGetFirewallRuleResult(GetFirewallRuleResult):
@@ -66,7 +102,10 @@ class AwaitableGetFirewallRuleResult(GetFirewallRuleResult):
             type=self.type)
 
 
-def get_firewall_rule(name=None, resource_group_name=None, server_name=None, opts=None):
+def get_firewall_rule(name: Optional[str] = None,
+                      resource_group_name: Optional[str] = None,
+                      server_name: Optional[str] = None,
+                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetFirewallRuleResult:
     """
     Use this data source to access information about an existing resource.
 
@@ -82,12 +121,12 @@ def get_firewall_rule(name=None, resource_group_name=None, server_name=None, opt
         opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = _utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('azurerm:sql/v20140401:getFirewallRule', __args__, opts=opts).value
+    __ret__ = pulumi.runtime.invoke('azurerm:sql/v20140401:getFirewallRule', __args__, opts=opts, typ=GetFirewallRuleResult).value
 
     return AwaitableGetFirewallRuleResult(
-        end_ip_address=__ret__.get('endIpAddress'),
-        kind=__ret__.get('kind'),
-        location=__ret__.get('location'),
-        name=__ret__.get('name'),
-        start_ip_address=__ret__.get('startIpAddress'),
-        type=__ret__.get('type'))
+        end_ip_address=__ret__.end_ip_address,
+        kind=__ret__.kind,
+        location=__ret__.location,
+        name=__ret__.name,
+        start_ip_address=__ret__.start_ip_address,
+        type=__ret__.type)

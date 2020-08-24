@@ -5,58 +5,29 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+from . import outputs
+from ._inputs import *
+
+__all__ = ['Zone']
 
 
 class Zone(pulumi.CustomResource):
-    etag: pulumi.Output[str]
-    """
-    The etag of the zone.
-    """
-    location: pulumi.Output[str]
-    """
-    Resource location.
-    """
-    max_number_of_record_sets: pulumi.Output[float]
-    """
-    The maximum number of record sets that can be created in this DNS zone.  This is a read-only property and any attempt to set this value will be ignored.
-    """
-    name: pulumi.Output[str]
-    """
-    Resource name.
-    """
-    name_servers: pulumi.Output[list]
-    """
-    The name servers for this DNS zone. This is a read-only property and any attempt to set this value will be ignored.
-    """
-    number_of_record_sets: pulumi.Output[float]
-    """
-    The current number of record sets in this DNS zone.  This is a read-only property and any attempt to set this value will be ignored.
-    """
-    registration_virtual_networks: pulumi.Output[list]
-    """
-    A list of references to virtual networks that register hostnames in this DNS zone. This is a only when ZoneType is Private.
-      * `id` (`str`) - Resource Id.
-    """
-    resolution_virtual_networks: pulumi.Output[list]
-    """
-    A list of references to virtual networks that resolve records in this DNS zone. This is a only when ZoneType is Private.
-      * `id` (`str`) - Resource Id.
-    """
-    tags: pulumi.Output[dict]
-    """
-    Resource tags.
-    """
-    type: pulumi.Output[str]
-    """
-    Resource type.
-    """
-    zone_type: pulumi.Output[str]
-    """
-    The type of this DNS zone (Public or Private).
-    """
-    def __init__(__self__, resource_name, opts=None, etag=None, location=None, name=None, registration_virtual_networks=None, resolution_virtual_networks=None, resource_group_name=None, tags=None, zone_type=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 etag: Optional[pulumi.Input[str]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 registration_virtual_networks: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['SubResourceArgs']]]]] = None,
+                 resolution_virtual_networks: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['SubResourceArgs']]]]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 zone_type: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         Describes a DNS zone.
 
@@ -65,15 +36,11 @@ class Zone(pulumi.CustomResource):
         :param pulumi.Input[str] etag: The etag of the zone.
         :param pulumi.Input[str] location: Resource location.
         :param pulumi.Input[str] name: The name of the DNS zone (without a terminating dot).
-        :param pulumi.Input[list] registration_virtual_networks: A list of references to virtual networks that register hostnames in this DNS zone. This is a only when ZoneType is Private.
-        :param pulumi.Input[list] resolution_virtual_networks: A list of references to virtual networks that resolve records in this DNS zone. This is a only when ZoneType is Private.
+        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['SubResourceArgs']]]] registration_virtual_networks: A list of references to virtual networks that register hostnames in this DNS zone. This is a only when ZoneType is Private.
+        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['SubResourceArgs']]]] resolution_virtual_networks: A list of references to virtual networks that resolve records in this DNS zone. This is a only when ZoneType is Private.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
-        :param pulumi.Input[dict] tags: Resource tags.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         :param pulumi.Input[str] zone_type: The type of this DNS zone (Public or Private).
-
-        The **registration_virtual_networks** object supports the following:
-
-          * `id` (`pulumi.Input[str]`) - Resource Id.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -119,13 +86,15 @@ class Zone(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None) -> 'Zone':
         """
         Get an existing Zone resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -134,8 +103,97 @@ class Zone(pulumi.CustomResource):
 
         return Zone(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter
+    def etag(self) -> Optional[str]:
+        """
+        The etag of the zone.
+        """
+        return pulumi.get(self, "etag")
+
+    @property
+    @pulumi.getter
+    def location(self) -> str:
+        """
+        Resource location.
+        """
+        return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter(name="maxNumberOfRecordSets")
+    def max_number_of_record_sets(self) -> float:
+        """
+        The maximum number of record sets that can be created in this DNS zone.  This is a read-only property and any attempt to set this value will be ignored.
+        """
+        return pulumi.get(self, "max_number_of_record_sets")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Resource name.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="nameServers")
+    def name_servers(self) -> List[str]:
+        """
+        The name servers for this DNS zone. This is a read-only property and any attempt to set this value will be ignored.
+        """
+        return pulumi.get(self, "name_servers")
+
+    @property
+    @pulumi.getter(name="numberOfRecordSets")
+    def number_of_record_sets(self) -> float:
+        """
+        The current number of record sets in this DNS zone.  This is a read-only property and any attempt to set this value will be ignored.
+        """
+        return pulumi.get(self, "number_of_record_sets")
+
+    @property
+    @pulumi.getter(name="registrationVirtualNetworks")
+    def registration_virtual_networks(self) -> Optional[List['outputs.SubResourceResponse']]:
+        """
+        A list of references to virtual networks that register hostnames in this DNS zone. This is a only when ZoneType is Private.
+        """
+        return pulumi.get(self, "registration_virtual_networks")
+
+    @property
+    @pulumi.getter(name="resolutionVirtualNetworks")
+    def resolution_virtual_networks(self) -> Optional[List['outputs.SubResourceResponse']]:
+        """
+        A list of references to virtual networks that resolve records in this DNS zone. This is a only when ZoneType is Private.
+        """
+        return pulumi.get(self, "resolution_virtual_networks")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Mapping[str, str]]:
+        """
+        Resource tags.
+        """
+        return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Resource type.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="zoneType")
+    def zone_type(self) -> Optional[str]:
+        """
+        The type of this DNS zone (Public or Private).
+        """
+        return pulumi.get(self, "zone_type")
+
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

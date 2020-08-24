@@ -5,37 +5,26 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+from . import outputs
+from ._inputs import *
+
+__all__ = ['PrivateDnsZoneGroup']
 
 
 class PrivateDnsZoneGroup(pulumi.CustomResource):
-    etag: pulumi.Output[str]
-    """
-    A unique read-only string that changes whenever the resource is updated.
-    """
-    name: pulumi.Output[str]
-    """
-    Name of the resource that is unique within a resource group. This name can be used to access the resource.
-    """
-    private_dns_zone_configs: pulumi.Output[list]
-    """
-    A collection of private dns zone configurations of the private dns zone group.
-      * `name` (`str`) - Name of the resource that is unique within a resource group. This name can be used to access the resource.
-      * `private_dns_zone_id` (`str`) - The resource id of the private dns zone.
-      * `record_sets` (`list`) - A collection of information regarding a recordSet, holding information to identify private resources.
-        * `fqdn` (`str`) - Fqdn that resolves to private endpoint ip address.
-        * `ip_addresses` (`list`) - The private ip address of the private endpoint.
-        * `provisioning_state` (`str`) - The provisioning state of the recordset.
-        * `record_set_name` (`str`) - Recordset name.
-        * `record_type` (`str`) - Resource record type.
-        * `ttl` (`float`) - Recordset time to live.
-    """
-    provisioning_state: pulumi.Output[str]
-    """
-    The provisioning state of the private dns zone group resource.
-    """
-    def __init__(__self__, resource_name, opts=None, id=None, name=None, private_dns_zone_configs=None, private_endpoint_name=None, resource_group_name=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 id: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 private_dns_zone_configs: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['PrivateDnsZoneConfigArgs']]]]] = None,
+                 private_endpoint_name: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         Private dns zone group resource.
 
@@ -43,14 +32,9 @@ class PrivateDnsZoneGroup(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] id: Resource ID.
         :param pulumi.Input[str] name: The name of the private dns zone group.
-        :param pulumi.Input[list] private_dns_zone_configs: A collection of private dns zone configurations of the private dns zone group.
+        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['PrivateDnsZoneConfigArgs']]]] private_dns_zone_configs: A collection of private dns zone configurations of the private dns zone group.
         :param pulumi.Input[str] private_endpoint_name: The name of the private endpoint.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
-
-        The **private_dns_zone_configs** object supports the following:
-
-          * `name` (`pulumi.Input[str]`) - Name of the resource that is unique within a resource group. This name can be used to access the resource.
-          * `private_dns_zone_id` (`pulumi.Input[str]`) - The resource id of the private dns zone.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -91,13 +75,15 @@ class PrivateDnsZoneGroup(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None) -> 'PrivateDnsZoneGroup':
         """
         Get an existing PrivateDnsZoneGroup resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -106,8 +92,41 @@ class PrivateDnsZoneGroup(pulumi.CustomResource):
 
         return PrivateDnsZoneGroup(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter
+    def etag(self) -> str:
+        """
+        A unique read-only string that changes whenever the resource is updated.
+        """
+        return pulumi.get(self, "etag")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        Name of the resource that is unique within a resource group. This name can be used to access the resource.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="privateDnsZoneConfigs")
+    def private_dns_zone_configs(self) -> Optional[List['outputs.PrivateDnsZoneConfigResponse']]:
+        """
+        A collection of private dns zone configurations of the private dns zone group.
+        """
+        return pulumi.get(self, "private_dns_zone_configs")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        The provisioning state of the private dns zone group resource.
+        """
+        return pulumi.get(self, "provisioning_state")
+
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

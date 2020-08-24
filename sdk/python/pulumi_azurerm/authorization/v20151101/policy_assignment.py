@@ -5,37 +5,32 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+from . import outputs
+from ._inputs import *
+
+__all__ = ['PolicyAssignment']
 
 
 class PolicyAssignment(pulumi.CustomResource):
-    name: pulumi.Output[str]
-    """
-    Gets or sets the policy assignment name.
-    """
-    properties: pulumi.Output[dict]
-    """
-    Gets or sets the policy assignment properties.
-      * `display_name` (`str`) - Gets or sets the policy assignment display name.
-      * `policy_definition_id` (`str`) - Gets or sets the policy definition Id.
-      * `scope` (`str`) - Gets or sets the policy assignment scope.
-    """
-    def __init__(__self__, resource_name, opts=None, name=None, properties=None, scope=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 properties: Optional[pulumi.Input[pulumi.InputType['PolicyAssignmentPropertiesArgs']]] = None,
+                 scope: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         Policy assignment.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] name: Policy assignment name.
-        :param pulumi.Input[dict] properties: Gets or sets the policy assignment properties.
+        :param pulumi.Input[pulumi.InputType['PolicyAssignmentPropertiesArgs']] properties: Gets or sets the policy assignment properties.
         :param pulumi.Input[str] scope: Scope.
-
-        The **properties** object supports the following:
-
-          * `display_name` (`pulumi.Input[str]`) - Gets or sets the policy assignment display name.
-          * `policy_definition_id` (`pulumi.Input[str]`) - Gets or sets the policy definition Id.
-          * `scope` (`pulumi.Input[str]`) - Gets or sets the policy assignment scope.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -70,13 +65,15 @@ class PolicyAssignment(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None) -> 'PolicyAssignment':
         """
         Get an existing PolicyAssignment resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -85,8 +82,25 @@ class PolicyAssignment(pulumi.CustomResource):
 
         return PolicyAssignment(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Gets or sets the policy assignment name.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def properties(self) -> 'outputs.PolicyAssignmentPropertiesResponse':
+        """
+        Gets or sets the policy assignment properties.
+        """
+        return pulumi.get(self, "properties")
+
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

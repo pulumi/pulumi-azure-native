@@ -5,84 +5,28 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+from . import outputs
+
+__all__ = ['ServiceFabric']
 
 
 class ServiceFabric(pulumi.CustomResource):
-    applicable_schedule: pulumi.Output[dict]
-    """
-    The applicable schedule for the virtual machine.
-      * `id` (`str`) - The identifier of the resource.
-      * `lab_vms_shutdown` (`dict`) - The auto-shutdown schedule, if one has been set at the lab or lab resource level.
-        * `created_date` (`str`) - The creation date of the schedule.
-        * `daily_recurrence` (`dict`) - If the schedule will occur once each day of the week, specify the daily recurrence.
-          * `time` (`str`) - The time of day the schedule will occur.
-
-        * `hourly_recurrence` (`dict`) - If the schedule will occur multiple times a day, specify the hourly recurrence.
-          * `minute` (`float`) - Minutes of the hour the schedule will run.
-
-        * `id` (`str`) - The identifier of the resource.
-        * `location` (`str`) - The location of the resource.
-        * `name` (`str`) - The name of the resource.
-        * `notification_settings` (`dict`) - Notification settings.
-          * `email_recipient` (`str`) - The email recipient to send notifications to (can be a list of semi-colon separated email addresses).
-          * `notification_locale` (`str`) - The locale to use when sending a notification (fallback for unsupported languages is EN).
-          * `status` (`str`) - If notifications are enabled for this schedule (i.e. Enabled, Disabled).
-          * `time_in_minutes` (`float`) - Time in minutes before event at which notification will be sent.
-          * `webhook_url` (`str`) - The webhook URL to which the notification will be sent.
-
-        * `provisioning_state` (`str`) - The provisioning status of the resource.
-        * `status` (`str`) - The status of the schedule (i.e. Enabled, Disabled)
-        * `tags` (`dict`) - The tags of the resource.
-        * `target_resource_id` (`str`) - The resource ID to which the schedule belongs
-        * `task_type` (`str`) - The task type of the schedule (e.g. LabVmsShutdownTask, LabVmAutoStart).
-        * `time_zone_id` (`str`) - The time zone ID (e.g. Pacific Standard time).
-        * `type` (`str`) - The type of the resource.
-        * `unique_identifier` (`str`) - The unique immutable identifier of a resource (Guid).
-        * `weekly_recurrence` (`dict`) - If the schedule will occur only some days of the week, specify the weekly recurrence.
-          * `time` (`str`) - The time of the day the schedule will occur.
-          * `weekdays` (`list`) - The days of the week for which the schedule is set (e.g. Sunday, Monday, Tuesday, etc.).
-
-      * `lab_vms_startup` (`dict`) - The auto-startup schedule, if one has been set at the lab or lab resource level.
-      * `location` (`str`) - The location of the resource.
-      * `name` (`str`) - The name of the resource.
-      * `tags` (`dict`) - The tags of the resource.
-      * `type` (`str`) - The type of the resource.
-    """
-    environment_id: pulumi.Output[str]
-    """
-    The resource id of the environment under which the service fabric resource is present
-    """
-    external_service_fabric_id: pulumi.Output[str]
-    """
-    The backing service fabric resource's id
-    """
-    location: pulumi.Output[str]
-    """
-    The location of the resource.
-    """
-    name: pulumi.Output[str]
-    """
-    The name of the resource.
-    """
-    provisioning_state: pulumi.Output[str]
-    """
-    The provisioning status of the resource.
-    """
-    tags: pulumi.Output[dict]
-    """
-    The tags of the resource.
-    """
-    type: pulumi.Output[str]
-    """
-    The type of the resource.
-    """
-    unique_identifier: pulumi.Output[str]
-    """
-    The unique immutable identifier of a resource (Guid).
-    """
-    def __init__(__self__, resource_name, opts=None, environment_id=None, external_service_fabric_id=None, lab_name=None, location=None, name=None, resource_group_name=None, tags=None, user_name=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 environment_id: Optional[pulumi.Input[str]] = None,
+                 external_service_fabric_id: Optional[pulumi.Input[str]] = None,
+                 lab_name: Optional[pulumi.Input[str]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 user_name: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         A Service Fabric.
 
@@ -94,7 +38,7 @@ class ServiceFabric(pulumi.CustomResource):
         :param pulumi.Input[str] location: The location of the resource.
         :param pulumi.Input[str] name: The name of the service fabric.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
-        :param pulumi.Input[dict] tags: The tags of the resource.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The tags of the resource.
         :param pulumi.Input[str] user_name: The name of the user profile.
         """
         if __name__ is not None:
@@ -141,13 +85,15 @@ class ServiceFabric(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None) -> 'ServiceFabric':
         """
         Get an existing ServiceFabric resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -156,8 +102,81 @@ class ServiceFabric(pulumi.CustomResource):
 
         return ServiceFabric(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter(name="applicableSchedule")
+    def applicable_schedule(self) -> 'outputs.ApplicableScheduleResponse':
+        """
+        The applicable schedule for the virtual machine.
+        """
+        return pulumi.get(self, "applicable_schedule")
+
+    @property
+    @pulumi.getter(name="environmentId")
+    def environment_id(self) -> Optional[str]:
+        """
+        The resource id of the environment under which the service fabric resource is present
+        """
+        return pulumi.get(self, "environment_id")
+
+    @property
+    @pulumi.getter(name="externalServiceFabricId")
+    def external_service_fabric_id(self) -> Optional[str]:
+        """
+        The backing service fabric resource's id
+        """
+        return pulumi.get(self, "external_service_fabric_id")
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[str]:
+        """
+        The location of the resource.
+        """
+        return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the resource.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        The provisioning status of the resource.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Mapping[str, str]]:
+        """
+        The tags of the resource.
+        """
+        return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        The type of the resource.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="uniqueIdentifier")
+    def unique_identifier(self) -> str:
+        """
+        The unique immutable identifier of a resource (Guid).
+        """
+        return pulumi.get(self, "unique_identifier")
+
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

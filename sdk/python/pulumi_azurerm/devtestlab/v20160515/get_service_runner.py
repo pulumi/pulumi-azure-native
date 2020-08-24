@@ -5,10 +5,17 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+from . import outputs
 
+__all__ = [
+    'GetServiceRunnerResult',
+    'AwaitableGetServiceRunnerResult',
+    'get_service_runner',
+]
 
+@pulumi.output_type
 class GetServiceRunnerResult:
     """
     A container for a managed identity to execute DevTest lab services.
@@ -16,34 +23,59 @@ class GetServiceRunnerResult:
     def __init__(__self__, identity=None, location=None, name=None, tags=None, type=None):
         if identity and not isinstance(identity, dict):
             raise TypeError("Expected argument 'identity' to be a dict")
-        __self__.identity = identity
+        pulumi.set(__self__, "identity", identity)
+        if location and not isinstance(location, str):
+            raise TypeError("Expected argument 'location' to be a str")
+        pulumi.set(__self__, "location", location)
+        if name and not isinstance(name, str):
+            raise TypeError("Expected argument 'name' to be a str")
+        pulumi.set(__self__, "name", name)
+        if tags and not isinstance(tags, dict):
+            raise TypeError("Expected argument 'tags' to be a dict")
+        pulumi.set(__self__, "tags", tags)
+        if type and not isinstance(type, str):
+            raise TypeError("Expected argument 'type' to be a str")
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def identity(self) -> Optional['outputs.IdentityPropertiesResponse']:
         """
         The identity of the resource.
         """
-        if location and not isinstance(location, str):
-            raise TypeError("Expected argument 'location' to be a str")
-        __self__.location = location
+        return pulumi.get(self, "identity")
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[str]:
         """
         The location of the resource.
         """
-        if name and not isinstance(name, str):
-            raise TypeError("Expected argument 'name' to be a str")
-        __self__.name = name
+        return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
         """
         The name of the resource.
         """
-        if tags and not isinstance(tags, dict):
-            raise TypeError("Expected argument 'tags' to be a dict")
-        __self__.tags = tags
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Mapping[str, str]]:
         """
         The tags of the resource.
         """
-        if type and not isinstance(type, str):
-            raise TypeError("Expected argument 'type' to be a str")
-        __self__.type = type
+        return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
         """
         The type of the resource.
         """
+        return pulumi.get(self, "type")
 
 
 class AwaitableGetServiceRunnerResult(GetServiceRunnerResult):
@@ -59,7 +91,10 @@ class AwaitableGetServiceRunnerResult(GetServiceRunnerResult):
             type=self.type)
 
 
-def get_service_runner(lab_name=None, name=None, resource_group_name=None, opts=None):
+def get_service_runner(lab_name: Optional[str] = None,
+                       name: Optional[str] = None,
+                       resource_group_name: Optional[str] = None,
+                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetServiceRunnerResult:
     """
     Use this data source to access information about an existing resource.
 
@@ -75,11 +110,11 @@ def get_service_runner(lab_name=None, name=None, resource_group_name=None, opts=
         opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = _utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('azurerm:devtestlab/v20160515:getServiceRunner', __args__, opts=opts).value
+    __ret__ = pulumi.runtime.invoke('azurerm:devtestlab/v20160515:getServiceRunner', __args__, opts=opts, typ=GetServiceRunnerResult).value
 
     return AwaitableGetServiceRunnerResult(
-        identity=__ret__.get('identity'),
-        location=__ret__.get('location'),
-        name=__ret__.get('name'),
-        tags=__ret__.get('tags'),
-        type=__ret__.get('type'))
+        identity=__ret__.identity,
+        location=__ret__.location,
+        name=__ret__.name,
+        tags=__ret__.tags,
+        type=__ret__.type)

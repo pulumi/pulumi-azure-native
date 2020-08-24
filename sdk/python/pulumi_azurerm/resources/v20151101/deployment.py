@@ -5,76 +5,32 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+from . import outputs
+from ._inputs import *
+
+__all__ = ['Deployment']
 
 
 class Deployment(pulumi.CustomResource):
-    name: pulumi.Output[str]
-    """
-    Gets or sets the name of the deployment.
-    """
-    properties: pulumi.Output[dict]
-    """
-    Gets or sets deployment properties.
-      * `correlation_id` (`str`) - Gets or sets the correlation ID of the deployment.
-      * `dependencies` (`list`) - Gets the list of deployment dependencies.
-        * `depends_on` (`list`) - Gets the list of dependencies.
-          * `id` (`str`) - Gets or sets the ID of the dependency.
-          * `resource_name` (`str`) - Gets or sets the dependency resource name.
-          * `resource_type` (`str`) - Gets or sets the dependency resource type.
-
-        * `id` (`str`) - Gets or sets the ID of the dependency.
-        * `resource_name` (`str`) - Gets or sets the dependency resource name.
-        * `resource_type` (`str`) - Gets or sets the dependency resource type.
-
-      * `mode` (`str`) - Gets or sets the deployment mode.
-      * `outputs` (`dict`) - Gets or sets key/value pairs that represent deployment output.
-      * `parameters` (`dict`) - Deployment parameters. Use only one of Parameters or ParametersLink.
-      * `parameters_link` (`dict`) - Gets or sets the URI referencing the parameters. Use only one of Parameters or ParametersLink.
-        * `content_version` (`str`) - If included it must match the ContentVersion in the template.
-        * `uri` (`str`) - URI referencing the template.
-
-      * `providers` (`list`) - Gets the list of resource providers needed for the deployment.
-        * `id` (`str`) - Gets or sets the provider id.
-        * `namespace` (`str`) - Gets or sets the namespace of the provider.
-        * `registration_state` (`str`) - Gets or sets the registration state of the provider.
-        * `resource_types` (`list`) - Gets or sets the collection of provider resource types.
-          * `api_versions` (`list`) - Gets or sets the api version.
-          * `locations` (`list`) - Gets or sets the collection of locations where this resource type can be created in.
-          * `properties` (`dict`) - Gets or sets the properties.
-          * `resource_type` (`str`) - Gets or sets the resource type.
-
-      * `provisioning_state` (`str`) - Gets or sets the state of the provisioning.
-      * `template` (`dict`) - Gets or sets the template content. Use only one of Template or TemplateLink.
-      * `template_link` (`dict`) - Gets or sets the URI referencing the template. Use only one of Template or TemplateLink.
-        * `content_version` (`str`) - If included it must match the ContentVersion in the template.
-        * `uri` (`str`) - URI referencing the template.
-
-      * `timestamp` (`str`) - Gets or sets the timestamp of the template deployment.
-    """
-    def __init__(__self__, resource_name, opts=None, name=None, properties=None, resource_group_name=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 properties: Optional[pulumi.Input[pulumi.InputType['DeploymentPropertiesArgs']]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         Deployment information.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] name: The name of the deployment.
-        :param pulumi.Input[dict] properties: Gets or sets the deployment properties.
+        :param pulumi.Input[pulumi.InputType['DeploymentPropertiesArgs']] properties: Gets or sets the deployment properties.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
-
-        The **properties** object supports the following:
-
-          * `mode` (`pulumi.Input[str]`) - Gets or sets the deployment mode.
-          * `parameters` (`pulumi.Input[dict]`) - Deployment parameters. Use only one of Parameters or ParametersLink.
-          * `parameters_link` (`pulumi.Input[dict]`) - Gets or sets the URI referencing the parameters. Use only one of Parameters or ParametersLink.
-            * `content_version` (`pulumi.Input[str]`) - If included it must match the ContentVersion in the template.
-            * `uri` (`pulumi.Input[str]`) - URI referencing the template.
-
-          * `template` (`pulumi.Input[dict]`) - Gets or sets the template content. Use only one of Template or TemplateLink.
-          * `template_link` (`pulumi.Input[dict]`) - Gets or sets the URI referencing the template. Use only one of Template or TemplateLink.
-            * `content_version` (`pulumi.Input[str]`) - If included it must match the ContentVersion in the template.
-            * `uri` (`pulumi.Input[str]`) - URI referencing the template.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -109,13 +65,15 @@ class Deployment(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None) -> 'Deployment':
         """
         Get an existing Deployment resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -124,8 +82,25 @@ class Deployment(pulumi.CustomResource):
 
         return Deployment(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Gets or sets the name of the deployment.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def properties(self) -> 'outputs.DeploymentPropertiesExtendedResponse':
+        """
+        Gets or sets deployment properties.
+        """
+        return pulumi.get(self, "properties")
+
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

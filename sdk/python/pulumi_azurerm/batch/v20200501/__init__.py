@@ -14,3 +14,5 @@ from .get_certificate import *
 from .get_pool import *
 from .list_batch_account_keys import *
 from .pool import *
+from ._inputs import *
+from . import outputs

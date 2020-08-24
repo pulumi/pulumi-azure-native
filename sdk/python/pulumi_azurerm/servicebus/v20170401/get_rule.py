@@ -5,10 +5,17 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+from . import outputs
 
+__all__ = [
+    'GetRuleResult',
+    'AwaitableGetRuleResult',
+    'get_rule',
+]
 
+@pulumi.output_type
 class GetRuleResult:
     """
     Description of Rule Resource.
@@ -16,40 +23,70 @@ class GetRuleResult:
     def __init__(__self__, action=None, correlation_filter=None, filter_type=None, name=None, sql_filter=None, type=None):
         if action and not isinstance(action, dict):
             raise TypeError("Expected argument 'action' to be a dict")
-        __self__.action = action
+        pulumi.set(__self__, "action", action)
+        if correlation_filter and not isinstance(correlation_filter, dict):
+            raise TypeError("Expected argument 'correlation_filter' to be a dict")
+        pulumi.set(__self__, "correlation_filter", correlation_filter)
+        if filter_type and not isinstance(filter_type, str):
+            raise TypeError("Expected argument 'filter_type' to be a str")
+        pulumi.set(__self__, "filter_type", filter_type)
+        if name and not isinstance(name, str):
+            raise TypeError("Expected argument 'name' to be a str")
+        pulumi.set(__self__, "name", name)
+        if sql_filter and not isinstance(sql_filter, dict):
+            raise TypeError("Expected argument 'sql_filter' to be a dict")
+        pulumi.set(__self__, "sql_filter", sql_filter)
+        if type and not isinstance(type, str):
+            raise TypeError("Expected argument 'type' to be a str")
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def action(self) -> Optional['outputs.ActionResponse']:
         """
         Represents the filter actions which are allowed for the transformation of a message that have been matched by a filter expression.
         """
-        if correlation_filter and not isinstance(correlation_filter, dict):
-            raise TypeError("Expected argument 'correlation_filter' to be a dict")
-        __self__.correlation_filter = correlation_filter
+        return pulumi.get(self, "action")
+
+    @property
+    @pulumi.getter(name="correlationFilter")
+    def correlation_filter(self) -> Optional['outputs.CorrelationFilterResponse']:
         """
         Properties of correlationFilter
         """
-        if filter_type and not isinstance(filter_type, str):
-            raise TypeError("Expected argument 'filter_type' to be a str")
-        __self__.filter_type = filter_type
+        return pulumi.get(self, "correlation_filter")
+
+    @property
+    @pulumi.getter(name="filterType")
+    def filter_type(self) -> Optional[str]:
         """
         Filter type that is evaluated against a BrokeredMessage.
         """
-        if name and not isinstance(name, str):
-            raise TypeError("Expected argument 'name' to be a str")
-        __self__.name = name
+        return pulumi.get(self, "filter_type")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
         """
         Resource name
         """
-        if sql_filter and not isinstance(sql_filter, dict):
-            raise TypeError("Expected argument 'sql_filter' to be a dict")
-        __self__.sql_filter = sql_filter
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="sqlFilter")
+    def sql_filter(self) -> Optional['outputs.SqlFilterResponse']:
         """
         Properties of sqlFilter
         """
-        if type and not isinstance(type, str):
-            raise TypeError("Expected argument 'type' to be a str")
-        __self__.type = type
+        return pulumi.get(self, "sql_filter")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
         """
         Resource type
         """
+        return pulumi.get(self, "type")
 
 
 class AwaitableGetRuleResult(GetRuleResult):
@@ -66,7 +103,12 @@ class AwaitableGetRuleResult(GetRuleResult):
             type=self.type)
 
 
-def get_rule(name=None, namespace_name=None, resource_group_name=None, subscription_name=None, topic_name=None, opts=None):
+def get_rule(name: Optional[str] = None,
+             namespace_name: Optional[str] = None,
+             resource_group_name: Optional[str] = None,
+             subscription_name: Optional[str] = None,
+             topic_name: Optional[str] = None,
+             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetRuleResult:
     """
     Use this data source to access information about an existing resource.
 
@@ -86,12 +128,12 @@ def get_rule(name=None, namespace_name=None, resource_group_name=None, subscript
         opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = _utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('azurerm:servicebus/v20170401:getRule', __args__, opts=opts).value
+    __ret__ = pulumi.runtime.invoke('azurerm:servicebus/v20170401:getRule', __args__, opts=opts, typ=GetRuleResult).value
 
     return AwaitableGetRuleResult(
-        action=__ret__.get('action'),
-        correlation_filter=__ret__.get('correlationFilter'),
-        filter_type=__ret__.get('filterType'),
-        name=__ret__.get('name'),
-        sql_filter=__ret__.get('sqlFilter'),
-        type=__ret__.get('type'))
+        action=__ret__.action,
+        correlation_filter=__ret__.correlation_filter,
+        filter_type=__ret__.filter_type,
+        name=__ret__.name,
+        sql_filter=__ret__.sql_filter,
+        type=__ret__.type)

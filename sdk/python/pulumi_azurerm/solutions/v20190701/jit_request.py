@@ -5,94 +5,40 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+from . import outputs
+from ._inputs import *
+
+__all__ = ['JitRequest']
 
 
 class JitRequest(pulumi.CustomResource):
-    application_resource_id: pulumi.Output[str]
-    """
-    The parent application id.
-    """
-    created_by: pulumi.Output[dict]
-    """
-    The client entity that created the JIT request.
-      * `application_id` (`str`) - The client application Id.
-      * `oid` (`str`) - The client Oid.
-      * `puid` (`str`) - The client Puid
-    """
-    jit_authorization_policies: pulumi.Output[list]
-    """
-    The JIT authorization policies.
-      * `principal_id` (`str`) - The the principal id that will be granted JIT access.
-      * `role_definition_id` (`str`) - The role definition id that will be granted to the Principal.
-    """
-    jit_request_state: pulumi.Output[str]
-    """
-    The JIT request state.
-    """
-    jit_scheduling_policy: pulumi.Output[dict]
-    """
-    The JIT request properties.
-      * `duration` (`str`)
-      * `start_time` (`str`) - The start time of the request.
-      * `type` (`str`) - The type of JIT schedule.
-    """
-    location: pulumi.Output[str]
-    """
-    Resource location
-    """
-    name: pulumi.Output[str]
-    """
-    Resource name
-    """
-    provisioning_state: pulumi.Output[str]
-    """
-    The JIT request provisioning state.
-    """
-    publisher_tenant_id: pulumi.Output[str]
-    """
-    The publisher tenant id.
-    """
-    tags: pulumi.Output[dict]
-    """
-    Resource tags
-    """
-    type: pulumi.Output[str]
-    """
-    Resource type
-    """
-    updated_by: pulumi.Output[dict]
-    """
-    The client entity that last updated the JIT request.
-      * `application_id` (`str`) - The client application Id.
-      * `oid` (`str`) - The client Oid.
-      * `puid` (`str`) - The client Puid
-    """
-    def __init__(__self__, resource_name, opts=None, application_resource_id=None, jit_authorization_policies=None, jit_scheduling_policy=None, location=None, name=None, resource_group_name=None, tags=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 application_resource_id: Optional[pulumi.Input[str]] = None,
+                 jit_authorization_policies: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['JitAuthorizationPoliciesArgs']]]]] = None,
+                 jit_scheduling_policy: Optional[pulumi.Input[pulumi.InputType['JitSchedulingPolicyArgs']]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         Information about JIT request definition.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] application_resource_id: The parent application id.
-        :param pulumi.Input[list] jit_authorization_policies: The JIT authorization policies.
-        :param pulumi.Input[dict] jit_scheduling_policy: The JIT request properties.
+        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['JitAuthorizationPoliciesArgs']]]] jit_authorization_policies: The JIT authorization policies.
+        :param pulumi.Input[pulumi.InputType['JitSchedulingPolicyArgs']] jit_scheduling_policy: The JIT request properties.
         :param pulumi.Input[str] location: Resource location
         :param pulumi.Input[str] name: The name of the JIT request.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input[dict] tags: Resource tags
-
-        The **jit_authorization_policies** object supports the following:
-
-          * `principal_id` (`pulumi.Input[str]`) - The the principal id that will be granted JIT access.
-          * `role_definition_id` (`pulumi.Input[str]`) - The role definition id that will be granted to the Principal.
-
-        The **jit_scheduling_policy** object supports the following:
-
-          * `duration` (`pulumi.Input[str]`)
-          * `start_time` (`pulumi.Input[str]`) - The start time of the request.
-          * `type` (`pulumi.Input[str]`) - The type of JIT schedule.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -141,13 +87,15 @@ class JitRequest(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None) -> 'JitRequest':
         """
         Get an existing JitRequest resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -156,8 +104,105 @@ class JitRequest(pulumi.CustomResource):
 
         return JitRequest(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter(name="applicationResourceId")
+    def application_resource_id(self) -> str:
+        """
+        The parent application id.
+        """
+        return pulumi.get(self, "application_resource_id")
+
+    @property
+    @pulumi.getter(name="createdBy")
+    def created_by(self) -> 'outputs.ApplicationClientDetailsResponse':
+        """
+        The client entity that created the JIT request.
+        """
+        return pulumi.get(self, "created_by")
+
+    @property
+    @pulumi.getter(name="jitAuthorizationPolicies")
+    def jit_authorization_policies(self) -> List['outputs.JitAuthorizationPoliciesResponse']:
+        """
+        The JIT authorization policies.
+        """
+        return pulumi.get(self, "jit_authorization_policies")
+
+    @property
+    @pulumi.getter(name="jitRequestState")
+    def jit_request_state(self) -> str:
+        """
+        The JIT request state.
+        """
+        return pulumi.get(self, "jit_request_state")
+
+    @property
+    @pulumi.getter(name="jitSchedulingPolicy")
+    def jit_scheduling_policy(self) -> 'outputs.JitSchedulingPolicyResponse':
+        """
+        The JIT request properties.
+        """
+        return pulumi.get(self, "jit_scheduling_policy")
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[str]:
+        """
+        Resource location
+        """
+        return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Resource name
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        The JIT request provisioning state.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="publisherTenantId")
+    def publisher_tenant_id(self) -> str:
+        """
+        The publisher tenant id.
+        """
+        return pulumi.get(self, "publisher_tenant_id")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Mapping[str, str]]:
+        """
+        Resource tags
+        """
+        return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Resource type
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="updatedBy")
+    def updated_by(self) -> 'outputs.ApplicationClientDetailsResponse':
+        """
+        The client entity that last updated the JIT request.
+        """
+        return pulumi.get(self, "updated_by")
+
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

@@ -5,53 +5,26 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+from . import outputs
+from ._inputs import *
+
+__all__ = ['GuestConfigurationAssignment']
 
 
 class GuestConfigurationAssignment(pulumi.CustomResource):
-    location: pulumi.Output[str]
-    """
-    Region where the VM is located.
-    """
-    name: pulumi.Output[str]
-    """
-    Name of the guest configuration assignment.
-    """
-    properties: pulumi.Output[dict]
-    """
-    Properties of the Guest configuration assignment.
-      * `assignment_hash` (`str`) - Combined hash of the configuration package and parameters.
-      * `compliance_status` (`str`) - A value indicating compliance status of the machine for the assigned guest configuration.
-      * `context` (`str`) - The source which initiated the guest configuration assignment. Ex: Azure Policy
-      * `guest_configuration` (`dict`) - The guest configuration to assign.
-        * `configuration_parameter` (`list`) - The configuration parameters for the guest configuration.
-          * `name` (`str`) - Name of the configuration parameter.
-          * `value` (`str`) - Value of the configuration parameter.
-
-        * `configuration_setting` (`dict`) - The configuration setting for the guest configuration.
-          * `action_after_reboot` (`str`) - Specifies what happens after a reboot during the application of a configuration. The possible values are ContinueConfiguration and StopConfiguration
-          * `allow_module_overwrite` (`str`) - If true - new configurations downloaded from the pull service are allowed to overwrite the old ones on the target node. Otherwise, false
-          * `configuration_mode` (`str`) - Specifies how the LCM(Local Configuration Manager) actually applies the configuration to the target nodes. Possible values are ApplyOnly, ApplyAndMonitor, and ApplyAndAutoCorrect.
-          * `configuration_mode_frequency_mins` (`float`) - How often, in minutes, the current configuration is checked and applied. This property is ignored if the ConfigurationMode property is set to ApplyOnly. The default value is 15.
-          * `reboot_if_needed` (`str`) - Set this to true to automatically reboot the node after a configuration that requires reboot is applied. Otherwise, you will have to manually reboot the node for any configuration that requires it. The default value is false. To use this setting when a reboot condition is enacted by something other than DSC (such as Windows Installer), combine this setting with the xPendingReboot module.
-          * `refresh_frequency_mins` (`float`) - The time interval, in minutes, at which the LCM checks a pull service to get updated configurations. This value is ignored if the LCM is not configured in pull mode. The default value is 30.
-
-        * `content_hash` (`str`) - Combined hash of the guest configuration package and configuration parameters.
-        * `content_uri` (`str`) - Uri of the storage where guest configuration package is uploaded.
-        * `kind` (`str`) - Kind of the guest configuration. For example:DSC
-        * `name` (`str`) - Name of the guest configuration.
-        * `version` (`str`) - Version of the guest configuration.
-
-      * `last_compliance_status_checked` (`str`) - Date and time when last compliance status was checked.
-      * `latest_report_id` (`str`) - Id of the latest report for the guest configuration assignment. 
-      * `provisioning_state` (`str`) - The provisioning state, which only appears in the response.
-    """
-    type: pulumi.Output[str]
-    """
-    The type of the resource.
-    """
-    def __init__(__self__, resource_name, opts=None, location=None, name=None, properties=None, resource_group_name=None, vm_name=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 properties: Optional[pulumi.Input[pulumi.InputType['GuestConfigurationAssignmentPropertiesArgs']]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 vm_name: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         Guest configuration assignment is an association between a machine and guest configuration.
 
@@ -59,29 +32,9 @@ class GuestConfigurationAssignment(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] location: Region where the VM is located.
         :param pulumi.Input[str] name: Name of the guest configuration assignment.
-        :param pulumi.Input[dict] properties: Properties of the Guest configuration assignment.
+        :param pulumi.Input[pulumi.InputType['GuestConfigurationAssignmentPropertiesArgs']] properties: Properties of the Guest configuration assignment.
         :param pulumi.Input[str] resource_group_name: The resource group name.
         :param pulumi.Input[str] vm_name: The name of the virtual machine.
-
-        The **properties** object supports the following:
-
-          * `context` (`pulumi.Input[str]`) - The source which initiated the guest configuration assignment. Ex: Azure Policy
-          * `guest_configuration` (`pulumi.Input[dict]`) - The guest configuration to assign.
-            * `configuration_parameter` (`pulumi.Input[list]`) - The configuration parameters for the guest configuration.
-              * `name` (`pulumi.Input[str]`) - Name of the configuration parameter.
-              * `value` (`pulumi.Input[str]`) - Value of the configuration parameter.
-
-            * `configuration_setting` (`pulumi.Input[dict]`) - The configuration setting for the guest configuration.
-              * `action_after_reboot` (`pulumi.Input[str]`) - Specifies what happens after a reboot during the application of a configuration. The possible values are ContinueConfiguration and StopConfiguration
-              * `allow_module_overwrite` (`pulumi.Input[str]`) - If true - new configurations downloaded from the pull service are allowed to overwrite the old ones on the target node. Otherwise, false
-              * `configuration_mode` (`pulumi.Input[str]`) - Specifies how the LCM(Local Configuration Manager) actually applies the configuration to the target nodes. Possible values are ApplyOnly, ApplyAndMonitor, and ApplyAndAutoCorrect.
-              * `configuration_mode_frequency_mins` (`pulumi.Input[float]`) - How often, in minutes, the current configuration is checked and applied. This property is ignored if the ConfigurationMode property is set to ApplyOnly. The default value is 15.
-              * `reboot_if_needed` (`pulumi.Input[str]`) - Set this to true to automatically reboot the node after a configuration that requires reboot is applied. Otherwise, you will have to manually reboot the node for any configuration that requires it. The default value is false. To use this setting when a reboot condition is enacted by something other than DSC (such as Windows Installer), combine this setting with the xPendingReboot module.
-              * `refresh_frequency_mins` (`pulumi.Input[float]`) - The time interval, in minutes, at which the LCM checks a pull service to get updated configurations. This value is ignored if the LCM is not configured in pull mode. The default value is 30.
-
-            * `kind` (`pulumi.Input[str]`) - Kind of the guest configuration. For example:DSC
-            * `name` (`pulumi.Input[str]`) - Name of the guest configuration.
-            * `version` (`pulumi.Input[str]`) - Version of the guest configuration.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -121,13 +74,15 @@ class GuestConfigurationAssignment(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None) -> 'GuestConfigurationAssignment':
         """
         Get an existing GuestConfigurationAssignment resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -136,8 +91,41 @@ class GuestConfigurationAssignment(pulumi.CustomResource):
 
         return GuestConfigurationAssignment(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[str]:
+        """
+        Region where the VM is located.
+        """
+        return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        Name of the guest configuration assignment.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def properties(self) -> 'outputs.GuestConfigurationAssignmentPropertiesResponse':
+        """
+        Properties of the Guest configuration assignment.
+        """
+        return pulumi.get(self, "properties")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        The type of the resource.
+        """
+        return pulumi.get(self, "type")
+
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

@@ -5,79 +5,31 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+from . import outputs
+from ._inputs import *
+
+__all__ = ['DscConfiguration']
 
 
 class DscConfiguration(pulumi.CustomResource):
-    creation_time: pulumi.Output[str]
-    """
-    Gets or sets the creation time.
-    """
-    description: pulumi.Output[str]
-    """
-    Gets or sets the description.
-    """
-    etag: pulumi.Output[str]
-    """
-    Gets or sets the etag of the resource.
-    """
-    job_count: pulumi.Output[float]
-    """
-    Gets or sets the job count of the configuration.
-    """
-    last_modified_time: pulumi.Output[str]
-    """
-    Gets or sets the last modified time.
-    """
-    location: pulumi.Output[str]
-    """
-    The Azure Region where the resource lives
-    """
-    log_verbose: pulumi.Output[bool]
-    """
-    Gets or sets verbose log option.
-    """
-    name: pulumi.Output[str]
-    """
-    The name of the resource
-    """
-    node_configuration_count: pulumi.Output[float]
-    """
-    Gets the number of compiled node configurations.
-    """
-    parameters: pulumi.Output[dict]
-    """
-    Gets or sets the configuration parameters.
-    """
-    provisioning_state: pulumi.Output[str]
-    """
-    Gets or sets the provisioning state of the configuration.
-    """
-    source: pulumi.Output[dict]
-    """
-    Gets or sets the source.
-      * `hash` (`dict`) - Gets or sets the hash.
-        * `algorithm` (`str`) - Gets or sets the content hash algorithm used to hash the content.
-        * `value` (`str`) - Gets or sets expected hash value of the content.
-
-      * `type` (`str`) - Gets or sets the content source type.
-      * `value` (`str`) - Gets or sets the value of the content. This is based on the content source type.
-      * `version` (`str`) - Gets or sets the version of the content.
-    """
-    state: pulumi.Output[str]
-    """
-    Gets or sets the state of the configuration.
-    """
-    tags: pulumi.Output[dict]
-    """
-    Resource tags.
-    """
-    type: pulumi.Output[str]
-    """
-    The type of the resource.
-    """
-    def __init__(__self__, resource_name, opts=None, automation_account_name=None, description=None, location=None, log_progress=None, log_verbose=None, name=None, parameters=None, resource_group_name=None, source=None, tags=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 automation_account_name: Optional[pulumi.Input[str]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 log_progress: Optional[pulumi.Input[bool]] = None,
+                 log_verbose: Optional[pulumi.Input[bool]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[pulumi.InputType['DscConfigurationParameterArgs']]]]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 source: Optional[pulumi.Input[pulumi.InputType['ContentSourceArgs']]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         Definition of the configuration type.
 
@@ -89,20 +41,10 @@ class DscConfiguration(pulumi.CustomResource):
         :param pulumi.Input[bool] log_progress: Gets or sets progress log option.
         :param pulumi.Input[bool] log_verbose: Gets or sets verbose log option.
         :param pulumi.Input[str] name: The create or update parameters for configuration.
-        :param pulumi.Input[dict] parameters: Gets or sets the configuration parameters.
+        :param pulumi.Input[Mapping[str, pulumi.Input[pulumi.InputType['DscConfigurationParameterArgs']]]] parameters: Gets or sets the configuration parameters.
         :param pulumi.Input[str] resource_group_name: Name of an Azure Resource group.
-        :param pulumi.Input[dict] source: Gets or sets the source.
-        :param pulumi.Input[dict] tags: Gets or sets the tags attached to the resource.
-
-        The **source** object supports the following:
-
-          * `hash` (`pulumi.Input[dict]`) - Gets or sets the hash.
-            * `algorithm` (`pulumi.Input[str]`) - Gets or sets the content hash algorithm used to hash the content.
-            * `value` (`pulumi.Input[str]`) - Gets or sets expected hash value of the content.
-
-          * `type` (`pulumi.Input[str]`) - Gets or sets the content source type.
-          * `value` (`pulumi.Input[str]`) - Gets or sets the value of the content. This is based on the content source type.
-          * `version` (`pulumi.Input[str]`) - Gets or sets the version of the content.
+        :param pulumi.Input[pulumi.InputType['ContentSourceArgs']] source: Gets or sets the source.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Gets or sets the tags attached to the resource.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -154,13 +96,15 @@ class DscConfiguration(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None) -> 'DscConfiguration':
         """
         Get an existing DscConfiguration resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -169,8 +113,129 @@ class DscConfiguration(pulumi.CustomResource):
 
         return DscConfiguration(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter(name="creationTime")
+    def creation_time(self) -> Optional[str]:
+        """
+        Gets or sets the creation time.
+        """
+        return pulumi.get(self, "creation_time")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        """
+        Gets or sets the description.
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def etag(self) -> Optional[str]:
+        """
+        Gets or sets the etag of the resource.
+        """
+        return pulumi.get(self, "etag")
+
+    @property
+    @pulumi.getter(name="jobCount")
+    def job_count(self) -> Optional[float]:
+        """
+        Gets or sets the job count of the configuration.
+        """
+        return pulumi.get(self, "job_count")
+
+    @property
+    @pulumi.getter(name="lastModifiedTime")
+    def last_modified_time(self) -> Optional[str]:
+        """
+        Gets or sets the last modified time.
+        """
+        return pulumi.get(self, "last_modified_time")
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[str]:
+        """
+        The Azure Region where the resource lives
+        """
+        return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter(name="logVerbose")
+    def log_verbose(self) -> Optional[bool]:
+        """
+        Gets or sets verbose log option.
+        """
+        return pulumi.get(self, "log_verbose")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the resource
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="nodeConfigurationCount")
+    def node_configuration_count(self) -> Optional[float]:
+        """
+        Gets the number of compiled node configurations.
+        """
+        return pulumi.get(self, "node_configuration_count")
+
+    @property
+    @pulumi.getter
+    def parameters(self) -> Optional[Mapping[str, 'outputs.DscConfigurationParameterResponse']]:
+        """
+        Gets or sets the configuration parameters.
+        """
+        return pulumi.get(self, "parameters")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> Optional[str]:
+        """
+        Gets or sets the provisioning state of the configuration.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter
+    def source(self) -> Optional['outputs.ContentSourceResponse']:
+        """
+        Gets or sets the source.
+        """
+        return pulumi.get(self, "source")
+
+    @property
+    @pulumi.getter
+    def state(self) -> Optional[str]:
+        """
+        Gets or sets the state of the configuration.
+        """
+        return pulumi.get(self, "state")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Mapping[str, str]]:
+        """
+        Resource tags.
+        """
+        return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        The type of the resource.
+        """
+        return pulumi.get(self, "type")
+
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

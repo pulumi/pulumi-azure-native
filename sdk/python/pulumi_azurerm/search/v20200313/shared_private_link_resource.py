@@ -5,44 +5,34 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+from . import outputs
+from ._inputs import *
+
+__all__ = ['SharedPrivateLinkResource']
 
 
 class SharedPrivateLinkResource(pulumi.CustomResource):
-    name: pulumi.Output[str]
-    """
-    The name of the shared private link resource.
-    """
-    properties: pulumi.Output[dict]
-    """
-    Describes the properties of a Shared Private Link Resource managed by the Azure Cognitive Search service.
-      * `group_id` (`str`) - The group id from the provider of resource the shared private link resource is for.
-      * `private_link_resource_id` (`str`) - The resource id of the resource the shared private link resource is for.
-      * `request_message` (`str`) - The request message for requesting approval of the shared private link resource.
-      * `status` (`str`) - Status of the shared private link resource. Can be Pending, Approved, Rejected, Disconnected, or Timeout.
-    """
-    type: pulumi.Output[str]
-    """
-    The resource type.
-    """
-    def __init__(__self__, resource_name, opts=None, name=None, properties=None, resource_group_name=None, search_service_name=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 properties: Optional[pulumi.Input[pulumi.InputType['SharedPrivateLinkResourcePropertiesArgs']]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 search_service_name: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         Describes a Shared Private Link Resource managed by the Azure Cognitive Search service.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] name: The name of the shared private link resource managed by the Azure Cognitive Search service within the specified resource group.
-        :param pulumi.Input[dict] properties: Describes the properties of a Shared Private Link Resource managed by the Azure Cognitive Search service.
+        :param pulumi.Input[pulumi.InputType['SharedPrivateLinkResourcePropertiesArgs']] properties: Describes the properties of a Shared Private Link Resource managed by the Azure Cognitive Search service.
         :param pulumi.Input[str] resource_group_name: The name of the resource group within the current subscription. You can obtain this value from the Azure Resource Manager API or the portal.
         :param pulumi.Input[str] search_service_name: The name of the Azure Cognitive Search service associated with the specified resource group.
-
-        The **properties** object supports the following:
-
-          * `group_id` (`pulumi.Input[str]`) - The group id from the provider of resource the shared private link resource is for.
-          * `private_link_resource_id` (`pulumi.Input[str]`) - The resource id of the resource the shared private link resource is for.
-          * `request_message` (`pulumi.Input[str]`) - The request message for requesting approval of the shared private link resource.
-          * `status` (`pulumi.Input[str]`) - Status of the shared private link resource. Can be Pending, Approved, Rejected, Disconnected, or Timeout.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -79,13 +69,15 @@ class SharedPrivateLinkResource(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None) -> 'SharedPrivateLinkResource':
         """
         Get an existing SharedPrivateLinkResource resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -94,8 +86,33 @@ class SharedPrivateLinkResource(pulumi.CustomResource):
 
         return SharedPrivateLinkResource(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the shared private link resource.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def properties(self) -> 'outputs.SharedPrivateLinkResourcePropertiesResponse':
+        """
+        Describes the properties of a Shared Private Link Resource managed by the Azure Cognitive Search service.
+        """
+        return pulumi.get(self, "properties")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        The resource type.
+        """
+        return pulumi.get(self, "type")
+
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

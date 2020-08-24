@@ -5,10 +5,17 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+from . import outputs
 
+__all__ = [
+    'ListRegistryCredentialsResult',
+    'AwaitableListRegistryCredentialsResult',
+    'list_registry_credentials',
+]
 
+@pulumi.output_type
 class ListRegistryCredentialsResult:
     """
     The response from the ListCredentials operation.
@@ -16,16 +23,26 @@ class ListRegistryCredentialsResult:
     def __init__(__self__, passwords=None, username=None):
         if passwords and not isinstance(passwords, list):
             raise TypeError("Expected argument 'passwords' to be a list")
-        __self__.passwords = passwords
+        pulumi.set(__self__, "passwords", passwords)
+        if username and not isinstance(username, str):
+            raise TypeError("Expected argument 'username' to be a str")
+        pulumi.set(__self__, "username", username)
+
+    @property
+    @pulumi.getter
+    def passwords(self) -> Optional[List['outputs.RegistryPasswordResponseResult']]:
         """
         The list of passwords for a container registry.
         """
-        if username and not isinstance(username, str):
-            raise TypeError("Expected argument 'username' to be a str")
-        __self__.username = username
+        return pulumi.get(self, "passwords")
+
+    @property
+    @pulumi.getter
+    def username(self) -> Optional[str]:
         """
         The username for a container registry.
         """
+        return pulumi.get(self, "username")
 
 
 class AwaitableListRegistryCredentialsResult(ListRegistryCredentialsResult):
@@ -38,7 +55,9 @@ class AwaitableListRegistryCredentialsResult(ListRegistryCredentialsResult):
             username=self.username)
 
 
-def list_registry_credentials(registry_name=None, resource_group_name=None, opts=None):
+def list_registry_credentials(registry_name: Optional[str] = None,
+                              resource_group_name: Optional[str] = None,
+                              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListRegistryCredentialsResult:
     """
     Use this data source to access information about an existing resource.
 
@@ -52,8 +71,8 @@ def list_registry_credentials(registry_name=None, resource_group_name=None, opts
         opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = _utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('azurerm:containerregistry/v20170301:listRegistryCredentials', __args__, opts=opts).value
+    __ret__ = pulumi.runtime.invoke('azurerm:containerregistry/v20170301:listRegistryCredentials', __args__, opts=opts, typ=ListRegistryCredentialsResult).value
 
     return AwaitableListRegistryCredentialsResult(
-        passwords=__ret__.get('passwords'),
-        username=__ret__.get('username'))
+        passwords=__ret__.passwords,
+        username=__ret__.username)

@@ -5,10 +5,16 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
 
+__all__ = [
+    'GetIotHubResourceEventHubConsumerGroupResult',
+    'AwaitableGetIotHubResourceEventHubConsumerGroupResult',
+    'get_iot_hub_resource_event_hub_consumer_group',
+]
 
+@pulumi.output_type
 class GetIotHubResourceEventHubConsumerGroupResult:
     """
     The properties of the EventHubConsumerGroupInfo object.
@@ -16,16 +22,26 @@ class GetIotHubResourceEventHubConsumerGroupResult:
     def __init__(__self__, name=None, tags=None):
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
-        __self__.name = name
+        pulumi.set(__self__, "name", name)
+        if tags and not isinstance(tags, dict):
+            raise TypeError("Expected argument 'tags' to be a dict")
+        pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
         """
         The Event Hub-compatible consumer group name.
         """
-        if tags and not isinstance(tags, dict):
-            raise TypeError("Expected argument 'tags' to be a dict")
-        __self__.tags = tags
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Mapping[str, str]]:
         """
         The tags.
         """
+        return pulumi.get(self, "tags")
 
 
 class AwaitableGetIotHubResourceEventHubConsumerGroupResult(GetIotHubResourceEventHubConsumerGroupResult):
@@ -38,7 +54,11 @@ class AwaitableGetIotHubResourceEventHubConsumerGroupResult(GetIotHubResourceEve
             tags=self.tags)
 
 
-def get_iot_hub_resource_event_hub_consumer_group(event_hub_endpoint_name=None, name=None, resource_group_name=None, resource_name=None, opts=None):
+def get_iot_hub_resource_event_hub_consumer_group(event_hub_endpoint_name: Optional[str] = None,
+                                                  name: Optional[str] = None,
+                                                  resource_group_name: Optional[str] = None,
+                                                  resource_name: Optional[str] = None,
+                                                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetIotHubResourceEventHubConsumerGroupResult:
     """
     Use this data source to access information about an existing resource.
 
@@ -56,8 +76,8 @@ def get_iot_hub_resource_event_hub_consumer_group(event_hub_endpoint_name=None, 
         opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = _utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('azurerm:devices/v20170119:getIotHubResourceEventHubConsumerGroup', __args__, opts=opts).value
+    __ret__ = pulumi.runtime.invoke('azurerm:devices/v20170119:getIotHubResourceEventHubConsumerGroup', __args__, opts=opts, typ=GetIotHubResourceEventHubConsumerGroupResult).value
 
     return AwaitableGetIotHubResourceEventHubConsumerGroupResult(
-        name=__ret__.get('name'),
-        tags=__ret__.get('tags'))
+        name=__ret__.name,
+        tags=__ret__.tags)

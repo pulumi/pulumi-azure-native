@@ -5,85 +5,40 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+from . import outputs
+from ._inputs import *
+
+__all__ = ['EventHub']
 
 
 class EventHub(pulumi.CustomResource):
-    capture_description: pulumi.Output[dict]
-    """
-    Properties of capture description
-      * `destination` (`dict`) - Properties of Destination where capture will be stored. (Storage Account, Blob Names)
-        * `archive_name_format` (`str`) - Blob naming convention for archive, e.g. {Namespace}/{EventHub}/{PartitionId}/{Year}/{Month}/{Day}/{Hour}/{Minute}/{Second}. Here all the parameters (Namespace,EventHub .. etc) are mandatory irrespective of order
-        * `blob_container` (`str`) - Blob container Name
-        * `name` (`str`) - Name for capture destination
-        * `storage_account_resource_id` (`str`) - Resource id of the storage account to be used to create the blobs
-
-      * `enabled` (`bool`) - A value that indicates whether capture description is enabled. 
-      * `encoding` (`str`) - Enumerates the possible values for the encoding format of capture description. Note: 'AvroDeflate' will be deprecated in New API Version
-      * `interval_in_seconds` (`float`) - The time window allows you to set the frequency with which the capture to Azure Blobs will happen, value should between 60 to 900 seconds
-      * `size_limit_in_bytes` (`float`) - The size window defines the amount of data built up in your Event Hub before an capture operation, value should be between 10485760 to 524288000 bytes
-      * `skip_empty_archives` (`bool`) - A value that indicates whether to Skip Empty Archives
-    """
-    created_at: pulumi.Output[str]
-    """
-    Exact time the Event Hub was created.
-    """
-    message_retention_in_days: pulumi.Output[float]
-    """
-    Number of days to retain the events for this Event Hub, value should be 1 to 7 days
-    """
-    name: pulumi.Output[str]
-    """
-    Resource name.
-    """
-    partition_count: pulumi.Output[float]
-    """
-    Number of partitions created for the Event Hub, allowed values are from 1 to 32 partitions.
-    """
-    partition_ids: pulumi.Output[list]
-    """
-    Current number of shards on the Event Hub.
-    """
-    status: pulumi.Output[str]
-    """
-    Enumerates the possible values for the status of the Event Hub.
-    """
-    type: pulumi.Output[str]
-    """
-    Resource type.
-    """
-    updated_at: pulumi.Output[str]
-    """
-    The exact time the message was updated.
-    """
-    def __init__(__self__, resource_name, opts=None, capture_description=None, message_retention_in_days=None, name=None, namespace_name=None, partition_count=None, resource_group_name=None, status=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 capture_description: Optional[pulumi.Input[pulumi.InputType['CaptureDescriptionArgs']]] = None,
+                 message_retention_in_days: Optional[pulumi.Input[float]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 namespace_name: Optional[pulumi.Input[str]] = None,
+                 partition_count: Optional[pulumi.Input[float]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 status: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         Single item in List or Get Event Hub operation
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[dict] capture_description: Properties of capture description
+        :param pulumi.Input[pulumi.InputType['CaptureDescriptionArgs']] capture_description: Properties of capture description
         :param pulumi.Input[float] message_retention_in_days: Number of days to retain the events for this Event Hub, value should be 1 to 7 days
         :param pulumi.Input[str] name: The Event Hub name
         :param pulumi.Input[str] namespace_name: The Namespace name
         :param pulumi.Input[float] partition_count: Number of partitions created for the Event Hub, allowed values are from 1 to 32 partitions.
         :param pulumi.Input[str] resource_group_name: Name of the resource group within the azure subscription.
         :param pulumi.Input[str] status: Enumerates the possible values for the status of the Event Hub.
-
-        The **capture_description** object supports the following:
-
-          * `destination` (`pulumi.Input[dict]`) - Properties of Destination where capture will be stored. (Storage Account, Blob Names)
-            * `archive_name_format` (`pulumi.Input[str]`) - Blob naming convention for archive, e.g. {Namespace}/{EventHub}/{PartitionId}/{Year}/{Month}/{Day}/{Hour}/{Minute}/{Second}. Here all the parameters (Namespace,EventHub .. etc) are mandatory irrespective of order
-            * `blob_container` (`pulumi.Input[str]`) - Blob container Name
-            * `name` (`pulumi.Input[str]`) - Name for capture destination
-            * `storage_account_resource_id` (`pulumi.Input[str]`) - Resource id of the storage account to be used to create the blobs
-
-          * `enabled` (`pulumi.Input[bool]`) - A value that indicates whether capture description is enabled. 
-          * `encoding` (`pulumi.Input[str]`) - Enumerates the possible values for the encoding format of capture description. Note: 'AvroDeflate' will be deprecated in New API Version
-          * `interval_in_seconds` (`pulumi.Input[float]`) - The time window allows you to set the frequency with which the capture to Azure Blobs will happen, value should between 60 to 900 seconds
-          * `size_limit_in_bytes` (`pulumi.Input[float]`) - The size window defines the amount of data built up in your Event Hub before an capture operation, value should be between 10485760 to 524288000 bytes
-          * `skip_empty_archives` (`pulumi.Input[bool]`) - A value that indicates whether to Skip Empty Archives
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -128,13 +83,15 @@ class EventHub(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None) -> 'EventHub':
         """
         Get an existing EventHub resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -143,8 +100,81 @@ class EventHub(pulumi.CustomResource):
 
         return EventHub(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter(name="captureDescription")
+    def capture_description(self) -> Optional['outputs.CaptureDescriptionResponse']:
+        """
+        Properties of capture description
+        """
+        return pulumi.get(self, "capture_description")
+
+    @property
+    @pulumi.getter(name="createdAt")
+    def created_at(self) -> str:
+        """
+        Exact time the Event Hub was created.
+        """
+        return pulumi.get(self, "created_at")
+
+    @property
+    @pulumi.getter(name="messageRetentionInDays")
+    def message_retention_in_days(self) -> Optional[float]:
+        """
+        Number of days to retain the events for this Event Hub, value should be 1 to 7 days
+        """
+        return pulumi.get(self, "message_retention_in_days")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Resource name.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="partitionCount")
+    def partition_count(self) -> Optional[float]:
+        """
+        Number of partitions created for the Event Hub, allowed values are from 1 to 32 partitions.
+        """
+        return pulumi.get(self, "partition_count")
+
+    @property
+    @pulumi.getter(name="partitionIds")
+    def partition_ids(self) -> List[str]:
+        """
+        Current number of shards on the Event Hub.
+        """
+        return pulumi.get(self, "partition_ids")
+
+    @property
+    @pulumi.getter
+    def status(self) -> Optional[str]:
+        """
+        Enumerates the possible values for the status of the Event Hub.
+        """
+        return pulumi.get(self, "status")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Resource type.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="updatedAt")
+    def updated_at(self) -> str:
+        """
+        The exact time the message was updated.
+        """
+        return pulumi.get(self, "updated_at")
+
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

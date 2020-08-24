@@ -5,35 +5,26 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+from . import outputs
+from ._inputs import *
+
+__all__ = ['MasterSiteSite']
 
 
 class MasterSiteSite(pulumi.CustomResource):
-    e_tag: pulumi.Output[str]
-    """
-    eTag for concurrency control.
-    """
-    location: pulumi.Output[str]
-    """
-    Azure location in which Sites is created.
-    """
-    name: pulumi.Output[str]
-    """
-    Name of the Master site.
-    """
-    properties: pulumi.Output[dict]
-    """
-    Nested properties of Master site.
-      * `allow_multiple_sites` (`bool`) - Value indicating whether multiple sites per site type are allowed.
-      * `public_network_access` (`str`) - State of public network access.
-      * `sites` (`list`) - List of sites that are a part of Master Site.
-    """
-    type: pulumi.Output[str]
-    """
-    Type of resource. Type = Microsoft.OffAzure/MasterSites.
-    """
-    def __init__(__self__, resource_name, opts=None, e_tag=None, location=None, name=None, properties=None, resource_group_name=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 e_tag: Optional[pulumi.Input[str]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 properties: Optional[pulumi.Input[pulumi.InputType['MasterSitePropertiesArgs']]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         Site REST Resource.
 
@@ -42,14 +33,8 @@ class MasterSiteSite(pulumi.CustomResource):
         :param pulumi.Input[str] e_tag: eTag for concurrency control.
         :param pulumi.Input[str] location: Azure location in which Sites is created.
         :param pulumi.Input[str] name: Site name.
-        :param pulumi.Input[dict] properties: Nested properties of Master site.
+        :param pulumi.Input[pulumi.InputType['MasterSitePropertiesArgs']] properties: Nested properties of Master site.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
-
-        The **properties** object supports the following:
-
-          * `allow_multiple_sites` (`pulumi.Input[bool]`) - Value indicating whether multiple sites per site type are allowed.
-          * `public_network_access` (`pulumi.Input[str]`) - State of public network access.
-          * `sites` (`pulumi.Input[list]`) - List of sites that are a part of Master Site.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -85,13 +70,15 @@ class MasterSiteSite(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None) -> 'MasterSiteSite':
         """
         Get an existing MasterSiteSite resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -100,8 +87,49 @@ class MasterSiteSite(pulumi.CustomResource):
 
         return MasterSiteSite(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter(name="eTag")
+    def e_tag(self) -> Optional[str]:
+        """
+        eTag for concurrency control.
+        """
+        return pulumi.get(self, "e_tag")
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[str]:
+        """
+        Azure location in which Sites is created.
+        """
+        return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        Name of the Master site.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def properties(self) -> 'outputs.MasterSitePropertiesResponse':
+        """
+        Nested properties of Master site.
+        """
+        return pulumi.get(self, "properties")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Type of resource. Type = Microsoft.OffAzure/MasterSites.
+        """
+        return pulumi.get(self, "type")
+
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

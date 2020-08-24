@@ -5,10 +5,17 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+from . import outputs
 
+__all__ = [
+    'ListDeviceFailoverTarsResult',
+    'AwaitableListDeviceFailoverTarsResult',
+    'list_device_failover_tars',
+]
 
+@pulumi.output_type
 class ListDeviceFailoverTarsResult:
     """
     The list of all devices in a resource and their eligibility status as a failover target device.
@@ -16,10 +23,15 @@ class ListDeviceFailoverTarsResult:
     def __init__(__self__, value=None):
         if value and not isinstance(value, list):
             raise TypeError("Expected argument 'value' to be a list")
-        __self__.value = value
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[List['outputs.FailoverTargetResponseResult']]:
         """
         The list of all the failover targets.
         """
+        return pulumi.get(self, "value")
 
 
 class AwaitableListDeviceFailoverTarsResult(ListDeviceFailoverTarsResult):
@@ -31,14 +43,18 @@ class AwaitableListDeviceFailoverTarsResult(ListDeviceFailoverTarsResult):
             value=self.value)
 
 
-def list_device_failover_tars(manager_name=None, resource_group_name=None, source_device_name=None, volume_containers=None, opts=None):
+def list_device_failover_tars(manager_name: Optional[str] = None,
+                              resource_group_name: Optional[str] = None,
+                              source_device_name: Optional[str] = None,
+                              volume_containers: Optional[List[str]] = None,
+                              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListDeviceFailoverTarsResult:
     """
     Use this data source to access information about an existing resource.
 
     :param str manager_name: The manager name
     :param str resource_group_name: The resource group name
     :param str source_device_name: The source device name on which failover is performed.
-    :param list volume_containers: The list of path IDs of the volume containers that needs to be failed-over, for which we want to fetch the eligible targets.
+    :param List[str] volume_containers: The list of path IDs of the volume containers that needs to be failed-over, for which we want to fetch the eligible targets.
     """
     __args__ = dict()
     __args__['managerName'] = manager_name
@@ -49,7 +65,7 @@ def list_device_failover_tars(manager_name=None, resource_group_name=None, sourc
         opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = _utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('azurerm:storsimple/v20170601:listDeviceFailoverTars', __args__, opts=opts).value
+    __ret__ = pulumi.runtime.invoke('azurerm:storsimple/v20170601:listDeviceFailoverTars', __args__, opts=opts, typ=ListDeviceFailoverTarsResult).value
 
     return AwaitableListDeviceFailoverTarsResult(
-        value=__ret__.get('value'))
+        value=__ret__.value)

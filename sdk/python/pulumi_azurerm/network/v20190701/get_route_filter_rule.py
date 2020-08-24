@@ -5,10 +5,16 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
 
+__all__ = [
+    'GetRouteFilterRuleResult',
+    'AwaitableGetRouteFilterRuleResult',
+    'get_route_filter_rule',
+]
 
+@pulumi.output_type
 class GetRouteFilterRuleResult:
     """
     Route Filter Rule Resource.
@@ -16,46 +22,81 @@ class GetRouteFilterRuleResult:
     def __init__(__self__, access=None, communities=None, etag=None, location=None, name=None, provisioning_state=None, route_filter_rule_type=None):
         if access and not isinstance(access, str):
             raise TypeError("Expected argument 'access' to be a str")
-        __self__.access = access
+        pulumi.set(__self__, "access", access)
+        if communities and not isinstance(communities, list):
+            raise TypeError("Expected argument 'communities' to be a list")
+        pulumi.set(__self__, "communities", communities)
+        if etag and not isinstance(etag, str):
+            raise TypeError("Expected argument 'etag' to be a str")
+        pulumi.set(__self__, "etag", etag)
+        if location and not isinstance(location, str):
+            raise TypeError("Expected argument 'location' to be a str")
+        pulumi.set(__self__, "location", location)
+        if name and not isinstance(name, str):
+            raise TypeError("Expected argument 'name' to be a str")
+        pulumi.set(__self__, "name", name)
+        if provisioning_state and not isinstance(provisioning_state, str):
+            raise TypeError("Expected argument 'provisioning_state' to be a str")
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if route_filter_rule_type and not isinstance(route_filter_rule_type, str):
+            raise TypeError("Expected argument 'route_filter_rule_type' to be a str")
+        pulumi.set(__self__, "route_filter_rule_type", route_filter_rule_type)
+
+    @property
+    @pulumi.getter
+    def access(self) -> str:
         """
         The access type of the rule.
         """
-        if communities and not isinstance(communities, list):
-            raise TypeError("Expected argument 'communities' to be a list")
-        __self__.communities = communities
+        return pulumi.get(self, "access")
+
+    @property
+    @pulumi.getter
+    def communities(self) -> List[str]:
         """
         The collection for bgp community values to filter on. e.g. ['12076:5010','12076:5020'].
         """
-        if etag and not isinstance(etag, str):
-            raise TypeError("Expected argument 'etag' to be a str")
-        __self__.etag = etag
+        return pulumi.get(self, "communities")
+
+    @property
+    @pulumi.getter
+    def etag(self) -> str:
         """
         A unique read-only string that changes whenever the resource is updated.
         """
-        if location and not isinstance(location, str):
-            raise TypeError("Expected argument 'location' to be a str")
-        __self__.location = location
+        return pulumi.get(self, "etag")
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[str]:
         """
         Resource location.
         """
-        if name and not isinstance(name, str):
-            raise TypeError("Expected argument 'name' to be a str")
-        __self__.name = name
+        return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
         """
         The name of the resource that is unique within a resource group. This name can be used to access the resource.
         """
-        if provisioning_state and not isinstance(provisioning_state, str):
-            raise TypeError("Expected argument 'provisioning_state' to be a str")
-        __self__.provisioning_state = provisioning_state
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
         """
         The provisioning state of the route filter rule resource.
         """
-        if route_filter_rule_type and not isinstance(route_filter_rule_type, str):
-            raise TypeError("Expected argument 'route_filter_rule_type' to be a str")
-        __self__.route_filter_rule_type = route_filter_rule_type
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="routeFilterRuleType")
+    def route_filter_rule_type(self) -> str:
         """
         The rule type of the rule.
         """
+        return pulumi.get(self, "route_filter_rule_type")
 
 
 class AwaitableGetRouteFilterRuleResult(GetRouteFilterRuleResult):
@@ -73,7 +114,10 @@ class AwaitableGetRouteFilterRuleResult(GetRouteFilterRuleResult):
             route_filter_rule_type=self.route_filter_rule_type)
 
 
-def get_route_filter_rule(name=None, resource_group_name=None, route_filter_name=None, opts=None):
+def get_route_filter_rule(name: Optional[str] = None,
+                          resource_group_name: Optional[str] = None,
+                          route_filter_name: Optional[str] = None,
+                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetRouteFilterRuleResult:
     """
     Use this data source to access information about an existing resource.
 
@@ -89,13 +133,13 @@ def get_route_filter_rule(name=None, resource_group_name=None, route_filter_name
         opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = _utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('azurerm:network/v20190701:getRouteFilterRule', __args__, opts=opts).value
+    __ret__ = pulumi.runtime.invoke('azurerm:network/v20190701:getRouteFilterRule', __args__, opts=opts, typ=GetRouteFilterRuleResult).value
 
     return AwaitableGetRouteFilterRuleResult(
-        access=__ret__.get('access'),
-        communities=__ret__.get('communities'),
-        etag=__ret__.get('etag'),
-        location=__ret__.get('location'),
-        name=__ret__.get('name'),
-        provisioning_state=__ret__.get('provisioningState'),
-        route_filter_rule_type=__ret__.get('routeFilterRuleType'))
+        access=__ret__.access,
+        communities=__ret__.communities,
+        etag=__ret__.etag,
+        location=__ret__.location,
+        name=__ret__.name,
+        provisioning_state=__ret__.provisioning_state,
+        route_filter_rule_type=__ret__.route_filter_rule_type)

@@ -5,77 +5,36 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+from . import outputs
+from ._inputs import *
+
+__all__ = ['PublicIPPrefix']
 
 
 class PublicIPPrefix(pulumi.CustomResource):
-    etag: pulumi.Output[str]
-    """
-    A unique read-only string that changes whenever the resource is updated.
-    """
-    ip_prefix: pulumi.Output[str]
-    """
-    The allocated Prefix
-    """
-    ip_tags: pulumi.Output[list]
-    """
-    The list of tags associated with the public IP prefix.
-      * `ip_tag_type` (`str`) - Gets or sets the ipTag type: Example FirstPartyUsage.
-      * `tag` (`str`) - Gets or sets value of the IpTag associated with the public IP. Example SQL, Storage etc
-    """
-    load_balancer_frontend_ip_configuration: pulumi.Output[dict]
-    """
-    The reference to load balancer frontend IP configuration associated with the public IP prefix.
-      * `id` (`str`) - Resource ID.
-    """
-    location: pulumi.Output[str]
-    """
-    Resource location.
-    """
-    name: pulumi.Output[str]
-    """
-    Resource name.
-    """
-    prefix_length: pulumi.Output[float]
-    """
-    The Length of the Public IP Prefix.
-    """
-    provisioning_state: pulumi.Output[str]
-    """
-    The provisioning state of the Public IP prefix resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
-    """
-    public_ip_address_version: pulumi.Output[str]
-    """
-    The public IP address version. Possible values are: 'IPv4' and 'IPv6'.
-    """
-    public_ip_addresses: pulumi.Output[list]
-    """
-    The list of all referenced PublicIPAddresses
-      * `id` (`str`) - The PublicIPAddress Reference
-    """
-    resource_guid: pulumi.Output[str]
-    """
-    The resource GUID property of the public IP prefix resource.
-    """
-    sku: pulumi.Output[dict]
-    """
-    The public IP prefix SKU.
-      * `name` (`str`) - Name of a public IP prefix SKU.
-    """
-    tags: pulumi.Output[dict]
-    """
-    Resource tags.
-    """
-    type: pulumi.Output[str]
-    """
-    Resource type.
-    """
-    zones: pulumi.Output[list]
-    """
-    A list of availability zones denoting the IP allocated for the resource needs to come from.
-    """
-    def __init__(__self__, resource_name, opts=None, etag=None, id=None, ip_prefix=None, ip_tags=None, location=None, name=None, prefix_length=None, provisioning_state=None, public_ip_address_version=None, public_ip_addresses=None, resource_group_name=None, resource_guid=None, sku=None, tags=None, zones=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 etag: Optional[pulumi.Input[str]] = None,
+                 id: Optional[pulumi.Input[str]] = None,
+                 ip_prefix: Optional[pulumi.Input[str]] = None,
+                 ip_tags: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['IpTagArgs']]]]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 prefix_length: Optional[pulumi.Input[float]] = None,
+                 provisioning_state: Optional[pulumi.Input[str]] = None,
+                 public_ip_address_version: Optional[pulumi.Input[str]] = None,
+                 public_ip_addresses: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['ReferencedPublicIpAddressArgs']]]]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 resource_guid: Optional[pulumi.Input[str]] = None,
+                 sku: Optional[pulumi.Input[pulumi.InputType['PublicIPPrefixSkuArgs']]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 zones: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         Public IP prefix resource.
 
@@ -84,31 +43,18 @@ class PublicIPPrefix(pulumi.CustomResource):
         :param pulumi.Input[str] etag: A unique read-only string that changes whenever the resource is updated.
         :param pulumi.Input[str] id: Resource ID.
         :param pulumi.Input[str] ip_prefix: The allocated Prefix
-        :param pulumi.Input[list] ip_tags: The list of tags associated with the public IP prefix.
+        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['IpTagArgs']]]] ip_tags: The list of tags associated with the public IP prefix.
         :param pulumi.Input[str] location: Resource location.
         :param pulumi.Input[str] name: The name of the public IP prefix.
         :param pulumi.Input[float] prefix_length: The Length of the Public IP Prefix.
         :param pulumi.Input[str] provisioning_state: The provisioning state of the Public IP prefix resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
         :param pulumi.Input[str] public_ip_address_version: The public IP address version. Possible values are: 'IPv4' and 'IPv6'.
-        :param pulumi.Input[list] public_ip_addresses: The list of all referenced PublicIPAddresses
+        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['ReferencedPublicIpAddressArgs']]]] public_ip_addresses: The list of all referenced PublicIPAddresses
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[str] resource_guid: The resource GUID property of the public IP prefix resource.
-        :param pulumi.Input[dict] sku: The public IP prefix SKU.
-        :param pulumi.Input[dict] tags: Resource tags.
-        :param pulumi.Input[list] zones: A list of availability zones denoting the IP allocated for the resource needs to come from.
-
-        The **ip_tags** object supports the following:
-
-          * `ip_tag_type` (`pulumi.Input[str]`) - Gets or sets the ipTag type: Example FirstPartyUsage.
-          * `tag` (`pulumi.Input[str]`) - Gets or sets value of the IpTag associated with the public IP. Example SQL, Storage etc
-
-        The **public_ip_addresses** object supports the following:
-
-          * `id` (`pulumi.Input[str]`) - The PublicIPAddress Reference
-
-        The **sku** object supports the following:
-
-          * `name` (`pulumi.Input[str]`) - Name of a public IP prefix SKU.
+        :param pulumi.Input[pulumi.InputType['PublicIPPrefixSkuArgs']] sku: The public IP prefix SKU.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
+        :param pulumi.Input[List[pulumi.Input[str]]] zones: A list of availability zones denoting the IP allocated for the resource needs to come from.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -157,13 +103,15 @@ class PublicIPPrefix(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None) -> 'PublicIPPrefix':
         """
         Get an existing PublicIPPrefix resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -172,8 +120,129 @@ class PublicIPPrefix(pulumi.CustomResource):
 
         return PublicIPPrefix(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter
+    def etag(self) -> Optional[str]:
+        """
+        A unique read-only string that changes whenever the resource is updated.
+        """
+        return pulumi.get(self, "etag")
+
+    @property
+    @pulumi.getter(name="ipPrefix")
+    def ip_prefix(self) -> Optional[str]:
+        """
+        The allocated Prefix
+        """
+        return pulumi.get(self, "ip_prefix")
+
+    @property
+    @pulumi.getter(name="ipTags")
+    def ip_tags(self) -> Optional[List['outputs.IpTagResponse']]:
+        """
+        The list of tags associated with the public IP prefix.
+        """
+        return pulumi.get(self, "ip_tags")
+
+    @property
+    @pulumi.getter(name="loadBalancerFrontendIpConfiguration")
+    def load_balancer_frontend_ip_configuration(self) -> 'outputs.SubResourceResponse':
+        """
+        The reference to load balancer frontend IP configuration associated with the public IP prefix.
+        """
+        return pulumi.get(self, "load_balancer_frontend_ip_configuration")
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[str]:
+        """
+        Resource location.
+        """
+        return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Resource name.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="prefixLength")
+    def prefix_length(self) -> Optional[float]:
+        """
+        The Length of the Public IP Prefix.
+        """
+        return pulumi.get(self, "prefix_length")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> Optional[str]:
+        """
+        The provisioning state of the Public IP prefix resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="publicIPAddressVersion")
+    def public_ip_address_version(self) -> Optional[str]:
+        """
+        The public IP address version. Possible values are: 'IPv4' and 'IPv6'.
+        """
+        return pulumi.get(self, "public_ip_address_version")
+
+    @property
+    @pulumi.getter(name="publicIPAddresses")
+    def public_ip_addresses(self) -> Optional[List['outputs.ReferencedPublicIpAddressResponse']]:
+        """
+        The list of all referenced PublicIPAddresses
+        """
+        return pulumi.get(self, "public_ip_addresses")
+
+    @property
+    @pulumi.getter(name="resourceGuid")
+    def resource_guid(self) -> Optional[str]:
+        """
+        The resource GUID property of the public IP prefix resource.
+        """
+        return pulumi.get(self, "resource_guid")
+
+    @property
+    @pulumi.getter
+    def sku(self) -> Optional['outputs.PublicIPPrefixSkuResponse']:
+        """
+        The public IP prefix SKU.
+        """
+        return pulumi.get(self, "sku")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Mapping[str, str]]:
+        """
+        Resource tags.
+        """
+        return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Resource type.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def zones(self) -> Optional[List[str]]:
+        """
+        A list of availability zones denoting the IP allocated for the resource needs to come from.
+        """
+        return pulumi.get(self, "zones")
+
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

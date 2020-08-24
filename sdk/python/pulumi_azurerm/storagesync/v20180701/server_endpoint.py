@@ -5,60 +5,29 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+
+__all__ = ['ServerEndpoint']
 
 
 class ServerEndpoint(pulumi.CustomResource):
-    cloud_tiering: pulumi.Output[str]
-    """
-    Cloud Tiering.
-    """
-    friendly_name: pulumi.Output[str]
-    """
-    Friendly Name
-    """
-    last_operation_name: pulumi.Output[str]
-    """
-    Resource Last Operation Name
-    """
-    last_workflow_id: pulumi.Output[str]
-    """
-    ServerEndpoint lastWorkflowId
-    """
-    name: pulumi.Output[str]
-    """
-    The name of the resource
-    """
-    provisioning_state: pulumi.Output[str]
-    """
-    ServerEndpoint Provisioning State
-    """
-    server_local_path: pulumi.Output[str]
-    """
-    Server Local path.
-    """
-    server_resource_id: pulumi.Output[str]
-    """
-    Server Resource Id.
-    """
-    sync_status: pulumi.Output[dict]
-    """
-    Sync Health Status
-    """
-    tier_files_older_than_days: pulumi.Output[float]
-    """
-    Tier files older than days.
-    """
-    type: pulumi.Output[str]
-    """
-    The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
-    """
-    volume_free_space_percent: pulumi.Output[float]
-    """
-    Level of free space to be maintained by Cloud Tiering if it is enabled.
-    """
-    def __init__(__self__, resource_name, opts=None, cloud_tiering=None, friendly_name=None, name=None, resource_group_name=None, server_local_path=None, server_resource_id=None, storage_sync_service_name=None, sync_group_name=None, tier_files_older_than_days=None, volume_free_space_percent=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 cloud_tiering: Optional[pulumi.Input[str]] = None,
+                 friendly_name: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 server_local_path: Optional[pulumi.Input[str]] = None,
+                 server_resource_id: Optional[pulumi.Input[str]] = None,
+                 storage_sync_service_name: Optional[pulumi.Input[str]] = None,
+                 sync_group_name: Optional[pulumi.Input[str]] = None,
+                 tier_files_older_than_days: Optional[pulumi.Input[float]] = None,
+                 volume_free_space_percent: Optional[pulumi.Input[float]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         Server Endpoint object.
 
@@ -124,13 +93,15 @@ class ServerEndpoint(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None) -> 'ServerEndpoint':
         """
         Get an existing ServerEndpoint resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -139,8 +110,105 @@ class ServerEndpoint(pulumi.CustomResource):
 
         return ServerEndpoint(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter(name="cloudTiering")
+    def cloud_tiering(self) -> Optional[str]:
+        """
+        Cloud Tiering.
+        """
+        return pulumi.get(self, "cloud_tiering")
+
+    @property
+    @pulumi.getter(name="friendlyName")
+    def friendly_name(self) -> Optional[str]:
+        """
+        Friendly Name
+        """
+        return pulumi.get(self, "friendly_name")
+
+    @property
+    @pulumi.getter(name="lastOperationName")
+    def last_operation_name(self) -> Optional[str]:
+        """
+        Resource Last Operation Name
+        """
+        return pulumi.get(self, "last_operation_name")
+
+    @property
+    @pulumi.getter(name="lastWorkflowId")
+    def last_workflow_id(self) -> Optional[str]:
+        """
+        ServerEndpoint lastWorkflowId
+        """
+        return pulumi.get(self, "last_workflow_id")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the resource
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> Optional[str]:
+        """
+        ServerEndpoint Provisioning State
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="serverLocalPath")
+    def server_local_path(self) -> Optional[str]:
+        """
+        Server Local path.
+        """
+        return pulumi.get(self, "server_local_path")
+
+    @property
+    @pulumi.getter(name="serverResourceId")
+    def server_resource_id(self) -> Optional[str]:
+        """
+        Server Resource Id.
+        """
+        return pulumi.get(self, "server_resource_id")
+
+    @property
+    @pulumi.getter(name="syncStatus")
+    def sync_status(self) -> Optional[Mapping[str, Any]]:
+        """
+        Sync Health Status
+        """
+        return pulumi.get(self, "sync_status")
+
+    @property
+    @pulumi.getter(name="tierFilesOlderThanDays")
+    def tier_files_older_than_days(self) -> Optional[float]:
+        """
+        Tier files older than days.
+        """
+        return pulumi.get(self, "tier_files_older_than_days")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="volumeFreeSpacePercent")
+    def volume_free_space_percent(self) -> Optional[float]:
+        """
+        Level of free space to be maintained by Cloud Tiering if it is enabled.
+        """
+        return pulumi.get(self, "volume_free_space_percent")
+
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

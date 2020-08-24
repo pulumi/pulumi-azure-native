@@ -5,56 +5,36 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+from . import outputs
+from ._inputs import *
+
+__all__ = ['SignalRPrivateEndpointConnection']
 
 
 class SignalRPrivateEndpointConnection(pulumi.CustomResource):
-    name: pulumi.Output[str]
-    """
-    The name of the resource.
-    """
-    private_endpoint: pulumi.Output[dict]
-    """
-    Private endpoint associated with the private endpoint connection
-      * `id` (`str`) - Full qualified Id of the private endpoint
-    """
-    private_link_service_connection_state: pulumi.Output[dict]
-    """
-    Connection state
-      * `actions_required` (`str`) - A message indicating if changes on the service provider require any updates on the consumer.
-      * `description` (`str`) - The reason for approval/rejection of the connection.
-      * `status` (`str`) - Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
-    """
-    provisioning_state: pulumi.Output[str]
-    """
-    Provisioning state of the private endpoint connection
-    """
-    type: pulumi.Output[str]
-    """
-    The type of the resource - e.g. "Microsoft.SignalRService/SignalR"
-    """
-    def __init__(__self__, resource_name, opts=None, name=None, private_endpoint=None, private_link_service_connection_state=None, resource_group_name=None, resource_name_=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 private_endpoint: Optional[pulumi.Input[pulumi.InputType['PrivateEndpointArgs']]] = None,
+                 private_link_service_connection_state: Optional[pulumi.Input[pulumi.InputType['PrivateLinkServiceConnectionStateArgs']]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 resource_name_: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         A private endpoint connection to SignalR resource
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] name: The name of the private endpoint connection associated with the SignalR resource.
-        :param pulumi.Input[dict] private_endpoint: Private endpoint associated with the private endpoint connection
-        :param pulumi.Input[dict] private_link_service_connection_state: Connection state
+        :param pulumi.Input[pulumi.InputType['PrivateEndpointArgs']] private_endpoint: Private endpoint associated with the private endpoint connection
+        :param pulumi.Input[pulumi.InputType['PrivateLinkServiceConnectionStateArgs']] private_link_service_connection_state: Connection state
         :param pulumi.Input[str] resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
         :param pulumi.Input[str] resource_name_: The name of the SignalR resource.
-
-        The **private_endpoint** object supports the following:
-
-          * `id` (`pulumi.Input[str]`) - Full qualified Id of the private endpoint
-
-        The **private_link_service_connection_state** object supports the following:
-
-          * `actions_required` (`pulumi.Input[str]`) - A message indicating if changes on the service provider require any updates on the consumer.
-          * `description` (`pulumi.Input[str]`) - The reason for approval/rejection of the connection.
-          * `status` (`pulumi.Input[str]`) - Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -93,13 +73,15 @@ class SignalRPrivateEndpointConnection(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None) -> 'SignalRPrivateEndpointConnection':
         """
         Get an existing SignalRPrivateEndpointConnection resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -108,8 +90,49 @@ class SignalRPrivateEndpointConnection(pulumi.CustomResource):
 
         return SignalRPrivateEndpointConnection(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the resource.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="privateEndpoint")
+    def private_endpoint(self) -> Optional['outputs.PrivateEndpointResponse']:
+        """
+        Private endpoint associated with the private endpoint connection
+        """
+        return pulumi.get(self, "private_endpoint")
+
+    @property
+    @pulumi.getter(name="privateLinkServiceConnectionState")
+    def private_link_service_connection_state(self) -> Optional['outputs.PrivateLinkServiceConnectionStateResponse']:
+        """
+        Connection state
+        """
+        return pulumi.get(self, "private_link_service_connection_state")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        Provisioning state of the private endpoint connection
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        The type of the resource - e.g. "Microsoft.SignalRService/SignalR"
+        """
+        return pulumi.get(self, "type")
+
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

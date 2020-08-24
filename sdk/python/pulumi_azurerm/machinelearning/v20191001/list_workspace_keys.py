@@ -5,10 +5,16 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
 
+__all__ = [
+    'ListWorkspaceKeysResult',
+    'AwaitableListWorkspaceKeysResult',
+    'list_workspace_keys',
+]
 
+@pulumi.output_type
 class ListWorkspaceKeysResult:
     """
     Workspace authorization keys for a workspace.
@@ -16,16 +22,26 @@ class ListWorkspaceKeysResult:
     def __init__(__self__, primary_token=None, secondary_token=None):
         if primary_token and not isinstance(primary_token, str):
             raise TypeError("Expected argument 'primary_token' to be a str")
-        __self__.primary_token = primary_token
+        pulumi.set(__self__, "primary_token", primary_token)
+        if secondary_token and not isinstance(secondary_token, str):
+            raise TypeError("Expected argument 'secondary_token' to be a str")
+        pulumi.set(__self__, "secondary_token", secondary_token)
+
+    @property
+    @pulumi.getter(name="primaryToken")
+    def primary_token(self) -> Optional[str]:
         """
         Primary authorization key for this workspace.
         """
-        if secondary_token and not isinstance(secondary_token, str):
-            raise TypeError("Expected argument 'secondary_token' to be a str")
-        __self__.secondary_token = secondary_token
+        return pulumi.get(self, "primary_token")
+
+    @property
+    @pulumi.getter(name="secondaryToken")
+    def secondary_token(self) -> Optional[str]:
         """
         Secondary authorization key for this workspace.
         """
+        return pulumi.get(self, "secondary_token")
 
 
 class AwaitableListWorkspaceKeysResult(ListWorkspaceKeysResult):
@@ -38,7 +54,9 @@ class AwaitableListWorkspaceKeysResult(ListWorkspaceKeysResult):
             secondary_token=self.secondary_token)
 
 
-def list_workspace_keys(resource_group_name=None, workspace_name=None, opts=None):
+def list_workspace_keys(resource_group_name: Optional[str] = None,
+                        workspace_name: Optional[str] = None,
+                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListWorkspaceKeysResult:
     """
     Use this data source to access information about an existing resource.
 
@@ -52,8 +70,8 @@ def list_workspace_keys(resource_group_name=None, workspace_name=None, opts=None
         opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = _utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('azurerm:machinelearning/v20191001:listWorkspaceKeys', __args__, opts=opts).value
+    __ret__ = pulumi.runtime.invoke('azurerm:machinelearning/v20191001:listWorkspaceKeys', __args__, opts=opts, typ=ListWorkspaceKeysResult).value
 
     return AwaitableListWorkspaceKeysResult(
-        primary_token=__ret__.get('primaryToken'),
-        secondary_token=__ret__.get('secondaryToken'))
+        primary_token=__ret__.primary_token,
+        secondary_token=__ret__.secondary_token)

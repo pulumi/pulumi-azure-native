@@ -5,61 +5,31 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+from . import outputs
+from ._inputs import *
+
+__all__ = ['LiveOutput']
 
 
 class LiveOutput(pulumi.CustomResource):
-    archive_window_length: pulumi.Output[str]
-    """
-    ISO 8601 timespan duration of the archive window length. This is duration that customer want to retain the recorded content.
-    """
-    asset_name: pulumi.Output[str]
-    """
-    The asset name.
-    """
-    created: pulumi.Output[str]
-    """
-    The exact time the Live Output was created.
-    """
-    description: pulumi.Output[str]
-    """
-    The description of the Live Output.
-    """
-    hls: pulumi.Output[dict]
-    """
-    The HLS configuration.
-      * `fragments_per_ts_segment` (`float`) - The amount of fragments per HTTP Live Streaming (HLS) segment.
-    """
-    last_modified: pulumi.Output[str]
-    """
-    The exact time the Live Output was last modified.
-    """
-    manifest_name: pulumi.Output[str]
-    """
-    The manifest file name.  If not provided, the service will generate one automatically.
-    """
-    name: pulumi.Output[str]
-    """
-    The name of the resource.
-    """
-    output_snap_time: pulumi.Output[float]
-    """
-    The output snapshot time.
-    """
-    provisioning_state: pulumi.Output[str]
-    """
-    The provisioning state of the Live Output.
-    """
-    resource_state: pulumi.Output[str]
-    """
-    The resource state of the Live Output.
-    """
-    type: pulumi.Output[str]
-    """
-    The type of the resource.
-    """
-    def __init__(__self__, resource_name, opts=None, account_name=None, archive_window_length=None, asset_name=None, description=None, hls=None, live_event_name=None, manifest_name=None, name=None, output_snap_time=None, resource_group_name=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 account_name: Optional[pulumi.Input[str]] = None,
+                 archive_window_length: Optional[pulumi.Input[str]] = None,
+                 asset_name: Optional[pulumi.Input[str]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 hls: Optional[pulumi.Input[pulumi.InputType['HlsArgs']]] = None,
+                 live_event_name: Optional[pulumi.Input[str]] = None,
+                 manifest_name: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 output_snap_time: Optional[pulumi.Input[float]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         The Live Output.
 
@@ -69,16 +39,12 @@ class LiveOutput(pulumi.CustomResource):
         :param pulumi.Input[str] archive_window_length: ISO 8601 timespan duration of the archive window length. This is duration that customer want to retain the recorded content.
         :param pulumi.Input[str] asset_name: The asset name.
         :param pulumi.Input[str] description: The description of the Live Output.
-        :param pulumi.Input[dict] hls: The HLS configuration.
+        :param pulumi.Input[pulumi.InputType['HlsArgs']] hls: The HLS configuration.
         :param pulumi.Input[str] live_event_name: The name of the Live Event.
         :param pulumi.Input[str] manifest_name: The manifest file name.  If not provided, the service will generate one automatically.
         :param pulumi.Input[str] name: The name of the Live Output.
         :param pulumi.Input[float] output_snap_time: The output snapshot time.
         :param pulumi.Input[str] resource_group_name: The name of the resource group within the Azure subscription.
-
-        The **hls** object supports the following:
-
-          * `fragments_per_ts_segment` (`pulumi.Input[float]`) - The amount of fragments per HTTP Live Streaming (HLS) segment.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -133,13 +99,15 @@ class LiveOutput(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None) -> 'LiveOutput':
         """
         Get an existing LiveOutput resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -148,8 +116,105 @@ class LiveOutput(pulumi.CustomResource):
 
         return LiveOutput(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter(name="archiveWindowLength")
+    def archive_window_length(self) -> str:
+        """
+        ISO 8601 timespan duration of the archive window length. This is duration that customer want to retain the recorded content.
+        """
+        return pulumi.get(self, "archive_window_length")
+
+    @property
+    @pulumi.getter(name="assetName")
+    def asset_name(self) -> str:
+        """
+        The asset name.
+        """
+        return pulumi.get(self, "asset_name")
+
+    @property
+    @pulumi.getter
+    def created(self) -> str:
+        """
+        The exact time the Live Output was created.
+        """
+        return pulumi.get(self, "created")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        """
+        The description of the Live Output.
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def hls(self) -> Optional['outputs.HlsResponse']:
+        """
+        The HLS configuration.
+        """
+        return pulumi.get(self, "hls")
+
+    @property
+    @pulumi.getter(name="lastModified")
+    def last_modified(self) -> str:
+        """
+        The exact time the Live Output was last modified.
+        """
+        return pulumi.get(self, "last_modified")
+
+    @property
+    @pulumi.getter(name="manifestName")
+    def manifest_name(self) -> Optional[str]:
+        """
+        The manifest file name.  If not provided, the service will generate one automatically.
+        """
+        return pulumi.get(self, "manifest_name")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the resource.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="outputSnapTime")
+    def output_snap_time(self) -> Optional[float]:
+        """
+        The output snapshot time.
+        """
+        return pulumi.get(self, "output_snap_time")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        The provisioning state of the Live Output.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="resourceState")
+    def resource_state(self) -> str:
+        """
+        The resource state of the Live Output.
+        """
+        return pulumi.get(self, "resource_state")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        The type of the resource.
+        """
+        return pulumi.get(self, "type")
+
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

@@ -5,52 +5,30 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+
+__all__ = ['FileShare']
 
 
 class FileShare(pulumi.CustomResource):
-    admin_user: pulumi.Output[str]
-    """
-    The user/group who will have full permission in this share. Active directory email address. Example: xyz@contoso.com or Contoso\\xyz.
-    """
-    data_policy: pulumi.Output[str]
-    """
-    The data policy
-    """
-    description: pulumi.Output[str]
-    """
-    Description for file share
-    """
-    local_used_capacity_in_bytes: pulumi.Output[float]
-    """
-    The local used capacity in Bytes.
-    """
-    monitoring_status: pulumi.Output[str]
-    """
-    The monitoring status
-    """
-    name: pulumi.Output[str]
-    """
-    The name.
-    """
-    provisioned_capacity_in_bytes: pulumi.Output[float]
-    """
-    The total provisioned capacity in Bytes
-    """
-    share_status: pulumi.Output[str]
-    """
-    The Share Status
-    """
-    type: pulumi.Output[str]
-    """
-    The type.
-    """
-    used_capacity_in_bytes: pulumi.Output[float]
-    """
-    The used capacity in Bytes.
-    """
-    def __init__(__self__, resource_name, opts=None, admin_user=None, data_policy=None, description=None, device_name=None, file_server_name=None, manager_name=None, monitoring_status=None, name=None, provisioned_capacity_in_bytes=None, resource_group_name=None, share_status=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 admin_user: Optional[pulumi.Input[str]] = None,
+                 data_policy: Optional[pulumi.Input[str]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 device_name: Optional[pulumi.Input[str]] = None,
+                 file_server_name: Optional[pulumi.Input[str]] = None,
+                 manager_name: Optional[pulumi.Input[str]] = None,
+                 monitoring_status: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 provisioned_capacity_in_bytes: Optional[pulumi.Input[float]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 share_status: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         The File Share.
 
@@ -126,13 +104,15 @@ class FileShare(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None) -> 'FileShare':
         """
         Get an existing FileShare resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -141,8 +121,89 @@ class FileShare(pulumi.CustomResource):
 
         return FileShare(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter(name="adminUser")
+    def admin_user(self) -> str:
+        """
+        The user/group who will have full permission in this share. Active directory email address. Example: xyz@contoso.com or Contoso\\xyz.
+        """
+        return pulumi.get(self, "admin_user")
+
+    @property
+    @pulumi.getter(name="dataPolicy")
+    def data_policy(self) -> str:
+        """
+        The data policy
+        """
+        return pulumi.get(self, "data_policy")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        """
+        Description for file share
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="localUsedCapacityInBytes")
+    def local_used_capacity_in_bytes(self) -> float:
+        """
+        The local used capacity in Bytes.
+        """
+        return pulumi.get(self, "local_used_capacity_in_bytes")
+
+    @property
+    @pulumi.getter(name="monitoringStatus")
+    def monitoring_status(self) -> str:
+        """
+        The monitoring status
+        """
+        return pulumi.get(self, "monitoring_status")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="provisionedCapacityInBytes")
+    def provisioned_capacity_in_bytes(self) -> float:
+        """
+        The total provisioned capacity in Bytes
+        """
+        return pulumi.get(self, "provisioned_capacity_in_bytes")
+
+    @property
+    @pulumi.getter(name="shareStatus")
+    def share_status(self) -> str:
+        """
+        The Share Status
+        """
+        return pulumi.get(self, "share_status")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        The type.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="usedCapacityInBytes")
+    def used_capacity_in_bytes(self) -> float:
+        """
+        The used capacity in Bytes.
+        """
+        return pulumi.get(self, "used_capacity_in_bytes")
+
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

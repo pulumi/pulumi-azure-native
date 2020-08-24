@@ -5,57 +5,30 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+
+__all__ = ['WebAppHybridConnection']
 
 
 class WebAppHybridConnection(pulumi.CustomResource):
-    hostname: pulumi.Output[str]
-    """
-    The hostname of the endpoint.
-    """
-    kind: pulumi.Output[str]
-    """
-    Kind of resource.
-    """
-    name: pulumi.Output[str]
-    """
-    Resource Name.
-    """
-    port: pulumi.Output[float]
-    """
-    The port of the endpoint.
-    """
-    relay_arm_uri: pulumi.Output[str]
-    """
-    The ARM URI to the Service Bus relay.
-    """
-    relay_name: pulumi.Output[str]
-    """
-    The name of the Service Bus relay.
-    """
-    send_key_name: pulumi.Output[str]
-    """
-    The name of the Service Bus key which has Send permissions. This is used to authenticate to Service Bus.
-    """
-    send_key_value: pulumi.Output[str]
-    """
-    The value of the Service Bus key. This is used to authenticate to Service Bus. In ARM this key will not be returned
-    normally, use the POST /listKeys API instead.
-    """
-    service_bus_namespace: pulumi.Output[str]
-    """
-    The name of the Service Bus namespace.
-    """
-    service_bus_suffix: pulumi.Output[str]
-    """
-    The suffix for the service bus endpoint. By default this is .servicebus.windows.net
-    """
-    type: pulumi.Output[str]
-    """
-    Resource type.
-    """
-    def __init__(__self__, resource_name, opts=None, hostname=None, kind=None, name=None, namespace_name=None, port=None, relay_arm_uri=None, resource_group_name=None, send_key_name=None, send_key_value=None, service_bus_namespace=None, service_bus_suffix=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 hostname: Optional[pulumi.Input[str]] = None,
+                 kind: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 namespace_name: Optional[pulumi.Input[str]] = None,
+                 port: Optional[pulumi.Input[float]] = None,
+                 relay_arm_uri: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 send_key_name: Optional[pulumi.Input[str]] = None,
+                 send_key_value: Optional[pulumi.Input[str]] = None,
+                 service_bus_namespace: Optional[pulumi.Input[str]] = None,
+                 service_bus_suffix: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         Hybrid Connection contract. This is used to configure a Hybrid Connection.
 
@@ -119,13 +92,15 @@ class WebAppHybridConnection(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None) -> 'WebAppHybridConnection':
         """
         Get an existing WebAppHybridConnection resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -134,8 +109,98 @@ class WebAppHybridConnection(pulumi.CustomResource):
 
         return WebAppHybridConnection(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter
+    def hostname(self) -> Optional[str]:
+        """
+        The hostname of the endpoint.
+        """
+        return pulumi.get(self, "hostname")
+
+    @property
+    @pulumi.getter
+    def kind(self) -> Optional[str]:
+        """
+        Kind of resource.
+        """
+        return pulumi.get(self, "kind")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Resource Name.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def port(self) -> Optional[float]:
+        """
+        The port of the endpoint.
+        """
+        return pulumi.get(self, "port")
+
+    @property
+    @pulumi.getter(name="relayArmUri")
+    def relay_arm_uri(self) -> Optional[str]:
+        """
+        The ARM URI to the Service Bus relay.
+        """
+        return pulumi.get(self, "relay_arm_uri")
+
+    @property
+    @pulumi.getter(name="relayName")
+    def relay_name(self) -> Optional[str]:
+        """
+        The name of the Service Bus relay.
+        """
+        return pulumi.get(self, "relay_name")
+
+    @property
+    @pulumi.getter(name="sendKeyName")
+    def send_key_name(self) -> Optional[str]:
+        """
+        The name of the Service Bus key which has Send permissions. This is used to authenticate to Service Bus.
+        """
+        return pulumi.get(self, "send_key_name")
+
+    @property
+    @pulumi.getter(name="sendKeyValue")
+    def send_key_value(self) -> Optional[str]:
+        """
+        The value of the Service Bus key. This is used to authenticate to Service Bus. In ARM this key will not be returned
+        normally, use the POST /listKeys API instead.
+        """
+        return pulumi.get(self, "send_key_value")
+
+    @property
+    @pulumi.getter(name="serviceBusNamespace")
+    def service_bus_namespace(self) -> Optional[str]:
+        """
+        The name of the Service Bus namespace.
+        """
+        return pulumi.get(self, "service_bus_namespace")
+
+    @property
+    @pulumi.getter(name="serviceBusSuffix")
+    def service_bus_suffix(self) -> Optional[str]:
+        """
+        The suffix for the service bus endpoint. By default this is .servicebus.windows.net
+        """
+        return pulumi.get(self, "service_bus_suffix")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Resource type.
+        """
+        return pulumi.get(self, "type")
+
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

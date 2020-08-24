@@ -15,3 +15,5 @@ from .peering_service import *
 from .prefix import *
 from .registered_asn import *
 from .registered_prefix import *
+from ._inputs import *
+from . import outputs

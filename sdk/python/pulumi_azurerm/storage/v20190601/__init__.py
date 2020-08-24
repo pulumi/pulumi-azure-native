@@ -22,3 +22,5 @@ from .private_endpoint_connection import *
 from .queue import *
 from .storage_account import *
 from .table import *
+from ._inputs import *
+from . import outputs

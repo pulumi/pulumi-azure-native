@@ -6,3 +6,5 @@
 from .get_managed_cluster import *
 from .list_managed_cluster_access_profile import *
 from .managed_cluster import *
+from ._inputs import *
+from . import outputs

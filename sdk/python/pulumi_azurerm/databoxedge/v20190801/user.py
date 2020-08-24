@@ -5,59 +5,38 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+from . import outputs
+from ._inputs import *
+
+__all__ = ['User']
 
 
 class User(pulumi.CustomResource):
-    encrypted_password: pulumi.Output[dict]
-    """
-    The password details.
-      * `encryption_algorithm` (`str`) - The algorithm used to encrypt "Value".
-      * `encryption_cert_thumbprint` (`str`) - Thumbprint certificate used to encrypt \"Value\". If the value is unencrypted, it will be null.
-      * `value` (`str`) - The value of the secret.
-    """
-    name: pulumi.Output[str]
-    """
-    The object name.
-    """
-    share_access_rights: pulumi.Output[list]
-    """
-    List of shares that the user has rights on. This field should not be specified during user creation.
-      * `access_type` (`str`) - Type of access to be allowed on the share for this user.
-      * `share_id` (`str`) - The share ID.
-    """
-    type: pulumi.Output[str]
-    """
-    The hierarchical type of the object.
-    """
-    user_type: pulumi.Output[str]
-    """
-    Type of the user.
-    """
-    def __init__(__self__, resource_name, opts=None, device_name=None, encrypted_password=None, name=None, resource_group_name=None, share_access_rights=None, user_type=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 device_name: Optional[pulumi.Input[str]] = None,
+                 encrypted_password: Optional[pulumi.Input[pulumi.InputType['AsymmetricEncryptedSecretArgs']]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 share_access_rights: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['ShareAccessRightArgs']]]]] = None,
+                 user_type: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         Represents a user who has access to one or more shares on the Data Box Edge/Gateway device.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] device_name: The device name.
-        :param pulumi.Input[dict] encrypted_password: The password details.
+        :param pulumi.Input[pulumi.InputType['AsymmetricEncryptedSecretArgs']] encrypted_password: The password details.
         :param pulumi.Input[str] name: The user name.
         :param pulumi.Input[str] resource_group_name: The resource group name.
-        :param pulumi.Input[list] share_access_rights: List of shares that the user has rights on. This field should not be specified during user creation.
+        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['ShareAccessRightArgs']]]] share_access_rights: List of shares that the user has rights on. This field should not be specified during user creation.
         :param pulumi.Input[str] user_type: Type of the user.
-
-        The **encrypted_password** object supports the following:
-
-          * `encryption_algorithm` (`pulumi.Input[str]`) - The algorithm used to encrypt "Value".
-          * `encryption_cert_thumbprint` (`pulumi.Input[str]`) - Thumbprint certificate used to encrypt \"Value\". If the value is unencrypted, it will be null.
-          * `value` (`pulumi.Input[str]`) - The value of the secret.
-
-        The **share_access_rights** object supports the following:
-
-          * `access_type` (`pulumi.Input[str]`) - Type of access to be allowed on the share for this user.
-          * `share_id` (`pulumi.Input[str]`) - The share ID.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -100,13 +79,15 @@ class User(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None) -> 'User':
         """
         Get an existing User resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -115,8 +96,49 @@ class User(pulumi.CustomResource):
 
         return User(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter(name="encryptedPassword")
+    def encrypted_password(self) -> Optional['outputs.AsymmetricEncryptedSecretResponse']:
+        """
+        The password details.
+        """
+        return pulumi.get(self, "encrypted_password")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The object name.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="shareAccessRights")
+    def share_access_rights(self) -> Optional[List['outputs.ShareAccessRightResponse']]:
+        """
+        List of shares that the user has rights on. This field should not be specified during user creation.
+        """
+        return pulumi.get(self, "share_access_rights")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        The hierarchical type of the object.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="userType")
+    def user_type(self) -> str:
+        """
+        Type of the user.
+        """
+        return pulumi.get(self, "user_type")
+
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

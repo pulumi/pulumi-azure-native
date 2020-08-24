@@ -5,48 +5,27 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+from . import outputs
+from ._inputs import *
+
+__all__ = ['Project']
 
 
 class Project(pulumi.CustomResource):
-    e_tag: pulumi.Output[str]
-    """
-    For optimistic concurrency control.
-    """
-    location: pulumi.Output[str]
-    """
-    Azure location in which project is created.
-    """
-    name: pulumi.Output[str]
-    """
-    Name of the project.
-    """
-    properties: pulumi.Output[dict]
-    """
-    Properties of the project.
-      * `assessment_solution_id` (`str`) - Assessment solution ARM id tracked by Microsoft.Migrate/migrateProjects.
-      * `created_timestamp` (`str`) - Time when this project was created. Date-Time represented in ISO-8601 format.
-      * `customer_workspace_id` (`str`) - The ARM id of service map workspace created by customer.
-      * `customer_workspace_location` (`str`) - Location of service map workspace created by customer.
-      * `last_assessment_timestamp` (`str`) - Time when last assessment was created. Date-Time represented in ISO-8601 format. This value will be null until assessment is created.
-      * `number_of_assessments` (`float`) - Number of assessments created in the project.
-      * `number_of_groups` (`float`) - Number of groups created in the project.
-      * `number_of_machines` (`float`) - Number of machines in the project.
-      * `project_status` (`str`) - Assessment project status.
-      * `provisioning_state` (`str`) - Provisioning state of the project.
-      * `service_endpoint` (`str`) - Endpoint at which the collector agent can call agent REST API.
-      * `updated_timestamp` (`str`) - Time when this project was last updated. Date-Time represented in ISO-8601 format.
-    """
-    tags: pulumi.Output[dict]
-    """
-    Tags provided by Azure Tagging service.
-    """
-    type: pulumi.Output[str]
-    """
-    Type of the object = [Microsoft.Migrate/assessmentProjects].
-    """
-    def __init__(__self__, resource_name, opts=None, e_tag=None, location=None, name=None, properties=None, resource_group_name=None, tags=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 e_tag: Optional[pulumi.Input[str]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 properties: Optional[pulumi.Input[pulumi.InputType['ProjectPropertiesArgs']]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         Azure Migrate Project.
 
@@ -55,16 +34,9 @@ class Project(pulumi.CustomResource):
         :param pulumi.Input[str] e_tag: For optimistic concurrency control.
         :param pulumi.Input[str] location: Azure location in which project is created.
         :param pulumi.Input[str] name: Name of the Azure Migrate project.
-        :param pulumi.Input[dict] properties: Properties of the project.
+        :param pulumi.Input[pulumi.InputType['ProjectPropertiesArgs']] properties: Properties of the project.
         :param pulumi.Input[str] resource_group_name: Name of the Azure Resource Group that project is part of.
-        :param pulumi.Input[dict] tags: Tags provided by Azure Tagging service.
-
-        The **properties** object supports the following:
-
-          * `assessment_solution_id` (`pulumi.Input[str]`) - Assessment solution ARM id tracked by Microsoft.Migrate/migrateProjects.
-          * `customer_workspace_id` (`pulumi.Input[str]`) - The ARM id of service map workspace created by customer.
-          * `customer_workspace_location` (`pulumi.Input[str]`) - Location of service map workspace created by customer.
-          * `project_status` (`pulumi.Input[str]`) - Assessment project status.
+        :param pulumi.Input[Mapping[str, Any]] tags: Tags provided by Azure Tagging service.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -101,13 +73,15 @@ class Project(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None) -> 'Project':
         """
         Get an existing Project resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -116,8 +90,57 @@ class Project(pulumi.CustomResource):
 
         return Project(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter(name="eTag")
+    def e_tag(self) -> Optional[str]:
+        """
+        For optimistic concurrency control.
+        """
+        return pulumi.get(self, "e_tag")
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[str]:
+        """
+        Azure location in which project is created.
+        """
+        return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Name of the project.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def properties(self) -> 'outputs.ProjectPropertiesResponse':
+        """
+        Properties of the project.
+        """
+        return pulumi.get(self, "properties")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Mapping[str, Any]]:
+        """
+        Tags provided by Azure Tagging service.
+        """
+        return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Type of the object = [Microsoft.Migrate/assessmentProjects].
+        """
+        return pulumi.get(self, "type")
+
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

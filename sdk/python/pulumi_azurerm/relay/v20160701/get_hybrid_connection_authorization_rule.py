@@ -5,10 +5,16 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
 
+__all__ = [
+    'GetHybridConnectionAuthorizationRuleResult',
+    'AwaitableGetHybridConnectionAuthorizationRuleResult',
+    'get_hybrid_connection_authorization_rule',
+]
 
+@pulumi.output_type
 class GetHybridConnectionAuthorizationRuleResult:
     """
     Description of a Namespace AuthorizationRules.
@@ -16,22 +22,37 @@ class GetHybridConnectionAuthorizationRuleResult:
     def __init__(__self__, name=None, rights=None, type=None):
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
-        __self__.name = name
+        pulumi.set(__self__, "name", name)
+        if rights and not isinstance(rights, list):
+            raise TypeError("Expected argument 'rights' to be a list")
+        pulumi.set(__self__, "rights", rights)
+        if type and not isinstance(type, str):
+            raise TypeError("Expected argument 'type' to be a str")
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
         """
         Resource name
         """
-        if rights and not isinstance(rights, list):
-            raise TypeError("Expected argument 'rights' to be a list")
-        __self__.rights = rights
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def rights(self) -> List[str]:
         """
         The rights associated with the rule.
         """
-        if type and not isinstance(type, str):
-            raise TypeError("Expected argument 'type' to be a str")
-        __self__.type = type
+        return pulumi.get(self, "rights")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
         """
         Resource type
         """
+        return pulumi.get(self, "type")
 
 
 class AwaitableGetHybridConnectionAuthorizationRuleResult(GetHybridConnectionAuthorizationRuleResult):
@@ -45,7 +66,11 @@ class AwaitableGetHybridConnectionAuthorizationRuleResult(GetHybridConnectionAut
             type=self.type)
 
 
-def get_hybrid_connection_authorization_rule(hybrid_connection_name=None, name=None, namespace_name=None, resource_group_name=None, opts=None):
+def get_hybrid_connection_authorization_rule(hybrid_connection_name: Optional[str] = None,
+                                             name: Optional[str] = None,
+                                             namespace_name: Optional[str] = None,
+                                             resource_group_name: Optional[str] = None,
+                                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetHybridConnectionAuthorizationRuleResult:
     """
     Use this data source to access information about an existing resource.
 
@@ -63,9 +88,9 @@ def get_hybrid_connection_authorization_rule(hybrid_connection_name=None, name=N
         opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = _utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('azurerm:relay/v20160701:getHybridConnectionAuthorizationRule', __args__, opts=opts).value
+    __ret__ = pulumi.runtime.invoke('azurerm:relay/v20160701:getHybridConnectionAuthorizationRule', __args__, opts=opts, typ=GetHybridConnectionAuthorizationRuleResult).value
 
     return AwaitableGetHybridConnectionAuthorizationRuleResult(
-        name=__ret__.get('name'),
-        rights=__ret__.get('rights'),
-        type=__ret__.get('type'))
+        name=__ret__.name,
+        rights=__ret__.rights,
+        type=__ret__.type)

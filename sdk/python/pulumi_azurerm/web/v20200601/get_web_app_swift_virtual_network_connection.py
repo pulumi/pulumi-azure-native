@@ -5,10 +5,16 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
 
+__all__ = [
+    'GetWebAppSwiftVirtualNetworkConnectionResult',
+    'AwaitableGetWebAppSwiftVirtualNetworkConnectionResult',
+    'get_web_app_swift_virtual_network_connection',
+]
 
+@pulumi.output_type
 class GetWebAppSwiftVirtualNetworkConnectionResult:
     """
     Swift Virtual Network Contract. This is used to enable the new Swift way of doing virtual network integration.
@@ -16,34 +22,59 @@ class GetWebAppSwiftVirtualNetworkConnectionResult:
     def __init__(__self__, kind=None, name=None, subnet_resource_id=None, swift_supported=None, type=None):
         if kind and not isinstance(kind, str):
             raise TypeError("Expected argument 'kind' to be a str")
-        __self__.kind = kind
+        pulumi.set(__self__, "kind", kind)
+        if name and not isinstance(name, str):
+            raise TypeError("Expected argument 'name' to be a str")
+        pulumi.set(__self__, "name", name)
+        if subnet_resource_id and not isinstance(subnet_resource_id, str):
+            raise TypeError("Expected argument 'subnet_resource_id' to be a str")
+        pulumi.set(__self__, "subnet_resource_id", subnet_resource_id)
+        if swift_supported and not isinstance(swift_supported, bool):
+            raise TypeError("Expected argument 'swift_supported' to be a bool")
+        pulumi.set(__self__, "swift_supported", swift_supported)
+        if type and not isinstance(type, str):
+            raise TypeError("Expected argument 'type' to be a str")
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def kind(self) -> Optional[str]:
         """
         Kind of resource.
         """
-        if name and not isinstance(name, str):
-            raise TypeError("Expected argument 'name' to be a str")
-        __self__.name = name
+        return pulumi.get(self, "kind")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
         """
         Resource Name.
         """
-        if subnet_resource_id and not isinstance(subnet_resource_id, str):
-            raise TypeError("Expected argument 'subnet_resource_id' to be a str")
-        __self__.subnet_resource_id = subnet_resource_id
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="subnetResourceId")
+    def subnet_resource_id(self) -> Optional[str]:
         """
         The Virtual Network subnet's resource ID. This is the subnet that this Web App will join. This subnet must have a delegation to Microsoft.Web/serverFarms defined first.
         """
-        if swift_supported and not isinstance(swift_supported, bool):
-            raise TypeError("Expected argument 'swift_supported' to be a bool")
-        __self__.swift_supported = swift_supported
+        return pulumi.get(self, "subnet_resource_id")
+
+    @property
+    @pulumi.getter(name="swiftSupported")
+    def swift_supported(self) -> Optional[bool]:
         """
         A flag that specifies if the scale unit this Web App is on supports Swift integration.
         """
-        if type and not isinstance(type, str):
-            raise TypeError("Expected argument 'type' to be a str")
-        __self__.type = type
+        return pulumi.get(self, "swift_supported")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
         """
         Resource type.
         """
+        return pulumi.get(self, "type")
 
 
 class AwaitableGetWebAppSwiftVirtualNetworkConnectionResult(GetWebAppSwiftVirtualNetworkConnectionResult):
@@ -59,7 +90,9 @@ class AwaitableGetWebAppSwiftVirtualNetworkConnectionResult(GetWebAppSwiftVirtua
             type=self.type)
 
 
-def get_web_app_swift_virtual_network_connection(name=None, resource_group_name=None, opts=None):
+def get_web_app_swift_virtual_network_connection(name: Optional[str] = None,
+                                                 resource_group_name: Optional[str] = None,
+                                                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetWebAppSwiftVirtualNetworkConnectionResult:
     """
     Use this data source to access information about an existing resource.
 
@@ -73,11 +106,11 @@ def get_web_app_swift_virtual_network_connection(name=None, resource_group_name=
         opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = _utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('azurerm:web/v20200601:getWebAppSwiftVirtualNetworkConnection', __args__, opts=opts).value
+    __ret__ = pulumi.runtime.invoke('azurerm:web/v20200601:getWebAppSwiftVirtualNetworkConnection', __args__, opts=opts, typ=GetWebAppSwiftVirtualNetworkConnectionResult).value
 
     return AwaitableGetWebAppSwiftVirtualNetworkConnectionResult(
-        kind=__ret__.get('kind'),
-        name=__ret__.get('name'),
-        subnet_resource_id=__ret__.get('subnetResourceId'),
-        swift_supported=__ret__.get('swiftSupported'),
-        type=__ret__.get('type'))
+        kind=__ret__.kind,
+        name=__ret__.name,
+        subnet_resource_id=__ret__.subnet_resource_id,
+        swift_supported=__ret__.swift_supported,
+        type=__ret__.type)

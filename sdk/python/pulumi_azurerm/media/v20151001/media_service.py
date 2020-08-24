@@ -5,40 +5,26 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+from . import outputs
+from ._inputs import *
+
+__all__ = ['MediaService']
 
 
 class MediaService(pulumi.CustomResource):
-    api_endpoints: pulumi.Output[list]
-    """
-    Read-only property that lists the Media Services REST API endpoints for this resource. If supplied on a PUT or PATCH, the value will be ignored.
-      * `endpoint` (`str`) - The Media Services REST endpoint.
-      * `major_version` (`str`) - The version of Media Services REST API.
-    """
-    location: pulumi.Output[str]
-    """
-    The geographic location of the resource. This must be one of the supported and registered Azure Geo Regions (for example, West US, East US, Southeast Asia, and so forth).
-    """
-    name: pulumi.Output[str]
-    """
-    The name of the resource.
-    """
-    storage_accounts: pulumi.Output[list]
-    """
-    The storage accounts for this resource.
-      * `id` (`str`) - The id of the storage account resource. Media Services relies on tables and queues as well as blobs, so the primary storage account must be a Standard Storage account (either Microsoft.ClassicStorage or Microsoft.Storage). Blob only storage accounts can be added as secondary storage accounts (isPrimary false).
-      * `is_primary` (`bool`) - Is this storage account resource the primary storage account for the Media Service resource. Blob only storage must set this to false.
-    """
-    tags: pulumi.Output[dict]
-    """
-    Tags to help categorize the resource in the Azure portal.
-    """
-    type: pulumi.Output[str]
-    """
-    The type of the resource
-    """
-    def __init__(__self__, resource_name, opts=None, location=None, name=None, resource_group_name=None, storage_accounts=None, tags=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 storage_accounts: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['StorageAccountArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         The properties of a Media Service resource.
 
@@ -47,13 +33,8 @@ class MediaService(pulumi.CustomResource):
         :param pulumi.Input[str] location: The geographic location of the resource. This must be one of the supported and registered Azure Geo Regions (for example, West US, East US, Southeast Asia, and so forth).
         :param pulumi.Input[str] name: Name of the Media Service.
         :param pulumi.Input[str] resource_group_name: Name of the resource group within the Azure subscription.
-        :param pulumi.Input[list] storage_accounts: The storage accounts for this resource.
-        :param pulumi.Input[dict] tags: Tags to help categorize the resource in the Azure portal.
-
-        The **storage_accounts** object supports the following:
-
-          * `id` (`pulumi.Input[str]`) - The id of the storage account resource. Media Services relies on tables and queues as well as blobs, so the primary storage account must be a Standard Storage account (either Microsoft.ClassicStorage or Microsoft.Storage). Blob only storage accounts can be added as secondary storage accounts (isPrimary false).
-          * `is_primary` (`pulumi.Input[bool]`) - Is this storage account resource the primary storage account for the Media Service resource. Blob only storage must set this to false.
+        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['StorageAccountArgs']]]] storage_accounts: The storage accounts for this resource.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Tags to help categorize the resource in the Azure portal.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -90,13 +71,15 @@ class MediaService(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None) -> 'MediaService':
         """
         Get an existing MediaService resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -105,8 +88,57 @@ class MediaService(pulumi.CustomResource):
 
         return MediaService(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter(name="apiEndpoints")
+    def api_endpoints(self) -> List['outputs.ApiEndpointResponse']:
+        """
+        Read-only property that lists the Media Services REST API endpoints for this resource. If supplied on a PUT or PATCH, the value will be ignored.
+        """
+        return pulumi.get(self, "api_endpoints")
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[str]:
+        """
+        The geographic location of the resource. This must be one of the supported and registered Azure Geo Regions (for example, West US, East US, Southeast Asia, and so forth).
+        """
+        return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the resource.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="storageAccounts")
+    def storage_accounts(self) -> Optional[List['outputs.StorageAccountResponse']]:
+        """
+        The storage accounts for this resource.
+        """
+        return pulumi.get(self, "storage_accounts")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Mapping[str, str]]:
+        """
+        Tags to help categorize the resource in the Azure portal.
+        """
+        return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        The type of the resource
+        """
+        return pulumi.get(self, "type")
+
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

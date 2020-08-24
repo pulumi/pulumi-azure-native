@@ -5,68 +5,40 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+
+__all__ = ['WebAppInstanceFunctionSlot']
 
 
 class WebAppInstanceFunctionSlot(pulumi.CustomResource):
-    config: pulumi.Output[dict]
-    """
-    Config information.
-    """
-    config_href: pulumi.Output[str]
-    """
-    Config URI.
-    """
-    files: pulumi.Output[dict]
-    """
-    File list.
-    """
-    function_app_id: pulumi.Output[str]
-    """
-    Function App ID.
-    """
-    href: pulumi.Output[str]
-    """
-    Function URI.
-    """
-    kind: pulumi.Output[str]
-    """
-    Kind of resource.
-    """
-    name: pulumi.Output[str]
-    """
-    Resource Name.
-    """
-    script_href: pulumi.Output[str]
-    """
-    Script URI.
-    """
-    script_root_path_href: pulumi.Output[str]
-    """
-    Script root path URI.
-    """
-    secrets_file_href: pulumi.Output[str]
-    """
-    Secrets file URI.
-    """
-    test_data: pulumi.Output[str]
-    """
-    Test data used when testing via the Azure Portal.
-    """
-    type: pulumi.Output[str]
-    """
-    Resource type.
-    """
-    def __init__(__self__, resource_name, opts=None, config=None, config_href=None, files=None, function_app_id=None, href=None, kind=None, name=None, resource_group_name=None, script_href=None, script_root_path_href=None, secrets_file_href=None, slot=None, test_data=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 config: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 config_href: Optional[pulumi.Input[str]] = None,
+                 files: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 function_app_id: Optional[pulumi.Input[str]] = None,
+                 href: Optional[pulumi.Input[str]] = None,
+                 kind: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 script_href: Optional[pulumi.Input[str]] = None,
+                 script_root_path_href: Optional[pulumi.Input[str]] = None,
+                 secrets_file_href: Optional[pulumi.Input[str]] = None,
+                 slot: Optional[pulumi.Input[str]] = None,
+                 test_data: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         Web Job Information.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[dict] config: Config information.
+        :param pulumi.Input[Mapping[str, Any]] config: Config information.
         :param pulumi.Input[str] config_href: Config URI.
-        :param pulumi.Input[dict] files: File list.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] files: File list.
         :param pulumi.Input[str] function_app_id: Function App ID.
         :param pulumi.Input[str] href: Function URI.
         :param pulumi.Input[str] kind: Kind of resource.
@@ -124,13 +96,15 @@ class WebAppInstanceFunctionSlot(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None) -> 'WebAppInstanceFunctionSlot':
         """
         Get an existing WebAppInstanceFunctionSlot resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -139,8 +113,105 @@ class WebAppInstanceFunctionSlot(pulumi.CustomResource):
 
         return WebAppInstanceFunctionSlot(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter
+    def config(self) -> Optional[Mapping[str, Any]]:
+        """
+        Config information.
+        """
+        return pulumi.get(self, "config")
+
+    @property
+    @pulumi.getter(name="configHref")
+    def config_href(self) -> Optional[str]:
+        """
+        Config URI.
+        """
+        return pulumi.get(self, "config_href")
+
+    @property
+    @pulumi.getter
+    def files(self) -> Optional[Mapping[str, str]]:
+        """
+        File list.
+        """
+        return pulumi.get(self, "files")
+
+    @property
+    @pulumi.getter(name="functionAppId")
+    def function_app_id(self) -> Optional[str]:
+        """
+        Function App ID.
+        """
+        return pulumi.get(self, "function_app_id")
+
+    @property
+    @pulumi.getter
+    def href(self) -> Optional[str]:
+        """
+        Function URI.
+        """
+        return pulumi.get(self, "href")
+
+    @property
+    @pulumi.getter
+    def kind(self) -> Optional[str]:
+        """
+        Kind of resource.
+        """
+        return pulumi.get(self, "kind")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Resource Name.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="scriptHref")
+    def script_href(self) -> Optional[str]:
+        """
+        Script URI.
+        """
+        return pulumi.get(self, "script_href")
+
+    @property
+    @pulumi.getter(name="scriptRootPathHref")
+    def script_root_path_href(self) -> Optional[str]:
+        """
+        Script root path URI.
+        """
+        return pulumi.get(self, "script_root_path_href")
+
+    @property
+    @pulumi.getter(name="secretsFileHref")
+    def secrets_file_href(self) -> Optional[str]:
+        """
+        Secrets file URI.
+        """
+        return pulumi.get(self, "secrets_file_href")
+
+    @property
+    @pulumi.getter(name="testData")
+    def test_data(self) -> Optional[str]:
+        """
+        Test data used when testing via the Azure Portal.
+        """
+        return pulumi.get(self, "test_data")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Resource type.
+        """
+        return pulumi.get(self, "type")
+
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

@@ -5,10 +5,16 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
 
+__all__ = [
+    'GetComputePolicyResult',
+    'AwaitableGetComputePolicyResult',
+    'get_compute_policy',
+]
 
+@pulumi.output_type
 class GetComputePolicyResult:
     """
     Data Lake Analytics compute policy information.
@@ -16,40 +22,70 @@ class GetComputePolicyResult:
     def __init__(__self__, max_degree_of_parallelism_per_job=None, min_priority_per_job=None, name=None, object_id=None, object_type=None, type=None):
         if max_degree_of_parallelism_per_job and not isinstance(max_degree_of_parallelism_per_job, float):
             raise TypeError("Expected argument 'max_degree_of_parallelism_per_job' to be a float")
-        __self__.max_degree_of_parallelism_per_job = max_degree_of_parallelism_per_job
+        pulumi.set(__self__, "max_degree_of_parallelism_per_job", max_degree_of_parallelism_per_job)
+        if min_priority_per_job and not isinstance(min_priority_per_job, float):
+            raise TypeError("Expected argument 'min_priority_per_job' to be a float")
+        pulumi.set(__self__, "min_priority_per_job", min_priority_per_job)
+        if name and not isinstance(name, str):
+            raise TypeError("Expected argument 'name' to be a str")
+        pulumi.set(__self__, "name", name)
+        if object_id and not isinstance(object_id, str):
+            raise TypeError("Expected argument 'object_id' to be a str")
+        pulumi.set(__self__, "object_id", object_id)
+        if object_type and not isinstance(object_type, str):
+            raise TypeError("Expected argument 'object_type' to be a str")
+        pulumi.set(__self__, "object_type", object_type)
+        if type and not isinstance(type, str):
+            raise TypeError("Expected argument 'type' to be a str")
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="maxDegreeOfParallelismPerJob")
+    def max_degree_of_parallelism_per_job(self) -> float:
         """
         The maximum degree of parallelism per job this user can use to submit jobs.
         """
-        if min_priority_per_job and not isinstance(min_priority_per_job, float):
-            raise TypeError("Expected argument 'min_priority_per_job' to be a float")
-        __self__.min_priority_per_job = min_priority_per_job
+        return pulumi.get(self, "max_degree_of_parallelism_per_job")
+
+    @property
+    @pulumi.getter(name="minPriorityPerJob")
+    def min_priority_per_job(self) -> float:
         """
         The minimum priority per job this user can use to submit jobs.
         """
-        if name and not isinstance(name, str):
-            raise TypeError("Expected argument 'name' to be a str")
-        __self__.name = name
+        return pulumi.get(self, "min_priority_per_job")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
         """
         The resource name.
         """
-        if object_id and not isinstance(object_id, str):
-            raise TypeError("Expected argument 'object_id' to be a str")
-        __self__.object_id = object_id
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="objectId")
+    def object_id(self) -> str:
         """
         The AAD object identifier for the entity to create a policy for.
         """
-        if object_type and not isinstance(object_type, str):
-            raise TypeError("Expected argument 'object_type' to be a str")
-        __self__.object_type = object_type
+        return pulumi.get(self, "object_id")
+
+    @property
+    @pulumi.getter(name="objectType")
+    def object_type(self) -> str:
         """
         The type of AAD object the object identifier refers to.
         """
-        if type and not isinstance(type, str):
-            raise TypeError("Expected argument 'type' to be a str")
-        __self__.type = type
+        return pulumi.get(self, "object_type")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
         """
         The resource type.
         """
+        return pulumi.get(self, "type")
 
 
 class AwaitableGetComputePolicyResult(GetComputePolicyResult):
@@ -66,7 +102,10 @@ class AwaitableGetComputePolicyResult(GetComputePolicyResult):
             type=self.type)
 
 
-def get_compute_policy(account_name=None, name=None, resource_group_name=None, opts=None):
+def get_compute_policy(account_name: Optional[str] = None,
+                       name: Optional[str] = None,
+                       resource_group_name: Optional[str] = None,
+                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetComputePolicyResult:
     """
     Use this data source to access information about an existing resource.
 
@@ -82,12 +121,12 @@ def get_compute_policy(account_name=None, name=None, resource_group_name=None, o
         opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = _utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('azurerm:datalakeanalytics/v20161101:getComputePolicy', __args__, opts=opts).value
+    __ret__ = pulumi.runtime.invoke('azurerm:datalakeanalytics/v20161101:getComputePolicy', __args__, opts=opts, typ=GetComputePolicyResult).value
 
     return AwaitableGetComputePolicyResult(
-        max_degree_of_parallelism_per_job=__ret__.get('maxDegreeOfParallelismPerJob'),
-        min_priority_per_job=__ret__.get('minPriorityPerJob'),
-        name=__ret__.get('name'),
-        object_id=__ret__.get('objectId'),
-        object_type=__ret__.get('objectType'),
-        type=__ret__.get('type'))
+        max_degree_of_parallelism_per_job=__ret__.max_degree_of_parallelism_per_job,
+        min_priority_per_job=__ret__.min_priority_per_job,
+        name=__ret__.name,
+        object_id=__ret__.object_id,
+        object_type=__ret__.object_type,
+        type=__ret__.type)

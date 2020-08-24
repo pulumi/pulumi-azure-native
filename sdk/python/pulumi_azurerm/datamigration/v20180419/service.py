@@ -5,57 +5,30 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+from . import outputs
+from ._inputs import *
+
+__all__ = ['Service']
 
 
 class Service(pulumi.CustomResource):
-    etag: pulumi.Output[str]
-    """
-    HTTP strong entity tag value. Ignored if submitted
-    """
-    kind: pulumi.Output[str]
-    """
-    The resource kind. Only 'vm' (the default) is supported.
-    """
-    location: pulumi.Output[str]
-    """
-    Resource location.
-    """
-    name: pulumi.Output[str]
-    """
-    Resource name.
-    """
-    provisioning_state: pulumi.Output[str]
-    """
-    The resource's provisioning state
-    """
-    public_key: pulumi.Output[str]
-    """
-    The public key of the service, used to encrypt secrets sent to the service
-    """
-    sku: pulumi.Output[dict]
-    """
-    Service SKU
-      * `capacity` (`float`) - The capacity of the SKU, if it supports scaling
-      * `family` (`str`) - The SKU family, used when the service has multiple performance classes within a tier, such as 'A', 'D', etc. for virtual machines
-      * `name` (`str`) - The unique name of the SKU, such as 'P3'
-      * `size` (`str`) - The size of the SKU, used when the name alone does not denote a service size or when a SKU has multiple performance classes within a family, e.g. 'A1' for virtual machines
-      * `tier` (`str`) - The tier of the SKU, such as 'Free', 'Basic', 'Standard', or 'Premium'
-    """
-    tags: pulumi.Output[dict]
-    """
-    Resource tags.
-    """
-    type: pulumi.Output[str]
-    """
-    Resource type.
-    """
-    virtual_subnet_id: pulumi.Output[str]
-    """
-    The ID of the Microsoft.Network/virtualNetworks/subnets resource to which the service should be joined
-    """
-    def __init__(__self__, resource_name, opts=None, etag=None, group_name=None, kind=None, location=None, name=None, public_key=None, sku=None, tags=None, virtual_subnet_id=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 etag: Optional[pulumi.Input[str]] = None,
+                 group_name: Optional[pulumi.Input[str]] = None,
+                 kind: Optional[pulumi.Input[str]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 public_key: Optional[pulumi.Input[str]] = None,
+                 sku: Optional[pulumi.Input[pulumi.InputType['ServiceSkuArgs']]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 virtual_subnet_id: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         A Database Migration Service resource
 
@@ -67,17 +40,9 @@ class Service(pulumi.CustomResource):
         :param pulumi.Input[str] location: Resource location.
         :param pulumi.Input[str] name: Name of the service
         :param pulumi.Input[str] public_key: The public key of the service, used to encrypt secrets sent to the service
-        :param pulumi.Input[dict] sku: Service SKU
-        :param pulumi.Input[dict] tags: Resource tags.
+        :param pulumi.Input[pulumi.InputType['ServiceSkuArgs']] sku: Service SKU
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         :param pulumi.Input[str] virtual_subnet_id: The ID of the Microsoft.Network/virtualNetworks/subnets resource to which the service should be joined
-
-        The **sku** object supports the following:
-
-          * `capacity` (`pulumi.Input[float]`) - The capacity of the SKU, if it supports scaling
-          * `family` (`pulumi.Input[str]`) - The SKU family, used when the service has multiple performance classes within a tier, such as 'A', 'D', etc. for virtual machines
-          * `name` (`pulumi.Input[str]`) - The unique name of the SKU, such as 'P3'
-          * `size` (`pulumi.Input[str]`) - The size of the SKU, used when the name alone does not denote a service size or when a SKU has multiple performance classes within a family, e.g. 'A1' for virtual machines
-          * `tier` (`pulumi.Input[str]`) - The tier of the SKU, such as 'Free', 'Basic', 'Standard', or 'Premium'
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -122,13 +87,15 @@ class Service(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None) -> 'Service':
         """
         Get an existing Service resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -137,8 +104,89 @@ class Service(pulumi.CustomResource):
 
         return Service(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter
+    def etag(self) -> Optional[str]:
+        """
+        HTTP strong entity tag value. Ignored if submitted
+        """
+        return pulumi.get(self, "etag")
+
+    @property
+    @pulumi.getter
+    def kind(self) -> Optional[str]:
+        """
+        The resource kind. Only 'vm' (the default) is supported.
+        """
+        return pulumi.get(self, "kind")
+
+    @property
+    @pulumi.getter
+    def location(self) -> str:
+        """
+        Resource location.
+        """
+        return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Resource name.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        The resource's provisioning state
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="publicKey")
+    def public_key(self) -> Optional[str]:
+        """
+        The public key of the service, used to encrypt secrets sent to the service
+        """
+        return pulumi.get(self, "public_key")
+
+    @property
+    @pulumi.getter
+    def sku(self) -> Optional['outputs.ServiceSkuResponse']:
+        """
+        Service SKU
+        """
+        return pulumi.get(self, "sku")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Mapping[str, str]]:
+        """
+        Resource tags.
+        """
+        return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Resource type.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="virtualSubnetId")
+    def virtual_subnet_id(self) -> str:
+        """
+        The ID of the Microsoft.Network/virtualNetworks/subnets resource to which the service should be joined
+        """
+        return pulumi.get(self, "virtual_subnet_id")
+
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

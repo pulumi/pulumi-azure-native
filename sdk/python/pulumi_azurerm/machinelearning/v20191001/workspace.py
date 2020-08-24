@@ -5,66 +5,29 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+from . import outputs
+from ._inputs import *
+
+__all__ = ['Workspace']
 
 
 class Workspace(pulumi.CustomResource):
-    creation_time: pulumi.Output[str]
-    """
-    The creation time for this workspace resource.
-    """
-    key_vault_identifier_id: pulumi.Output[str]
-    """
-    The key vault identifier used for encrypted workspaces.
-    """
-    location: pulumi.Output[str]
-    """
-    The location of the resource. This cannot be changed after the resource is created.
-    """
-    name: pulumi.Output[str]
-    """
-    The name of the resource.
-    """
-    owner_email: pulumi.Output[str]
-    """
-    The email id of the owner for this workspace.
-    """
-    sku: pulumi.Output[dict]
-    """
-    The sku of the workspace.
-      * `name` (`str`) - Name of the sku
-      * `tier` (`str`) - Tier of the sku like Basic or Enterprise
-    """
-    studio_endpoint: pulumi.Output[str]
-    """
-    The regional endpoint for the machine learning studio service which hosts this workspace.
-    """
-    tags: pulumi.Output[dict]
-    """
-    The tags of the resource.
-    """
-    type: pulumi.Output[str]
-    """
-    The type of the resource.
-    """
-    user_storage_account_id: pulumi.Output[str]
-    """
-    The fully qualified arm id of the storage account associated with this workspace.
-    """
-    workspace_id: pulumi.Output[str]
-    """
-    The immutable id associated with this workspace.
-    """
-    workspace_state: pulumi.Output[str]
-    """
-    The current state of workspace resource.
-    """
-    workspace_type: pulumi.Output[str]
-    """
-    The type of this workspace.
-    """
-    def __init__(__self__, resource_name, opts=None, key_vault_identifier_id=None, location=None, name=None, owner_email=None, resource_group_name=None, sku=None, tags=None, user_storage_account_id=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 key_vault_identifier_id: Optional[pulumi.Input[str]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 owner_email: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 sku: Optional[pulumi.Input[pulumi.InputType['SkuArgs']]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 user_storage_account_id: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         An object that represents a machine learning workspace.
 
@@ -75,14 +38,9 @@ class Workspace(pulumi.CustomResource):
         :param pulumi.Input[str] name: The name of the machine learning workspace.
         :param pulumi.Input[str] owner_email: The email id of the owner for this workspace.
         :param pulumi.Input[str] resource_group_name: The name of the resource group to which the machine learning workspace belongs.
-        :param pulumi.Input[dict] sku: The sku of the workspace.
-        :param pulumi.Input[dict] tags: The tags of the resource.
+        :param pulumi.Input[pulumi.InputType['SkuArgs']] sku: The sku of the workspace.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The tags of the resource.
         :param pulumi.Input[str] user_storage_account_id: The fully qualified arm id of the storage account associated with this workspace.
-
-        The **sku** object supports the following:
-
-          * `name` (`pulumi.Input[str]`) - Name of the sku
-          * `tier` (`pulumi.Input[str]`) - Tier of the sku like Basic or Enterprise
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -134,13 +92,15 @@ class Workspace(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None) -> 'Workspace':
         """
         Get an existing Workspace resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -149,8 +109,113 @@ class Workspace(pulumi.CustomResource):
 
         return Workspace(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter(name="creationTime")
+    def creation_time(self) -> str:
+        """
+        The creation time for this workspace resource.
+        """
+        return pulumi.get(self, "creation_time")
+
+    @property
+    @pulumi.getter(name="keyVaultIdentifierId")
+    def key_vault_identifier_id(self) -> Optional[str]:
+        """
+        The key vault identifier used for encrypted workspaces.
+        """
+        return pulumi.get(self, "key_vault_identifier_id")
+
+    @property
+    @pulumi.getter
+    def location(self) -> str:
+        """
+        The location of the resource. This cannot be changed after the resource is created.
+        """
+        return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the resource.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="ownerEmail")
+    def owner_email(self) -> str:
+        """
+        The email id of the owner for this workspace.
+        """
+        return pulumi.get(self, "owner_email")
+
+    @property
+    @pulumi.getter
+    def sku(self) -> Optional['outputs.SkuResponse']:
+        """
+        The sku of the workspace.
+        """
+        return pulumi.get(self, "sku")
+
+    @property
+    @pulumi.getter(name="studioEndpoint")
+    def studio_endpoint(self) -> str:
+        """
+        The regional endpoint for the machine learning studio service which hosts this workspace.
+        """
+        return pulumi.get(self, "studio_endpoint")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Mapping[str, str]]:
+        """
+        The tags of the resource.
+        """
+        return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        The type of the resource.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="userStorageAccountId")
+    def user_storage_account_id(self) -> str:
+        """
+        The fully qualified arm id of the storage account associated with this workspace.
+        """
+        return pulumi.get(self, "user_storage_account_id")
+
+    @property
+    @pulumi.getter(name="workspaceId")
+    def workspace_id(self) -> str:
+        """
+        The immutable id associated with this workspace.
+        """
+        return pulumi.get(self, "workspace_id")
+
+    @property
+    @pulumi.getter(name="workspaceState")
+    def workspace_state(self) -> str:
+        """
+        The current state of workspace resource.
+        """
+        return pulumi.get(self, "workspace_state")
+
+    @property
+    @pulumi.getter(name="workspaceType")
+    def workspace_type(self) -> str:
+        """
+        The type of this workspace.
+        """
+        return pulumi.get(self, "workspace_type")
+
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

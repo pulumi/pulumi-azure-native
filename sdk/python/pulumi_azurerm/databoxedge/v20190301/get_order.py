@@ -5,10 +5,17 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+from . import outputs
 
+__all__ = [
+    'GetOrderResult',
+    'AwaitableGetOrderResult',
+    'get_order',
+]
 
+@pulumi.output_type
 class GetOrderResult:
     """
     The order details.
@@ -16,58 +23,103 @@ class GetOrderResult:
     def __init__(__self__, contact_information=None, current_status=None, delivery_tracking_info=None, name=None, order_history=None, return_tracking_info=None, serial_number=None, shipping_address=None, type=None):
         if contact_information and not isinstance(contact_information, dict):
             raise TypeError("Expected argument 'contact_information' to be a dict")
-        __self__.contact_information = contact_information
+        pulumi.set(__self__, "contact_information", contact_information)
+        if current_status and not isinstance(current_status, dict):
+            raise TypeError("Expected argument 'current_status' to be a dict")
+        pulumi.set(__self__, "current_status", current_status)
+        if delivery_tracking_info and not isinstance(delivery_tracking_info, list):
+            raise TypeError("Expected argument 'delivery_tracking_info' to be a list")
+        pulumi.set(__self__, "delivery_tracking_info", delivery_tracking_info)
+        if name and not isinstance(name, str):
+            raise TypeError("Expected argument 'name' to be a str")
+        pulumi.set(__self__, "name", name)
+        if order_history and not isinstance(order_history, list):
+            raise TypeError("Expected argument 'order_history' to be a list")
+        pulumi.set(__self__, "order_history", order_history)
+        if return_tracking_info and not isinstance(return_tracking_info, list):
+            raise TypeError("Expected argument 'return_tracking_info' to be a list")
+        pulumi.set(__self__, "return_tracking_info", return_tracking_info)
+        if serial_number and not isinstance(serial_number, str):
+            raise TypeError("Expected argument 'serial_number' to be a str")
+        pulumi.set(__self__, "serial_number", serial_number)
+        if shipping_address and not isinstance(shipping_address, dict):
+            raise TypeError("Expected argument 'shipping_address' to be a dict")
+        pulumi.set(__self__, "shipping_address", shipping_address)
+        if type and not isinstance(type, str):
+            raise TypeError("Expected argument 'type' to be a str")
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="contactInformation")
+    def contact_information(self) -> 'outputs.ContactDetailsResponse':
         """
         The contact details.
         """
-        if current_status and not isinstance(current_status, dict):
-            raise TypeError("Expected argument 'current_status' to be a dict")
-        __self__.current_status = current_status
+        return pulumi.get(self, "contact_information")
+
+    @property
+    @pulumi.getter(name="currentStatus")
+    def current_status(self) -> Optional['outputs.OrderStatusResponse']:
         """
         Current status of the order.
         """
-        if delivery_tracking_info and not isinstance(delivery_tracking_info, list):
-            raise TypeError("Expected argument 'delivery_tracking_info' to be a list")
-        __self__.delivery_tracking_info = delivery_tracking_info
+        return pulumi.get(self, "current_status")
+
+    @property
+    @pulumi.getter(name="deliveryTrackingInfo")
+    def delivery_tracking_info(self) -> List['outputs.TrackingInfoResponse']:
         """
         Tracking information for the package delivered to the customer whether it has an original or a replacement device.
         """
-        if name and not isinstance(name, str):
-            raise TypeError("Expected argument 'name' to be a str")
-        __self__.name = name
+        return pulumi.get(self, "delivery_tracking_info")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
         """
         The object name.
         """
-        if order_history and not isinstance(order_history, list):
-            raise TypeError("Expected argument 'order_history' to be a list")
-        __self__.order_history = order_history
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="orderHistory")
+    def order_history(self) -> List['outputs.OrderStatusResponse']:
         """
         List of status changes in the order.
         """
-        if return_tracking_info and not isinstance(return_tracking_info, list):
-            raise TypeError("Expected argument 'return_tracking_info' to be a list")
-        __self__.return_tracking_info = return_tracking_info
+        return pulumi.get(self, "order_history")
+
+    @property
+    @pulumi.getter(name="returnTrackingInfo")
+    def return_tracking_info(self) -> List['outputs.TrackingInfoResponse']:
         """
         Tracking information for the package returned from the customer whether it has an original or a replacement device.
         """
-        if serial_number and not isinstance(serial_number, str):
-            raise TypeError("Expected argument 'serial_number' to be a str")
-        __self__.serial_number = serial_number
+        return pulumi.get(self, "return_tracking_info")
+
+    @property
+    @pulumi.getter(name="serialNumber")
+    def serial_number(self) -> str:
         """
         Serial number of the device.
         """
-        if shipping_address and not isinstance(shipping_address, dict):
-            raise TypeError("Expected argument 'shipping_address' to be a dict")
-        __self__.shipping_address = shipping_address
+        return pulumi.get(self, "serial_number")
+
+    @property
+    @pulumi.getter(name="shippingAddress")
+    def shipping_address(self) -> 'outputs.AddressResponse':
         """
         The shipping address.
         """
-        if type and not isinstance(type, str):
-            raise TypeError("Expected argument 'type' to be a str")
-        __self__.type = type
+        return pulumi.get(self, "shipping_address")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
         """
         The hierarchical type of the object.
         """
+        return pulumi.get(self, "type")
 
 
 class AwaitableGetOrderResult(GetOrderResult):
@@ -87,7 +139,9 @@ class AwaitableGetOrderResult(GetOrderResult):
             type=self.type)
 
 
-def get_order(name=None, resource_group_name=None, opts=None):
+def get_order(name: Optional[str] = None,
+              resource_group_name: Optional[str] = None,
+              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetOrderResult:
     """
     Use this data source to access information about an existing resource.
 
@@ -101,15 +155,15 @@ def get_order(name=None, resource_group_name=None, opts=None):
         opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = _utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('azurerm:databoxedge/v20190301:getOrder', __args__, opts=opts).value
+    __ret__ = pulumi.runtime.invoke('azurerm:databoxedge/v20190301:getOrder', __args__, opts=opts, typ=GetOrderResult).value
 
     return AwaitableGetOrderResult(
-        contact_information=__ret__.get('contactInformation'),
-        current_status=__ret__.get('currentStatus'),
-        delivery_tracking_info=__ret__.get('deliveryTrackingInfo'),
-        name=__ret__.get('name'),
-        order_history=__ret__.get('orderHistory'),
-        return_tracking_info=__ret__.get('returnTrackingInfo'),
-        serial_number=__ret__.get('serialNumber'),
-        shipping_address=__ret__.get('shippingAddress'),
-        type=__ret__.get('type'))
+        contact_information=__ret__.contact_information,
+        current_status=__ret__.current_status,
+        delivery_tracking_info=__ret__.delivery_tracking_info,
+        name=__ret__.name,
+        order_history=__ret__.order_history,
+        return_tracking_info=__ret__.return_tracking_info,
+        serial_number=__ret__.serial_number,
+        shipping_address=__ret__.shipping_address,
+        type=__ret__.type)

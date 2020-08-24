@@ -5,155 +5,32 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+from . import outputs
+
+__all__ = ['ServerEndpoint']
 
 
 class ServerEndpoint(pulumi.CustomResource):
-    cloud_tiering: pulumi.Output[str]
-    """
-    Cloud Tiering.
-    """
-    cloud_tiering_status: pulumi.Output[dict]
-    """
-    Cloud tiering status. Only populated if cloud tiering is enabled.
-      * `cache_performance` (`dict`) - Information regarding how well the local cache on the server is performing.
-        * `cache_hit_bytes` (`float`) - Count of bytes that were served from the local server
-        * `cache_hit_bytes_percent` (`float`) - Percentage of total bytes (hit + miss) that were served from the local server
-        * `cache_miss_bytes` (`float`) - Count of bytes that were served from the cloud
-        * `last_updated_timestamp` (`str`) - Last updated timestamp
-
-      * `date_policy_status` (`dict`) - Status of the date policy
-        * `last_updated_timestamp` (`str`) - Last updated timestamp
-        * `tiered_files_most_recent_access_timestamp` (`str`) - Most recent access time of tiered files
-
-      * `files_not_tiering` (`dict`) - Information regarding files that failed to be tiered
-        * `errors` (`list`) - Array of tiering errors
-          * `error_code` (`float`) - Error code (HResult)
-          * `file_count` (`float`) - Count of files with this error
-
-        * `last_updated_timestamp` (`str`) - Last updated timestamp
-        * `total_file_count` (`float`) - Last cloud tiering result (HResult)
-
-      * `health` (`str`) - Cloud tiering health state.
-      * `health_last_updated_timestamp` (`str`) - The last updated timestamp of health state
-      * `last_cloud_tiering_result` (`float`) - Last cloud tiering result (HResult)
-      * `last_success_timestamp` (`str`) - Last cloud tiering success timestamp
-      * `last_updated_timestamp` (`str`) - Last updated timestamp
-      * `space_savings` (`dict`) - Information regarding how much local space cloud tiering is saving.
-        * `cached_size_bytes` (`float`) - Cached content size on the server
-        * `last_updated_timestamp` (`str`) - Last updated timestamp
-        * `space_savings_bytes` (`float`) - Count of bytes saved on the server
-        * `space_savings_percent` (`float`) - Percentage of cached size over total size
-        * `total_size_cloud_bytes` (`float`) - Total size of content in the azure file share
-        * `volume_size_bytes` (`float`) - Volume size
-
-      * `volume_free_space_policy_status` (`dict`) - Status of the volume free space policy
-        * `current_volume_free_space_percent` (`float`) - Current volume free space percentage.
-        * `effective_volume_free_space_policy` (`float`) - In the case where multiple server endpoints are present in a volume, an effective free space policy is applied.
-        * `last_updated_timestamp` (`str`) - Last updated timestamp
-    """
-    friendly_name: pulumi.Output[str]
-    """
-    Friendly Name
-    """
-    last_operation_name: pulumi.Output[str]
-    """
-    Resource Last Operation Name
-    """
-    last_workflow_id: pulumi.Output[str]
-    """
-    ServerEndpoint lastWorkflowId
-    """
-    name: pulumi.Output[str]
-    """
-    The name of the resource
-    """
-    offline_data_transfer: pulumi.Output[str]
-    """
-    Offline data transfer
-    """
-    offline_data_transfer_share_name: pulumi.Output[str]
-    """
-    Offline data transfer share name
-    """
-    offline_data_transfer_storage_account_resource_id: pulumi.Output[str]
-    """
-    Offline data transfer storage account resource ID
-    """
-    offline_data_transfer_storage_account_tenant_id: pulumi.Output[str]
-    """
-    Offline data transfer storage account tenant ID
-    """
-    provisioning_state: pulumi.Output[str]
-    """
-    ServerEndpoint Provisioning State
-    """
-    recall_status: pulumi.Output[dict]
-    """
-    Recall status. Only populated if cloud tiering is enabled.
-      * `last_updated_timestamp` (`str`) - Last updated timestamp
-      * `recall_errors` (`list`) - Array of recall errors
-        * `count` (`float`) - Count of occurences of the error
-        * `error_code` (`float`) - Error code (HResult)
-
-      * `total_recall_errors_count` (`float`) - Total count of recall errors.
-    """
-    server_local_path: pulumi.Output[str]
-    """
-    Server Local path.
-    """
-    server_resource_id: pulumi.Output[str]
-    """
-    Server Resource Id.
-    """
-    sync_status: pulumi.Output[dict]
-    """
-    Server Endpoint sync status
-      * `combined_health` (`str`) - Combined Health Status.
-      * `download_activity` (`dict`) - Download sync activity
-        * `applied_bytes` (`float`) - Applied bytes
-        * `applied_item_count` (`float`) - Applied item count.
-        * `per_item_error_count` (`float`) - Per item error count
-        * `timestamp` (`str`) - Timestamp when properties were updated
-        * `total_bytes` (`float`) - Total bytes (if available)
-        * `total_item_count` (`float`) - Total item count (if available)
-
-      * `download_health` (`str`) - Download Health Status.
-      * `download_status` (`dict`) - Download Status
-        * `files_not_syncing_errors` (`list`) - Array of per-item errors coming from the last sync session.
-          * `error_code` (`float`) - Error code (HResult)
-          * `persistent_count` (`float`) - Count of persistent files not syncing with the specified error code
-          * `transient_count` (`float`) - Count of transient files not syncing with the specified error code
-
-        * `last_sync_per_item_error_count` (`float`) - Last sync per item error count.
-        * `last_sync_result` (`float`) - Last sync result (HResult)
-        * `last_sync_success_timestamp` (`str`) - Last sync success timestamp
-        * `last_sync_timestamp` (`str`) - Last sync timestamp
-        * `persistent_files_not_syncing_count` (`float`) - Count of persistent files not syncing.
-        * `transient_files_not_syncing_count` (`float`) - Count of transient files not syncing.
-
-      * `last_updated_timestamp` (`str`) - Last Updated Timestamp
-      * `offline_data_transfer_status` (`str`) - Offline Data Transfer State
-      * `sync_activity` (`str`) - Sync activity
-      * `total_persistent_files_not_syncing_count` (`float`) - Total count of persistent files not syncing (combined upload + download).
-      * `upload_activity` (`dict`) - Upload sync activity
-      * `upload_health` (`str`) - Upload Health Status.
-      * `upload_status` (`dict`) - Upload Status
-    """
-    tier_files_older_than_days: pulumi.Output[float]
-    """
-    Tier files older than days.
-    """
-    type: pulumi.Output[str]
-    """
-    The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
-    """
-    volume_free_space_percent: pulumi.Output[float]
-    """
-    Level of free space to be maintained by Cloud Tiering if it is enabled.
-    """
-    def __init__(__self__, resource_name, opts=None, cloud_tiering=None, friendly_name=None, name=None, offline_data_transfer=None, offline_data_transfer_share_name=None, resource_group_name=None, server_local_path=None, server_resource_id=None, storage_sync_service_name=None, sync_group_name=None, tier_files_older_than_days=None, volume_free_space_percent=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 cloud_tiering: Optional[pulumi.Input[str]] = None,
+                 friendly_name: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 offline_data_transfer: Optional[pulumi.Input[str]] = None,
+                 offline_data_transfer_share_name: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 server_local_path: Optional[pulumi.Input[str]] = None,
+                 server_resource_id: Optional[pulumi.Input[str]] = None,
+                 storage_sync_service_name: Optional[pulumi.Input[str]] = None,
+                 sync_group_name: Optional[pulumi.Input[str]] = None,
+                 tier_files_older_than_days: Optional[pulumi.Input[float]] = None,
+                 volume_free_space_percent: Optional[pulumi.Input[float]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         Server Endpoint object.
 
@@ -227,13 +104,15 @@ class ServerEndpoint(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None) -> 'ServerEndpoint':
         """
         Get an existing ServerEndpoint resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -242,8 +121,153 @@ class ServerEndpoint(pulumi.CustomResource):
 
         return ServerEndpoint(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter(name="cloudTiering")
+    def cloud_tiering(self) -> Optional[str]:
+        """
+        Cloud Tiering.
+        """
+        return pulumi.get(self, "cloud_tiering")
+
+    @property
+    @pulumi.getter(name="cloudTieringStatus")
+    def cloud_tiering_status(self) -> 'outputs.ServerEndpointCloudTieringStatusResponse':
+        """
+        Cloud tiering status. Only populated if cloud tiering is enabled.
+        """
+        return pulumi.get(self, "cloud_tiering_status")
+
+    @property
+    @pulumi.getter(name="friendlyName")
+    def friendly_name(self) -> Optional[str]:
+        """
+        Friendly Name
+        """
+        return pulumi.get(self, "friendly_name")
+
+    @property
+    @pulumi.getter(name="lastOperationName")
+    def last_operation_name(self) -> str:
+        """
+        Resource Last Operation Name
+        """
+        return pulumi.get(self, "last_operation_name")
+
+    @property
+    @pulumi.getter(name="lastWorkflowId")
+    def last_workflow_id(self) -> str:
+        """
+        ServerEndpoint lastWorkflowId
+        """
+        return pulumi.get(self, "last_workflow_id")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the resource
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="offlineDataTransfer")
+    def offline_data_transfer(self) -> Optional[str]:
+        """
+        Offline data transfer
+        """
+        return pulumi.get(self, "offline_data_transfer")
+
+    @property
+    @pulumi.getter(name="offlineDataTransferShareName")
+    def offline_data_transfer_share_name(self) -> Optional[str]:
+        """
+        Offline data transfer share name
+        """
+        return pulumi.get(self, "offline_data_transfer_share_name")
+
+    @property
+    @pulumi.getter(name="offlineDataTransferStorageAccountResourceId")
+    def offline_data_transfer_storage_account_resource_id(self) -> str:
+        """
+        Offline data transfer storage account resource ID
+        """
+        return pulumi.get(self, "offline_data_transfer_storage_account_resource_id")
+
+    @property
+    @pulumi.getter(name="offlineDataTransferStorageAccountTenantId")
+    def offline_data_transfer_storage_account_tenant_id(self) -> str:
+        """
+        Offline data transfer storage account tenant ID
+        """
+        return pulumi.get(self, "offline_data_transfer_storage_account_tenant_id")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        ServerEndpoint Provisioning State
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="recallStatus")
+    def recall_status(self) -> 'outputs.ServerEndpointRecallStatusResponse':
+        """
+        Recall status. Only populated if cloud tiering is enabled.
+        """
+        return pulumi.get(self, "recall_status")
+
+    @property
+    @pulumi.getter(name="serverLocalPath")
+    def server_local_path(self) -> Optional[str]:
+        """
+        Server Local path.
+        """
+        return pulumi.get(self, "server_local_path")
+
+    @property
+    @pulumi.getter(name="serverResourceId")
+    def server_resource_id(self) -> Optional[str]:
+        """
+        Server Resource Id.
+        """
+        return pulumi.get(self, "server_resource_id")
+
+    @property
+    @pulumi.getter(name="syncStatus")
+    def sync_status(self) -> 'outputs.ServerEndpointSyncStatusResponse':
+        """
+        Server Endpoint sync status
+        """
+        return pulumi.get(self, "sync_status")
+
+    @property
+    @pulumi.getter(name="tierFilesOlderThanDays")
+    def tier_files_older_than_days(self) -> Optional[float]:
+        """
+        Tier files older than days.
+        """
+        return pulumi.get(self, "tier_files_older_than_days")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="volumeFreeSpacePercent")
+    def volume_free_space_percent(self) -> Optional[float]:
+        """
+        Level of free space to be maintained by Cloud Tiering if it is enabled.
+        """
+        return pulumi.get(self, "volume_free_space_percent")
+
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

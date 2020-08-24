@@ -5,10 +5,16 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
 
+__all__ = [
+    'GetTagByProductResult',
+    'AwaitableGetTagByProductResult',
+    'get_tag_by_product',
+]
 
+@pulumi.output_type
 class GetTagByProductResult:
     """
     Tag Contract details.
@@ -16,22 +22,37 @@ class GetTagByProductResult:
     def __init__(__self__, display_name=None, name=None, type=None):
         if display_name and not isinstance(display_name, str):
             raise TypeError("Expected argument 'display_name' to be a str")
-        __self__.display_name = display_name
+        pulumi.set(__self__, "display_name", display_name)
+        if name and not isinstance(name, str):
+            raise TypeError("Expected argument 'name' to be a str")
+        pulumi.set(__self__, "name", name)
+        if type and not isinstance(type, str):
+            raise TypeError("Expected argument 'type' to be a str")
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="displayName")
+    def display_name(self) -> str:
         """
         Tag name.
         """
-        if name and not isinstance(name, str):
-            raise TypeError("Expected argument 'name' to be a str")
-        __self__.name = name
+        return pulumi.get(self, "display_name")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
         """
         Resource name.
         """
-        if type and not isinstance(type, str):
-            raise TypeError("Expected argument 'type' to be a str")
-        __self__.type = type
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
         """
         Resource type for API Management resource.
         """
+        return pulumi.get(self, "type")
 
 
 class AwaitableGetTagByProductResult(GetTagByProductResult):
@@ -45,7 +66,11 @@ class AwaitableGetTagByProductResult(GetTagByProductResult):
             type=self.type)
 
 
-def get_tag_by_product(name=None, product_id=None, resource_group_name=None, service_name=None, opts=None):
+def get_tag_by_product(name: Optional[str] = None,
+                       product_id: Optional[str] = None,
+                       resource_group_name: Optional[str] = None,
+                       service_name: Optional[str] = None,
+                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetTagByProductResult:
     """
     Use this data source to access information about an existing resource.
 
@@ -63,9 +88,9 @@ def get_tag_by_product(name=None, product_id=None, resource_group_name=None, ser
         opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = _utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('azurerm:apimanagement/v20170301:getTagByProduct', __args__, opts=opts).value
+    __ret__ = pulumi.runtime.invoke('azurerm:apimanagement/v20170301:getTagByProduct', __args__, opts=opts, typ=GetTagByProductResult).value
 
     return AwaitableGetTagByProductResult(
-        display_name=__ret__.get('displayName'),
-        name=__ret__.get('name'),
-        type=__ret__.get('type'))
+        display_name=__ret__.display_name,
+        name=__ret__.name,
+        type=__ret__.type)

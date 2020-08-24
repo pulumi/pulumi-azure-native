@@ -5,10 +5,16 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
 
+__all__ = [
+    'GetNetworkExperimentProfileResult',
+    'AwaitableGetNetworkExperimentProfileResult',
+    'get_network_experiment_profile',
+]
 
+@pulumi.output_type
 class GetNetworkExperimentProfileResult:
     """
     Defines an Network Experiment Profile and lists of Experiments
@@ -16,46 +22,81 @@ class GetNetworkExperimentProfileResult:
     def __init__(__self__, enabled_state=None, etag=None, location=None, name=None, resource_state=None, tags=None, type=None):
         if enabled_state and not isinstance(enabled_state, str):
             raise TypeError("Expected argument 'enabled_state' to be a str")
-        __self__.enabled_state = enabled_state
+        pulumi.set(__self__, "enabled_state", enabled_state)
+        if etag and not isinstance(etag, str):
+            raise TypeError("Expected argument 'etag' to be a str")
+        pulumi.set(__self__, "etag", etag)
+        if location and not isinstance(location, str):
+            raise TypeError("Expected argument 'location' to be a str")
+        pulumi.set(__self__, "location", location)
+        if name and not isinstance(name, str):
+            raise TypeError("Expected argument 'name' to be a str")
+        pulumi.set(__self__, "name", name)
+        if resource_state and not isinstance(resource_state, str):
+            raise TypeError("Expected argument 'resource_state' to be a str")
+        pulumi.set(__self__, "resource_state", resource_state)
+        if tags and not isinstance(tags, dict):
+            raise TypeError("Expected argument 'tags' to be a dict")
+        pulumi.set(__self__, "tags", tags)
+        if type and not isinstance(type, str):
+            raise TypeError("Expected argument 'type' to be a str")
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="enabledState")
+    def enabled_state(self) -> Optional[str]:
         """
         The state of the Experiment
         """
-        if etag and not isinstance(etag, str):
-            raise TypeError("Expected argument 'etag' to be a str")
-        __self__.etag = etag
+        return pulumi.get(self, "enabled_state")
+
+    @property
+    @pulumi.getter
+    def etag(self) -> Optional[str]:
         """
         Gets a unique read-only string that changes whenever the resource is updated.
         """
-        if location and not isinstance(location, str):
-            raise TypeError("Expected argument 'location' to be a str")
-        __self__.location = location
+        return pulumi.get(self, "etag")
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[str]:
         """
         Resource location.
         """
-        if name and not isinstance(name, str):
-            raise TypeError("Expected argument 'name' to be a str")
-        __self__.name = name
+        return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
         """
         Resource name.
         """
-        if resource_state and not isinstance(resource_state, str):
-            raise TypeError("Expected argument 'resource_state' to be a str")
-        __self__.resource_state = resource_state
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="resourceState")
+    def resource_state(self) -> Optional[str]:
         """
         Resource status.
         """
-        if tags and not isinstance(tags, dict):
-            raise TypeError("Expected argument 'tags' to be a dict")
-        __self__.tags = tags
+        return pulumi.get(self, "resource_state")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Mapping[str, str]]:
         """
         Resource tags.
         """
-        if type and not isinstance(type, str):
-            raise TypeError("Expected argument 'type' to be a str")
-        __self__.type = type
+        return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
         """
         Resource type.
         """
+        return pulumi.get(self, "type")
 
 
 class AwaitableGetNetworkExperimentProfileResult(GetNetworkExperimentProfileResult):
@@ -73,7 +114,9 @@ class AwaitableGetNetworkExperimentProfileResult(GetNetworkExperimentProfileResu
             type=self.type)
 
 
-def get_network_experiment_profile(name=None, resource_group_name=None, opts=None):
+def get_network_experiment_profile(name: Optional[str] = None,
+                                   resource_group_name: Optional[str] = None,
+                                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetNetworkExperimentProfileResult:
     """
     Use this data source to access information about an existing resource.
 
@@ -87,13 +130,13 @@ def get_network_experiment_profile(name=None, resource_group_name=None, opts=Non
         opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = _utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('azurerm:network/v20191101:getNetworkExperimentProfile', __args__, opts=opts).value
+    __ret__ = pulumi.runtime.invoke('azurerm:network/v20191101:getNetworkExperimentProfile', __args__, opts=opts, typ=GetNetworkExperimentProfileResult).value
 
     return AwaitableGetNetworkExperimentProfileResult(
-        enabled_state=__ret__.get('enabledState'),
-        etag=__ret__.get('etag'),
-        location=__ret__.get('location'),
-        name=__ret__.get('name'),
-        resource_state=__ret__.get('resourceState'),
-        tags=__ret__.get('tags'),
-        type=__ret__.get('type'))
+        enabled_state=__ret__.enabled_state,
+        etag=__ret__.etag,
+        location=__ret__.location,
+        name=__ret__.name,
+        resource_state=__ret__.resource_state,
+        tags=__ret__.tags,
+        type=__ret__.type)

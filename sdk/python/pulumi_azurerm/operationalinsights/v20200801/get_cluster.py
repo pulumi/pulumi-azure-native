@@ -5,10 +5,17 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+from . import outputs
 
+__all__ = [
+    'GetClusterResult',
+    'AwaitableGetClusterResult',
+    'get_cluster',
+]
 
+@pulumi.output_type
 class GetClusterResult:
     """
     The top level Log Analytics cluster resource container.
@@ -16,64 +23,114 @@ class GetClusterResult:
     def __init__(__self__, cluster_id=None, identity=None, key_vault_properties=None, location=None, name=None, next_link=None, provisioning_state=None, sku=None, tags=None, type=None):
         if cluster_id and not isinstance(cluster_id, str):
             raise TypeError("Expected argument 'cluster_id' to be a str")
-        __self__.cluster_id = cluster_id
+        pulumi.set(__self__, "cluster_id", cluster_id)
+        if identity and not isinstance(identity, dict):
+            raise TypeError("Expected argument 'identity' to be a dict")
+        pulumi.set(__self__, "identity", identity)
+        if key_vault_properties and not isinstance(key_vault_properties, dict):
+            raise TypeError("Expected argument 'key_vault_properties' to be a dict")
+        pulumi.set(__self__, "key_vault_properties", key_vault_properties)
+        if location and not isinstance(location, str):
+            raise TypeError("Expected argument 'location' to be a str")
+        pulumi.set(__self__, "location", location)
+        if name and not isinstance(name, str):
+            raise TypeError("Expected argument 'name' to be a str")
+        pulumi.set(__self__, "name", name)
+        if next_link and not isinstance(next_link, str):
+            raise TypeError("Expected argument 'next_link' to be a str")
+        pulumi.set(__self__, "next_link", next_link)
+        if provisioning_state and not isinstance(provisioning_state, str):
+            raise TypeError("Expected argument 'provisioning_state' to be a str")
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if sku and not isinstance(sku, dict):
+            raise TypeError("Expected argument 'sku' to be a dict")
+        pulumi.set(__self__, "sku", sku)
+        if tags and not isinstance(tags, dict):
+            raise TypeError("Expected argument 'tags' to be a dict")
+        pulumi.set(__self__, "tags", tags)
+        if type and not isinstance(type, str):
+            raise TypeError("Expected argument 'type' to be a str")
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="clusterId")
+    def cluster_id(self) -> str:
         """
         The ID associated with the cluster.
         """
-        if identity and not isinstance(identity, dict):
-            raise TypeError("Expected argument 'identity' to be a dict")
-        __self__.identity = identity
+        return pulumi.get(self, "cluster_id")
+
+    @property
+    @pulumi.getter
+    def identity(self) -> Optional['outputs.IdentityResponse']:
         """
         The identity of the resource.
         """
-        if key_vault_properties and not isinstance(key_vault_properties, dict):
-            raise TypeError("Expected argument 'key_vault_properties' to be a dict")
-        __self__.key_vault_properties = key_vault_properties
+        return pulumi.get(self, "identity")
+
+    @property
+    @pulumi.getter(name="keyVaultProperties")
+    def key_vault_properties(self) -> Optional['outputs.KeyVaultPropertiesResponse']:
         """
         The associated key properties.
         """
-        if location and not isinstance(location, str):
-            raise TypeError("Expected argument 'location' to be a str")
-        __self__.location = location
+        return pulumi.get(self, "key_vault_properties")
+
+    @property
+    @pulumi.getter
+    def location(self) -> str:
         """
         The geo-location where the resource lives
         """
-        if name and not isinstance(name, str):
-            raise TypeError("Expected argument 'name' to be a str")
-        __self__.name = name
+        return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
         """
         The name of the resource
         """
-        if next_link and not isinstance(next_link, str):
-            raise TypeError("Expected argument 'next_link' to be a str")
-        __self__.next_link = next_link
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="nextLink")
+    def next_link(self) -> Optional[str]:
         """
         The link used to get the next page of recommendations.
         """
-        if provisioning_state and not isinstance(provisioning_state, str):
-            raise TypeError("Expected argument 'provisioning_state' to be a str")
-        __self__.provisioning_state = provisioning_state
+        return pulumi.get(self, "next_link")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
         """
         The provisioning state of the cluster.
         """
-        if sku and not isinstance(sku, dict):
-            raise TypeError("Expected argument 'sku' to be a dict")
-        __self__.sku = sku
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter
+    def sku(self) -> Optional['outputs.ClusterSkuResponse']:
         """
         The sku properties.
         """
-        if tags and not isinstance(tags, dict):
-            raise TypeError("Expected argument 'tags' to be a dict")
-        __self__.tags = tags
+        return pulumi.get(self, "sku")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Mapping[str, str]]:
         """
         Resource tags.
         """
-        if type and not isinstance(type, str):
-            raise TypeError("Expected argument 'type' to be a str")
-        __self__.type = type
+        return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
         """
         The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
         """
+        return pulumi.get(self, "type")
 
 
 class AwaitableGetClusterResult(GetClusterResult):
@@ -94,7 +151,9 @@ class AwaitableGetClusterResult(GetClusterResult):
             type=self.type)
 
 
-def get_cluster(name=None, resource_group_name=None, opts=None):
+def get_cluster(name: Optional[str] = None,
+                resource_group_name: Optional[str] = None,
+                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetClusterResult:
     """
     Use this data source to access information about an existing resource.
 
@@ -108,16 +167,16 @@ def get_cluster(name=None, resource_group_name=None, opts=None):
         opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = _utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('azurerm:operationalinsights/v20200801:getCluster', __args__, opts=opts).value
+    __ret__ = pulumi.runtime.invoke('azurerm:operationalinsights/v20200801:getCluster', __args__, opts=opts, typ=GetClusterResult).value
 
     return AwaitableGetClusterResult(
-        cluster_id=__ret__.get('clusterId'),
-        identity=__ret__.get('identity'),
-        key_vault_properties=__ret__.get('keyVaultProperties'),
-        location=__ret__.get('location'),
-        name=__ret__.get('name'),
-        next_link=__ret__.get('nextLink'),
-        provisioning_state=__ret__.get('provisioningState'),
-        sku=__ret__.get('sku'),
-        tags=__ret__.get('tags'),
-        type=__ret__.get('type'))
+        cluster_id=__ret__.cluster_id,
+        identity=__ret__.identity,
+        key_vault_properties=__ret__.key_vault_properties,
+        location=__ret__.location,
+        name=__ret__.name,
+        next_link=__ret__.next_link,
+        provisioning_state=__ret__.provisioning_state,
+        sku=__ret__.sku,
+        tags=__ret__.tags,
+        type=__ret__.type)

@@ -5,61 +5,31 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+from . import outputs
+from ._inputs import *
+
+__all__ = ['NotificationChannel']
 
 
 class NotificationChannel(pulumi.CustomResource):
-    created_date: pulumi.Output[str]
-    """
-    The creation date of the notification channel.
-    """
-    description: pulumi.Output[str]
-    """
-    Description of notification.
-    """
-    email_recipient: pulumi.Output[str]
-    """
-    The email recipient to send notifications to (can be a list of semi-colon separated email addresses).
-    """
-    events: pulumi.Output[list]
-    """
-    The list of event for which this notification is enabled.
-      * `event_name` (`str`) - The event type for which this notification is enabled (i.e. AutoShutdown, Cost)
-    """
-    location: pulumi.Output[str]
-    """
-    The location of the resource.
-    """
-    name: pulumi.Output[str]
-    """
-    The name of the resource.
-    """
-    notification_locale: pulumi.Output[str]
-    """
-    The locale to use when sending a notification (fallback for unsupported languages is EN).
-    """
-    provisioning_state: pulumi.Output[str]
-    """
-    The provisioning status of the resource.
-    """
-    tags: pulumi.Output[dict]
-    """
-    The tags of the resource.
-    """
-    type: pulumi.Output[str]
-    """
-    The type of the resource.
-    """
-    unique_identifier: pulumi.Output[str]
-    """
-    The unique immutable identifier of a resource (Guid).
-    """
-    web_hook_url: pulumi.Output[str]
-    """
-    The webhook URL to send notifications to.
-    """
-    def __init__(__self__, resource_name, opts=None, description=None, email_recipient=None, events=None, lab_name=None, location=None, name=None, notification_locale=None, resource_group_name=None, tags=None, web_hook_url=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 email_recipient: Optional[pulumi.Input[str]] = None,
+                 events: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['EventArgs']]]]] = None,
+                 lab_name: Optional[pulumi.Input[str]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 notification_locale: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 web_hook_url: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         A notification.
 
@@ -67,18 +37,14 @@ class NotificationChannel(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: Description of notification.
         :param pulumi.Input[str] email_recipient: The email recipient to send notifications to (can be a list of semi-colon separated email addresses).
-        :param pulumi.Input[list] events: The list of event for which this notification is enabled.
+        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['EventArgs']]]] events: The list of event for which this notification is enabled.
         :param pulumi.Input[str] lab_name: The name of the lab.
         :param pulumi.Input[str] location: The location of the resource.
         :param pulumi.Input[str] name: The name of the notification channel.
         :param pulumi.Input[str] notification_locale: The locale to use when sending a notification (fallback for unsupported languages is EN).
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
-        :param pulumi.Input[dict] tags: The tags of the resource.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The tags of the resource.
         :param pulumi.Input[str] web_hook_url: The webhook URL to send notifications to.
-
-        The **events** object supports the following:
-
-          * `event_name` (`pulumi.Input[str]`) - The event type for which this notification is enabled (i.e. AutoShutdown, Cost)
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -126,13 +92,15 @@ class NotificationChannel(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None) -> 'NotificationChannel':
         """
         Get an existing NotificationChannel resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -141,8 +109,105 @@ class NotificationChannel(pulumi.CustomResource):
 
         return NotificationChannel(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter(name="createdDate")
+    def created_date(self) -> str:
+        """
+        The creation date of the notification channel.
+        """
+        return pulumi.get(self, "created_date")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        """
+        Description of notification.
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="emailRecipient")
+    def email_recipient(self) -> Optional[str]:
+        """
+        The email recipient to send notifications to (can be a list of semi-colon separated email addresses).
+        """
+        return pulumi.get(self, "email_recipient")
+
+    @property
+    @pulumi.getter
+    def events(self) -> Optional[List['outputs.EventResponse']]:
+        """
+        The list of event for which this notification is enabled.
+        """
+        return pulumi.get(self, "events")
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[str]:
+        """
+        The location of the resource.
+        """
+        return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the resource.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="notificationLocale")
+    def notification_locale(self) -> Optional[str]:
+        """
+        The locale to use when sending a notification (fallback for unsupported languages is EN).
+        """
+        return pulumi.get(self, "notification_locale")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        The provisioning status of the resource.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Mapping[str, str]]:
+        """
+        The tags of the resource.
+        """
+        return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        The type of the resource.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="uniqueIdentifier")
+    def unique_identifier(self) -> str:
+        """
+        The unique immutable identifier of a resource (Guid).
+        """
+        return pulumi.get(self, "unique_identifier")
+
+    @property
+    @pulumi.getter(name="webHookUrl")
+    def web_hook_url(self) -> Optional[str]:
+        """
+        The webhook URL to send notifications to.
+        """
+        return pulumi.get(self, "web_hook_url")
+
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

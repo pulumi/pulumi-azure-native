@@ -5,10 +5,16 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
 
+__all__ = [
+    'GetCustomerSubscriptionResult',
+    'AwaitableGetCustomerSubscriptionResult',
+    'get_customer_subscription',
+]
 
+@pulumi.output_type
 class GetCustomerSubscriptionResult:
     """
     Customer subscription.
@@ -16,28 +22,48 @@ class GetCustomerSubscriptionResult:
     def __init__(__self__, etag=None, name=None, tenant_id=None, type=None):
         if etag and not isinstance(etag, str):
             raise TypeError("Expected argument 'etag' to be a str")
-        __self__.etag = etag
+        pulumi.set(__self__, "etag", etag)
+        if name and not isinstance(name, str):
+            raise TypeError("Expected argument 'name' to be a str")
+        pulumi.set(__self__, "name", name)
+        if tenant_id and not isinstance(tenant_id, str):
+            raise TypeError("Expected argument 'tenant_id' to be a str")
+        pulumi.set(__self__, "tenant_id", tenant_id)
+        if type and not isinstance(type, str):
+            raise TypeError("Expected argument 'type' to be a str")
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def etag(self) -> Optional[str]:
         """
         The entity tag used for optimistic concurrency when modifying the resource.
         """
-        if name and not isinstance(name, str):
-            raise TypeError("Expected argument 'name' to be a str")
-        __self__.name = name
+        return pulumi.get(self, "etag")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
         """
         Name of the resource.
         """
-        if tenant_id and not isinstance(tenant_id, str):
-            raise TypeError("Expected argument 'tenant_id' to be a str")
-        __self__.tenant_id = tenant_id
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="tenantId")
+    def tenant_id(self) -> Optional[str]:
         """
         Tenant Id.
         """
-        if type and not isinstance(type, str):
-            raise TypeError("Expected argument 'type' to be a str")
-        __self__.type = type
+        return pulumi.get(self, "tenant_id")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
         """
         Type of Resource.
         """
+        return pulumi.get(self, "type")
 
 
 class AwaitableGetCustomerSubscriptionResult(GetCustomerSubscriptionResult):
@@ -52,7 +78,10 @@ class AwaitableGetCustomerSubscriptionResult(GetCustomerSubscriptionResult):
             type=self.type)
 
 
-def get_customer_subscription(name=None, registration_name=None, resource_group=None, opts=None):
+def get_customer_subscription(name: Optional[str] = None,
+                              registration_name: Optional[str] = None,
+                              resource_group: Optional[str] = None,
+                              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetCustomerSubscriptionResult:
     """
     Use this data source to access information about an existing resource.
 
@@ -68,10 +97,10 @@ def get_customer_subscription(name=None, registration_name=None, resource_group=
         opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = _utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('azurerm:azurestack/v20170601:getCustomerSubscription', __args__, opts=opts).value
+    __ret__ = pulumi.runtime.invoke('azurerm:azurestack/v20170601:getCustomerSubscription', __args__, opts=opts, typ=GetCustomerSubscriptionResult).value
 
     return AwaitableGetCustomerSubscriptionResult(
-        etag=__ret__.get('etag'),
-        name=__ret__.get('name'),
-        tenant_id=__ret__.get('tenantId'),
-        type=__ret__.get('type'))
+        etag=__ret__.etag,
+        name=__ret__.name,
+        tenant_id=__ret__.tenant_id,
+        type=__ret__.type)

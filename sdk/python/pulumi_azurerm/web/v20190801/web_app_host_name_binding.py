@@ -5,60 +5,30 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+
+__all__ = ['WebAppHostNameBinding']
 
 
 class WebAppHostNameBinding(pulumi.CustomResource):
-    azure_resource_name: pulumi.Output[str]
-    """
-    Azure resource name.
-    """
-    azure_resource_type: pulumi.Output[str]
-    """
-    Azure resource type.
-    """
-    custom_host_name_dns_record_type: pulumi.Output[str]
-    """
-    Custom DNS record type.
-    """
-    domain_id: pulumi.Output[str]
-    """
-    Fully qualified ARM domain resource URI.
-    """
-    host_name_type: pulumi.Output[str]
-    """
-    Hostname type.
-    """
-    kind: pulumi.Output[str]
-    """
-    Kind of resource.
-    """
-    name: pulumi.Output[str]
-    """
-    Resource Name.
-    """
-    site_name: pulumi.Output[str]
-    """
-    App Service app name.
-    """
-    ssl_state: pulumi.Output[str]
-    """
-    SSL type
-    """
-    thumbprint: pulumi.Output[str]
-    """
-    SSL certificate thumbprint
-    """
-    type: pulumi.Output[str]
-    """
-    Resource type.
-    """
-    virtual_ip: pulumi.Output[str]
-    """
-    Virtual IP address assigned to the hostname if IP based SSL is enabled.
-    """
-    def __init__(__self__, resource_name, opts=None, azure_resource_name=None, azure_resource_type=None, custom_host_name_dns_record_type=None, domain_id=None, host_name_type=None, kind=None, name=None, resource_group_name=None, site_name=None, ssl_state=None, thumbprint=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 azure_resource_name: Optional[pulumi.Input[str]] = None,
+                 azure_resource_type: Optional[pulumi.Input[str]] = None,
+                 custom_host_name_dns_record_type: Optional[pulumi.Input[str]] = None,
+                 domain_id: Optional[pulumi.Input[str]] = None,
+                 host_name_type: Optional[pulumi.Input[str]] = None,
+                 kind: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 site_name: Optional[pulumi.Input[str]] = None,
+                 ssl_state: Optional[pulumi.Input[str]] = None,
+                 thumbprint: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         A hostname binding object.
 
@@ -119,13 +89,15 @@ class WebAppHostNameBinding(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None) -> 'WebAppHostNameBinding':
         """
         Get an existing WebAppHostNameBinding resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -134,8 +106,105 @@ class WebAppHostNameBinding(pulumi.CustomResource):
 
         return WebAppHostNameBinding(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter(name="azureResourceName")
+    def azure_resource_name(self) -> Optional[str]:
+        """
+        Azure resource name.
+        """
+        return pulumi.get(self, "azure_resource_name")
+
+    @property
+    @pulumi.getter(name="azureResourceType")
+    def azure_resource_type(self) -> Optional[str]:
+        """
+        Azure resource type.
+        """
+        return pulumi.get(self, "azure_resource_type")
+
+    @property
+    @pulumi.getter(name="customHostNameDnsRecordType")
+    def custom_host_name_dns_record_type(self) -> Optional[str]:
+        """
+        Custom DNS record type.
+        """
+        return pulumi.get(self, "custom_host_name_dns_record_type")
+
+    @property
+    @pulumi.getter(name="domainId")
+    def domain_id(self) -> Optional[str]:
+        """
+        Fully qualified ARM domain resource URI.
+        """
+        return pulumi.get(self, "domain_id")
+
+    @property
+    @pulumi.getter(name="hostNameType")
+    def host_name_type(self) -> Optional[str]:
+        """
+        Hostname type.
+        """
+        return pulumi.get(self, "host_name_type")
+
+    @property
+    @pulumi.getter
+    def kind(self) -> Optional[str]:
+        """
+        Kind of resource.
+        """
+        return pulumi.get(self, "kind")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Resource Name.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="siteName")
+    def site_name(self) -> Optional[str]:
+        """
+        App Service app name.
+        """
+        return pulumi.get(self, "site_name")
+
+    @property
+    @pulumi.getter(name="sslState")
+    def ssl_state(self) -> Optional[str]:
+        """
+        SSL type
+        """
+        return pulumi.get(self, "ssl_state")
+
+    @property
+    @pulumi.getter
+    def thumbprint(self) -> Optional[str]:
+        """
+        SSL certificate thumbprint
+        """
+        return pulumi.get(self, "thumbprint")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Resource type.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="virtualIP")
+    def virtual_ip(self) -> str:
+        """
+        Virtual IP address assigned to the hostname if IP based SSL is enabled.
+        """
+        return pulumi.get(self, "virtual_ip")
+
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

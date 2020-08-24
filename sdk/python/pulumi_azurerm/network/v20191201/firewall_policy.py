@@ -5,76 +5,40 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+from . import outputs
+from ._inputs import *
+
+__all__ = ['FirewallPolicy']
 
 
 class FirewallPolicy(pulumi.CustomResource):
-    base_policy: pulumi.Output[dict]
-    """
-    The parent firewall policy from which rules are inherited.
-      * `id` (`str`) - Resource ID.
-    """
-    child_policies: pulumi.Output[list]
-    """
-    List of references to Child Firewall Policies.
-      * `id` (`str`) - Resource ID.
-    """
-    etag: pulumi.Output[str]
-    """
-    A unique read-only string that changes whenever the resource is updated.
-    """
-    firewalls: pulumi.Output[list]
-    """
-    List of references to Azure Firewalls that this Firewall Policy is associated with.
-      * `id` (`str`) - Resource ID.
-    """
-    location: pulumi.Output[str]
-    """
-    Resource location.
-    """
-    name: pulumi.Output[str]
-    """
-    Resource name.
-    """
-    provisioning_state: pulumi.Output[str]
-    """
-    The provisioning state of the firewall policy resource.
-    """
-    rule_groups: pulumi.Output[list]
-    """
-    List of references to FirewallPolicyRuleGroups.
-      * `id` (`str`) - Resource ID.
-    """
-    tags: pulumi.Output[dict]
-    """
-    Resource tags.
-    """
-    threat_intel_mode: pulumi.Output[str]
-    """
-    The operation mode for Threat Intelligence.
-    """
-    type: pulumi.Output[str]
-    """
-    Resource type.
-    """
-    def __init__(__self__, resource_name, opts=None, base_policy=None, id=None, location=None, name=None, resource_group_name=None, tags=None, threat_intel_mode=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 base_policy: Optional[pulumi.Input[pulumi.InputType['SubResourceArgs']]] = None,
+                 id: Optional[pulumi.Input[str]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 threat_intel_mode: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         FirewallPolicy Resource.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[dict] base_policy: The parent firewall policy from which rules are inherited.
+        :param pulumi.Input[pulumi.InputType['SubResourceArgs']] base_policy: The parent firewall policy from which rules are inherited.
         :param pulumi.Input[str] id: Resource ID.
         :param pulumi.Input[str] location: Resource location.
         :param pulumi.Input[str] name: The name of the Firewall Policy.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
-        :param pulumi.Input[dict] tags: Resource tags.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         :param pulumi.Input[str] threat_intel_mode: The operation mode for Threat Intelligence.
-
-        The **base_policy** object supports the following:
-
-          * `id` (`pulumi.Input[str]`) - Resource ID.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -119,13 +83,15 @@ class FirewallPolicy(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None) -> 'FirewallPolicy':
         """
         Get an existing FirewallPolicy resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -134,8 +100,97 @@ class FirewallPolicy(pulumi.CustomResource):
 
         return FirewallPolicy(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter(name="basePolicy")
+    def base_policy(self) -> Optional['outputs.SubResourceResponse']:
+        """
+        The parent firewall policy from which rules are inherited.
+        """
+        return pulumi.get(self, "base_policy")
+
+    @property
+    @pulumi.getter(name="childPolicies")
+    def child_policies(self) -> List['outputs.SubResourceResponse']:
+        """
+        List of references to Child Firewall Policies.
+        """
+        return pulumi.get(self, "child_policies")
+
+    @property
+    @pulumi.getter
+    def etag(self) -> str:
+        """
+        A unique read-only string that changes whenever the resource is updated.
+        """
+        return pulumi.get(self, "etag")
+
+    @property
+    @pulumi.getter
+    def firewalls(self) -> List['outputs.SubResourceResponse']:
+        """
+        List of references to Azure Firewalls that this Firewall Policy is associated with.
+        """
+        return pulumi.get(self, "firewalls")
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[str]:
+        """
+        Resource location.
+        """
+        return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Resource name.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        The provisioning state of the firewall policy resource.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="ruleGroups")
+    def rule_groups(self) -> List['outputs.SubResourceResponse']:
+        """
+        List of references to FirewallPolicyRuleGroups.
+        """
+        return pulumi.get(self, "rule_groups")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Mapping[str, str]]:
+        """
+        Resource tags.
+        """
+        return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter(name="threatIntelMode")
+    def threat_intel_mode(self) -> Optional[str]:
+        """
+        The operation mode for Threat Intelligence.
+        """
+        return pulumi.get(self, "threat_intel_mode")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Resource type.
+        """
+        return pulumi.get(self, "type")
+
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

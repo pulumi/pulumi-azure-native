@@ -5,64 +5,31 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+
+__all__ = ['Policy']
 
 
 class Policy(pulumi.CustomResource):
-    created_date: pulumi.Output[str]
-    """
-    The creation date of the policy.
-    """
-    description: pulumi.Output[str]
-    """
-    The description of the policy.
-    """
-    evaluator_type: pulumi.Output[str]
-    """
-    The evaluator type of the policy (i.e. AllowedValuesPolicy, MaxValuePolicy).
-    """
-    fact_data: pulumi.Output[str]
-    """
-    The fact data of the policy.
-    """
-    fact_name: pulumi.Output[str]
-    """
-    The fact name of the policy (e.g. LabVmCount, LabVmSize, MaxVmsAllowedPerLab, etc.
-    """
-    location: pulumi.Output[str]
-    """
-    The location of the resource.
-    """
-    name: pulumi.Output[str]
-    """
-    The name of the resource.
-    """
-    provisioning_state: pulumi.Output[str]
-    """
-    The provisioning status of the resource.
-    """
-    status: pulumi.Output[str]
-    """
-    The status of the policy.
-    """
-    tags: pulumi.Output[dict]
-    """
-    The tags of the resource.
-    """
-    threshold: pulumi.Output[str]
-    """
-    The threshold of the policy (i.e. a number for MaxValuePolicy, and a JSON array of values for AllowedValuesPolicy).
-    """
-    type: pulumi.Output[str]
-    """
-    The type of the resource.
-    """
-    unique_identifier: pulumi.Output[str]
-    """
-    The unique immutable identifier of a resource (Guid).
-    """
-    def __init__(__self__, resource_name, opts=None, description=None, evaluator_type=None, fact_data=None, fact_name=None, lab_name=None, location=None, name=None, policy_set_name=None, resource_group_name=None, status=None, tags=None, threshold=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 evaluator_type: Optional[pulumi.Input[str]] = None,
+                 fact_data: Optional[pulumi.Input[str]] = None,
+                 fact_name: Optional[pulumi.Input[str]] = None,
+                 lab_name: Optional[pulumi.Input[str]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 policy_set_name: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 status: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 threshold: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         A Policy.
 
@@ -78,7 +45,7 @@ class Policy(pulumi.CustomResource):
         :param pulumi.Input[str] policy_set_name: The name of the policy set.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[str] status: The status of the policy.
-        :param pulumi.Input[dict] tags: The tags of the resource.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The tags of the resource.
         :param pulumi.Input[str] threshold: The threshold of the policy (i.e. a number for MaxValuePolicy, and a JSON array of values for AllowedValuesPolicy).
         """
         if __name__ is not None:
@@ -131,13 +98,15 @@ class Policy(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None) -> 'Policy':
         """
         Get an existing Policy resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -146,8 +115,113 @@ class Policy(pulumi.CustomResource):
 
         return Policy(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter(name="createdDate")
+    def created_date(self) -> str:
+        """
+        The creation date of the policy.
+        """
+        return pulumi.get(self, "created_date")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        """
+        The description of the policy.
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="evaluatorType")
+    def evaluator_type(self) -> Optional[str]:
+        """
+        The evaluator type of the policy (i.e. AllowedValuesPolicy, MaxValuePolicy).
+        """
+        return pulumi.get(self, "evaluator_type")
+
+    @property
+    @pulumi.getter(name="factData")
+    def fact_data(self) -> Optional[str]:
+        """
+        The fact data of the policy.
+        """
+        return pulumi.get(self, "fact_data")
+
+    @property
+    @pulumi.getter(name="factName")
+    def fact_name(self) -> Optional[str]:
+        """
+        The fact name of the policy (e.g. LabVmCount, LabVmSize, MaxVmsAllowedPerLab, etc.
+        """
+        return pulumi.get(self, "fact_name")
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[str]:
+        """
+        The location of the resource.
+        """
+        return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the resource.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        The provisioning status of the resource.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter
+    def status(self) -> Optional[str]:
+        """
+        The status of the policy.
+        """
+        return pulumi.get(self, "status")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Mapping[str, str]]:
+        """
+        The tags of the resource.
+        """
+        return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter
+    def threshold(self) -> Optional[str]:
+        """
+        The threshold of the policy (i.e. a number for MaxValuePolicy, and a JSON array of values for AllowedValuesPolicy).
+        """
+        return pulumi.get(self, "threshold")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        The type of the resource.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="uniqueIdentifier")
+    def unique_identifier(self) -> str:
+        """
+        The unique immutable identifier of a resource (Guid).
+        """
+        return pulumi.get(self, "unique_identifier")
+
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

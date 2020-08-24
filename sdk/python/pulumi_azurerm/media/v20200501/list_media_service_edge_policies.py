@@ -5,15 +5,27 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+from . import outputs
 
+__all__ = [
+    'ListMediaServiceEdgePoliciesResult',
+    'AwaitableListMediaServiceEdgePoliciesResult',
+    'list_media_service_edge_policies',
+]
 
+@pulumi.output_type
 class ListMediaServiceEdgePoliciesResult:
     def __init__(__self__, usage_data_collection_policy=None):
         if usage_data_collection_policy and not isinstance(usage_data_collection_policy, dict):
             raise TypeError("Expected argument 'usage_data_collection_policy' to be a dict")
-        __self__.usage_data_collection_policy = usage_data_collection_policy
+        pulumi.set(__self__, "usage_data_collection_policy", usage_data_collection_policy)
+
+    @property
+    @pulumi.getter(name="usageDataCollectionPolicy")
+    def usage_data_collection_policy(self) -> Optional['outputs.EdgeUsageDataCollectionPolicyResponseResult']:
+        return pulumi.get(self, "usage_data_collection_policy")
 
 
 class AwaitableListMediaServiceEdgePoliciesResult(ListMediaServiceEdgePoliciesResult):
@@ -25,7 +37,10 @@ class AwaitableListMediaServiceEdgePoliciesResult(ListMediaServiceEdgePoliciesRe
             usage_data_collection_policy=self.usage_data_collection_policy)
 
 
-def list_media_service_edge_policies(account_name=None, device_id=None, resource_group_name=None, opts=None):
+def list_media_service_edge_policies(account_name: Optional[str] = None,
+                                     device_id: Optional[str] = None,
+                                     resource_group_name: Optional[str] = None,
+                                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListMediaServiceEdgePoliciesResult:
     """
     Use this data source to access information about an existing resource.
 
@@ -41,7 +56,7 @@ def list_media_service_edge_policies(account_name=None, device_id=None, resource
         opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = _utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('azurerm:media/v20200501:listMediaServiceEdgePolicies', __args__, opts=opts).value
+    __ret__ = pulumi.runtime.invoke('azurerm:media/v20200501:listMediaServiceEdgePolicies', __args__, opts=opts, typ=ListMediaServiceEdgePoliciesResult).value
 
     return AwaitableListMediaServiceEdgePoliciesResult(
-        usage_data_collection_policy=__ret__.get('usageDataCollectionPolicy'))
+        usage_data_collection_policy=__ret__.usage_data_collection_policy)

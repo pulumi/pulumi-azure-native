@@ -5,3 +5,5 @@
 # Export this package's modules as members:
 from .diagnostic_setting import *
 from .get_diagnostic_setting import *
+from ._inputs import *
+from . import outputs

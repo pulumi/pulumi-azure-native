@@ -5,10 +5,17 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+from . import outputs
 
+__all__ = [
+    'GetClusterResult',
+    'AwaitableGetClusterResult',
+    'get_cluster',
+]
 
+@pulumi.output_type
 class GetClusterResult:
     """
     The cluster resource
@@ -16,73 +23,183 @@ class GetClusterResult:
     def __init__(__self__, add_on_features=None, application_type_versions_cleanup_policy=None, available_cluster_versions=None, azure_active_directory=None, certificate=None, certificate_common_names=None, client_certificate_common_names=None, client_certificate_thumbprints=None, cluster_code_version=None, cluster_endpoint=None, cluster_id=None, cluster_state=None, diagnostics_storage_account_config=None, etag=None, event_store_service_enabled=None, fabric_settings=None, location=None, management_endpoint=None, name=None, node_types=None, provisioning_state=None, reliability_level=None, reverse_proxy_certificate=None, reverse_proxy_certificate_common_names=None, tags=None, type=None, upgrade_description=None, upgrade_mode=None, vm_image=None):
         if add_on_features and not isinstance(add_on_features, list):
             raise TypeError("Expected argument 'add_on_features' to be a list")
-        __self__.add_on_features = add_on_features
+        pulumi.set(__self__, "add_on_features", add_on_features)
+        if application_type_versions_cleanup_policy and not isinstance(application_type_versions_cleanup_policy, dict):
+            raise TypeError("Expected argument 'application_type_versions_cleanup_policy' to be a dict")
+        pulumi.set(__self__, "application_type_versions_cleanup_policy", application_type_versions_cleanup_policy)
+        if available_cluster_versions and not isinstance(available_cluster_versions, list):
+            raise TypeError("Expected argument 'available_cluster_versions' to be a list")
+        pulumi.set(__self__, "available_cluster_versions", available_cluster_versions)
+        if azure_active_directory and not isinstance(azure_active_directory, dict):
+            raise TypeError("Expected argument 'azure_active_directory' to be a dict")
+        pulumi.set(__self__, "azure_active_directory", azure_active_directory)
+        if certificate and not isinstance(certificate, dict):
+            raise TypeError("Expected argument 'certificate' to be a dict")
+        pulumi.set(__self__, "certificate", certificate)
+        if certificate_common_names and not isinstance(certificate_common_names, dict):
+            raise TypeError("Expected argument 'certificate_common_names' to be a dict")
+        pulumi.set(__self__, "certificate_common_names", certificate_common_names)
+        if client_certificate_common_names and not isinstance(client_certificate_common_names, list):
+            raise TypeError("Expected argument 'client_certificate_common_names' to be a list")
+        pulumi.set(__self__, "client_certificate_common_names", client_certificate_common_names)
+        if client_certificate_thumbprints and not isinstance(client_certificate_thumbprints, list):
+            raise TypeError("Expected argument 'client_certificate_thumbprints' to be a list")
+        pulumi.set(__self__, "client_certificate_thumbprints", client_certificate_thumbprints)
+        if cluster_code_version and not isinstance(cluster_code_version, str):
+            raise TypeError("Expected argument 'cluster_code_version' to be a str")
+        pulumi.set(__self__, "cluster_code_version", cluster_code_version)
+        if cluster_endpoint and not isinstance(cluster_endpoint, str):
+            raise TypeError("Expected argument 'cluster_endpoint' to be a str")
+        pulumi.set(__self__, "cluster_endpoint", cluster_endpoint)
+        if cluster_id and not isinstance(cluster_id, str):
+            raise TypeError("Expected argument 'cluster_id' to be a str")
+        pulumi.set(__self__, "cluster_id", cluster_id)
+        if cluster_state and not isinstance(cluster_state, str):
+            raise TypeError("Expected argument 'cluster_state' to be a str")
+        pulumi.set(__self__, "cluster_state", cluster_state)
+        if diagnostics_storage_account_config and not isinstance(diagnostics_storage_account_config, dict):
+            raise TypeError("Expected argument 'diagnostics_storage_account_config' to be a dict")
+        pulumi.set(__self__, "diagnostics_storage_account_config", diagnostics_storage_account_config)
+        if etag and not isinstance(etag, str):
+            raise TypeError("Expected argument 'etag' to be a str")
+        pulumi.set(__self__, "etag", etag)
+        if event_store_service_enabled and not isinstance(event_store_service_enabled, bool):
+            raise TypeError("Expected argument 'event_store_service_enabled' to be a bool")
+        pulumi.set(__self__, "event_store_service_enabled", event_store_service_enabled)
+        if fabric_settings and not isinstance(fabric_settings, list):
+            raise TypeError("Expected argument 'fabric_settings' to be a list")
+        pulumi.set(__self__, "fabric_settings", fabric_settings)
+        if location and not isinstance(location, str):
+            raise TypeError("Expected argument 'location' to be a str")
+        pulumi.set(__self__, "location", location)
+        if management_endpoint and not isinstance(management_endpoint, str):
+            raise TypeError("Expected argument 'management_endpoint' to be a str")
+        pulumi.set(__self__, "management_endpoint", management_endpoint)
+        if name and not isinstance(name, str):
+            raise TypeError("Expected argument 'name' to be a str")
+        pulumi.set(__self__, "name", name)
+        if node_types and not isinstance(node_types, list):
+            raise TypeError("Expected argument 'node_types' to be a list")
+        pulumi.set(__self__, "node_types", node_types)
+        if provisioning_state and not isinstance(provisioning_state, str):
+            raise TypeError("Expected argument 'provisioning_state' to be a str")
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if reliability_level and not isinstance(reliability_level, str):
+            raise TypeError("Expected argument 'reliability_level' to be a str")
+        pulumi.set(__self__, "reliability_level", reliability_level)
+        if reverse_proxy_certificate and not isinstance(reverse_proxy_certificate, dict):
+            raise TypeError("Expected argument 'reverse_proxy_certificate' to be a dict")
+        pulumi.set(__self__, "reverse_proxy_certificate", reverse_proxy_certificate)
+        if reverse_proxy_certificate_common_names and not isinstance(reverse_proxy_certificate_common_names, dict):
+            raise TypeError("Expected argument 'reverse_proxy_certificate_common_names' to be a dict")
+        pulumi.set(__self__, "reverse_proxy_certificate_common_names", reverse_proxy_certificate_common_names)
+        if tags and not isinstance(tags, dict):
+            raise TypeError("Expected argument 'tags' to be a dict")
+        pulumi.set(__self__, "tags", tags)
+        if type and not isinstance(type, str):
+            raise TypeError("Expected argument 'type' to be a str")
+        pulumi.set(__self__, "type", type)
+        if upgrade_description and not isinstance(upgrade_description, dict):
+            raise TypeError("Expected argument 'upgrade_description' to be a dict")
+        pulumi.set(__self__, "upgrade_description", upgrade_description)
+        if upgrade_mode and not isinstance(upgrade_mode, str):
+            raise TypeError("Expected argument 'upgrade_mode' to be a str")
+        pulumi.set(__self__, "upgrade_mode", upgrade_mode)
+        if vm_image and not isinstance(vm_image, str):
+            raise TypeError("Expected argument 'vm_image' to be a str")
+        pulumi.set(__self__, "vm_image", vm_image)
+
+    @property
+    @pulumi.getter(name="addOnFeatures")
+    def add_on_features(self) -> Optional[List[str]]:
         """
         The list of add-on features to enable in the cluster.
         """
-        if application_type_versions_cleanup_policy and not isinstance(application_type_versions_cleanup_policy, dict):
-            raise TypeError("Expected argument 'application_type_versions_cleanup_policy' to be a dict")
-        __self__.application_type_versions_cleanup_policy = application_type_versions_cleanup_policy
+        return pulumi.get(self, "add_on_features")
+
+    @property
+    @pulumi.getter(name="applicationTypeVersionsCleanupPolicy")
+    def application_type_versions_cleanup_policy(self) -> Optional['outputs.ApplicationTypeVersionsCleanupPolicyResponse']:
         """
         The policy used to clean up unused versions.
         """
-        if available_cluster_versions and not isinstance(available_cluster_versions, list):
-            raise TypeError("Expected argument 'available_cluster_versions' to be a list")
-        __self__.available_cluster_versions = available_cluster_versions
+        return pulumi.get(self, "application_type_versions_cleanup_policy")
+
+    @property
+    @pulumi.getter(name="availableClusterVersions")
+    def available_cluster_versions(self) -> List['outputs.ClusterVersionDetailsResponse']:
         """
         The Service Fabric runtime versions available for this cluster.
         """
-        if azure_active_directory and not isinstance(azure_active_directory, dict):
-            raise TypeError("Expected argument 'azure_active_directory' to be a dict")
-        __self__.azure_active_directory = azure_active_directory
+        return pulumi.get(self, "available_cluster_versions")
+
+    @property
+    @pulumi.getter(name="azureActiveDirectory")
+    def azure_active_directory(self) -> Optional['outputs.AzureActiveDirectoryResponse']:
         """
         The AAD authentication settings of the cluster.
         """
-        if certificate and not isinstance(certificate, dict):
-            raise TypeError("Expected argument 'certificate' to be a dict")
-        __self__.certificate = certificate
+        return pulumi.get(self, "azure_active_directory")
+
+    @property
+    @pulumi.getter
+    def certificate(self) -> Optional['outputs.CertificateDescriptionResponse']:
         """
         The certificate to use for securing the cluster. The certificate provided will be used for node to node security within the cluster, SSL certificate for cluster management endpoint and default admin client.
         """
-        if certificate_common_names and not isinstance(certificate_common_names, dict):
-            raise TypeError("Expected argument 'certificate_common_names' to be a dict")
-        __self__.certificate_common_names = certificate_common_names
+        return pulumi.get(self, "certificate")
+
+    @property
+    @pulumi.getter(name="certificateCommonNames")
+    def certificate_common_names(self) -> Optional['outputs.ServerCertificateCommonNamesResponse']:
         """
         Describes a list of server certificates referenced by common name that are used to secure the cluster.
         """
-        if client_certificate_common_names and not isinstance(client_certificate_common_names, list):
-            raise TypeError("Expected argument 'client_certificate_common_names' to be a list")
-        __self__.client_certificate_common_names = client_certificate_common_names
+        return pulumi.get(self, "certificate_common_names")
+
+    @property
+    @pulumi.getter(name="clientCertificateCommonNames")
+    def client_certificate_common_names(self) -> Optional[List['outputs.ClientCertificateCommonNameResponse']]:
         """
         The list of client certificates referenced by common name that are allowed to manage the cluster.
         """
-        if client_certificate_thumbprints and not isinstance(client_certificate_thumbprints, list):
-            raise TypeError("Expected argument 'client_certificate_thumbprints' to be a list")
-        __self__.client_certificate_thumbprints = client_certificate_thumbprints
+        return pulumi.get(self, "client_certificate_common_names")
+
+    @property
+    @pulumi.getter(name="clientCertificateThumbprints")
+    def client_certificate_thumbprints(self) -> Optional[List['outputs.ClientCertificateThumbprintResponse']]:
         """
         The list of client certificates referenced by thumbprint that are allowed to manage the cluster.
         """
-        if cluster_code_version and not isinstance(cluster_code_version, str):
-            raise TypeError("Expected argument 'cluster_code_version' to be a str")
-        __self__.cluster_code_version = cluster_code_version
+        return pulumi.get(self, "client_certificate_thumbprints")
+
+    @property
+    @pulumi.getter(name="clusterCodeVersion")
+    def cluster_code_version(self) -> Optional[str]:
         """
         The Service Fabric runtime version of the cluster. This property can only by set the user when **upgradeMode** is set to 'Manual'. To get list of available Service Fabric versions for new clusters use [ClusterVersion API](./ClusterVersion.md). To get the list of available version for existing clusters use **availableClusterVersions**.
         """
-        if cluster_endpoint and not isinstance(cluster_endpoint, str):
-            raise TypeError("Expected argument 'cluster_endpoint' to be a str")
-        __self__.cluster_endpoint = cluster_endpoint
+        return pulumi.get(self, "cluster_code_version")
+
+    @property
+    @pulumi.getter(name="clusterEndpoint")
+    def cluster_endpoint(self) -> str:
         """
         The Azure Resource Provider endpoint. A system service in the cluster connects to this  endpoint.
         """
-        if cluster_id and not isinstance(cluster_id, str):
-            raise TypeError("Expected argument 'cluster_id' to be a str")
-        __self__.cluster_id = cluster_id
+        return pulumi.get(self, "cluster_endpoint")
+
+    @property
+    @pulumi.getter(name="clusterId")
+    def cluster_id(self) -> str:
         """
         A service generated unique identifier for the cluster resource.
         """
-        if cluster_state and not isinstance(cluster_state, str):
-            raise TypeError("Expected argument 'cluster_state' to be a str")
-        __self__.cluster_state = cluster_state
+        return pulumi.get(self, "cluster_id")
+
+    @property
+    @pulumi.getter(name="clusterState")
+    def cluster_state(self) -> str:
         """
         The current state of the cluster.
 
@@ -97,63 +214,83 @@ class GetClusterResult:
           - AutoScale - Indicates that the ReliabilityLevel of the cluster is being adjusted.
           - Ready - Indicates that the cluster is in a stable state.
         """
-        if diagnostics_storage_account_config and not isinstance(diagnostics_storage_account_config, dict):
-            raise TypeError("Expected argument 'diagnostics_storage_account_config' to be a dict")
-        __self__.diagnostics_storage_account_config = diagnostics_storage_account_config
+        return pulumi.get(self, "cluster_state")
+
+    @property
+    @pulumi.getter(name="diagnosticsStorageAccountConfig")
+    def diagnostics_storage_account_config(self) -> Optional['outputs.DiagnosticsStorageAccountConfigResponse']:
         """
         The storage account information for storing Service Fabric diagnostic logs.
         """
-        if etag and not isinstance(etag, str):
-            raise TypeError("Expected argument 'etag' to be a str")
-        __self__.etag = etag
+        return pulumi.get(self, "diagnostics_storage_account_config")
+
+    @property
+    @pulumi.getter
+    def etag(self) -> str:
         """
         Azure resource etag.
         """
-        if event_store_service_enabled and not isinstance(event_store_service_enabled, bool):
-            raise TypeError("Expected argument 'event_store_service_enabled' to be a bool")
-        __self__.event_store_service_enabled = event_store_service_enabled
+        return pulumi.get(self, "etag")
+
+    @property
+    @pulumi.getter(name="eventStoreServiceEnabled")
+    def event_store_service_enabled(self) -> Optional[bool]:
         """
         Indicates if the event store service is enabled.
         """
-        if fabric_settings and not isinstance(fabric_settings, list):
-            raise TypeError("Expected argument 'fabric_settings' to be a list")
-        __self__.fabric_settings = fabric_settings
+        return pulumi.get(self, "event_store_service_enabled")
+
+    @property
+    @pulumi.getter(name="fabricSettings")
+    def fabric_settings(self) -> Optional[List['outputs.SettingsSectionDescriptionResponse']]:
         """
         The list of custom fabric settings to configure the cluster.
         """
-        if location and not isinstance(location, str):
-            raise TypeError("Expected argument 'location' to be a str")
-        __self__.location = location
+        return pulumi.get(self, "fabric_settings")
+
+    @property
+    @pulumi.getter
+    def location(self) -> str:
         """
         Azure resource location.
         """
-        if management_endpoint and not isinstance(management_endpoint, str):
-            raise TypeError("Expected argument 'management_endpoint' to be a str")
-        __self__.management_endpoint = management_endpoint
+        return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter(name="managementEndpoint")
+    def management_endpoint(self) -> str:
         """
         The http management endpoint of the cluster.
         """
-        if name and not isinstance(name, str):
-            raise TypeError("Expected argument 'name' to be a str")
-        __self__.name = name
+        return pulumi.get(self, "management_endpoint")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
         """
         Azure resource name.
         """
-        if node_types and not isinstance(node_types, list):
-            raise TypeError("Expected argument 'node_types' to be a list")
-        __self__.node_types = node_types
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="nodeTypes")
+    def node_types(self) -> List['outputs.NodeTypeDescriptionResponse']:
         """
         The list of node types in the cluster.
         """
-        if provisioning_state and not isinstance(provisioning_state, str):
-            raise TypeError("Expected argument 'provisioning_state' to be a str")
-        __self__.provisioning_state = provisioning_state
+        return pulumi.get(self, "node_types")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
         """
         The provisioning state of the cluster resource.
         """
-        if reliability_level and not isinstance(reliability_level, str):
-            raise TypeError("Expected argument 'reliability_level' to be a str")
-        __self__.reliability_level = reliability_level
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="reliabilityLevel")
+    def reliability_level(self) -> Optional[str]:
         """
         The reliability level sets the replica set size of system services. Learn about [ReliabilityLevel](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity).
 
@@ -163,51 +300,66 @@ class GetClusterResult:
           - Gold - Run the System services with a target replica set count of 7.
           - Platinum - Run the System services with a target replica set count of 9.
         """
-        if reverse_proxy_certificate and not isinstance(reverse_proxy_certificate, dict):
-            raise TypeError("Expected argument 'reverse_proxy_certificate' to be a dict")
-        __self__.reverse_proxy_certificate = reverse_proxy_certificate
+        return pulumi.get(self, "reliability_level")
+
+    @property
+    @pulumi.getter(name="reverseProxyCertificate")
+    def reverse_proxy_certificate(self) -> Optional['outputs.CertificateDescriptionResponse']:
         """
         The server certificate used by reverse proxy.
         """
-        if reverse_proxy_certificate_common_names and not isinstance(reverse_proxy_certificate_common_names, dict):
-            raise TypeError("Expected argument 'reverse_proxy_certificate_common_names' to be a dict")
-        __self__.reverse_proxy_certificate_common_names = reverse_proxy_certificate_common_names
+        return pulumi.get(self, "reverse_proxy_certificate")
+
+    @property
+    @pulumi.getter(name="reverseProxyCertificateCommonNames")
+    def reverse_proxy_certificate_common_names(self) -> Optional['outputs.ServerCertificateCommonNamesResponse']:
         """
         Describes a list of server certificates referenced by common name that are used to secure the cluster.
         """
-        if tags and not isinstance(tags, dict):
-            raise TypeError("Expected argument 'tags' to be a dict")
-        __self__.tags = tags
+        return pulumi.get(self, "reverse_proxy_certificate_common_names")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Mapping[str, str]]:
         """
         Azure resource tags.
         """
-        if type and not isinstance(type, str):
-            raise TypeError("Expected argument 'type' to be a str")
-        __self__.type = type
+        return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
         """
         Azure resource type.
         """
-        if upgrade_description and not isinstance(upgrade_description, dict):
-            raise TypeError("Expected argument 'upgrade_description' to be a dict")
-        __self__.upgrade_description = upgrade_description
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="upgradeDescription")
+    def upgrade_description(self) -> Optional['outputs.ClusterUpgradePolicyResponse']:
         """
         The policy to use when upgrading the cluster.
         """
-        if upgrade_mode and not isinstance(upgrade_mode, str):
-            raise TypeError("Expected argument 'upgrade_mode' to be a str")
-        __self__.upgrade_mode = upgrade_mode
+        return pulumi.get(self, "upgrade_description")
+
+    @property
+    @pulumi.getter(name="upgradeMode")
+    def upgrade_mode(self) -> Optional[str]:
         """
         The upgrade mode of the cluster when new Service Fabric runtime version is available.
 
           - Automatic - The cluster will be automatically upgraded to the latest Service Fabric runtime version as soon as it is available.
           - Manual - The cluster will not be automatically upgraded to the latest Service Fabric runtime version. The cluster is upgraded by setting the **clusterCodeVersion** property in the cluster resource.
         """
-        if vm_image and not isinstance(vm_image, str):
-            raise TypeError("Expected argument 'vm_image' to be a str")
-        __self__.vm_image = vm_image
+        return pulumi.get(self, "upgrade_mode")
+
+    @property
+    @pulumi.getter(name="vmImage")
+    def vm_image(self) -> Optional[str]:
         """
         The VM image VMSS has been configured with. Generic names such as Windows or Linux can be used.
         """
+        return pulumi.get(self, "vm_image")
 
 
 class AwaitableGetClusterResult(GetClusterResult):
@@ -247,7 +399,9 @@ class AwaitableGetClusterResult(GetClusterResult):
             vm_image=self.vm_image)
 
 
-def get_cluster(name=None, resource_group_name=None, opts=None):
+def get_cluster(name: Optional[str] = None,
+                resource_group_name: Optional[str] = None,
+                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetClusterResult:
     """
     Use this data source to access information about an existing resource.
 
@@ -261,35 +415,35 @@ def get_cluster(name=None, resource_group_name=None, opts=None):
         opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = _utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('azurerm:servicefabric/v20200301:getCluster', __args__, opts=opts).value
+    __ret__ = pulumi.runtime.invoke('azurerm:servicefabric/v20200301:getCluster', __args__, opts=opts, typ=GetClusterResult).value
 
     return AwaitableGetClusterResult(
-        add_on_features=__ret__.get('addOnFeatures'),
-        application_type_versions_cleanup_policy=__ret__.get('applicationTypeVersionsCleanupPolicy'),
-        available_cluster_versions=__ret__.get('availableClusterVersions'),
-        azure_active_directory=__ret__.get('azureActiveDirectory'),
-        certificate=__ret__.get('certificate'),
-        certificate_common_names=__ret__.get('certificateCommonNames'),
-        client_certificate_common_names=__ret__.get('clientCertificateCommonNames'),
-        client_certificate_thumbprints=__ret__.get('clientCertificateThumbprints'),
-        cluster_code_version=__ret__.get('clusterCodeVersion'),
-        cluster_endpoint=__ret__.get('clusterEndpoint'),
-        cluster_id=__ret__.get('clusterId'),
-        cluster_state=__ret__.get('clusterState'),
-        diagnostics_storage_account_config=__ret__.get('diagnosticsStorageAccountConfig'),
-        etag=__ret__.get('etag'),
-        event_store_service_enabled=__ret__.get('eventStoreServiceEnabled'),
-        fabric_settings=__ret__.get('fabricSettings'),
-        location=__ret__.get('location'),
-        management_endpoint=__ret__.get('managementEndpoint'),
-        name=__ret__.get('name'),
-        node_types=__ret__.get('nodeTypes'),
-        provisioning_state=__ret__.get('provisioningState'),
-        reliability_level=__ret__.get('reliabilityLevel'),
-        reverse_proxy_certificate=__ret__.get('reverseProxyCertificate'),
-        reverse_proxy_certificate_common_names=__ret__.get('reverseProxyCertificateCommonNames'),
-        tags=__ret__.get('tags'),
-        type=__ret__.get('type'),
-        upgrade_description=__ret__.get('upgradeDescription'),
-        upgrade_mode=__ret__.get('upgradeMode'),
-        vm_image=__ret__.get('vmImage'))
+        add_on_features=__ret__.add_on_features,
+        application_type_versions_cleanup_policy=__ret__.application_type_versions_cleanup_policy,
+        available_cluster_versions=__ret__.available_cluster_versions,
+        azure_active_directory=__ret__.azure_active_directory,
+        certificate=__ret__.certificate,
+        certificate_common_names=__ret__.certificate_common_names,
+        client_certificate_common_names=__ret__.client_certificate_common_names,
+        client_certificate_thumbprints=__ret__.client_certificate_thumbprints,
+        cluster_code_version=__ret__.cluster_code_version,
+        cluster_endpoint=__ret__.cluster_endpoint,
+        cluster_id=__ret__.cluster_id,
+        cluster_state=__ret__.cluster_state,
+        diagnostics_storage_account_config=__ret__.diagnostics_storage_account_config,
+        etag=__ret__.etag,
+        event_store_service_enabled=__ret__.event_store_service_enabled,
+        fabric_settings=__ret__.fabric_settings,
+        location=__ret__.location,
+        management_endpoint=__ret__.management_endpoint,
+        name=__ret__.name,
+        node_types=__ret__.node_types,
+        provisioning_state=__ret__.provisioning_state,
+        reliability_level=__ret__.reliability_level,
+        reverse_proxy_certificate=__ret__.reverse_proxy_certificate,
+        reverse_proxy_certificate_common_names=__ret__.reverse_proxy_certificate_common_names,
+        tags=__ret__.tags,
+        type=__ret__.type,
+        upgrade_description=__ret__.upgrade_description,
+        upgrade_mode=__ret__.upgrade_mode,
+        vm_image=__ret__.vm_image)

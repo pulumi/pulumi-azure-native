@@ -11,3 +11,5 @@ from .get_trusted_id_provider import *
 from .get_virtual_network_rule import *
 from .trusted_id_provider import *
 from .virtual_network_rule import *
+from ._inputs import *
+from . import outputs

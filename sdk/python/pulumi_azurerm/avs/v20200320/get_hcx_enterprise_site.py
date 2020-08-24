@@ -5,10 +5,16 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
 
+__all__ = [
+    'GetHcxEnterpriseSiteResult',
+    'AwaitableGetHcxEnterpriseSiteResult',
+    'get_hcx_enterprise_site',
+]
 
+@pulumi.output_type
 class GetHcxEnterpriseSiteResult:
     """
     An HCX Enterprise Site resource
@@ -16,28 +22,48 @@ class GetHcxEnterpriseSiteResult:
     def __init__(__self__, activation_key=None, name=None, status=None, type=None):
         if activation_key and not isinstance(activation_key, str):
             raise TypeError("Expected argument 'activation_key' to be a str")
-        __self__.activation_key = activation_key
+        pulumi.set(__self__, "activation_key", activation_key)
+        if name and not isinstance(name, str):
+            raise TypeError("Expected argument 'name' to be a str")
+        pulumi.set(__self__, "name", name)
+        if status and not isinstance(status, str):
+            raise TypeError("Expected argument 'status' to be a str")
+        pulumi.set(__self__, "status", status)
+        if type and not isinstance(type, str):
+            raise TypeError("Expected argument 'type' to be a str")
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="activationKey")
+    def activation_key(self) -> str:
         """
         The activation key
         """
-        if name and not isinstance(name, str):
-            raise TypeError("Expected argument 'name' to be a str")
-        __self__.name = name
+        return pulumi.get(self, "activation_key")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
         """
         Resource name.
         """
-        if status and not isinstance(status, str):
-            raise TypeError("Expected argument 'status' to be a str")
-        __self__.status = status
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def status(self) -> str:
         """
         The status of the HCX Enterprise Site
         """
-        if type and not isinstance(type, str):
-            raise TypeError("Expected argument 'type' to be a str")
-        __self__.type = type
+        return pulumi.get(self, "status")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
         """
         Resource type.
         """
+        return pulumi.get(self, "type")
 
 
 class AwaitableGetHcxEnterpriseSiteResult(GetHcxEnterpriseSiteResult):
@@ -52,7 +78,10 @@ class AwaitableGetHcxEnterpriseSiteResult(GetHcxEnterpriseSiteResult):
             type=self.type)
 
 
-def get_hcx_enterprise_site(name=None, private_cloud_name=None, resource_group_name=None, opts=None):
+def get_hcx_enterprise_site(name: Optional[str] = None,
+                            private_cloud_name: Optional[str] = None,
+                            resource_group_name: Optional[str] = None,
+                            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetHcxEnterpriseSiteResult:
     """
     Use this data source to access information about an existing resource.
 
@@ -68,10 +97,10 @@ def get_hcx_enterprise_site(name=None, private_cloud_name=None, resource_group_n
         opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = _utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('azurerm:avs/v20200320:getHcxEnterpriseSite', __args__, opts=opts).value
+    __ret__ = pulumi.runtime.invoke('azurerm:avs/v20200320:getHcxEnterpriseSite', __args__, opts=opts, typ=GetHcxEnterpriseSiteResult).value
 
     return AwaitableGetHcxEnterpriseSiteResult(
-        activation_key=__ret__.get('activationKey'),
-        name=__ret__.get('name'),
-        status=__ret__.get('status'),
-        type=__ret__.get('type'))
+        activation_key=__ret__.activation_key,
+        name=__ret__.name,
+        status=__ret__.status,
+        type=__ret__.type)

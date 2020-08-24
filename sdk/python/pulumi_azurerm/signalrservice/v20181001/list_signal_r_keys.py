@@ -5,10 +5,16 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
 
+__all__ = [
+    'ListSignalRKeysResult',
+    'AwaitableListSignalRKeysResult',
+    'list_signal_r_keys',
+]
 
+@pulumi.output_type
 class ListSignalRKeysResult:
     """
     A class represents the access keys of SignalR service.
@@ -16,28 +22,48 @@ class ListSignalRKeysResult:
     def __init__(__self__, primary_connection_string=None, primary_key=None, secondary_connection_string=None, secondary_key=None):
         if primary_connection_string and not isinstance(primary_connection_string, str):
             raise TypeError("Expected argument 'primary_connection_string' to be a str")
-        __self__.primary_connection_string = primary_connection_string
+        pulumi.set(__self__, "primary_connection_string", primary_connection_string)
+        if primary_key and not isinstance(primary_key, str):
+            raise TypeError("Expected argument 'primary_key' to be a str")
+        pulumi.set(__self__, "primary_key", primary_key)
+        if secondary_connection_string and not isinstance(secondary_connection_string, str):
+            raise TypeError("Expected argument 'secondary_connection_string' to be a str")
+        pulumi.set(__self__, "secondary_connection_string", secondary_connection_string)
+        if secondary_key and not isinstance(secondary_key, str):
+            raise TypeError("Expected argument 'secondary_key' to be a str")
+        pulumi.set(__self__, "secondary_key", secondary_key)
+
+    @property
+    @pulumi.getter(name="primaryConnectionString")
+    def primary_connection_string(self) -> Optional[str]:
         """
         SignalR connection string constructed via the primaryKey
         """
-        if primary_key and not isinstance(primary_key, str):
-            raise TypeError("Expected argument 'primary_key' to be a str")
-        __self__.primary_key = primary_key
+        return pulumi.get(self, "primary_connection_string")
+
+    @property
+    @pulumi.getter(name="primaryKey")
+    def primary_key(self) -> Optional[str]:
         """
         The primary access key.
         """
-        if secondary_connection_string and not isinstance(secondary_connection_string, str):
-            raise TypeError("Expected argument 'secondary_connection_string' to be a str")
-        __self__.secondary_connection_string = secondary_connection_string
+        return pulumi.get(self, "primary_key")
+
+    @property
+    @pulumi.getter(name="secondaryConnectionString")
+    def secondary_connection_string(self) -> Optional[str]:
         """
         SignalR connection string constructed via the secondaryKey
         """
-        if secondary_key and not isinstance(secondary_key, str):
-            raise TypeError("Expected argument 'secondary_key' to be a str")
-        __self__.secondary_key = secondary_key
+        return pulumi.get(self, "secondary_connection_string")
+
+    @property
+    @pulumi.getter(name="secondaryKey")
+    def secondary_key(self) -> Optional[str]:
         """
         The secondary access key.
         """
+        return pulumi.get(self, "secondary_key")
 
 
 class AwaitableListSignalRKeysResult(ListSignalRKeysResult):
@@ -52,7 +78,9 @@ class AwaitableListSignalRKeysResult(ListSignalRKeysResult):
             secondary_key=self.secondary_key)
 
 
-def list_signal_r_keys(resource_group_name=None, resource_name=None, opts=None):
+def list_signal_r_keys(resource_group_name: Optional[str] = None,
+                       resource_name: Optional[str] = None,
+                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListSignalRKeysResult:
     """
     Use this data source to access information about an existing resource.
 
@@ -66,10 +94,10 @@ def list_signal_r_keys(resource_group_name=None, resource_name=None, opts=None):
         opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = _utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('azurerm:signalrservice/v20181001:listSignalRKeys', __args__, opts=opts).value
+    __ret__ = pulumi.runtime.invoke('azurerm:signalrservice/v20181001:listSignalRKeys', __args__, opts=opts, typ=ListSignalRKeysResult).value
 
     return AwaitableListSignalRKeysResult(
-        primary_connection_string=__ret__.get('primaryConnectionString'),
-        primary_key=__ret__.get('primaryKey'),
-        secondary_connection_string=__ret__.get('secondaryConnectionString'),
-        secondary_key=__ret__.get('secondaryKey'))
+        primary_connection_string=__ret__.primary_connection_string,
+        primary_key=__ret__.primary_key,
+        secondary_connection_string=__ret__.secondary_connection_string,
+        secondary_key=__ret__.secondary_key)

@@ -5,10 +5,17 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+from . import outputs
 
+__all__ = [
+    'GetPrivateDnsZoneGroupResult',
+    'AwaitableGetPrivateDnsZoneGroupResult',
+    'get_private_dns_zone_group',
+]
 
+@pulumi.output_type
 class GetPrivateDnsZoneGroupResult:
     """
     Private dns zone group resource.
@@ -16,28 +23,48 @@ class GetPrivateDnsZoneGroupResult:
     def __init__(__self__, etag=None, name=None, private_dns_zone_configs=None, provisioning_state=None):
         if etag and not isinstance(etag, str):
             raise TypeError("Expected argument 'etag' to be a str")
-        __self__.etag = etag
+        pulumi.set(__self__, "etag", etag)
+        if name and not isinstance(name, str):
+            raise TypeError("Expected argument 'name' to be a str")
+        pulumi.set(__self__, "name", name)
+        if private_dns_zone_configs and not isinstance(private_dns_zone_configs, list):
+            raise TypeError("Expected argument 'private_dns_zone_configs' to be a list")
+        pulumi.set(__self__, "private_dns_zone_configs", private_dns_zone_configs)
+        if provisioning_state and not isinstance(provisioning_state, str):
+            raise TypeError("Expected argument 'provisioning_state' to be a str")
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+
+    @property
+    @pulumi.getter
+    def etag(self) -> str:
         """
         A unique read-only string that changes whenever the resource is updated.
         """
-        if name and not isinstance(name, str):
-            raise TypeError("Expected argument 'name' to be a str")
-        __self__.name = name
+        return pulumi.get(self, "etag")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
         """
         Name of the resource that is unique within a resource group. This name can be used to access the resource.
         """
-        if private_dns_zone_configs and not isinstance(private_dns_zone_configs, list):
-            raise TypeError("Expected argument 'private_dns_zone_configs' to be a list")
-        __self__.private_dns_zone_configs = private_dns_zone_configs
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="privateDnsZoneConfigs")
+    def private_dns_zone_configs(self) -> Optional[List['outputs.PrivateDnsZoneConfigResponse']]:
         """
         A collection of private dns zone configurations of the private dns zone group.
         """
-        if provisioning_state and not isinstance(provisioning_state, str):
-            raise TypeError("Expected argument 'provisioning_state' to be a str")
-        __self__.provisioning_state = provisioning_state
+        return pulumi.get(self, "private_dns_zone_configs")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
         """
         The provisioning state of the private dns zone group resource.
         """
+        return pulumi.get(self, "provisioning_state")
 
 
 class AwaitableGetPrivateDnsZoneGroupResult(GetPrivateDnsZoneGroupResult):
@@ -52,7 +79,10 @@ class AwaitableGetPrivateDnsZoneGroupResult(GetPrivateDnsZoneGroupResult):
             provisioning_state=self.provisioning_state)
 
 
-def get_private_dns_zone_group(name=None, private_endpoint_name=None, resource_group_name=None, opts=None):
+def get_private_dns_zone_group(name: Optional[str] = None,
+                               private_endpoint_name: Optional[str] = None,
+                               resource_group_name: Optional[str] = None,
+                               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPrivateDnsZoneGroupResult:
     """
     Use this data source to access information about an existing resource.
 
@@ -68,10 +98,10 @@ def get_private_dns_zone_group(name=None, private_endpoint_name=None, resource_g
         opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = _utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('azurerm:network/v20200601:getPrivateDnsZoneGroup', __args__, opts=opts).value
+    __ret__ = pulumi.runtime.invoke('azurerm:network/v20200601:getPrivateDnsZoneGroup', __args__, opts=opts, typ=GetPrivateDnsZoneGroupResult).value
 
     return AwaitableGetPrivateDnsZoneGroupResult(
-        etag=__ret__.get('etag'),
-        name=__ret__.get('name'),
-        private_dns_zone_configs=__ret__.get('privateDnsZoneConfigs'),
-        provisioning_state=__ret__.get('provisioningState'))
+        etag=__ret__.etag,
+        name=__ret__.name,
+        private_dns_zone_configs=__ret__.private_dns_zone_configs,
+        provisioning_state=__ret__.provisioning_state)

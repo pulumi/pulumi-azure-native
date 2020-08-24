@@ -5,10 +5,17 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+from . import outputs
 
+__all__ = [
+    'GetLinkedServiceResult',
+    'AwaitableGetLinkedServiceResult',
+    'get_linked_service',
+]
 
+@pulumi.output_type
 class GetLinkedServiceResult:
     """
     Linked service resource type.
@@ -16,28 +23,48 @@ class GetLinkedServiceResult:
     def __init__(__self__, etag=None, name=None, properties=None, type=None):
         if etag and not isinstance(etag, str):
             raise TypeError("Expected argument 'etag' to be a str")
-        __self__.etag = etag
+        pulumi.set(__self__, "etag", etag)
+        if name and not isinstance(name, str):
+            raise TypeError("Expected argument 'name' to be a str")
+        pulumi.set(__self__, "name", name)
+        if properties and not isinstance(properties, dict):
+            raise TypeError("Expected argument 'properties' to be a dict")
+        pulumi.set(__self__, "properties", properties)
+        if type and not isinstance(type, str):
+            raise TypeError("Expected argument 'type' to be a str")
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def etag(self) -> str:
         """
         Etag identifies change in the resource.
         """
-        if name and not isinstance(name, str):
-            raise TypeError("Expected argument 'name' to be a str")
-        __self__.name = name
+        return pulumi.get(self, "etag")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
         """
         The resource name.
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def properties(self) -> 'outputs.LinkedServiceResponse':
         """
         Properties of linked service.
         """
-        if type and not isinstance(type, str):
-            raise TypeError("Expected argument 'type' to be a str")
-        __self__.type = type
+        return pulumi.get(self, "properties")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
         """
         The resource type.
         """
+        return pulumi.get(self, "type")
 
 
 class AwaitableGetLinkedServiceResult(GetLinkedServiceResult):
@@ -52,7 +79,10 @@ class AwaitableGetLinkedServiceResult(GetLinkedServiceResult):
             type=self.type)
 
 
-def get_linked_service(factory_name=None, name=None, resource_group_name=None, opts=None):
+def get_linked_service(factory_name: Optional[str] = None,
+                       name: Optional[str] = None,
+                       resource_group_name: Optional[str] = None,
+                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetLinkedServiceResult:
     """
     Use this data source to access information about an existing resource.
 
@@ -68,10 +98,10 @@ def get_linked_service(factory_name=None, name=None, resource_group_name=None, o
         opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = _utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('azurerm:datafactory/v20180601:getLinkedService', __args__, opts=opts).value
+    __ret__ = pulumi.runtime.invoke('azurerm:datafactory/v20180601:getLinkedService', __args__, opts=opts, typ=GetLinkedServiceResult).value
 
     return AwaitableGetLinkedServiceResult(
-        etag=__ret__.get('etag'),
-        name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
-        type=__ret__.get('type'))
+        etag=__ret__.etag,
+        name=__ret__.name,
+        properties=__ret__.properties,
+        type=__ret__.type)

@@ -5,10 +5,17 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+from . import outputs
 
+__all__ = [
+    'GetExpressRouteConnectionResult',
+    'AwaitableGetExpressRouteConnectionResult',
+    'get_express_route_connection',
+]
 
+@pulumi.output_type
 class GetExpressRouteConnectionResult:
     """
     ExpressRouteConnection resource.
@@ -16,34 +23,59 @@ class GetExpressRouteConnectionResult:
     def __init__(__self__, authorization_key=None, express_route_circuit_peering=None, name=None, provisioning_state=None, routing_weight=None):
         if authorization_key and not isinstance(authorization_key, str):
             raise TypeError("Expected argument 'authorization_key' to be a str")
-        __self__.authorization_key = authorization_key
+        pulumi.set(__self__, "authorization_key", authorization_key)
+        if express_route_circuit_peering and not isinstance(express_route_circuit_peering, dict):
+            raise TypeError("Expected argument 'express_route_circuit_peering' to be a dict")
+        pulumi.set(__self__, "express_route_circuit_peering", express_route_circuit_peering)
+        if name and not isinstance(name, str):
+            raise TypeError("Expected argument 'name' to be a str")
+        pulumi.set(__self__, "name", name)
+        if provisioning_state and not isinstance(provisioning_state, str):
+            raise TypeError("Expected argument 'provisioning_state' to be a str")
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if routing_weight and not isinstance(routing_weight, float):
+            raise TypeError("Expected argument 'routing_weight' to be a float")
+        pulumi.set(__self__, "routing_weight", routing_weight)
+
+    @property
+    @pulumi.getter(name="authorizationKey")
+    def authorization_key(self) -> Optional[str]:
         """
         Authorization key to establish the connection.
         """
-        if express_route_circuit_peering and not isinstance(express_route_circuit_peering, dict):
-            raise TypeError("Expected argument 'express_route_circuit_peering' to be a dict")
-        __self__.express_route_circuit_peering = express_route_circuit_peering
+        return pulumi.get(self, "authorization_key")
+
+    @property
+    @pulumi.getter(name="expressRouteCircuitPeering")
+    def express_route_circuit_peering(self) -> 'outputs.ExpressRouteCircuitPeeringIdResponse':
         """
         The ExpressRoute circuit peering.
         """
-        if name and not isinstance(name, str):
-            raise TypeError("Expected argument 'name' to be a str")
-        __self__.name = name
+        return pulumi.get(self, "express_route_circuit_peering")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
         """
         The name of the resource.
         """
-        if provisioning_state and not isinstance(provisioning_state, str):
-            raise TypeError("Expected argument 'provisioning_state' to be a str")
-        __self__.provisioning_state = provisioning_state
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> Optional[str]:
         """
         The provisioning state of the resource.
         """
-        if routing_weight and not isinstance(routing_weight, float):
-            raise TypeError("Expected argument 'routing_weight' to be a float")
-        __self__.routing_weight = routing_weight
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="routingWeight")
+    def routing_weight(self) -> Optional[float]:
         """
         The routing weight associated to the connection.
         """
+        return pulumi.get(self, "routing_weight")
 
 
 class AwaitableGetExpressRouteConnectionResult(GetExpressRouteConnectionResult):
@@ -59,7 +91,10 @@ class AwaitableGetExpressRouteConnectionResult(GetExpressRouteConnectionResult):
             routing_weight=self.routing_weight)
 
 
-def get_express_route_connection(express_route_gateway_name=None, name=None, resource_group_name=None, opts=None):
+def get_express_route_connection(express_route_gateway_name: Optional[str] = None,
+                                 name: Optional[str] = None,
+                                 resource_group_name: Optional[str] = None,
+                                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetExpressRouteConnectionResult:
     """
     Use this data source to access information about an existing resource.
 
@@ -75,11 +110,11 @@ def get_express_route_connection(express_route_gateway_name=None, name=None, res
         opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = _utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('azurerm:network/v20190601:getExpressRouteConnection', __args__, opts=opts).value
+    __ret__ = pulumi.runtime.invoke('azurerm:network/v20190601:getExpressRouteConnection', __args__, opts=opts, typ=GetExpressRouteConnectionResult).value
 
     return AwaitableGetExpressRouteConnectionResult(
-        authorization_key=__ret__.get('authorizationKey'),
-        express_route_circuit_peering=__ret__.get('expressRouteCircuitPeering'),
-        name=__ret__.get('name'),
-        provisioning_state=__ret__.get('provisioningState'),
-        routing_weight=__ret__.get('routingWeight'))
+        authorization_key=__ret__.authorization_key,
+        express_route_circuit_peering=__ret__.express_route_circuit_peering,
+        name=__ret__.name,
+        provisioning_state=__ret__.provisioning_state,
+        routing_weight=__ret__.routing_weight)

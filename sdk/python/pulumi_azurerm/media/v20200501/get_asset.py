@@ -5,10 +5,16 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
 
+__all__ = [
+    'GetAssetResult',
+    'AwaitableGetAssetResult',
+    'get_asset',
+]
 
+@pulumi.output_type
 class GetAssetResult:
     """
     An Asset.
@@ -16,64 +22,114 @@ class GetAssetResult:
     def __init__(__self__, alternate_id=None, asset_id=None, container=None, created=None, description=None, last_modified=None, name=None, storage_account_name=None, storage_encryption_format=None, type=None):
         if alternate_id and not isinstance(alternate_id, str):
             raise TypeError("Expected argument 'alternate_id' to be a str")
-        __self__.alternate_id = alternate_id
+        pulumi.set(__self__, "alternate_id", alternate_id)
+        if asset_id and not isinstance(asset_id, str):
+            raise TypeError("Expected argument 'asset_id' to be a str")
+        pulumi.set(__self__, "asset_id", asset_id)
+        if container and not isinstance(container, str):
+            raise TypeError("Expected argument 'container' to be a str")
+        pulumi.set(__self__, "container", container)
+        if created and not isinstance(created, str):
+            raise TypeError("Expected argument 'created' to be a str")
+        pulumi.set(__self__, "created", created)
+        if description and not isinstance(description, str):
+            raise TypeError("Expected argument 'description' to be a str")
+        pulumi.set(__self__, "description", description)
+        if last_modified and not isinstance(last_modified, str):
+            raise TypeError("Expected argument 'last_modified' to be a str")
+        pulumi.set(__self__, "last_modified", last_modified)
+        if name and not isinstance(name, str):
+            raise TypeError("Expected argument 'name' to be a str")
+        pulumi.set(__self__, "name", name)
+        if storage_account_name and not isinstance(storage_account_name, str):
+            raise TypeError("Expected argument 'storage_account_name' to be a str")
+        pulumi.set(__self__, "storage_account_name", storage_account_name)
+        if storage_encryption_format and not isinstance(storage_encryption_format, str):
+            raise TypeError("Expected argument 'storage_encryption_format' to be a str")
+        pulumi.set(__self__, "storage_encryption_format", storage_encryption_format)
+        if type and not isinstance(type, str):
+            raise TypeError("Expected argument 'type' to be a str")
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="alternateId")
+    def alternate_id(self) -> Optional[str]:
         """
         The alternate ID of the Asset.
         """
-        if asset_id and not isinstance(asset_id, str):
-            raise TypeError("Expected argument 'asset_id' to be a str")
-        __self__.asset_id = asset_id
+        return pulumi.get(self, "alternate_id")
+
+    @property
+    @pulumi.getter(name="assetId")
+    def asset_id(self) -> str:
         """
         The Asset ID.
         """
-        if container and not isinstance(container, str):
-            raise TypeError("Expected argument 'container' to be a str")
-        __self__.container = container
+        return pulumi.get(self, "asset_id")
+
+    @property
+    @pulumi.getter
+    def container(self) -> Optional[str]:
         """
         The name of the asset blob container.
         """
-        if created and not isinstance(created, str):
-            raise TypeError("Expected argument 'created' to be a str")
-        __self__.created = created
+        return pulumi.get(self, "container")
+
+    @property
+    @pulumi.getter
+    def created(self) -> str:
         """
         The creation date of the Asset.
         """
-        if description and not isinstance(description, str):
-            raise TypeError("Expected argument 'description' to be a str")
-        __self__.description = description
+        return pulumi.get(self, "created")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
         """
         The Asset description.
         """
-        if last_modified and not isinstance(last_modified, str):
-            raise TypeError("Expected argument 'last_modified' to be a str")
-        __self__.last_modified = last_modified
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="lastModified")
+    def last_modified(self) -> str:
         """
         The last modified date of the Asset.
         """
-        if name and not isinstance(name, str):
-            raise TypeError("Expected argument 'name' to be a str")
-        __self__.name = name
+        return pulumi.get(self, "last_modified")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
         """
         The name of the resource
         """
-        if storage_account_name and not isinstance(storage_account_name, str):
-            raise TypeError("Expected argument 'storage_account_name' to be a str")
-        __self__.storage_account_name = storage_account_name
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="storageAccountName")
+    def storage_account_name(self) -> Optional[str]:
         """
         The name of the storage account.
         """
-        if storage_encryption_format and not isinstance(storage_encryption_format, str):
-            raise TypeError("Expected argument 'storage_encryption_format' to be a str")
-        __self__.storage_encryption_format = storage_encryption_format
+        return pulumi.get(self, "storage_account_name")
+
+    @property
+    @pulumi.getter(name="storageEncryptionFormat")
+    def storage_encryption_format(self) -> str:
         """
         The Asset encryption format. One of None or MediaStorageEncryption.
         """
-        if type and not isinstance(type, str):
-            raise TypeError("Expected argument 'type' to be a str")
-        __self__.type = type
+        return pulumi.get(self, "storage_encryption_format")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
         """
         The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
         """
+        return pulumi.get(self, "type")
 
 
 class AwaitableGetAssetResult(GetAssetResult):
@@ -94,7 +150,10 @@ class AwaitableGetAssetResult(GetAssetResult):
             type=self.type)
 
 
-def get_asset(account_name=None, name=None, resource_group_name=None, opts=None):
+def get_asset(account_name: Optional[str] = None,
+              name: Optional[str] = None,
+              resource_group_name: Optional[str] = None,
+              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAssetResult:
     """
     Use this data source to access information about an existing resource.
 
@@ -110,16 +169,16 @@ def get_asset(account_name=None, name=None, resource_group_name=None, opts=None)
         opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = _utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('azurerm:media/v20200501:getAsset', __args__, opts=opts).value
+    __ret__ = pulumi.runtime.invoke('azurerm:media/v20200501:getAsset', __args__, opts=opts, typ=GetAssetResult).value
 
     return AwaitableGetAssetResult(
-        alternate_id=__ret__.get('alternateId'),
-        asset_id=__ret__.get('assetId'),
-        container=__ret__.get('container'),
-        created=__ret__.get('created'),
-        description=__ret__.get('description'),
-        last_modified=__ret__.get('lastModified'),
-        name=__ret__.get('name'),
-        storage_account_name=__ret__.get('storageAccountName'),
-        storage_encryption_format=__ret__.get('storageEncryptionFormat'),
-        type=__ret__.get('type'))
+        alternate_id=__ret__.alternate_id,
+        asset_id=__ret__.asset_id,
+        container=__ret__.container,
+        created=__ret__.created,
+        description=__ret__.description,
+        last_modified=__ret__.last_modified,
+        name=__ret__.name,
+        storage_account_name=__ret__.storage_account_name,
+        storage_encryption_format=__ret__.storage_encryption_format,
+        type=__ret__.type)

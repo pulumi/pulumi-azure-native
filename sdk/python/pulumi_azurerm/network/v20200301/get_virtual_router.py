@@ -5,10 +5,17 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+from . import outputs
 
+__all__ = [
+    'GetVirtualRouterResult',
+    'AwaitableGetVirtualRouterResult',
+    'get_virtual_router',
+]
 
+@pulumi.output_type
 class GetVirtualRouterResult:
     """
     VirtualRouter Resource.
@@ -16,70 +23,125 @@ class GetVirtualRouterResult:
     def __init__(__self__, etag=None, hosted_gateway=None, hosted_subnet=None, location=None, name=None, peerings=None, provisioning_state=None, tags=None, type=None, virtual_router_asn=None, virtual_router_ips=None):
         if etag and not isinstance(etag, str):
             raise TypeError("Expected argument 'etag' to be a str")
-        __self__.etag = etag
+        pulumi.set(__self__, "etag", etag)
+        if hosted_gateway and not isinstance(hosted_gateway, dict):
+            raise TypeError("Expected argument 'hosted_gateway' to be a dict")
+        pulumi.set(__self__, "hosted_gateway", hosted_gateway)
+        if hosted_subnet and not isinstance(hosted_subnet, dict):
+            raise TypeError("Expected argument 'hosted_subnet' to be a dict")
+        pulumi.set(__self__, "hosted_subnet", hosted_subnet)
+        if location and not isinstance(location, str):
+            raise TypeError("Expected argument 'location' to be a str")
+        pulumi.set(__self__, "location", location)
+        if name and not isinstance(name, str):
+            raise TypeError("Expected argument 'name' to be a str")
+        pulumi.set(__self__, "name", name)
+        if peerings and not isinstance(peerings, list):
+            raise TypeError("Expected argument 'peerings' to be a list")
+        pulumi.set(__self__, "peerings", peerings)
+        if provisioning_state and not isinstance(provisioning_state, str):
+            raise TypeError("Expected argument 'provisioning_state' to be a str")
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if tags and not isinstance(tags, dict):
+            raise TypeError("Expected argument 'tags' to be a dict")
+        pulumi.set(__self__, "tags", tags)
+        if type and not isinstance(type, str):
+            raise TypeError("Expected argument 'type' to be a str")
+        pulumi.set(__self__, "type", type)
+        if virtual_router_asn and not isinstance(virtual_router_asn, float):
+            raise TypeError("Expected argument 'virtual_router_asn' to be a float")
+        pulumi.set(__self__, "virtual_router_asn", virtual_router_asn)
+        if virtual_router_ips and not isinstance(virtual_router_ips, list):
+            raise TypeError("Expected argument 'virtual_router_ips' to be a list")
+        pulumi.set(__self__, "virtual_router_ips", virtual_router_ips)
+
+    @property
+    @pulumi.getter
+    def etag(self) -> str:
         """
         A unique read-only string that changes whenever the resource is updated.
         """
-        if hosted_gateway and not isinstance(hosted_gateway, dict):
-            raise TypeError("Expected argument 'hosted_gateway' to be a dict")
-        __self__.hosted_gateway = hosted_gateway
+        return pulumi.get(self, "etag")
+
+    @property
+    @pulumi.getter(name="hostedGateway")
+    def hosted_gateway(self) -> Optional['outputs.SubResourceResponse']:
         """
         The Gateway on which VirtualRouter is hosted.
         """
-        if hosted_subnet and not isinstance(hosted_subnet, dict):
-            raise TypeError("Expected argument 'hosted_subnet' to be a dict")
-        __self__.hosted_subnet = hosted_subnet
+        return pulumi.get(self, "hosted_gateway")
+
+    @property
+    @pulumi.getter(name="hostedSubnet")
+    def hosted_subnet(self) -> Optional['outputs.SubResourceResponse']:
         """
         The Subnet on which VirtualRouter is hosted.
         """
-        if location and not isinstance(location, str):
-            raise TypeError("Expected argument 'location' to be a str")
-        __self__.location = location
+        return pulumi.get(self, "hosted_subnet")
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[str]:
         """
         Resource location.
         """
-        if name and not isinstance(name, str):
-            raise TypeError("Expected argument 'name' to be a str")
-        __self__.name = name
+        return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
         """
         Resource name.
         """
-        if peerings and not isinstance(peerings, list):
-            raise TypeError("Expected argument 'peerings' to be a list")
-        __self__.peerings = peerings
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def peerings(self) -> List['outputs.SubResourceResponse']:
         """
         List of references to VirtualRouterPeerings.
         """
-        if provisioning_state and not isinstance(provisioning_state, str):
-            raise TypeError("Expected argument 'provisioning_state' to be a str")
-        __self__.provisioning_state = provisioning_state
+        return pulumi.get(self, "peerings")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
         """
         The provisioning state of the resource.
         """
-        if tags and not isinstance(tags, dict):
-            raise TypeError("Expected argument 'tags' to be a dict")
-        __self__.tags = tags
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Mapping[str, str]]:
         """
         Resource tags.
         """
-        if type and not isinstance(type, str):
-            raise TypeError("Expected argument 'type' to be a str")
-        __self__.type = type
+        return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
         """
         Resource type.
         """
-        if virtual_router_asn and not isinstance(virtual_router_asn, float):
-            raise TypeError("Expected argument 'virtual_router_asn' to be a float")
-        __self__.virtual_router_asn = virtual_router_asn
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="virtualRouterAsn")
+    def virtual_router_asn(self) -> Optional[float]:
         """
         VirtualRouter ASN.
         """
-        if virtual_router_ips and not isinstance(virtual_router_ips, list):
-            raise TypeError("Expected argument 'virtual_router_ips' to be a list")
-        __self__.virtual_router_ips = virtual_router_ips
+        return pulumi.get(self, "virtual_router_asn")
+
+    @property
+    @pulumi.getter(name="virtualRouterIps")
+    def virtual_router_ips(self) -> Optional[List[str]]:
         """
         VirtualRouter IPs.
         """
+        return pulumi.get(self, "virtual_router_ips")
 
 
 class AwaitableGetVirtualRouterResult(GetVirtualRouterResult):
@@ -101,7 +163,10 @@ class AwaitableGetVirtualRouterResult(GetVirtualRouterResult):
             virtual_router_ips=self.virtual_router_ips)
 
 
-def get_virtual_router(expand=None, name=None, resource_group_name=None, opts=None):
+def get_virtual_router(expand: Optional[str] = None,
+                       name: Optional[str] = None,
+                       resource_group_name: Optional[str] = None,
+                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVirtualRouterResult:
     """
     Use this data source to access information about an existing resource.
 
@@ -117,17 +182,17 @@ def get_virtual_router(expand=None, name=None, resource_group_name=None, opts=No
         opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = _utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('azurerm:network/v20200301:getVirtualRouter', __args__, opts=opts).value
+    __ret__ = pulumi.runtime.invoke('azurerm:network/v20200301:getVirtualRouter', __args__, opts=opts, typ=GetVirtualRouterResult).value
 
     return AwaitableGetVirtualRouterResult(
-        etag=__ret__.get('etag'),
-        hosted_gateway=__ret__.get('hostedGateway'),
-        hosted_subnet=__ret__.get('hostedSubnet'),
-        location=__ret__.get('location'),
-        name=__ret__.get('name'),
-        peerings=__ret__.get('peerings'),
-        provisioning_state=__ret__.get('provisioningState'),
-        tags=__ret__.get('tags'),
-        type=__ret__.get('type'),
-        virtual_router_asn=__ret__.get('virtualRouterAsn'),
-        virtual_router_ips=__ret__.get('virtualRouterIps'))
+        etag=__ret__.etag,
+        hosted_gateway=__ret__.hosted_gateway,
+        hosted_subnet=__ret__.hosted_subnet,
+        location=__ret__.location,
+        name=__ret__.name,
+        peerings=__ret__.peerings,
+        provisioning_state=__ret__.provisioning_state,
+        tags=__ret__.tags,
+        type=__ret__.type,
+        virtual_router_asn=__ret__.virtual_router_asn,
+        virtual_router_ips=__ret__.virtual_router_ips)

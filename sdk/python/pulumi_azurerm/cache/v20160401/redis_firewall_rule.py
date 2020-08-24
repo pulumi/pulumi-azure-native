@@ -5,28 +5,24 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+
+__all__ = ['RedisFirewallRule']
 
 
 class RedisFirewallRule(pulumi.CustomResource):
-    end_ip: pulumi.Output[str]
-    """
-    highest IP address included in the range
-    """
-    name: pulumi.Output[str]
-    """
-    name of the firewall rule
-    """
-    start_ip: pulumi.Output[str]
-    """
-    lowest IP address included in the range
-    """
-    type: pulumi.Output[str]
-    """
-    type (of the firewall rule resource = 'Microsoft.Cache/redis/firewallRule')
-    """
-    def __init__(__self__, resource_name, opts=None, cache_name=None, end_ip=None, name=None, resource_group_name=None, start_ip=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 cache_name: Optional[pulumi.Input[str]] = None,
+                 end_ip: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 start_ip: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         A firewall rule on a redis cache has a name, and describes a contiguous range of IP addresses permitted to connect
 
@@ -80,13 +76,15 @@ class RedisFirewallRule(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None) -> 'RedisFirewallRule':
         """
         Get an existing RedisFirewallRule resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -95,8 +93,41 @@ class RedisFirewallRule(pulumi.CustomResource):
 
         return RedisFirewallRule(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter(name="endIP")
+    def end_ip(self) -> str:
+        """
+        highest IP address included in the range
+        """
+        return pulumi.get(self, "end_ip")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        name of the firewall rule
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="startIP")
+    def start_ip(self) -> str:
+        """
+        lowest IP address included in the range
+        """
+        return pulumi.get(self, "start_ip")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        type (of the firewall rule resource = 'Microsoft.Cache/redis/firewallRule')
+        """
+        return pulumi.get(self, "type")
+
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

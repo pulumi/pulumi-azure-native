@@ -5,60 +5,31 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+from . import outputs
+from ._inputs import *
+
+__all__ = ['Experiment']
 
 
 class Experiment(pulumi.CustomResource):
-    description: pulumi.Output[str]
-    """
-    The description of the details or intents of the Experiment
-    """
-    enabled_state: pulumi.Output[str]
-    """
-    The state of the Experiment
-    """
-    endpoint_a: pulumi.Output[dict]
-    """
-    The endpoint A of an experiment
-      * `endpoint` (`str`) - The endpoint URL
-      * `name` (`str`) - The name of the endpoint
-    """
-    endpoint_b: pulumi.Output[dict]
-    """
-    The endpoint B of an experiment
-      * `endpoint` (`str`) - The endpoint URL
-      * `name` (`str`) - The name of the endpoint
-    """
-    location: pulumi.Output[str]
-    """
-    Resource location.
-    """
-    name: pulumi.Output[str]
-    """
-    Resource name.
-    """
-    resource_state: pulumi.Output[str]
-    """
-    Resource status.
-    """
-    script_file_uri: pulumi.Output[str]
-    """
-    The uri to the Script used in the Experiment
-    """
-    status: pulumi.Output[str]
-    """
-    The description of Experiment status from the server side
-    """
-    tags: pulumi.Output[dict]
-    """
-    Resource tags.
-    """
-    type: pulumi.Output[str]
-    """
-    Resource type.
-    """
-    def __init__(__self__, resource_name, opts=None, description=None, enabled_state=None, endpoint_a=None, endpoint_b=None, location=None, name=None, profile_name=None, resource_group_name=None, resource_state=None, tags=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 enabled_state: Optional[pulumi.Input[str]] = None,
+                 endpoint_a: Optional[pulumi.Input[pulumi.InputType['EndpointArgs']]] = None,
+                 endpoint_b: Optional[pulumi.Input[pulumi.InputType['EndpointArgs']]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 profile_name: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 resource_state: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         Defines the properties of an Experiment
 
@@ -66,19 +37,14 @@ class Experiment(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: The description of the details or intents of the Experiment
         :param pulumi.Input[str] enabled_state: The state of the Experiment
-        :param pulumi.Input[dict] endpoint_a: The endpoint A of an experiment
-        :param pulumi.Input[dict] endpoint_b: The endpoint B of an experiment
+        :param pulumi.Input[pulumi.InputType['EndpointArgs']] endpoint_a: The endpoint A of an experiment
+        :param pulumi.Input[pulumi.InputType['EndpointArgs']] endpoint_b: The endpoint B of an experiment
         :param pulumi.Input[str] location: Resource location.
         :param pulumi.Input[str] name: The Experiment identifier associated with the Experiment
         :param pulumi.Input[str] profile_name: The Profile identifier associated with the Tenant and Partner
         :param pulumi.Input[str] resource_group_name: Name of the Resource group within the Azure subscription.
         :param pulumi.Input[str] resource_state: Resource status.
-        :param pulumi.Input[dict] tags: Resource tags.
-
-        The **endpoint_a** object supports the following:
-
-          * `endpoint` (`pulumi.Input[str]`) - The endpoint URL
-          * `name` (`pulumi.Input[str]`) - The name of the endpoint
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -123,13 +89,15 @@ class Experiment(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None) -> 'Experiment':
         """
         Get an existing Experiment resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -138,8 +106,97 @@ class Experiment(pulumi.CustomResource):
 
         return Experiment(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        """
+        The description of the details or intents of the Experiment
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="enabledState")
+    def enabled_state(self) -> Optional[str]:
+        """
+        The state of the Experiment
+        """
+        return pulumi.get(self, "enabled_state")
+
+    @property
+    @pulumi.getter(name="endpointA")
+    def endpoint_a(self) -> Optional['outputs.EndpointResponse']:
+        """
+        The endpoint A of an experiment
+        """
+        return pulumi.get(self, "endpoint_a")
+
+    @property
+    @pulumi.getter(name="endpointB")
+    def endpoint_b(self) -> Optional['outputs.EndpointResponse']:
+        """
+        The endpoint B of an experiment
+        """
+        return pulumi.get(self, "endpoint_b")
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[str]:
+        """
+        Resource location.
+        """
+        return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Resource name.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="resourceState")
+    def resource_state(self) -> Optional[str]:
+        """
+        Resource status.
+        """
+        return pulumi.get(self, "resource_state")
+
+    @property
+    @pulumi.getter(name="scriptFileUri")
+    def script_file_uri(self) -> str:
+        """
+        The uri to the Script used in the Experiment
+        """
+        return pulumi.get(self, "script_file_uri")
+
+    @property
+    @pulumi.getter
+    def status(self) -> str:
+        """
+        The description of Experiment status from the server side
+        """
+        return pulumi.get(self, "status")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Mapping[str, str]]:
+        """
+        Resource tags.
+        """
+        return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Resource type.
+        """
+        return pulumi.get(self, "type")
+
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

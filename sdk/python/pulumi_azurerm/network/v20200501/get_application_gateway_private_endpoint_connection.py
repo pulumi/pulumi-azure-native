@@ -5,10 +5,17 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+from . import outputs
 
+__all__ = [
+    'GetApplicationGatewayPrivateEndpointConnectionResult',
+    'AwaitableGetApplicationGatewayPrivateEndpointConnectionResult',
+    'get_application_gateway_private_endpoint_connection',
+]
 
+@pulumi.output_type
 class GetApplicationGatewayPrivateEndpointConnectionResult:
     """
     Private Endpoint connection on an application gateway.
@@ -16,46 +23,81 @@ class GetApplicationGatewayPrivateEndpointConnectionResult:
     def __init__(__self__, etag=None, link_identifier=None, name=None, private_endpoint=None, private_link_service_connection_state=None, provisioning_state=None, type=None):
         if etag and not isinstance(etag, str):
             raise TypeError("Expected argument 'etag' to be a str")
-        __self__.etag = etag
+        pulumi.set(__self__, "etag", etag)
+        if link_identifier and not isinstance(link_identifier, str):
+            raise TypeError("Expected argument 'link_identifier' to be a str")
+        pulumi.set(__self__, "link_identifier", link_identifier)
+        if name and not isinstance(name, str):
+            raise TypeError("Expected argument 'name' to be a str")
+        pulumi.set(__self__, "name", name)
+        if private_endpoint and not isinstance(private_endpoint, dict):
+            raise TypeError("Expected argument 'private_endpoint' to be a dict")
+        pulumi.set(__self__, "private_endpoint", private_endpoint)
+        if private_link_service_connection_state and not isinstance(private_link_service_connection_state, dict):
+            raise TypeError("Expected argument 'private_link_service_connection_state' to be a dict")
+        pulumi.set(__self__, "private_link_service_connection_state", private_link_service_connection_state)
+        if provisioning_state and not isinstance(provisioning_state, str):
+            raise TypeError("Expected argument 'provisioning_state' to be a str")
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if type and not isinstance(type, str):
+            raise TypeError("Expected argument 'type' to be a str")
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def etag(self) -> str:
         """
         A unique read-only string that changes whenever the resource is updated.
         """
-        if link_identifier and not isinstance(link_identifier, str):
-            raise TypeError("Expected argument 'link_identifier' to be a str")
-        __self__.link_identifier = link_identifier
+        return pulumi.get(self, "etag")
+
+    @property
+    @pulumi.getter(name="linkIdentifier")
+    def link_identifier(self) -> str:
         """
         The consumer link id.
         """
-        if name and not isinstance(name, str):
-            raise TypeError("Expected argument 'name' to be a str")
-        __self__.name = name
+        return pulumi.get(self, "link_identifier")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
         """
         Name of the private endpoint connection on an application gateway.
         """
-        if private_endpoint and not isinstance(private_endpoint, dict):
-            raise TypeError("Expected argument 'private_endpoint' to be a dict")
-        __self__.private_endpoint = private_endpoint
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="privateEndpoint")
+    def private_endpoint(self) -> 'outputs.PrivateEndpointResponse':
         """
         The resource of private end point.
         """
-        if private_link_service_connection_state and not isinstance(private_link_service_connection_state, dict):
-            raise TypeError("Expected argument 'private_link_service_connection_state' to be a dict")
-        __self__.private_link_service_connection_state = private_link_service_connection_state
+        return pulumi.get(self, "private_endpoint")
+
+    @property
+    @pulumi.getter(name="privateLinkServiceConnectionState")
+    def private_link_service_connection_state(self) -> Optional['outputs.PrivateLinkServiceConnectionStateResponse']:
         """
         A collection of information about the state of the connection between service consumer and provider.
         """
-        if provisioning_state and not isinstance(provisioning_state, str):
-            raise TypeError("Expected argument 'provisioning_state' to be a str")
-        __self__.provisioning_state = provisioning_state
+        return pulumi.get(self, "private_link_service_connection_state")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
         """
         The provisioning state of the application gateway private endpoint connection resource.
         """
-        if type and not isinstance(type, str):
-            raise TypeError("Expected argument 'type' to be a str")
-        __self__.type = type
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
         """
         Type of the resource.
         """
+        return pulumi.get(self, "type")
 
 
 class AwaitableGetApplicationGatewayPrivateEndpointConnectionResult(GetApplicationGatewayPrivateEndpointConnectionResult):
@@ -73,7 +115,10 @@ class AwaitableGetApplicationGatewayPrivateEndpointConnectionResult(GetApplicati
             type=self.type)
 
 
-def get_application_gateway_private_endpoint_connection(application_gateway_name=None, name=None, resource_group_name=None, opts=None):
+def get_application_gateway_private_endpoint_connection(application_gateway_name: Optional[str] = None,
+                                                        name: Optional[str] = None,
+                                                        resource_group_name: Optional[str] = None,
+                                                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetApplicationGatewayPrivateEndpointConnectionResult:
     """
     Use this data source to access information about an existing resource.
 
@@ -89,13 +134,13 @@ def get_application_gateway_private_endpoint_connection(application_gateway_name
         opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = _utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('azurerm:network/v20200501:getApplicationGatewayPrivateEndpointConnection', __args__, opts=opts).value
+    __ret__ = pulumi.runtime.invoke('azurerm:network/v20200501:getApplicationGatewayPrivateEndpointConnection', __args__, opts=opts, typ=GetApplicationGatewayPrivateEndpointConnectionResult).value
 
     return AwaitableGetApplicationGatewayPrivateEndpointConnectionResult(
-        etag=__ret__.get('etag'),
-        link_identifier=__ret__.get('linkIdentifier'),
-        name=__ret__.get('name'),
-        private_endpoint=__ret__.get('privateEndpoint'),
-        private_link_service_connection_state=__ret__.get('privateLinkServiceConnectionState'),
-        provisioning_state=__ret__.get('provisioningState'),
-        type=__ret__.get('type'))
+        etag=__ret__.etag,
+        link_identifier=__ret__.link_identifier,
+        name=__ret__.name,
+        private_endpoint=__ret__.private_endpoint,
+        private_link_service_connection_state=__ret__.private_link_service_connection_state,
+        provisioning_state=__ret__.provisioning_state,
+        type=__ret__.type)

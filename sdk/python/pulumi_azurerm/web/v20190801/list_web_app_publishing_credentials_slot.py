@@ -5,10 +5,16 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
 
+__all__ = [
+    'ListWebAppPublishingCredentialsSlotResult',
+    'AwaitableListWebAppPublishingCredentialsSlotResult',
+    'list_web_app_publishing_credentials_slot',
+]
 
+@pulumi.output_type
 class ListWebAppPublishingCredentialsSlotResult:
     """
     User credentials used for publishing activity.
@@ -16,52 +22,92 @@ class ListWebAppPublishingCredentialsSlotResult:
     def __init__(__self__, kind=None, name=None, publishing_password=None, publishing_password_hash=None, publishing_password_hash_salt=None, publishing_user_name=None, scm_uri=None, type=None):
         if kind and not isinstance(kind, str):
             raise TypeError("Expected argument 'kind' to be a str")
-        __self__.kind = kind
+        pulumi.set(__self__, "kind", kind)
+        if name and not isinstance(name, str):
+            raise TypeError("Expected argument 'name' to be a str")
+        pulumi.set(__self__, "name", name)
+        if publishing_password and not isinstance(publishing_password, str):
+            raise TypeError("Expected argument 'publishing_password' to be a str")
+        pulumi.set(__self__, "publishing_password", publishing_password)
+        if publishing_password_hash and not isinstance(publishing_password_hash, str):
+            raise TypeError("Expected argument 'publishing_password_hash' to be a str")
+        pulumi.set(__self__, "publishing_password_hash", publishing_password_hash)
+        if publishing_password_hash_salt and not isinstance(publishing_password_hash_salt, str):
+            raise TypeError("Expected argument 'publishing_password_hash_salt' to be a str")
+        pulumi.set(__self__, "publishing_password_hash_salt", publishing_password_hash_salt)
+        if publishing_user_name and not isinstance(publishing_user_name, str):
+            raise TypeError("Expected argument 'publishing_user_name' to be a str")
+        pulumi.set(__self__, "publishing_user_name", publishing_user_name)
+        if scm_uri and not isinstance(scm_uri, str):
+            raise TypeError("Expected argument 'scm_uri' to be a str")
+        pulumi.set(__self__, "scm_uri", scm_uri)
+        if type and not isinstance(type, str):
+            raise TypeError("Expected argument 'type' to be a str")
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def kind(self) -> Optional[str]:
         """
         Kind of resource.
         """
-        if name and not isinstance(name, str):
-            raise TypeError("Expected argument 'name' to be a str")
-        __self__.name = name
+        return pulumi.get(self, "kind")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
         """
         Resource Name.
         """
-        if publishing_password and not isinstance(publishing_password, str):
-            raise TypeError("Expected argument 'publishing_password' to be a str")
-        __self__.publishing_password = publishing_password
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="publishingPassword")
+    def publishing_password(self) -> Optional[str]:
         """
         Password used for publishing.
         """
-        if publishing_password_hash and not isinstance(publishing_password_hash, str):
-            raise TypeError("Expected argument 'publishing_password_hash' to be a str")
-        __self__.publishing_password_hash = publishing_password_hash
+        return pulumi.get(self, "publishing_password")
+
+    @property
+    @pulumi.getter(name="publishingPasswordHash")
+    def publishing_password_hash(self) -> Optional[str]:
         """
         Password hash used for publishing.
         """
-        if publishing_password_hash_salt and not isinstance(publishing_password_hash_salt, str):
-            raise TypeError("Expected argument 'publishing_password_hash_salt' to be a str")
-        __self__.publishing_password_hash_salt = publishing_password_hash_salt
+        return pulumi.get(self, "publishing_password_hash")
+
+    @property
+    @pulumi.getter(name="publishingPasswordHashSalt")
+    def publishing_password_hash_salt(self) -> Optional[str]:
         """
         Password hash salt used for publishing.
         """
-        if publishing_user_name and not isinstance(publishing_user_name, str):
-            raise TypeError("Expected argument 'publishing_user_name' to be a str")
-        __self__.publishing_user_name = publishing_user_name
+        return pulumi.get(self, "publishing_password_hash_salt")
+
+    @property
+    @pulumi.getter(name="publishingUserName")
+    def publishing_user_name(self) -> str:
         """
         Username used for publishing.
         """
-        if scm_uri and not isinstance(scm_uri, str):
-            raise TypeError("Expected argument 'scm_uri' to be a str")
-        __self__.scm_uri = scm_uri
+        return pulumi.get(self, "publishing_user_name")
+
+    @property
+    @pulumi.getter(name="scmUri")
+    def scm_uri(self) -> Optional[str]:
         """
         Url of SCM site.
         """
-        if type and not isinstance(type, str):
-            raise TypeError("Expected argument 'type' to be a str")
-        __self__.type = type
+        return pulumi.get(self, "scm_uri")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
         """
         Resource type.
         """
+        return pulumi.get(self, "type")
 
 
 class AwaitableListWebAppPublishingCredentialsSlotResult(ListWebAppPublishingCredentialsSlotResult):
@@ -80,7 +126,9 @@ class AwaitableListWebAppPublishingCredentialsSlotResult(ListWebAppPublishingCre
             type=self.type)
 
 
-def list_web_app_publishing_credentials_slot(name=None, resource_group_name=None, opts=None):
+def list_web_app_publishing_credentials_slot(name: Optional[str] = None,
+                                             resource_group_name: Optional[str] = None,
+                                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListWebAppPublishingCredentialsSlotResult:
     """
     Use this data source to access information about an existing resource.
 
@@ -94,14 +142,14 @@ def list_web_app_publishing_credentials_slot(name=None, resource_group_name=None
         opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = _utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('azurerm:web/v20190801:listWebAppPublishingCredentialsSlot', __args__, opts=opts).value
+    __ret__ = pulumi.runtime.invoke('azurerm:web/v20190801:listWebAppPublishingCredentialsSlot', __args__, opts=opts, typ=ListWebAppPublishingCredentialsSlotResult).value
 
     return AwaitableListWebAppPublishingCredentialsSlotResult(
-        kind=__ret__.get('kind'),
-        name=__ret__.get('name'),
-        publishing_password=__ret__.get('publishingPassword'),
-        publishing_password_hash=__ret__.get('publishingPasswordHash'),
-        publishing_password_hash_salt=__ret__.get('publishingPasswordHashSalt'),
-        publishing_user_name=__ret__.get('publishingUserName'),
-        scm_uri=__ret__.get('scmUri'),
-        type=__ret__.get('type'))
+        kind=__ret__.kind,
+        name=__ret__.name,
+        publishing_password=__ret__.publishing_password,
+        publishing_password_hash=__ret__.publishing_password_hash,
+        publishing_password_hash_salt=__ret__.publishing_password_hash_salt,
+        publishing_user_name=__ret__.publishing_user_name,
+        scm_uri=__ret__.scm_uri,
+        type=__ret__.type)

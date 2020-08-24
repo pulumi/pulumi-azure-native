@@ -5,10 +5,16 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
 
+__all__ = [
+    'GetPolicyAssignmentResult',
+    'AwaitableGetPolicyAssignmentResult',
+    'get_policy_assignment',
+]
 
+@pulumi.output_type
 class GetPolicyAssignmentResult:
     """
     The policy assignment.
@@ -16,34 +22,59 @@ class GetPolicyAssignmentResult:
     def __init__(__self__, display_name=None, name=None, policy_definition_id=None, scope=None, type=None):
         if display_name and not isinstance(display_name, str):
             raise TypeError("Expected argument 'display_name' to be a str")
-        __self__.display_name = display_name
+        pulumi.set(__self__, "display_name", display_name)
+        if name and not isinstance(name, str):
+            raise TypeError("Expected argument 'name' to be a str")
+        pulumi.set(__self__, "name", name)
+        if policy_definition_id and not isinstance(policy_definition_id, str):
+            raise TypeError("Expected argument 'policy_definition_id' to be a str")
+        pulumi.set(__self__, "policy_definition_id", policy_definition_id)
+        if scope and not isinstance(scope, str):
+            raise TypeError("Expected argument 'scope' to be a str")
+        pulumi.set(__self__, "scope", scope)
+        if type and not isinstance(type, str):
+            raise TypeError("Expected argument 'type' to be a str")
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="displayName")
+    def display_name(self) -> Optional[str]:
         """
         The display name of the policy assignment.
         """
-        if name and not isinstance(name, str):
-            raise TypeError("Expected argument 'name' to be a str")
-        __self__.name = name
+        return pulumi.get(self, "display_name")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
         """
         The name of the policy assignment.
         """
-        if policy_definition_id and not isinstance(policy_definition_id, str):
-            raise TypeError("Expected argument 'policy_definition_id' to be a str")
-        __self__.policy_definition_id = policy_definition_id
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="policyDefinitionId")
+    def policy_definition_id(self) -> Optional[str]:
         """
         The ID of the policy definition.
         """
-        if scope and not isinstance(scope, str):
-            raise TypeError("Expected argument 'scope' to be a str")
-        __self__.scope = scope
+        return pulumi.get(self, "policy_definition_id")
+
+    @property
+    @pulumi.getter
+    def scope(self) -> Optional[str]:
         """
         The scope for the policy assignment.
         """
-        if type and not isinstance(type, str):
-            raise TypeError("Expected argument 'type' to be a str")
-        __self__.type = type
+        return pulumi.get(self, "scope")
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[str]:
         """
         The type of the policy assignment.
         """
+        return pulumi.get(self, "type")
 
 
 class AwaitableGetPolicyAssignmentResult(GetPolicyAssignmentResult):
@@ -59,7 +90,9 @@ class AwaitableGetPolicyAssignmentResult(GetPolicyAssignmentResult):
             type=self.type)
 
 
-def get_policy_assignment(name=None, scope=None, opts=None):
+def get_policy_assignment(name: Optional[str] = None,
+                          scope: Optional[str] = None,
+                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPolicyAssignmentResult:
     """
     Use this data source to access information about an existing resource.
 
@@ -73,11 +106,11 @@ def get_policy_assignment(name=None, scope=None, opts=None):
         opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = _utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('azurerm:authorization/v20160401:getPolicyAssignment', __args__, opts=opts).value
+    __ret__ = pulumi.runtime.invoke('azurerm:authorization/v20160401:getPolicyAssignment', __args__, opts=opts, typ=GetPolicyAssignmentResult).value
 
     return AwaitableGetPolicyAssignmentResult(
-        display_name=__ret__.get('displayName'),
-        name=__ret__.get('name'),
-        policy_definition_id=__ret__.get('policyDefinitionId'),
-        scope=__ret__.get('scope'),
-        type=__ret__.get('type'))
+        display_name=__ret__.display_name,
+        name=__ret__.name,
+        policy_definition_id=__ret__.policy_definition_id,
+        scope=__ret__.scope,
+        type=__ret__.type)

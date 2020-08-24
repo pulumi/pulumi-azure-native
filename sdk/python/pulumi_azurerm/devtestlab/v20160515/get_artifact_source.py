@@ -5,10 +5,16 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
 
+__all__ = [
+    'GetArtifactSourceResult',
+    'AwaitableGetArtifactSourceResult',
+    'get_artifact_source',
+]
 
+@pulumi.output_type
 class GetArtifactSourceResult:
     """
     Properties of an artifact source.
@@ -16,94 +22,169 @@ class GetArtifactSourceResult:
     def __init__(__self__, arm_template_folder_path=None, branch_ref=None, created_date=None, display_name=None, folder_path=None, location=None, name=None, provisioning_state=None, security_token=None, source_type=None, status=None, tags=None, type=None, unique_identifier=None, uri=None):
         if arm_template_folder_path and not isinstance(arm_template_folder_path, str):
             raise TypeError("Expected argument 'arm_template_folder_path' to be a str")
-        __self__.arm_template_folder_path = arm_template_folder_path
+        pulumi.set(__self__, "arm_template_folder_path", arm_template_folder_path)
+        if branch_ref and not isinstance(branch_ref, str):
+            raise TypeError("Expected argument 'branch_ref' to be a str")
+        pulumi.set(__self__, "branch_ref", branch_ref)
+        if created_date and not isinstance(created_date, str):
+            raise TypeError("Expected argument 'created_date' to be a str")
+        pulumi.set(__self__, "created_date", created_date)
+        if display_name and not isinstance(display_name, str):
+            raise TypeError("Expected argument 'display_name' to be a str")
+        pulumi.set(__self__, "display_name", display_name)
+        if folder_path and not isinstance(folder_path, str):
+            raise TypeError("Expected argument 'folder_path' to be a str")
+        pulumi.set(__self__, "folder_path", folder_path)
+        if location and not isinstance(location, str):
+            raise TypeError("Expected argument 'location' to be a str")
+        pulumi.set(__self__, "location", location)
+        if name and not isinstance(name, str):
+            raise TypeError("Expected argument 'name' to be a str")
+        pulumi.set(__self__, "name", name)
+        if provisioning_state and not isinstance(provisioning_state, str):
+            raise TypeError("Expected argument 'provisioning_state' to be a str")
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if security_token and not isinstance(security_token, str):
+            raise TypeError("Expected argument 'security_token' to be a str")
+        pulumi.set(__self__, "security_token", security_token)
+        if source_type and not isinstance(source_type, str):
+            raise TypeError("Expected argument 'source_type' to be a str")
+        pulumi.set(__self__, "source_type", source_type)
+        if status and not isinstance(status, str):
+            raise TypeError("Expected argument 'status' to be a str")
+        pulumi.set(__self__, "status", status)
+        if tags and not isinstance(tags, dict):
+            raise TypeError("Expected argument 'tags' to be a dict")
+        pulumi.set(__self__, "tags", tags)
+        if type and not isinstance(type, str):
+            raise TypeError("Expected argument 'type' to be a str")
+        pulumi.set(__self__, "type", type)
+        if unique_identifier and not isinstance(unique_identifier, str):
+            raise TypeError("Expected argument 'unique_identifier' to be a str")
+        pulumi.set(__self__, "unique_identifier", unique_identifier)
+        if uri and not isinstance(uri, str):
+            raise TypeError("Expected argument 'uri' to be a str")
+        pulumi.set(__self__, "uri", uri)
+
+    @property
+    @pulumi.getter(name="armTemplateFolderPath")
+    def arm_template_folder_path(self) -> Optional[str]:
         """
         The folder containing Azure Resource Manager templates.
         """
-        if branch_ref and not isinstance(branch_ref, str):
-            raise TypeError("Expected argument 'branch_ref' to be a str")
-        __self__.branch_ref = branch_ref
+        return pulumi.get(self, "arm_template_folder_path")
+
+    @property
+    @pulumi.getter(name="branchRef")
+    def branch_ref(self) -> Optional[str]:
         """
         The artifact source's branch reference.
         """
-        if created_date and not isinstance(created_date, str):
-            raise TypeError("Expected argument 'created_date' to be a str")
-        __self__.created_date = created_date
+        return pulumi.get(self, "branch_ref")
+
+    @property
+    @pulumi.getter(name="createdDate")
+    def created_date(self) -> str:
         """
         The artifact source's creation date.
         """
-        if display_name and not isinstance(display_name, str):
-            raise TypeError("Expected argument 'display_name' to be a str")
-        __self__.display_name = display_name
+        return pulumi.get(self, "created_date")
+
+    @property
+    @pulumi.getter(name="displayName")
+    def display_name(self) -> Optional[str]:
         """
         The artifact source's display name.
         """
-        if folder_path and not isinstance(folder_path, str):
-            raise TypeError("Expected argument 'folder_path' to be a str")
-        __self__.folder_path = folder_path
+        return pulumi.get(self, "display_name")
+
+    @property
+    @pulumi.getter(name="folderPath")
+    def folder_path(self) -> Optional[str]:
         """
         The folder containing artifacts.
         """
-        if location and not isinstance(location, str):
-            raise TypeError("Expected argument 'location' to be a str")
-        __self__.location = location
+        return pulumi.get(self, "folder_path")
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[str]:
         """
         The location of the resource.
         """
-        if name and not isinstance(name, str):
-            raise TypeError("Expected argument 'name' to be a str")
-        __self__.name = name
+        return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
         """
         The name of the resource.
         """
-        if provisioning_state and not isinstance(provisioning_state, str):
-            raise TypeError("Expected argument 'provisioning_state' to be a str")
-        __self__.provisioning_state = provisioning_state
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> Optional[str]:
         """
         The provisioning status of the resource.
         """
-        if security_token and not isinstance(security_token, str):
-            raise TypeError("Expected argument 'security_token' to be a str")
-        __self__.security_token = security_token
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="securityToken")
+    def security_token(self) -> Optional[str]:
         """
         The security token to authenticate to the artifact source.
         """
-        if source_type and not isinstance(source_type, str):
-            raise TypeError("Expected argument 'source_type' to be a str")
-        __self__.source_type = source_type
+        return pulumi.get(self, "security_token")
+
+    @property
+    @pulumi.getter(name="sourceType")
+    def source_type(self) -> Optional[str]:
         """
         The artifact source's type.
         """
-        if status and not isinstance(status, str):
-            raise TypeError("Expected argument 'status' to be a str")
-        __self__.status = status
+        return pulumi.get(self, "source_type")
+
+    @property
+    @pulumi.getter
+    def status(self) -> Optional[str]:
         """
         Indicates if the artifact source is enabled (values: Enabled, Disabled).
         """
-        if tags and not isinstance(tags, dict):
-            raise TypeError("Expected argument 'tags' to be a dict")
-        __self__.tags = tags
+        return pulumi.get(self, "status")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Mapping[str, str]]:
         """
         The tags of the resource.
         """
-        if type and not isinstance(type, str):
-            raise TypeError("Expected argument 'type' to be a str")
-        __self__.type = type
+        return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
         """
         The type of the resource.
         """
-        if unique_identifier and not isinstance(unique_identifier, str):
-            raise TypeError("Expected argument 'unique_identifier' to be a str")
-        __self__.unique_identifier = unique_identifier
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="uniqueIdentifier")
+    def unique_identifier(self) -> Optional[str]:
         """
         The unique immutable identifier of a resource (Guid).
         """
-        if uri and not isinstance(uri, str):
-            raise TypeError("Expected argument 'uri' to be a str")
-        __self__.uri = uri
+        return pulumi.get(self, "unique_identifier")
+
+    @property
+    @pulumi.getter
+    def uri(self) -> Optional[str]:
         """
         The artifact source's URI.
         """
+        return pulumi.get(self, "uri")
 
 
 class AwaitableGetArtifactSourceResult(GetArtifactSourceResult):
@@ -129,7 +210,11 @@ class AwaitableGetArtifactSourceResult(GetArtifactSourceResult):
             uri=self.uri)
 
 
-def get_artifact_source(expand=None, lab_name=None, name=None, resource_group_name=None, opts=None):
+def get_artifact_source(expand: Optional[str] = None,
+                        lab_name: Optional[str] = None,
+                        name: Optional[str] = None,
+                        resource_group_name: Optional[str] = None,
+                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetArtifactSourceResult:
     """
     Use this data source to access information about an existing resource.
 
@@ -147,21 +232,21 @@ def get_artifact_source(expand=None, lab_name=None, name=None, resource_group_na
         opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = _utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('azurerm:devtestlab/v20160515:getArtifactSource', __args__, opts=opts).value
+    __ret__ = pulumi.runtime.invoke('azurerm:devtestlab/v20160515:getArtifactSource', __args__, opts=opts, typ=GetArtifactSourceResult).value
 
     return AwaitableGetArtifactSourceResult(
-        arm_template_folder_path=__ret__.get('armTemplateFolderPath'),
-        branch_ref=__ret__.get('branchRef'),
-        created_date=__ret__.get('createdDate'),
-        display_name=__ret__.get('displayName'),
-        folder_path=__ret__.get('folderPath'),
-        location=__ret__.get('location'),
-        name=__ret__.get('name'),
-        provisioning_state=__ret__.get('provisioningState'),
-        security_token=__ret__.get('securityToken'),
-        source_type=__ret__.get('sourceType'),
-        status=__ret__.get('status'),
-        tags=__ret__.get('tags'),
-        type=__ret__.get('type'),
-        unique_identifier=__ret__.get('uniqueIdentifier'),
-        uri=__ret__.get('uri'))
+        arm_template_folder_path=__ret__.arm_template_folder_path,
+        branch_ref=__ret__.branch_ref,
+        created_date=__ret__.created_date,
+        display_name=__ret__.display_name,
+        folder_path=__ret__.folder_path,
+        location=__ret__.location,
+        name=__ret__.name,
+        provisioning_state=__ret__.provisioning_state,
+        security_token=__ret__.security_token,
+        source_type=__ret__.source_type,
+        status=__ret__.status,
+        tags=__ret__.tags,
+        type=__ret__.type,
+        unique_identifier=__ret__.unique_identifier,
+        uri=__ret__.uri)

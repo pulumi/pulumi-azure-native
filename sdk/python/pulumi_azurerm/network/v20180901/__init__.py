@@ -9,3 +9,5 @@ from .get_virtual_network_link import *
 from .private_zone import *
 from .record_set import *
 from .virtual_network_link import *
+from ._inputs import *
+from . import outputs

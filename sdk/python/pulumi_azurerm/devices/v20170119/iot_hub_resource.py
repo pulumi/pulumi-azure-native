@@ -5,115 +5,30 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+from . import outputs
+from ._inputs import *
+
+__all__ = ['IotHubResource']
 
 
 class IotHubResource(pulumi.CustomResource):
-    etag: pulumi.Output[str]
-    """
-    The Etag field is *not* required. If it is provided in the response body, it must also be provided as a header per the normal ETag convention.
-    """
-    location: pulumi.Output[str]
-    """
-    The resource location.
-    """
-    name: pulumi.Output[str]
-    """
-    The resource name.
-    """
-    properties: pulumi.Output[dict]
-    """
-    The properties of an IoT hub.
-      * `authorization_policies` (`list`) - The shared access policies you can use to secure a connection to the IoT hub.
-        * `key_name` (`str`) - The name of the shared access policy.
-        * `primary_key` (`str`) - The primary key.
-        * `rights` (`str`) - The permissions assigned to the shared access policy.
-        * `secondary_key` (`str`) - The secondary key.
-
-      * `cloud_to_device` (`dict`) - The IoT hub cloud-to-device messaging properties.
-        * `default_ttl_as_iso8601` (`str`) - The default time to live for cloud-to-device messages in the device queue. See: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messaging#cloud-to-device-messages.
-        * `feedback` (`dict`) - The properties of the feedback queue for cloud-to-device messages.
-          * `lock_duration_as_iso8601` (`str`) - The lock duration for the feedback queue. See: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messaging#cloud-to-device-messages.
-          * `max_delivery_count` (`float`) - The number of times the IoT hub attempts to deliver a message on the feedback queue. See: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messaging#cloud-to-device-messages.
-          * `ttl_as_iso8601` (`str`) - The period of time for which a message is available to consume before it is expired by the IoT hub. See: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messaging#cloud-to-device-messages.
-
-        * `max_delivery_count` (`float`) - The max delivery count for cloud-to-device messages in the device queue. See: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messaging#cloud-to-device-messages.
-
-      * `comments` (`str`) - Comments.
-      * `enable_file_upload_notifications` (`bool`) - If True, file upload notifications are enabled.
-      * `event_hub_endpoints` (`dict`) - The Event Hub-compatible endpoint properties. The possible keys to this dictionary are events and operationsMonitoringEvents. Both of these keys have to be present in the dictionary while making create or update calls for the IoT hub.
-      * `features` (`str`) - The capabilities and features enabled for the IoT hub.
-      * `host_name` (`str`) - The name of the host.
-      * `ip_filter_rules` (`list`) - The IP filter rules.
-        * `action` (`str`) - The desired action for requests captured by this rule.
-        * `filter_name` (`str`) - The name of the IP filter rule.
-        * `ip_mask` (`str`) - A string that contains the IP address range in CIDR notation for the rule.
-
-      * `messaging_endpoints` (`dict`) - The messaging endpoint properties for the file upload notification queue.
-      * `operations_monitoring_properties` (`dict`) - The operations monitoring properties for the IoT hub. The possible keys to the dictionary are Connections, DeviceTelemetry, C2DCommands, DeviceIdentityOperations, FileUploadOperations, Routes, D2CTwinOperations, C2DTwinOperations, TwinQueries, JobsOperations, DirectMethods.
-        * `events` (`dict`)
-
-      * `provisioning_state` (`str`) - The provisioning state.
-      * `routing` (`dict`) - The routing related properties of the IoT hub. See: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messaging
-        * `endpoints` (`dict`) - The properties related to the custom endpoints to which your IoT hub routes messages based on the routing rules. A maximum of 10 custom endpoints are allowed across all endpoint types for paid hubs and only 1 custom endpoint is allowed across all endpoint types for free hubs.
-          * `event_hubs` (`list`) - The list of Event Hubs endpoints that IoT hub routes messages to, based on the routing rules. This list does not include the built-in Event Hubs endpoint.
-            * `connection_string` (`str`) - The connection string of the event hub endpoint. 
-            * `name` (`str`) - The name of the event hub endpoint. The name can only include alphanumeric characters, periods, underscores, hyphens and has a maximum length of 64 characters. The following names are reserved;  events, operationsMonitoringEvents, fileNotifications, $default. Endpoint names must be unique across endpoint types.
-            * `resource_group` (`str`) - The name of the resource group of the event hub endpoint.
-            * `subscription_id` (`str`) - The subscription identifier of the event hub endpoint.
-
-          * `service_bus_queues` (`list`) - The list of Service Bus queue endpoints that IoT hub routes the messages to, based on the routing rules.
-            * `connection_string` (`str`) - The connection string of the service bus queue endpoint.
-            * `name` (`str`) - The name of the service bus queue endpoint. The name can only include alphanumeric characters, periods, underscores, hyphens and has a maximum length of 64 characters. The following names are reserved;  events, operationsMonitoringEvents, fileNotifications, $default. Endpoint names must be unique across endpoint types. The name need not be the same as the actual queue name.
-            * `resource_group` (`str`) - The name of the resource group of the service bus queue endpoint.
-            * `subscription_id` (`str`) - The subscription identifier of the service bus queue endpoint.
-
-          * `service_bus_topics` (`list`) - The list of Service Bus topic endpoints that the IoT hub routes the messages to, based on the routing rules.
-            * `connection_string` (`str`) - The connection string of the service bus topic endpoint.
-            * `name` (`str`) - The name of the service bus topic endpoint. The name can only include alphanumeric characters, periods, underscores, hyphens and has a maximum length of 64 characters. The following names are reserved;  events, operationsMonitoringEvents, fileNotifications, $default. Endpoint names must be unique across endpoint types.  The name need not be the same as the actual topic name.
-            * `resource_group` (`str`) - The name of the resource group of the service bus topic endpoint.
-            * `subscription_id` (`str`) - The subscription identifier of the service bus topic endpoint.
-
-        * `fallback_route` (`dict`) - The properties of the route that is used as a fall-back route when none of the conditions specified in the 'routes' section are met. This is an optional parameter. When this property is not set, the messages which do not meet any of the conditions specified in the 'routes' section get routed to the built-in eventhub endpoint.
-          * `condition` (`str`) - The condition which is evaluated in order to apply the fallback route. If the condition is not provided it will evaluate to true by default. For grammar, See: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-query-language
-          * `endpoint_names` (`list`) - The list of endpoints to which the messages that satisfy the condition are routed to. Currently only 1 endpoint is allowed.
-          * `is_enabled` (`bool`) - Used to specify whether the fallback route is enabled or not.
-          * `source` (`str`) - The source to which the routing rule is to be applied to. e.g. DeviceMessages
-
-        * `routes` (`list`) - The list of user-provided routing rules that the IoT hub uses to route messages to built-in and custom endpoints. A maximum of 100 routing rules are allowed for paid hubs and a maximum of 5 routing rules are allowed for free hubs.
-          * `condition` (`str`) - The condition that is evaluated to apply the routing rule. If no condition is provided, it evaluates to true by default. For grammar, See: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-query-language
-          * `endpoint_names` (`list`) - The list of endpoints to which messages that satisfy the condition are routed. Currently only one endpoint is allowed.
-          * `is_enabled` (`bool`) - Used to specify whether a route is enabled.
-          * `name` (`str`) - The name of the route. The name can only include alphanumeric characters, periods, underscores, hyphens, has a maximum length of 64 characters,  and must be unique.
-          * `source` (`str`) - The source that the routing rule is to be applied to, such as DeviceMessages.
-
-      * `storage_endpoints` (`dict`) - The list of Azure Storage endpoints where you can upload files. Currently you can configure only one Azure Storage account and that MUST have its key as $default. Specifying more than one storage account causes an error to be thrown. Not specifying a value for this property when the enableFileUploadNotifications property is set to True, causes an error to be thrown.
-    """
-    resourcegroup: pulumi.Output[str]
-    """
-    The name of the resource group that contains the IoT hub. A resource group name uniquely identifies the resource group within the subscription.
-    """
-    sku: pulumi.Output[dict]
-    """
-    Information about the SKU of the IoT hub.
-      * `capacity` (`float`) - The number of provisioned IoT Hub units. See: https://docs.microsoft.com/azure/azure-subscription-service-limits#iot-hub-limits.
-      * `name` (`str`) - The name of the SKU.
-      * `tier` (`str`) - The billing tier for the IoT hub.
-    """
-    subscriptionid: pulumi.Output[str]
-    """
-    The subscription identifier.
-    """
-    tags: pulumi.Output[dict]
-    """
-    The resource tags.
-    """
-    type: pulumi.Output[str]
-    """
-    The resource type.
-    """
-    def __init__(__self__, resource_name, opts=None, etag=None, location=None, name=None, properties=None, resource_group_name=None, resourcegroup=None, sku=None, subscriptionid=None, tags=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 etag: Optional[pulumi.Input[str]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 properties: Optional[pulumi.Input[pulumi.InputType['IotHubPropertiesArgs']]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 resourcegroup: Optional[pulumi.Input[str]] = None,
+                 sku: Optional[pulumi.Input[pulumi.InputType['IotHubSkuInfoArgs']]] = None,
+                 subscriptionid: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         The description of the IoT hub.
 
@@ -122,82 +37,12 @@ class IotHubResource(pulumi.CustomResource):
         :param pulumi.Input[str] etag: The Etag field is *not* required. If it is provided in the response body, it must also be provided as a header per the normal ETag convention.
         :param pulumi.Input[str] location: The resource location.
         :param pulumi.Input[str] name: The name of the IoT hub to create or update.
-        :param pulumi.Input[dict] properties: The properties of an IoT hub.
+        :param pulumi.Input[pulumi.InputType['IotHubPropertiesArgs']] properties: The properties of an IoT hub.
         :param pulumi.Input[str] resource_group_name: The name of the resource group that contains the IoT hub.
         :param pulumi.Input[str] resourcegroup: The name of the resource group that contains the IoT hub. A resource group name uniquely identifies the resource group within the subscription.
-        :param pulumi.Input[dict] sku: Information about the SKU of the IoT hub.
+        :param pulumi.Input[pulumi.InputType['IotHubSkuInfoArgs']] sku: Information about the SKU of the IoT hub.
         :param pulumi.Input[str] subscriptionid: The subscription identifier.
-        :param pulumi.Input[dict] tags: The resource tags.
-
-        The **properties** object supports the following:
-
-          * `authorization_policies` (`pulumi.Input[list]`) - The shared access policies you can use to secure a connection to the IoT hub.
-            * `key_name` (`pulumi.Input[str]`) - The name of the shared access policy.
-            * `primary_key` (`pulumi.Input[str]`) - The primary key.
-            * `rights` (`pulumi.Input[str]`) - The permissions assigned to the shared access policy.
-            * `secondary_key` (`pulumi.Input[str]`) - The secondary key.
-
-          * `cloud_to_device` (`pulumi.Input[dict]`) - The IoT hub cloud-to-device messaging properties.
-            * `default_ttl_as_iso8601` (`pulumi.Input[str]`) - The default time to live for cloud-to-device messages in the device queue. See: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messaging#cloud-to-device-messages.
-            * `feedback` (`pulumi.Input[dict]`) - The properties of the feedback queue for cloud-to-device messages.
-              * `lock_duration_as_iso8601` (`pulumi.Input[str]`) - The lock duration for the feedback queue. See: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messaging#cloud-to-device-messages.
-              * `max_delivery_count` (`pulumi.Input[float]`) - The number of times the IoT hub attempts to deliver a message on the feedback queue. See: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messaging#cloud-to-device-messages.
-              * `ttl_as_iso8601` (`pulumi.Input[str]`) - The period of time for which a message is available to consume before it is expired by the IoT hub. See: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messaging#cloud-to-device-messages.
-
-            * `max_delivery_count` (`pulumi.Input[float]`) - The max delivery count for cloud-to-device messages in the device queue. See: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messaging#cloud-to-device-messages.
-
-          * `comments` (`pulumi.Input[str]`) - Comments.
-          * `enable_file_upload_notifications` (`pulumi.Input[bool]`) - If True, file upload notifications are enabled.
-          * `event_hub_endpoints` (`pulumi.Input[dict]`) - The Event Hub-compatible endpoint properties. The possible keys to this dictionary are events and operationsMonitoringEvents. Both of these keys have to be present in the dictionary while making create or update calls for the IoT hub.
-          * `features` (`pulumi.Input[str]`) - The capabilities and features enabled for the IoT hub.
-          * `ip_filter_rules` (`pulumi.Input[list]`) - The IP filter rules.
-            * `action` (`pulumi.Input[str]`) - The desired action for requests captured by this rule.
-            * `filter_name` (`pulumi.Input[str]`) - The name of the IP filter rule.
-            * `ip_mask` (`pulumi.Input[str]`) - A string that contains the IP address range in CIDR notation for the rule.
-
-          * `messaging_endpoints` (`pulumi.Input[dict]`) - The messaging endpoint properties for the file upload notification queue.
-          * `operations_monitoring_properties` (`pulumi.Input[dict]`) - The operations monitoring properties for the IoT hub. The possible keys to the dictionary are Connections, DeviceTelemetry, C2DCommands, DeviceIdentityOperations, FileUploadOperations, Routes, D2CTwinOperations, C2DTwinOperations, TwinQueries, JobsOperations, DirectMethods.
-            * `events` (`pulumi.Input[dict]`)
-
-          * `routing` (`pulumi.Input[dict]`) - The routing related properties of the IoT hub. See: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messaging
-            * `endpoints` (`pulumi.Input[dict]`) - The properties related to the custom endpoints to which your IoT hub routes messages based on the routing rules. A maximum of 10 custom endpoints are allowed across all endpoint types for paid hubs and only 1 custom endpoint is allowed across all endpoint types for free hubs.
-              * `event_hubs` (`pulumi.Input[list]`) - The list of Event Hubs endpoints that IoT hub routes messages to, based on the routing rules. This list does not include the built-in Event Hubs endpoint.
-                * `connection_string` (`pulumi.Input[str]`) - The connection string of the event hub endpoint. 
-                * `name` (`pulumi.Input[str]`) - The name of the event hub endpoint. The name can only include alphanumeric characters, periods, underscores, hyphens and has a maximum length of 64 characters. The following names are reserved;  events, operationsMonitoringEvents, fileNotifications, $default. Endpoint names must be unique across endpoint types.
-                * `resource_group` (`pulumi.Input[str]`) - The name of the resource group of the event hub endpoint.
-                * `subscription_id` (`pulumi.Input[str]`) - The subscription identifier of the event hub endpoint.
-
-              * `service_bus_queues` (`pulumi.Input[list]`) - The list of Service Bus queue endpoints that IoT hub routes the messages to, based on the routing rules.
-                * `connection_string` (`pulumi.Input[str]`) - The connection string of the service bus queue endpoint.
-                * `name` (`pulumi.Input[str]`) - The name of the service bus queue endpoint. The name can only include alphanumeric characters, periods, underscores, hyphens and has a maximum length of 64 characters. The following names are reserved;  events, operationsMonitoringEvents, fileNotifications, $default. Endpoint names must be unique across endpoint types. The name need not be the same as the actual queue name.
-                * `resource_group` (`pulumi.Input[str]`) - The name of the resource group of the service bus queue endpoint.
-                * `subscription_id` (`pulumi.Input[str]`) - The subscription identifier of the service bus queue endpoint.
-
-              * `service_bus_topics` (`pulumi.Input[list]`) - The list of Service Bus topic endpoints that the IoT hub routes the messages to, based on the routing rules.
-                * `connection_string` (`pulumi.Input[str]`) - The connection string of the service bus topic endpoint.
-                * `name` (`pulumi.Input[str]`) - The name of the service bus topic endpoint. The name can only include alphanumeric characters, periods, underscores, hyphens and has a maximum length of 64 characters. The following names are reserved;  events, operationsMonitoringEvents, fileNotifications, $default. Endpoint names must be unique across endpoint types.  The name need not be the same as the actual topic name.
-                * `resource_group` (`pulumi.Input[str]`) - The name of the resource group of the service bus topic endpoint.
-                * `subscription_id` (`pulumi.Input[str]`) - The subscription identifier of the service bus topic endpoint.
-
-            * `fallback_route` (`pulumi.Input[dict]`) - The properties of the route that is used as a fall-back route when none of the conditions specified in the 'routes' section are met. This is an optional parameter. When this property is not set, the messages which do not meet any of the conditions specified in the 'routes' section get routed to the built-in eventhub endpoint.
-              * `condition` (`pulumi.Input[str]`) - The condition which is evaluated in order to apply the fallback route. If the condition is not provided it will evaluate to true by default. For grammar, See: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-query-language
-              * `endpoint_names` (`pulumi.Input[list]`) - The list of endpoints to which the messages that satisfy the condition are routed to. Currently only 1 endpoint is allowed.
-              * `is_enabled` (`pulumi.Input[bool]`) - Used to specify whether the fallback route is enabled or not.
-              * `source` (`pulumi.Input[str]`) - The source to which the routing rule is to be applied to. e.g. DeviceMessages
-
-            * `routes` (`pulumi.Input[list]`) - The list of user-provided routing rules that the IoT hub uses to route messages to built-in and custom endpoints. A maximum of 100 routing rules are allowed for paid hubs and a maximum of 5 routing rules are allowed for free hubs.
-              * `condition` (`pulumi.Input[str]`) - The condition that is evaluated to apply the routing rule. If no condition is provided, it evaluates to true by default. For grammar, See: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-query-language
-              * `endpoint_names` (`pulumi.Input[list]`) - The list of endpoints to which messages that satisfy the condition are routed. Currently only one endpoint is allowed.
-              * `is_enabled` (`pulumi.Input[bool]`) - Used to specify whether a route is enabled.
-              * `name` (`pulumi.Input[str]`) - The name of the route. The name can only include alphanumeric characters, periods, underscores, hyphens, has a maximum length of 64 characters,  and must be unique.
-              * `source` (`pulumi.Input[str]`) - The source that the routing rule is to be applied to, such as DeviceMessages.
-
-          * `storage_endpoints` (`pulumi.Input[dict]`) - The list of Azure Storage endpoints where you can upload files. Currently you can configure only one Azure Storage account and that MUST have its key as $default. Specifying more than one storage account causes an error to be thrown. Not specifying a value for this property when the enableFileUploadNotifications property is set to True, causes an error to be thrown.
-
-        The **sku** object supports the following:
-
-          * `capacity` (`pulumi.Input[float]`) - The number of provisioned IoT Hub units. See: https://docs.microsoft.com/azure/azure-subscription-service-limits#iot-hub-limits.
-          * `name` (`pulumi.Input[str]`) - The name of the SKU.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The resource tags.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -247,13 +92,15 @@ class IotHubResource(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None) -> 'IotHubResource':
         """
         Get an existing IotHubResource resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -262,8 +109,81 @@ class IotHubResource(pulumi.CustomResource):
 
         return IotHubResource(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter
+    def etag(self) -> Optional[str]:
+        """
+        The Etag field is *not* required. If it is provided in the response body, it must also be provided as a header per the normal ETag convention.
+        """
+        return pulumi.get(self, "etag")
+
+    @property
+    @pulumi.getter
+    def location(self) -> str:
+        """
+        The resource location.
+        """
+        return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The resource name.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def properties(self) -> 'outputs.IotHubPropertiesResponse':
+        """
+        The properties of an IoT hub.
+        """
+        return pulumi.get(self, "properties")
+
+    @property
+    @pulumi.getter
+    def resourcegroup(self) -> str:
+        """
+        The name of the resource group that contains the IoT hub. A resource group name uniquely identifies the resource group within the subscription.
+        """
+        return pulumi.get(self, "resourcegroup")
+
+    @property
+    @pulumi.getter
+    def sku(self) -> 'outputs.IotHubSkuInfoResponse':
+        """
+        Information about the SKU of the IoT hub.
+        """
+        return pulumi.get(self, "sku")
+
+    @property
+    @pulumi.getter
+    def subscriptionid(self) -> str:
+        """
+        The subscription identifier.
+        """
+        return pulumi.get(self, "subscriptionid")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Mapping[str, str]]:
+        """
+        The resource tags.
+        """
+        return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        The resource type.
+        """
+        return pulumi.get(self, "type")
+
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

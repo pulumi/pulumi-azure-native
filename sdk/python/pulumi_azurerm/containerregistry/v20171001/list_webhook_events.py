@@ -5,10 +5,17 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+from . import outputs
 
+__all__ = [
+    'ListWebhookEventsResult',
+    'AwaitableListWebhookEventsResult',
+    'list_webhook_events',
+]
 
+@pulumi.output_type
 class ListWebhookEventsResult:
     """
     The result of a request to list events for a webhook.
@@ -16,16 +23,26 @@ class ListWebhookEventsResult:
     def __init__(__self__, next_link=None, value=None):
         if next_link and not isinstance(next_link, str):
             raise TypeError("Expected argument 'next_link' to be a str")
-        __self__.next_link = next_link
+        pulumi.set(__self__, "next_link", next_link)
+        if value and not isinstance(value, list):
+            raise TypeError("Expected argument 'value' to be a list")
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter(name="nextLink")
+    def next_link(self) -> Optional[str]:
         """
         The URI that can be used to request the next list of events.
         """
-        if value and not isinstance(value, list):
-            raise TypeError("Expected argument 'value' to be a list")
-        __self__.value = value
+        return pulumi.get(self, "next_link")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[List['outputs.EventResponseResult']]:
         """
         The list of events. Since this list may be incomplete, the nextLink field should be used to request the next list of events.
         """
+        return pulumi.get(self, "value")
 
 
 class AwaitableListWebhookEventsResult(ListWebhookEventsResult):
@@ -38,7 +55,10 @@ class AwaitableListWebhookEventsResult(ListWebhookEventsResult):
             value=self.value)
 
 
-def list_webhook_events(registry_name=None, resource_group_name=None, webhook_name=None, opts=None):
+def list_webhook_events(registry_name: Optional[str] = None,
+                        resource_group_name: Optional[str] = None,
+                        webhook_name: Optional[str] = None,
+                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListWebhookEventsResult:
     """
     Use this data source to access information about an existing resource.
 
@@ -54,8 +74,8 @@ def list_webhook_events(registry_name=None, resource_group_name=None, webhook_na
         opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = _utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('azurerm:containerregistry/v20171001:listWebhookEvents', __args__, opts=opts).value
+    __ret__ = pulumi.runtime.invoke('azurerm:containerregistry/v20171001:listWebhookEvents', __args__, opts=opts, typ=ListWebhookEventsResult).value
 
     return AwaitableListWebhookEventsResult(
-        next_link=__ret__.get('nextLink'),
-        value=__ret__.get('value'))
+        next_link=__ret__.next_link,
+        value=__ret__.value)

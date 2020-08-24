@@ -32,3 +32,5 @@ from .streaming_endpoint import *
 from .streaming_locator import *
 from .streaming_policy import *
 from .transform import *
+from ._inputs import *
+from . import outputs

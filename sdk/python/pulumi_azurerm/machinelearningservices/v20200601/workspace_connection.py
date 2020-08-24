@@ -5,36 +5,26 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+
+__all__ = ['WorkspaceConnection']
 
 
 class WorkspaceConnection(pulumi.CustomResource):
-    auth_type: pulumi.Output[str]
-    """
-    Authorization type of the workspace connection.
-    """
-    category: pulumi.Output[str]
-    """
-    Category of the workspace connection.
-    """
-    name: pulumi.Output[str]
-    """
-    Friendly name of the workspace connection.
-    """
-    target: pulumi.Output[str]
-    """
-    Target of the workspace connection.
-    """
-    type: pulumi.Output[str]
-    """
-    Resource type of workspace connection.
-    """
-    value: pulumi.Output[str]
-    """
-    Value details of the workspace connection.
-    """
-    def __init__(__self__, resource_name, opts=None, auth_type=None, category=None, name=None, resource_group_name=None, target=None, value=None, workspace_name=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 auth_type: Optional[pulumi.Input[str]] = None,
+                 category: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 target: Optional[pulumi.Input[str]] = None,
+                 value: Optional[pulumi.Input[str]] = None,
+                 workspace_name: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         Workspace connection.
 
@@ -86,13 +76,15 @@ class WorkspaceConnection(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None) -> 'WorkspaceConnection':
         """
         Get an existing WorkspaceConnection resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -101,8 +93,57 @@ class WorkspaceConnection(pulumi.CustomResource):
 
         return WorkspaceConnection(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter(name="authType")
+    def auth_type(self) -> Optional[str]:
+        """
+        Authorization type of the workspace connection.
+        """
+        return pulumi.get(self, "auth_type")
+
+    @property
+    @pulumi.getter
+    def category(self) -> Optional[str]:
+        """
+        Category of the workspace connection.
+        """
+        return pulumi.get(self, "category")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Friendly name of the workspace connection.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def target(self) -> Optional[str]:
+        """
+        Target of the workspace connection.
+        """
+        return pulumi.get(self, "target")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Resource type of workspace connection.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[str]:
+        """
+        Value details of the workspace connection.
+        """
+        return pulumi.get(self, "value")
+
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

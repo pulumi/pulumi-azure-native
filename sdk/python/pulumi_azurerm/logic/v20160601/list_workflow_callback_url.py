@@ -5,10 +5,17 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+from . import outputs
 
+__all__ = [
+    'ListWorkflowCallbackUrlResult',
+    'AwaitableListWorkflowCallbackUrlResult',
+    'list_workflow_callback_url',
+]
 
+@pulumi.output_type
 class ListWorkflowCallbackUrlResult:
     """
     The workflow trigger callback URL.
@@ -16,40 +23,70 @@ class ListWorkflowCallbackUrlResult:
     def __init__(__self__, base_path=None, method=None, queries=None, relative_path=None, relative_path_parameters=None, value=None):
         if base_path and not isinstance(base_path, str):
             raise TypeError("Expected argument 'base_path' to be a str")
-        __self__.base_path = base_path
+        pulumi.set(__self__, "base_path", base_path)
+        if method and not isinstance(method, str):
+            raise TypeError("Expected argument 'method' to be a str")
+        pulumi.set(__self__, "method", method)
+        if queries and not isinstance(queries, dict):
+            raise TypeError("Expected argument 'queries' to be a dict")
+        pulumi.set(__self__, "queries", queries)
+        if relative_path and not isinstance(relative_path, str):
+            raise TypeError("Expected argument 'relative_path' to be a str")
+        pulumi.set(__self__, "relative_path", relative_path)
+        if relative_path_parameters and not isinstance(relative_path_parameters, list):
+            raise TypeError("Expected argument 'relative_path_parameters' to be a list")
+        pulumi.set(__self__, "relative_path_parameters", relative_path_parameters)
+        if value and not isinstance(value, str):
+            raise TypeError("Expected argument 'value' to be a str")
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter(name="basePath")
+    def base_path(self) -> str:
         """
         Gets the workflow trigger callback URL base path.
         """
-        if method and not isinstance(method, str):
-            raise TypeError("Expected argument 'method' to be a str")
-        __self__.method = method
+        return pulumi.get(self, "base_path")
+
+    @property
+    @pulumi.getter
+    def method(self) -> str:
         """
         Gets the workflow trigger callback URL HTTP method.
         """
-        if queries and not isinstance(queries, dict):
-            raise TypeError("Expected argument 'queries' to be a dict")
-        __self__.queries = queries
+        return pulumi.get(self, "method")
+
+    @property
+    @pulumi.getter
+    def queries(self) -> Optional['outputs.WorkflowTriggerListCallbackUrlQueriesResponseResult']:
         """
         Gets the workflow trigger callback URL query parameters.
         """
-        if relative_path and not isinstance(relative_path, str):
-            raise TypeError("Expected argument 'relative_path' to be a str")
-        __self__.relative_path = relative_path
+        return pulumi.get(self, "queries")
+
+    @property
+    @pulumi.getter(name="relativePath")
+    def relative_path(self) -> str:
         """
         Gets the workflow trigger callback URL relative path.
         """
-        if relative_path_parameters and not isinstance(relative_path_parameters, list):
-            raise TypeError("Expected argument 'relative_path_parameters' to be a list")
-        __self__.relative_path_parameters = relative_path_parameters
+        return pulumi.get(self, "relative_path")
+
+    @property
+    @pulumi.getter(name="relativePathParameters")
+    def relative_path_parameters(self) -> Optional[List[str]]:
         """
         Gets the workflow trigger callback URL relative path parameters.
         """
-        if value and not isinstance(value, str):
-            raise TypeError("Expected argument 'value' to be a str")
-        __self__.value = value
+        return pulumi.get(self, "relative_path_parameters")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
         """
         Gets the workflow trigger callback URL.
         """
+        return pulumi.get(self, "value")
 
 
 class AwaitableListWorkflowCallbackUrlResult(ListWorkflowCallbackUrlResult):
@@ -66,7 +103,11 @@ class AwaitableListWorkflowCallbackUrlResult(ListWorkflowCallbackUrlResult):
             value=self.value)
 
 
-def list_workflow_callback_url(key_type=None, not_after=None, resource_group_name=None, workflow_name=None, opts=None):
+def list_workflow_callback_url(key_type: Optional[str] = None,
+                               not_after: Optional[str] = None,
+                               resource_group_name: Optional[str] = None,
+                               workflow_name: Optional[str] = None,
+                               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListWorkflowCallbackUrlResult:
     """
     Use this data source to access information about an existing resource.
 
@@ -84,12 +125,12 @@ def list_workflow_callback_url(key_type=None, not_after=None, resource_group_nam
         opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = _utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('azurerm:logic/v20160601:listWorkflowCallbackUrl', __args__, opts=opts).value
+    __ret__ = pulumi.runtime.invoke('azurerm:logic/v20160601:listWorkflowCallbackUrl', __args__, opts=opts, typ=ListWorkflowCallbackUrlResult).value
 
     return AwaitableListWorkflowCallbackUrlResult(
-        base_path=__ret__.get('basePath'),
-        method=__ret__.get('method'),
-        queries=__ret__.get('queries'),
-        relative_path=__ret__.get('relativePath'),
-        relative_path_parameters=__ret__.get('relativePathParameters'),
-        value=__ret__.get('value'))
+        base_path=__ret__.base_path,
+        method=__ret__.method,
+        queries=__ret__.queries,
+        relative_path=__ret__.relative_path,
+        relative_path_parameters=__ret__.relative_path_parameters,
+        value=__ret__.value)

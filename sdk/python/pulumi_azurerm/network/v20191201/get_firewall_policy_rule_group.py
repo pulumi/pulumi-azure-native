@@ -5,10 +5,17 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+from . import outputs
 
+__all__ = [
+    'GetFirewallPolicyRuleGroupResult',
+    'AwaitableGetFirewallPolicyRuleGroupResult',
+    'get_firewall_policy_rule_group',
+]
 
+@pulumi.output_type
 class GetFirewallPolicyRuleGroupResult:
     """
     Rule Group resource.
@@ -16,40 +23,70 @@ class GetFirewallPolicyRuleGroupResult:
     def __init__(__self__, etag=None, name=None, priority=None, provisioning_state=None, rules=None, type=None):
         if etag and not isinstance(etag, str):
             raise TypeError("Expected argument 'etag' to be a str")
-        __self__.etag = etag
+        pulumi.set(__self__, "etag", etag)
+        if name and not isinstance(name, str):
+            raise TypeError("Expected argument 'name' to be a str")
+        pulumi.set(__self__, "name", name)
+        if priority and not isinstance(priority, float):
+            raise TypeError("Expected argument 'priority' to be a float")
+        pulumi.set(__self__, "priority", priority)
+        if provisioning_state and not isinstance(provisioning_state, str):
+            raise TypeError("Expected argument 'provisioning_state' to be a str")
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if rules and not isinstance(rules, list):
+            raise TypeError("Expected argument 'rules' to be a list")
+        pulumi.set(__self__, "rules", rules)
+        if type and not isinstance(type, str):
+            raise TypeError("Expected argument 'type' to be a str")
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def etag(self) -> str:
         """
         A unique read-only string that changes whenever the resource is updated.
         """
-        if name and not isinstance(name, str):
-            raise TypeError("Expected argument 'name' to be a str")
-        __self__.name = name
+        return pulumi.get(self, "etag")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
         """
         The name of the resource that is unique within a resource group. This name can be used to access the resource.
         """
-        if priority and not isinstance(priority, float):
-            raise TypeError("Expected argument 'priority' to be a float")
-        __self__.priority = priority
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def priority(self) -> Optional[float]:
         """
         Priority of the Firewall Policy Rule Group resource.
         """
-        if provisioning_state and not isinstance(provisioning_state, str):
-            raise TypeError("Expected argument 'provisioning_state' to be a str")
-        __self__.provisioning_state = provisioning_state
+        return pulumi.get(self, "priority")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
         """
         The provisioning state of the firewall policy rule group resource.
         """
-        if rules and not isinstance(rules, list):
-            raise TypeError("Expected argument 'rules' to be a list")
-        __self__.rules = rules
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter
+    def rules(self) -> Optional[List['outputs.FirewallPolicyRuleResponse']]:
         """
         Group of Firewall Policy rules.
         """
-        if type and not isinstance(type, str):
-            raise TypeError("Expected argument 'type' to be a str")
-        __self__.type = type
+        return pulumi.get(self, "rules")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
         """
         Rule Group type.
         """
+        return pulumi.get(self, "type")
 
 
 class AwaitableGetFirewallPolicyRuleGroupResult(GetFirewallPolicyRuleGroupResult):
@@ -66,7 +103,10 @@ class AwaitableGetFirewallPolicyRuleGroupResult(GetFirewallPolicyRuleGroupResult
             type=self.type)
 
 
-def get_firewall_policy_rule_group(firewall_policy_name=None, name=None, resource_group_name=None, opts=None):
+def get_firewall_policy_rule_group(firewall_policy_name: Optional[str] = None,
+                                   name: Optional[str] = None,
+                                   resource_group_name: Optional[str] = None,
+                                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetFirewallPolicyRuleGroupResult:
     """
     Use this data source to access information about an existing resource.
 
@@ -82,12 +122,12 @@ def get_firewall_policy_rule_group(firewall_policy_name=None, name=None, resourc
         opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = _utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('azurerm:network/v20191201:getFirewallPolicyRuleGroup', __args__, opts=opts).value
+    __ret__ = pulumi.runtime.invoke('azurerm:network/v20191201:getFirewallPolicyRuleGroup', __args__, opts=opts, typ=GetFirewallPolicyRuleGroupResult).value
 
     return AwaitableGetFirewallPolicyRuleGroupResult(
-        etag=__ret__.get('etag'),
-        name=__ret__.get('name'),
-        priority=__ret__.get('priority'),
-        provisioning_state=__ret__.get('provisioningState'),
-        rules=__ret__.get('rules'),
-        type=__ret__.get('type'))
+        etag=__ret__.etag,
+        name=__ret__.name,
+        priority=__ret__.priority,
+        provisioning_state=__ret__.provisioning_state,
+        rules=__ret__.rules,
+        type=__ret__.type)

@@ -5,151 +5,48 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+from . import outputs
+from ._inputs import *
+
+__all__ = ['DomainService']
 
 
 class DomainService(pulumi.CustomResource):
-    deployment_id: pulumi.Output[str]
-    """
-    Deployment Id
-    """
-    domain_name: pulumi.Output[str]
-    """
-    The name of the Azure domain that the user would like to deploy Domain Services to.
-    """
-    domain_security_settings: pulumi.Output[dict]
-    """
-    DomainSecurity Settings
-      * `ntlm_v1` (`str`) - A flag to determine whether or not NtlmV1 is enabled or disabled.
-      * `sync_ntlm_passwords` (`str`) - A flag to determine whether or not SyncNtlmPasswords is enabled or disabled.
-      * `tls_v1` (`str`) - A flag to determine whether or not TlsV1 is enabled or disabled.
-    """
-    etag: pulumi.Output[str]
-    """
-    Resource etag
-    """
-    filtered_sync: pulumi.Output[str]
-    """
-    Enabled or Disabled flag to turn on Group-based filtered sync
-    """
-    ldaps_settings: pulumi.Output[dict]
-    """
-    Secure LDAP Settings
-      * `certificate_not_after` (`str`) - NotAfter DateTime of configure ldaps certificate.
-      * `certificate_thumbprint` (`str`) - Thumbprint of configure ldaps certificate.
-      * `external_access` (`str`) - A flag to determine whether or not Secure LDAP access over the internet is enabled or disabled.
-      * `ldaps` (`str`) - A flag to determine whether or not Secure LDAP is enabled or disabled.
-      * `pfx_certificate` (`str`) - The certificate required to configure Secure LDAP. The parameter passed here should be a base64encoded representation of the certificate pfx file.
-      * `pfx_certificate_password` (`str`) - The password to decrypt the provided Secure LDAP certificate pfx file.
-      * `public_certificate` (`str`) - Public certificate used to configure secure ldap.
-    """
-    location: pulumi.Output[str]
-    """
-    Resource location
-    """
-    name: pulumi.Output[str]
-    """
-    Resource name
-    """
-    notification_settings: pulumi.Output[dict]
-    """
-    Notification Settings
-      * `additional_recipients` (`list`) - The list of additional recipients
-      * `notify_dc_admins` (`str`) - Should domain controller admins be notified
-      * `notify_global_admins` (`str`) - Should global admins be notified
-    """
-    provisioning_state: pulumi.Output[str]
-    """
-    the current deployment or provisioning state, which only appears in the response.
-    """
-    replica_sets: pulumi.Output[list]
-    """
-    List of ReplicaSets
-      * `domain_controller_ip_address` (`list`) - List of Domain Controller IP Address
-      * `external_access_ip_address` (`str`) - External access ip address.
-      * `health_alerts` (`list`) - List of Domain Health Alerts
-        * `id` (`str`) - Health Alert Id
-        * `issue` (`str`) - Health Alert Issue
-        * `last_detected` (`str`) - Health Alert Last Detected DateTime
-        * `name` (`str`) - Health Alert Name
-        * `raised` (`str`) - Health Alert Raised DateTime
-        * `resolution_uri` (`str`) - Health Alert TSG Link
-        * `severity` (`str`) - Health Alert Severity
-
-      * `health_last_evaluated` (`str`) - Last domain evaluation run DateTime
-      * `health_monitors` (`list`) - List of Domain Health Monitors
-        * `details` (`str`) - Health Monitor Details
-        * `id` (`str`) - Health Monitor Id
-        * `name` (`str`) - Health Monitor Name
-
-      * `location` (`str`) - Virtual network location
-      * `replica_set_id` (`str`) - ReplicaSet Id
-      * `service_status` (`str`) - Status of Domain Service instance
-      * `subnet_id` (`str`) - The name of the virtual network that Domain Services will be deployed on. The id of the subnet that Domain Services will be deployed on. /virtualNetwork/vnetName/subnets/subnetName.
-      * `vnet_site_id` (`str`) - Virtual network site id
-    """
-    sync_owner: pulumi.Output[str]
-    """
-    SyncOwner ReplicaSet Id
-    """
-    tags: pulumi.Output[dict]
-    """
-    Resource tags
-    """
-    tenant_id: pulumi.Output[str]
-    """
-    Azure Active Directory Tenant Id
-    """
-    type: pulumi.Output[str]
-    """
-    Resource type
-    """
-    version: pulumi.Output[float]
-    """
-    Data Model Version
-    """
-    def __init__(__self__, resource_name, opts=None, domain_name=None, domain_security_settings=None, etag=None, filtered_sync=None, ldaps_settings=None, location=None, name=None, notification_settings=None, replica_sets=None, resource_group_name=None, tags=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 domain_name: Optional[pulumi.Input[str]] = None,
+                 domain_security_settings: Optional[pulumi.Input[pulumi.InputType['DomainSecuritySettingsArgs']]] = None,
+                 etag: Optional[pulumi.Input[str]] = None,
+                 filtered_sync: Optional[pulumi.Input[str]] = None,
+                 ldaps_settings: Optional[pulumi.Input[pulumi.InputType['LdapsSettingsArgs']]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 notification_settings: Optional[pulumi.Input[pulumi.InputType['NotificationSettingsArgs']]] = None,
+                 replica_sets: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['ReplicaSetArgs']]]]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         Domain service.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] domain_name: The name of the Azure domain that the user would like to deploy Domain Services to.
-        :param pulumi.Input[dict] domain_security_settings: DomainSecurity Settings
+        :param pulumi.Input[pulumi.InputType['DomainSecuritySettingsArgs']] domain_security_settings: DomainSecurity Settings
         :param pulumi.Input[str] etag: Resource etag
         :param pulumi.Input[str] filtered_sync: Enabled or Disabled flag to turn on Group-based filtered sync
-        :param pulumi.Input[dict] ldaps_settings: Secure LDAP Settings
+        :param pulumi.Input[pulumi.InputType['LdapsSettingsArgs']] ldaps_settings: Secure LDAP Settings
         :param pulumi.Input[str] location: Resource location
         :param pulumi.Input[str] name: The name of the domain service.
-        :param pulumi.Input[dict] notification_settings: Notification Settings
-        :param pulumi.Input[list] replica_sets: List of ReplicaSets
+        :param pulumi.Input[pulumi.InputType['NotificationSettingsArgs']] notification_settings: Notification Settings
+        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['ReplicaSetArgs']]]] replica_sets: List of ReplicaSets
         :param pulumi.Input[str] resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.
-        :param pulumi.Input[dict] tags: Resource tags
-
-        The **domain_security_settings** object supports the following:
-
-          * `ntlm_v1` (`pulumi.Input[str]`) - A flag to determine whether or not NtlmV1 is enabled or disabled.
-          * `sync_ntlm_passwords` (`pulumi.Input[str]`) - A flag to determine whether or not SyncNtlmPasswords is enabled or disabled.
-          * `tls_v1` (`pulumi.Input[str]`) - A flag to determine whether or not TlsV1 is enabled or disabled.
-
-        The **ldaps_settings** object supports the following:
-
-          * `external_access` (`pulumi.Input[str]`) - A flag to determine whether or not Secure LDAP access over the internet is enabled or disabled.
-          * `ldaps` (`pulumi.Input[str]`) - A flag to determine whether or not Secure LDAP is enabled or disabled.
-          * `pfx_certificate` (`pulumi.Input[str]`) - The certificate required to configure Secure LDAP. The parameter passed here should be a base64encoded representation of the certificate pfx file.
-          * `pfx_certificate_password` (`pulumi.Input[str]`) - The password to decrypt the provided Secure LDAP certificate pfx file.
-
-        The **notification_settings** object supports the following:
-
-          * `additional_recipients` (`pulumi.Input[list]`) - The list of additional recipients
-          * `notify_dc_admins` (`pulumi.Input[str]`) - Should domain controller admins be notified
-          * `notify_global_admins` (`pulumi.Input[str]`) - Should global admins be notified
-
-        The **replica_sets** object supports the following:
-
-          * `location` (`pulumi.Input[str]`) - Virtual network location
-          * `subnet_id` (`pulumi.Input[str]`) - The name of the virtual network that Domain Services will be deployed on. The id of the subnet that Domain Services will be deployed on. /virtualNetwork/vnetName/subnets/subnetName.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -198,13 +95,15 @@ class DomainService(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None) -> 'DomainService':
         """
         Get an existing DomainService resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -213,8 +112,137 @@ class DomainService(pulumi.CustomResource):
 
         return DomainService(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter(name="deploymentId")
+    def deployment_id(self) -> str:
+        """
+        Deployment Id
+        """
+        return pulumi.get(self, "deployment_id")
+
+    @property
+    @pulumi.getter(name="domainName")
+    def domain_name(self) -> Optional[str]:
+        """
+        The name of the Azure domain that the user would like to deploy Domain Services to.
+        """
+        return pulumi.get(self, "domain_name")
+
+    @property
+    @pulumi.getter(name="domainSecuritySettings")
+    def domain_security_settings(self) -> Optional['outputs.DomainSecuritySettingsResponse']:
+        """
+        DomainSecurity Settings
+        """
+        return pulumi.get(self, "domain_security_settings")
+
+    @property
+    @pulumi.getter
+    def etag(self) -> Optional[str]:
+        """
+        Resource etag
+        """
+        return pulumi.get(self, "etag")
+
+    @property
+    @pulumi.getter(name="filteredSync")
+    def filtered_sync(self) -> Optional[str]:
+        """
+        Enabled or Disabled flag to turn on Group-based filtered sync
+        """
+        return pulumi.get(self, "filtered_sync")
+
+    @property
+    @pulumi.getter(name="ldapsSettings")
+    def ldaps_settings(self) -> Optional['outputs.LdapsSettingsResponse']:
+        """
+        Secure LDAP Settings
+        """
+        return pulumi.get(self, "ldaps_settings")
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[str]:
+        """
+        Resource location
+        """
+        return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Resource name
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="notificationSettings")
+    def notification_settings(self) -> Optional['outputs.NotificationSettingsResponse']:
+        """
+        Notification Settings
+        """
+        return pulumi.get(self, "notification_settings")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        the current deployment or provisioning state, which only appears in the response.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="replicaSets")
+    def replica_sets(self) -> Optional[List['outputs.ReplicaSetResponse']]:
+        """
+        List of ReplicaSets
+        """
+        return pulumi.get(self, "replica_sets")
+
+    @property
+    @pulumi.getter(name="syncOwner")
+    def sync_owner(self) -> str:
+        """
+        SyncOwner ReplicaSet Id
+        """
+        return pulumi.get(self, "sync_owner")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Mapping[str, str]]:
+        """
+        Resource tags
+        """
+        return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter(name="tenantId")
+    def tenant_id(self) -> str:
+        """
+        Azure Active Directory Tenant Id
+        """
+        return pulumi.get(self, "tenant_id")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Resource type
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def version(self) -> float:
+        """
+        Data Model Version
+        """
+        return pulumi.get(self, "version")
+
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

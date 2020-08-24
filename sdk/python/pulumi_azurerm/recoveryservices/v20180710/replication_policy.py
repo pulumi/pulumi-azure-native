@@ -5,45 +5,34 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+from . import outputs
+from ._inputs import *
+
+__all__ = ['ReplicationPolicy']
 
 
 class ReplicationPolicy(pulumi.CustomResource):
-    location: pulumi.Output[str]
-    """
-    Resource Location
-    """
-    name: pulumi.Output[str]
-    """
-    Resource Name
-    """
-    properties: pulumi.Output[dict]
-    """
-    The custom data.
-      * `friendly_name` (`str`) - The FriendlyName.
-      * `provider_specific_details` (`dict`) - The ReplicationChannelSetting.
-        * `instance_type` (`str`) - Gets the class type. Overridden in derived classes.
-    """
-    type: pulumi.Output[str]
-    """
-    Resource Type
-    """
-    def __init__(__self__, resource_name, opts=None, name=None, properties=None, resource_group_name=None, resource_name_=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 properties: Optional[pulumi.Input[pulumi.InputType['CreatePolicyInputPropertiesArgs']]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 resource_name_: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         Protection profile details.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] name: Replication policy name
-        :param pulumi.Input[dict] properties: Policy creation properties.
+        :param pulumi.Input[pulumi.InputType['CreatePolicyInputPropertiesArgs']] properties: Policy creation properties.
         :param pulumi.Input[str] resource_group_name: The name of the resource group where the recovery services vault is present.
         :param pulumi.Input[str] resource_name_: The name of the recovery services vault.
-
-        The **properties** object supports the following:
-
-          * `provider_specific_input` (`pulumi.Input[dict]`) - The ReplicationProviderSettings.
-            * `instance_type` (`pulumi.Input[str]`) - The class type.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -83,13 +72,15 @@ class ReplicationPolicy(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None) -> 'ReplicationPolicy':
         """
         Get an existing ReplicationPolicy resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -98,8 +89,41 @@ class ReplicationPolicy(pulumi.CustomResource):
 
         return ReplicationPolicy(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[str]:
+        """
+        Resource Location
+        """
+        return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Resource Name
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def properties(self) -> 'outputs.PolicyPropertiesResponse':
+        """
+        The custom data.
+        """
+        return pulumi.get(self, "properties")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Resource Type
+        """
+        return pulumi.get(self, "type")
+
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

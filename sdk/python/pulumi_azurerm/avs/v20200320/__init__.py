@@ -12,3 +12,5 @@ from .get_private_cloud import *
 from .hcx_enterprise_site import *
 from .list_private_cloud_admin_credentials import *
 from .private_cloud import *
+from ._inputs import *
+from . import outputs

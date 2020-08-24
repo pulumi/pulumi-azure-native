@@ -5,10 +5,16 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
 
+__all__ = [
+    'GetHybridConnectionResult',
+    'AwaitableGetHybridConnectionResult',
+    'get_hybrid_connection',
+]
 
+@pulumi.output_type
 class GetHybridConnectionResult:
     """
     Description of hybrid connection resource.
@@ -16,46 +22,81 @@ class GetHybridConnectionResult:
     def __init__(__self__, created_at=None, listener_count=None, name=None, requires_client_authorization=None, type=None, updated_at=None, user_metadata=None):
         if created_at and not isinstance(created_at, str):
             raise TypeError("Expected argument 'created_at' to be a str")
-        __self__.created_at = created_at
+        pulumi.set(__self__, "created_at", created_at)
+        if listener_count and not isinstance(listener_count, float):
+            raise TypeError("Expected argument 'listener_count' to be a float")
+        pulumi.set(__self__, "listener_count", listener_count)
+        if name and not isinstance(name, str):
+            raise TypeError("Expected argument 'name' to be a str")
+        pulumi.set(__self__, "name", name)
+        if requires_client_authorization and not isinstance(requires_client_authorization, bool):
+            raise TypeError("Expected argument 'requires_client_authorization' to be a bool")
+        pulumi.set(__self__, "requires_client_authorization", requires_client_authorization)
+        if type and not isinstance(type, str):
+            raise TypeError("Expected argument 'type' to be a str")
+        pulumi.set(__self__, "type", type)
+        if updated_at and not isinstance(updated_at, str):
+            raise TypeError("Expected argument 'updated_at' to be a str")
+        pulumi.set(__self__, "updated_at", updated_at)
+        if user_metadata and not isinstance(user_metadata, str):
+            raise TypeError("Expected argument 'user_metadata' to be a str")
+        pulumi.set(__self__, "user_metadata", user_metadata)
+
+    @property
+    @pulumi.getter(name="createdAt")
+    def created_at(self) -> str:
         """
         The time the hybrid connection was created.
         """
-        if listener_count and not isinstance(listener_count, float):
-            raise TypeError("Expected argument 'listener_count' to be a float")
-        __self__.listener_count = listener_count
+        return pulumi.get(self, "created_at")
+
+    @property
+    @pulumi.getter(name="listenerCount")
+    def listener_count(self) -> float:
         """
         The number of listeners for this hybrid connection. Note that min : 1 and max:25 are supported.
         """
-        if name and not isinstance(name, str):
-            raise TypeError("Expected argument 'name' to be a str")
-        __self__.name = name
+        return pulumi.get(self, "listener_count")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
         """
         Resource name.
         """
-        if requires_client_authorization and not isinstance(requires_client_authorization, bool):
-            raise TypeError("Expected argument 'requires_client_authorization' to be a bool")
-        __self__.requires_client_authorization = requires_client_authorization
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="requiresClientAuthorization")
+    def requires_client_authorization(self) -> Optional[bool]:
         """
         Returns true if client authorization is needed for this hybrid connection; otherwise, false.
         """
-        if type and not isinstance(type, str):
-            raise TypeError("Expected argument 'type' to be a str")
-        __self__.type = type
+        return pulumi.get(self, "requires_client_authorization")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
         """
         Resource type.
         """
-        if updated_at and not isinstance(updated_at, str):
-            raise TypeError("Expected argument 'updated_at' to be a str")
-        __self__.updated_at = updated_at
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="updatedAt")
+    def updated_at(self) -> str:
         """
         The time the namespace was updated.
         """
-        if user_metadata and not isinstance(user_metadata, str):
-            raise TypeError("Expected argument 'user_metadata' to be a str")
-        __self__.user_metadata = user_metadata
+        return pulumi.get(self, "updated_at")
+
+    @property
+    @pulumi.getter(name="userMetadata")
+    def user_metadata(self) -> Optional[str]:
         """
         The usermetadata is a placeholder to store user-defined string data for the hybrid connection endpoint. For example, it can be used to store descriptive data, such as a list of teams and their contact information. Also, user-defined configuration settings can be stored.
         """
+        return pulumi.get(self, "user_metadata")
 
 
 class AwaitableGetHybridConnectionResult(GetHybridConnectionResult):
@@ -73,7 +114,10 @@ class AwaitableGetHybridConnectionResult(GetHybridConnectionResult):
             user_metadata=self.user_metadata)
 
 
-def get_hybrid_connection(name=None, namespace_name=None, resource_group_name=None, opts=None):
+def get_hybrid_connection(name: Optional[str] = None,
+                          namespace_name: Optional[str] = None,
+                          resource_group_name: Optional[str] = None,
+                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetHybridConnectionResult:
     """
     Use this data source to access information about an existing resource.
 
@@ -89,13 +133,13 @@ def get_hybrid_connection(name=None, namespace_name=None, resource_group_name=No
         opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = _utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('azurerm:relay/v20170401:getHybridConnection', __args__, opts=opts).value
+    __ret__ = pulumi.runtime.invoke('azurerm:relay/v20170401:getHybridConnection', __args__, opts=opts, typ=GetHybridConnectionResult).value
 
     return AwaitableGetHybridConnectionResult(
-        created_at=__ret__.get('createdAt'),
-        listener_count=__ret__.get('listenerCount'),
-        name=__ret__.get('name'),
-        requires_client_authorization=__ret__.get('requiresClientAuthorization'),
-        type=__ret__.get('type'),
-        updated_at=__ret__.get('updatedAt'),
-        user_metadata=__ret__.get('userMetadata'))
+        created_at=__ret__.created_at,
+        listener_count=__ret__.listener_count,
+        name=__ret__.name,
+        requires_client_authorization=__ret__.requires_client_authorization,
+        type=__ret__.type,
+        updated_at=__ret__.updated_at,
+        user_metadata=__ret__.user_metadata)

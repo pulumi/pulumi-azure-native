@@ -5,10 +5,16 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
 
+__all__ = [
+    'GetDatabaseResult',
+    'AwaitableGetDatabaseResult',
+    'get_database',
+]
 
+@pulumi.output_type
 class GetDatabaseResult:
     """
     Class representing a Kusto database.
@@ -16,28 +22,48 @@ class GetDatabaseResult:
     def __init__(__self__, kind=None, location=None, name=None, type=None):
         if kind and not isinstance(kind, str):
             raise TypeError("Expected argument 'kind' to be a str")
-        __self__.kind = kind
+        pulumi.set(__self__, "kind", kind)
+        if location and not isinstance(location, str):
+            raise TypeError("Expected argument 'location' to be a str")
+        pulumi.set(__self__, "location", location)
+        if name and not isinstance(name, str):
+            raise TypeError("Expected argument 'name' to be a str")
+        pulumi.set(__self__, "name", name)
+        if type and not isinstance(type, str):
+            raise TypeError("Expected argument 'type' to be a str")
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def kind(self) -> str:
         """
         Kind of the database
         """
-        if location and not isinstance(location, str):
-            raise TypeError("Expected argument 'location' to be a str")
-        __self__.location = location
+        return pulumi.get(self, "kind")
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[str]:
         """
         Resource location.
         """
-        if name and not isinstance(name, str):
-            raise TypeError("Expected argument 'name' to be a str")
-        __self__.name = name
+        return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
         """
         The name of the resource
         """
-        if type and not isinstance(type, str):
-            raise TypeError("Expected argument 'type' to be a str")
-        __self__.type = type
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
         """
         The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
         """
+        return pulumi.get(self, "type")
 
 
 class AwaitableGetDatabaseResult(GetDatabaseResult):
@@ -52,7 +78,10 @@ class AwaitableGetDatabaseResult(GetDatabaseResult):
             type=self.type)
 
 
-def get_database(cluster_name=None, name=None, resource_group_name=None, opts=None):
+def get_database(cluster_name: Optional[str] = None,
+                 name: Optional[str] = None,
+                 resource_group_name: Optional[str] = None,
+                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDatabaseResult:
     """
     Use this data source to access information about an existing resource.
 
@@ -68,10 +97,10 @@ def get_database(cluster_name=None, name=None, resource_group_name=None, opts=No
         opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = _utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('azurerm:kusto/v20191109:getDatabase', __args__, opts=opts).value
+    __ret__ = pulumi.runtime.invoke('azurerm:kusto/v20191109:getDatabase', __args__, opts=opts, typ=GetDatabaseResult).value
 
     return AwaitableGetDatabaseResult(
-        kind=__ret__.get('kind'),
-        location=__ret__.get('location'),
-        name=__ret__.get('name'),
-        type=__ret__.get('type'))
+        kind=__ret__.kind,
+        location=__ret__.location,
+        name=__ret__.name,
+        type=__ret__.type)

@@ -5,24 +5,40 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
 
+__all__ = [
+    'ListWorkspaceCollectionAccessKeysResult',
+    'AwaitableListWorkspaceCollectionAccessKeysResult',
+    'list_workspace_collection_access_keys',
+]
 
+@pulumi.output_type
 class ListWorkspaceCollectionAccessKeysResult:
     def __init__(__self__, key1=None, key2=None):
         if key1 and not isinstance(key1, str):
             raise TypeError("Expected argument 'key1' to be a str")
-        __self__.key1 = key1
+        pulumi.set(__self__, "key1", key1)
+        if key2 and not isinstance(key2, str):
+            raise TypeError("Expected argument 'key2' to be a str")
+        pulumi.set(__self__, "key2", key2)
+
+    @property
+    @pulumi.getter
+    def key1(self) -> Optional[str]:
         """
         Access key 1
         """
-        if key2 and not isinstance(key2, str):
-            raise TypeError("Expected argument 'key2' to be a str")
-        __self__.key2 = key2
+        return pulumi.get(self, "key1")
+
+    @property
+    @pulumi.getter
+    def key2(self) -> Optional[str]:
         """
         Access key 2
         """
+        return pulumi.get(self, "key2")
 
 
 class AwaitableListWorkspaceCollectionAccessKeysResult(ListWorkspaceCollectionAccessKeysResult):
@@ -35,7 +51,9 @@ class AwaitableListWorkspaceCollectionAccessKeysResult(ListWorkspaceCollectionAc
             key2=self.key2)
 
 
-def list_workspace_collection_access_keys(resource_group_name=None, workspace_collection_name=None, opts=None):
+def list_workspace_collection_access_keys(resource_group_name: Optional[str] = None,
+                                          workspace_collection_name: Optional[str] = None,
+                                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListWorkspaceCollectionAccessKeysResult:
     """
     Use this data source to access information about an existing resource.
 
@@ -49,8 +67,8 @@ def list_workspace_collection_access_keys(resource_group_name=None, workspace_co
         opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = _utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('azurerm:powerbi/v20160129:listWorkspaceCollectionAccessKeys', __args__, opts=opts).value
+    __ret__ = pulumi.runtime.invoke('azurerm:powerbi/v20160129:listWorkspaceCollectionAccessKeys', __args__, opts=opts, typ=ListWorkspaceCollectionAccessKeysResult).value
 
     return AwaitableListWorkspaceCollectionAccessKeysResult(
-        key1=__ret__.get('key1'),
-        key2=__ret__.get('key2'))
+        key1=__ret__.key1,
+        key2=__ret__.key2)

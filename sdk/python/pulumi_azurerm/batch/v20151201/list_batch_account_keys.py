@@ -5,10 +5,16 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
 
+__all__ = [
+    'ListBatchAccountKeysResult',
+    'AwaitableListBatchAccountKeysResult',
+    'list_batch_account_keys',
+]
 
+@pulumi.output_type
 class ListBatchAccountKeysResult:
     """
     A set of Azure Batch account keys.
@@ -16,16 +22,26 @@ class ListBatchAccountKeysResult:
     def __init__(__self__, primary=None, secondary=None):
         if primary and not isinstance(primary, str):
             raise TypeError("Expected argument 'primary' to be a str")
-        __self__.primary = primary
+        pulumi.set(__self__, "primary", primary)
+        if secondary and not isinstance(secondary, str):
+            raise TypeError("Expected argument 'secondary' to be a str")
+        pulumi.set(__self__, "secondary", secondary)
+
+    @property
+    @pulumi.getter
+    def primary(self) -> Optional[str]:
         """
         The primary key associated with the account.
         """
-        if secondary and not isinstance(secondary, str):
-            raise TypeError("Expected argument 'secondary' to be a str")
-        __self__.secondary = secondary
+        return pulumi.get(self, "primary")
+
+    @property
+    @pulumi.getter
+    def secondary(self) -> Optional[str]:
         """
         The secondary key associated with the account.
         """
+        return pulumi.get(self, "secondary")
 
 
 class AwaitableListBatchAccountKeysResult(ListBatchAccountKeysResult):
@@ -38,7 +54,9 @@ class AwaitableListBatchAccountKeysResult(ListBatchAccountKeysResult):
             secondary=self.secondary)
 
 
-def list_batch_account_keys(account_name=None, resource_group_name=None, opts=None):
+def list_batch_account_keys(account_name: Optional[str] = None,
+                            resource_group_name: Optional[str] = None,
+                            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListBatchAccountKeysResult:
     """
     Use this data source to access information about an existing resource.
 
@@ -52,8 +70,8 @@ def list_batch_account_keys(account_name=None, resource_group_name=None, opts=No
         opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = _utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('azurerm:batch/v20151201:listBatchAccountKeys', __args__, opts=opts).value
+    __ret__ = pulumi.runtime.invoke('azurerm:batch/v20151201:listBatchAccountKeys', __args__, opts=opts, typ=ListBatchAccountKeysResult).value
 
     return AwaitableListBatchAccountKeysResult(
-        primary=__ret__.get('primary'),
-        secondary=__ret__.get('secondary'))
+        primary=__ret__.primary,
+        secondary=__ret__.secondary)

@@ -5,10 +5,17 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+from . import outputs
 
+__all__ = [
+    'ListRemediationDeploymentsAtSubscriptionResult',
+    'AwaitableListRemediationDeploymentsAtSubscriptionResult',
+    'list_remediation_deployments_at_subscription',
+]
 
+@pulumi.output_type
 class ListRemediationDeploymentsAtSubscriptionResult:
     """
     List of deployments for a remediation.
@@ -16,16 +23,26 @@ class ListRemediationDeploymentsAtSubscriptionResult:
     def __init__(__self__, next_link=None, value=None):
         if next_link and not isinstance(next_link, str):
             raise TypeError("Expected argument 'next_link' to be a str")
-        __self__.next_link = next_link
+        pulumi.set(__self__, "next_link", next_link)
+        if value and not isinstance(value, list):
+            raise TypeError("Expected argument 'value' to be a list")
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter(name="nextLink")
+    def next_link(self) -> str:
         """
         The URL to get the next set of results.
         """
-        if value and not isinstance(value, list):
-            raise TypeError("Expected argument 'value' to be a list")
-        __self__.value = value
+        return pulumi.get(self, "next_link")
+
+    @property
+    @pulumi.getter
+    def value(self) -> List['outputs.RemediationDeploymentResponseResult']:
         """
         Array of deployments for the remediation.
         """
+        return pulumi.get(self, "value")
 
 
 class AwaitableListRemediationDeploymentsAtSubscriptionResult(ListRemediationDeploymentsAtSubscriptionResult):
@@ -38,7 +55,9 @@ class AwaitableListRemediationDeploymentsAtSubscriptionResult(ListRemediationDep
             value=self.value)
 
 
-def list_remediation_deployments_at_subscription(remediation_name=None, top=None, opts=None):
+def list_remediation_deployments_at_subscription(remediation_name: Optional[str] = None,
+                                                 top: Optional[float] = None,
+                                                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListRemediationDeploymentsAtSubscriptionResult:
     """
     Use this data source to access information about an existing resource.
 
@@ -52,8 +71,8 @@ def list_remediation_deployments_at_subscription(remediation_name=None, top=None
         opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = _utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('azurerm:policyinsights/v20190701:listRemediationDeploymentsAtSubscription', __args__, opts=opts).value
+    __ret__ = pulumi.runtime.invoke('azurerm:policyinsights/v20190701:listRemediationDeploymentsAtSubscription', __args__, opts=opts, typ=ListRemediationDeploymentsAtSubscriptionResult).value
 
     return AwaitableListRemediationDeploymentsAtSubscriptionResult(
-        next_link=__ret__.get('nextLink'),
-        value=__ret__.get('value'))
+        next_link=__ret__.next_link,
+        value=__ret__.value)

@@ -5,10 +5,16 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
 
+__all__ = [
+    'ListOpenIdConnectProviderSecretsResult',
+    'AwaitableListOpenIdConnectProviderSecretsResult',
+    'list_open_id_connect_provider_secrets',
+]
 
+@pulumi.output_type
 class ListOpenIdConnectProviderSecretsResult:
     """
     Client or app secret used in IdentityProviders, Aad, OpenID or OAuth.
@@ -16,10 +22,15 @@ class ListOpenIdConnectProviderSecretsResult:
     def __init__(__self__, client_secret=None):
         if client_secret and not isinstance(client_secret, str):
             raise TypeError("Expected argument 'client_secret' to be a str")
-        __self__.client_secret = client_secret
+        pulumi.set(__self__, "client_secret", client_secret)
+
+    @property
+    @pulumi.getter(name="clientSecret")
+    def client_secret(self) -> Optional[str]:
         """
         Client or app secret used in IdentityProviders, Aad, OpenID or OAuth.
         """
+        return pulumi.get(self, "client_secret")
 
 
 class AwaitableListOpenIdConnectProviderSecretsResult(ListOpenIdConnectProviderSecretsResult):
@@ -31,7 +42,10 @@ class AwaitableListOpenIdConnectProviderSecretsResult(ListOpenIdConnectProviderS
             client_secret=self.client_secret)
 
 
-def list_open_id_connect_provider_secrets(opid=None, resource_group_name=None, service_name=None, opts=None):
+def list_open_id_connect_provider_secrets(opid: Optional[str] = None,
+                                          resource_group_name: Optional[str] = None,
+                                          service_name: Optional[str] = None,
+                                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListOpenIdConnectProviderSecretsResult:
     """
     Use this data source to access information about an existing resource.
 
@@ -47,7 +61,7 @@ def list_open_id_connect_provider_secrets(opid=None, resource_group_name=None, s
         opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = _utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('azurerm:apimanagement/v20191201:listOpenIdConnectProviderSecrets', __args__, opts=opts).value
+    __ret__ = pulumi.runtime.invoke('azurerm:apimanagement/v20191201:listOpenIdConnectProviderSecrets', __args__, opts=opts, typ=ListOpenIdConnectProviderSecretsResult).value
 
     return AwaitableListOpenIdConnectProviderSecretsResult(
-        client_secret=__ret__.get('clientSecret'))
+        client_secret=__ret__.client_secret)

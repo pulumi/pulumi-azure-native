@@ -5,10 +5,16 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
 
+__all__ = [
+    'ListAuthorizationServerSecretsResult',
+    'AwaitableListAuthorizationServerSecretsResult',
+    'list_authorization_server_secrets',
+]
 
+@pulumi.output_type
 class ListAuthorizationServerSecretsResult:
     """
     Client or app secret used in IdentityProviders, Aad, OpenID or OAuth.
@@ -16,10 +22,15 @@ class ListAuthorizationServerSecretsResult:
     def __init__(__self__, client_secret=None):
         if client_secret and not isinstance(client_secret, str):
             raise TypeError("Expected argument 'client_secret' to be a str")
-        __self__.client_secret = client_secret
+        pulumi.set(__self__, "client_secret", client_secret)
+
+    @property
+    @pulumi.getter(name="clientSecret")
+    def client_secret(self) -> Optional[str]:
         """
         Client or app secret used in IdentityProviders, Aad, OpenID or OAuth.
         """
+        return pulumi.get(self, "client_secret")
 
 
 class AwaitableListAuthorizationServerSecretsResult(ListAuthorizationServerSecretsResult):
@@ -31,7 +42,10 @@ class AwaitableListAuthorizationServerSecretsResult(ListAuthorizationServerSecre
             client_secret=self.client_secret)
 
 
-def list_authorization_server_secrets(authsid=None, resource_group_name=None, service_name=None, opts=None):
+def list_authorization_server_secrets(authsid: Optional[str] = None,
+                                      resource_group_name: Optional[str] = None,
+                                      service_name: Optional[str] = None,
+                                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListAuthorizationServerSecretsResult:
     """
     Use this data source to access information about an existing resource.
 
@@ -47,7 +61,7 @@ def list_authorization_server_secrets(authsid=None, resource_group_name=None, se
         opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = _utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('azurerm:apimanagement/v20191201:listAuthorizationServerSecrets', __args__, opts=opts).value
+    __ret__ = pulumi.runtime.invoke('azurerm:apimanagement/v20191201:listAuthorizationServerSecrets', __args__, opts=opts, typ=ListAuthorizationServerSecretsResult).value
 
     return AwaitableListAuthorizationServerSecretsResult(
-        client_secret=__ret__.get('clientSecret'))
+        client_secret=__ret__.client_secret)

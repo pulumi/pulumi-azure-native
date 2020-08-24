@@ -5,35 +5,25 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+from . import outputs
+
+__all__ = ['Application']
 
 
 class Application(pulumi.CustomResource):
-    allow_updates: pulumi.Output[bool]
-    """
-    A value indicating whether packages within the application may be overwritten using the same version string.
-    """
-    default_version: pulumi.Output[str]
-    """
-    The package to use if a client requests the application but does not specify a version.
-    """
-    display_name: pulumi.Output[str]
-    """
-    The display name for the application.
-    """
-    packages: pulumi.Output[list]
-    """
-    The list of packages under this application.
-      * `format` (`str`) - The format of the application package, if the package is active.
-      * `id` (`str`) - The ID of the application.
-      * `last_activation_time` (`str`) - The time at which the package was last activated, if the package is active.
-      * `state` (`str`) - The current state of the application package.
-      * `storage_url` (`str`) - The URL for the application package in Azure Storage.
-      * `storage_url_expiry` (`str`) - The UTC time at which the Azure Storage URL will expire.
-      * `version` (`str`) - The version of the application package.
-    """
-    def __init__(__self__, resource_name, opts=None, account_name=None, allow_updates=None, application_id=None, display_name=None, resource_group_name=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 account_name: Optional[pulumi.Input[str]] = None,
+                 allow_updates: Optional[pulumi.Input[bool]] = None,
+                 application_id: Optional[pulumi.Input[str]] = None,
+                 display_name: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         Contains information about an application in a Batch account.
 
@@ -84,13 +74,15 @@ class Application(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None) -> 'Application':
         """
         Get an existing Application resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -99,8 +91,41 @@ class Application(pulumi.CustomResource):
 
         return Application(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter(name="allowUpdates")
+    def allow_updates(self) -> Optional[bool]:
+        """
+        A value indicating whether packages within the application may be overwritten using the same version string.
+        """
+        return pulumi.get(self, "allow_updates")
+
+    @property
+    @pulumi.getter(name="defaultVersion")
+    def default_version(self) -> Optional[str]:
+        """
+        The package to use if a client requests the application but does not specify a version.
+        """
+        return pulumi.get(self, "default_version")
+
+    @property
+    @pulumi.getter(name="displayName")
+    def display_name(self) -> Optional[str]:
+        """
+        The display name for the application.
+        """
+        return pulumi.get(self, "display_name")
+
+    @property
+    @pulumi.getter
+    def packages(self) -> Optional[List['outputs.ApplicationPackageResponse']]:
+        """
+        The list of packages under this application.
+        """
+        return pulumi.get(self, "packages")
+
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

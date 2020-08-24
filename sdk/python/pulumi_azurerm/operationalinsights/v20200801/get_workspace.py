@@ -5,10 +5,17 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+from . import outputs
 
+__all__ = [
+    'GetWorkspaceResult',
+    'AwaitableGetWorkspaceResult',
+    'get_workspace',
+]
 
+@pulumi.output_type
 class GetWorkspaceResult:
     """
     The top level Workspace resource container.
@@ -16,82 +23,147 @@ class GetWorkspaceResult:
     def __init__(__self__, customer_id=None, e_tag=None, location=None, name=None, private_link_scoped_resources=None, provisioning_state=None, public_network_access_for_ingestion=None, public_network_access_for_query=None, retention_in_days=None, sku=None, tags=None, type=None, workspace_capping=None):
         if customer_id and not isinstance(customer_id, str):
             raise TypeError("Expected argument 'customer_id' to be a str")
-        __self__.customer_id = customer_id
+        pulumi.set(__self__, "customer_id", customer_id)
+        if e_tag and not isinstance(e_tag, str):
+            raise TypeError("Expected argument 'e_tag' to be a str")
+        pulumi.set(__self__, "e_tag", e_tag)
+        if location and not isinstance(location, str):
+            raise TypeError("Expected argument 'location' to be a str")
+        pulumi.set(__self__, "location", location)
+        if name and not isinstance(name, str):
+            raise TypeError("Expected argument 'name' to be a str")
+        pulumi.set(__self__, "name", name)
+        if private_link_scoped_resources and not isinstance(private_link_scoped_resources, list):
+            raise TypeError("Expected argument 'private_link_scoped_resources' to be a list")
+        pulumi.set(__self__, "private_link_scoped_resources", private_link_scoped_resources)
+        if provisioning_state and not isinstance(provisioning_state, str):
+            raise TypeError("Expected argument 'provisioning_state' to be a str")
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if public_network_access_for_ingestion and not isinstance(public_network_access_for_ingestion, str):
+            raise TypeError("Expected argument 'public_network_access_for_ingestion' to be a str")
+        pulumi.set(__self__, "public_network_access_for_ingestion", public_network_access_for_ingestion)
+        if public_network_access_for_query and not isinstance(public_network_access_for_query, str):
+            raise TypeError("Expected argument 'public_network_access_for_query' to be a str")
+        pulumi.set(__self__, "public_network_access_for_query", public_network_access_for_query)
+        if retention_in_days and not isinstance(retention_in_days, float):
+            raise TypeError("Expected argument 'retention_in_days' to be a float")
+        pulumi.set(__self__, "retention_in_days", retention_in_days)
+        if sku and not isinstance(sku, dict):
+            raise TypeError("Expected argument 'sku' to be a dict")
+        pulumi.set(__self__, "sku", sku)
+        if tags and not isinstance(tags, dict):
+            raise TypeError("Expected argument 'tags' to be a dict")
+        pulumi.set(__self__, "tags", tags)
+        if type and not isinstance(type, str):
+            raise TypeError("Expected argument 'type' to be a str")
+        pulumi.set(__self__, "type", type)
+        if workspace_capping and not isinstance(workspace_capping, dict):
+            raise TypeError("Expected argument 'workspace_capping' to be a dict")
+        pulumi.set(__self__, "workspace_capping", workspace_capping)
+
+    @property
+    @pulumi.getter(name="customerId")
+    def customer_id(self) -> str:
         """
         This is a read-only property. Represents the ID associated with the workspace.
         """
-        if e_tag and not isinstance(e_tag, str):
-            raise TypeError("Expected argument 'e_tag' to be a str")
-        __self__.e_tag = e_tag
+        return pulumi.get(self, "customer_id")
+
+    @property
+    @pulumi.getter(name="eTag")
+    def e_tag(self) -> Optional[str]:
         """
         The ETag of the workspace.
         """
-        if location and not isinstance(location, str):
-            raise TypeError("Expected argument 'location' to be a str")
-        __self__.location = location
+        return pulumi.get(self, "e_tag")
+
+    @property
+    @pulumi.getter
+    def location(self) -> str:
         """
         The geo-location where the resource lives
         """
-        if name and not isinstance(name, str):
-            raise TypeError("Expected argument 'name' to be a str")
-        __self__.name = name
+        return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
         """
         The name of the resource
         """
-        if private_link_scoped_resources and not isinstance(private_link_scoped_resources, list):
-            raise TypeError("Expected argument 'private_link_scoped_resources' to be a list")
-        __self__.private_link_scoped_resources = private_link_scoped_resources
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="privateLinkScopedResources")
+    def private_link_scoped_resources(self) -> List['outputs.PrivateLinkScopedResourceResponse']:
         """
         List of linked private link scope resources.
         """
-        if provisioning_state and not isinstance(provisioning_state, str):
-            raise TypeError("Expected argument 'provisioning_state' to be a str")
-        __self__.provisioning_state = provisioning_state
+        return pulumi.get(self, "private_link_scoped_resources")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> Optional[str]:
         """
         The provisioning state of the workspace.
         """
-        if public_network_access_for_ingestion and not isinstance(public_network_access_for_ingestion, str):
-            raise TypeError("Expected argument 'public_network_access_for_ingestion' to be a str")
-        __self__.public_network_access_for_ingestion = public_network_access_for_ingestion
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="publicNetworkAccessForIngestion")
+    def public_network_access_for_ingestion(self) -> Optional[str]:
         """
         The network access type for accessing Log Analytics ingestion.
         """
-        if public_network_access_for_query and not isinstance(public_network_access_for_query, str):
-            raise TypeError("Expected argument 'public_network_access_for_query' to be a str")
-        __self__.public_network_access_for_query = public_network_access_for_query
+        return pulumi.get(self, "public_network_access_for_ingestion")
+
+    @property
+    @pulumi.getter(name="publicNetworkAccessForQuery")
+    def public_network_access_for_query(self) -> Optional[str]:
         """
         The network access type for accessing Log Analytics query.
         """
-        if retention_in_days and not isinstance(retention_in_days, float):
-            raise TypeError("Expected argument 'retention_in_days' to be a float")
-        __self__.retention_in_days = retention_in_days
+        return pulumi.get(self, "public_network_access_for_query")
+
+    @property
+    @pulumi.getter(name="retentionInDays")
+    def retention_in_days(self) -> Optional[float]:
         """
         The workspace data retention in days, between 30 and 730.
         """
-        if sku and not isinstance(sku, dict):
-            raise TypeError("Expected argument 'sku' to be a dict")
-        __self__.sku = sku
+        return pulumi.get(self, "retention_in_days")
+
+    @property
+    @pulumi.getter
+    def sku(self) -> Optional['outputs.WorkspaceSkuResponse']:
         """
         The SKU of the workspace.
         """
-        if tags and not isinstance(tags, dict):
-            raise TypeError("Expected argument 'tags' to be a dict")
-        __self__.tags = tags
+        return pulumi.get(self, "sku")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Mapping[str, str]]:
         """
         Resource tags.
         """
-        if type and not isinstance(type, str):
-            raise TypeError("Expected argument 'type' to be a str")
-        __self__.type = type
+        return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
         """
         The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
         """
-        if workspace_capping and not isinstance(workspace_capping, dict):
-            raise TypeError("Expected argument 'workspace_capping' to be a dict")
-        __self__.workspace_capping = workspace_capping
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="workspaceCapping")
+    def workspace_capping(self) -> Optional['outputs.WorkspaceCappingResponse']:
         """
         The daily volume cap for ingestion.
         """
+        return pulumi.get(self, "workspace_capping")
 
 
 class AwaitableGetWorkspaceResult(GetWorkspaceResult):
@@ -115,7 +187,9 @@ class AwaitableGetWorkspaceResult(GetWorkspaceResult):
             workspace_capping=self.workspace_capping)
 
 
-def get_workspace(name=None, resource_group_name=None, opts=None):
+def get_workspace(name: Optional[str] = None,
+                  resource_group_name: Optional[str] = None,
+                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetWorkspaceResult:
     """
     Use this data source to access information about an existing resource.
 
@@ -129,19 +203,19 @@ def get_workspace(name=None, resource_group_name=None, opts=None):
         opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = _utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('azurerm:operationalinsights/v20200801:getWorkspace', __args__, opts=opts).value
+    __ret__ = pulumi.runtime.invoke('azurerm:operationalinsights/v20200801:getWorkspace', __args__, opts=opts, typ=GetWorkspaceResult).value
 
     return AwaitableGetWorkspaceResult(
-        customer_id=__ret__.get('customerId'),
-        e_tag=__ret__.get('eTag'),
-        location=__ret__.get('location'),
-        name=__ret__.get('name'),
-        private_link_scoped_resources=__ret__.get('privateLinkScopedResources'),
-        provisioning_state=__ret__.get('provisioningState'),
-        public_network_access_for_ingestion=__ret__.get('publicNetworkAccessForIngestion'),
-        public_network_access_for_query=__ret__.get('publicNetworkAccessForQuery'),
-        retention_in_days=__ret__.get('retentionInDays'),
-        sku=__ret__.get('sku'),
-        tags=__ret__.get('tags'),
-        type=__ret__.get('type'),
-        workspace_capping=__ret__.get('workspaceCapping'))
+        customer_id=__ret__.customer_id,
+        e_tag=__ret__.e_tag,
+        location=__ret__.location,
+        name=__ret__.name,
+        private_link_scoped_resources=__ret__.private_link_scoped_resources,
+        provisioning_state=__ret__.provisioning_state,
+        public_network_access_for_ingestion=__ret__.public_network_access_for_ingestion,
+        public_network_access_for_query=__ret__.public_network_access_for_query,
+        retention_in_days=__ret__.retention_in_days,
+        sku=__ret__.sku,
+        tags=__ret__.tags,
+        type=__ret__.type,
+        workspace_capping=__ret__.workspace_capping)

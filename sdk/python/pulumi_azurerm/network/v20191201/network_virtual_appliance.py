@@ -5,105 +5,48 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+from . import outputs
+from ._inputs import *
+
+__all__ = ['NetworkVirtualAppliance']
 
 
 class NetworkVirtualAppliance(pulumi.CustomResource):
-    boot_strap_configuration_blob: pulumi.Output[list]
-    """
-    BootStrapConfigurationBlob storage URLs.
-    """
-    cloud_init_configuration_blob: pulumi.Output[list]
-    """
-    CloudInitConfigurationBlob storage URLs.
-    """
-    etag: pulumi.Output[str]
-    """
-    A unique read-only string that changes whenever the resource is updated.
-    """
-    identity: pulumi.Output[dict]
-    """
-    The service principal that has read access to cloud-init and config blob.
-      * `principal_id` (`str`) - The principal id of the system assigned identity. This property will only be provided for a system assigned identity.
-      * `tenant_id` (`str`) - The tenant id of the system assigned identity. This property will only be provided for a system assigned identity.
-      * `type` (`str`) - The type of identity used for the resource. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user assigned identities. The type 'None' will remove any identities from the virtual machine.
-      * `user_assigned_identities` (`dict`) - The list of user identities associated with resource. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
-    """
-    location: pulumi.Output[str]
-    """
-    Resource location.
-    """
-    name: pulumi.Output[str]
-    """
-    Resource name.
-    """
-    provisioning_state: pulumi.Output[str]
-    """
-    The provisioning state of the resource.
-    """
-    sku: pulumi.Output[dict]
-    """
-    Network Virtual Appliance SKU.
-      * `bundled_scale_unit` (`str`) - Virtual Appliance Scale Unit.
-      * `market_place_version` (`str`) - Virtual Appliance Version.
-      * `vendor` (`str`) - Virtual Appliance Vendor.
-    """
-    tags: pulumi.Output[dict]
-    """
-    Resource tags.
-    """
-    type: pulumi.Output[str]
-    """
-    Resource type.
-    """
-    virtual_appliance_asn: pulumi.Output[float]
-    """
-    VirtualAppliance ASN.
-    """
-    virtual_appliance_nics: pulumi.Output[list]
-    """
-    List of Virtual Appliance Network Interfaces.
-      * `name` (`str`) - NIC name.
-      * `private_ip_address` (`str`) - Private IP address.
-      * `public_ip_address` (`str`) - Public IP address.
-    """
-    virtual_hub: pulumi.Output[dict]
-    """
-    The Virtual Hub where Network Virtual Appliance is being deployed.
-      * `id` (`str`) - Resource ID.
-    """
-    def __init__(__self__, resource_name, opts=None, boot_strap_configuration_blob=None, cloud_init_configuration_blob=None, id=None, identity=None, location=None, name=None, resource_group_name=None, sku=None, tags=None, virtual_appliance_asn=None, virtual_hub=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 boot_strap_configuration_blob: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 cloud_init_configuration_blob: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 id: Optional[pulumi.Input[str]] = None,
+                 identity: Optional[pulumi.Input[pulumi.InputType['ManagedServiceIdentityArgs']]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 sku: Optional[pulumi.Input[pulumi.InputType['VirtualApplianceSkuPropertiesArgs']]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 virtual_appliance_asn: Optional[pulumi.Input[float]] = None,
+                 virtual_hub: Optional[pulumi.Input[pulumi.InputType['SubResourceArgs']]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         NetworkVirtualAppliance Resource.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[list] boot_strap_configuration_blob: BootStrapConfigurationBlob storage URLs.
-        :param pulumi.Input[list] cloud_init_configuration_blob: CloudInitConfigurationBlob storage URLs.
+        :param pulumi.Input[List[pulumi.Input[str]]] boot_strap_configuration_blob: BootStrapConfigurationBlob storage URLs.
+        :param pulumi.Input[List[pulumi.Input[str]]] cloud_init_configuration_blob: CloudInitConfigurationBlob storage URLs.
         :param pulumi.Input[str] id: Resource ID.
-        :param pulumi.Input[dict] identity: The service principal that has read access to cloud-init and config blob.
+        :param pulumi.Input[pulumi.InputType['ManagedServiceIdentityArgs']] identity: The service principal that has read access to cloud-init and config blob.
         :param pulumi.Input[str] location: Resource location.
         :param pulumi.Input[str] name: The name of Network Virtual Appliance.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
-        :param pulumi.Input[dict] sku: Network Virtual Appliance SKU.
-        :param pulumi.Input[dict] tags: Resource tags.
+        :param pulumi.Input[pulumi.InputType['VirtualApplianceSkuPropertiesArgs']] sku: Network Virtual Appliance SKU.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         :param pulumi.Input[float] virtual_appliance_asn: VirtualAppliance ASN.
-        :param pulumi.Input[dict] virtual_hub: The Virtual Hub where Network Virtual Appliance is being deployed.
-
-        The **identity** object supports the following:
-
-          * `type` (`pulumi.Input[str]`) - The type of identity used for the resource. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user assigned identities. The type 'None' will remove any identities from the virtual machine.
-
-        The **sku** object supports the following:
-
-          * `bundled_scale_unit` (`pulumi.Input[str]`) - Virtual Appliance Scale Unit.
-          * `market_place_version` (`pulumi.Input[str]`) - Virtual Appliance Version.
-          * `vendor` (`pulumi.Input[str]`) - Virtual Appliance Vendor.
-
-        The **virtual_hub** object supports the following:
-
-          * `id` (`pulumi.Input[str]`) - Resource ID.
+        :param pulumi.Input[pulumi.InputType['SubResourceArgs']] virtual_hub: The Virtual Hub where Network Virtual Appliance is being deployed.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -150,13 +93,15 @@ class NetworkVirtualAppliance(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None) -> 'NetworkVirtualAppliance':
         """
         Get an existing NetworkVirtualAppliance resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -165,8 +110,113 @@ class NetworkVirtualAppliance(pulumi.CustomResource):
 
         return NetworkVirtualAppliance(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter(name="bootStrapConfigurationBlob")
+    def boot_strap_configuration_blob(self) -> Optional[List[str]]:
+        """
+        BootStrapConfigurationBlob storage URLs.
+        """
+        return pulumi.get(self, "boot_strap_configuration_blob")
+
+    @property
+    @pulumi.getter(name="cloudInitConfigurationBlob")
+    def cloud_init_configuration_blob(self) -> Optional[List[str]]:
+        """
+        CloudInitConfigurationBlob storage URLs.
+        """
+        return pulumi.get(self, "cloud_init_configuration_blob")
+
+    @property
+    @pulumi.getter
+    def etag(self) -> str:
+        """
+        A unique read-only string that changes whenever the resource is updated.
+        """
+        return pulumi.get(self, "etag")
+
+    @property
+    @pulumi.getter
+    def identity(self) -> Optional['outputs.ManagedServiceIdentityResponse']:
+        """
+        The service principal that has read access to cloud-init and config blob.
+        """
+        return pulumi.get(self, "identity")
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[str]:
+        """
+        Resource location.
+        """
+        return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Resource name.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        The provisioning state of the resource.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter
+    def sku(self) -> Optional['outputs.VirtualApplianceSkuPropertiesResponse']:
+        """
+        Network Virtual Appliance SKU.
+        """
+        return pulumi.get(self, "sku")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Mapping[str, str]]:
+        """
+        Resource tags.
+        """
+        return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Resource type.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="virtualApplianceAsn")
+    def virtual_appliance_asn(self) -> Optional[float]:
+        """
+        VirtualAppliance ASN.
+        """
+        return pulumi.get(self, "virtual_appliance_asn")
+
+    @property
+    @pulumi.getter(name="virtualApplianceNics")
+    def virtual_appliance_nics(self) -> List['outputs.VirtualApplianceNicPropertiesResponse']:
+        """
+        List of Virtual Appliance Network Interfaces.
+        """
+        return pulumi.get(self, "virtual_appliance_nics")
+
+    @property
+    @pulumi.getter(name="virtualHub")
+    def virtual_hub(self) -> Optional['outputs.SubResourceResponse']:
+        """
+        The Virtual Hub where Network Virtual Appliance is being deployed.
+        """
+        return pulumi.get(self, "virtual_hub")
+
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

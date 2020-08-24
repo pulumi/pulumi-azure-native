@@ -5,10 +5,17 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+from . import outputs
 
+__all__ = [
+    'GetGalleryImageVersionResult',
+    'AwaitableGetGalleryImageVersionResult',
+    'get_gallery_image_version',
+]
 
+@pulumi.output_type
 class GetGalleryImageVersionResult:
     """
     Specifies information about the gallery Image Version that you want to create or update.
@@ -16,52 +23,92 @@ class GetGalleryImageVersionResult:
     def __init__(__self__, location=None, name=None, provisioning_state=None, publishing_profile=None, replication_status=None, storage_profile=None, tags=None, type=None):
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
-        __self__.location = location
+        pulumi.set(__self__, "location", location)
+        if name and not isinstance(name, str):
+            raise TypeError("Expected argument 'name' to be a str")
+        pulumi.set(__self__, "name", name)
+        if provisioning_state and not isinstance(provisioning_state, str):
+            raise TypeError("Expected argument 'provisioning_state' to be a str")
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if publishing_profile and not isinstance(publishing_profile, dict):
+            raise TypeError("Expected argument 'publishing_profile' to be a dict")
+        pulumi.set(__self__, "publishing_profile", publishing_profile)
+        if replication_status and not isinstance(replication_status, dict):
+            raise TypeError("Expected argument 'replication_status' to be a dict")
+        pulumi.set(__self__, "replication_status", replication_status)
+        if storage_profile and not isinstance(storage_profile, dict):
+            raise TypeError("Expected argument 'storage_profile' to be a dict")
+        pulumi.set(__self__, "storage_profile", storage_profile)
+        if tags and not isinstance(tags, dict):
+            raise TypeError("Expected argument 'tags' to be a dict")
+        pulumi.set(__self__, "tags", tags)
+        if type and not isinstance(type, str):
+            raise TypeError("Expected argument 'type' to be a str")
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def location(self) -> str:
         """
         Resource location
         """
-        if name and not isinstance(name, str):
-            raise TypeError("Expected argument 'name' to be a str")
-        __self__.name = name
+        return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
         """
         Resource name
         """
-        if provisioning_state and not isinstance(provisioning_state, str):
-            raise TypeError("Expected argument 'provisioning_state' to be a str")
-        __self__.provisioning_state = provisioning_state
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
         """
         The provisioning state, which only appears in the response.
         """
-        if publishing_profile and not isinstance(publishing_profile, dict):
-            raise TypeError("Expected argument 'publishing_profile' to be a dict")
-        __self__.publishing_profile = publishing_profile
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="publishingProfile")
+    def publishing_profile(self) -> Optional['outputs.GalleryImageVersionPublishingProfileResponse']:
         """
         The publishing profile of a gallery Image Version.
         """
-        if replication_status and not isinstance(replication_status, dict):
-            raise TypeError("Expected argument 'replication_status' to be a dict")
-        __self__.replication_status = replication_status
+        return pulumi.get(self, "publishing_profile")
+
+    @property
+    @pulumi.getter(name="replicationStatus")
+    def replication_status(self) -> 'outputs.ReplicationStatusResponse':
         """
         This is the replication status of the gallery Image Version.
         """
-        if storage_profile and not isinstance(storage_profile, dict):
-            raise TypeError("Expected argument 'storage_profile' to be a dict")
-        __self__.storage_profile = storage_profile
+        return pulumi.get(self, "replication_status")
+
+    @property
+    @pulumi.getter(name="storageProfile")
+    def storage_profile(self) -> 'outputs.GalleryImageVersionStorageProfileResponse':
         """
         This is the storage profile of a Gallery Image Version.
         """
-        if tags and not isinstance(tags, dict):
-            raise TypeError("Expected argument 'tags' to be a dict")
-        __self__.tags = tags
+        return pulumi.get(self, "storage_profile")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Mapping[str, str]]:
         """
         Resource tags
         """
-        if type and not isinstance(type, str):
-            raise TypeError("Expected argument 'type' to be a str")
-        __self__.type = type
+        return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
         """
         Resource type
         """
+        return pulumi.get(self, "type")
 
 
 class AwaitableGetGalleryImageVersionResult(GetGalleryImageVersionResult):
@@ -80,7 +127,12 @@ class AwaitableGetGalleryImageVersionResult(GetGalleryImageVersionResult):
             type=self.type)
 
 
-def get_gallery_image_version(expand=None, gallery_image_name=None, gallery_name=None, name=None, resource_group_name=None, opts=None):
+def get_gallery_image_version(expand: Optional[str] = None,
+                              gallery_image_name: Optional[str] = None,
+                              gallery_name: Optional[str] = None,
+                              name: Optional[str] = None,
+                              resource_group_name: Optional[str] = None,
+                              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetGalleryImageVersionResult:
     """
     Use this data source to access information about an existing resource.
 
@@ -100,14 +152,14 @@ def get_gallery_image_version(expand=None, gallery_image_name=None, gallery_name
         opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = _utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('azurerm:compute/v20190701:getGalleryImageVersion', __args__, opts=opts).value
+    __ret__ = pulumi.runtime.invoke('azurerm:compute/v20190701:getGalleryImageVersion', __args__, opts=opts, typ=GetGalleryImageVersionResult).value
 
     return AwaitableGetGalleryImageVersionResult(
-        location=__ret__.get('location'),
-        name=__ret__.get('name'),
-        provisioning_state=__ret__.get('provisioningState'),
-        publishing_profile=__ret__.get('publishingProfile'),
-        replication_status=__ret__.get('replicationStatus'),
-        storage_profile=__ret__.get('storageProfile'),
-        tags=__ret__.get('tags'),
-        type=__ret__.get('type'))
+        location=__ret__.location,
+        name=__ret__.name,
+        provisioning_state=__ret__.provisioning_state,
+        publishing_profile=__ret__.publishing_profile,
+        replication_status=__ret__.replication_status,
+        storage_profile=__ret__.storage_profile,
+        tags=__ret__.tags,
+        type=__ret__.type)

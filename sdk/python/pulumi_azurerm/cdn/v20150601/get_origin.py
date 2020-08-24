@@ -5,10 +5,16 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
 
+__all__ = [
+    'GetOriginResult',
+    'AwaitableGetOriginResult',
+    'get_origin',
+]
 
+@pulumi.output_type
 class GetOriginResult:
     """
     CDN origin is the source of the content being delivered via CDN. When the edge nodes represented by an endpoint do not have the requested content cached, they attempt to fetch it from one or more of the configured origins.
@@ -16,46 +22,81 @@ class GetOriginResult:
     def __init__(__self__, host_name=None, http_port=None, https_port=None, name=None, provisioning_state=None, resource_state=None, type=None):
         if host_name and not isinstance(host_name, str):
             raise TypeError("Expected argument 'host_name' to be a str")
-        __self__.host_name = host_name
+        pulumi.set(__self__, "host_name", host_name)
+        if http_port and not isinstance(http_port, float):
+            raise TypeError("Expected argument 'http_port' to be a float")
+        pulumi.set(__self__, "http_port", http_port)
+        if https_port and not isinstance(https_port, float):
+            raise TypeError("Expected argument 'https_port' to be a float")
+        pulumi.set(__self__, "https_port", https_port)
+        if name and not isinstance(name, str):
+            raise TypeError("Expected argument 'name' to be a str")
+        pulumi.set(__self__, "name", name)
+        if provisioning_state and not isinstance(provisioning_state, str):
+            raise TypeError("Expected argument 'provisioning_state' to be a str")
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if resource_state and not isinstance(resource_state, str):
+            raise TypeError("Expected argument 'resource_state' to be a str")
+        pulumi.set(__self__, "resource_state", resource_state)
+        if type and not isinstance(type, str):
+            raise TypeError("Expected argument 'type' to be a str")
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="hostName")
+    def host_name(self) -> str:
         """
         The address of the origin. Domain names, IPv4 addresses, and IPv6 addresses are supported.
         """
-        if http_port and not isinstance(http_port, float):
-            raise TypeError("Expected argument 'http_port' to be a float")
-        __self__.http_port = http_port
+        return pulumi.get(self, "host_name")
+
+    @property
+    @pulumi.getter(name="httpPort")
+    def http_port(self) -> Optional[float]:
         """
         The value of the HTTP port. Must be between 1 and 65535.
         """
-        if https_port and not isinstance(https_port, float):
-            raise TypeError("Expected argument 'https_port' to be a float")
-        __self__.https_port = https_port
+        return pulumi.get(self, "http_port")
+
+    @property
+    @pulumi.getter(name="httpsPort")
+    def https_port(self) -> Optional[float]:
         """
         The value of the https port. Must be between 1 and 65535.
         """
-        if name and not isinstance(name, str):
-            raise TypeError("Expected argument 'name' to be a str")
-        __self__.name = name
+        return pulumi.get(self, "https_port")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
         """
         Resource name
         """
-        if provisioning_state and not isinstance(provisioning_state, str):
-            raise TypeError("Expected argument 'provisioning_state' to be a str")
-        __self__.provisioning_state = provisioning_state
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> Optional[str]:
         """
         Provisioning status of the origin.
         """
-        if resource_state and not isinstance(resource_state, str):
-            raise TypeError("Expected argument 'resource_state' to be a str")
-        __self__.resource_state = resource_state
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="resourceState")
+    def resource_state(self) -> str:
         """
         Resource status of the origin.
         """
-        if type and not isinstance(type, str):
-            raise TypeError("Expected argument 'type' to be a str")
-        __self__.type = type
+        return pulumi.get(self, "resource_state")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
         """
         Resource type
         """
+        return pulumi.get(self, "type")
 
 
 class AwaitableGetOriginResult(GetOriginResult):
@@ -73,7 +114,11 @@ class AwaitableGetOriginResult(GetOriginResult):
             type=self.type)
 
 
-def get_origin(endpoint_name=None, name=None, profile_name=None, resource_group_name=None, opts=None):
+def get_origin(endpoint_name: Optional[str] = None,
+               name: Optional[str] = None,
+               profile_name: Optional[str] = None,
+               resource_group_name: Optional[str] = None,
+               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetOriginResult:
     """
     Use this data source to access information about an existing resource.
 
@@ -91,13 +136,13 @@ def get_origin(endpoint_name=None, name=None, profile_name=None, resource_group_
         opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = _utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('azurerm:cdn/v20150601:getOrigin', __args__, opts=opts).value
+    __ret__ = pulumi.runtime.invoke('azurerm:cdn/v20150601:getOrigin', __args__, opts=opts, typ=GetOriginResult).value
 
     return AwaitableGetOriginResult(
-        host_name=__ret__.get('hostName'),
-        http_port=__ret__.get('httpPort'),
-        https_port=__ret__.get('httpsPort'),
-        name=__ret__.get('name'),
-        provisioning_state=__ret__.get('provisioningState'),
-        resource_state=__ret__.get('resourceState'),
-        type=__ret__.get('type'))
+        host_name=__ret__.host_name,
+        http_port=__ret__.http_port,
+        https_port=__ret__.https_port,
+        name=__ret__.name,
+        provisioning_state=__ret__.provisioning_state,
+        resource_state=__ret__.resource_state,
+        type=__ret__.type)

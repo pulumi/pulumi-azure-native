@@ -5,10 +5,16 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
 
+__all__ = [
+    'GetServerCommunicationLinkResult',
+    'AwaitableGetServerCommunicationLinkResult',
+    'get_server_communication_link',
+]
 
+@pulumi.output_type
 class GetServerCommunicationLinkResult:
     """
     Server communication link.
@@ -16,40 +22,70 @@ class GetServerCommunicationLinkResult:
     def __init__(__self__, kind=None, location=None, name=None, partner_server=None, state=None, type=None):
         if kind and not isinstance(kind, str):
             raise TypeError("Expected argument 'kind' to be a str")
-        __self__.kind = kind
+        pulumi.set(__self__, "kind", kind)
+        if location and not isinstance(location, str):
+            raise TypeError("Expected argument 'location' to be a str")
+        pulumi.set(__self__, "location", location)
+        if name and not isinstance(name, str):
+            raise TypeError("Expected argument 'name' to be a str")
+        pulumi.set(__self__, "name", name)
+        if partner_server and not isinstance(partner_server, str):
+            raise TypeError("Expected argument 'partner_server' to be a str")
+        pulumi.set(__self__, "partner_server", partner_server)
+        if state and not isinstance(state, str):
+            raise TypeError("Expected argument 'state' to be a str")
+        pulumi.set(__self__, "state", state)
+        if type and not isinstance(type, str):
+            raise TypeError("Expected argument 'type' to be a str")
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def kind(self) -> str:
         """
         Communication link kind.  This property is used for Azure Portal metadata.
         """
-        if location and not isinstance(location, str):
-            raise TypeError("Expected argument 'location' to be a str")
-        __self__.location = location
+        return pulumi.get(self, "kind")
+
+    @property
+    @pulumi.getter
+    def location(self) -> str:
         """
         Communication link location.
         """
-        if name and not isinstance(name, str):
-            raise TypeError("Expected argument 'name' to be a str")
-        __self__.name = name
+        return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
         """
         Resource name.
         """
-        if partner_server and not isinstance(partner_server, str):
-            raise TypeError("Expected argument 'partner_server' to be a str")
-        __self__.partner_server = partner_server
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="partnerServer")
+    def partner_server(self) -> str:
         """
         The name of the partner server.
         """
-        if state and not isinstance(state, str):
-            raise TypeError("Expected argument 'state' to be a str")
-        __self__.state = state
+        return pulumi.get(self, "partner_server")
+
+    @property
+    @pulumi.getter
+    def state(self) -> str:
         """
         The state.
         """
-        if type and not isinstance(type, str):
-            raise TypeError("Expected argument 'type' to be a str")
-        __self__.type = type
+        return pulumi.get(self, "state")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
         """
         Resource type.
         """
+        return pulumi.get(self, "type")
 
 
 class AwaitableGetServerCommunicationLinkResult(GetServerCommunicationLinkResult):
@@ -66,7 +102,10 @@ class AwaitableGetServerCommunicationLinkResult(GetServerCommunicationLinkResult
             type=self.type)
 
 
-def get_server_communication_link(name=None, resource_group_name=None, server_name=None, opts=None):
+def get_server_communication_link(name: Optional[str] = None,
+                                  resource_group_name: Optional[str] = None,
+                                  server_name: Optional[str] = None,
+                                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetServerCommunicationLinkResult:
     """
     Use this data source to access information about an existing resource.
 
@@ -82,12 +121,12 @@ def get_server_communication_link(name=None, resource_group_name=None, server_na
         opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = _utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('azurerm:sql/v20140401:getServerCommunicationLink', __args__, opts=opts).value
+    __ret__ = pulumi.runtime.invoke('azurerm:sql/v20140401:getServerCommunicationLink', __args__, opts=opts, typ=GetServerCommunicationLinkResult).value
 
     return AwaitableGetServerCommunicationLinkResult(
-        kind=__ret__.get('kind'),
-        location=__ret__.get('location'),
-        name=__ret__.get('name'),
-        partner_server=__ret__.get('partnerServer'),
-        state=__ret__.get('state'),
-        type=__ret__.get('type'))
+        kind=__ret__.kind,
+        location=__ret__.location,
+        name=__ret__.name,
+        partner_server=__ret__.partner_server,
+        state=__ret__.state,
+        type=__ret__.type)

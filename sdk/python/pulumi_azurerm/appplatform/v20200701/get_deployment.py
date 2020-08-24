@@ -5,10 +5,17 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+from . import outputs
 
+__all__ = [
+    'GetDeploymentResult',
+    'AwaitableGetDeploymentResult',
+    'get_deployment',
+]
 
+@pulumi.output_type
 class GetDeploymentResult:
     """
     Deployment resource payload
@@ -16,28 +23,48 @@ class GetDeploymentResult:
     def __init__(__self__, name=None, properties=None, sku=None, type=None):
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
-        __self__.name = name
+        pulumi.set(__self__, "name", name)
+        if properties and not isinstance(properties, dict):
+            raise TypeError("Expected argument 'properties' to be a dict")
+        pulumi.set(__self__, "properties", properties)
+        if sku and not isinstance(sku, dict):
+            raise TypeError("Expected argument 'sku' to be a dict")
+        pulumi.set(__self__, "sku", sku)
+        if type and not isinstance(type, str):
+            raise TypeError("Expected argument 'type' to be a str")
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
         """
         The name of the resource.
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def properties(self) -> 'outputs.DeploymentResourcePropertiesResponse':
         """
         Properties of the Deployment resource
         """
-        if sku and not isinstance(sku, dict):
-            raise TypeError("Expected argument 'sku' to be a dict")
-        __self__.sku = sku
+        return pulumi.get(self, "properties")
+
+    @property
+    @pulumi.getter
+    def sku(self) -> Optional['outputs.SkuResponse']:
         """
         Sku of the Deployment resource
         """
-        if type and not isinstance(type, str):
-            raise TypeError("Expected argument 'type' to be a str")
-        __self__.type = type
+        return pulumi.get(self, "sku")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
         """
         The type of the resource.
         """
+        return pulumi.get(self, "type")
 
 
 class AwaitableGetDeploymentResult(GetDeploymentResult):
@@ -52,7 +79,11 @@ class AwaitableGetDeploymentResult(GetDeploymentResult):
             type=self.type)
 
 
-def get_deployment(app_name=None, name=None, resource_group_name=None, service_name=None, opts=None):
+def get_deployment(app_name: Optional[str] = None,
+                   name: Optional[str] = None,
+                   resource_group_name: Optional[str] = None,
+                   service_name: Optional[str] = None,
+                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDeploymentResult:
     """
     Use this data source to access information about an existing resource.
 
@@ -70,10 +101,10 @@ def get_deployment(app_name=None, name=None, resource_group_name=None, service_n
         opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = _utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('azurerm:appplatform/v20200701:getDeployment', __args__, opts=opts).value
+    __ret__ = pulumi.runtime.invoke('azurerm:appplatform/v20200701:getDeployment', __args__, opts=opts, typ=GetDeploymentResult).value
 
     return AwaitableGetDeploymentResult(
-        name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
-        sku=__ret__.get('sku'),
-        type=__ret__.get('type'))
+        name=__ret__.name,
+        properties=__ret__.properties,
+        sku=__ret__.sku,
+        type=__ret__.type)

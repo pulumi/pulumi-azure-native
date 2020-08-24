@@ -7,3 +7,5 @@ from .disk import *
 from .get_disk import *
 from .get_snapshot import *
 from .snapshot import *
+from ._inputs import *
+from . import outputs

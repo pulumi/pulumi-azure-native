@@ -5,57 +5,37 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+from . import outputs
+from ._inputs import *
+
+__all__ = ['StorageAccountCredential']
 
 
 class StorageAccountCredential(pulumi.CustomResource):
-    account_key: pulumi.Output[dict]
-    """
-    Encrypted storage key.
-      * `encryption_algorithm` (`str`) - The algorithm used to encrypt "Value".
-      * `encryption_cert_thumbprint` (`str`) - Thumbprint certificate used to encrypt \"Value\". If the value is unencrypted, it will be null.
-      * `value` (`str`) - The value of the secret.
-    """
-    account_type: pulumi.Output[str]
-    """
-    Type of storage accessed on the storage account.
-    """
-    alias: pulumi.Output[str]
-    """
-    Alias for the storage account.
-    """
-    blob_domain_name: pulumi.Output[str]
-    """
-    Blob end point for private clouds.
-    """
-    connection_string: pulumi.Output[str]
-    """
-    Connection string for the storage account. Use this string if username and account key are not specified.
-    """
-    name: pulumi.Output[str]
-    """
-    The object name.
-    """
-    ssl_status: pulumi.Output[str]
-    """
-    Signifies whether SSL needs to be enabled or not.
-    """
-    type: pulumi.Output[str]
-    """
-    The hierarchical type of the object.
-    """
-    user_name: pulumi.Output[str]
-    """
-    Username for the storage account.
-    """
-    def __init__(__self__, resource_name, opts=None, account_key=None, account_type=None, alias=None, blob_domain_name=None, connection_string=None, device_name=None, name=None, resource_group_name=None, ssl_status=None, user_name=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 account_key: Optional[pulumi.Input[pulumi.InputType['AsymmetricEncryptedSecretArgs']]] = None,
+                 account_type: Optional[pulumi.Input[str]] = None,
+                 alias: Optional[pulumi.Input[str]] = None,
+                 blob_domain_name: Optional[pulumi.Input[str]] = None,
+                 connection_string: Optional[pulumi.Input[str]] = None,
+                 device_name: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 ssl_status: Optional[pulumi.Input[str]] = None,
+                 user_name: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         The storage account credential.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[dict] account_key: Encrypted storage key.
+        :param pulumi.Input[pulumi.InputType['AsymmetricEncryptedSecretArgs']] account_key: Encrypted storage key.
         :param pulumi.Input[str] account_type: Type of storage accessed on the storage account.
         :param pulumi.Input[str] alias: Alias for the storage account.
         :param pulumi.Input[str] blob_domain_name: Blob end point for private clouds.
@@ -65,12 +45,6 @@ class StorageAccountCredential(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The resource group name.
         :param pulumi.Input[str] ssl_status: Signifies whether SSL needs to be enabled or not.
         :param pulumi.Input[str] user_name: Username for the storage account.
-
-        The **account_key** object supports the following:
-
-          * `encryption_algorithm` (`pulumi.Input[str]`) - The algorithm used to encrypt "Value".
-          * `encryption_cert_thumbprint` (`pulumi.Input[str]`) - Thumbprint certificate used to encrypt \"Value\". If the value is unencrypted, it will be null.
-          * `value` (`pulumi.Input[str]`) - The value of the secret.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -121,13 +95,15 @@ class StorageAccountCredential(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None) -> 'StorageAccountCredential':
         """
         Get an existing StorageAccountCredential resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -136,8 +112,81 @@ class StorageAccountCredential(pulumi.CustomResource):
 
         return StorageAccountCredential(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter(name="accountKey")
+    def account_key(self) -> Optional['outputs.AsymmetricEncryptedSecretResponse']:
+        """
+        Encrypted storage key.
+        """
+        return pulumi.get(self, "account_key")
+
+    @property
+    @pulumi.getter(name="accountType")
+    def account_type(self) -> str:
+        """
+        Type of storage accessed on the storage account.
+        """
+        return pulumi.get(self, "account_type")
+
+    @property
+    @pulumi.getter
+    def alias(self) -> str:
+        """
+        Alias for the storage account.
+        """
+        return pulumi.get(self, "alias")
+
+    @property
+    @pulumi.getter(name="blobDomainName")
+    def blob_domain_name(self) -> Optional[str]:
+        """
+        Blob end point for private clouds.
+        """
+        return pulumi.get(self, "blob_domain_name")
+
+    @property
+    @pulumi.getter(name="connectionString")
+    def connection_string(self) -> Optional[str]:
+        """
+        Connection string for the storage account. Use this string if username and account key are not specified.
+        """
+        return pulumi.get(self, "connection_string")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The object name.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="sslStatus")
+    def ssl_status(self) -> str:
+        """
+        Signifies whether SSL needs to be enabled or not.
+        """
+        return pulumi.get(self, "ssl_status")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        The hierarchical type of the object.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="userName")
+    def user_name(self) -> Optional[str]:
+        """
+        Username for the storage account.
+        """
+        return pulumi.get(self, "user_name")
+
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

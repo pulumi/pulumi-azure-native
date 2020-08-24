@@ -5,59 +5,26 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+from . import outputs
+from ._inputs import *
+
+__all__ = ['AutomationAccount']
 
 
 class AutomationAccount(pulumi.CustomResource):
-    creation_time: pulumi.Output[str]
-    """
-    Gets the creation time.
-    """
-    description: pulumi.Output[str]
-    """
-    Gets or sets the description.
-    """
-    etag: pulumi.Output[str]
-    """
-    Gets or sets the etag of the resource.
-    """
-    last_modified_by: pulumi.Output[str]
-    """
-    Gets or sets the last modified by.
-    """
-    last_modified_time: pulumi.Output[str]
-    """
-    Gets the last modified time.
-    """
-    location: pulumi.Output[str]
-    """
-    The Azure Region where the resource lives
-    """
-    name: pulumi.Output[str]
-    """
-    The name of the resource
-    """
-    sku: pulumi.Output[dict]
-    """
-    Gets or sets the SKU of account.
-      * `capacity` (`float`) - Gets or sets the SKU capacity.
-      * `family` (`str`) - Gets or sets the SKU family.
-      * `name` (`str`) - Gets or sets the SKU name of the account.
-    """
-    state: pulumi.Output[str]
-    """
-    Gets status of account.
-    """
-    tags: pulumi.Output[dict]
-    """
-    Resource tags.
-    """
-    type: pulumi.Output[str]
-    """
-    The type of the resource.
-    """
-    def __init__(__self__, resource_name, opts=None, location=None, name=None, resource_group_name=None, sku=None, tags=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 sku: Optional[pulumi.Input[pulumi.InputType['SkuArgs']]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         Definition of the automation account type.
 
@@ -66,14 +33,8 @@ class AutomationAccount(pulumi.CustomResource):
         :param pulumi.Input[str] location: Gets or sets the location of the resource.
         :param pulumi.Input[str] name: The name of the automation account.
         :param pulumi.Input[str] resource_group_name: Name of an Azure Resource group.
-        :param pulumi.Input[dict] sku: Gets or sets account SKU.
-        :param pulumi.Input[dict] tags: Gets or sets the tags attached to the resource.
-
-        The **sku** object supports the following:
-
-          * `capacity` (`pulumi.Input[float]`) - Gets or sets the SKU capacity.
-          * `family` (`pulumi.Input[str]`) - Gets or sets the SKU family.
-          * `name` (`pulumi.Input[str]`) - Gets or sets the SKU name of the account.
+        :param pulumi.Input[pulumi.InputType['SkuArgs']] sku: Gets or sets account SKU.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Gets or sets the tags attached to the resource.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -115,13 +76,15 @@ class AutomationAccount(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None) -> 'AutomationAccount':
         """
         Get an existing AutomationAccount resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -130,8 +93,97 @@ class AutomationAccount(pulumi.CustomResource):
 
         return AutomationAccount(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter(name="creationTime")
+    def creation_time(self) -> str:
+        """
+        Gets the creation time.
+        """
+        return pulumi.get(self, "creation_time")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        """
+        Gets or sets the description.
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def etag(self) -> Optional[str]:
+        """
+        Gets or sets the etag of the resource.
+        """
+        return pulumi.get(self, "etag")
+
+    @property
+    @pulumi.getter(name="lastModifiedBy")
+    def last_modified_by(self) -> Optional[str]:
+        """
+        Gets or sets the last modified by.
+        """
+        return pulumi.get(self, "last_modified_by")
+
+    @property
+    @pulumi.getter(name="lastModifiedTime")
+    def last_modified_time(self) -> str:
+        """
+        Gets the last modified time.
+        """
+        return pulumi.get(self, "last_modified_time")
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[str]:
+        """
+        The Azure Region where the resource lives
+        """
+        return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the resource
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def sku(self) -> Optional['outputs.SkuResponse']:
+        """
+        Gets or sets the SKU of account.
+        """
+        return pulumi.get(self, "sku")
+
+    @property
+    @pulumi.getter
+    def state(self) -> str:
+        """
+        Gets status of account.
+        """
+        return pulumi.get(self, "state")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Mapping[str, str]]:
+        """
+        Resource tags.
+        """
+        return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        The type of the resource.
+        """
+        return pulumi.get(self, "type")
+
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

@@ -5,43 +5,28 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+from . import outputs
+from ._inputs import *
+
+__all__ = ['AssetFilter']
 
 
 class AssetFilter(pulumi.CustomResource):
-    first_quality: pulumi.Output[dict]
-    """
-    The first quality.
-      * `bitrate` (`float`) - The first quality bitrate.
-    """
-    name: pulumi.Output[str]
-    """
-    The name of the resource.
-    """
-    presentation_time_range: pulumi.Output[dict]
-    """
-    The presentation time range.
-      * `end_timestamp` (`float`) - The absolute end time boundary.
-      * `force_end_timestamp` (`bool`) - The indicator of forcing existing of end time stamp.
-      * `live_backoff_duration` (`float`) - The relative to end right edge.
-      * `presentation_window_duration` (`float`) - The relative to end sliding window.
-      * `start_timestamp` (`float`) - The absolute start time boundary.
-      * `timescale` (`float`) - The time scale of time stamps.
-    """
-    tracks: pulumi.Output[list]
-    """
-    The tracks selection conditions.
-      * `track_selections` (`list`) - The track selections.
-        * `operation` (`str`) - The track property condition operation.
-        * `property` (`str`) - The track property type.
-        * `value` (`str`) - The track property value.
-    """
-    type: pulumi.Output[str]
-    """
-    The type of the resource.
-    """
-    def __init__(__self__, resource_name, opts=None, account_name=None, asset_name=None, first_quality=None, name=None, presentation_time_range=None, resource_group_name=None, tracks=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 account_name: Optional[pulumi.Input[str]] = None,
+                 asset_name: Optional[pulumi.Input[str]] = None,
+                 first_quality: Optional[pulumi.Input[pulumi.InputType['FirstQualityArgs']]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 presentation_time_range: Optional[pulumi.Input[pulumi.InputType['PresentationTimeRangeArgs']]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 tracks: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['FilterTrackSelectionArgs']]]]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         An Asset Filter.
 
@@ -49,31 +34,11 @@ class AssetFilter(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_name: The Media Services account name.
         :param pulumi.Input[str] asset_name: The Asset name.
-        :param pulumi.Input[dict] first_quality: The first quality.
+        :param pulumi.Input[pulumi.InputType['FirstQualityArgs']] first_quality: The first quality.
         :param pulumi.Input[str] name: The Asset Filter name
-        :param pulumi.Input[dict] presentation_time_range: The presentation time range.
+        :param pulumi.Input[pulumi.InputType['PresentationTimeRangeArgs']] presentation_time_range: The presentation time range.
         :param pulumi.Input[str] resource_group_name: The name of the resource group within the Azure subscription.
-        :param pulumi.Input[list] tracks: The tracks selection conditions.
-
-        The **first_quality** object supports the following:
-
-          * `bitrate` (`pulumi.Input[float]`) - The first quality bitrate.
-
-        The **presentation_time_range** object supports the following:
-
-          * `end_timestamp` (`pulumi.Input[float]`) - The absolute end time boundary.
-          * `force_end_timestamp` (`pulumi.Input[bool]`) - The indicator of forcing existing of end time stamp.
-          * `live_backoff_duration` (`pulumi.Input[float]`) - The relative to end right edge.
-          * `presentation_window_duration` (`pulumi.Input[float]`) - The relative to end sliding window.
-          * `start_timestamp` (`pulumi.Input[float]`) - The absolute start time boundary.
-          * `timescale` (`pulumi.Input[float]`) - The time scale of time stamps.
-
-        The **tracks** object supports the following:
-
-          * `track_selections` (`pulumi.Input[list]`) - The track selections.
-            * `operation` (`pulumi.Input[str]`) - The track property condition operation.
-            * `property` (`pulumi.Input[str]`) - The track property type.
-            * `value` (`pulumi.Input[str]`) - The track property value.
+        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['FilterTrackSelectionArgs']]]] tracks: The tracks selection conditions.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -117,13 +82,15 @@ class AssetFilter(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None) -> 'AssetFilter':
         """
         Get an existing AssetFilter resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -132,8 +99,49 @@ class AssetFilter(pulumi.CustomResource):
 
         return AssetFilter(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter(name="firstQuality")
+    def first_quality(self) -> Optional['outputs.FirstQualityResponse']:
+        """
+        The first quality.
+        """
+        return pulumi.get(self, "first_quality")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the resource.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="presentationTimeRange")
+    def presentation_time_range(self) -> Optional['outputs.PresentationTimeRangeResponse']:
+        """
+        The presentation time range.
+        """
+        return pulumi.get(self, "presentation_time_range")
+
+    @property
+    @pulumi.getter
+    def tracks(self) -> Optional[List['outputs.FilterTrackSelectionResponse']]:
+        """
+        The tracks selection conditions.
+        """
+        return pulumi.get(self, "tracks")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        The type of the resource.
+        """
+        return pulumi.get(self, "type")
+
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

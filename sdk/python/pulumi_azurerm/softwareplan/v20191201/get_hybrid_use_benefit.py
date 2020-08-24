@@ -5,10 +5,17 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+from . import outputs
 
+__all__ = [
+    'GetHybridUseBenefitResult',
+    'AwaitableGetHybridUseBenefitResult',
+    'get_hybrid_use_benefit',
+]
 
+@pulumi.output_type
 class GetHybridUseBenefitResult:
     """
     Response on GET of a hybrid use benefit
@@ -16,46 +23,81 @@ class GetHybridUseBenefitResult:
     def __init__(__self__, created_date=None, etag=None, last_updated_date=None, name=None, provisioning_state=None, sku=None, type=None):
         if created_date and not isinstance(created_date, str):
             raise TypeError("Expected argument 'created_date' to be a str")
-        __self__.created_date = created_date
+        pulumi.set(__self__, "created_date", created_date)
+        if etag and not isinstance(etag, float):
+            raise TypeError("Expected argument 'etag' to be a float")
+        pulumi.set(__self__, "etag", etag)
+        if last_updated_date and not isinstance(last_updated_date, str):
+            raise TypeError("Expected argument 'last_updated_date' to be a str")
+        pulumi.set(__self__, "last_updated_date", last_updated_date)
+        if name and not isinstance(name, str):
+            raise TypeError("Expected argument 'name' to be a str")
+        pulumi.set(__self__, "name", name)
+        if provisioning_state and not isinstance(provisioning_state, str):
+            raise TypeError("Expected argument 'provisioning_state' to be a str")
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if sku and not isinstance(sku, dict):
+            raise TypeError("Expected argument 'sku' to be a dict")
+        pulumi.set(__self__, "sku", sku)
+        if type and not isinstance(type, str):
+            raise TypeError("Expected argument 'type' to be a str")
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="createdDate")
+    def created_date(self) -> str:
         """
         Created date
         """
-        if etag and not isinstance(etag, float):
-            raise TypeError("Expected argument 'etag' to be a float")
-        __self__.etag = etag
+        return pulumi.get(self, "created_date")
+
+    @property
+    @pulumi.getter
+    def etag(self) -> float:
         """
         Indicates the revision of the hybrid use benefit
         """
-        if last_updated_date and not isinstance(last_updated_date, str):
-            raise TypeError("Expected argument 'last_updated_date' to be a str")
-        __self__.last_updated_date = last_updated_date
+        return pulumi.get(self, "etag")
+
+    @property
+    @pulumi.getter(name="lastUpdatedDate")
+    def last_updated_date(self) -> str:
         """
         Last updated date
         """
-        if name and not isinstance(name, str):
-            raise TypeError("Expected argument 'name' to be a str")
-        __self__.name = name
+        return pulumi.get(self, "last_updated_date")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
         """
         The name of the resource
         """
-        if provisioning_state and not isinstance(provisioning_state, str):
-            raise TypeError("Expected argument 'provisioning_state' to be a str")
-        __self__.provisioning_state = provisioning_state
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
         """
         Provisioning state
         """
-        if sku and not isinstance(sku, dict):
-            raise TypeError("Expected argument 'sku' to be a dict")
-        __self__.sku = sku
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter
+    def sku(self) -> 'outputs.SkuResponse':
         """
         Hybrid use benefit SKU
         """
-        if type and not isinstance(type, str):
-            raise TypeError("Expected argument 'type' to be a str")
-        __self__.type = type
+        return pulumi.get(self, "sku")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
         """
         The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
         """
+        return pulumi.get(self, "type")
 
 
 class AwaitableGetHybridUseBenefitResult(GetHybridUseBenefitResult):
@@ -73,7 +115,9 @@ class AwaitableGetHybridUseBenefitResult(GetHybridUseBenefitResult):
             type=self.type)
 
 
-def get_hybrid_use_benefit(name=None, scope=None, opts=None):
+def get_hybrid_use_benefit(name: Optional[str] = None,
+                           scope: Optional[str] = None,
+                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetHybridUseBenefitResult:
     """
     Use this data source to access information about an existing resource.
 
@@ -87,13 +131,13 @@ def get_hybrid_use_benefit(name=None, scope=None, opts=None):
         opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = _utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('azurerm:softwareplan/v20191201:getHybridUseBenefit', __args__, opts=opts).value
+    __ret__ = pulumi.runtime.invoke('azurerm:softwareplan/v20191201:getHybridUseBenefit', __args__, opts=opts, typ=GetHybridUseBenefitResult).value
 
     return AwaitableGetHybridUseBenefitResult(
-        created_date=__ret__.get('createdDate'),
-        etag=__ret__.get('etag'),
-        last_updated_date=__ret__.get('lastUpdatedDate'),
-        name=__ret__.get('name'),
-        provisioning_state=__ret__.get('provisioningState'),
-        sku=__ret__.get('sku'),
-        type=__ret__.get('type'))
+        created_date=__ret__.created_date,
+        etag=__ret__.etag,
+        last_updated_date=__ret__.last_updated_date,
+        name=__ret__.name,
+        provisioning_state=__ret__.provisioning_state,
+        sku=__ret__.sku,
+        type=__ret__.type)

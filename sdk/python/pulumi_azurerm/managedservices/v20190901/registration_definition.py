@@ -5,67 +5,34 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+from . import outputs
+from ._inputs import *
+
+__all__ = ['RegistrationDefinition']
 
 
 class RegistrationDefinition(pulumi.CustomResource):
-    name: pulumi.Output[str]
-    """
-    Name of the registration definition.
-    """
-    plan: pulumi.Output[dict]
-    """
-    Plan details for the managed services.
-      * `name` (`str`) - The plan name.
-      * `product` (`str`) - The product code.
-      * `publisher` (`str`) - The publisher ID.
-      * `version` (`str`) - The plan's version.
-    """
-    properties: pulumi.Output[dict]
-    """
-    Properties of a registration definition.
-      * `authorizations` (`list`) - Authorization tuple containing principal id of the user/security group or service principal and id of the build-in role.
-        * `principal_id` (`str`) - Principal Id of the security group/service principal/user that would be assigned permissions to the projected subscription
-        * `role_definition_id` (`str`) - The role definition identifier. This role will define all the permissions that the security group/service principal/user must have on the projected subscription. This role cannot be an owner role.
-
-      * `description` (`str`) - Description of the registration definition.
-      * `managed_by_tenant_id` (`str`) - Id of the managedBy tenant.
-      * `managed_by_tenant_name` (`str`) - Name of the managedBy tenant.
-      * `provisioning_state` (`str`) - Current state of the registration definition.
-      * `registration_definition_name` (`str`) - Name of the registration definition.
-    """
-    type: pulumi.Output[str]
-    """
-    Type of the resource.
-    """
-    def __init__(__self__, resource_name, opts=None, name=None, plan=None, properties=None, scope=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 plan: Optional[pulumi.Input[pulumi.InputType['PlanArgs']]] = None,
+                 properties: Optional[pulumi.Input[pulumi.InputType['RegistrationDefinitionPropertiesArgs']]] = None,
+                 scope: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         Registration definition.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] name: Guid of the registration definition.
-        :param pulumi.Input[dict] plan: Plan details for the managed services.
-        :param pulumi.Input[dict] properties: Properties of a registration definition.
+        :param pulumi.Input[pulumi.InputType['PlanArgs']] plan: Plan details for the managed services.
+        :param pulumi.Input[pulumi.InputType['RegistrationDefinitionPropertiesArgs']] properties: Properties of a registration definition.
         :param pulumi.Input[str] scope: Scope of the resource.
-
-        The **plan** object supports the following:
-
-          * `name` (`pulumi.Input[str]`) - The plan name.
-          * `product` (`pulumi.Input[str]`) - The product code.
-          * `publisher` (`pulumi.Input[str]`) - The publisher ID.
-          * `version` (`pulumi.Input[str]`) - The plan's version.
-
-        The **properties** object supports the following:
-
-          * `authorizations` (`pulumi.Input[list]`) - Authorization tuple containing principal id of the user/security group or service principal and id of the build-in role.
-            * `principal_id` (`pulumi.Input[str]`) - Principal Id of the security group/service principal/user that would be assigned permissions to the projected subscription
-            * `role_definition_id` (`pulumi.Input[str]`) - The role definition identifier. This role will define all the permissions that the security group/service principal/user must have on the projected subscription. This role cannot be an owner role.
-
-          * `description` (`pulumi.Input[str]`) - Description of the registration definition.
-          * `managed_by_tenant_id` (`pulumi.Input[str]`) - Id of the managedBy tenant.
-          * `registration_definition_name` (`pulumi.Input[str]`) - Name of the registration definition.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -102,13 +69,15 @@ class RegistrationDefinition(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None) -> 'RegistrationDefinition':
         """
         Get an existing RegistrationDefinition resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -117,8 +86,41 @@ class RegistrationDefinition(pulumi.CustomResource):
 
         return RegistrationDefinition(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Name of the registration definition.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def plan(self) -> Optional['outputs.PlanResponse']:
+        """
+        Plan details for the managed services.
+        """
+        return pulumi.get(self, "plan")
+
+    @property
+    @pulumi.getter
+    def properties(self) -> 'outputs.RegistrationDefinitionPropertiesResponse':
+        """
+        Properties of a registration definition.
+        """
+        return pulumi.get(self, "properties")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Type of the resource.
+        """
+        return pulumi.get(self, "type")
+
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

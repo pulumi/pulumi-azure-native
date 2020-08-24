@@ -5,49 +5,27 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+from . import outputs
+from ._inputs import *
+
+__all__ = ['Service']
 
 
 class Service(pulumi.CustomResource):
-    location: pulumi.Output[str]
-    """
-    The GEO location of the resource.
-    """
-    name: pulumi.Output[str]
-    """
-    The name of the resource.
-    """
-    properties: pulumi.Output[dict]
-    """
-    Properties of the Service resource
-      * `network_profile` (`dict`) - Network profile of the Service
-        * `app_network_resource_group` (`str`) - Name of the resource group containing network resources of Azure Spring Cloud Apps
-        * `app_subnet_id` (`str`) - Fully qualified resource Id of the subnet to host Azure Spring Cloud Apps
-        * `service_cidr` (`str`) - Azure Spring Cloud service reserved CIDR
-        * `service_runtime_network_resource_group` (`str`) - Name of the resource group containing network resources of Azure Spring Cloud Service Runtime
-        * `service_runtime_subnet_id` (`str`) - Fully qualified resource Id of the subnet to host Azure Spring Cloud Service Runtime
-
-      * `provisioning_state` (`str`) - Provisioning state of the Service
-      * `service_id` (`str`) - ServiceInstanceEntity GUID which uniquely identifies a created resource
-      * `version` (`float`) - Version of the Service
-    """
-    sku: pulumi.Output[dict]
-    """
-    Sku of the Service resource
-      * `capacity` (`float`) - Current capacity of the target resource
-      * `name` (`str`) - Name of the Sku
-      * `tier` (`str`) - Tier of the Sku
-    """
-    tags: pulumi.Output[dict]
-    """
-    Tags of the service which is a list of key value pairs that describe the resource.
-    """
-    type: pulumi.Output[str]
-    """
-    The type of the resource.
-    """
-    def __init__(__self__, resource_name, opts=None, location=None, name=None, properties=None, resource_group_name=None, sku=None, tags=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 properties: Optional[pulumi.Input[pulumi.InputType['ClusterResourcePropertiesArgs']]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 sku: Optional[pulumi.Input[pulumi.InputType['SkuArgs']]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         Service resource
 
@@ -55,25 +33,10 @@ class Service(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] location: The GEO location of the resource.
         :param pulumi.Input[str] name: The name of the Service resource.
-        :param pulumi.Input[dict] properties: Properties of the Service resource
+        :param pulumi.Input[pulumi.InputType['ClusterResourcePropertiesArgs']] properties: Properties of the Service resource
         :param pulumi.Input[str] resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
-        :param pulumi.Input[dict] sku: Sku of the Service resource
-        :param pulumi.Input[dict] tags: Tags of the service which is a list of key value pairs that describe the resource.
-
-        The **properties** object supports the following:
-
-          * `network_profile` (`pulumi.Input[dict]`) - Network profile of the Service
-            * `app_network_resource_group` (`pulumi.Input[str]`) - Name of the resource group containing network resources of Azure Spring Cloud Apps
-            * `app_subnet_id` (`pulumi.Input[str]`) - Fully qualified resource Id of the subnet to host Azure Spring Cloud Apps
-            * `service_cidr` (`pulumi.Input[str]`) - Azure Spring Cloud service reserved CIDR
-            * `service_runtime_network_resource_group` (`pulumi.Input[str]`) - Name of the resource group containing network resources of Azure Spring Cloud Service Runtime
-            * `service_runtime_subnet_id` (`pulumi.Input[str]`) - Fully qualified resource Id of the subnet to host Azure Spring Cloud Service Runtime
-
-        The **sku** object supports the following:
-
-          * `capacity` (`pulumi.Input[float]`) - Current capacity of the target resource
-          * `name` (`pulumi.Input[str]`) - Name of the Sku
-          * `tier` (`pulumi.Input[str]`) - Tier of the Sku
+        :param pulumi.Input[pulumi.InputType['SkuArgs']] sku: Sku of the Service resource
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Tags of the service which is a list of key value pairs that describe the resource.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -110,13 +73,15 @@ class Service(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None) -> 'Service':
         """
         Get an existing Service resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -125,8 +90,57 @@ class Service(pulumi.CustomResource):
 
         return Service(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[str]:
+        """
+        The GEO location of the resource.
+        """
+        return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the resource.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def properties(self) -> 'outputs.ClusterResourcePropertiesResponse':
+        """
+        Properties of the Service resource
+        """
+        return pulumi.get(self, "properties")
+
+    @property
+    @pulumi.getter
+    def sku(self) -> Optional['outputs.SkuResponse']:
+        """
+        Sku of the Service resource
+        """
+        return pulumi.get(self, "sku")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Mapping[str, str]]:
+        """
+        Tags of the service which is a list of key value pairs that describe the resource.
+        """
+        return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        The type of the resource.
+        """
+        return pulumi.get(self, "type")
+
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

@@ -5,10 +5,16 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
 
+__all__ = [
+    'GetLoggerResult',
+    'AwaitableGetLoggerResult',
+    'get_logger',
+]
 
+@pulumi.output_type
 class GetLoggerResult:
     """
     Logger details.
@@ -16,41 +22,71 @@ class GetLoggerResult:
     def __init__(__self__, credentials=None, description=None, is_buffered=None, logger_type=None, name=None, type=None):
         if credentials and not isinstance(credentials, dict):
             raise TypeError("Expected argument 'credentials' to be a dict")
-        __self__.credentials = credentials
+        pulumi.set(__self__, "credentials", credentials)
+        if description and not isinstance(description, str):
+            raise TypeError("Expected argument 'description' to be a str")
+        pulumi.set(__self__, "description", description)
+        if is_buffered and not isinstance(is_buffered, bool):
+            raise TypeError("Expected argument 'is_buffered' to be a bool")
+        pulumi.set(__self__, "is_buffered", is_buffered)
+        if logger_type and not isinstance(logger_type, str):
+            raise TypeError("Expected argument 'logger_type' to be a str")
+        pulumi.set(__self__, "logger_type", logger_type)
+        if name and not isinstance(name, str):
+            raise TypeError("Expected argument 'name' to be a str")
+        pulumi.set(__self__, "name", name)
+        if type and not isinstance(type, str):
+            raise TypeError("Expected argument 'type' to be a str")
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def credentials(self) -> Mapping[str, str]:
         """
         The name and SendRule connection string of the event hub for azureEventHub logger.
         Instrumentation key for applicationInsights logger.
         """
-        if description and not isinstance(description, str):
-            raise TypeError("Expected argument 'description' to be a str")
-        __self__.description = description
+        return pulumi.get(self, "credentials")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
         """
         Logger description.
         """
-        if is_buffered and not isinstance(is_buffered, bool):
-            raise TypeError("Expected argument 'is_buffered' to be a bool")
-        __self__.is_buffered = is_buffered
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="isBuffered")
+    def is_buffered(self) -> Optional[bool]:
         """
         Whether records are buffered in the logger before publishing. Default is assumed to be true.
         """
-        if logger_type and not isinstance(logger_type, str):
-            raise TypeError("Expected argument 'logger_type' to be a str")
-        __self__.logger_type = logger_type
+        return pulumi.get(self, "is_buffered")
+
+    @property
+    @pulumi.getter(name="loggerType")
+    def logger_type(self) -> str:
         """
         Logger type.
         """
-        if name and not isinstance(name, str):
-            raise TypeError("Expected argument 'name' to be a str")
-        __self__.name = name
+        return pulumi.get(self, "logger_type")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
         """
         Resource name.
         """
-        if type and not isinstance(type, str):
-            raise TypeError("Expected argument 'type' to be a str")
-        __self__.type = type
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
         """
         Resource type for API Management resource.
         """
+        return pulumi.get(self, "type")
 
 
 class AwaitableGetLoggerResult(GetLoggerResult):
@@ -67,7 +103,10 @@ class AwaitableGetLoggerResult(GetLoggerResult):
             type=self.type)
 
 
-def get_logger(name=None, resource_group_name=None, service_name=None, opts=None):
+def get_logger(name: Optional[str] = None,
+               resource_group_name: Optional[str] = None,
+               service_name: Optional[str] = None,
+               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetLoggerResult:
     """
     Use this data source to access information about an existing resource.
 
@@ -83,12 +122,12 @@ def get_logger(name=None, resource_group_name=None, service_name=None, opts=None
         opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = _utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('azurerm:apimanagement/v20180101:getLogger', __args__, opts=opts).value
+    __ret__ = pulumi.runtime.invoke('azurerm:apimanagement/v20180101:getLogger', __args__, opts=opts, typ=GetLoggerResult).value
 
     return AwaitableGetLoggerResult(
-        credentials=__ret__.get('credentials'),
-        description=__ret__.get('description'),
-        is_buffered=__ret__.get('isBuffered'),
-        logger_type=__ret__.get('loggerType'),
-        name=__ret__.get('name'),
-        type=__ret__.get('type'))
+        credentials=__ret__.credentials,
+        description=__ret__.description,
+        is_buffered=__ret__.is_buffered,
+        logger_type=__ret__.logger_type,
+        name=__ret__.name,
+        type=__ret__.type)

@@ -5,10 +5,17 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+from . import outputs
 
+__all__ = [
+    'GetPipelineResult',
+    'AwaitableGetPipelineResult',
+    'get_pipeline',
+]
 
+@pulumi.output_type
 class GetPipelineResult:
     """
     Pipeline resource type.
@@ -16,70 +23,125 @@ class GetPipelineResult:
     def __init__(__self__, activities=None, annotations=None, concurrency=None, description=None, etag=None, folder=None, name=None, parameters=None, run_dimensions=None, type=None, variables=None):
         if activities and not isinstance(activities, list):
             raise TypeError("Expected argument 'activities' to be a list")
-        __self__.activities = activities
+        pulumi.set(__self__, "activities", activities)
+        if annotations and not isinstance(annotations, list):
+            raise TypeError("Expected argument 'annotations' to be a list")
+        pulumi.set(__self__, "annotations", annotations)
+        if concurrency and not isinstance(concurrency, float):
+            raise TypeError("Expected argument 'concurrency' to be a float")
+        pulumi.set(__self__, "concurrency", concurrency)
+        if description and not isinstance(description, str):
+            raise TypeError("Expected argument 'description' to be a str")
+        pulumi.set(__self__, "description", description)
+        if etag and not isinstance(etag, str):
+            raise TypeError("Expected argument 'etag' to be a str")
+        pulumi.set(__self__, "etag", etag)
+        if folder and not isinstance(folder, dict):
+            raise TypeError("Expected argument 'folder' to be a dict")
+        pulumi.set(__self__, "folder", folder)
+        if name and not isinstance(name, str):
+            raise TypeError("Expected argument 'name' to be a str")
+        pulumi.set(__self__, "name", name)
+        if parameters and not isinstance(parameters, dict):
+            raise TypeError("Expected argument 'parameters' to be a dict")
+        pulumi.set(__self__, "parameters", parameters)
+        if run_dimensions and not isinstance(run_dimensions, dict):
+            raise TypeError("Expected argument 'run_dimensions' to be a dict")
+        pulumi.set(__self__, "run_dimensions", run_dimensions)
+        if type and not isinstance(type, str):
+            raise TypeError("Expected argument 'type' to be a str")
+        pulumi.set(__self__, "type", type)
+        if variables and not isinstance(variables, dict):
+            raise TypeError("Expected argument 'variables' to be a dict")
+        pulumi.set(__self__, "variables", variables)
+
+    @property
+    @pulumi.getter
+    def activities(self) -> Optional[List['outputs.ActivityResponse']]:
         """
         List of activities in pipeline.
         """
-        if annotations and not isinstance(annotations, list):
-            raise TypeError("Expected argument 'annotations' to be a list")
-        __self__.annotations = annotations
+        return pulumi.get(self, "activities")
+
+    @property
+    @pulumi.getter
+    def annotations(self) -> Optional[List[Mapping[str, Any]]]:
         """
         List of tags that can be used for describing the Pipeline.
         """
-        if concurrency and not isinstance(concurrency, float):
-            raise TypeError("Expected argument 'concurrency' to be a float")
-        __self__.concurrency = concurrency
+        return pulumi.get(self, "annotations")
+
+    @property
+    @pulumi.getter
+    def concurrency(self) -> Optional[float]:
         """
         The max number of concurrent runs for the pipeline.
         """
-        if description and not isinstance(description, str):
-            raise TypeError("Expected argument 'description' to be a str")
-        __self__.description = description
+        return pulumi.get(self, "concurrency")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
         """
         The description of the pipeline.
         """
-        if etag and not isinstance(etag, str):
-            raise TypeError("Expected argument 'etag' to be a str")
-        __self__.etag = etag
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def etag(self) -> str:
         """
         Etag identifies change in the resource.
         """
-        if folder and not isinstance(folder, dict):
-            raise TypeError("Expected argument 'folder' to be a dict")
-        __self__.folder = folder
+        return pulumi.get(self, "etag")
+
+    @property
+    @pulumi.getter
+    def folder(self) -> Optional['outputs.PipelineResponseFolder']:
         """
         The folder that this Pipeline is in. If not specified, Pipeline will appear at the root level.
         """
-        if name and not isinstance(name, str):
-            raise TypeError("Expected argument 'name' to be a str")
-        __self__.name = name
+        return pulumi.get(self, "folder")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
         """
         The resource name.
         """
-        if parameters and not isinstance(parameters, dict):
-            raise TypeError("Expected argument 'parameters' to be a dict")
-        __self__.parameters = parameters
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def parameters(self) -> Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']]:
         """
         List of parameters for pipeline.
         """
-        if run_dimensions and not isinstance(run_dimensions, dict):
-            raise TypeError("Expected argument 'run_dimensions' to be a dict")
-        __self__.run_dimensions = run_dimensions
+        return pulumi.get(self, "parameters")
+
+    @property
+    @pulumi.getter(name="runDimensions")
+    def run_dimensions(self) -> Optional[Mapping[str, Mapping[str, Any]]]:
         """
         Dimensions emitted by Pipeline.
         """
-        if type and not isinstance(type, str):
-            raise TypeError("Expected argument 'type' to be a str")
-        __self__.type = type
+        return pulumi.get(self, "run_dimensions")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
         """
         The resource type.
         """
-        if variables and not isinstance(variables, dict):
-            raise TypeError("Expected argument 'variables' to be a dict")
-        __self__.variables = variables
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def variables(self) -> Optional[Mapping[str, 'outputs.VariableSpecificationResponse']]:
         """
         List of variables for pipeline.
         """
+        return pulumi.get(self, "variables")
 
 
 class AwaitableGetPipelineResult(GetPipelineResult):
@@ -101,7 +163,10 @@ class AwaitableGetPipelineResult(GetPipelineResult):
             variables=self.variables)
 
 
-def get_pipeline(factory_name=None, name=None, resource_group_name=None, opts=None):
+def get_pipeline(factory_name: Optional[str] = None,
+                 name: Optional[str] = None,
+                 resource_group_name: Optional[str] = None,
+                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPipelineResult:
     """
     Use this data source to access information about an existing resource.
 
@@ -117,17 +182,17 @@ def get_pipeline(factory_name=None, name=None, resource_group_name=None, opts=No
         opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = _utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('azurerm:datafactory/v20180601:getPipeline', __args__, opts=opts).value
+    __ret__ = pulumi.runtime.invoke('azurerm:datafactory/v20180601:getPipeline', __args__, opts=opts, typ=GetPipelineResult).value
 
     return AwaitableGetPipelineResult(
-        activities=__ret__.get('activities'),
-        annotations=__ret__.get('annotations'),
-        concurrency=__ret__.get('concurrency'),
-        description=__ret__.get('description'),
-        etag=__ret__.get('etag'),
-        folder=__ret__.get('folder'),
-        name=__ret__.get('name'),
-        parameters=__ret__.get('parameters'),
-        run_dimensions=__ret__.get('runDimensions'),
-        type=__ret__.get('type'),
-        variables=__ret__.get('variables'))
+        activities=__ret__.activities,
+        annotations=__ret__.annotations,
+        concurrency=__ret__.concurrency,
+        description=__ret__.description,
+        etag=__ret__.etag,
+        folder=__ret__.folder,
+        name=__ret__.name,
+        parameters=__ret__.parameters,
+        run_dimensions=__ret__.run_dimensions,
+        type=__ret__.type,
+        variables=__ret__.variables)

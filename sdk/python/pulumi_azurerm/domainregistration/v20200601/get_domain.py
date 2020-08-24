@@ -5,10 +5,17 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+from . import outputs
 
+__all__ = [
+    'GetDomainResult',
+    'AwaitableGetDomainResult',
+    'get_domain',
+]
 
+@pulumi.output_type
 class GetDomainResult:
     """
     Information about a domain.
@@ -16,152 +23,277 @@ class GetDomainResult:
     def __init__(__self__, auth_code=None, auto_renew=None, consent=None, contact_admin=None, contact_billing=None, contact_registrant=None, contact_tech=None, created_time=None, dns_type=None, dns_zone_id=None, domain_not_renewable_reasons=None, expiration_time=None, kind=None, last_renewed_time=None, location=None, managed_host_names=None, name=None, name_servers=None, privacy=None, provisioning_state=None, ready_for_dns_record_management=None, registration_status=None, tags=None, target_dns_type=None, type=None):
         if auth_code and not isinstance(auth_code, str):
             raise TypeError("Expected argument 'auth_code' to be a str")
-        __self__.auth_code = auth_code
+        pulumi.set(__self__, "auth_code", auth_code)
         if auto_renew and not isinstance(auto_renew, bool):
             raise TypeError("Expected argument 'auto_renew' to be a bool")
-        __self__.auto_renew = auto_renew
+        pulumi.set(__self__, "auto_renew", auto_renew)
+        if consent and not isinstance(consent, dict):
+            raise TypeError("Expected argument 'consent' to be a dict")
+        pulumi.set(__self__, "consent", consent)
+        if contact_admin and not isinstance(contact_admin, dict):
+            raise TypeError("Expected argument 'contact_admin' to be a dict")
+        pulumi.set(__self__, "contact_admin", contact_admin)
+        if contact_billing and not isinstance(contact_billing, dict):
+            raise TypeError("Expected argument 'contact_billing' to be a dict")
+        pulumi.set(__self__, "contact_billing", contact_billing)
+        if contact_registrant and not isinstance(contact_registrant, dict):
+            raise TypeError("Expected argument 'contact_registrant' to be a dict")
+        pulumi.set(__self__, "contact_registrant", contact_registrant)
+        if contact_tech and not isinstance(contact_tech, dict):
+            raise TypeError("Expected argument 'contact_tech' to be a dict")
+        pulumi.set(__self__, "contact_tech", contact_tech)
+        if created_time and not isinstance(created_time, str):
+            raise TypeError("Expected argument 'created_time' to be a str")
+        pulumi.set(__self__, "created_time", created_time)
+        if dns_type and not isinstance(dns_type, str):
+            raise TypeError("Expected argument 'dns_type' to be a str")
+        pulumi.set(__self__, "dns_type", dns_type)
+        if dns_zone_id and not isinstance(dns_zone_id, str):
+            raise TypeError("Expected argument 'dns_zone_id' to be a str")
+        pulumi.set(__self__, "dns_zone_id", dns_zone_id)
+        if domain_not_renewable_reasons and not isinstance(domain_not_renewable_reasons, list):
+            raise TypeError("Expected argument 'domain_not_renewable_reasons' to be a list")
+        pulumi.set(__self__, "domain_not_renewable_reasons", domain_not_renewable_reasons)
+        if expiration_time and not isinstance(expiration_time, str):
+            raise TypeError("Expected argument 'expiration_time' to be a str")
+        pulumi.set(__self__, "expiration_time", expiration_time)
+        if kind and not isinstance(kind, str):
+            raise TypeError("Expected argument 'kind' to be a str")
+        pulumi.set(__self__, "kind", kind)
+        if last_renewed_time and not isinstance(last_renewed_time, str):
+            raise TypeError("Expected argument 'last_renewed_time' to be a str")
+        pulumi.set(__self__, "last_renewed_time", last_renewed_time)
+        if location and not isinstance(location, str):
+            raise TypeError("Expected argument 'location' to be a str")
+        pulumi.set(__self__, "location", location)
+        if managed_host_names and not isinstance(managed_host_names, list):
+            raise TypeError("Expected argument 'managed_host_names' to be a list")
+        pulumi.set(__self__, "managed_host_names", managed_host_names)
+        if name and not isinstance(name, str):
+            raise TypeError("Expected argument 'name' to be a str")
+        pulumi.set(__self__, "name", name)
+        if name_servers and not isinstance(name_servers, list):
+            raise TypeError("Expected argument 'name_servers' to be a list")
+        pulumi.set(__self__, "name_servers", name_servers)
+        if privacy and not isinstance(privacy, bool):
+            raise TypeError("Expected argument 'privacy' to be a bool")
+        pulumi.set(__self__, "privacy", privacy)
+        if provisioning_state and not isinstance(provisioning_state, str):
+            raise TypeError("Expected argument 'provisioning_state' to be a str")
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if ready_for_dns_record_management and not isinstance(ready_for_dns_record_management, bool):
+            raise TypeError("Expected argument 'ready_for_dns_record_management' to be a bool")
+        pulumi.set(__self__, "ready_for_dns_record_management", ready_for_dns_record_management)
+        if registration_status and not isinstance(registration_status, str):
+            raise TypeError("Expected argument 'registration_status' to be a str")
+        pulumi.set(__self__, "registration_status", registration_status)
+        if tags and not isinstance(tags, dict):
+            raise TypeError("Expected argument 'tags' to be a dict")
+        pulumi.set(__self__, "tags", tags)
+        if target_dns_type and not isinstance(target_dns_type, str):
+            raise TypeError("Expected argument 'target_dns_type' to be a str")
+        pulumi.set(__self__, "target_dns_type", target_dns_type)
+        if type and not isinstance(type, str):
+            raise TypeError("Expected argument 'type' to be a str")
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="authCode")
+    def auth_code(self) -> Optional[str]:
+        return pulumi.get(self, "auth_code")
+
+    @property
+    @pulumi.getter(name="autoRenew")
+    def auto_renew(self) -> Optional[bool]:
         """
         <code>true</code> if the domain should be automatically renewed; otherwise, <code>false</code>.
         """
-        if consent and not isinstance(consent, dict):
-            raise TypeError("Expected argument 'consent' to be a dict")
-        __self__.consent = consent
+        return pulumi.get(self, "auto_renew")
+
+    @property
+    @pulumi.getter
+    def consent(self) -> 'outputs.DomainPurchaseConsentResponse':
         """
         Legal agreement consent.
         """
-        if contact_admin and not isinstance(contact_admin, dict):
-            raise TypeError("Expected argument 'contact_admin' to be a dict")
-        __self__.contact_admin = contact_admin
+        return pulumi.get(self, "consent")
+
+    @property
+    @pulumi.getter(name="contactAdmin")
+    def contact_admin(self) -> 'outputs.ContactResponse':
         """
         Administrative contact.
         """
-        if contact_billing and not isinstance(contact_billing, dict):
-            raise TypeError("Expected argument 'contact_billing' to be a dict")
-        __self__.contact_billing = contact_billing
+        return pulumi.get(self, "contact_admin")
+
+    @property
+    @pulumi.getter(name="contactBilling")
+    def contact_billing(self) -> 'outputs.ContactResponse':
         """
         Billing contact.
         """
-        if contact_registrant and not isinstance(contact_registrant, dict):
-            raise TypeError("Expected argument 'contact_registrant' to be a dict")
-        __self__.contact_registrant = contact_registrant
+        return pulumi.get(self, "contact_billing")
+
+    @property
+    @pulumi.getter(name="contactRegistrant")
+    def contact_registrant(self) -> 'outputs.ContactResponse':
         """
         Registrant contact.
         """
-        if contact_tech and not isinstance(contact_tech, dict):
-            raise TypeError("Expected argument 'contact_tech' to be a dict")
-        __self__.contact_tech = contact_tech
+        return pulumi.get(self, "contact_registrant")
+
+    @property
+    @pulumi.getter(name="contactTech")
+    def contact_tech(self) -> 'outputs.ContactResponse':
         """
         Technical contact.
         """
-        if created_time and not isinstance(created_time, str):
-            raise TypeError("Expected argument 'created_time' to be a str")
-        __self__.created_time = created_time
+        return pulumi.get(self, "contact_tech")
+
+    @property
+    @pulumi.getter(name="createdTime")
+    def created_time(self) -> str:
         """
         Domain creation timestamp.
         """
-        if dns_type and not isinstance(dns_type, str):
-            raise TypeError("Expected argument 'dns_type' to be a str")
-        __self__.dns_type = dns_type
+        return pulumi.get(self, "created_time")
+
+    @property
+    @pulumi.getter(name="dnsType")
+    def dns_type(self) -> Optional[str]:
         """
         Current DNS type
         """
-        if dns_zone_id and not isinstance(dns_zone_id, str):
-            raise TypeError("Expected argument 'dns_zone_id' to be a str")
-        __self__.dns_zone_id = dns_zone_id
+        return pulumi.get(self, "dns_type")
+
+    @property
+    @pulumi.getter(name="dnsZoneId")
+    def dns_zone_id(self) -> Optional[str]:
         """
         Azure DNS Zone to use
         """
-        if domain_not_renewable_reasons and not isinstance(domain_not_renewable_reasons, list):
-            raise TypeError("Expected argument 'domain_not_renewable_reasons' to be a list")
-        __self__.domain_not_renewable_reasons = domain_not_renewable_reasons
+        return pulumi.get(self, "dns_zone_id")
+
+    @property
+    @pulumi.getter(name="domainNotRenewableReasons")
+    def domain_not_renewable_reasons(self) -> List[str]:
         """
         Reasons why domain is not renewable.
         """
-        if expiration_time and not isinstance(expiration_time, str):
-            raise TypeError("Expected argument 'expiration_time' to be a str")
-        __self__.expiration_time = expiration_time
+        return pulumi.get(self, "domain_not_renewable_reasons")
+
+    @property
+    @pulumi.getter(name="expirationTime")
+    def expiration_time(self) -> str:
         """
         Domain expiration timestamp.
         """
-        if kind and not isinstance(kind, str):
-            raise TypeError("Expected argument 'kind' to be a str")
-        __self__.kind = kind
+        return pulumi.get(self, "expiration_time")
+
+    @property
+    @pulumi.getter
+    def kind(self) -> Optional[str]:
         """
         Kind of resource.
         """
-        if last_renewed_time and not isinstance(last_renewed_time, str):
-            raise TypeError("Expected argument 'last_renewed_time' to be a str")
-        __self__.last_renewed_time = last_renewed_time
+        return pulumi.get(self, "kind")
+
+    @property
+    @pulumi.getter(name="lastRenewedTime")
+    def last_renewed_time(self) -> str:
         """
         Timestamp when the domain was renewed last time.
         """
-        if location and not isinstance(location, str):
-            raise TypeError("Expected argument 'location' to be a str")
-        __self__.location = location
+        return pulumi.get(self, "last_renewed_time")
+
+    @property
+    @pulumi.getter
+    def location(self) -> str:
         """
         Resource Location.
         """
-        if managed_host_names and not isinstance(managed_host_names, list):
-            raise TypeError("Expected argument 'managed_host_names' to be a list")
-        __self__.managed_host_names = managed_host_names
+        return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter(name="managedHostNames")
+    def managed_host_names(self) -> List['outputs.HostNameResponse']:
         """
         All hostnames derived from the domain and assigned to Azure resources.
         """
-        if name and not isinstance(name, str):
-            raise TypeError("Expected argument 'name' to be a str")
-        __self__.name = name
+        return pulumi.get(self, "managed_host_names")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
         """
         Resource Name.
         """
-        if name_servers and not isinstance(name_servers, list):
-            raise TypeError("Expected argument 'name_servers' to be a list")
-        __self__.name_servers = name_servers
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="nameServers")
+    def name_servers(self) -> List[str]:
         """
         Name servers.
         """
-        if privacy and not isinstance(privacy, bool):
-            raise TypeError("Expected argument 'privacy' to be a bool")
-        __self__.privacy = privacy
+        return pulumi.get(self, "name_servers")
+
+    @property
+    @pulumi.getter
+    def privacy(self) -> Optional[bool]:
         """
         <code>true</code> if domain privacy is enabled for this domain; otherwise, <code>false</code>.
         """
-        if provisioning_state and not isinstance(provisioning_state, str):
-            raise TypeError("Expected argument 'provisioning_state' to be a str")
-        __self__.provisioning_state = provisioning_state
+        return pulumi.get(self, "privacy")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
         """
         Domain provisioning state.
         """
-        if ready_for_dns_record_management and not isinstance(ready_for_dns_record_management, bool):
-            raise TypeError("Expected argument 'ready_for_dns_record_management' to be a bool")
-        __self__.ready_for_dns_record_management = ready_for_dns_record_management
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="readyForDnsRecordManagement")
+    def ready_for_dns_record_management(self) -> bool:
         """
         <code>true</code> if Azure can assign this domain to App Service apps; otherwise, <code>false</code>. This value will be <code>true</code> if domain registration status is active and 
          it is hosted on name servers Azure has programmatic access to.
         """
-        if registration_status and not isinstance(registration_status, str):
-            raise TypeError("Expected argument 'registration_status' to be a str")
-        __self__.registration_status = registration_status
+        return pulumi.get(self, "ready_for_dns_record_management")
+
+    @property
+    @pulumi.getter(name="registrationStatus")
+    def registration_status(self) -> str:
         """
         Domain registration status.
         """
-        if tags and not isinstance(tags, dict):
-            raise TypeError("Expected argument 'tags' to be a dict")
-        __self__.tags = tags
+        return pulumi.get(self, "registration_status")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Mapping[str, str]]:
         """
         Resource tags.
         """
-        if target_dns_type and not isinstance(target_dns_type, str):
-            raise TypeError("Expected argument 'target_dns_type' to be a str")
-        __self__.target_dns_type = target_dns_type
+        return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter(name="targetDnsType")
+    def target_dns_type(self) -> Optional[str]:
         """
         Target DNS type (would be used for migration)
         """
-        if type and not isinstance(type, str):
-            raise TypeError("Expected argument 'type' to be a str")
-        __self__.type = type
+        return pulumi.get(self, "target_dns_type")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
         """
         Resource type.
         """
+        return pulumi.get(self, "type")
 
 
 class AwaitableGetDomainResult(GetDomainResult):
@@ -197,7 +329,9 @@ class AwaitableGetDomainResult(GetDomainResult):
             type=self.type)
 
 
-def get_domain(name=None, resource_group_name=None, opts=None):
+def get_domain(name: Optional[str] = None,
+               resource_group_name: Optional[str] = None,
+               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDomainResult:
     """
     Use this data source to access information about an existing resource.
 
@@ -211,31 +345,31 @@ def get_domain(name=None, resource_group_name=None, opts=None):
         opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = _utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('azurerm:domainregistration/v20200601:getDomain', __args__, opts=opts).value
+    __ret__ = pulumi.runtime.invoke('azurerm:domainregistration/v20200601:getDomain', __args__, opts=opts, typ=GetDomainResult).value
 
     return AwaitableGetDomainResult(
-        auth_code=__ret__.get('authCode'),
-        auto_renew=__ret__.get('autoRenew'),
-        consent=__ret__.get('consent'),
-        contact_admin=__ret__.get('contactAdmin'),
-        contact_billing=__ret__.get('contactBilling'),
-        contact_registrant=__ret__.get('contactRegistrant'),
-        contact_tech=__ret__.get('contactTech'),
-        created_time=__ret__.get('createdTime'),
-        dns_type=__ret__.get('dnsType'),
-        dns_zone_id=__ret__.get('dnsZoneId'),
-        domain_not_renewable_reasons=__ret__.get('domainNotRenewableReasons'),
-        expiration_time=__ret__.get('expirationTime'),
-        kind=__ret__.get('kind'),
-        last_renewed_time=__ret__.get('lastRenewedTime'),
-        location=__ret__.get('location'),
-        managed_host_names=__ret__.get('managedHostNames'),
-        name=__ret__.get('name'),
-        name_servers=__ret__.get('nameServers'),
-        privacy=__ret__.get('privacy'),
-        provisioning_state=__ret__.get('provisioningState'),
-        ready_for_dns_record_management=__ret__.get('readyForDnsRecordManagement'),
-        registration_status=__ret__.get('registrationStatus'),
-        tags=__ret__.get('tags'),
-        target_dns_type=__ret__.get('targetDnsType'),
-        type=__ret__.get('type'))
+        auth_code=__ret__.auth_code,
+        auto_renew=__ret__.auto_renew,
+        consent=__ret__.consent,
+        contact_admin=__ret__.contact_admin,
+        contact_billing=__ret__.contact_billing,
+        contact_registrant=__ret__.contact_registrant,
+        contact_tech=__ret__.contact_tech,
+        created_time=__ret__.created_time,
+        dns_type=__ret__.dns_type,
+        dns_zone_id=__ret__.dns_zone_id,
+        domain_not_renewable_reasons=__ret__.domain_not_renewable_reasons,
+        expiration_time=__ret__.expiration_time,
+        kind=__ret__.kind,
+        last_renewed_time=__ret__.last_renewed_time,
+        location=__ret__.location,
+        managed_host_names=__ret__.managed_host_names,
+        name=__ret__.name,
+        name_servers=__ret__.name_servers,
+        privacy=__ret__.privacy,
+        provisioning_state=__ret__.provisioning_state,
+        ready_for_dns_record_management=__ret__.ready_for_dns_record_management,
+        registration_status=__ret__.registration_status,
+        tags=__ret__.tags,
+        target_dns_type=__ret__.target_dns_type,
+        type=__ret__.type)

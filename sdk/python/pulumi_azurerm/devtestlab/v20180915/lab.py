@@ -5,151 +5,52 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+from . import outputs
+from ._inputs import *
+
+__all__ = ['Lab']
 
 
 class Lab(pulumi.CustomResource):
-    announcement: pulumi.Output[dict]
-    """
-    The properties of any lab announcement associated with this lab
-      * `enabled` (`str`) - Is the lab announcement active/enabled at this time?
-      * `expiration_date` (`str`) - The time at which the announcement expires (null for never)
-      * `expired` (`bool`) - Has this announcement expired?
-      * `markdown` (`str`) - The markdown text (if any) that this lab displays in the UI. If left empty/null, nothing will be shown.
-      * `provisioning_state` (`str`) - The provisioning status of the resource.
-      * `title` (`str`) - The plain text title for the lab announcement
-      * `unique_identifier` (`str`) - The unique immutable identifier of a resource (Guid).
-    """
-    artifacts_storage_account: pulumi.Output[str]
-    """
-    The lab's artifact storage account.
-    """
-    created_date: pulumi.Output[str]
-    """
-    The creation date of the lab.
-    """
-    default_premium_storage_account: pulumi.Output[str]
-    """
-    The lab's default premium storage account.
-    """
-    default_storage_account: pulumi.Output[str]
-    """
-    The lab's default storage account.
-    """
-    environment_permission: pulumi.Output[str]
-    """
-    The access rights to be granted to the user when provisioning an environment
-    """
-    extended_properties: pulumi.Output[dict]
-    """
-    Extended properties of the lab used for experimental features
-    """
-    lab_storage_type: pulumi.Output[str]
-    """
-    Type of storage used by the lab. It can be either Premium or Standard. Default is Premium.
-    """
-    load_balancer_id: pulumi.Output[str]
-    """
-    The load balancer used to for lab VMs that use shared IP address.
-    """
-    location: pulumi.Output[str]
-    """
-    The location of the resource.
-    """
-    mandatory_artifacts_resource_ids_linux: pulumi.Output[list]
-    """
-    The ordered list of artifact resource IDs that should be applied on all Linux VM creations by default, prior to the artifacts specified by the user.
-    """
-    mandatory_artifacts_resource_ids_windows: pulumi.Output[list]
-    """
-    The ordered list of artifact resource IDs that should be applied on all Windows VM creations by default, prior to the artifacts specified by the user.
-    """
-    name: pulumi.Output[str]
-    """
-    The name of the resource.
-    """
-    network_security_group_id: pulumi.Output[str]
-    """
-    The Network Security Group attached to the lab VMs Network interfaces to restrict open ports.
-    """
-    premium_data_disk_storage_account: pulumi.Output[str]
-    """
-    The lab's premium data disk storage account.
-    """
-    premium_data_disks: pulumi.Output[str]
-    """
-    The setting to enable usage of premium data disks.
-    When its value is 'Enabled', creation of standard or premium data disks is allowed.
-    When its value is 'Disabled', only creation of standard data disks is allowed.
-    """
-    provisioning_state: pulumi.Output[str]
-    """
-    The provisioning status of the resource.
-    """
-    public_ip_id: pulumi.Output[str]
-    """
-    The public IP address for the lab's load balancer.
-    """
-    support: pulumi.Output[dict]
-    """
-    The properties of any lab support message associated with this lab
-      * `enabled` (`str`) - Is the lab support banner active/enabled at this time?
-      * `markdown` (`str`) - The markdown text (if any) that this lab displays in the UI. If left empty/null, nothing will be shown.
-    """
-    tags: pulumi.Output[dict]
-    """
-    The tags of the resource.
-    """
-    type: pulumi.Output[str]
-    """
-    The type of the resource.
-    """
-    unique_identifier: pulumi.Output[str]
-    """
-    The unique immutable identifier of a resource (Guid).
-    """
-    vault_name: pulumi.Output[str]
-    """
-    The lab's Key vault.
-    """
-    vm_creation_resource_group: pulumi.Output[str]
-    """
-    The resource group in which all new lab virtual machines will be created. To let DevTest Labs manage resource group creation, set this value to null.
-    """
-    def __init__(__self__, resource_name, opts=None, announcement=None, environment_permission=None, extended_properties=None, lab_storage_type=None, location=None, mandatory_artifacts_resource_ids_linux=None, mandatory_artifacts_resource_ids_windows=None, name=None, premium_data_disks=None, resource_group_name=None, support=None, tags=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 announcement: Optional[pulumi.Input[pulumi.InputType['LabAnnouncementPropertiesArgs']]] = None,
+                 environment_permission: Optional[pulumi.Input[str]] = None,
+                 extended_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 lab_storage_type: Optional[pulumi.Input[str]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 mandatory_artifacts_resource_ids_linux: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 mandatory_artifacts_resource_ids_windows: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 premium_data_disks: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 support: Optional[pulumi.Input[pulumi.InputType['LabSupportPropertiesArgs']]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         A lab.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[dict] announcement: The properties of any lab announcement associated with this lab
+        :param pulumi.Input[pulumi.InputType['LabAnnouncementPropertiesArgs']] announcement: The properties of any lab announcement associated with this lab
         :param pulumi.Input[str] environment_permission: The access rights to be granted to the user when provisioning an environment
-        :param pulumi.Input[dict] extended_properties: Extended properties of the lab used for experimental features
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] extended_properties: Extended properties of the lab used for experimental features
         :param pulumi.Input[str] lab_storage_type: Type of storage used by the lab. It can be either Premium or Standard. Default is Premium.
         :param pulumi.Input[str] location: The location of the resource.
-        :param pulumi.Input[list] mandatory_artifacts_resource_ids_linux: The ordered list of artifact resource IDs that should be applied on all Linux VM creations by default, prior to the artifacts specified by the user.
-        :param pulumi.Input[list] mandatory_artifacts_resource_ids_windows: The ordered list of artifact resource IDs that should be applied on all Windows VM creations by default, prior to the artifacts specified by the user.
+        :param pulumi.Input[List[pulumi.Input[str]]] mandatory_artifacts_resource_ids_linux: The ordered list of artifact resource IDs that should be applied on all Linux VM creations by default, prior to the artifacts specified by the user.
+        :param pulumi.Input[List[pulumi.Input[str]]] mandatory_artifacts_resource_ids_windows: The ordered list of artifact resource IDs that should be applied on all Windows VM creations by default, prior to the artifacts specified by the user.
         :param pulumi.Input[str] name: The name of the lab.
         :param pulumi.Input[str] premium_data_disks: The setting to enable usage of premium data disks.
                When its value is 'Enabled', creation of standard or premium data disks is allowed.
                When its value is 'Disabled', only creation of standard data disks is allowed.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
-        :param pulumi.Input[dict] support: The properties of any lab support message associated with this lab
-        :param pulumi.Input[dict] tags: The tags of the resource.
-
-        The **announcement** object supports the following:
-
-          * `enabled` (`pulumi.Input[str]`) - Is the lab announcement active/enabled at this time?
-          * `expiration_date` (`pulumi.Input[str]`) - The time at which the announcement expires (null for never)
-          * `expired` (`pulumi.Input[bool]`) - Has this announcement expired?
-          * `markdown` (`pulumi.Input[str]`) - The markdown text (if any) that this lab displays in the UI. If left empty/null, nothing will be shown.
-          * `title` (`pulumi.Input[str]`) - The plain text title for the lab announcement
-
-        The **support** object supports the following:
-
-          * `enabled` (`pulumi.Input[str]`) - Is the lab support banner active/enabled at this time?
-          * `markdown` (`pulumi.Input[str]`) - The markdown text (if any) that this lab displays in the UI. If left empty/null, nothing will be shown.
+        :param pulumi.Input[pulumi.InputType['LabSupportPropertiesArgs']] support: The properties of any lab support message associated with this lab
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The tags of the resource.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -206,13 +107,15 @@ class Lab(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None) -> 'Lab':
         """
         Get an existing Lab resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -221,8 +124,203 @@ class Lab(pulumi.CustomResource):
 
         return Lab(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter
+    def announcement(self) -> Optional['outputs.LabAnnouncementPropertiesResponse']:
+        """
+        The properties of any lab announcement associated with this lab
+        """
+        return pulumi.get(self, "announcement")
+
+    @property
+    @pulumi.getter(name="artifactsStorageAccount")
+    def artifacts_storage_account(self) -> str:
+        """
+        The lab's artifact storage account.
+        """
+        return pulumi.get(self, "artifacts_storage_account")
+
+    @property
+    @pulumi.getter(name="createdDate")
+    def created_date(self) -> str:
+        """
+        The creation date of the lab.
+        """
+        return pulumi.get(self, "created_date")
+
+    @property
+    @pulumi.getter(name="defaultPremiumStorageAccount")
+    def default_premium_storage_account(self) -> str:
+        """
+        The lab's default premium storage account.
+        """
+        return pulumi.get(self, "default_premium_storage_account")
+
+    @property
+    @pulumi.getter(name="defaultStorageAccount")
+    def default_storage_account(self) -> str:
+        """
+        The lab's default storage account.
+        """
+        return pulumi.get(self, "default_storage_account")
+
+    @property
+    @pulumi.getter(name="environmentPermission")
+    def environment_permission(self) -> Optional[str]:
+        """
+        The access rights to be granted to the user when provisioning an environment
+        """
+        return pulumi.get(self, "environment_permission")
+
+    @property
+    @pulumi.getter(name="extendedProperties")
+    def extended_properties(self) -> Optional[Mapping[str, str]]:
+        """
+        Extended properties of the lab used for experimental features
+        """
+        return pulumi.get(self, "extended_properties")
+
+    @property
+    @pulumi.getter(name="labStorageType")
+    def lab_storage_type(self) -> Optional[str]:
+        """
+        Type of storage used by the lab. It can be either Premium or Standard. Default is Premium.
+        """
+        return pulumi.get(self, "lab_storage_type")
+
+    @property
+    @pulumi.getter(name="loadBalancerId")
+    def load_balancer_id(self) -> str:
+        """
+        The load balancer used to for lab VMs that use shared IP address.
+        """
+        return pulumi.get(self, "load_balancer_id")
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[str]:
+        """
+        The location of the resource.
+        """
+        return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter(name="mandatoryArtifactsResourceIdsLinux")
+    def mandatory_artifacts_resource_ids_linux(self) -> Optional[List[str]]:
+        """
+        The ordered list of artifact resource IDs that should be applied on all Linux VM creations by default, prior to the artifacts specified by the user.
+        """
+        return pulumi.get(self, "mandatory_artifacts_resource_ids_linux")
+
+    @property
+    @pulumi.getter(name="mandatoryArtifactsResourceIdsWindows")
+    def mandatory_artifacts_resource_ids_windows(self) -> Optional[List[str]]:
+        """
+        The ordered list of artifact resource IDs that should be applied on all Windows VM creations by default, prior to the artifacts specified by the user.
+        """
+        return pulumi.get(self, "mandatory_artifacts_resource_ids_windows")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the resource.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="networkSecurityGroupId")
+    def network_security_group_id(self) -> str:
+        """
+        The Network Security Group attached to the lab VMs Network interfaces to restrict open ports.
+        """
+        return pulumi.get(self, "network_security_group_id")
+
+    @property
+    @pulumi.getter(name="premiumDataDiskStorageAccount")
+    def premium_data_disk_storage_account(self) -> str:
+        """
+        The lab's premium data disk storage account.
+        """
+        return pulumi.get(self, "premium_data_disk_storage_account")
+
+    @property
+    @pulumi.getter(name="premiumDataDisks")
+    def premium_data_disks(self) -> Optional[str]:
+        """
+        The setting to enable usage of premium data disks.
+        When its value is 'Enabled', creation of standard or premium data disks is allowed.
+        When its value is 'Disabled', only creation of standard data disks is allowed.
+        """
+        return pulumi.get(self, "premium_data_disks")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        The provisioning status of the resource.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="publicIpId")
+    def public_ip_id(self) -> str:
+        """
+        The public IP address for the lab's load balancer.
+        """
+        return pulumi.get(self, "public_ip_id")
+
+    @property
+    @pulumi.getter
+    def support(self) -> Optional['outputs.LabSupportPropertiesResponse']:
+        """
+        The properties of any lab support message associated with this lab
+        """
+        return pulumi.get(self, "support")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Mapping[str, str]]:
+        """
+        The tags of the resource.
+        """
+        return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        The type of the resource.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="uniqueIdentifier")
+    def unique_identifier(self) -> str:
+        """
+        The unique immutable identifier of a resource (Guid).
+        """
+        return pulumi.get(self, "unique_identifier")
+
+    @property
+    @pulumi.getter(name="vaultName")
+    def vault_name(self) -> str:
+        """
+        The lab's Key vault.
+        """
+        return pulumi.get(self, "vault_name")
+
+    @property
+    @pulumi.getter(name="vmCreationResourceGroup")
+    def vm_creation_resource_group(self) -> str:
+        """
+        The resource group in which all new lab virtual machines will be created. To let DevTest Labs manage resource group creation, set this value to null.
+        """
+        return pulumi.get(self, "vm_creation_resource_group")
+
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

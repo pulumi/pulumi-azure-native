@@ -23,3 +23,5 @@ from .virtual_machine_extension import *
 from .virtual_machine_scale_set import *
 from .virtual_machine_scale_set_extension import *
 from .virtual_machine_scale_set_vm import *
+from ._inputs import *
+from . import outputs

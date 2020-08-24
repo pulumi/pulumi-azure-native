@@ -7,3 +7,5 @@ from .domain import *
 from .get_domain import *
 from .list_global_domain_registration_domain_recommendations import *
 from .list_top_level_domain_agreements import *
+from ._inputs import *
+from . import outputs

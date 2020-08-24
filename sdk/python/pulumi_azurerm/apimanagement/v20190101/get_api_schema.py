@@ -5,10 +5,16 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
 
+__all__ = [
+    'GetApiSchemaResult',
+    'AwaitableGetApiSchemaResult',
+    'get_api_schema',
+]
 
+@pulumi.output_type
 class GetApiSchemaResult:
     """
     Schema Contract details.
@@ -16,28 +22,48 @@ class GetApiSchemaResult:
     def __init__(__self__, content_type=None, document=None, name=None, type=None):
         if content_type and not isinstance(content_type, str):
             raise TypeError("Expected argument 'content_type' to be a str")
-        __self__.content_type = content_type
+        pulumi.set(__self__, "content_type", content_type)
+        if document and not isinstance(document, dict):
+            raise TypeError("Expected argument 'document' to be a dict")
+        pulumi.set(__self__, "document", document)
+        if name and not isinstance(name, str):
+            raise TypeError("Expected argument 'name' to be a str")
+        pulumi.set(__self__, "name", name)
+        if type and not isinstance(type, str):
+            raise TypeError("Expected argument 'type' to be a str")
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="contentType")
+    def content_type(self) -> str:
         """
         Must be a valid a media type used in a Content-Type header as defined in the RFC 2616. Media type of the schema document (e.g. application/json, application/xml). </br> - `Swagger` Schema use `application/vnd.ms-azure-apim.swagger.definitions+json` </br> - `WSDL` Schema use `application/vnd.ms-azure-apim.xsd+xml` </br> - `OpenApi` Schema use `application/vnd.oai.openapi.components+json` </br> - `WADL Schema` use `application/vnd.ms-azure-apim.wadl.grammars+xml`. 
         """
-        if document and not isinstance(document, dict):
-            raise TypeError("Expected argument 'document' to be a dict")
-        __self__.document = document
+        return pulumi.get(self, "content_type")
+
+    @property
+    @pulumi.getter
+    def document(self) -> Optional[Mapping[str, Any]]:
         """
         Properties of the Schema Document.
         """
-        if name and not isinstance(name, str):
-            raise TypeError("Expected argument 'name' to be a str")
-        __self__.name = name
+        return pulumi.get(self, "document")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
         """
         Resource name.
         """
-        if type and not isinstance(type, str):
-            raise TypeError("Expected argument 'type' to be a str")
-        __self__.type = type
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
         """
         Resource type for API Management resource.
         """
+        return pulumi.get(self, "type")
 
 
 class AwaitableGetApiSchemaResult(GetApiSchemaResult):
@@ -52,7 +78,11 @@ class AwaitableGetApiSchemaResult(GetApiSchemaResult):
             type=self.type)
 
 
-def get_api_schema(api_id=None, name=None, resource_group_name=None, service_name=None, opts=None):
+def get_api_schema(api_id: Optional[str] = None,
+                   name: Optional[str] = None,
+                   resource_group_name: Optional[str] = None,
+                   service_name: Optional[str] = None,
+                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetApiSchemaResult:
     """
     Use this data source to access information about an existing resource.
 
@@ -70,10 +100,10 @@ def get_api_schema(api_id=None, name=None, resource_group_name=None, service_nam
         opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = _utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('azurerm:apimanagement/v20190101:getApiSchema', __args__, opts=opts).value
+    __ret__ = pulumi.runtime.invoke('azurerm:apimanagement/v20190101:getApiSchema', __args__, opts=opts, typ=GetApiSchemaResult).value
 
     return AwaitableGetApiSchemaResult(
-        content_type=__ret__.get('contentType'),
-        document=__ret__.get('document'),
-        name=__ret__.get('name'),
-        type=__ret__.get('type'))
+        content_type=__ret__.content_type,
+        document=__ret__.document,
+        name=__ret__.name,
+        type=__ret__.type)

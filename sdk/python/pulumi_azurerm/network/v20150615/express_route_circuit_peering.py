@@ -5,78 +5,39 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+from . import outputs
+from ._inputs import *
+
+__all__ = ['ExpressRouteCircuitPeering']
 
 
 class ExpressRouteCircuitPeering(pulumi.CustomResource):
-    azure_asn: pulumi.Output[float]
-    """
-    The Azure ASN.
-    """
-    etag: pulumi.Output[str]
-    """
-    A unique read-only string that changes whenever the resource is updated.
-    """
-    microsoft_peering_config: pulumi.Output[dict]
-    """
-    The Microsoft peering configuration.
-      * `advertised_public_prefixes` (`list`) - The reference of AdvertisedPublicPrefixes.
-      * `advertised_public_prefixes_state` (`str`) - AdvertisedPublicPrefixState of the Peering resource. Possible values are 'NotConfigured', 'Configuring', 'Configured', and 'ValidationNeeded'.
-      * `customer_asn` (`float`) - The CustomerASN of the peering.
-      * `routing_registry_name` (`str`) - The RoutingRegistryName of the configuration.
-    """
-    name: pulumi.Output[str]
-    """
-    Gets name of the resource that is unique within a resource group. This name can be used to access the resource.
-    """
-    peer_asn: pulumi.Output[float]
-    """
-    The peer ASN.
-    """
-    peering_type: pulumi.Output[str]
-    """
-    The PeeringType. Possible values are: 'AzurePublicPeering', 'AzurePrivatePeering', and 'MicrosoftPeering'.
-    """
-    primary_azure_port: pulumi.Output[str]
-    """
-    The primary port.
-    """
-    primary_peer_address_prefix: pulumi.Output[str]
-    """
-    The primary address prefix.
-    """
-    provisioning_state: pulumi.Output[str]
-    """
-    Gets the provisioning state of the public IP resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
-    """
-    secondary_azure_port: pulumi.Output[str]
-    """
-    The secondary port.
-    """
-    secondary_peer_address_prefix: pulumi.Output[str]
-    """
-    The secondary address prefix.
-    """
-    shared_key: pulumi.Output[str]
-    """
-    The shared key.
-    """
-    state: pulumi.Output[str]
-    """
-    The state of peering. Possible values are: 'Disabled' and 'Enabled'
-    """
-    stats: pulumi.Output[dict]
-    """
-    Gets peering stats.
-      * `bytes_in` (`float`) - Gets BytesIn of the peering.
-      * `bytes_out` (`float`) - Gets BytesOut of the peering.
-    """
-    vlan_id: pulumi.Output[float]
-    """
-    The VLAN ID.
-    """
-    def __init__(__self__, resource_name, opts=None, azure_asn=None, circuit_name=None, etag=None, id=None, microsoft_peering_config=None, name=None, peer_asn=None, peering_type=None, primary_azure_port=None, primary_peer_address_prefix=None, provisioning_state=None, resource_group_name=None, secondary_azure_port=None, secondary_peer_address_prefix=None, shared_key=None, state=None, stats=None, vlan_id=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 azure_asn: Optional[pulumi.Input[float]] = None,
+                 circuit_name: Optional[pulumi.Input[str]] = None,
+                 etag: Optional[pulumi.Input[str]] = None,
+                 id: Optional[pulumi.Input[str]] = None,
+                 microsoft_peering_config: Optional[pulumi.Input[pulumi.InputType['ExpressRouteCircuitPeeringConfigArgs']]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 peer_asn: Optional[pulumi.Input[float]] = None,
+                 peering_type: Optional[pulumi.Input[str]] = None,
+                 primary_azure_port: Optional[pulumi.Input[str]] = None,
+                 primary_peer_address_prefix: Optional[pulumi.Input[str]] = None,
+                 provisioning_state: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 secondary_azure_port: Optional[pulumi.Input[str]] = None,
+                 secondary_peer_address_prefix: Optional[pulumi.Input[str]] = None,
+                 shared_key: Optional[pulumi.Input[str]] = None,
+                 state: Optional[pulumi.Input[str]] = None,
+                 stats: Optional[pulumi.Input[pulumi.InputType['ExpressRouteCircuitStatsArgs']]] = None,
+                 vlan_id: Optional[pulumi.Input[float]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         Peering in an ExpressRouteCircuit resource.
 
@@ -86,7 +47,7 @@ class ExpressRouteCircuitPeering(pulumi.CustomResource):
         :param pulumi.Input[str] circuit_name: The name of the express route circuit.
         :param pulumi.Input[str] etag: A unique read-only string that changes whenever the resource is updated.
         :param pulumi.Input[str] id: Resource Identifier.
-        :param pulumi.Input[dict] microsoft_peering_config: The Microsoft peering configuration.
+        :param pulumi.Input[pulumi.InputType['ExpressRouteCircuitPeeringConfigArgs']] microsoft_peering_config: The Microsoft peering configuration.
         :param pulumi.Input[str] name: The name of the peering.
         :param pulumi.Input[float] peer_asn: The peer ASN.
         :param pulumi.Input[str] peering_type: The PeeringType. Possible values are: 'AzurePublicPeering', 'AzurePrivatePeering', and 'MicrosoftPeering'.
@@ -98,20 +59,8 @@ class ExpressRouteCircuitPeering(pulumi.CustomResource):
         :param pulumi.Input[str] secondary_peer_address_prefix: The secondary address prefix.
         :param pulumi.Input[str] shared_key: The shared key.
         :param pulumi.Input[str] state: The state of peering. Possible values are: 'Disabled' and 'Enabled'
-        :param pulumi.Input[dict] stats: Gets peering stats.
+        :param pulumi.Input[pulumi.InputType['ExpressRouteCircuitStatsArgs']] stats: Gets peering stats.
         :param pulumi.Input[float] vlan_id: The VLAN ID.
-
-        The **microsoft_peering_config** object supports the following:
-
-          * `advertised_public_prefixes` (`pulumi.Input[list]`) - The reference of AdvertisedPublicPrefixes.
-          * `advertised_public_prefixes_state` (`pulumi.Input[str]`) - AdvertisedPublicPrefixState of the Peering resource. Possible values are 'NotConfigured', 'Configuring', 'Configured', and 'ValidationNeeded'.
-          * `customer_asn` (`pulumi.Input[float]`) - The CustomerASN of the peering.
-          * `routing_registry_name` (`pulumi.Input[str]`) - The RoutingRegistryName of the configuration.
-
-        The **stats** object supports the following:
-
-          * `bytes_in` (`pulumi.Input[float]`) - Gets BytesIn of the peering.
-          * `bytes_out` (`pulumi.Input[float]`) - Gets BytesOut of the peering.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -163,13 +112,15 @@ class ExpressRouteCircuitPeering(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None) -> 'ExpressRouteCircuitPeering':
         """
         Get an existing ExpressRouteCircuitPeering resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -178,8 +129,129 @@ class ExpressRouteCircuitPeering(pulumi.CustomResource):
 
         return ExpressRouteCircuitPeering(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter(name="azureASN")
+    def azure_asn(self) -> Optional[float]:
+        """
+        The Azure ASN.
+        """
+        return pulumi.get(self, "azure_asn")
+
+    @property
+    @pulumi.getter
+    def etag(self) -> Optional[str]:
+        """
+        A unique read-only string that changes whenever the resource is updated.
+        """
+        return pulumi.get(self, "etag")
+
+    @property
+    @pulumi.getter(name="microsoftPeeringConfig")
+    def microsoft_peering_config(self) -> Optional['outputs.ExpressRouteCircuitPeeringConfigResponse']:
+        """
+        The Microsoft peering configuration.
+        """
+        return pulumi.get(self, "microsoft_peering_config")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        Gets name of the resource that is unique within a resource group. This name can be used to access the resource.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="peerASN")
+    def peer_asn(self) -> Optional[float]:
+        """
+        The peer ASN.
+        """
+        return pulumi.get(self, "peer_asn")
+
+    @property
+    @pulumi.getter(name="peeringType")
+    def peering_type(self) -> Optional[str]:
+        """
+        The PeeringType. Possible values are: 'AzurePublicPeering', 'AzurePrivatePeering', and 'MicrosoftPeering'.
+        """
+        return pulumi.get(self, "peering_type")
+
+    @property
+    @pulumi.getter(name="primaryAzurePort")
+    def primary_azure_port(self) -> Optional[str]:
+        """
+        The primary port.
+        """
+        return pulumi.get(self, "primary_azure_port")
+
+    @property
+    @pulumi.getter(name="primaryPeerAddressPrefix")
+    def primary_peer_address_prefix(self) -> Optional[str]:
+        """
+        The primary address prefix.
+        """
+        return pulumi.get(self, "primary_peer_address_prefix")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> Optional[str]:
+        """
+        Gets the provisioning state of the public IP resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="secondaryAzurePort")
+    def secondary_azure_port(self) -> Optional[str]:
+        """
+        The secondary port.
+        """
+        return pulumi.get(self, "secondary_azure_port")
+
+    @property
+    @pulumi.getter(name="secondaryPeerAddressPrefix")
+    def secondary_peer_address_prefix(self) -> Optional[str]:
+        """
+        The secondary address prefix.
+        """
+        return pulumi.get(self, "secondary_peer_address_prefix")
+
+    @property
+    @pulumi.getter(name="sharedKey")
+    def shared_key(self) -> Optional[str]:
+        """
+        The shared key.
+        """
+        return pulumi.get(self, "shared_key")
+
+    @property
+    @pulumi.getter
+    def state(self) -> Optional[str]:
+        """
+        The state of peering. Possible values are: 'Disabled' and 'Enabled'
+        """
+        return pulumi.get(self, "state")
+
+    @property
+    @pulumi.getter
+    def stats(self) -> Optional['outputs.ExpressRouteCircuitStatsResponse']:
+        """
+        Gets peering stats.
+        """
+        return pulumi.get(self, "stats")
+
+    @property
+    @pulumi.getter(name="vlanId")
+    def vlan_id(self) -> Optional[float]:
+        """
+        The VLAN ID.
+        """
+        return pulumi.get(self, "vlan_id")
+
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

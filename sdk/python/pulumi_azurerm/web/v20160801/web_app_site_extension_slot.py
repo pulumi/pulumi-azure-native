@@ -5,96 +5,22 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+
+__all__ = ['WebAppSiteExtensionSlot']
 
 
 class WebAppSiteExtensionSlot(pulumi.CustomResource):
-    authors: pulumi.Output[list]
-    """
-    List of authors.
-    """
-    comment: pulumi.Output[str]
-    """
-    Site Extension comment.
-    """
-    description: pulumi.Output[str]
-    """
-    Detailed description.
-    """
-    download_count: pulumi.Output[float]
-    """
-    Count of downloads.
-    """
-    extension_url: pulumi.Output[str]
-    """
-    Extension URL.
-    """
-    feed_url: pulumi.Output[str]
-    """
-    Feed URL.
-    """
-    icon_url: pulumi.Output[str]
-    """
-    Icon URL.
-    """
-    installation_args: pulumi.Output[str]
-    """
-    Installer command line parameters.
-    """
-    installed_date_time: pulumi.Output[str]
-    """
-    Installed timestamp.
-    """
-    kind: pulumi.Output[str]
-    """
-    Kind of resource.
-    """
-    license_url: pulumi.Output[str]
-    """
-    License URL.
-    """
-    local_is_latest_version: pulumi.Output[bool]
-    """
-    <code>true</code> if the local version is the latest version; <code>false</code> otherwise.
-    """
-    local_path: pulumi.Output[str]
-    """
-    Local path.
-    """
-    name: pulumi.Output[str]
-    """
-    Resource Name.
-    """
-    project_url: pulumi.Output[str]
-    """
-    Project URL.
-    """
-    provisioning_state: pulumi.Output[str]
-    """
-    Provisioning state.
-    """
-    published_date_time: pulumi.Output[str]
-    """
-    Published timestamp.
-    """
-    summary: pulumi.Output[str]
-    """
-    Summary description.
-    """
-    title: pulumi.Output[str]
-    """
-    Site extension title.
-    """
-    type: pulumi.Output[str]
-    """
-    Resource type.
-    """
-    version: pulumi.Output[str]
-    """
-    Version information.
-    """
-    def __init__(__self__, resource_name, opts=None, name=None, resource_group_name=None, slot=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 slot: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         Site Extension Information.
 
@@ -159,13 +85,15 @@ class WebAppSiteExtensionSlot(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None) -> 'WebAppSiteExtensionSlot':
         """
         Get an existing WebAppSiteExtensionSlot resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -174,8 +102,177 @@ class WebAppSiteExtensionSlot(pulumi.CustomResource):
 
         return WebAppSiteExtensionSlot(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter
+    def authors(self) -> Optional[List[str]]:
+        """
+        List of authors.
+        """
+        return pulumi.get(self, "authors")
+
+    @property
+    @pulumi.getter
+    def comment(self) -> Optional[str]:
+        """
+        Site Extension comment.
+        """
+        return pulumi.get(self, "comment")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        """
+        Detailed description.
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="downloadCount")
+    def download_count(self) -> Optional[float]:
+        """
+        Count of downloads.
+        """
+        return pulumi.get(self, "download_count")
+
+    @property
+    @pulumi.getter(name="extensionUrl")
+    def extension_url(self) -> Optional[str]:
+        """
+        Extension URL.
+        """
+        return pulumi.get(self, "extension_url")
+
+    @property
+    @pulumi.getter(name="feedUrl")
+    def feed_url(self) -> Optional[str]:
+        """
+        Feed URL.
+        """
+        return pulumi.get(self, "feed_url")
+
+    @property
+    @pulumi.getter(name="iconUrl")
+    def icon_url(self) -> Optional[str]:
+        """
+        Icon URL.
+        """
+        return pulumi.get(self, "icon_url")
+
+    @property
+    @pulumi.getter(name="installationArgs")
+    def installation_args(self) -> Optional[str]:
+        """
+        Installer command line parameters.
+        """
+        return pulumi.get(self, "installation_args")
+
+    @property
+    @pulumi.getter(name="installedDateTime")
+    def installed_date_time(self) -> Optional[str]:
+        """
+        Installed timestamp.
+        """
+        return pulumi.get(self, "installed_date_time")
+
+    @property
+    @pulumi.getter
+    def kind(self) -> Optional[str]:
+        """
+        Kind of resource.
+        """
+        return pulumi.get(self, "kind")
+
+    @property
+    @pulumi.getter(name="licenseUrl")
+    def license_url(self) -> Optional[str]:
+        """
+        License URL.
+        """
+        return pulumi.get(self, "license_url")
+
+    @property
+    @pulumi.getter(name="localIsLatestVersion")
+    def local_is_latest_version(self) -> Optional[bool]:
+        """
+        <code>true</code> if the local version is the latest version; <code>false</code> otherwise.
+        """
+        return pulumi.get(self, "local_is_latest_version")
+
+    @property
+    @pulumi.getter(name="localPath")
+    def local_path(self) -> Optional[str]:
+        """
+        Local path.
+        """
+        return pulumi.get(self, "local_path")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Resource Name.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="projectUrl")
+    def project_url(self) -> Optional[str]:
+        """
+        Project URL.
+        """
+        return pulumi.get(self, "project_url")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> Optional[str]:
+        """
+        Provisioning state.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="publishedDateTime")
+    def published_date_time(self) -> Optional[str]:
+        """
+        Published timestamp.
+        """
+        return pulumi.get(self, "published_date_time")
+
+    @property
+    @pulumi.getter
+    def summary(self) -> Optional[str]:
+        """
+        Summary description.
+        """
+        return pulumi.get(self, "summary")
+
+    @property
+    @pulumi.getter
+    def title(self) -> Optional[str]:
+        """
+        Site extension title.
+        """
+        return pulumi.get(self, "title")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Resource type.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def version(self) -> Optional[str]:
+        """
+        Version information.
+        """
+        return pulumi.get(self, "version")
+
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

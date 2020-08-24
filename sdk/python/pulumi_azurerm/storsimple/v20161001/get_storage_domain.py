@@ -5,10 +5,17 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+from . import outputs
 
+__all__ = [
+    'GetStorageDomainResult',
+    'AwaitableGetStorageDomainResult',
+    'get_storage_domain',
+]
 
+@pulumi.output_type
 class GetStorageDomainResult:
     """
     The storage domain.
@@ -16,34 +23,59 @@ class GetStorageDomainResult:
     def __init__(__self__, encryption_key=None, encryption_status=None, name=None, storage_account_credential_ids=None, type=None):
         if encryption_key and not isinstance(encryption_key, dict):
             raise TypeError("Expected argument 'encryption_key' to be a dict")
-        __self__.encryption_key = encryption_key
+        pulumi.set(__self__, "encryption_key", encryption_key)
+        if encryption_status and not isinstance(encryption_status, str):
+            raise TypeError("Expected argument 'encryption_status' to be a str")
+        pulumi.set(__self__, "encryption_status", encryption_status)
+        if name and not isinstance(name, str):
+            raise TypeError("Expected argument 'name' to be a str")
+        pulumi.set(__self__, "name", name)
+        if storage_account_credential_ids and not isinstance(storage_account_credential_ids, list):
+            raise TypeError("Expected argument 'storage_account_credential_ids' to be a list")
+        pulumi.set(__self__, "storage_account_credential_ids", storage_account_credential_ids)
+        if type and not isinstance(type, str):
+            raise TypeError("Expected argument 'type' to be a str")
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="encryptionKey")
+    def encryption_key(self) -> Optional['outputs.AsymmetricEncryptedSecretResponse']:
         """
         The encryption key used to encrypt the data. This is a user secret.
         """
-        if encryption_status and not isinstance(encryption_status, str):
-            raise TypeError("Expected argument 'encryption_status' to be a str")
-        __self__.encryption_status = encryption_status
+        return pulumi.get(self, "encryption_key")
+
+    @property
+    @pulumi.getter(name="encryptionStatus")
+    def encryption_status(self) -> str:
         """
         The encryption status "Enabled | Disabled".
         """
-        if name and not isinstance(name, str):
-            raise TypeError("Expected argument 'name' to be a str")
-        __self__.name = name
+        return pulumi.get(self, "encryption_status")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
         """
         The name.
         """
-        if storage_account_credential_ids and not isinstance(storage_account_credential_ids, list):
-            raise TypeError("Expected argument 'storage_account_credential_ids' to be a list")
-        __self__.storage_account_credential_ids = storage_account_credential_ids
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="storageAccountCredentialIds")
+    def storage_account_credential_ids(self) -> List[str]:
         """
         The storage account credentials.
         """
-        if type and not isinstance(type, str):
-            raise TypeError("Expected argument 'type' to be a str")
-        __self__.type = type
+        return pulumi.get(self, "storage_account_credential_ids")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
         """
         The type.
         """
+        return pulumi.get(self, "type")
 
 
 class AwaitableGetStorageDomainResult(GetStorageDomainResult):
@@ -59,7 +91,10 @@ class AwaitableGetStorageDomainResult(GetStorageDomainResult):
             type=self.type)
 
 
-def get_storage_domain(manager_name=None, name=None, resource_group_name=None, opts=None):
+def get_storage_domain(manager_name: Optional[str] = None,
+                       name: Optional[str] = None,
+                       resource_group_name: Optional[str] = None,
+                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetStorageDomainResult:
     """
     Use this data source to access information about an existing resource.
 
@@ -75,11 +110,11 @@ def get_storage_domain(manager_name=None, name=None, resource_group_name=None, o
         opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = _utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('azurerm:storsimple/v20161001:getStorageDomain', __args__, opts=opts).value
+    __ret__ = pulumi.runtime.invoke('azurerm:storsimple/v20161001:getStorageDomain', __args__, opts=opts, typ=GetStorageDomainResult).value
 
     return AwaitableGetStorageDomainResult(
-        encryption_key=__ret__.get('encryptionKey'),
-        encryption_status=__ret__.get('encryptionStatus'),
-        name=__ret__.get('name'),
-        storage_account_credential_ids=__ret__.get('storageAccountCredentialIds'),
-        type=__ret__.get('type'))
+        encryption_key=__ret__.encryption_key,
+        encryption_status=__ret__.encryption_status,
+        name=__ret__.name,
+        storage_account_credential_ids=__ret__.storage_account_credential_ids,
+        type=__ret__.type)

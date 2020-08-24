@@ -5,108 +5,31 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+from . import outputs
+from ._inputs import *
+
+__all__ = ['ConnectorMapping']
 
 
 class ConnectorMapping(pulumi.CustomResource):
-    connector_mapping_name: pulumi.Output[str]
-    """
-    The connector mapping name
-    """
-    connector_name: pulumi.Output[str]
-    """
-    The connector name.
-    """
-    connector_type: pulumi.Output[str]
-    """
-    Type of connector.
-    """
-    created: pulumi.Output[str]
-    """
-    The created time.
-    """
-    data_format_id: pulumi.Output[str]
-    """
-    The DataFormat ID.
-    """
-    description: pulumi.Output[str]
-    """
-    The description of the connector mapping.
-    """
-    display_name: pulumi.Output[str]
-    """
-    Display name for the connector mapping.
-    """
-    entity_type: pulumi.Output[str]
-    """
-    Defines which entity type the file should map to.
-    """
-    entity_type_name: pulumi.Output[str]
-    """
-    The mapping entity name.
-    """
-    last_modified: pulumi.Output[str]
-    """
-    The last modified time.
-    """
-    mapping_properties: pulumi.Output[dict]
-    """
-    The properties of the mapping.
-      * `availability` (`dict`) - The availability of mapping property.
-        * `frequency` (`str`) - The frequency to update.
-        * `interval` (`float`) - The interval of the given frequency to use.
-
-      * `complete_operation` (`dict`) - The operation after import is done.
-        * `completion_operation_type` (`str`) - The type of completion operation.
-        * `destination_folder` (`str`) - The destination folder where files will be moved to once the import is done.
-
-      * `error_management` (`dict`) - The error management setting for the mapping.
-        * `error_limit` (`float`) - The error limit allowed while importing data.
-        * `error_management_type` (`str`) - The type of error management to use for the mapping.
-
-      * `file_filter` (`str`) - The file filter for the mapping.
-      * `folder_path` (`str`) - The folder path for the mapping.
-      * `format` (`dict`) - The format of mapping property.
-        * `accept_language` (`str`) - The oData language.
-        * `array_separator` (`str`) - Character separating array elements.
-        * `column_delimiter` (`str`) - The character that signifies a break between columns.
-        * `format_type` (`str`) - The type mapping format.
-        * `quote_character` (`str`) - Quote character, used to indicate enquoted fields.
-        * `quote_escape_character` (`str`) - Escape character for quotes, can be the same as the quoteCharacter.
-
-      * `has_header` (`bool`) - If the file contains a header or not.
-      * `structure` (`list`) - Ingestion mapping information at property level.
-        * `column_name` (`str`) - The column name of the import file.
-        * `custom_format_specifier` (`str`) - Custom format specifier for input parsing.
-        * `is_encrypted` (`bool`) - Indicates if the column is encrypted.
-        * `property_name` (`str`) - The property name of the mapping entity.
-    """
-    name: pulumi.Output[str]
-    """
-    Resource name.
-    """
-    next_run_time: pulumi.Output[str]
-    """
-    The next run time based on customer's settings.
-    """
-    run_id: pulumi.Output[str]
-    """
-    The RunId.
-    """
-    state: pulumi.Output[str]
-    """
-    State of connector mapping.
-    """
-    tenant_id: pulumi.Output[str]
-    """
-    The hub name.
-    """
-    type: pulumi.Output[str]
-    """
-    Resource type.
-    """
-    def __init__(__self__, resource_name, opts=None, connector_name=None, connector_type=None, description=None, display_name=None, entity_type=None, entity_type_name=None, hub_name=None, mapping_properties=None, name=None, resource_group_name=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 connector_name: Optional[pulumi.Input[str]] = None,
+                 connector_type: Optional[pulumi.Input[str]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 display_name: Optional[pulumi.Input[str]] = None,
+                 entity_type: Optional[pulumi.Input[str]] = None,
+                 entity_type_name: Optional[pulumi.Input[str]] = None,
+                 hub_name: Optional[pulumi.Input[str]] = None,
+                 mapping_properties: Optional[pulumi.Input[pulumi.InputType['ConnectorMappingPropertiesArgs']]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         The connector mapping resource format.
 
@@ -119,40 +42,9 @@ class ConnectorMapping(pulumi.CustomResource):
         :param pulumi.Input[str] entity_type: Defines which entity type the file should map to.
         :param pulumi.Input[str] entity_type_name: The mapping entity name.
         :param pulumi.Input[str] hub_name: The name of the hub.
-        :param pulumi.Input[dict] mapping_properties: The properties of the mapping.
+        :param pulumi.Input[pulumi.InputType['ConnectorMappingPropertiesArgs']] mapping_properties: The properties of the mapping.
         :param pulumi.Input[str] name: The name of the connector mapping.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
-
-        The **mapping_properties** object supports the following:
-
-          * `availability` (`pulumi.Input[dict]`) - The availability of mapping property.
-            * `frequency` (`pulumi.Input[str]`) - The frequency to update.
-            * `interval` (`pulumi.Input[float]`) - The interval of the given frequency to use.
-
-          * `complete_operation` (`pulumi.Input[dict]`) - The operation after import is done.
-            * `completion_operation_type` (`pulumi.Input[str]`) - The type of completion operation.
-            * `destination_folder` (`pulumi.Input[str]`) - The destination folder where files will be moved to once the import is done.
-
-          * `error_management` (`pulumi.Input[dict]`) - The error management setting for the mapping.
-            * `error_limit` (`pulumi.Input[float]`) - The error limit allowed while importing data.
-            * `error_management_type` (`pulumi.Input[str]`) - The type of error management to use for the mapping.
-
-          * `file_filter` (`pulumi.Input[str]`) - The file filter for the mapping.
-          * `folder_path` (`pulumi.Input[str]`) - The folder path for the mapping.
-          * `format` (`pulumi.Input[dict]`) - The format of mapping property.
-            * `accept_language` (`pulumi.Input[str]`) - The oData language.
-            * `array_separator` (`pulumi.Input[str]`) - Character separating array elements.
-            * `column_delimiter` (`pulumi.Input[str]`) - The character that signifies a break between columns.
-            * `format_type` (`pulumi.Input[str]`) - The type mapping format.
-            * `quote_character` (`pulumi.Input[str]`) - Quote character, used to indicate enquoted fields.
-            * `quote_escape_character` (`pulumi.Input[str]`) - Escape character for quotes, can be the same as the quoteCharacter.
-
-          * `has_header` (`pulumi.Input[bool]`) - If the file contains a header or not.
-          * `structure` (`pulumi.Input[list]`) - Ingestion mapping information at property level.
-            * `column_name` (`pulumi.Input[str]`) - The column name of the import file.
-            * `custom_format_specifier` (`pulumi.Input[str]`) - Custom format specifier for input parsing.
-            * `is_encrypted` (`pulumi.Input[bool]`) - Indicates if the column is encrypted.
-            * `property_name` (`pulumi.Input[str]`) - The property name of the mapping entity.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -213,13 +105,15 @@ class ConnectorMapping(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None) -> 'ConnectorMapping':
         """
         Get an existing ConnectorMapping resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -228,8 +122,145 @@ class ConnectorMapping(pulumi.CustomResource):
 
         return ConnectorMapping(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter(name="connectorMappingName")
+    def connector_mapping_name(self) -> str:
+        """
+        The connector mapping name
+        """
+        return pulumi.get(self, "connector_mapping_name")
+
+    @property
+    @pulumi.getter(name="connectorName")
+    def connector_name(self) -> str:
+        """
+        The connector name.
+        """
+        return pulumi.get(self, "connector_name")
+
+    @property
+    @pulumi.getter(name="connectorType")
+    def connector_type(self) -> Optional[str]:
+        """
+        Type of connector.
+        """
+        return pulumi.get(self, "connector_type")
+
+    @property
+    @pulumi.getter
+    def created(self) -> str:
+        """
+        The created time.
+        """
+        return pulumi.get(self, "created")
+
+    @property
+    @pulumi.getter(name="dataFormatId")
+    def data_format_id(self) -> str:
+        """
+        The DataFormat ID.
+        """
+        return pulumi.get(self, "data_format_id")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        """
+        The description of the connector mapping.
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="displayName")
+    def display_name(self) -> Optional[str]:
+        """
+        Display name for the connector mapping.
+        """
+        return pulumi.get(self, "display_name")
+
+    @property
+    @pulumi.getter(name="entityType")
+    def entity_type(self) -> str:
+        """
+        Defines which entity type the file should map to.
+        """
+        return pulumi.get(self, "entity_type")
+
+    @property
+    @pulumi.getter(name="entityTypeName")
+    def entity_type_name(self) -> str:
+        """
+        The mapping entity name.
+        """
+        return pulumi.get(self, "entity_type_name")
+
+    @property
+    @pulumi.getter(name="lastModified")
+    def last_modified(self) -> str:
+        """
+        The last modified time.
+        """
+        return pulumi.get(self, "last_modified")
+
+    @property
+    @pulumi.getter(name="mappingProperties")
+    def mapping_properties(self) -> 'outputs.ConnectorMappingPropertiesResponse':
+        """
+        The properties of the mapping.
+        """
+        return pulumi.get(self, "mapping_properties")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Resource name.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="nextRunTime")
+    def next_run_time(self) -> str:
+        """
+        The next run time based on customer's settings.
+        """
+        return pulumi.get(self, "next_run_time")
+
+    @property
+    @pulumi.getter(name="runId")
+    def run_id(self) -> str:
+        """
+        The RunId.
+        """
+        return pulumi.get(self, "run_id")
+
+    @property
+    @pulumi.getter
+    def state(self) -> str:
+        """
+        State of connector mapping.
+        """
+        return pulumi.get(self, "state")
+
+    @property
+    @pulumi.getter(name="tenantId")
+    def tenant_id(self) -> str:
+        """
+        The hub name.
+        """
+        return pulumi.get(self, "tenant_id")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Resource type.
+        """
+        return pulumi.get(self, "type")
+
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

@@ -5,69 +5,32 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+from . import outputs
+from ._inputs import *
+
+__all__ = ['VpnConnection']
 
 
 class VpnConnection(pulumi.CustomResource):
-    connection_bandwidth_in_mbps: pulumi.Output[float]
-    """
-    Expected bandwidth in MBPS.
-    """
-    connection_status: pulumi.Output[str]
-    """
-    The connection status.
-    """
-    egress_bytes_transferred: pulumi.Output[float]
-    """
-    Egress bytes transferred.
-    """
-    enable_bgp: pulumi.Output[bool]
-    """
-    EnableBgp flag
-    """
-    etag: pulumi.Output[str]
-    """
-    Gets a unique read-only string that changes whenever the resource is updated.
-    """
-    ingress_bytes_transferred: pulumi.Output[float]
-    """
-    Ingress bytes transferred.
-    """
-    ipsec_policies: pulumi.Output[list]
-    """
-    The IPSec Policies to be considered by this connection.
-      * `dh_group` (`str`) - The DH Groups used in IKE Phase 1 for initial SA.
-      * `ike_encryption` (`str`) - The IKE encryption algorithm (IKE phase 2).
-      * `ike_integrity` (`str`) - The IKE integrity algorithm (IKE phase 2).
-      * `ipsec_encryption` (`str`) - The IPSec encryption algorithm (IKE phase 1).
-      * `ipsec_integrity` (`str`) - The IPSec integrity algorithm (IKE phase 1).
-      * `pfs_group` (`str`) - The Pfs Groups used in IKE Phase 2 for new child SA.
-      * `sa_data_size_kilobytes` (`float`) - The IPSec Security Association (also called Quick Mode or Phase 2 SA) payload size in KB for a site to site VPN tunnel.
-      * `sa_life_time_seconds` (`float`) - The IPSec Security Association (also called Quick Mode or Phase 2 SA) lifetime in seconds for a site to site VPN tunnel.
-    """
-    name: pulumi.Output[str]
-    """
-    The name of the resource that is unique within a resource group. This name can be used to access the resource.
-    """
-    provisioning_state: pulumi.Output[str]
-    """
-    The provisioning state of the resource.
-    """
-    remote_vpn_site: pulumi.Output[dict]
-    """
-    Id of the connected vpn site.
-      * `id` (`str`) - Resource ID.
-    """
-    routing_weight: pulumi.Output[float]
-    """
-    routing weight for vpn connection.
-    """
-    shared_key: pulumi.Output[str]
-    """
-    SharedKey for the vpn connection.
-    """
-    def __init__(__self__, resource_name, opts=None, connection_status=None, enable_bgp=None, gateway_name=None, id=None, ipsec_policies=None, name=None, provisioning_state=None, remote_vpn_site=None, resource_group_name=None, routing_weight=None, shared_key=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 connection_status: Optional[pulumi.Input[str]] = None,
+                 enable_bgp: Optional[pulumi.Input[bool]] = None,
+                 gateway_name: Optional[pulumi.Input[str]] = None,
+                 id: Optional[pulumi.Input[str]] = None,
+                 ipsec_policies: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['IpsecPolicyArgs']]]]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 provisioning_state: Optional[pulumi.Input[str]] = None,
+                 remote_vpn_site: Optional[pulumi.Input[pulumi.InputType['SubResourceArgs']]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 routing_weight: Optional[pulumi.Input[float]] = None,
+                 shared_key: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         VpnConnection Resource.
 
@@ -77,28 +40,13 @@ class VpnConnection(pulumi.CustomResource):
         :param pulumi.Input[bool] enable_bgp: EnableBgp flag
         :param pulumi.Input[str] gateway_name: The name of the gateway.
         :param pulumi.Input[str] id: Resource ID.
-        :param pulumi.Input[list] ipsec_policies: The IPSec Policies to be considered by this connection.
+        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['IpsecPolicyArgs']]]] ipsec_policies: The IPSec Policies to be considered by this connection.
         :param pulumi.Input[str] name: The name of the connection.
         :param pulumi.Input[str] provisioning_state: The provisioning state of the resource.
-        :param pulumi.Input[dict] remote_vpn_site: Id of the connected vpn site.
+        :param pulumi.Input[pulumi.InputType['SubResourceArgs']] remote_vpn_site: Id of the connected vpn site.
         :param pulumi.Input[str] resource_group_name: The resource group name of the VpnGateway.
         :param pulumi.Input[float] routing_weight: routing weight for vpn connection.
         :param pulumi.Input[str] shared_key: SharedKey for the vpn connection.
-
-        The **ipsec_policies** object supports the following:
-
-          * `dh_group` (`pulumi.Input[str]`) - The DH Groups used in IKE Phase 1 for initial SA.
-          * `ike_encryption` (`pulumi.Input[str]`) - The IKE encryption algorithm (IKE phase 2).
-          * `ike_integrity` (`pulumi.Input[str]`) - The IKE integrity algorithm (IKE phase 2).
-          * `ipsec_encryption` (`pulumi.Input[str]`) - The IPSec encryption algorithm (IKE phase 1).
-          * `ipsec_integrity` (`pulumi.Input[str]`) - The IPSec integrity algorithm (IKE phase 1).
-          * `pfs_group` (`pulumi.Input[str]`) - The Pfs Groups used in IKE Phase 2 for new child SA.
-          * `sa_data_size_kilobytes` (`pulumi.Input[float]`) - The IPSec Security Association (also called Quick Mode or Phase 2 SA) payload size in KB for a site to site VPN tunnel.
-          * `sa_life_time_seconds` (`pulumi.Input[float]`) - The IPSec Security Association (also called Quick Mode or Phase 2 SA) lifetime in seconds for a site to site VPN tunnel.
-
-        The **remote_vpn_site** object supports the following:
-
-          * `id` (`pulumi.Input[str]`) - Resource ID.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -147,13 +95,15 @@ class VpnConnection(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None) -> 'VpnConnection':
         """
         Get an existing VpnConnection resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -162,8 +112,105 @@ class VpnConnection(pulumi.CustomResource):
 
         return VpnConnection(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter(name="connectionBandwidthInMbps")
+    def connection_bandwidth_in_mbps(self) -> float:
+        """
+        Expected bandwidth in MBPS.
+        """
+        return pulumi.get(self, "connection_bandwidth_in_mbps")
+
+    @property
+    @pulumi.getter(name="connectionStatus")
+    def connection_status(self) -> Optional[str]:
+        """
+        The connection status.
+        """
+        return pulumi.get(self, "connection_status")
+
+    @property
+    @pulumi.getter(name="egressBytesTransferred")
+    def egress_bytes_transferred(self) -> float:
+        """
+        Egress bytes transferred.
+        """
+        return pulumi.get(self, "egress_bytes_transferred")
+
+    @property
+    @pulumi.getter(name="enableBgp")
+    def enable_bgp(self) -> Optional[bool]:
+        """
+        EnableBgp flag
+        """
+        return pulumi.get(self, "enable_bgp")
+
+    @property
+    @pulumi.getter
+    def etag(self) -> str:
+        """
+        Gets a unique read-only string that changes whenever the resource is updated.
+        """
+        return pulumi.get(self, "etag")
+
+    @property
+    @pulumi.getter(name="ingressBytesTransferred")
+    def ingress_bytes_transferred(self) -> float:
+        """
+        Ingress bytes transferred.
+        """
+        return pulumi.get(self, "ingress_bytes_transferred")
+
+    @property
+    @pulumi.getter(name="ipsecPolicies")
+    def ipsec_policies(self) -> Optional[List['outputs.IpsecPolicyResponse']]:
+        """
+        The IPSec Policies to be considered by this connection.
+        """
+        return pulumi.get(self, "ipsec_policies")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        The name of the resource that is unique within a resource group. This name can be used to access the resource.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> Optional[str]:
+        """
+        The provisioning state of the resource.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="remoteVpnSite")
+    def remote_vpn_site(self) -> Optional['outputs.SubResourceResponse']:
+        """
+        Id of the connected vpn site.
+        """
+        return pulumi.get(self, "remote_vpn_site")
+
+    @property
+    @pulumi.getter(name="routingWeight")
+    def routing_weight(self) -> Optional[float]:
+        """
+        routing weight for vpn connection.
+        """
+        return pulumi.get(self, "routing_weight")
+
+    @property
+    @pulumi.getter(name="sharedKey")
+    def shared_key(self) -> Optional[str]:
+        """
+        SharedKey for the vpn connection.
+        """
+        return pulumi.get(self, "shared_key")
+
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

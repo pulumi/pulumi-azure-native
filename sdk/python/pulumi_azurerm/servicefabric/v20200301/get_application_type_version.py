@@ -5,10 +5,16 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
 
+__all__ = [
+    'GetApplicationTypeVersionResult',
+    'AwaitableGetApplicationTypeVersionResult',
+    'get_application_type_version',
+]
 
+@pulumi.output_type
 class GetApplicationTypeVersionResult:
     """
     An application type version resource for the specified application type name resource.
@@ -16,52 +22,92 @@ class GetApplicationTypeVersionResult:
     def __init__(__self__, app_package_url=None, default_parameter_list=None, etag=None, location=None, name=None, provisioning_state=None, tags=None, type=None):
         if app_package_url and not isinstance(app_package_url, str):
             raise TypeError("Expected argument 'app_package_url' to be a str")
-        __self__.app_package_url = app_package_url
+        pulumi.set(__self__, "app_package_url", app_package_url)
+        if default_parameter_list and not isinstance(default_parameter_list, dict):
+            raise TypeError("Expected argument 'default_parameter_list' to be a dict")
+        pulumi.set(__self__, "default_parameter_list", default_parameter_list)
+        if etag and not isinstance(etag, str):
+            raise TypeError("Expected argument 'etag' to be a str")
+        pulumi.set(__self__, "etag", etag)
+        if location and not isinstance(location, str):
+            raise TypeError("Expected argument 'location' to be a str")
+        pulumi.set(__self__, "location", location)
+        if name and not isinstance(name, str):
+            raise TypeError("Expected argument 'name' to be a str")
+        pulumi.set(__self__, "name", name)
+        if provisioning_state and not isinstance(provisioning_state, str):
+            raise TypeError("Expected argument 'provisioning_state' to be a str")
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if tags and not isinstance(tags, dict):
+            raise TypeError("Expected argument 'tags' to be a dict")
+        pulumi.set(__self__, "tags", tags)
+        if type and not isinstance(type, str):
+            raise TypeError("Expected argument 'type' to be a str")
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="appPackageUrl")
+    def app_package_url(self) -> str:
         """
         The URL to the application package
         """
-        if default_parameter_list and not isinstance(default_parameter_list, dict):
-            raise TypeError("Expected argument 'default_parameter_list' to be a dict")
-        __self__.default_parameter_list = default_parameter_list
+        return pulumi.get(self, "app_package_url")
+
+    @property
+    @pulumi.getter(name="defaultParameterList")
+    def default_parameter_list(self) -> Mapping[str, str]:
         """
         List of application type parameters that can be overridden when creating or updating the application.
         """
-        if etag and not isinstance(etag, str):
-            raise TypeError("Expected argument 'etag' to be a str")
-        __self__.etag = etag
+        return pulumi.get(self, "default_parameter_list")
+
+    @property
+    @pulumi.getter
+    def etag(self) -> str:
         """
         Azure resource etag.
         """
-        if location and not isinstance(location, str):
-            raise TypeError("Expected argument 'location' to be a str")
-        __self__.location = location
+        return pulumi.get(self, "etag")
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[str]:
         """
         It will be deprecated in New API, resource location depends on the parent resource.
         """
-        if name and not isinstance(name, str):
-            raise TypeError("Expected argument 'name' to be a str")
-        __self__.name = name
+        return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
         """
         Azure resource name.
         """
-        if provisioning_state and not isinstance(provisioning_state, str):
-            raise TypeError("Expected argument 'provisioning_state' to be a str")
-        __self__.provisioning_state = provisioning_state
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
         """
         The current deployment or provisioning state, which only appears in the response
         """
-        if tags and not isinstance(tags, dict):
-            raise TypeError("Expected argument 'tags' to be a dict")
-        __self__.tags = tags
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Mapping[str, str]]:
         """
         Azure resource tags.
         """
-        if type and not isinstance(type, str):
-            raise TypeError("Expected argument 'type' to be a str")
-        __self__.type = type
+        return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
         """
         Azure resource type.
         """
+        return pulumi.get(self, "type")
 
 
 class AwaitableGetApplicationTypeVersionResult(GetApplicationTypeVersionResult):
@@ -80,7 +126,11 @@ class AwaitableGetApplicationTypeVersionResult(GetApplicationTypeVersionResult):
             type=self.type)
 
 
-def get_application_type_version(application_type_name=None, cluster_name=None, name=None, resource_group_name=None, opts=None):
+def get_application_type_version(application_type_name: Optional[str] = None,
+                                 cluster_name: Optional[str] = None,
+                                 name: Optional[str] = None,
+                                 resource_group_name: Optional[str] = None,
+                                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetApplicationTypeVersionResult:
     """
     Use this data source to access information about an existing resource.
 
@@ -98,14 +148,14 @@ def get_application_type_version(application_type_name=None, cluster_name=None, 
         opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = _utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('azurerm:servicefabric/v20200301:getApplicationTypeVersion', __args__, opts=opts).value
+    __ret__ = pulumi.runtime.invoke('azurerm:servicefabric/v20200301:getApplicationTypeVersion', __args__, opts=opts, typ=GetApplicationTypeVersionResult).value
 
     return AwaitableGetApplicationTypeVersionResult(
-        app_package_url=__ret__.get('appPackageUrl'),
-        default_parameter_list=__ret__.get('defaultParameterList'),
-        etag=__ret__.get('etag'),
-        location=__ret__.get('location'),
-        name=__ret__.get('name'),
-        provisioning_state=__ret__.get('provisioningState'),
-        tags=__ret__.get('tags'),
-        type=__ret__.get('type'))
+        app_package_url=__ret__.app_package_url,
+        default_parameter_list=__ret__.default_parameter_list,
+        etag=__ret__.etag,
+        location=__ret__.location,
+        name=__ret__.name,
+        provisioning_state=__ret__.provisioning_state,
+        tags=__ret__.tags,
+        type=__ret__.type)

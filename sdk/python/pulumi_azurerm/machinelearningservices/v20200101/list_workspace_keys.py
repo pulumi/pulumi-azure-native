@@ -5,24 +5,51 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+from . import outputs
 
+__all__ = [
+    'ListWorkspaceKeysResult',
+    'AwaitableListWorkspaceKeysResult',
+    'list_workspace_keys',
+]
 
+@pulumi.output_type
 class ListWorkspaceKeysResult:
     def __init__(__self__, app_insights_instrumentation_key=None, container_registry_credentials=None, user_storage_key=None, user_storage_resource_id=None):
         if app_insights_instrumentation_key and not isinstance(app_insights_instrumentation_key, str):
             raise TypeError("Expected argument 'app_insights_instrumentation_key' to be a str")
-        __self__.app_insights_instrumentation_key = app_insights_instrumentation_key
+        pulumi.set(__self__, "app_insights_instrumentation_key", app_insights_instrumentation_key)
         if container_registry_credentials and not isinstance(container_registry_credentials, dict):
             raise TypeError("Expected argument 'container_registry_credentials' to be a dict")
-        __self__.container_registry_credentials = container_registry_credentials
+        pulumi.set(__self__, "container_registry_credentials", container_registry_credentials)
         if user_storage_key and not isinstance(user_storage_key, str):
             raise TypeError("Expected argument 'user_storage_key' to be a str")
-        __self__.user_storage_key = user_storage_key
+        pulumi.set(__self__, "user_storage_key", user_storage_key)
         if user_storage_resource_id and not isinstance(user_storage_resource_id, str):
             raise TypeError("Expected argument 'user_storage_resource_id' to be a str")
-        __self__.user_storage_resource_id = user_storage_resource_id
+        pulumi.set(__self__, "user_storage_resource_id", user_storage_resource_id)
+
+    @property
+    @pulumi.getter(name="appInsightsInstrumentationKey")
+    def app_insights_instrumentation_key(self) -> str:
+        return pulumi.get(self, "app_insights_instrumentation_key")
+
+    @property
+    @pulumi.getter(name="containerRegistryCredentials")
+    def container_registry_credentials(self) -> 'outputs.RegistryListCredentialsResultResponseResult':
+        return pulumi.get(self, "container_registry_credentials")
+
+    @property
+    @pulumi.getter(name="userStorageKey")
+    def user_storage_key(self) -> str:
+        return pulumi.get(self, "user_storage_key")
+
+    @property
+    @pulumi.getter(name="userStorageResourceId")
+    def user_storage_resource_id(self) -> str:
+        return pulumi.get(self, "user_storage_resource_id")
 
 
 class AwaitableListWorkspaceKeysResult(ListWorkspaceKeysResult):
@@ -37,7 +64,9 @@ class AwaitableListWorkspaceKeysResult(ListWorkspaceKeysResult):
             user_storage_resource_id=self.user_storage_resource_id)
 
 
-def list_workspace_keys(resource_group_name=None, workspace_name=None, opts=None):
+def list_workspace_keys(resource_group_name: Optional[str] = None,
+                        workspace_name: Optional[str] = None,
+                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListWorkspaceKeysResult:
     """
     Use this data source to access information about an existing resource.
 
@@ -51,10 +80,10 @@ def list_workspace_keys(resource_group_name=None, workspace_name=None, opts=None
         opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = _utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('azurerm:machinelearningservices/v20200101:listWorkspaceKeys', __args__, opts=opts).value
+    __ret__ = pulumi.runtime.invoke('azurerm:machinelearningservices/v20200101:listWorkspaceKeys', __args__, opts=opts, typ=ListWorkspaceKeysResult).value
 
     return AwaitableListWorkspaceKeysResult(
-        app_insights_instrumentation_key=__ret__.get('appInsightsInstrumentationKey'),
-        container_registry_credentials=__ret__.get('containerRegistryCredentials'),
-        user_storage_key=__ret__.get('userStorageKey'),
-        user_storage_resource_id=__ret__.get('userStorageResourceId'))
+        app_insights_instrumentation_key=__ret__.app_insights_instrumentation_key,
+        container_registry_credentials=__ret__.container_registry_credentials,
+        user_storage_key=__ret__.user_storage_key,
+        user_storage_resource_id=__ret__.user_storage_resource_id)

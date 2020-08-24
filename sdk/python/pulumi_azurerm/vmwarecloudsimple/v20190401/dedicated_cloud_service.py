@@ -5,44 +5,24 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+
+__all__ = ['DedicatedCloudService']
 
 
 class DedicatedCloudService(pulumi.CustomResource):
-    gateway_subnet: pulumi.Output[str]
-    """
-    gateway Subnet for the account. It will collect the subnet address and always treat it as /28
-    """
-    is_account_onboarded: pulumi.Output[str]
-    """
-    indicates whether account onboarded or not in a given region
-    """
-    location: pulumi.Output[str]
-    """
-    Azure region
-    """
-    name: pulumi.Output[str]
-    """
-    {dedicatedCloudServiceName}
-    """
-    nodes: pulumi.Output[float]
-    """
-    total nodes purchased
-    """
-    service_url: pulumi.Output[str]
-    """
-    link to a service management web portal
-    """
-    tags: pulumi.Output[dict]
-    """
-    The list of tags
-    """
-    type: pulumi.Output[str]
-    """
-    {resourceProviderNamespace}/{resourceType}
-    """
-    def __init__(__self__, resource_name, opts=None, gateway_subnet=None, location=None, name=None, resource_group_name=None, tags=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 gateway_subnet: Optional[pulumi.Input[str]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         Dedicated cloud service model
 
@@ -52,7 +32,7 @@ class DedicatedCloudService(pulumi.CustomResource):
         :param pulumi.Input[str] location: Azure region
         :param pulumi.Input[str] name: dedicated cloud Service name
         :param pulumi.Input[str] resource_group_name: The name of the resource group
-        :param pulumi.Input[dict] tags: The list of tags
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The list of tags
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -95,13 +75,15 @@ class DedicatedCloudService(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None) -> 'DedicatedCloudService':
         """
         Get an existing DedicatedCloudService resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -110,8 +92,73 @@ class DedicatedCloudService(pulumi.CustomResource):
 
         return DedicatedCloudService(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter(name="gatewaySubnet")
+    def gateway_subnet(self) -> str:
+        """
+        gateway Subnet for the account. It will collect the subnet address and always treat it as /28
+        """
+        return pulumi.get(self, "gateway_subnet")
+
+    @property
+    @pulumi.getter(name="isAccountOnboarded")
+    def is_account_onboarded(self) -> str:
+        """
+        indicates whether account onboarded or not in a given region
+        """
+        return pulumi.get(self, "is_account_onboarded")
+
+    @property
+    @pulumi.getter
+    def location(self) -> str:
+        """
+        Azure region
+        """
+        return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        {dedicatedCloudServiceName}
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def nodes(self) -> float:
+        """
+        total nodes purchased
+        """
+        return pulumi.get(self, "nodes")
+
+    @property
+    @pulumi.getter(name="serviceURL")
+    def service_url(self) -> str:
+        """
+        link to a service management web portal
+        """
+        return pulumi.get(self, "service_url")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Mapping[str, str]]:
+        """
+        The list of tags
+        """
+        return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        {resourceProviderNamespace}/{resourceType}
+        """
+        return pulumi.get(self, "type")
+
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

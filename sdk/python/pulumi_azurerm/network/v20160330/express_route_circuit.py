@@ -5,181 +5,58 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+from . import outputs
+from ._inputs import *
+
+__all__ = ['ExpressRouteCircuit']
 
 
 class ExpressRouteCircuit(pulumi.CustomResource):
-    allow_classic_operations: pulumi.Output[bool]
-    """
-    allow classic operations
-    """
-    authorizations: pulumi.Output[list]
-    """
-    Gets or sets list of authorizations
-      * `authorization_key` (`str`) - Gets or sets the authorization key
-      * `authorization_use_status` (`str`) - Gets or sets AuthorizationUseStatus
-      * `etag` (`str`) - A unique read-only string that changes whenever the resource is updated
-      * `id` (`str`) - Resource Id
-      * `name` (`str`) - Gets name of the resource that is unique within a resource group. This name can be used to access the resource
-      * `provisioning_state` (`str`) - Gets or sets Provisioning state of the PublicIP resource Updating/Deleting/Failed
-    """
-    circuit_provisioning_state: pulumi.Output[str]
-    """
-    Gets or sets CircuitProvisioningState state of the resource 
-    """
-    etag: pulumi.Output[str]
-    """
-    Gets a unique read-only string that changes whenever the resource is updated
-    """
-    location: pulumi.Output[str]
-    """
-    Resource location
-    """
-    name: pulumi.Output[str]
-    """
-    Resource name
-    """
-    peerings: pulumi.Output[list]
-    """
-    Gets or sets list of peerings
-      * `azure_asn` (`float`) - Gets or sets the azure ASN
-      * `etag` (`str`) - A unique read-only string that changes whenever the resource is updated
-      * `id` (`str`) - Resource Id
-      * `microsoft_peering_config` (`dict`) - Gets or sets the Microsoft peering config
-        * `advertised_public_prefixes` (`list`) - Gets or sets the reference of AdvertisedPublicPrefixes
-        * `advertised_public_prefixes_state` (`str`) - Gets or sets AdvertisedPublicPrefixState of the Peering resource 
-        * `customer_asn` (`float`) - Gets or Sets CustomerAsn of the peering.
-        * `routing_registry_name` (`str`) - Gets or Sets RoutingRegistryName of the config.
-
-      * `name` (`str`) - Gets name of the resource that is unique within a resource group. This name can be used to access the resource
-      * `peer_asn` (`float`) - Gets or sets the peer ASN
-      * `peering_type` (`str`) - Gets or sets PeeringType
-      * `primary_azure_port` (`str`) - Gets or sets the primary port
-      * `primary_peer_address_prefix` (`str`) - Gets or sets the primary address prefix
-      * `provisioning_state` (`str`) - Gets or sets Provisioning state of the PublicIP resource Updating/Deleting/Failed
-      * `secondary_azure_port` (`str`) - Gets or sets the secondary port
-      * `secondary_peer_address_prefix` (`str`) - Gets or sets the secondary address prefix
-      * `shared_key` (`str`) - Gets or sets the shared key
-      * `state` (`str`) - Gets or sets state of Peering
-      * `stats` (`dict`) - Gets or peering stats
-        * `primarybytes_in` (`float`) - Gets BytesIn of the peering.
-        * `primarybytes_out` (`float`) - Gets BytesOut of the peering.
-        * `secondarybytes_in` (`float`) - Gets BytesIn of the peering.
-        * `secondarybytes_out` (`float`) - Gets BytesOut of the peering.
-
-      * `vlan_id` (`float`) - Gets or sets the vlan id
-    """
-    provisioning_state: pulumi.Output[str]
-    """
-    Gets or sets Provisioning state of the PublicIP resource Updating/Deleting/Failed
-    """
-    service_key: pulumi.Output[str]
-    """
-    Gets or sets ServiceKey
-    """
-    service_provider_notes: pulumi.Output[str]
-    """
-    Gets or sets ServiceProviderNotes
-    """
-    service_provider_properties: pulumi.Output[dict]
-    """
-    Gets or sets ServiceProviderProperties
-      * `bandwidth_in_mbps` (`float`) - Gets or sets BandwidthInMbps.
-      * `peering_location` (`str`) - Gets or sets peering location.
-      * `service_provider_name` (`str`) - Gets or sets serviceProviderName.
-    """
-    service_provider_provisioning_state: pulumi.Output[str]
-    """
-    Gets or sets ServiceProviderProvisioningState state of the resource 
-    """
-    sku: pulumi.Output[dict]
-    """
-    Gets or sets sku
-      * `family` (`str`) - Gets or sets family of the sku.
-      * `name` (`str`) - Gets or sets name of the sku.
-      * `tier` (`str`) - Gets or sets tier of the sku.
-    """
-    tags: pulumi.Output[dict]
-    """
-    Resource tags
-    """
-    type: pulumi.Output[str]
-    """
-    Resource type
-    """
-    def __init__(__self__, resource_name, opts=None, allow_classic_operations=None, authorizations=None, circuit_provisioning_state=None, etag=None, id=None, location=None, name=None, peerings=None, provisioning_state=None, resource_group_name=None, service_key=None, service_provider_notes=None, service_provider_properties=None, service_provider_provisioning_state=None, sku=None, tags=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 allow_classic_operations: Optional[pulumi.Input[bool]] = None,
+                 authorizations: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['ExpressRouteCircuitAuthorizationArgs']]]]] = None,
+                 circuit_provisioning_state: Optional[pulumi.Input[str]] = None,
+                 etag: Optional[pulumi.Input[str]] = None,
+                 id: Optional[pulumi.Input[str]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 peerings: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['ExpressRouteCircuitPeeringArgs']]]]] = None,
+                 provisioning_state: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 service_key: Optional[pulumi.Input[str]] = None,
+                 service_provider_notes: Optional[pulumi.Input[str]] = None,
+                 service_provider_properties: Optional[pulumi.Input[pulumi.InputType['ExpressRouteCircuitServiceProviderPropertiesArgs']]] = None,
+                 service_provider_provisioning_state: Optional[pulumi.Input[str]] = None,
+                 sku: Optional[pulumi.Input[pulumi.InputType['ExpressRouteCircuitSkuArgs']]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         ExpressRouteCircuit resource
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] allow_classic_operations: allow classic operations
-        :param pulumi.Input[list] authorizations: Gets or sets list of authorizations
+        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['ExpressRouteCircuitAuthorizationArgs']]]] authorizations: Gets or sets list of authorizations
         :param pulumi.Input[str] circuit_provisioning_state: Gets or sets CircuitProvisioningState state of the resource 
         :param pulumi.Input[str] etag: Gets a unique read-only string that changes whenever the resource is updated
         :param pulumi.Input[str] id: Resource Id
         :param pulumi.Input[str] location: Resource location
         :param pulumi.Input[str] name: The name of the circuit.
-        :param pulumi.Input[list] peerings: Gets or sets list of peerings
+        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['ExpressRouteCircuitPeeringArgs']]]] peerings: Gets or sets list of peerings
         :param pulumi.Input[str] provisioning_state: Gets or sets Provisioning state of the PublicIP resource Updating/Deleting/Failed
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[str] service_key: Gets or sets ServiceKey
         :param pulumi.Input[str] service_provider_notes: Gets or sets ServiceProviderNotes
-        :param pulumi.Input[dict] service_provider_properties: Gets or sets ServiceProviderProperties
+        :param pulumi.Input[pulumi.InputType['ExpressRouteCircuitServiceProviderPropertiesArgs']] service_provider_properties: Gets or sets ServiceProviderProperties
         :param pulumi.Input[str] service_provider_provisioning_state: Gets or sets ServiceProviderProvisioningState state of the resource 
-        :param pulumi.Input[dict] sku: Gets or sets sku
-        :param pulumi.Input[dict] tags: Resource tags
-
-        The **authorizations** object supports the following:
-
-          * `authorization_key` (`pulumi.Input[str]`) - Gets or sets the authorization key
-          * `authorization_use_status` (`pulumi.Input[str]`) - Gets or sets AuthorizationUseStatus
-          * `etag` (`pulumi.Input[str]`) - A unique read-only string that changes whenever the resource is updated
-          * `id` (`pulumi.Input[str]`) - Resource Id
-          * `name` (`pulumi.Input[str]`) - Gets name of the resource that is unique within a resource group. This name can be used to access the resource
-          * `provisioning_state` (`pulumi.Input[str]`) - Gets or sets Provisioning state of the PublicIP resource Updating/Deleting/Failed
-
-        The **peerings** object supports the following:
-
-          * `azure_asn` (`pulumi.Input[float]`) - Gets or sets the azure ASN
-          * `etag` (`pulumi.Input[str]`) - A unique read-only string that changes whenever the resource is updated
-          * `id` (`pulumi.Input[str]`) - Resource Id
-          * `microsoft_peering_config` (`pulumi.Input[dict]`) - Gets or sets the Microsoft peering config
-            * `advertised_public_prefixes` (`pulumi.Input[list]`) - Gets or sets the reference of AdvertisedPublicPrefixes
-            * `advertised_public_prefixes_state` (`pulumi.Input[str]`) - Gets or sets AdvertisedPublicPrefixState of the Peering resource 
-            * `customer_asn` (`pulumi.Input[float]`) - Gets or Sets CustomerAsn of the peering.
-            * `routing_registry_name` (`pulumi.Input[str]`) - Gets or Sets RoutingRegistryName of the config.
-
-          * `name` (`pulumi.Input[str]`) - Gets name of the resource that is unique within a resource group. This name can be used to access the resource
-          * `peer_asn` (`pulumi.Input[float]`) - Gets or sets the peer ASN
-          * `peering_type` (`pulumi.Input[str]`) - Gets or sets PeeringType
-          * `primary_azure_port` (`pulumi.Input[str]`) - Gets or sets the primary port
-          * `primary_peer_address_prefix` (`pulumi.Input[str]`) - Gets or sets the primary address prefix
-          * `provisioning_state` (`pulumi.Input[str]`) - Gets or sets Provisioning state of the PublicIP resource Updating/Deleting/Failed
-          * `secondary_azure_port` (`pulumi.Input[str]`) - Gets or sets the secondary port
-          * `secondary_peer_address_prefix` (`pulumi.Input[str]`) - Gets or sets the secondary address prefix
-          * `shared_key` (`pulumi.Input[str]`) - Gets or sets the shared key
-          * `state` (`pulumi.Input[str]`) - Gets or sets state of Peering
-          * `stats` (`pulumi.Input[dict]`) - Gets or peering stats
-            * `primarybytes_in` (`pulumi.Input[float]`) - Gets BytesIn of the peering.
-            * `primarybytes_out` (`pulumi.Input[float]`) - Gets BytesOut of the peering.
-            * `secondarybytes_in` (`pulumi.Input[float]`) - Gets BytesIn of the peering.
-            * `secondarybytes_out` (`pulumi.Input[float]`) - Gets BytesOut of the peering.
-
-          * `vlan_id` (`pulumi.Input[float]`) - Gets or sets the vlan id
-
-        The **service_provider_properties** object supports the following:
-
-          * `bandwidth_in_mbps` (`pulumi.Input[float]`) - Gets or sets BandwidthInMbps.
-          * `peering_location` (`pulumi.Input[str]`) - Gets or sets peering location.
-          * `service_provider_name` (`pulumi.Input[str]`) - Gets or sets serviceProviderName.
-
-        The **sku** object supports the following:
-
-          * `family` (`pulumi.Input[str]`) - Gets or sets family of the sku.
-          * `name` (`pulumi.Input[str]`) - Gets or sets name of the sku.
-          * `tier` (`pulumi.Input[str]`) - Gets or sets tier of the sku.
+        :param pulumi.Input[pulumi.InputType['ExpressRouteCircuitSkuArgs']] sku: Gets or sets sku
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -228,13 +105,15 @@ class ExpressRouteCircuit(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None) -> 'ExpressRouteCircuit':
         """
         Get an existing ExpressRouteCircuit resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -243,8 +122,129 @@ class ExpressRouteCircuit(pulumi.CustomResource):
 
         return ExpressRouteCircuit(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter(name="allowClassicOperations")
+    def allow_classic_operations(self) -> Optional[bool]:
+        """
+        allow classic operations
+        """
+        return pulumi.get(self, "allow_classic_operations")
+
+    @property
+    @pulumi.getter
+    def authorizations(self) -> Optional[List['outputs.ExpressRouteCircuitAuthorizationResponse']]:
+        """
+        Gets or sets list of authorizations
+        """
+        return pulumi.get(self, "authorizations")
+
+    @property
+    @pulumi.getter(name="circuitProvisioningState")
+    def circuit_provisioning_state(self) -> Optional[str]:
+        """
+        Gets or sets CircuitProvisioningState state of the resource 
+        """
+        return pulumi.get(self, "circuit_provisioning_state")
+
+    @property
+    @pulumi.getter
+    def etag(self) -> Optional[str]:
+        """
+        Gets a unique read-only string that changes whenever the resource is updated
+        """
+        return pulumi.get(self, "etag")
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[str]:
+        """
+        Resource location
+        """
+        return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Resource name
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def peerings(self) -> Optional[List['outputs.ExpressRouteCircuitPeeringResponse']]:
+        """
+        Gets or sets list of peerings
+        """
+        return pulumi.get(self, "peerings")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> Optional[str]:
+        """
+        Gets or sets Provisioning state of the PublicIP resource Updating/Deleting/Failed
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="serviceKey")
+    def service_key(self) -> Optional[str]:
+        """
+        Gets or sets ServiceKey
+        """
+        return pulumi.get(self, "service_key")
+
+    @property
+    @pulumi.getter(name="serviceProviderNotes")
+    def service_provider_notes(self) -> Optional[str]:
+        """
+        Gets or sets ServiceProviderNotes
+        """
+        return pulumi.get(self, "service_provider_notes")
+
+    @property
+    @pulumi.getter(name="serviceProviderProperties")
+    def service_provider_properties(self) -> Optional['outputs.ExpressRouteCircuitServiceProviderPropertiesResponse']:
+        """
+        Gets or sets ServiceProviderProperties
+        """
+        return pulumi.get(self, "service_provider_properties")
+
+    @property
+    @pulumi.getter(name="serviceProviderProvisioningState")
+    def service_provider_provisioning_state(self) -> Optional[str]:
+        """
+        Gets or sets ServiceProviderProvisioningState state of the resource 
+        """
+        return pulumi.get(self, "service_provider_provisioning_state")
+
+    @property
+    @pulumi.getter
+    def sku(self) -> Optional['outputs.ExpressRouteCircuitSkuResponse']:
+        """
+        Gets or sets sku
+        """
+        return pulumi.get(self, "sku")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Mapping[str, str]]:
+        """
+        Resource tags
+        """
+        return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Resource type
+        """
+        return pulumi.get(self, "type")
+
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

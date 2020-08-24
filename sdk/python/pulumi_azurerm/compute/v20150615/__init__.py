@@ -11,3 +11,5 @@ from .get_virtual_machine_scale_set import *
 from .virtual_machine import *
 from .virtual_machine_extension import *
 from .virtual_machine_scale_set import *
+from ._inputs import *
+from . import outputs

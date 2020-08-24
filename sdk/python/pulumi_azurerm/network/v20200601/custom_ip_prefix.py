@@ -5,57 +5,28 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+from . import outputs
+
+__all__ = ['CustomIPPrefix']
 
 
 class CustomIPPrefix(pulumi.CustomResource):
-    cidr: pulumi.Output[str]
-    """
-    The prefix range in CIDR notation. Should include the start address and the prefix length.
-    """
-    commissioned_state: pulumi.Output[str]
-    """
-    The commissioned state of the Custom IP Prefix.
-    """
-    etag: pulumi.Output[str]
-    """
-    A unique read-only string that changes whenever the resource is updated.
-    """
-    location: pulumi.Output[str]
-    """
-    Resource location.
-    """
-    name: pulumi.Output[str]
-    """
-    Resource name.
-    """
-    provisioning_state: pulumi.Output[str]
-    """
-    The provisioning state of the custom IP prefix resource.
-    """
-    public_ip_prefixes: pulumi.Output[list]
-    """
-    The list of all referenced PublicIpPrefixes.
-      * `id` (`str`) - Resource ID.
-    """
-    resource_guid: pulumi.Output[str]
-    """
-    The resource GUID property of the custom IP prefix resource.
-    """
-    tags: pulumi.Output[dict]
-    """
-    Resource tags.
-    """
-    type: pulumi.Output[str]
-    """
-    Resource type.
-    """
-    zones: pulumi.Output[list]
-    """
-    A list of availability zones denoting the IP allocated for the resource needs to come from.
-    """
-    def __init__(__self__, resource_name, opts=None, cidr=None, commissioned_state=None, id=None, location=None, name=None, resource_group_name=None, tags=None, zones=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 cidr: Optional[pulumi.Input[str]] = None,
+                 commissioned_state: Optional[pulumi.Input[str]] = None,
+                 id: Optional[pulumi.Input[str]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 zones: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         Custom IP prefix resource.
 
@@ -67,8 +38,8 @@ class CustomIPPrefix(pulumi.CustomResource):
         :param pulumi.Input[str] location: Resource location.
         :param pulumi.Input[str] name: The name of the custom IP prefix.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
-        :param pulumi.Input[dict] tags: Resource tags.
-        :param pulumi.Input[list] zones: A list of availability zones denoting the IP allocated for the resource needs to come from.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
+        :param pulumi.Input[List[pulumi.Input[str]]] zones: A list of availability zones denoting the IP allocated for the resource needs to come from.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -111,13 +82,15 @@ class CustomIPPrefix(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None) -> 'CustomIPPrefix':
         """
         Get an existing CustomIPPrefix resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -126,8 +99,97 @@ class CustomIPPrefix(pulumi.CustomResource):
 
         return CustomIPPrefix(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter
+    def cidr(self) -> Optional[str]:
+        """
+        The prefix range in CIDR notation. Should include the start address and the prefix length.
+        """
+        return pulumi.get(self, "cidr")
+
+    @property
+    @pulumi.getter(name="commissionedState")
+    def commissioned_state(self) -> Optional[str]:
+        """
+        The commissioned state of the Custom IP Prefix.
+        """
+        return pulumi.get(self, "commissioned_state")
+
+    @property
+    @pulumi.getter
+    def etag(self) -> str:
+        """
+        A unique read-only string that changes whenever the resource is updated.
+        """
+        return pulumi.get(self, "etag")
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[str]:
+        """
+        Resource location.
+        """
+        return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Resource name.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        The provisioning state of the custom IP prefix resource.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="publicIpPrefixes")
+    def public_ip_prefixes(self) -> List['outputs.SubResourceResponse']:
+        """
+        The list of all referenced PublicIpPrefixes.
+        """
+        return pulumi.get(self, "public_ip_prefixes")
+
+    @property
+    @pulumi.getter(name="resourceGuid")
+    def resource_guid(self) -> str:
+        """
+        The resource GUID property of the custom IP prefix resource.
+        """
+        return pulumi.get(self, "resource_guid")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Mapping[str, str]]:
+        """
+        Resource tags.
+        """
+        return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Resource type.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def zones(self) -> Optional[List[str]]:
+        """
+        A list of availability zones denoting the IP allocated for the resource needs to come from.
+        """
+        return pulumi.get(self, "zones")
+
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

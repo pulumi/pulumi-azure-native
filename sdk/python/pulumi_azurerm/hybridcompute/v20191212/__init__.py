@@ -7,3 +7,5 @@ from .get_machine import *
 from .get_machine_extension import *
 from .machine import *
 from .machine_extension import *
+from ._inputs import *
+from . import outputs

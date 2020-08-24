@@ -5,95 +5,43 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+from . import outputs
+from ._inputs import *
+
+__all__ = ['Certificate']
 
 
 class Certificate(pulumi.CustomResource):
-    cer_blob: pulumi.Output[str]
-    """
-    Raw bytes of .cer file
-    """
-    expiration_date: pulumi.Output[str]
-    """
-    Certificate expiration date
-    """
-    friendly_name: pulumi.Output[str]
-    """
-    Friendly name of the certificate
-    """
-    host_names: pulumi.Output[list]
-    """
-    Host names the certificate applies to
-    """
-    hosting_environment_profile: pulumi.Output[dict]
-    """
-    Specification for the hosting environment (App Service Environment) to use for the certificate
-      * `id` (`str`) - Resource id of the hostingEnvironment (App Service Environment)
-      * `name` (`str`) - Name of the hostingEnvironment (App Service Environment) (read only)
-      * `type` (`str`) - Resource type of the hostingEnvironment (App Service Environment) (read only)
-    """
-    issue_date: pulumi.Output[str]
-    """
-    Certificate issue Date
-    """
-    issuer: pulumi.Output[str]
-    """
-    Certificate issuer
-    """
-    kind: pulumi.Output[str]
-    """
-    Kind of resource
-    """
-    location: pulumi.Output[str]
-    """
-    Resource Location
-    """
-    name: pulumi.Output[str]
-    """
-    Resource Name
-    """
-    password: pulumi.Output[str]
-    """
-    Certificate password
-    """
-    pfx_blob: pulumi.Output[str]
-    """
-    Pfx blob
-    """
-    public_key_hash: pulumi.Output[str]
-    """
-    Public key hash
-    """
-    self_link: pulumi.Output[str]
-    """
-    Self link
-    """
-    site_name: pulumi.Output[str]
-    """
-    App name
-    """
-    subject_name: pulumi.Output[str]
-    """
-    Subject name of the certificate
-    """
-    tags: pulumi.Output[dict]
-    """
-    Resource tags
-    """
-    thumbprint: pulumi.Output[str]
-    """
-    Certificate thumbprint
-    """
-    type: pulumi.Output[str]
-    """
-    Resource type
-    """
-    valid: pulumi.Output[bool]
-    """
-    Is the certificate valid?
-    """
-    def __init__(__self__, resource_name, opts=None, cer_blob=None, expiration_date=None, friendly_name=None, host_names=None, hosting_environment_profile=None, id=None, issue_date=None, issuer=None, kind=None, location=None, name=None, password=None, pfx_blob=None, public_key_hash=None, resource_group_name=None, self_link=None, site_name=None, subject_name=None, tags=None, thumbprint=None, type=None, valid=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 cer_blob: Optional[pulumi.Input[str]] = None,
+                 expiration_date: Optional[pulumi.Input[str]] = None,
+                 friendly_name: Optional[pulumi.Input[str]] = None,
+                 host_names: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 hosting_environment_profile: Optional[pulumi.Input[pulumi.InputType['HostingEnvironmentProfileArgs']]] = None,
+                 id: Optional[pulumi.Input[str]] = None,
+                 issue_date: Optional[pulumi.Input[str]] = None,
+                 issuer: Optional[pulumi.Input[str]] = None,
+                 kind: Optional[pulumi.Input[str]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 password: Optional[pulumi.Input[str]] = None,
+                 pfx_blob: Optional[pulumi.Input[str]] = None,
+                 public_key_hash: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 self_link: Optional[pulumi.Input[str]] = None,
+                 site_name: Optional[pulumi.Input[str]] = None,
+                 subject_name: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 thumbprint: Optional[pulumi.Input[str]] = None,
+                 type: Optional[pulumi.Input[str]] = None,
+                 valid: Optional[pulumi.Input[bool]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         App certificate
 
@@ -102,8 +50,8 @@ class Certificate(pulumi.CustomResource):
         :param pulumi.Input[str] cer_blob: Raw bytes of .cer file
         :param pulumi.Input[str] expiration_date: Certificate expiration date
         :param pulumi.Input[str] friendly_name: Friendly name of the certificate
-        :param pulumi.Input[list] host_names: Host names the certificate applies to
-        :param pulumi.Input[dict] hosting_environment_profile: Specification for the hosting environment (App Service Environment) to use for the certificate
+        :param pulumi.Input[List[pulumi.Input[str]]] host_names: Host names the certificate applies to
+        :param pulumi.Input[pulumi.InputType['HostingEnvironmentProfileArgs']] hosting_environment_profile: Specification for the hosting environment (App Service Environment) to use for the certificate
         :param pulumi.Input[str] id: Resource Id
         :param pulumi.Input[str] issue_date: Certificate issue Date
         :param pulumi.Input[str] issuer: Certificate issuer
@@ -117,16 +65,10 @@ class Certificate(pulumi.CustomResource):
         :param pulumi.Input[str] self_link: Self link
         :param pulumi.Input[str] site_name: App name
         :param pulumi.Input[str] subject_name: Subject name of the certificate
-        :param pulumi.Input[dict] tags: Resource tags
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags
         :param pulumi.Input[str] thumbprint: Certificate thumbprint
         :param pulumi.Input[str] type: Resource type
         :param pulumi.Input[bool] valid: Is the certificate valid?
-
-        The **hosting_environment_profile** object supports the following:
-
-          * `id` (`pulumi.Input[str]`) - Resource id of the hostingEnvironment (App Service Environment)
-          * `name` (`pulumi.Input[str]`) - Name of the hostingEnvironment (App Service Environment) (read only)
-          * `type` (`pulumi.Input[str]`) - Resource type of the hostingEnvironment (App Service Environment) (read only)
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -182,13 +124,15 @@ class Certificate(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None) -> 'Certificate':
         """
         Get an existing Certificate resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -197,8 +141,169 @@ class Certificate(pulumi.CustomResource):
 
         return Certificate(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter(name="cerBlob")
+    def cer_blob(self) -> Optional[str]:
+        """
+        Raw bytes of .cer file
+        """
+        return pulumi.get(self, "cer_blob")
+
+    @property
+    @pulumi.getter(name="expirationDate")
+    def expiration_date(self) -> Optional[str]:
+        """
+        Certificate expiration date
+        """
+        return pulumi.get(self, "expiration_date")
+
+    @property
+    @pulumi.getter(name="friendlyName")
+    def friendly_name(self) -> Optional[str]:
+        """
+        Friendly name of the certificate
+        """
+        return pulumi.get(self, "friendly_name")
+
+    @property
+    @pulumi.getter(name="hostNames")
+    def host_names(self) -> Optional[List[str]]:
+        """
+        Host names the certificate applies to
+        """
+        return pulumi.get(self, "host_names")
+
+    @property
+    @pulumi.getter(name="hostingEnvironmentProfile")
+    def hosting_environment_profile(self) -> Optional['outputs.HostingEnvironmentProfileResponse']:
+        """
+        Specification for the hosting environment (App Service Environment) to use for the certificate
+        """
+        return pulumi.get(self, "hosting_environment_profile")
+
+    @property
+    @pulumi.getter(name="issueDate")
+    def issue_date(self) -> Optional[str]:
+        """
+        Certificate issue Date
+        """
+        return pulumi.get(self, "issue_date")
+
+    @property
+    @pulumi.getter
+    def issuer(self) -> Optional[str]:
+        """
+        Certificate issuer
+        """
+        return pulumi.get(self, "issuer")
+
+    @property
+    @pulumi.getter
+    def kind(self) -> Optional[str]:
+        """
+        Kind of resource
+        """
+        return pulumi.get(self, "kind")
+
+    @property
+    @pulumi.getter
+    def location(self) -> str:
+        """
+        Resource Location
+        """
+        return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        Resource Name
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def password(self) -> Optional[str]:
+        """
+        Certificate password
+        """
+        return pulumi.get(self, "password")
+
+    @property
+    @pulumi.getter(name="pfxBlob")
+    def pfx_blob(self) -> Optional[str]:
+        """
+        Pfx blob
+        """
+        return pulumi.get(self, "pfx_blob")
+
+    @property
+    @pulumi.getter(name="publicKeyHash")
+    def public_key_hash(self) -> Optional[str]:
+        """
+        Public key hash
+        """
+        return pulumi.get(self, "public_key_hash")
+
+    @property
+    @pulumi.getter(name="selfLink")
+    def self_link(self) -> Optional[str]:
+        """
+        Self link
+        """
+        return pulumi.get(self, "self_link")
+
+    @property
+    @pulumi.getter(name="siteName")
+    def site_name(self) -> Optional[str]:
+        """
+        App name
+        """
+        return pulumi.get(self, "site_name")
+
+    @property
+    @pulumi.getter(name="subjectName")
+    def subject_name(self) -> Optional[str]:
+        """
+        Subject name of the certificate
+        """
+        return pulumi.get(self, "subject_name")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Mapping[str, str]]:
+        """
+        Resource tags
+        """
+        return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter
+    def thumbprint(self) -> Optional[str]:
+        """
+        Certificate thumbprint
+        """
+        return pulumi.get(self, "thumbprint")
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[str]:
+        """
+        Resource type
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def valid(self) -> Optional[bool]:
+        """
+        Is the certificate valid?
+        """
+        return pulumi.get(self, "valid")
+
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

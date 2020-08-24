@@ -5,66 +5,35 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+from . import outputs
+from ._inputs import *
+
+__all__ = ['JobCollection']
 
 
 class JobCollection(pulumi.CustomResource):
-    location: pulumi.Output[str]
-    """
-    Gets or sets the storage account location.
-    """
-    name: pulumi.Output[str]
-    """
-    Gets or sets the job collection resource name.
-    """
-    properties: pulumi.Output[dict]
-    """
-    Gets or sets the job collection properties.
-      * `quota` (`dict`) - Gets or sets the job collection quota.
-        * `max_job_count` (`float`) - Gets or set the maximum job count.
-        * `max_job_occurrence` (`float`) - Gets or sets the maximum job occurrence.
-        * `max_recurrence` (`dict`) - Gets or set the maximum recurrence.
-          * `frequency` (`str`) - Gets or sets the frequency of recurrence (second, minute, hour, day, week, month).
-          * `interval` (`float`) - Gets or sets the interval between retries.
-
-      * `sku` (`dict`) - Gets or sets the SKU.
-        * `name` (`str`) - Gets or set the SKU.
-
-      * `state` (`str`) - Gets or sets the state.
-    """
-    tags: pulumi.Output[dict]
-    """
-    Gets or sets the tags.
-    """
-    type: pulumi.Output[str]
-    """
-    Gets the job collection resource type.
-    """
-    def __init__(__self__, resource_name, opts=None, location=None, name=None, properties=None, resource_group_name=None, tags=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 properties: Optional[pulumi.Input[pulumi.InputType['JobCollectionPropertiesArgs']]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         Create a JobCollection resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] location: Gets or sets the storage account location.
         :param pulumi.Input[str] name: The job collection name.
-        :param pulumi.Input[dict] properties: Gets or sets the job collection properties.
+        :param pulumi.Input[pulumi.InputType['JobCollectionPropertiesArgs']] properties: Gets or sets the job collection properties.
         :param pulumi.Input[str] resource_group_name: The resource group name.
-        :param pulumi.Input[dict] tags: Gets or sets the tags.
-
-        The **properties** object supports the following:
-
-          * `quota` (`pulumi.Input[dict]`) - Gets or sets the job collection quota.
-            * `max_job_count` (`pulumi.Input[float]`) - Gets or set the maximum job count.
-            * `max_job_occurrence` (`pulumi.Input[float]`) - Gets or sets the maximum job occurrence.
-            * `max_recurrence` (`pulumi.Input[dict]`) - Gets or set the maximum recurrence.
-              * `frequency` (`pulumi.Input[str]`) - Gets or sets the frequency of recurrence (second, minute, hour, day, week, month).
-              * `interval` (`pulumi.Input[float]`) - Gets or sets the interval between retries.
-
-          * `sku` (`pulumi.Input[dict]`) - Gets or sets the SKU.
-            * `name` (`pulumi.Input[str]`) - Gets or set the SKU.
-
-          * `state` (`pulumi.Input[str]`) - Gets or sets the state.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Gets or sets the tags.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -102,13 +71,15 @@ class JobCollection(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None) -> 'JobCollection':
         """
         Get an existing JobCollection resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -117,8 +88,49 @@ class JobCollection(pulumi.CustomResource):
 
         return JobCollection(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[str]:
+        """
+        Gets or sets the storage account location.
+        """
+        return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        Gets or sets the job collection resource name.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def properties(self) -> 'outputs.JobCollectionPropertiesResponse':
+        """
+        Gets or sets the job collection properties.
+        """
+        return pulumi.get(self, "properties")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Mapping[str, str]]:
+        """
+        Gets or sets the tags.
+        """
+        return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Gets the job collection resource type.
+        """
+        return pulumi.get(self, "type")
+
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

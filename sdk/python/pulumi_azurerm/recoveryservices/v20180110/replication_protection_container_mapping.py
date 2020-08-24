@@ -5,68 +5,27 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+from . import outputs
+from ._inputs import *
+
+__all__ = ['ReplicationProtectionContainerMapping']
 
 
 class ReplicationProtectionContainerMapping(pulumi.CustomResource):
-    location: pulumi.Output[str]
-    """
-    Resource Location
-    """
-    name: pulumi.Output[str]
-    """
-    Resource Name
-    """
-    properties: pulumi.Output[dict]
-    """
-    The custom data.
-      * `health` (`str`) - Health of pairing.
-      * `health_error_details` (`list`) - Health error.
-        * `creation_time_utc` (`str`) - Error creation time (UTC)
-        * `entity_id` (`str`) - ID of the entity.
-        * `error_category` (`str`) - Category of error.
-        * `error_code` (`str`) - Error code.
-        * `error_level` (`str`) - Level of error.
-        * `error_message` (`str`) - Error message.
-        * `error_source` (`str`) - Source of error.
-        * `error_type` (`str`) - Type of error.
-        * `inner_health_errors` (`list`) - The inner health errors. HealthError having a list of HealthError as child errors is problematic. InnerHealthError is used because this will prevent an infinite loop of structures when Hydra tries to auto-generate the contract. We are exposing the related health errors as inner health errors and all API consumers can utilize this in the same fashion as Exception -&gt; InnerException.
-          * `creation_time_utc` (`str`) - Error creation time (UTC)
-          * `entity_id` (`str`) - ID of the entity.
-          * `error_category` (`str`) - Category of error.
-          * `error_code` (`str`) - Error code.
-          * `error_level` (`str`) - Level of error.
-          * `error_message` (`str`) - Error message.
-          * `error_source` (`str`) - Source of error.
-          * `error_type` (`str`) - Type of error.
-          * `possible_causes` (`str`) - Possible causes of error.
-          * `recommended_action` (`str`) - Recommended action to resolve error.
-          * `recovery_provider_error_message` (`str`) - DRA error message.
-          * `summary_message` (`str`) - Summary message of the entity.
-
-        * `possible_causes` (`str`) - Possible causes of error.
-        * `recommended_action` (`str`) - Recommended action to resolve error.
-        * `recovery_provider_error_message` (`str`) - DRA error message.
-        * `summary_message` (`str`) - Summary message of the entity.
-
-      * `policy_friendly_name` (`str`) - Friendly name of replication policy.
-      * `policy_id` (`str`) - Policy ARM Id.
-      * `provider_specific_details` (`dict`) - Provider specific provider details.
-        * `instance_type` (`str`) - Gets the class type. Overridden in derived classes.
-
-      * `source_fabric_friendly_name` (`str`) - Friendly name of source fabric.
-      * `source_protection_container_friendly_name` (`str`) - Friendly name of source protection container.
-      * `state` (`str`) - Association Status
-      * `target_fabric_friendly_name` (`str`) - Friendly name of target fabric.
-      * `target_protection_container_friendly_name` (`str`) - Friendly name of paired container.
-      * `target_protection_container_id` (`str`) - Paired protection container ARM ID.
-    """
-    type: pulumi.Output[str]
-    """
-    Resource Type
-    """
-    def __init__(__self__, resource_name, opts=None, fabric_name=None, name=None, properties=None, protection_container_name=None, resource_group_name=None, resource_name_=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 fabric_name: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 properties: Optional[pulumi.Input[pulumi.InputType['CreateProtectionContainerMappingInputPropertiesArgs']]] = None,
+                 protection_container_name: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 resource_name_: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         Protection container mapping object.
 
@@ -74,18 +33,10 @@ class ReplicationProtectionContainerMapping(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] fabric_name: Fabric name.
         :param pulumi.Input[str] name: Protection container mapping name.
-        :param pulumi.Input[dict] properties: Configure protection input properties.
+        :param pulumi.Input[pulumi.InputType['CreateProtectionContainerMappingInputPropertiesArgs']] properties: Configure protection input properties.
         :param pulumi.Input[str] protection_container_name: Protection container name.
         :param pulumi.Input[str] resource_group_name: The name of the resource group where the recovery services vault is present.
         :param pulumi.Input[str] resource_name_: The name of the recovery services vault.
-
-        The **properties** object supports the following:
-
-          * `policy_id` (`pulumi.Input[str]`) - Applicable policy.
-          * `provider_specific_input` (`pulumi.Input[dict]`) - Provider specific input for pairing.
-            * `instance_type` (`pulumi.Input[str]`) - The class type.
-
-          * `target_protection_container_id` (`pulumi.Input[str]`) - The target unique protection container name.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -131,13 +82,15 @@ class ReplicationProtectionContainerMapping(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None) -> 'ReplicationProtectionContainerMapping':
         """
         Get an existing ReplicationProtectionContainerMapping resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -146,8 +99,41 @@ class ReplicationProtectionContainerMapping(pulumi.CustomResource):
 
         return ReplicationProtectionContainerMapping(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[str]:
+        """
+        Resource Location
+        """
+        return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Resource Name
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def properties(self) -> 'outputs.ProtectionContainerMappingPropertiesResponse':
+        """
+        The custom data.
+        """
+        return pulumi.get(self, "properties")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Resource Type
+        """
+        return pulumi.get(self, "type")
+
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

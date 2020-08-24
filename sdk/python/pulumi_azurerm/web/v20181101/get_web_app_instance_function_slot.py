@@ -5,10 +5,16 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
 
+__all__ = [
+    'GetWebAppInstanceFunctionSlotResult',
+    'AwaitableGetWebAppInstanceFunctionSlotResult',
+    'get_web_app_instance_function_slot',
+]
 
+@pulumi.output_type
 class GetWebAppInstanceFunctionSlotResult:
     """
     Web Job Information.
@@ -16,76 +22,136 @@ class GetWebAppInstanceFunctionSlotResult:
     def __init__(__self__, config=None, config_href=None, files=None, function_app_id=None, href=None, kind=None, name=None, script_href=None, script_root_path_href=None, secrets_file_href=None, test_data=None, type=None):
         if config and not isinstance(config, dict):
             raise TypeError("Expected argument 'config' to be a dict")
-        __self__.config = config
+        pulumi.set(__self__, "config", config)
+        if config_href and not isinstance(config_href, str):
+            raise TypeError("Expected argument 'config_href' to be a str")
+        pulumi.set(__self__, "config_href", config_href)
+        if files and not isinstance(files, dict):
+            raise TypeError("Expected argument 'files' to be a dict")
+        pulumi.set(__self__, "files", files)
+        if function_app_id and not isinstance(function_app_id, str):
+            raise TypeError("Expected argument 'function_app_id' to be a str")
+        pulumi.set(__self__, "function_app_id", function_app_id)
+        if href and not isinstance(href, str):
+            raise TypeError("Expected argument 'href' to be a str")
+        pulumi.set(__self__, "href", href)
+        if kind and not isinstance(kind, str):
+            raise TypeError("Expected argument 'kind' to be a str")
+        pulumi.set(__self__, "kind", kind)
+        if name and not isinstance(name, str):
+            raise TypeError("Expected argument 'name' to be a str")
+        pulumi.set(__self__, "name", name)
+        if script_href and not isinstance(script_href, str):
+            raise TypeError("Expected argument 'script_href' to be a str")
+        pulumi.set(__self__, "script_href", script_href)
+        if script_root_path_href and not isinstance(script_root_path_href, str):
+            raise TypeError("Expected argument 'script_root_path_href' to be a str")
+        pulumi.set(__self__, "script_root_path_href", script_root_path_href)
+        if secrets_file_href and not isinstance(secrets_file_href, str):
+            raise TypeError("Expected argument 'secrets_file_href' to be a str")
+        pulumi.set(__self__, "secrets_file_href", secrets_file_href)
+        if test_data and not isinstance(test_data, str):
+            raise TypeError("Expected argument 'test_data' to be a str")
+        pulumi.set(__self__, "test_data", test_data)
+        if type and not isinstance(type, str):
+            raise TypeError("Expected argument 'type' to be a str")
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def config(self) -> Optional[Mapping[str, Any]]:
         """
         Config information.
         """
-        if config_href and not isinstance(config_href, str):
-            raise TypeError("Expected argument 'config_href' to be a str")
-        __self__.config_href = config_href
+        return pulumi.get(self, "config")
+
+    @property
+    @pulumi.getter(name="configHref")
+    def config_href(self) -> Optional[str]:
         """
         Config URI.
         """
-        if files and not isinstance(files, dict):
-            raise TypeError("Expected argument 'files' to be a dict")
-        __self__.files = files
+        return pulumi.get(self, "config_href")
+
+    @property
+    @pulumi.getter
+    def files(self) -> Optional[Mapping[str, str]]:
         """
         File list.
         """
-        if function_app_id and not isinstance(function_app_id, str):
-            raise TypeError("Expected argument 'function_app_id' to be a str")
-        __self__.function_app_id = function_app_id
+        return pulumi.get(self, "files")
+
+    @property
+    @pulumi.getter(name="functionAppId")
+    def function_app_id(self) -> Optional[str]:
         """
         Function App ID.
         """
-        if href and not isinstance(href, str):
-            raise TypeError("Expected argument 'href' to be a str")
-        __self__.href = href
+        return pulumi.get(self, "function_app_id")
+
+    @property
+    @pulumi.getter
+    def href(self) -> Optional[str]:
         """
         Function URI.
         """
-        if kind and not isinstance(kind, str):
-            raise TypeError("Expected argument 'kind' to be a str")
-        __self__.kind = kind
+        return pulumi.get(self, "href")
+
+    @property
+    @pulumi.getter
+    def kind(self) -> Optional[str]:
         """
         Kind of resource.
         """
-        if name and not isinstance(name, str):
-            raise TypeError("Expected argument 'name' to be a str")
-        __self__.name = name
+        return pulumi.get(self, "kind")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
         """
         Resource Name.
         """
-        if script_href and not isinstance(script_href, str):
-            raise TypeError("Expected argument 'script_href' to be a str")
-        __self__.script_href = script_href
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="scriptHref")
+    def script_href(self) -> Optional[str]:
         """
         Script URI.
         """
-        if script_root_path_href and not isinstance(script_root_path_href, str):
-            raise TypeError("Expected argument 'script_root_path_href' to be a str")
-        __self__.script_root_path_href = script_root_path_href
+        return pulumi.get(self, "script_href")
+
+    @property
+    @pulumi.getter(name="scriptRootPathHref")
+    def script_root_path_href(self) -> Optional[str]:
         """
         Script root path URI.
         """
-        if secrets_file_href and not isinstance(secrets_file_href, str):
-            raise TypeError("Expected argument 'secrets_file_href' to be a str")
-        __self__.secrets_file_href = secrets_file_href
+        return pulumi.get(self, "script_root_path_href")
+
+    @property
+    @pulumi.getter(name="secretsFileHref")
+    def secrets_file_href(self) -> Optional[str]:
         """
         Secrets file URI.
         """
-        if test_data and not isinstance(test_data, str):
-            raise TypeError("Expected argument 'test_data' to be a str")
-        __self__.test_data = test_data
+        return pulumi.get(self, "secrets_file_href")
+
+    @property
+    @pulumi.getter(name="testData")
+    def test_data(self) -> Optional[str]:
         """
         Test data used when testing via the Azure Portal.
         """
-        if type and not isinstance(type, str):
-            raise TypeError("Expected argument 'type' to be a str")
-        __self__.type = type
+        return pulumi.get(self, "test_data")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
         """
         Resource type.
         """
+        return pulumi.get(self, "type")
 
 
 class AwaitableGetWebAppInstanceFunctionSlotResult(GetWebAppInstanceFunctionSlotResult):
@@ -108,7 +174,10 @@ class AwaitableGetWebAppInstanceFunctionSlotResult(GetWebAppInstanceFunctionSlot
             type=self.type)
 
 
-def get_web_app_instance_function_slot(name=None, resource_group_name=None, slot=None, opts=None):
+def get_web_app_instance_function_slot(name: Optional[str] = None,
+                                       resource_group_name: Optional[str] = None,
+                                       slot: Optional[str] = None,
+                                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetWebAppInstanceFunctionSlotResult:
     """
     Use this data source to access information about an existing resource.
 
@@ -124,18 +193,18 @@ def get_web_app_instance_function_slot(name=None, resource_group_name=None, slot
         opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = _utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('azurerm:web/v20181101:getWebAppInstanceFunctionSlot', __args__, opts=opts).value
+    __ret__ = pulumi.runtime.invoke('azurerm:web/v20181101:getWebAppInstanceFunctionSlot', __args__, opts=opts, typ=GetWebAppInstanceFunctionSlotResult).value
 
     return AwaitableGetWebAppInstanceFunctionSlotResult(
-        config=__ret__.get('config'),
-        config_href=__ret__.get('configHref'),
-        files=__ret__.get('files'),
-        function_app_id=__ret__.get('functionAppId'),
-        href=__ret__.get('href'),
-        kind=__ret__.get('kind'),
-        name=__ret__.get('name'),
-        script_href=__ret__.get('scriptHref'),
-        script_root_path_href=__ret__.get('scriptRootPathHref'),
-        secrets_file_href=__ret__.get('secretsFileHref'),
-        test_data=__ret__.get('testData'),
-        type=__ret__.get('type'))
+        config=__ret__.config,
+        config_href=__ret__.config_href,
+        files=__ret__.files,
+        function_app_id=__ret__.function_app_id,
+        href=__ret__.href,
+        kind=__ret__.kind,
+        name=__ret__.name,
+        script_href=__ret__.script_href,
+        script_root_path_href=__ret__.script_root_path_href,
+        secrets_file_href=__ret__.secrets_file_href,
+        test_data=__ret__.test_data,
+        type=__ret__.type)

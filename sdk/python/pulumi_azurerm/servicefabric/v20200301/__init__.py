@@ -13,3 +13,5 @@ from .get_application_type_version import *
 from .get_cluster import *
 from .get_service import *
 from .service import *
+from ._inputs import *
+from . import outputs

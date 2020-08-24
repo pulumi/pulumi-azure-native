@@ -5,10 +5,16 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
 
+__all__ = [
+    'GetFileShareResult',
+    'AwaitableGetFileShareResult',
+    'get_file_share',
+]
 
+@pulumi.output_type
 class GetFileShareResult:
     """
     Properties of the file share, including Id, resource name, resource type, Etag.
@@ -16,40 +22,70 @@ class GetFileShareResult:
     def __init__(__self__, etag=None, last_modified_time=None, metadata=None, name=None, share_quota=None, type=None):
         if etag and not isinstance(etag, str):
             raise TypeError("Expected argument 'etag' to be a str")
-        __self__.etag = etag
+        pulumi.set(__self__, "etag", etag)
+        if last_modified_time and not isinstance(last_modified_time, str):
+            raise TypeError("Expected argument 'last_modified_time' to be a str")
+        pulumi.set(__self__, "last_modified_time", last_modified_time)
+        if metadata and not isinstance(metadata, dict):
+            raise TypeError("Expected argument 'metadata' to be a dict")
+        pulumi.set(__self__, "metadata", metadata)
+        if name and not isinstance(name, str):
+            raise TypeError("Expected argument 'name' to be a str")
+        pulumi.set(__self__, "name", name)
+        if share_quota and not isinstance(share_quota, float):
+            raise TypeError("Expected argument 'share_quota' to be a float")
+        pulumi.set(__self__, "share_quota", share_quota)
+        if type and not isinstance(type, str):
+            raise TypeError("Expected argument 'type' to be a str")
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def etag(self) -> str:
         """
         Resource Etag.
         """
-        if last_modified_time and not isinstance(last_modified_time, str):
-            raise TypeError("Expected argument 'last_modified_time' to be a str")
-        __self__.last_modified_time = last_modified_time
+        return pulumi.get(self, "etag")
+
+    @property
+    @pulumi.getter(name="lastModifiedTime")
+    def last_modified_time(self) -> str:
         """
         Returns the date and time the share was last modified.
         """
-        if metadata and not isinstance(metadata, dict):
-            raise TypeError("Expected argument 'metadata' to be a dict")
-        __self__.metadata = metadata
+        return pulumi.get(self, "last_modified_time")
+
+    @property
+    @pulumi.getter
+    def metadata(self) -> Optional[Mapping[str, str]]:
         """
         A name-value pair to associate with the share as metadata.
         """
-        if name and not isinstance(name, str):
-            raise TypeError("Expected argument 'name' to be a str")
-        __self__.name = name
+        return pulumi.get(self, "metadata")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
         """
         The name of the resource
         """
-        if share_quota and not isinstance(share_quota, float):
-            raise TypeError("Expected argument 'share_quota' to be a float")
-        __self__.share_quota = share_quota
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="shareQuota")
+    def share_quota(self) -> Optional[float]:
         """
         The maximum size of the share, in gigabytes. Must be greater than 0, and less than or equal to 5TB (5120).
         """
-        if type and not isinstance(type, str):
-            raise TypeError("Expected argument 'type' to be a str")
-        __self__.type = type
+        return pulumi.get(self, "share_quota")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
         """
         The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
         """
+        return pulumi.get(self, "type")
 
 
 class AwaitableGetFileShareResult(GetFileShareResult):
@@ -66,7 +102,10 @@ class AwaitableGetFileShareResult(GetFileShareResult):
             type=self.type)
 
 
-def get_file_share(account_name=None, name=None, resource_group_name=None, opts=None):
+def get_file_share(account_name: Optional[str] = None,
+                   name: Optional[str] = None,
+                   resource_group_name: Optional[str] = None,
+                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetFileShareResult:
     """
     Use this data source to access information about an existing resource.
 
@@ -82,12 +121,12 @@ def get_file_share(account_name=None, name=None, resource_group_name=None, opts=
         opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = _utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('azurerm:storage/v20190401:getFileShare', __args__, opts=opts).value
+    __ret__ = pulumi.runtime.invoke('azurerm:storage/v20190401:getFileShare', __args__, opts=opts, typ=GetFileShareResult).value
 
     return AwaitableGetFileShareResult(
-        etag=__ret__.get('etag'),
-        last_modified_time=__ret__.get('lastModifiedTime'),
-        metadata=__ret__.get('metadata'),
-        name=__ret__.get('name'),
-        share_quota=__ret__.get('shareQuota'),
-        type=__ret__.get('type'))
+        etag=__ret__.etag,
+        last_modified_time=__ret__.last_modified_time,
+        metadata=__ret__.metadata,
+        name=__ret__.name,
+        share_quota=__ret__.share_quota,
+        type=__ret__.type)

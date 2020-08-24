@@ -5,87 +5,30 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+from . import outputs
+
+__all__ = ['GalleryImage']
 
 
 class GalleryImage(pulumi.CustomResource):
-    author: pulumi.Output[str]
-    """
-    The author of the gallery image.
-    """
-    created_date: pulumi.Output[str]
-    """
-    The creation date of the gallery image.
-    """
-    description: pulumi.Output[str]
-    """
-    The description of the gallery image.
-    """
-    icon: pulumi.Output[str]
-    """
-    The icon of the gallery image.
-    """
-    image_reference: pulumi.Output[dict]
-    """
-    The image reference of the gallery image.
-      * `offer` (`str`) - The offer of the gallery image.
-      * `os_type` (`str`) - The OS type of the gallery image.
-      * `publisher` (`str`) - The publisher of the gallery image.
-      * `sku` (`str`) - The SKU of the gallery image.
-      * `version` (`str`) - The version of the gallery image.
-    """
-    is_enabled: pulumi.Output[bool]
-    """
-    Indicates whether this gallery image is enabled.
-    """
-    is_override: pulumi.Output[bool]
-    """
-    Indicates whether this gallery has been overridden for this lab account
-    """
-    is_plan_authorized: pulumi.Output[bool]
-    """
-    Indicates if the plan has been authorized for programmatic deployment.
-    """
-    latest_operation_result: pulumi.Output[dict]
-    """
-    The details of the latest operation. ex: status, error
-      * `error_code` (`str`) - Error code on failure.
-      * `error_message` (`str`) - The error message.
-      * `http_method` (`str`) - The HttpMethod - PUT/POST/DELETE for the operation.
-      * `operation_url` (`str`) - The URL to use to check long-running operation status
-      * `request_uri` (`str`) - Request URI of the operation.
-      * `status` (`str`) - The current status of the operation.
-    """
-    location: pulumi.Output[str]
-    """
-    The location of the resource.
-    """
-    name: pulumi.Output[str]
-    """
-    The name of the resource.
-    """
-    plan_id: pulumi.Output[str]
-    """
-    The third party plan that applies to this image
-    """
-    provisioning_state: pulumi.Output[str]
-    """
-    The provisioning status of the resource.
-    """
-    tags: pulumi.Output[dict]
-    """
-    The tags of the resource.
-    """
-    type: pulumi.Output[str]
-    """
-    The type of the resource.
-    """
-    unique_identifier: pulumi.Output[str]
-    """
-    The unique immutable identifier of a resource (Guid).
-    """
-    def __init__(__self__, resource_name, opts=None, is_enabled=None, is_override=None, is_plan_authorized=None, lab_account_name=None, location=None, name=None, provisioning_state=None, resource_group_name=None, tags=None, unique_identifier=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 is_enabled: Optional[pulumi.Input[bool]] = None,
+                 is_override: Optional[pulumi.Input[bool]] = None,
+                 is_plan_authorized: Optional[pulumi.Input[bool]] = None,
+                 lab_account_name: Optional[pulumi.Input[str]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 provisioning_state: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 unique_identifier: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         Represents an image from the Azure Marketplace
 
@@ -99,7 +42,7 @@ class GalleryImage(pulumi.CustomResource):
         :param pulumi.Input[str] name: The name of the gallery Image.
         :param pulumi.Input[str] provisioning_state: The provisioning status of the resource.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
-        :param pulumi.Input[dict] tags: The tags of the resource.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The tags of the resource.
         :param pulumi.Input[str] unique_identifier: The unique immutable identifier of a resource (Guid).
         """
         if __name__ is not None:
@@ -150,13 +93,15 @@ class GalleryImage(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None) -> 'GalleryImage':
         """
         Get an existing GalleryImage resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -165,8 +110,137 @@ class GalleryImage(pulumi.CustomResource):
 
         return GalleryImage(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter
+    def author(self) -> str:
+        """
+        The author of the gallery image.
+        """
+        return pulumi.get(self, "author")
+
+    @property
+    @pulumi.getter(name="createdDate")
+    def created_date(self) -> str:
+        """
+        The creation date of the gallery image.
+        """
+        return pulumi.get(self, "created_date")
+
+    @property
+    @pulumi.getter
+    def description(self) -> str:
+        """
+        The description of the gallery image.
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def icon(self) -> str:
+        """
+        The icon of the gallery image.
+        """
+        return pulumi.get(self, "icon")
+
+    @property
+    @pulumi.getter(name="imageReference")
+    def image_reference(self) -> 'outputs.GalleryImageReferenceResponse':
+        """
+        The image reference of the gallery image.
+        """
+        return pulumi.get(self, "image_reference")
+
+    @property
+    @pulumi.getter(name="isEnabled")
+    def is_enabled(self) -> Optional[bool]:
+        """
+        Indicates whether this gallery image is enabled.
+        """
+        return pulumi.get(self, "is_enabled")
+
+    @property
+    @pulumi.getter(name="isOverride")
+    def is_override(self) -> Optional[bool]:
+        """
+        Indicates whether this gallery has been overridden for this lab account
+        """
+        return pulumi.get(self, "is_override")
+
+    @property
+    @pulumi.getter(name="isPlanAuthorized")
+    def is_plan_authorized(self) -> Optional[bool]:
+        """
+        Indicates if the plan has been authorized for programmatic deployment.
+        """
+        return pulumi.get(self, "is_plan_authorized")
+
+    @property
+    @pulumi.getter(name="latestOperationResult")
+    def latest_operation_result(self) -> 'outputs.LatestOperationResultResponse':
+        """
+        The details of the latest operation. ex: status, error
+        """
+        return pulumi.get(self, "latest_operation_result")
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[str]:
+        """
+        The location of the resource.
+        """
+        return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the resource.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="planId")
+    def plan_id(self) -> str:
+        """
+        The third party plan that applies to this image
+        """
+        return pulumi.get(self, "plan_id")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> Optional[str]:
+        """
+        The provisioning status of the resource.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Mapping[str, str]]:
+        """
+        The tags of the resource.
+        """
+        return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        The type of the resource.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="uniqueIdentifier")
+    def unique_identifier(self) -> Optional[str]:
+        """
+        The unique immutable identifier of a resource (Guid).
+        """
+        return pulumi.get(self, "unique_identifier")
+
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

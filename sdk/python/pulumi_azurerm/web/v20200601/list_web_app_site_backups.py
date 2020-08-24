@@ -5,10 +5,17 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+from . import outputs
 
+__all__ = [
+    'ListWebAppSiteBackupsResult',
+    'AwaitableListWebAppSiteBackupsResult',
+    'list_web_app_site_backups',
+]
 
+@pulumi.output_type
 class ListWebAppSiteBackupsResult:
     """
     Collection of backup items.
@@ -16,16 +23,26 @@ class ListWebAppSiteBackupsResult:
     def __init__(__self__, next_link=None, value=None):
         if next_link and not isinstance(next_link, str):
             raise TypeError("Expected argument 'next_link' to be a str")
-        __self__.next_link = next_link
+        pulumi.set(__self__, "next_link", next_link)
+        if value and not isinstance(value, list):
+            raise TypeError("Expected argument 'value' to be a list")
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter(name="nextLink")
+    def next_link(self) -> str:
         """
         Link to next page of resources.
         """
-        if value and not isinstance(value, list):
-            raise TypeError("Expected argument 'value' to be a list")
-        __self__.value = value
+        return pulumi.get(self, "next_link")
+
+    @property
+    @pulumi.getter
+    def value(self) -> List['outputs.BackupItemResponseResult']:
         """
         Collection of resources.
         """
+        return pulumi.get(self, "value")
 
 
 class AwaitableListWebAppSiteBackupsResult(ListWebAppSiteBackupsResult):
@@ -38,7 +55,9 @@ class AwaitableListWebAppSiteBackupsResult(ListWebAppSiteBackupsResult):
             value=self.value)
 
 
-def list_web_app_site_backups(name=None, resource_group_name=None, opts=None):
+def list_web_app_site_backups(name: Optional[str] = None,
+                              resource_group_name: Optional[str] = None,
+                              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListWebAppSiteBackupsResult:
     """
     Use this data source to access information about an existing resource.
 
@@ -52,8 +71,8 @@ def list_web_app_site_backups(name=None, resource_group_name=None, opts=None):
         opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = _utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('azurerm:web/v20200601:listWebAppSiteBackups', __args__, opts=opts).value
+    __ret__ = pulumi.runtime.invoke('azurerm:web/v20200601:listWebAppSiteBackups', __args__, opts=opts, typ=ListWebAppSiteBackupsResult).value
 
     return AwaitableListWebAppSiteBackupsResult(
-        next_link=__ret__.get('nextLink'),
-        value=__ret__.get('value'))
+        next_link=__ret__.next_link,
+        value=__ret__.value)

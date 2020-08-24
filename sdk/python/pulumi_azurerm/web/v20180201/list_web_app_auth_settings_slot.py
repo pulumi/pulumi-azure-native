@@ -5,10 +5,16 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
 
+__all__ = [
+    'ListWebAppAuthSettingsSlotResult',
+    'AwaitableListWebAppAuthSettingsSlotResult',
+    'list_web_app_auth_settings_slot',
+]
 
+@pulumi.output_type
 class ListWebAppAuthSettingsSlotResult:
     """
     Configuration settings for the Azure App Service Authentication / Authorization feature.
@@ -16,214 +22,354 @@ class ListWebAppAuthSettingsSlotResult:
     def __init__(__self__, additional_login_params=None, allowed_audiences=None, allowed_external_redirect_urls=None, client_id=None, client_secret=None, client_secret_certificate_thumbprint=None, default_provider=None, enabled=None, facebook_app_id=None, facebook_app_secret=None, facebook_o_auth_scopes=None, google_client_id=None, google_client_secret=None, google_o_auth_scopes=None, issuer=None, kind=None, microsoft_account_client_id=None, microsoft_account_client_secret=None, microsoft_account_o_auth_scopes=None, name=None, runtime_version=None, token_refresh_extension_hours=None, token_store_enabled=None, twitter_consumer_key=None, twitter_consumer_secret=None, type=None, unauthenticated_client_action=None, validate_issuer=None):
         if additional_login_params and not isinstance(additional_login_params, list):
             raise TypeError("Expected argument 'additional_login_params' to be a list")
-        __self__.additional_login_params = additional_login_params
+        pulumi.set(__self__, "additional_login_params", additional_login_params)
+        if allowed_audiences and not isinstance(allowed_audiences, list):
+            raise TypeError("Expected argument 'allowed_audiences' to be a list")
+        pulumi.set(__self__, "allowed_audiences", allowed_audiences)
+        if allowed_external_redirect_urls and not isinstance(allowed_external_redirect_urls, list):
+            raise TypeError("Expected argument 'allowed_external_redirect_urls' to be a list")
+        pulumi.set(__self__, "allowed_external_redirect_urls", allowed_external_redirect_urls)
+        if client_id and not isinstance(client_id, str):
+            raise TypeError("Expected argument 'client_id' to be a str")
+        pulumi.set(__self__, "client_id", client_id)
+        if client_secret and not isinstance(client_secret, str):
+            raise TypeError("Expected argument 'client_secret' to be a str")
+        pulumi.set(__self__, "client_secret", client_secret)
+        if client_secret_certificate_thumbprint and not isinstance(client_secret_certificate_thumbprint, str):
+            raise TypeError("Expected argument 'client_secret_certificate_thumbprint' to be a str")
+        pulumi.set(__self__, "client_secret_certificate_thumbprint", client_secret_certificate_thumbprint)
+        if default_provider and not isinstance(default_provider, str):
+            raise TypeError("Expected argument 'default_provider' to be a str")
+        pulumi.set(__self__, "default_provider", default_provider)
+        if enabled and not isinstance(enabled, bool):
+            raise TypeError("Expected argument 'enabled' to be a bool")
+        pulumi.set(__self__, "enabled", enabled)
+        if facebook_app_id and not isinstance(facebook_app_id, str):
+            raise TypeError("Expected argument 'facebook_app_id' to be a str")
+        pulumi.set(__self__, "facebook_app_id", facebook_app_id)
+        if facebook_app_secret and not isinstance(facebook_app_secret, str):
+            raise TypeError("Expected argument 'facebook_app_secret' to be a str")
+        pulumi.set(__self__, "facebook_app_secret", facebook_app_secret)
+        if facebook_o_auth_scopes and not isinstance(facebook_o_auth_scopes, list):
+            raise TypeError("Expected argument 'facebook_o_auth_scopes' to be a list")
+        pulumi.set(__self__, "facebook_o_auth_scopes", facebook_o_auth_scopes)
+        if google_client_id and not isinstance(google_client_id, str):
+            raise TypeError("Expected argument 'google_client_id' to be a str")
+        pulumi.set(__self__, "google_client_id", google_client_id)
+        if google_client_secret and not isinstance(google_client_secret, str):
+            raise TypeError("Expected argument 'google_client_secret' to be a str")
+        pulumi.set(__self__, "google_client_secret", google_client_secret)
+        if google_o_auth_scopes and not isinstance(google_o_auth_scopes, list):
+            raise TypeError("Expected argument 'google_o_auth_scopes' to be a list")
+        pulumi.set(__self__, "google_o_auth_scopes", google_o_auth_scopes)
+        if issuer and not isinstance(issuer, str):
+            raise TypeError("Expected argument 'issuer' to be a str")
+        pulumi.set(__self__, "issuer", issuer)
+        if kind and not isinstance(kind, str):
+            raise TypeError("Expected argument 'kind' to be a str")
+        pulumi.set(__self__, "kind", kind)
+        if microsoft_account_client_id and not isinstance(microsoft_account_client_id, str):
+            raise TypeError("Expected argument 'microsoft_account_client_id' to be a str")
+        pulumi.set(__self__, "microsoft_account_client_id", microsoft_account_client_id)
+        if microsoft_account_client_secret and not isinstance(microsoft_account_client_secret, str):
+            raise TypeError("Expected argument 'microsoft_account_client_secret' to be a str")
+        pulumi.set(__self__, "microsoft_account_client_secret", microsoft_account_client_secret)
+        if microsoft_account_o_auth_scopes and not isinstance(microsoft_account_o_auth_scopes, list):
+            raise TypeError("Expected argument 'microsoft_account_o_auth_scopes' to be a list")
+        pulumi.set(__self__, "microsoft_account_o_auth_scopes", microsoft_account_o_auth_scopes)
+        if name and not isinstance(name, str):
+            raise TypeError("Expected argument 'name' to be a str")
+        pulumi.set(__self__, "name", name)
+        if runtime_version and not isinstance(runtime_version, str):
+            raise TypeError("Expected argument 'runtime_version' to be a str")
+        pulumi.set(__self__, "runtime_version", runtime_version)
+        if token_refresh_extension_hours and not isinstance(token_refresh_extension_hours, float):
+            raise TypeError("Expected argument 'token_refresh_extension_hours' to be a float")
+        pulumi.set(__self__, "token_refresh_extension_hours", token_refresh_extension_hours)
+        if token_store_enabled and not isinstance(token_store_enabled, bool):
+            raise TypeError("Expected argument 'token_store_enabled' to be a bool")
+        pulumi.set(__self__, "token_store_enabled", token_store_enabled)
+        if twitter_consumer_key and not isinstance(twitter_consumer_key, str):
+            raise TypeError("Expected argument 'twitter_consumer_key' to be a str")
+        pulumi.set(__self__, "twitter_consumer_key", twitter_consumer_key)
+        if twitter_consumer_secret and not isinstance(twitter_consumer_secret, str):
+            raise TypeError("Expected argument 'twitter_consumer_secret' to be a str")
+        pulumi.set(__self__, "twitter_consumer_secret", twitter_consumer_secret)
+        if type and not isinstance(type, str):
+            raise TypeError("Expected argument 'type' to be a str")
+        pulumi.set(__self__, "type", type)
+        if unauthenticated_client_action and not isinstance(unauthenticated_client_action, str):
+            raise TypeError("Expected argument 'unauthenticated_client_action' to be a str")
+        pulumi.set(__self__, "unauthenticated_client_action", unauthenticated_client_action)
+        if validate_issuer and not isinstance(validate_issuer, bool):
+            raise TypeError("Expected argument 'validate_issuer' to be a bool")
+        pulumi.set(__self__, "validate_issuer", validate_issuer)
+
+    @property
+    @pulumi.getter(name="additionalLoginParams")
+    def additional_login_params(self) -> Optional[List[str]]:
         """
         Login parameters to send to the OpenID Connect authorization endpoint when
         a user logs in. Each parameter must be in the form "key=value".
         """
-        if allowed_audiences and not isinstance(allowed_audiences, list):
-            raise TypeError("Expected argument 'allowed_audiences' to be a list")
-        __self__.allowed_audiences = allowed_audiences
+        return pulumi.get(self, "additional_login_params")
+
+    @property
+    @pulumi.getter(name="allowedAudiences")
+    def allowed_audiences(self) -> Optional[List[str]]:
         """
         Allowed audience values to consider when validating JWTs issued by 
         Azure Active Directory. Note that the <code>ClientID</code> value is always considered an
         allowed audience, regardless of this setting.
         """
-        if allowed_external_redirect_urls and not isinstance(allowed_external_redirect_urls, list):
-            raise TypeError("Expected argument 'allowed_external_redirect_urls' to be a list")
-        __self__.allowed_external_redirect_urls = allowed_external_redirect_urls
+        return pulumi.get(self, "allowed_audiences")
+
+    @property
+    @pulumi.getter(name="allowedExternalRedirectUrls")
+    def allowed_external_redirect_urls(self) -> Optional[List[str]]:
         """
         External URLs that can be redirected to as part of logging in or logging out of the app. Note that the query string part of the URL is ignored.
         This is an advanced setting typically only needed by Windows Store application backends.
         Note that URLs within the current domain are always implicitly allowed.
         """
-        if client_id and not isinstance(client_id, str):
-            raise TypeError("Expected argument 'client_id' to be a str")
-        __self__.client_id = client_id
+        return pulumi.get(self, "allowed_external_redirect_urls")
+
+    @property
+    @pulumi.getter(name="clientId")
+    def client_id(self) -> Optional[str]:
         """
         The Client ID of this relying party application, known as the client_id.
         This setting is required for enabling OpenID Connection authentication with Azure Active Directory or 
         other 3rd party OpenID Connect providers.
         More information on OpenID Connect: http://openid.net/specs/openid-connect-core-1_0.html
         """
-        if client_secret and not isinstance(client_secret, str):
-            raise TypeError("Expected argument 'client_secret' to be a str")
-        __self__.client_secret = client_secret
+        return pulumi.get(self, "client_id")
+
+    @property
+    @pulumi.getter(name="clientSecret")
+    def client_secret(self) -> Optional[str]:
         """
         The Client Secret of this relying party application (in Azure Active Directory, this is also referred to as the Key).
         This setting is optional. If no client secret is configured, the OpenID Connect implicit auth flow is used to authenticate end users.
         Otherwise, the OpenID Connect Authorization Code Flow is used to authenticate end users.
         More information on OpenID Connect: http://openid.net/specs/openid-connect-core-1_0.html
         """
-        if client_secret_certificate_thumbprint and not isinstance(client_secret_certificate_thumbprint, str):
-            raise TypeError("Expected argument 'client_secret_certificate_thumbprint' to be a str")
-        __self__.client_secret_certificate_thumbprint = client_secret_certificate_thumbprint
+        return pulumi.get(self, "client_secret")
+
+    @property
+    @pulumi.getter(name="clientSecretCertificateThumbprint")
+    def client_secret_certificate_thumbprint(self) -> Optional[str]:
         """
         An alternative to the client secret, that is the thumbprint of a certificate used for signing purposes. This property acts as
         a replacement for the Client Secret. It is also optional.
         """
-        if default_provider and not isinstance(default_provider, str):
-            raise TypeError("Expected argument 'default_provider' to be a str")
-        __self__.default_provider = default_provider
+        return pulumi.get(self, "client_secret_certificate_thumbprint")
+
+    @property
+    @pulumi.getter(name="defaultProvider")
+    def default_provider(self) -> Optional[str]:
         """
         The default authentication provider to use when multiple providers are configured.
         This setting is only needed if multiple providers are configured and the unauthenticated client
         action is set to "RedirectToLoginPage".
         """
-        if enabled and not isinstance(enabled, bool):
-            raise TypeError("Expected argument 'enabled' to be a bool")
-        __self__.enabled = enabled
+        return pulumi.get(self, "default_provider")
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[bool]:
         """
         <code>true</code> if the Authentication / Authorization feature is enabled for the current app; otherwise, <code>false</code>.
         """
-        if facebook_app_id and not isinstance(facebook_app_id, str):
-            raise TypeError("Expected argument 'facebook_app_id' to be a str")
-        __self__.facebook_app_id = facebook_app_id
+        return pulumi.get(self, "enabled")
+
+    @property
+    @pulumi.getter(name="facebookAppId")
+    def facebook_app_id(self) -> Optional[str]:
         """
         The App ID of the Facebook app used for login.
         This setting is required for enabling Facebook Login.
         Facebook Login documentation: https://developers.facebook.com/docs/facebook-login
         """
-        if facebook_app_secret and not isinstance(facebook_app_secret, str):
-            raise TypeError("Expected argument 'facebook_app_secret' to be a str")
-        __self__.facebook_app_secret = facebook_app_secret
+        return pulumi.get(self, "facebook_app_id")
+
+    @property
+    @pulumi.getter(name="facebookAppSecret")
+    def facebook_app_secret(self) -> Optional[str]:
         """
         The App Secret of the Facebook app used for Facebook Login.
         This setting is required for enabling Facebook Login.
         Facebook Login documentation: https://developers.facebook.com/docs/facebook-login
         """
-        if facebook_o_auth_scopes and not isinstance(facebook_o_auth_scopes, list):
-            raise TypeError("Expected argument 'facebook_o_auth_scopes' to be a list")
-        __self__.facebook_o_auth_scopes = facebook_o_auth_scopes
+        return pulumi.get(self, "facebook_app_secret")
+
+    @property
+    @pulumi.getter(name="facebookOAuthScopes")
+    def facebook_o_auth_scopes(self) -> Optional[List[str]]:
         """
         The OAuth 2.0 scopes that will be requested as part of Facebook Login authentication.
         This setting is optional.
         Facebook Login documentation: https://developers.facebook.com/docs/facebook-login
         """
-        if google_client_id and not isinstance(google_client_id, str):
-            raise TypeError("Expected argument 'google_client_id' to be a str")
-        __self__.google_client_id = google_client_id
+        return pulumi.get(self, "facebook_o_auth_scopes")
+
+    @property
+    @pulumi.getter(name="googleClientId")
+    def google_client_id(self) -> Optional[str]:
         """
         The OpenID Connect Client ID for the Google web application.
         This setting is required for enabling Google Sign-In.
         Google Sign-In documentation: https://developers.google.com/identity/sign-in/web/
         """
-        if google_client_secret and not isinstance(google_client_secret, str):
-            raise TypeError("Expected argument 'google_client_secret' to be a str")
-        __self__.google_client_secret = google_client_secret
+        return pulumi.get(self, "google_client_id")
+
+    @property
+    @pulumi.getter(name="googleClientSecret")
+    def google_client_secret(self) -> Optional[str]:
         """
         The client secret associated with the Google web application.
         This setting is required for enabling Google Sign-In.
         Google Sign-In documentation: https://developers.google.com/identity/sign-in/web/
         """
-        if google_o_auth_scopes and not isinstance(google_o_auth_scopes, list):
-            raise TypeError("Expected argument 'google_o_auth_scopes' to be a list")
-        __self__.google_o_auth_scopes = google_o_auth_scopes
+        return pulumi.get(self, "google_client_secret")
+
+    @property
+    @pulumi.getter(name="googleOAuthScopes")
+    def google_o_auth_scopes(self) -> Optional[List[str]]:
         """
         The OAuth 2.0 scopes that will be requested as part of Google Sign-In authentication.
         This setting is optional. If not specified, "openid", "profile", and "email" are used as default scopes.
         Google Sign-In documentation: https://developers.google.com/identity/sign-in/web/
         """
-        if issuer and not isinstance(issuer, str):
-            raise TypeError("Expected argument 'issuer' to be a str")
-        __self__.issuer = issuer
+        return pulumi.get(self, "google_o_auth_scopes")
+
+    @property
+    @pulumi.getter
+    def issuer(self) -> Optional[str]:
         """
         The OpenID Connect Issuer URI that represents the entity which issues access tokens for this application.
         When using Azure Active Directory, this value is the URI of the directory tenant, e.g. https://sts.windows.net/{tenant-guid}/.
         This URI is a case-sensitive identifier for the token issuer.
         More information on OpenID Connect Discovery: http://openid.net/specs/openid-connect-discovery-1_0.html
         """
-        if kind and not isinstance(kind, str):
-            raise TypeError("Expected argument 'kind' to be a str")
-        __self__.kind = kind
+        return pulumi.get(self, "issuer")
+
+    @property
+    @pulumi.getter
+    def kind(self) -> Optional[str]:
         """
         Kind of resource.
         """
-        if microsoft_account_client_id and not isinstance(microsoft_account_client_id, str):
-            raise TypeError("Expected argument 'microsoft_account_client_id' to be a str")
-        __self__.microsoft_account_client_id = microsoft_account_client_id
+        return pulumi.get(self, "kind")
+
+    @property
+    @pulumi.getter(name="microsoftAccountClientId")
+    def microsoft_account_client_id(self) -> Optional[str]:
         """
         The OAuth 2.0 client ID that was created for the app used for authentication.
         This setting is required for enabling Microsoft Account authentication.
         Microsoft Account OAuth documentation: https://dev.onedrive.com/auth/msa_oauth.htm
         """
-        if microsoft_account_client_secret and not isinstance(microsoft_account_client_secret, str):
-            raise TypeError("Expected argument 'microsoft_account_client_secret' to be a str")
-        __self__.microsoft_account_client_secret = microsoft_account_client_secret
+        return pulumi.get(self, "microsoft_account_client_id")
+
+    @property
+    @pulumi.getter(name="microsoftAccountClientSecret")
+    def microsoft_account_client_secret(self) -> Optional[str]:
         """
         The OAuth 2.0 client secret that was created for the app used for authentication.
         This setting is required for enabling Microsoft Account authentication.
         Microsoft Account OAuth documentation: https://dev.onedrive.com/auth/msa_oauth.htm
         """
-        if microsoft_account_o_auth_scopes and not isinstance(microsoft_account_o_auth_scopes, list):
-            raise TypeError("Expected argument 'microsoft_account_o_auth_scopes' to be a list")
-        __self__.microsoft_account_o_auth_scopes = microsoft_account_o_auth_scopes
+        return pulumi.get(self, "microsoft_account_client_secret")
+
+    @property
+    @pulumi.getter(name="microsoftAccountOAuthScopes")
+    def microsoft_account_o_auth_scopes(self) -> Optional[List[str]]:
         """
         The OAuth 2.0 scopes that will be requested as part of Microsoft Account authentication.
         This setting is optional. If not specified, "wl.basic" is used as the default scope.
         Microsoft Account Scopes and permissions documentation: https://msdn.microsoft.com/en-us/library/dn631845.aspx
         """
-        if name and not isinstance(name, str):
-            raise TypeError("Expected argument 'name' to be a str")
-        __self__.name = name
+        return pulumi.get(self, "microsoft_account_o_auth_scopes")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
         """
         Resource Name.
         """
-        if runtime_version and not isinstance(runtime_version, str):
-            raise TypeError("Expected argument 'runtime_version' to be a str")
-        __self__.runtime_version = runtime_version
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="runtimeVersion")
+    def runtime_version(self) -> Optional[str]:
         """
         The RuntimeVersion of the Authentication / Authorization feature in use for the current app.
         The setting in this value can control the behavior of certain features in the Authentication / Authorization module.
         """
-        if token_refresh_extension_hours and not isinstance(token_refresh_extension_hours, float):
-            raise TypeError("Expected argument 'token_refresh_extension_hours' to be a float")
-        __self__.token_refresh_extension_hours = token_refresh_extension_hours
+        return pulumi.get(self, "runtime_version")
+
+    @property
+    @pulumi.getter(name="tokenRefreshExtensionHours")
+    def token_refresh_extension_hours(self) -> Optional[float]:
         """
         The number of hours after session token expiration that a session token can be used to
         call the token refresh API. The default is 72 hours.
         """
-        if token_store_enabled and not isinstance(token_store_enabled, bool):
-            raise TypeError("Expected argument 'token_store_enabled' to be a bool")
-        __self__.token_store_enabled = token_store_enabled
+        return pulumi.get(self, "token_refresh_extension_hours")
+
+    @property
+    @pulumi.getter(name="tokenStoreEnabled")
+    def token_store_enabled(self) -> Optional[bool]:
         """
         <code>true</code> to durably store platform-specific security tokens that are obtained during login flows; otherwise, <code>false</code>.
          The default is <code>false</code>.
         """
-        if twitter_consumer_key and not isinstance(twitter_consumer_key, str):
-            raise TypeError("Expected argument 'twitter_consumer_key' to be a str")
-        __self__.twitter_consumer_key = twitter_consumer_key
+        return pulumi.get(self, "token_store_enabled")
+
+    @property
+    @pulumi.getter(name="twitterConsumerKey")
+    def twitter_consumer_key(self) -> Optional[str]:
         """
         The OAuth 1.0a consumer key of the Twitter application used for sign-in.
         This setting is required for enabling Twitter Sign-In.
         Twitter Sign-In documentation: https://dev.twitter.com/web/sign-in
         """
-        if twitter_consumer_secret and not isinstance(twitter_consumer_secret, str):
-            raise TypeError("Expected argument 'twitter_consumer_secret' to be a str")
-        __self__.twitter_consumer_secret = twitter_consumer_secret
+        return pulumi.get(self, "twitter_consumer_key")
+
+    @property
+    @pulumi.getter(name="twitterConsumerSecret")
+    def twitter_consumer_secret(self) -> Optional[str]:
         """
         The OAuth 1.0a consumer secret of the Twitter application used for sign-in.
         This setting is required for enabling Twitter Sign-In.
         Twitter Sign-In documentation: https://dev.twitter.com/web/sign-in
         """
-        if type and not isinstance(type, str):
-            raise TypeError("Expected argument 'type' to be a str")
-        __self__.type = type
+        return pulumi.get(self, "twitter_consumer_secret")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
         """
         Resource type.
         """
-        if unauthenticated_client_action and not isinstance(unauthenticated_client_action, str):
-            raise TypeError("Expected argument 'unauthenticated_client_action' to be a str")
-        __self__.unauthenticated_client_action = unauthenticated_client_action
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="unauthenticatedClientAction")
+    def unauthenticated_client_action(self) -> Optional[str]:
         """
         The action to take when an unauthenticated client attempts to access the app.
         """
-        if validate_issuer and not isinstance(validate_issuer, bool):
-            raise TypeError("Expected argument 'validate_issuer' to be a bool")
-        __self__.validate_issuer = validate_issuer
+        return pulumi.get(self, "unauthenticated_client_action")
+
+    @property
+    @pulumi.getter(name="validateIssuer")
+    def validate_issuer(self) -> Optional[bool]:
         """
         Gets a value indicating whether the issuer should be a valid HTTPS url and be validated as such.
         """
+        return pulumi.get(self, "validate_issuer")
 
 
 class AwaitableListWebAppAuthSettingsSlotResult(ListWebAppAuthSettingsSlotResult):
@@ -262,7 +408,9 @@ class AwaitableListWebAppAuthSettingsSlotResult(ListWebAppAuthSettingsSlotResult
             validate_issuer=self.validate_issuer)
 
 
-def list_web_app_auth_settings_slot(name=None, resource_group_name=None, opts=None):
+def list_web_app_auth_settings_slot(name: Optional[str] = None,
+                                    resource_group_name: Optional[str] = None,
+                                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListWebAppAuthSettingsSlotResult:
     """
     Use this data source to access information about an existing resource.
 
@@ -276,34 +424,34 @@ def list_web_app_auth_settings_slot(name=None, resource_group_name=None, opts=No
         opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = _utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('azurerm:web/v20180201:listWebAppAuthSettingsSlot', __args__, opts=opts).value
+    __ret__ = pulumi.runtime.invoke('azurerm:web/v20180201:listWebAppAuthSettingsSlot', __args__, opts=opts, typ=ListWebAppAuthSettingsSlotResult).value
 
     return AwaitableListWebAppAuthSettingsSlotResult(
-        additional_login_params=__ret__.get('additionalLoginParams'),
-        allowed_audiences=__ret__.get('allowedAudiences'),
-        allowed_external_redirect_urls=__ret__.get('allowedExternalRedirectUrls'),
-        client_id=__ret__.get('clientId'),
-        client_secret=__ret__.get('clientSecret'),
-        client_secret_certificate_thumbprint=__ret__.get('clientSecretCertificateThumbprint'),
-        default_provider=__ret__.get('defaultProvider'),
-        enabled=__ret__.get('enabled'),
-        facebook_app_id=__ret__.get('facebookAppId'),
-        facebook_app_secret=__ret__.get('facebookAppSecret'),
-        facebook_o_auth_scopes=__ret__.get('facebookOAuthScopes'),
-        google_client_id=__ret__.get('googleClientId'),
-        google_client_secret=__ret__.get('googleClientSecret'),
-        google_o_auth_scopes=__ret__.get('googleOAuthScopes'),
-        issuer=__ret__.get('issuer'),
-        kind=__ret__.get('kind'),
-        microsoft_account_client_id=__ret__.get('microsoftAccountClientId'),
-        microsoft_account_client_secret=__ret__.get('microsoftAccountClientSecret'),
-        microsoft_account_o_auth_scopes=__ret__.get('microsoftAccountOAuthScopes'),
-        name=__ret__.get('name'),
-        runtime_version=__ret__.get('runtimeVersion'),
-        token_refresh_extension_hours=__ret__.get('tokenRefreshExtensionHours'),
-        token_store_enabled=__ret__.get('tokenStoreEnabled'),
-        twitter_consumer_key=__ret__.get('twitterConsumerKey'),
-        twitter_consumer_secret=__ret__.get('twitterConsumerSecret'),
-        type=__ret__.get('type'),
-        unauthenticated_client_action=__ret__.get('unauthenticatedClientAction'),
-        validate_issuer=__ret__.get('validateIssuer'))
+        additional_login_params=__ret__.additional_login_params,
+        allowed_audiences=__ret__.allowed_audiences,
+        allowed_external_redirect_urls=__ret__.allowed_external_redirect_urls,
+        client_id=__ret__.client_id,
+        client_secret=__ret__.client_secret,
+        client_secret_certificate_thumbprint=__ret__.client_secret_certificate_thumbprint,
+        default_provider=__ret__.default_provider,
+        enabled=__ret__.enabled,
+        facebook_app_id=__ret__.facebook_app_id,
+        facebook_app_secret=__ret__.facebook_app_secret,
+        facebook_o_auth_scopes=__ret__.facebook_o_auth_scopes,
+        google_client_id=__ret__.google_client_id,
+        google_client_secret=__ret__.google_client_secret,
+        google_o_auth_scopes=__ret__.google_o_auth_scopes,
+        issuer=__ret__.issuer,
+        kind=__ret__.kind,
+        microsoft_account_client_id=__ret__.microsoft_account_client_id,
+        microsoft_account_client_secret=__ret__.microsoft_account_client_secret,
+        microsoft_account_o_auth_scopes=__ret__.microsoft_account_o_auth_scopes,
+        name=__ret__.name,
+        runtime_version=__ret__.runtime_version,
+        token_refresh_extension_hours=__ret__.token_refresh_extension_hours,
+        token_store_enabled=__ret__.token_store_enabled,
+        twitter_consumer_key=__ret__.twitter_consumer_key,
+        twitter_consumer_secret=__ret__.twitter_consumer_secret,
+        type=__ret__.type,
+        unauthenticated_client_action=__ret__.unauthenticated_client_action,
+        validate_issuer=__ret__.validate_issuer)

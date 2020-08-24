@@ -5,10 +5,17 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+from . import outputs
 
+__all__ = [
+    'GetWebTestResult',
+    'AwaitableGetWebTestResult',
+    'get_web_test',
+]
 
+@pulumi.output_type
 class GetWebTestResult:
     """
     An Application Insights web test definition.
@@ -16,100 +23,180 @@ class GetWebTestResult:
     def __init__(__self__, configuration=None, description=None, enabled=None, frequency=None, kind=None, location=None, locations=None, name=None, provisioning_state=None, retry_enabled=None, synthetic_monitor_id=None, tags=None, timeout=None, type=None, web_test_kind=None, web_test_name=None):
         if configuration and not isinstance(configuration, dict):
             raise TypeError("Expected argument 'configuration' to be a dict")
-        __self__.configuration = configuration
+        pulumi.set(__self__, "configuration", configuration)
+        if description and not isinstance(description, str):
+            raise TypeError("Expected argument 'description' to be a str")
+        pulumi.set(__self__, "description", description)
+        if enabled and not isinstance(enabled, bool):
+            raise TypeError("Expected argument 'enabled' to be a bool")
+        pulumi.set(__self__, "enabled", enabled)
+        if frequency and not isinstance(frequency, float):
+            raise TypeError("Expected argument 'frequency' to be a float")
+        pulumi.set(__self__, "frequency", frequency)
+        if kind and not isinstance(kind, str):
+            raise TypeError("Expected argument 'kind' to be a str")
+        pulumi.set(__self__, "kind", kind)
+        if location and not isinstance(location, str):
+            raise TypeError("Expected argument 'location' to be a str")
+        pulumi.set(__self__, "location", location)
+        if locations and not isinstance(locations, list):
+            raise TypeError("Expected argument 'locations' to be a list")
+        pulumi.set(__self__, "locations", locations)
+        if name and not isinstance(name, str):
+            raise TypeError("Expected argument 'name' to be a str")
+        pulumi.set(__self__, "name", name)
+        if provisioning_state and not isinstance(provisioning_state, str):
+            raise TypeError("Expected argument 'provisioning_state' to be a str")
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if retry_enabled and not isinstance(retry_enabled, bool):
+            raise TypeError("Expected argument 'retry_enabled' to be a bool")
+        pulumi.set(__self__, "retry_enabled", retry_enabled)
+        if synthetic_monitor_id and not isinstance(synthetic_monitor_id, str):
+            raise TypeError("Expected argument 'synthetic_monitor_id' to be a str")
+        pulumi.set(__self__, "synthetic_monitor_id", synthetic_monitor_id)
+        if tags and not isinstance(tags, dict):
+            raise TypeError("Expected argument 'tags' to be a dict")
+        pulumi.set(__self__, "tags", tags)
+        if timeout and not isinstance(timeout, float):
+            raise TypeError("Expected argument 'timeout' to be a float")
+        pulumi.set(__self__, "timeout", timeout)
+        if type and not isinstance(type, str):
+            raise TypeError("Expected argument 'type' to be a str")
+        pulumi.set(__self__, "type", type)
+        if web_test_kind and not isinstance(web_test_kind, str):
+            raise TypeError("Expected argument 'web_test_kind' to be a str")
+        pulumi.set(__self__, "web_test_kind", web_test_kind)
+        if web_test_name and not isinstance(web_test_name, str):
+            raise TypeError("Expected argument 'web_test_name' to be a str")
+        pulumi.set(__self__, "web_test_name", web_test_name)
+
+    @property
+    @pulumi.getter
+    def configuration(self) -> Optional['outputs.WebTestPropertiesResponseConfiguration']:
         """
         An XML configuration specification for a WebTest.
         """
-        if description and not isinstance(description, str):
-            raise TypeError("Expected argument 'description' to be a str")
-        __self__.description = description
+        return pulumi.get(self, "configuration")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
         """
         Purpose/user defined descriptive test for this WebTest.
         """
-        if enabled and not isinstance(enabled, bool):
-            raise TypeError("Expected argument 'enabled' to be a bool")
-        __self__.enabled = enabled
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[bool]:
         """
         Is the test actively being monitored.
         """
-        if frequency and not isinstance(frequency, float):
-            raise TypeError("Expected argument 'frequency' to be a float")
-        __self__.frequency = frequency
+        return pulumi.get(self, "enabled")
+
+    @property
+    @pulumi.getter
+    def frequency(self) -> Optional[float]:
         """
         Interval in seconds between test runs for this WebTest. Default value is 300.
         """
-        if kind and not isinstance(kind, str):
-            raise TypeError("Expected argument 'kind' to be a str")
-        __self__.kind = kind
+        return pulumi.get(self, "frequency")
+
+    @property
+    @pulumi.getter
+    def kind(self) -> Optional[str]:
         """
         The kind of web test that this web test watches. Choices are ping and multistep.
         """
-        if location and not isinstance(location, str):
-            raise TypeError("Expected argument 'location' to be a str")
-        __self__.location = location
+        return pulumi.get(self, "kind")
+
+    @property
+    @pulumi.getter
+    def location(self) -> str:
         """
         Resource location
         """
-        if locations and not isinstance(locations, list):
-            raise TypeError("Expected argument 'locations' to be a list")
-        __self__.locations = locations
+        return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter
+    def locations(self) -> List['outputs.WebTestGeolocationResponse']:
         """
         A list of where to physically run the tests from to give global coverage for accessibility of your application.
         """
-        if name and not isinstance(name, str):
-            raise TypeError("Expected argument 'name' to be a str")
-        __self__.name = name
+        return pulumi.get(self, "locations")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
         """
         Azure resource name
         """
-        if provisioning_state and not isinstance(provisioning_state, str):
-            raise TypeError("Expected argument 'provisioning_state' to be a str")
-        __self__.provisioning_state = provisioning_state
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
         """
         Current state of this component, whether or not is has been provisioned within the resource group it is defined. Users cannot change this value but are able to read from it. Values will include Succeeded, Deploying, Canceled, and Failed.
         """
-        if retry_enabled and not isinstance(retry_enabled, bool):
-            raise TypeError("Expected argument 'retry_enabled' to be a bool")
-        __self__.retry_enabled = retry_enabled
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="retryEnabled")
+    def retry_enabled(self) -> Optional[bool]:
         """
         Allow for retries should this WebTest fail.
         """
-        if synthetic_monitor_id and not isinstance(synthetic_monitor_id, str):
-            raise TypeError("Expected argument 'synthetic_monitor_id' to be a str")
-        __self__.synthetic_monitor_id = synthetic_monitor_id
+        return pulumi.get(self, "retry_enabled")
+
+    @property
+    @pulumi.getter(name="syntheticMonitorId")
+    def synthetic_monitor_id(self) -> str:
         """
         Unique ID of this WebTest. This is typically the same value as the Name field.
         """
-        if tags and not isinstance(tags, dict):
-            raise TypeError("Expected argument 'tags' to be a dict")
-        __self__.tags = tags
+        return pulumi.get(self, "synthetic_monitor_id")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Mapping[str, str]]:
         """
         Resource tags
         """
-        if timeout and not isinstance(timeout, float):
-            raise TypeError("Expected argument 'timeout' to be a float")
-        __self__.timeout = timeout
+        return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter
+    def timeout(self) -> Optional[float]:
         """
         Seconds until this WebTest will timeout and fail. Default value is 30.
         """
-        if type and not isinstance(type, str):
-            raise TypeError("Expected argument 'type' to be a str")
-        __self__.type = type
+        return pulumi.get(self, "timeout")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
         """
         Azure resource type
         """
-        if web_test_kind and not isinstance(web_test_kind, str):
-            raise TypeError("Expected argument 'web_test_kind' to be a str")
-        __self__.web_test_kind = web_test_kind
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="webTestKind")
+    def web_test_kind(self) -> str:
         """
         The kind of web test this is, valid choices are ping and multistep.
         """
-        if web_test_name and not isinstance(web_test_name, str):
-            raise TypeError("Expected argument 'web_test_name' to be a str")
-        __self__.web_test_name = web_test_name
+        return pulumi.get(self, "web_test_kind")
+
+    @property
+    @pulumi.getter(name="webTestName")
+    def web_test_name(self) -> str:
         """
         User defined name if this WebTest.
         """
+        return pulumi.get(self, "web_test_name")
 
 
 class AwaitableGetWebTestResult(GetWebTestResult):
@@ -136,7 +223,9 @@ class AwaitableGetWebTestResult(GetWebTestResult):
             web_test_name=self.web_test_name)
 
 
-def get_web_test(name=None, resource_group_name=None, opts=None):
+def get_web_test(name: Optional[str] = None,
+                 resource_group_name: Optional[str] = None,
+                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetWebTestResult:
     """
     Use this data source to access information about an existing resource.
 
@@ -150,22 +239,22 @@ def get_web_test(name=None, resource_group_name=None, opts=None):
         opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = _utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('azurerm:insights/v20150501:getWebTest', __args__, opts=opts).value
+    __ret__ = pulumi.runtime.invoke('azurerm:insights/v20150501:getWebTest', __args__, opts=opts, typ=GetWebTestResult).value
 
     return AwaitableGetWebTestResult(
-        configuration=__ret__.get('configuration'),
-        description=__ret__.get('description'),
-        enabled=__ret__.get('enabled'),
-        frequency=__ret__.get('frequency'),
-        kind=__ret__.get('kind'),
-        location=__ret__.get('location'),
-        locations=__ret__.get('locations'),
-        name=__ret__.get('name'),
-        provisioning_state=__ret__.get('provisioningState'),
-        retry_enabled=__ret__.get('retryEnabled'),
-        synthetic_monitor_id=__ret__.get('syntheticMonitorId'),
-        tags=__ret__.get('tags'),
-        timeout=__ret__.get('timeout'),
-        type=__ret__.get('type'),
-        web_test_kind=__ret__.get('webTestKind'),
-        web_test_name=__ret__.get('webTestName'))
+        configuration=__ret__.configuration,
+        description=__ret__.description,
+        enabled=__ret__.enabled,
+        frequency=__ret__.frequency,
+        kind=__ret__.kind,
+        location=__ret__.location,
+        locations=__ret__.locations,
+        name=__ret__.name,
+        provisioning_state=__ret__.provisioning_state,
+        retry_enabled=__ret__.retry_enabled,
+        synthetic_monitor_id=__ret__.synthetic_monitor_id,
+        tags=__ret__.tags,
+        timeout=__ret__.timeout,
+        type=__ret__.type,
+        web_test_kind=__ret__.web_test_kind,
+        web_test_name=__ret__.web_test_name)

@@ -5,10 +5,16 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
 
+__all__ = [
+    'ListIntegrationAccountCallbackUrlResult',
+    'AwaitableListIntegrationAccountCallbackUrlResult',
+    'list_integration_account_callback_url',
+]
 
+@pulumi.output_type
 class ListIntegrationAccountCallbackUrlResult:
     """
     The callback url.
@@ -16,10 +22,15 @@ class ListIntegrationAccountCallbackUrlResult:
     def __init__(__self__, value=None):
         if value and not isinstance(value, str):
             raise TypeError("Expected argument 'value' to be a str")
-        __self__.value = value
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[str]:
         """
         The URL value.
         """
+        return pulumi.get(self, "value")
 
 
 class AwaitableListIntegrationAccountCallbackUrlResult(ListIntegrationAccountCallbackUrlResult):
@@ -31,7 +42,11 @@ class AwaitableListIntegrationAccountCallbackUrlResult(ListIntegrationAccountCal
             value=self.value)
 
 
-def list_integration_account_callback_url(integration_account_name=None, key_type=None, not_after=None, resource_group_name=None, opts=None):
+def list_integration_account_callback_url(integration_account_name: Optional[str] = None,
+                                          key_type: Optional[str] = None,
+                                          not_after: Optional[str] = None,
+                                          resource_group_name: Optional[str] = None,
+                                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListIntegrationAccountCallbackUrlResult:
     """
     Use this data source to access information about an existing resource.
 
@@ -49,7 +64,7 @@ def list_integration_account_callback_url(integration_account_name=None, key_typ
         opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = _utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('azurerm:logic/v20190501:listIntegrationAccountCallbackUrl', __args__, opts=opts).value
+    __ret__ = pulumi.runtime.invoke('azurerm:logic/v20190501:listIntegrationAccountCallbackUrl', __args__, opts=opts, typ=ListIntegrationAccountCallbackUrlResult).value
 
     return AwaitableListIntegrationAccountCallbackUrlResult(
-        value=__ret__.get('value'))
+        value=__ret__.value)

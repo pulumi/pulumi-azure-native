@@ -5,10 +5,17 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+from . import outputs
 
+__all__ = [
+    'GetSnapshotResult',
+    'AwaitableGetSnapshotResult',
+    'get_snapshot',
+]
 
+@pulumi.output_type
 class GetSnapshotResult:
     """
     Snapshot resource.
@@ -16,100 +23,180 @@ class GetSnapshotResult:
     def __init__(__self__, creation_data=None, disk_size_bytes=None, disk_size_gb=None, encryption_settings_collection=None, hyper_v_generation=None, incremental=None, location=None, managed_by=None, name=None, os_type=None, provisioning_state=None, sku=None, tags=None, time_created=None, type=None, unique_id=None):
         if creation_data and not isinstance(creation_data, dict):
             raise TypeError("Expected argument 'creation_data' to be a dict")
-        __self__.creation_data = creation_data
+        pulumi.set(__self__, "creation_data", creation_data)
+        if disk_size_bytes and not isinstance(disk_size_bytes, float):
+            raise TypeError("Expected argument 'disk_size_bytes' to be a float")
+        pulumi.set(__self__, "disk_size_bytes", disk_size_bytes)
+        if disk_size_gb and not isinstance(disk_size_gb, float):
+            raise TypeError("Expected argument 'disk_size_gb' to be a float")
+        pulumi.set(__self__, "disk_size_gb", disk_size_gb)
+        if encryption_settings_collection and not isinstance(encryption_settings_collection, dict):
+            raise TypeError("Expected argument 'encryption_settings_collection' to be a dict")
+        pulumi.set(__self__, "encryption_settings_collection", encryption_settings_collection)
+        if hyper_v_generation and not isinstance(hyper_v_generation, str):
+            raise TypeError("Expected argument 'hyper_v_generation' to be a str")
+        pulumi.set(__self__, "hyper_v_generation", hyper_v_generation)
+        if incremental and not isinstance(incremental, bool):
+            raise TypeError("Expected argument 'incremental' to be a bool")
+        pulumi.set(__self__, "incremental", incremental)
+        if location and not isinstance(location, str):
+            raise TypeError("Expected argument 'location' to be a str")
+        pulumi.set(__self__, "location", location)
+        if managed_by and not isinstance(managed_by, str):
+            raise TypeError("Expected argument 'managed_by' to be a str")
+        pulumi.set(__self__, "managed_by", managed_by)
+        if name and not isinstance(name, str):
+            raise TypeError("Expected argument 'name' to be a str")
+        pulumi.set(__self__, "name", name)
+        if os_type and not isinstance(os_type, str):
+            raise TypeError("Expected argument 'os_type' to be a str")
+        pulumi.set(__self__, "os_type", os_type)
+        if provisioning_state and not isinstance(provisioning_state, str):
+            raise TypeError("Expected argument 'provisioning_state' to be a str")
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if sku and not isinstance(sku, dict):
+            raise TypeError("Expected argument 'sku' to be a dict")
+        pulumi.set(__self__, "sku", sku)
+        if tags and not isinstance(tags, dict):
+            raise TypeError("Expected argument 'tags' to be a dict")
+        pulumi.set(__self__, "tags", tags)
+        if time_created and not isinstance(time_created, str):
+            raise TypeError("Expected argument 'time_created' to be a str")
+        pulumi.set(__self__, "time_created", time_created)
+        if type and not isinstance(type, str):
+            raise TypeError("Expected argument 'type' to be a str")
+        pulumi.set(__self__, "type", type)
+        if unique_id and not isinstance(unique_id, str):
+            raise TypeError("Expected argument 'unique_id' to be a str")
+        pulumi.set(__self__, "unique_id", unique_id)
+
+    @property
+    @pulumi.getter(name="creationData")
+    def creation_data(self) -> 'outputs.CreationDataResponse':
         """
         Disk source information. CreationData information cannot be changed after the disk has been created.
         """
-        if disk_size_bytes and not isinstance(disk_size_bytes, float):
-            raise TypeError("Expected argument 'disk_size_bytes' to be a float")
-        __self__.disk_size_bytes = disk_size_bytes
+        return pulumi.get(self, "creation_data")
+
+    @property
+    @pulumi.getter(name="diskSizeBytes")
+    def disk_size_bytes(self) -> float:
         """
         The size of the disk in bytes. This field is read only.
         """
-        if disk_size_gb and not isinstance(disk_size_gb, float):
-            raise TypeError("Expected argument 'disk_size_gb' to be a float")
-        __self__.disk_size_gb = disk_size_gb
+        return pulumi.get(self, "disk_size_bytes")
+
+    @property
+    @pulumi.getter(name="diskSizeGB")
+    def disk_size_gb(self) -> Optional[float]:
         """
         If creationData.createOption is Empty, this field is mandatory and it indicates the size of the disk to create. If this field is present for updates or creation with other options, it indicates a resize. Resizes are only allowed if the disk is not attached to a running VM, and can only increase the disk's size.
         """
-        if encryption_settings_collection and not isinstance(encryption_settings_collection, dict):
-            raise TypeError("Expected argument 'encryption_settings_collection' to be a dict")
-        __self__.encryption_settings_collection = encryption_settings_collection
+        return pulumi.get(self, "disk_size_gb")
+
+    @property
+    @pulumi.getter(name="encryptionSettingsCollection")
+    def encryption_settings_collection(self) -> Optional['outputs.EncryptionSettingsCollectionResponse']:
         """
         Encryption settings collection used be Azure Disk Encryption, can contain multiple encryption settings per disk or snapshot.
         """
-        if hyper_v_generation and not isinstance(hyper_v_generation, str):
-            raise TypeError("Expected argument 'hyper_v_generation' to be a str")
-        __self__.hyper_v_generation = hyper_v_generation
+        return pulumi.get(self, "encryption_settings_collection")
+
+    @property
+    @pulumi.getter(name="hyperVGeneration")
+    def hyper_v_generation(self) -> Optional[str]:
         """
         The hypervisor generation of the Virtual Machine. Applicable to OS disks only.
         """
-        if incremental and not isinstance(incremental, bool):
-            raise TypeError("Expected argument 'incremental' to be a bool")
-        __self__.incremental = incremental
+        return pulumi.get(self, "hyper_v_generation")
+
+    @property
+    @pulumi.getter
+    def incremental(self) -> Optional[bool]:
         """
         Whether a snapshot is incremental. Incremental snapshots on the same disk occupy less space than full snapshots and can be diffed.
         """
-        if location and not isinstance(location, str):
-            raise TypeError("Expected argument 'location' to be a str")
-        __self__.location = location
+        return pulumi.get(self, "incremental")
+
+    @property
+    @pulumi.getter
+    def location(self) -> str:
         """
         Resource location
         """
-        if managed_by and not isinstance(managed_by, str):
-            raise TypeError("Expected argument 'managed_by' to be a str")
-        __self__.managed_by = managed_by
+        return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter(name="managedBy")
+    def managed_by(self) -> str:
         """
         Unused. Always Null.
         """
-        if name and not isinstance(name, str):
-            raise TypeError("Expected argument 'name' to be a str")
-        __self__.name = name
+        return pulumi.get(self, "managed_by")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
         """
         Resource name
         """
-        if os_type and not isinstance(os_type, str):
-            raise TypeError("Expected argument 'os_type' to be a str")
-        __self__.os_type = os_type
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="osType")
+    def os_type(self) -> Optional[str]:
         """
         The Operating System type.
         """
-        if provisioning_state and not isinstance(provisioning_state, str):
-            raise TypeError("Expected argument 'provisioning_state' to be a str")
-        __self__.provisioning_state = provisioning_state
+        return pulumi.get(self, "os_type")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
         """
         The disk provisioning state.
         """
-        if sku and not isinstance(sku, dict):
-            raise TypeError("Expected argument 'sku' to be a dict")
-        __self__.sku = sku
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter
+    def sku(self) -> Optional['outputs.SnapshotSkuResponse']:
         """
         The snapshots sku name. Can be Standard_LRS, Premium_LRS, or Standard_ZRS.
         """
-        if tags and not isinstance(tags, dict):
-            raise TypeError("Expected argument 'tags' to be a dict")
-        __self__.tags = tags
+        return pulumi.get(self, "sku")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Mapping[str, str]]:
         """
         Resource tags
         """
-        if time_created and not isinstance(time_created, str):
-            raise TypeError("Expected argument 'time_created' to be a str")
-        __self__.time_created = time_created
+        return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter(name="timeCreated")
+    def time_created(self) -> str:
         """
         The time when the disk was created.
         """
-        if type and not isinstance(type, str):
-            raise TypeError("Expected argument 'type' to be a str")
-        __self__.type = type
+        return pulumi.get(self, "time_created")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
         """
         Resource type
         """
-        if unique_id and not isinstance(unique_id, str):
-            raise TypeError("Expected argument 'unique_id' to be a str")
-        __self__.unique_id = unique_id
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="uniqueId")
+    def unique_id(self) -> str:
         """
         Unique Guid identifying the resource.
         """
+        return pulumi.get(self, "unique_id")
 
 
 class AwaitableGetSnapshotResult(GetSnapshotResult):
@@ -136,7 +223,9 @@ class AwaitableGetSnapshotResult(GetSnapshotResult):
             unique_id=self.unique_id)
 
 
-def get_snapshot(name=None, resource_group_name=None, opts=None):
+def get_snapshot(name: Optional[str] = None,
+                 resource_group_name: Optional[str] = None,
+                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSnapshotResult:
     """
     Use this data source to access information about an existing resource.
 
@@ -150,22 +239,22 @@ def get_snapshot(name=None, resource_group_name=None, opts=None):
         opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = _utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('azurerm:compute/v20190301:getSnapshot', __args__, opts=opts).value
+    __ret__ = pulumi.runtime.invoke('azurerm:compute/v20190301:getSnapshot', __args__, opts=opts, typ=GetSnapshotResult).value
 
     return AwaitableGetSnapshotResult(
-        creation_data=__ret__.get('creationData'),
-        disk_size_bytes=__ret__.get('diskSizeBytes'),
-        disk_size_gb=__ret__.get('diskSizeGB'),
-        encryption_settings_collection=__ret__.get('encryptionSettingsCollection'),
-        hyper_v_generation=__ret__.get('hyperVGeneration'),
-        incremental=__ret__.get('incremental'),
-        location=__ret__.get('location'),
-        managed_by=__ret__.get('managedBy'),
-        name=__ret__.get('name'),
-        os_type=__ret__.get('osType'),
-        provisioning_state=__ret__.get('provisioningState'),
-        sku=__ret__.get('sku'),
-        tags=__ret__.get('tags'),
-        time_created=__ret__.get('timeCreated'),
-        type=__ret__.get('type'),
-        unique_id=__ret__.get('uniqueId'))
+        creation_data=__ret__.creation_data,
+        disk_size_bytes=__ret__.disk_size_bytes,
+        disk_size_gb=__ret__.disk_size_gb,
+        encryption_settings_collection=__ret__.encryption_settings_collection,
+        hyper_v_generation=__ret__.hyper_v_generation,
+        incremental=__ret__.incremental,
+        location=__ret__.location,
+        managed_by=__ret__.managed_by,
+        name=__ret__.name,
+        os_type=__ret__.os_type,
+        provisioning_state=__ret__.provisioning_state,
+        sku=__ret__.sku,
+        tags=__ret__.tags,
+        time_created=__ret__.time_created,
+        type=__ret__.type,
+        unique_id=__ret__.unique_id)

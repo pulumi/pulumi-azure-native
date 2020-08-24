@@ -7,3 +7,5 @@ from .get_report_config import *
 from .get_report_config_by_resource_group_name import *
 from .report_config import *
 from .report_config_by_resource_group_name import *
+from ._inputs import *
+from . import outputs

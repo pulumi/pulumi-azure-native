@@ -19,3 +19,5 @@ from .share import *
 from .storage_account_credential import *
 from .trigger import *
 from .user import *
+from ._inputs import *
+from . import outputs

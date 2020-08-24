@@ -5,10 +5,17 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+from . import outputs
 
+__all__ = [
+    'GetDscNodeConfigurationResult',
+    'AwaitableGetDscNodeConfigurationResult',
+    'get_dsc_node_configuration',
+]
 
+@pulumi.output_type
 class GetDscNodeConfigurationResult:
     """
     Definition of the dsc node configuration.
@@ -16,34 +23,59 @@ class GetDscNodeConfigurationResult:
     def __init__(__self__, configuration=None, creation_time=None, last_modified_time=None, name=None, type=None):
         if configuration and not isinstance(configuration, dict):
             raise TypeError("Expected argument 'configuration' to be a dict")
-        __self__.configuration = configuration
+        pulumi.set(__self__, "configuration", configuration)
+        if creation_time and not isinstance(creation_time, str):
+            raise TypeError("Expected argument 'creation_time' to be a str")
+        pulumi.set(__self__, "creation_time", creation_time)
+        if last_modified_time and not isinstance(last_modified_time, str):
+            raise TypeError("Expected argument 'last_modified_time' to be a str")
+        pulumi.set(__self__, "last_modified_time", last_modified_time)
+        if name and not isinstance(name, str):
+            raise TypeError("Expected argument 'name' to be a str")
+        pulumi.set(__self__, "name", name)
+        if type and not isinstance(type, str):
+            raise TypeError("Expected argument 'type' to be a str")
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def configuration(self) -> Optional['outputs.DscConfigurationAssociationPropertyResponse']:
         """
         Gets or sets the configuration of the node.
         """
-        if creation_time and not isinstance(creation_time, str):
-            raise TypeError("Expected argument 'creation_time' to be a str")
-        __self__.creation_time = creation_time
+        return pulumi.get(self, "configuration")
+
+    @property
+    @pulumi.getter(name="creationTime")
+    def creation_time(self) -> Optional[str]:
         """
         Gets or sets creation time.
         """
-        if last_modified_time and not isinstance(last_modified_time, str):
-            raise TypeError("Expected argument 'last_modified_time' to be a str")
-        __self__.last_modified_time = last_modified_time
+        return pulumi.get(self, "creation_time")
+
+    @property
+    @pulumi.getter(name="lastModifiedTime")
+    def last_modified_time(self) -> Optional[str]:
         """
         Gets or sets the last modified time.
         """
-        if name and not isinstance(name, str):
-            raise TypeError("Expected argument 'name' to be a str")
-        __self__.name = name
+        return pulumi.get(self, "last_modified_time")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
         """
         The name of the resource
         """
-        if type and not isinstance(type, str):
-            raise TypeError("Expected argument 'type' to be a str")
-        __self__.type = type
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
         """
         The type of the resource.
         """
+        return pulumi.get(self, "type")
 
 
 class AwaitableGetDscNodeConfigurationResult(GetDscNodeConfigurationResult):
@@ -59,7 +91,10 @@ class AwaitableGetDscNodeConfigurationResult(GetDscNodeConfigurationResult):
             type=self.type)
 
 
-def get_dsc_node_configuration(automation_account_name=None, name=None, resource_group_name=None, opts=None):
+def get_dsc_node_configuration(automation_account_name: Optional[str] = None,
+                               name: Optional[str] = None,
+                               resource_group_name: Optional[str] = None,
+                               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDscNodeConfigurationResult:
     """
     Use this data source to access information about an existing resource.
 
@@ -75,11 +110,11 @@ def get_dsc_node_configuration(automation_account_name=None, name=None, resource
         opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = _utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('azurerm:automation/v20151031:getDscNodeConfiguration', __args__, opts=opts).value
+    __ret__ = pulumi.runtime.invoke('azurerm:automation/v20151031:getDscNodeConfiguration', __args__, opts=opts, typ=GetDscNodeConfigurationResult).value
 
     return AwaitableGetDscNodeConfigurationResult(
-        configuration=__ret__.get('configuration'),
-        creation_time=__ret__.get('creationTime'),
-        last_modified_time=__ret__.get('lastModifiedTime'),
-        name=__ret__.get('name'),
-        type=__ret__.get('type'))
+        configuration=__ret__.configuration,
+        creation_time=__ret__.creation_time,
+        last_modified_time=__ret__.last_modified_time,
+        name=__ret__.name,
+        type=__ret__.type)

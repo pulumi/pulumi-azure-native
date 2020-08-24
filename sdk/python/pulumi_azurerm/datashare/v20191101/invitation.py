@@ -5,58 +5,26 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+
+__all__ = ['Invitation']
 
 
 class Invitation(pulumi.CustomResource):
-    invitation_id: pulumi.Output[str]
-    """
-    unique invitation id
-    """
-    invitation_status: pulumi.Output[str]
-    """
-    The status of the invitation.
-    """
-    name: pulumi.Output[str]
-    """
-    Name of the azure resource
-    """
-    responded_at: pulumi.Output[str]
-    """
-    The time the recipient responded to the invitation.
-    """
-    sent_at: pulumi.Output[str]
-    """
-    Gets the time at which the invitation was sent.
-    """
-    target_active_directory_id: pulumi.Output[str]
-    """
-    The target Azure AD Id. Can't be combined with email.
-    """
-    target_email: pulumi.Output[str]
-    """
-    The email the invitation is directed to.
-    """
-    target_object_id: pulumi.Output[str]
-    """
-    The target user or application Id that invitation is being sent to.
-    Must be specified along TargetActiveDirectoryId. This enables sending
-    invitations to specific users or applications in an AD tenant.
-    """
-    type: pulumi.Output[str]
-    """
-    Type of the azure resource
-    """
-    user_email: pulumi.Output[str]
-    """
-    Email of the user who created the resource
-    """
-    user_name: pulumi.Output[str]
-    """
-    Name of the user who created the resource
-    """
-    def __init__(__self__, resource_name, opts=None, account_name=None, name=None, resource_group_name=None, share_name=None, target_active_directory_id=None, target_email=None, target_object_id=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 account_name: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 share_name: Optional[pulumi.Input[str]] = None,
+                 target_active_directory_id: Optional[pulumi.Input[str]] = None,
+                 target_email: Optional[pulumi.Input[str]] = None,
+                 target_object_id: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         A Invitation data transfer object.
 
@@ -118,13 +86,15 @@ class Invitation(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None) -> 'Invitation':
         """
         Get an existing Invitation resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -133,8 +103,99 @@ class Invitation(pulumi.CustomResource):
 
         return Invitation(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter(name="invitationId")
+    def invitation_id(self) -> str:
+        """
+        unique invitation id
+        """
+        return pulumi.get(self, "invitation_id")
+
+    @property
+    @pulumi.getter(name="invitationStatus")
+    def invitation_status(self) -> str:
+        """
+        The status of the invitation.
+        """
+        return pulumi.get(self, "invitation_status")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Name of the azure resource
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="respondedAt")
+    def responded_at(self) -> str:
+        """
+        The time the recipient responded to the invitation.
+        """
+        return pulumi.get(self, "responded_at")
+
+    @property
+    @pulumi.getter(name="sentAt")
+    def sent_at(self) -> str:
+        """
+        Gets the time at which the invitation was sent.
+        """
+        return pulumi.get(self, "sent_at")
+
+    @property
+    @pulumi.getter(name="targetActiveDirectoryId")
+    def target_active_directory_id(self) -> Optional[str]:
+        """
+        The target Azure AD Id. Can't be combined with email.
+        """
+        return pulumi.get(self, "target_active_directory_id")
+
+    @property
+    @pulumi.getter(name="targetEmail")
+    def target_email(self) -> Optional[str]:
+        """
+        The email the invitation is directed to.
+        """
+        return pulumi.get(self, "target_email")
+
+    @property
+    @pulumi.getter(name="targetObjectId")
+    def target_object_id(self) -> Optional[str]:
+        """
+        The target user or application Id that invitation is being sent to.
+        Must be specified along TargetActiveDirectoryId. This enables sending
+        invitations to specific users or applications in an AD tenant.
+        """
+        return pulumi.get(self, "target_object_id")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Type of the azure resource
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="userEmail")
+    def user_email(self) -> str:
+        """
+        Email of the user who created the resource
+        """
+        return pulumi.get(self, "user_email")
+
+    @property
+    @pulumi.getter(name="userName")
+    def user_name(self) -> str:
+        """
+        Name of the user who created the resource
+        """
+        return pulumi.get(self, "user_name")
+
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

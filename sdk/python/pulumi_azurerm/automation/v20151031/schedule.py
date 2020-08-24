@@ -5,106 +5,46 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+from . import outputs
+from ._inputs import *
+
+__all__ = ['Schedule']
 
 
 class Schedule(pulumi.CustomResource):
-    advanced_schedule: pulumi.Output[dict]
-    """
-    Gets or sets the advanced schedule.
-      * `month_days` (`list`) - Days of the month that the job should execute on. Must be between 1 and 31.
-      * `monthly_occurrences` (`list`) - Occurrences of days within a month.
-        * `day` (`str`) - Day of the occurrence. Must be one of monday, tuesday, wednesday, thursday, friday, saturday, sunday.
-        * `occurrence` (`float`) - Occurrence of the week within the month. Must be between 1 and 5
-
-      * `week_days` (`list`) - Days of the week that the job should execute on.
-    """
-    creation_time: pulumi.Output[str]
-    """
-    Gets or sets the creation time.
-    """
-    description: pulumi.Output[str]
-    """
-    Gets or sets the description.
-    """
-    expiry_time: pulumi.Output[str]
-    """
-    Gets or sets the end time of the schedule.
-    """
-    expiry_time_offset_minutes: pulumi.Output[float]
-    """
-    Gets or sets the expiry time's offset in minutes.
-    """
-    frequency: pulumi.Output[str]
-    """
-    Gets or sets the frequency of the schedule.
-    """
-    interval: pulumi.Output[dict]
-    """
-    Gets or sets the interval of the schedule.
-    """
-    is_enabled: pulumi.Output[bool]
-    """
-    Gets or sets a value indicating whether this schedule is enabled.
-    """
-    last_modified_time: pulumi.Output[str]
-    """
-    Gets or sets the last modified time.
-    """
-    name: pulumi.Output[str]
-    """
-    The name of the resource
-    """
-    next_run: pulumi.Output[str]
-    """
-    Gets or sets the next run time of the schedule.
-    """
-    next_run_offset_minutes: pulumi.Output[float]
-    """
-    Gets or sets the next run time's offset in minutes.
-    """
-    start_time: pulumi.Output[str]
-    """
-    Gets or sets the start time of the schedule.
-    """
-    start_time_offset_minutes: pulumi.Output[float]
-    """
-    Gets the start time's offset in minutes.
-    """
-    time_zone: pulumi.Output[str]
-    """
-    Gets or sets the time zone of the schedule.
-    """
-    type: pulumi.Output[str]
-    """
-    The type of the resource.
-    """
-    def __init__(__self__, resource_name, opts=None, advanced_schedule=None, automation_account_name=None, description=None, expiry_time=None, frequency=None, interval=None, name=None, resource_group_name=None, start_time=None, time_zone=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 advanced_schedule: Optional[pulumi.Input[pulumi.InputType['AdvancedScheduleArgs']]] = None,
+                 automation_account_name: Optional[pulumi.Input[str]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 expiry_time: Optional[pulumi.Input[str]] = None,
+                 frequency: Optional[pulumi.Input[str]] = None,
+                 interval: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 start_time: Optional[pulumi.Input[str]] = None,
+                 time_zone: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         Definition of the schedule.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[dict] advanced_schedule: Gets or sets the AdvancedSchedule.
+        :param pulumi.Input[pulumi.InputType['AdvancedScheduleArgs']] advanced_schedule: Gets or sets the AdvancedSchedule.
         :param pulumi.Input[str] automation_account_name: The name of the automation account.
         :param pulumi.Input[str] description: Gets or sets the description of the schedule.
         :param pulumi.Input[str] expiry_time: Gets or sets the end time of the schedule.
         :param pulumi.Input[str] frequency: Gets or sets the frequency of the schedule.
-        :param pulumi.Input[dict] interval: Gets or sets the interval of the schedule.
+        :param pulumi.Input[Mapping[str, Any]] interval: Gets or sets the interval of the schedule.
         :param pulumi.Input[str] name: The schedule name.
         :param pulumi.Input[str] resource_group_name: Name of an Azure Resource group.
         :param pulumi.Input[str] start_time: Gets or sets the start time of the schedule.
         :param pulumi.Input[str] time_zone: Gets or sets the time zone of the schedule.
-
-        The **advanced_schedule** object supports the following:
-
-          * `month_days` (`pulumi.Input[list]`) - Days of the month that the job should execute on. Must be between 1 and 31.
-          * `monthly_occurrences` (`pulumi.Input[list]`) - Occurrences of days within a month.
-            * `day` (`pulumi.Input[str]`) - Day of the occurrence. Must be one of monday, tuesday, wednesday, thursday, friday, saturday, sunday.
-            * `occurrence` (`pulumi.Input[float]`) - Occurrence of the week within the month. Must be between 1 and 5
-
-          * `week_days` (`pulumi.Input[list]`) - Days of the week that the job should execute on.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -158,13 +98,15 @@ class Schedule(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None) -> 'Schedule':
         """
         Get an existing Schedule resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -173,8 +115,137 @@ class Schedule(pulumi.CustomResource):
 
         return Schedule(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter(name="advancedSchedule")
+    def advanced_schedule(self) -> Optional['outputs.AdvancedScheduleResponse']:
+        """
+        Gets or sets the advanced schedule.
+        """
+        return pulumi.get(self, "advanced_schedule")
+
+    @property
+    @pulumi.getter(name="creationTime")
+    def creation_time(self) -> Optional[str]:
+        """
+        Gets or sets the creation time.
+        """
+        return pulumi.get(self, "creation_time")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        """
+        Gets or sets the description.
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="expiryTime")
+    def expiry_time(self) -> Optional[str]:
+        """
+        Gets or sets the end time of the schedule.
+        """
+        return pulumi.get(self, "expiry_time")
+
+    @property
+    @pulumi.getter(name="expiryTimeOffsetMinutes")
+    def expiry_time_offset_minutes(self) -> Optional[float]:
+        """
+        Gets or sets the expiry time's offset in minutes.
+        """
+        return pulumi.get(self, "expiry_time_offset_minutes")
+
+    @property
+    @pulumi.getter
+    def frequency(self) -> Optional[str]:
+        """
+        Gets or sets the frequency of the schedule.
+        """
+        return pulumi.get(self, "frequency")
+
+    @property
+    @pulumi.getter
+    def interval(self) -> Optional[Mapping[str, Any]]:
+        """
+        Gets or sets the interval of the schedule.
+        """
+        return pulumi.get(self, "interval")
+
+    @property
+    @pulumi.getter(name="isEnabled")
+    def is_enabled(self) -> Optional[bool]:
+        """
+        Gets or sets a value indicating whether this schedule is enabled.
+        """
+        return pulumi.get(self, "is_enabled")
+
+    @property
+    @pulumi.getter(name="lastModifiedTime")
+    def last_modified_time(self) -> Optional[str]:
+        """
+        Gets or sets the last modified time.
+        """
+        return pulumi.get(self, "last_modified_time")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the resource
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="nextRun")
+    def next_run(self) -> Optional[str]:
+        """
+        Gets or sets the next run time of the schedule.
+        """
+        return pulumi.get(self, "next_run")
+
+    @property
+    @pulumi.getter(name="nextRunOffsetMinutes")
+    def next_run_offset_minutes(self) -> Optional[float]:
+        """
+        Gets or sets the next run time's offset in minutes.
+        """
+        return pulumi.get(self, "next_run_offset_minutes")
+
+    @property
+    @pulumi.getter(name="startTime")
+    def start_time(self) -> Optional[str]:
+        """
+        Gets or sets the start time of the schedule.
+        """
+        return pulumi.get(self, "start_time")
+
+    @property
+    @pulumi.getter(name="startTimeOffsetMinutes")
+    def start_time_offset_minutes(self) -> float:
+        """
+        Gets the start time's offset in minutes.
+        """
+        return pulumi.get(self, "start_time_offset_minutes")
+
+    @property
+    @pulumi.getter(name="timeZone")
+    def time_zone(self) -> Optional[str]:
+        """
+        Gets or sets the time zone of the schedule.
+        """
+        return pulumi.get(self, "time_zone")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        The type of the resource.
+        """
+        return pulumi.get(self, "type")
+
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

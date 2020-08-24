@@ -5,10 +5,17 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+from . import outputs
 
+__all__ = [
+    'GetContainerResult',
+    'AwaitableGetContainerResult',
+    'get_container',
+]
 
+@pulumi.output_type
 class GetContainerResult:
     """
     Represents a container on the  Data Box Edge/Gateway device.
@@ -16,40 +23,70 @@ class GetContainerResult:
     def __init__(__self__, container_status=None, created_date_time=None, data_format=None, name=None, refresh_details=None, type=None):
         if container_status and not isinstance(container_status, str):
             raise TypeError("Expected argument 'container_status' to be a str")
-        __self__.container_status = container_status
+        pulumi.set(__self__, "container_status", container_status)
+        if created_date_time and not isinstance(created_date_time, str):
+            raise TypeError("Expected argument 'created_date_time' to be a str")
+        pulumi.set(__self__, "created_date_time", created_date_time)
+        if data_format and not isinstance(data_format, str):
+            raise TypeError("Expected argument 'data_format' to be a str")
+        pulumi.set(__self__, "data_format", data_format)
+        if name and not isinstance(name, str):
+            raise TypeError("Expected argument 'name' to be a str")
+        pulumi.set(__self__, "name", name)
+        if refresh_details and not isinstance(refresh_details, dict):
+            raise TypeError("Expected argument 'refresh_details' to be a dict")
+        pulumi.set(__self__, "refresh_details", refresh_details)
+        if type and not isinstance(type, str):
+            raise TypeError("Expected argument 'type' to be a str")
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="containerStatus")
+    def container_status(self) -> str:
         """
         Current status of the container.
         """
-        if created_date_time and not isinstance(created_date_time, str):
-            raise TypeError("Expected argument 'created_date_time' to be a str")
-        __self__.created_date_time = created_date_time
+        return pulumi.get(self, "container_status")
+
+    @property
+    @pulumi.getter(name="createdDateTime")
+    def created_date_time(self) -> str:
         """
         The UTC time when container got created.
         """
-        if data_format and not isinstance(data_format, str):
-            raise TypeError("Expected argument 'data_format' to be a str")
-        __self__.data_format = data_format
+        return pulumi.get(self, "created_date_time")
+
+    @property
+    @pulumi.getter(name="dataFormat")
+    def data_format(self) -> str:
         """
         DataFormat for Container
         """
-        if name and not isinstance(name, str):
-            raise TypeError("Expected argument 'name' to be a str")
-        __self__.name = name
+        return pulumi.get(self, "data_format")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
         """
         The object name.
         """
-        if refresh_details and not isinstance(refresh_details, dict):
-            raise TypeError("Expected argument 'refresh_details' to be a dict")
-        __self__.refresh_details = refresh_details
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="refreshDetails")
+    def refresh_details(self) -> 'outputs.RefreshDetailsResponse':
         """
         Details of the refresh job on this container.
         """
-        if type and not isinstance(type, str):
-            raise TypeError("Expected argument 'type' to be a str")
-        __self__.type = type
+        return pulumi.get(self, "refresh_details")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
         """
         The hierarchical type of the object.
         """
+        return pulumi.get(self, "type")
 
 
 class AwaitableGetContainerResult(GetContainerResult):
@@ -66,7 +103,11 @@ class AwaitableGetContainerResult(GetContainerResult):
             type=self.type)
 
 
-def get_container(device_name=None, name=None, resource_group_name=None, storage_account_name=None, opts=None):
+def get_container(device_name: Optional[str] = None,
+                  name: Optional[str] = None,
+                  resource_group_name: Optional[str] = None,
+                  storage_account_name: Optional[str] = None,
+                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetContainerResult:
     """
     Use this data source to access information about an existing resource.
 
@@ -84,12 +125,12 @@ def get_container(device_name=None, name=None, resource_group_name=None, storage
         opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = _utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('azurerm:databoxedge/v20190801:getContainer', __args__, opts=opts).value
+    __ret__ = pulumi.runtime.invoke('azurerm:databoxedge/v20190801:getContainer', __args__, opts=opts, typ=GetContainerResult).value
 
     return AwaitableGetContainerResult(
-        container_status=__ret__.get('containerStatus'),
-        created_date_time=__ret__.get('createdDateTime'),
-        data_format=__ret__.get('dataFormat'),
-        name=__ret__.get('name'),
-        refresh_details=__ret__.get('refreshDetails'),
-        type=__ret__.get('type'))
+        container_status=__ret__.container_status,
+        created_date_time=__ret__.created_date_time,
+        data_format=__ret__.data_format,
+        name=__ret__.name,
+        refresh_details=__ret__.refresh_details,
+        type=__ret__.type)

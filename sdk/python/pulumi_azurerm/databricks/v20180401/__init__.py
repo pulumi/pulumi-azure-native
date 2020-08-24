@@ -7,3 +7,5 @@ from .get_workspace import *
 from .getv_net_peering import *
 from .v_net_peering import *
 from .workspace import *
+from ._inputs import *
+from . import outputs

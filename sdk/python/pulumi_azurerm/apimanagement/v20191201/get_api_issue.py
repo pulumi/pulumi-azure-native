@@ -5,10 +5,16 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
 
+__all__ = [
+    'GetApiIssueResult',
+    'AwaitableGetApiIssueResult',
+    'get_api_issue',
+]
 
+@pulumi.output_type
 class GetApiIssueResult:
     """
     Issue Contract details.
@@ -16,52 +22,92 @@ class GetApiIssueResult:
     def __init__(__self__, api_id=None, created_date=None, description=None, name=None, state=None, title=None, type=None, user_id=None):
         if api_id and not isinstance(api_id, str):
             raise TypeError("Expected argument 'api_id' to be a str")
-        __self__.api_id = api_id
+        pulumi.set(__self__, "api_id", api_id)
+        if created_date and not isinstance(created_date, str):
+            raise TypeError("Expected argument 'created_date' to be a str")
+        pulumi.set(__self__, "created_date", created_date)
+        if description and not isinstance(description, str):
+            raise TypeError("Expected argument 'description' to be a str")
+        pulumi.set(__self__, "description", description)
+        if name and not isinstance(name, str):
+            raise TypeError("Expected argument 'name' to be a str")
+        pulumi.set(__self__, "name", name)
+        if state and not isinstance(state, str):
+            raise TypeError("Expected argument 'state' to be a str")
+        pulumi.set(__self__, "state", state)
+        if title and not isinstance(title, str):
+            raise TypeError("Expected argument 'title' to be a str")
+        pulumi.set(__self__, "title", title)
+        if type and not isinstance(type, str):
+            raise TypeError("Expected argument 'type' to be a str")
+        pulumi.set(__self__, "type", type)
+        if user_id and not isinstance(user_id, str):
+            raise TypeError("Expected argument 'user_id' to be a str")
+        pulumi.set(__self__, "user_id", user_id)
+
+    @property
+    @pulumi.getter(name="apiId")
+    def api_id(self) -> Optional[str]:
         """
         A resource identifier for the API the issue was created for.
         """
-        if created_date and not isinstance(created_date, str):
-            raise TypeError("Expected argument 'created_date' to be a str")
-        __self__.created_date = created_date
+        return pulumi.get(self, "api_id")
+
+    @property
+    @pulumi.getter(name="createdDate")
+    def created_date(self) -> Optional[str]:
         """
         Date and time when the issue was created.
         """
-        if description and not isinstance(description, str):
-            raise TypeError("Expected argument 'description' to be a str")
-        __self__.description = description
+        return pulumi.get(self, "created_date")
+
+    @property
+    @pulumi.getter
+    def description(self) -> str:
         """
         Text describing the issue.
         """
-        if name and not isinstance(name, str):
-            raise TypeError("Expected argument 'name' to be a str")
-        __self__.name = name
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
         """
         Resource name.
         """
-        if state and not isinstance(state, str):
-            raise TypeError("Expected argument 'state' to be a str")
-        __self__.state = state
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def state(self) -> Optional[str]:
         """
         Status of the issue.
         """
-        if title and not isinstance(title, str):
-            raise TypeError("Expected argument 'title' to be a str")
-        __self__.title = title
+        return pulumi.get(self, "state")
+
+    @property
+    @pulumi.getter
+    def title(self) -> str:
         """
         The issue title.
         """
-        if type and not isinstance(type, str):
-            raise TypeError("Expected argument 'type' to be a str")
-        __self__.type = type
+        return pulumi.get(self, "title")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
         """
         Resource type for API Management resource.
         """
-        if user_id and not isinstance(user_id, str):
-            raise TypeError("Expected argument 'user_id' to be a str")
-        __self__.user_id = user_id
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="userId")
+    def user_id(self) -> str:
         """
         A resource identifier for the user created the issue.
         """
+        return pulumi.get(self, "user_id")
 
 
 class AwaitableGetApiIssueResult(GetApiIssueResult):
@@ -80,7 +126,12 @@ class AwaitableGetApiIssueResult(GetApiIssueResult):
             user_id=self.user_id)
 
 
-def get_api_issue(api_id=None, expand_comments_attachments=None, name=None, resource_group_name=None, service_name=None, opts=None):
+def get_api_issue(api_id: Optional[str] = None,
+                  expand_comments_attachments: Optional[bool] = None,
+                  name: Optional[str] = None,
+                  resource_group_name: Optional[str] = None,
+                  service_name: Optional[str] = None,
+                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetApiIssueResult:
     """
     Use this data source to access information about an existing resource.
 
@@ -100,14 +151,14 @@ def get_api_issue(api_id=None, expand_comments_attachments=None, name=None, reso
         opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = _utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('azurerm:apimanagement/v20191201:getApiIssue', __args__, opts=opts).value
+    __ret__ = pulumi.runtime.invoke('azurerm:apimanagement/v20191201:getApiIssue', __args__, opts=opts, typ=GetApiIssueResult).value
 
     return AwaitableGetApiIssueResult(
-        api_id=__ret__.get('apiId'),
-        created_date=__ret__.get('createdDate'),
-        description=__ret__.get('description'),
-        name=__ret__.get('name'),
-        state=__ret__.get('state'),
-        title=__ret__.get('title'),
-        type=__ret__.get('type'),
-        user_id=__ret__.get('userId'))
+        api_id=__ret__.api_id,
+        created_date=__ret__.created_date,
+        description=__ret__.description,
+        name=__ret__.name,
+        state=__ret__.state,
+        title=__ret__.title,
+        type=__ret__.type,
+        user_id=__ret__.user_id)

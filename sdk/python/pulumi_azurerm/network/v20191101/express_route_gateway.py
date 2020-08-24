@@ -5,83 +5,40 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+from . import outputs
+from ._inputs import *
+
+__all__ = ['ExpressRouteGateway']
 
 
 class ExpressRouteGateway(pulumi.CustomResource):
-    auto_scale_configuration: pulumi.Output[dict]
-    """
-    Configuration for auto scaling.
-      * `bounds` (`dict`) - Minimum and maximum number of scale units to deploy.
-        * `max` (`float`) - Maximum number of scale units deployed for ExpressRoute gateway.
-        * `min` (`float`) - Minimum number of scale units deployed for ExpressRoute gateway.
-    """
-    etag: pulumi.Output[str]
-    """
-    A unique read-only string that changes whenever the resource is updated.
-    """
-    express_route_connections: pulumi.Output[list]
-    """
-    List of ExpressRoute connections to the ExpressRoute gateway.
-      * `authorization_key` (`str`) - Authorization key to establish the connection.
-      * `enable_internet_security` (`bool`) - Enable internet security.
-      * `express_route_circuit_peering` (`dict`) - The ExpressRoute circuit peering.
-        * `id` (`str`) - The ID of the ExpressRoute circuit peering.
-
-      * `id` (`str`) - Resource ID.
-      * `name` (`str`) - The name of the resource.
-      * `provisioning_state` (`str`) - The provisioning state of the express route connection resource.
-      * `routing_weight` (`float`) - The routing weight associated to the connection.
-    """
-    location: pulumi.Output[str]
-    """
-    Resource location.
-    """
-    name: pulumi.Output[str]
-    """
-    Resource name.
-    """
-    provisioning_state: pulumi.Output[str]
-    """
-    The provisioning state of the express route gateway resource.
-    """
-    tags: pulumi.Output[dict]
-    """
-    Resource tags.
-    """
-    type: pulumi.Output[str]
-    """
-    Resource type.
-    """
-    virtual_hub: pulumi.Output[dict]
-    """
-    The Virtual Hub where the ExpressRoute gateway is or will be deployed.
-      * `id` (`str`) - The resource URI for the Virtual Hub where the ExpressRoute gateway is or will be deployed. The Virtual Hub resource and the ExpressRoute gateway resource reside in the same subscription.
-    """
-    def __init__(__self__, resource_name, opts=None, auto_scale_configuration=None, id=None, location=None, name=None, resource_group_name=None, tags=None, virtual_hub=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 auto_scale_configuration: Optional[pulumi.Input[pulumi.InputType['ExpressRouteGatewayPropertiesAutoScaleConfigurationArgs']]] = None,
+                 id: Optional[pulumi.Input[str]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 virtual_hub: Optional[pulumi.Input[pulumi.InputType['VirtualHubIdArgs']]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         ExpressRoute gateway resource.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[dict] auto_scale_configuration: Configuration for auto scaling.
+        :param pulumi.Input[pulumi.InputType['ExpressRouteGatewayPropertiesAutoScaleConfigurationArgs']] auto_scale_configuration: Configuration for auto scaling.
         :param pulumi.Input[str] id: Resource ID.
         :param pulumi.Input[str] location: Resource location.
         :param pulumi.Input[str] name: The name of the ExpressRoute gateway.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
-        :param pulumi.Input[dict] tags: Resource tags.
-        :param pulumi.Input[dict] virtual_hub: The Virtual Hub where the ExpressRoute gateway is or will be deployed.
-
-        The **auto_scale_configuration** object supports the following:
-
-          * `bounds` (`pulumi.Input[dict]`) - Minimum and maximum number of scale units to deploy.
-            * `max` (`pulumi.Input[float]`) - Maximum number of scale units deployed for ExpressRoute gateway.
-            * `min` (`pulumi.Input[float]`) - Minimum number of scale units deployed for ExpressRoute gateway.
-
-        The **virtual_hub** object supports the following:
-
-          * `id` (`pulumi.Input[str]`) - The resource URI for the Virtual Hub where the ExpressRoute gateway is or will be deployed. The Virtual Hub resource and the ExpressRoute gateway resource reside in the same subscription.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
+        :param pulumi.Input[pulumi.InputType['VirtualHubIdArgs']] virtual_hub: The Virtual Hub where the ExpressRoute gateway is or will be deployed.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -126,13 +83,15 @@ class ExpressRouteGateway(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None) -> 'ExpressRouteGateway':
         """
         Get an existing ExpressRouteGateway resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -141,8 +100,81 @@ class ExpressRouteGateway(pulumi.CustomResource):
 
         return ExpressRouteGateway(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter(name="autoScaleConfiguration")
+    def auto_scale_configuration(self) -> Optional['outputs.ExpressRouteGatewayPropertiesResponseAutoScaleConfiguration']:
+        """
+        Configuration for auto scaling.
+        """
+        return pulumi.get(self, "auto_scale_configuration")
+
+    @property
+    @pulumi.getter
+    def etag(self) -> str:
+        """
+        A unique read-only string that changes whenever the resource is updated.
+        """
+        return pulumi.get(self, "etag")
+
+    @property
+    @pulumi.getter(name="expressRouteConnections")
+    def express_route_connections(self) -> List['outputs.ExpressRouteConnectionResponse']:
+        """
+        List of ExpressRoute connections to the ExpressRoute gateway.
+        """
+        return pulumi.get(self, "express_route_connections")
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[str]:
+        """
+        Resource location.
+        """
+        return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Resource name.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        The provisioning state of the express route gateway resource.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Mapping[str, str]]:
+        """
+        Resource tags.
+        """
+        return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Resource type.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="virtualHub")
+    def virtual_hub(self) -> 'outputs.VirtualHubIdResponse':
+        """
+        The Virtual Hub where the ExpressRoute gateway is or will be deployed.
+        """
+        return pulumi.get(self, "virtual_hub")
+
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+
