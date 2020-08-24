@@ -34,6 +34,7 @@ import (
 	"github.com/hashicorp/go-azure-helpers/sender"
 	"github.com/pkg/errors"
 
+	"github.com/pulumi/pulumi-azurerm/provider/pkg/version"
 	"github.com/pulumi/pulumi/pkg/v2/resource/provider"
 	"github.com/pulumi/pulumi/sdk/v2/go/common/diag"
 	"github.com/pulumi/pulumi/sdk/v2/go/common/resource"
@@ -61,7 +62,7 @@ type azurermProvider struct {
 
 func makeProvider(host *provider.HostClient, name, version string, schemaBytes []byte, azureApiResourcesBytes []byte) (rpc.ResourceProviderServer, error) {
 	// Creating a REST client
-	client := autorest.NewClientWithUserAgent("pulumi")
+	client := autorest.NewClientWithUserAgent(getUserAgent())
 	// Set a long timeout of 2 hours for now.
 	client.PollingDuration = 120 * time.Minute
 
@@ -893,4 +894,20 @@ func (k *azurermProvider) getAuthorizationToken(authConfig *authentication.Confi
 
 	sender := sender.BuildSender("AzureRM")
 	return authConfig.GetAuthorizationToken(sender, oauthConfig, AuthTokenAudience)
+}
+
+func getUserAgent() (userAgent string) {
+	userAgent = strings.TrimSpace(fmt.Sprintf("%s pulumi-azurerm/%s", autorest.UserAgent(), version.Version))
+
+	// append the CloudShell version to the user agent if it exists
+	if azureAgent := os.Getenv("AZURE_HTTP_USER_AGENT"); azureAgent != "" {
+		userAgent = fmt.Sprintf("%s %s", userAgent, azureAgent)
+	}
+
+	// Microsoft's Pulumi Partner ID is this specific GUID
+	partnerID := "a90539d8-a7a6-5826-95c4-1fbef22d4b22"
+	userAgent = fmt.Sprintf("%s pid-%s", userAgent, partnerID)
+
+	glog.V(9).Infof("AzureRM User Agent: ", userAgent)
+	return
 }
