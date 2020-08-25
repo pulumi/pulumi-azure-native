@@ -19,16 +19,16 @@ namespace Pulumi.AzureRM.Management.V20190701
     public sealed class GetDeploymentAtManagementGroupScopeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
+        /// The name of the deployment.
+        /// </summary>
+        [Input("deploymentName", required: true)]
+        public string DeploymentName { get; set; } = null!;
+
+        /// <summary>
         /// The management group ID.
         /// </summary>
         [Input("groupId", required: true)]
         public string GroupId { get; set; } = null!;
-
-        /// <summary>
-        /// The name of the deployment.
-        /// </summary>
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
 
         public GetDeploymentAtManagementGroupScopeArgs()
         {

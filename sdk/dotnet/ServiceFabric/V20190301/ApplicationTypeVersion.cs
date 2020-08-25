@@ -136,12 +136,6 @@ namespace Pulumi.AzureRM.ServiceFabric.V20190301
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// The application type version.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        /// <summary>
         /// The name of the resource group.
         /// </summary>
         [Input("resourceGroupName", required: true)]
@@ -158,6 +152,12 @@ namespace Pulumi.AzureRM.ServiceFabric.V20190301
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
+
+        /// <summary>
+        /// The application type version.
+        /// </summary>
+        [Input("version", required: true)]
+        public Input<string> Version { get; set; } = null!;
 
         public ApplicationTypeVersionArgs()
         {

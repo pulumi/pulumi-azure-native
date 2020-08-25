@@ -19,16 +19,16 @@ namespace Pulumi.AzureRM.Security.V20200101
     public sealed class GetAssessmentArgs : Pulumi.InvokeArgs
     {
         /// <summary>
+        /// The Assessment Key - Unique key for the assessment type
+        /// </summary>
+        [Input("assessmentName", required: true)]
+        public string AssessmentName { get; set; } = null!;
+
+        /// <summary>
         /// OData expand. Optional.
         /// </summary>
         [Input("expand")]
         public string? Expand { get; set; }
-
-        /// <summary>
-        /// The Assessment Key - Unique key for the assessment type
-        /// </summary>
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
 
         /// <summary>
         /// The identifier of the resource.

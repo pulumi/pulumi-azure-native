@@ -100,16 +100,16 @@ namespace Pulumi.AzureRM.Maps.V20170101Preview
     public sealed class AccountArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The name of the Maps Account.
+        /// </summary>
+        [Input("accountName", required: true)]
+        public Input<string> AccountName { get; set; } = null!;
+
+        /// <summary>
         /// The location of the resource.
         /// </summary>
         [Input("location", required: true)]
         public Input<string> Location { get; set; } = null!;
-
-        /// <summary>
-        /// The name of the Maps Account.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
 
         /// <summary>
         /// The name of the Azure Resource Group.

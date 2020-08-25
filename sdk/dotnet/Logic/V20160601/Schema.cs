@@ -196,16 +196,16 @@ namespace Pulumi.AzureRM.Logic.V20160601
         }
 
         /// <summary>
-        /// The integration account schema name.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        /// <summary>
         /// The resource group name.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The integration account schema name.
+        /// </summary>
+        [Input("schemaName", required: true)]
+        public Input<string> SchemaName { get; set; } = null!;
 
         /// <summary>
         /// The schema type.

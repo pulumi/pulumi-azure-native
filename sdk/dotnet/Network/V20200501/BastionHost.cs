@@ -121,6 +121,12 @@ namespace Pulumi.AzureRM.Network.V20200501
     public sealed class BastionHostArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The name of the Bastion Host.
+        /// </summary>
+        [Input("bastionHostName", required: true)]
+        public Input<string> BastionHostName { get; set; } = null!;
+
+        /// <summary>
         /// FQDN for the endpoint on which bastion host is accessible.
         /// </summary>
         [Input("dnsName")]
@@ -149,12 +155,6 @@ namespace Pulumi.AzureRM.Network.V20200501
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
-
-        /// <summary>
-        /// The name of the Bastion Host.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group.

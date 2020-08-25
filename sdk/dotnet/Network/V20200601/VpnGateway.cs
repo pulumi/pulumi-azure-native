@@ -165,6 +165,12 @@ namespace Pulumi.AzureRM.Network.V20200601
         }
 
         /// <summary>
+        /// The name of the gateway.
+        /// </summary>
+        [Input("gatewayName", required: true)]
+        public Input<string> GatewayName { get; set; } = null!;
+
+        /// <summary>
         /// Resource ID.
         /// </summary>
         [Input("id")]
@@ -175,12 +181,6 @@ namespace Pulumi.AzureRM.Network.V20200601
         /// </summary>
         [Input("location", required: true)]
         public Input<string> Location { get; set; } = null!;
-
-        /// <summary>
-        /// The name of the gateway.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
 
         /// <summary>
         /// The resource group name of the VpnGateway.

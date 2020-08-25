@@ -90,8 +90,8 @@ namespace Pulumi.AzureRM.EventGrid.V20200601
         /// <summary>
         /// Name of the domain topic.
         /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
+        [Input("domainTopicName", required: true)]
+        public Input<string> DomainTopicName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group within the user's subscription.

@@ -196,10 +196,10 @@ namespace Pulumi.AzureRM.Network.V20200601
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// The name of the VpnServerConfiguration being created or updated.
+        /// The name of the VpnServerConfiguration that is unique within a resource group.
         /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
+        [Input("name")]
+        public Input<string>? Name { get; set; }
 
         [Input("radiusClientRootCertificates")]
         private InputList<Inputs.VpnServerConfigRadiusClientRootCertificateArgs>? _radiusClientRootCertificates;
@@ -326,6 +326,12 @@ namespace Pulumi.AzureRM.Network.V20200601
             get => _vpnProtocols ?? (_vpnProtocols = new InputList<string>());
             set => _vpnProtocols = value;
         }
+
+        /// <summary>
+        /// The name of the VpnServerConfiguration being created or updated.
+        /// </summary>
+        [Input("vpnServerConfigurationName", required: true)]
+        public Input<string> VpnServerConfigurationName { get; set; } = null!;
 
         public VpnServerConfigurationArgs()
         {

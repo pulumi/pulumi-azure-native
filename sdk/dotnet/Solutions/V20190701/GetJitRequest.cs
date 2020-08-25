@@ -21,8 +21,8 @@ namespace Pulumi.AzureRM.Solutions.V20190701
         /// <summary>
         /// The name of the JIT request.
         /// </summary>
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
+        [Input("jitRequestName", required: true)]
+        public string JitRequestName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

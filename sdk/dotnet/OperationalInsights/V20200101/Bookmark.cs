@@ -138,6 +138,12 @@ namespace Pulumi.AzureRM.OperationalInsights.V20200101
     public sealed class BookmarkArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Bookmark ID
+        /// </summary>
+        [Input("bookmarkId", required: true)]
+        public Input<string> BookmarkId { get; set; } = null!;
+
+        /// <summary>
         /// The time the bookmark was created
         /// </summary>
         [Input("created")]
@@ -178,12 +184,6 @@ namespace Pulumi.AzureRM.OperationalInsights.V20200101
             get => _labels ?? (_labels = new InputList<string>());
             set => _labels = value;
         }
-
-        /// <summary>
-        /// Bookmark ID
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
 
         /// <summary>
         /// The notes of the bookmark

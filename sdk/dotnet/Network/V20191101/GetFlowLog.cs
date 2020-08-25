@@ -21,8 +21,8 @@ namespace Pulumi.AzureRM.Network.V20191101
         /// <summary>
         /// The name of the flow log resource.
         /// </summary>
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
+        [Input("flowLogName", required: true)]
+        public string FlowLogName { get; set; } = null!;
 
         /// <summary>
         /// The name of the network watcher.

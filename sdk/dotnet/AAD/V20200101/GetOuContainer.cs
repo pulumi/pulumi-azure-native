@@ -27,8 +27,8 @@ namespace Pulumi.AzureRM.Aad.V20200101
         /// <summary>
         /// The name of the OuContainer.
         /// </summary>
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
+        [Input("ouContainerName", required: true)]
+        public string OuContainerName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group within the user's subscription. The name is case insensitive.

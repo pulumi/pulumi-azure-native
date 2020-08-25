@@ -21,8 +21,8 @@ namespace Pulumi.AzureRM.Insights.V20150501
         /// <summary>
         /// The Id of a specific favorite defined in the Application Insights component
         /// </summary>
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
+        [Input("favoriteId", required: true)]
+        public string FavoriteId { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

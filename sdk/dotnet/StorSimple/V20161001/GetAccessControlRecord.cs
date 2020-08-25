@@ -19,16 +19,16 @@ namespace Pulumi.AzureRM.StorSimple.V20161001
     public sealed class GetAccessControlRecordArgs : Pulumi.InvokeArgs
     {
         /// <summary>
+        /// Name of access control record to be fetched.
+        /// </summary>
+        [Input("accessControlRecordName", required: true)]
+        public string AccessControlRecordName { get; set; } = null!;
+
+        /// <summary>
         /// The manager name
         /// </summary>
         [Input("managerName", required: true)]
         public string ManagerName { get; set; } = null!;
-
-        /// <summary>
-        /// Name of access control record to be fetched.
-        /// </summary>
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
 
         /// <summary>
         /// The resource group name

@@ -31,16 +31,16 @@ namespace Pulumi.AzureRM.ApiManagement.V20191201
         public string? Format { get; set; }
 
         /// <summary>
-        /// The identifier of the Policy.
-        /// </summary>
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
-
-        /// <summary>
         /// Operation identifier within an API. Must be unique in the current API Management service instance.
         /// </summary>
         [Input("operationId", required: true)]
         public string OperationId { get; set; } = null!;
+
+        /// <summary>
+        /// The identifier of the Policy.
+        /// </summary>
+        [Input("policyId", required: true)]
+        public string PolicyId { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group.

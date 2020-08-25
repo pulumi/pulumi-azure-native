@@ -21,8 +21,8 @@ namespace Pulumi.AzureRM.VMwareCloudSimple.V20190401
         /// <summary>
         /// dedicated cloud Service name
         /// </summary>
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
+        [Input("dedicatedCloudServiceName", required: true)]
+        public string DedicatedCloudServiceName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group

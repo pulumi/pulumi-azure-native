@@ -130,16 +130,16 @@ namespace Pulumi.AzureRM.Logic.V20160601
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// The integration account session name.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        /// <summary>
         /// The resource group name.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The integration account session name.
+        /// </summary>
+        [Input("sessionName", required: true)]
+        public Input<string> SessionName { get; set; } = null!;
 
         [Input("tags")]
         private InputMap<string>? _tags;

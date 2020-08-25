@@ -110,8 +110,8 @@ namespace Pulumi.AzureRM.Automation.V20151031
         /// <summary>
         /// The job schedule name.
         /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
+        [Input("jobScheduleId", required: true)]
+        public Input<string> JobScheduleId { get; set; } = null!;
 
         [Input("parameters")]
         private InputMap<string>? _parameters;

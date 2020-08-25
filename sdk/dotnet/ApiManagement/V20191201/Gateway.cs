@@ -90,16 +90,16 @@ namespace Pulumi.AzureRM.ApiManagement.V20191201
         public Input<string>? Description { get; set; }
 
         /// <summary>
+        /// Gateway entity identifier. Must be unique in the current API Management service instance. Must not have value 'managed'
+        /// </summary>
+        [Input("gatewayId", required: true)]
+        public Input<string> GatewayId { get; set; } = null!;
+
+        /// <summary>
         /// Gateway location.
         /// </summary>
         [Input("locationData")]
         public Input<Inputs.ResourceLocationDataContractArgs>? LocationData { get; set; }
-
-        /// <summary>
-        /// Gateway entity identifier. Must be unique in the current API Management service instance. Must not have value 'managed'
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group.

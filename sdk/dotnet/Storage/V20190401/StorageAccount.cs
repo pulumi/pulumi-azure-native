@@ -247,6 +247,12 @@ namespace Pulumi.AzureRM.Storage.V20190401
         public Input<string>? AccessTier { get; set; }
 
         /// <summary>
+        /// The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.
+        /// </summary>
+        [Input("accountName", required: true)]
+        public Input<string> AccountName { get; set; } = null!;
+
+        /// <summary>
         /// Allow or disallow public access to all blobs or containers in the storage account. The default interpretation is true for this property.
         /// </summary>
         [Input("allowBlobPublicAccess")]
@@ -311,12 +317,6 @@ namespace Pulumi.AzureRM.Storage.V20190401
         /// </summary>
         [Input("minimumTlsVersion")]
         public Input<string>? MinimumTlsVersion { get; set; }
-
-        /// <summary>
-        /// The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
 
         /// <summary>
         /// Network rule set

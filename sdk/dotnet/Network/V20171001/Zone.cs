@@ -126,12 +126,6 @@ namespace Pulumi.AzureRM.Network.V20171001
         public Input<string> Location { get; set; } = null!;
 
         /// <summary>
-        /// The name of the DNS zone (without a terminating dot).
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        /// <summary>
         /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
@@ -148,6 +142,12 @@ namespace Pulumi.AzureRM.Network.V20171001
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
+
+        /// <summary>
+        /// The name of the DNS zone (without a terminating dot).
+        /// </summary>
+        [Input("zoneName", required: true)]
+        public Input<string> ZoneName { get; set; } = null!;
 
         public ZoneArgs()
         {

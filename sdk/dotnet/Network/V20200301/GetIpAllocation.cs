@@ -27,8 +27,8 @@ namespace Pulumi.AzureRM.Network.V20200301
         /// <summary>
         /// The name of the IpAllocation.
         /// </summary>
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
+        [Input("ipAllocationName", required: true)]
+        public string IpAllocationName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group.

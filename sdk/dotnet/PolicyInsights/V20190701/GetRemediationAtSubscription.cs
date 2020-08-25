@@ -21,8 +21,8 @@ namespace Pulumi.AzureRM.PolicyInsights.V20190701
         /// <summary>
         /// The name of the remediation.
         /// </summary>
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
+        [Input("remediationName", required: true)]
+        public string RemediationName { get; set; } = null!;
 
         public GetRemediationAtSubscriptionArgs()
         {

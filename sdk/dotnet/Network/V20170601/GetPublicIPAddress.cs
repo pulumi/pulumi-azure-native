@@ -27,8 +27,8 @@ namespace Pulumi.AzureRM.Network.V20170601
         /// <summary>
         /// The name of the subnet.
         /// </summary>
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
+        [Input("publicIpAddressName", required: true)]
+        public string PublicIpAddressName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group.

@@ -229,12 +229,6 @@ namespace Pulumi.AzureRM.Compute.V20191201
         public Input<string> Location { get; set; } = null!;
 
         /// <summary>
-        /// The name of the VM scale set to create or update.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        /// <summary>
         /// Specifies whether the Virtual Machine Scale Set should be overprovisioned.
         /// </summary>
         [Input("overprovision")]
@@ -305,6 +299,12 @@ namespace Pulumi.AzureRM.Compute.V20191201
         /// </summary>
         [Input("virtualMachineProfile")]
         public Input<Inputs.VirtualMachineScaleSetVMProfileArgs>? VirtualMachineProfile { get; set; }
+
+        /// <summary>
+        /// The name of the VM scale set to create or update.
+        /// </summary>
+        [Input("vmScaleSetName", required: true)]
+        public Input<string> VmScaleSetName { get; set; } = null!;
 
         /// <summary>
         /// Whether to force strictly even Virtual Machine distribution cross x-zones in case there is zone outage.

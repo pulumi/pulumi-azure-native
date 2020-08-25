@@ -164,10 +164,16 @@ namespace Pulumi.AzureRM.Network.V20180301
         public Input<Inputs.MonitorConfigArgs>? MonitorConfig { get; set; }
 
         /// <summary>
+        /// The name of the resource
+        /// </summary>
+        [Input("name")]
+        public Input<string>? Name { get; set; }
+
+        /// <summary>
         /// The name of the Traffic Manager profile.
         /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
+        [Input("profileName", required: true)]
+        public Input<string> ProfileName { get; set; } = null!;
 
         /// <summary>
         /// The status of the Traffic Manager profile.

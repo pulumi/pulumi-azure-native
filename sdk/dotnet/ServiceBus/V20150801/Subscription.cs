@@ -239,12 +239,6 @@ namespace Pulumi.AzureRM.ServiceBus.V20150801
         public Input<int>? MaxDeliveryCount { get; set; }
 
         /// <summary>
-        /// The subscription name.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        /// <summary>
         /// The namespace name
         /// </summary>
         [Input("namespaceName", required: true)]
@@ -267,6 +261,12 @@ namespace Pulumi.AzureRM.ServiceBus.V20150801
         /// </summary>
         [Input("status")]
         public Input<string>? Status { get; set; }
+
+        /// <summary>
+        /// The subscription name.
+        /// </summary>
+        [Input("subscriptionName", required: true)]
+        public Input<string> SubscriptionName { get; set; } = null!;
 
         /// <summary>
         /// The topic name.

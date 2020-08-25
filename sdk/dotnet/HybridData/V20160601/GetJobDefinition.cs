@@ -33,8 +33,8 @@ namespace Pulumi.AzureRM.HybridData.V20160601
         /// <summary>
         /// The job definition name that is being queried.
         /// </summary>
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
+        [Input("jobDefinitionName", required: true)]
+        public string JobDefinitionName { get; set; } = null!;
 
         /// <summary>
         /// The Resource Group Name

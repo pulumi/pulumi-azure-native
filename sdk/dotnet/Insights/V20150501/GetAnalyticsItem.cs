@@ -25,10 +25,10 @@ namespace Pulumi.AzureRM.Insights.V20150501
         public string? Id { get; set; }
 
         /// <summary>
-        /// Enum indicating if this item definition is owned by a specific user or is shared between all users with access to the Application Insights component.
+        /// The name of a specific item defined in the Application Insights component
         /// </summary>
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
+        [Input("name")]
+        public string? Name { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -41,6 +41,12 @@ namespace Pulumi.AzureRM.Insights.V20150501
         /// </summary>
         [Input("resourceName", required: true)]
         public string ResourceName { get; set; } = null!;
+
+        /// <summary>
+        /// Enum indicating if this item definition is owned by a specific user or is shared between all users with access to the Application Insights component.
+        /// </summary>
+        [Input("scopePath", required: true)]
+        public string ScopePath { get; set; } = null!;
 
         public GetAnalyticsItemArgs()
         {

@@ -219,6 +219,12 @@ namespace Pulumi.AzureRM.Network.V20200301
         }
 
         /// <summary>
+        /// The name of the Azure Firewall.
+        /// </summary>
+        [Input("azureFirewallName", required: true)]
+        public Input<string> AzureFirewallName { get; set; } = null!;
+
+        /// <summary>
         /// The firewallPolicy associated with this azure firewall.
         /// </summary>
         [Input("firewallPolicy")]
@@ -253,12 +259,6 @@ namespace Pulumi.AzureRM.Network.V20200301
         /// </summary>
         [Input("managementIpConfiguration")]
         public Input<Inputs.AzureFirewallIPConfigurationArgs>? ManagementIpConfiguration { get; set; }
-
-        /// <summary>
-        /// The name of the Azure Firewall.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
 
         [Input("natRuleCollections")]
         private InputList<Inputs.AzureFirewallNatRuleCollectionArgs>? _natRuleCollections;

@@ -96,12 +96,6 @@ namespace Pulumi.AzureRM.DocumentDB.V20150408
         [Input("accountName", required: true)]
         public Input<string> AccountName { get; set; } = null!;
 
-        /// <summary>
-        /// Cosmos DB table name.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
         [Input("options", required: true)]
         private InputMap<string>? _options;
 
@@ -125,6 +119,12 @@ namespace Pulumi.AzureRM.DocumentDB.V20150408
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// Cosmos DB table name.
+        /// </summary>
+        [Input("tableName", required: true)]
+        public Input<string> TableName { get; set; } = null!;
 
         public DatabaseAccountTableArgs()
         {

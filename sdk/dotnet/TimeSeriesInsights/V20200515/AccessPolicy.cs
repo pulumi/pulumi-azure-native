@@ -94,6 +94,12 @@ namespace Pulumi.AzureRM.TimeSeriesInsights.V20200515
     public sealed class AccessPolicyArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Name of the access policy.
+        /// </summary>
+        [Input("accessPolicyName", required: true)]
+        public Input<string> AccessPolicyName { get; set; } = null!;
+
+        /// <summary>
         /// An description of the access policy.
         /// </summary>
         [Input("description")]
@@ -104,12 +110,6 @@ namespace Pulumi.AzureRM.TimeSeriesInsights.V20200515
         /// </summary>
         [Input("environmentName", required: true)]
         public Input<string> EnvironmentName { get; set; } = null!;
-
-        /// <summary>
-        /// Name of the access policy.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
 
         /// <summary>
         /// The objectId of the principal in Azure Active Directory.

@@ -21,8 +21,8 @@ namespace Pulumi.AzureRM.AzureStack.V20170601
         /// <summary>
         /// Name of the Azure Stack registration.
         /// </summary>
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
+        [Input("registrationName", required: true)]
+        public string RegistrationName { get; set; } = null!;
 
         /// <summary>
         /// Name of the resource group.

@@ -84,16 +84,16 @@ namespace Pulumi.AzureRM.DataFactory.V20180601
     public sealed class DatasetArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The dataset name.
+        /// </summary>
+        [Input("datasetName", required: true)]
+        public Input<string> DatasetName { get; set; } = null!;
+
+        /// <summary>
         /// The factory name.
         /// </summary>
         [Input("factoryName", required: true)]
         public Input<string> FactoryName { get; set; } = null!;
-
-        /// <summary>
-        /// The dataset name.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
 
         /// <summary>
         /// Dataset properties.

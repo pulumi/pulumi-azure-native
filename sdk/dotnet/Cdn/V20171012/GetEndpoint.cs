@@ -21,8 +21,8 @@ namespace Pulumi.AzureRM.Cdn.V20171012
         /// <summary>
         /// Name of the endpoint under the profile which is unique globally.
         /// </summary>
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
+        [Input("endpointName", required: true)]
+        public string EndpointName { get; set; } = null!;
 
         /// <summary>
         /// Name of the CDN profile which is unique within the resource group.

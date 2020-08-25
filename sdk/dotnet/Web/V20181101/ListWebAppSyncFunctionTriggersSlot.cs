@@ -19,7 +19,7 @@ namespace Pulumi.AzureRM.Web.V20181101
     public sealed class ListWebAppSyncFunctionTriggersSlotArgs : Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Name of the deployment slot. If a slot is not specified, the API will restore a backup of the production slot.
+        /// Name of the app.
         /// </summary>
         [Input("name", required: true)]
         public string Name { get; set; } = null!;
@@ -29,6 +29,12 @@ namespace Pulumi.AzureRM.Web.V20181101
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public string ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// Name of the deployment slot. If a slot is not specified, the API will restore a backup of the production slot.
+        /// </summary>
+        [Input("slot", required: true)]
+        public string Slot { get; set; } = null!;
 
         public ListWebAppSyncFunctionTriggersSlotArgs()
         {

@@ -102,16 +102,16 @@ namespace Pulumi.AzureRM.Security.V20200101
         public Input<string> AscLocation { get; set; } = null!;
 
         /// <summary>
+        /// Name of a Just-in-Time access configuration policy.
+        /// </summary>
+        [Input("jitNetworkAccessPolicyName", required: true)]
+        public Input<string> JitNetworkAccessPolicyName { get; set; } = null!;
+
+        /// <summary>
         /// Kind of the resource
         /// </summary>
         [Input("kind")]
         public Input<string>? Kind { get; set; }
-
-        /// <summary>
-        /// Name of a Just-in-Time access configuration policy.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
 
         [Input("requests")]
         private InputList<Inputs.JitNetworkAccessRequestArgs>? _requests;

@@ -115,6 +115,12 @@ namespace Pulumi.AzureRM.Batch.V20190401
         public Input<bool>? AllowUpdates { get; set; }
 
         /// <summary>
+        /// The name of the application. This must be unique within the account.
+        /// </summary>
+        [Input("applicationName", required: true)]
+        public Input<string> ApplicationName { get; set; } = null!;
+
+        /// <summary>
         /// The package to use if a client requests the application but does not specify a version. This property can only be set to the name of an existing package.
         /// </summary>
         [Input("defaultVersion")]
@@ -125,12 +131,6 @@ namespace Pulumi.AzureRM.Batch.V20190401
         /// </summary>
         [Input("displayName")]
         public Input<string>? DisplayName { get; set; }
-
-        /// <summary>
-        /// The name of the application. This must be unique within the account.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group that contains the Batch account.

@@ -19,16 +19,16 @@ namespace Pulumi.AzureRM.Network.V20191101
     public sealed class GetVirtualHubRouteTableV2Args : Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The name of the VirtualHubRouteTableV2.
-        /// </summary>
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
-
-        /// <summary>
         /// The resource group name of the VirtualHubRouteTableV2.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public string ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the VirtualHubRouteTableV2.
+        /// </summary>
+        [Input("routeTableName", required: true)]
+        public string RouteTableName { get; set; } = null!;
 
         /// <summary>
         /// The name of the VirtualHub.

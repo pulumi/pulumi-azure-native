@@ -21,8 +21,8 @@ namespace Pulumi.AzureRM.Security.V20190801
         /// <summary>
         /// The name of the device security group. Note that the name of the device security group is case insensitive.
         /// </summary>
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
+        [Input("deviceSecurityGroupName", required: true)]
+        public string DeviceSecurityGroupName { get; set; } = null!;
 
         /// <summary>
         /// The identifier of the resource.

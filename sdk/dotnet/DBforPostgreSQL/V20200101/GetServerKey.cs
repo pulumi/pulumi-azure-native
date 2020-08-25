@@ -21,8 +21,8 @@ namespace Pulumi.AzureRM.DBforPostgreSQL.V20200101
         /// <summary>
         /// The name of the PostgreSQL Server key to be retrieved.
         /// </summary>
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
+        [Input("keyName", required: true)]
+        public string KeyName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

@@ -142,7 +142,7 @@ namespace Pulumi.AzureRM.Web.V20160801
         public Input<string>? Kind { get; set; }
 
         /// <summary>
-        /// Name of an existing Virtual Network.
+        /// Name of the app.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
@@ -152,6 +152,12 @@ namespace Pulumi.AzureRM.Web.V20160801
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// Name of an existing Virtual Network.
+        /// </summary>
+        [Input("vnetName", required: true)]
+        public Input<string> VnetName { get; set; } = null!;
 
         /// <summary>
         /// The Virtual Network's resource ID.

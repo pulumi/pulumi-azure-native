@@ -21,8 +21,8 @@ namespace Pulumi.AzureRM.Network.V20190601
         /// <summary>
         /// The name of the gateway.
         /// </summary>
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
+        [Input("gatewayName", required: true)]
+        public string GatewayName { get; set; } = null!;
 
         /// <summary>
         /// The resource group name of the P2SVpnGateway.

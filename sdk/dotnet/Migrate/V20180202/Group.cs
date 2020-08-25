@@ -107,6 +107,12 @@ namespace Pulumi.AzureRM.Migrate.V20180202
         [Input("eTag")]
         public Input<string>? ETag { get; set; }
 
+        /// <summary>
+        /// Unique name of a group within a project.
+        /// </summary>
+        [Input("groupName", required: true)]
+        public Input<string> GroupName { get; set; } = null!;
+
         [Input("machines", required: true)]
         private InputList<string>? _machines;
 
@@ -118,12 +124,6 @@ namespace Pulumi.AzureRM.Migrate.V20180202
             get => _machines ?? (_machines = new InputList<string>());
             set => _machines = value;
         }
-
-        /// <summary>
-        /// Unique name of a group within a project.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
 
         /// <summary>
         /// Name of the Azure Migrate project.

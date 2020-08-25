@@ -27,8 +27,8 @@ namespace Pulumi.AzureRM.Network.V20191201
         /// <summary>
         /// The name of the private endpoint.
         /// </summary>
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
+        [Input("privateEndpointName", required: true)]
+        public string PrivateEndpointName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group.

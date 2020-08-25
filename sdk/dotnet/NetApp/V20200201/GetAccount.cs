@@ -21,8 +21,8 @@ namespace Pulumi.AzureRM.NetApp.V20200201
         /// <summary>
         /// The name of the NetApp account
         /// </summary>
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
+        [Input("accountName", required: true)]
+        public string AccountName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group.

@@ -21,8 +21,8 @@ namespace Pulumi.AzureRM.Sql.V20140401
         /// <summary>
         /// Name of the server administrator resource.
         /// </summary>
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
+        [Input("administratorName", required: true)]
+        public string AdministratorName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.

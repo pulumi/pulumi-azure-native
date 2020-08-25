@@ -21,8 +21,8 @@ namespace Pulumi.AzureRM.ImportExport.V20200801
         /// <summary>
         /// The name of the import/export job.
         /// </summary>
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
+        [Input("jobName", required: true)]
+        public string JobName { get; set; } = null!;
 
         /// <summary>
         /// The resource group name uniquely identifies the resource group within the user subscription.

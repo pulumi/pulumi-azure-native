@@ -19,16 +19,16 @@ namespace Pulumi.AzureRM.StorageSync.V20190201
     public sealed class GetRegisteredServerArgs : Pulumi.InvokeArgs
     {
         /// <summary>
-        /// GUID identifying the on-premises server.
-        /// </summary>
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
-
-        /// <summary>
         /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public string ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// GUID identifying the on-premises server.
+        /// </summary>
+        [Input("serverId", required: true)]
+        public string ServerId { get; set; } = null!;
 
         /// <summary>
         /// Name of Storage Sync Service resource.

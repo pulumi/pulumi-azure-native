@@ -21,8 +21,8 @@ namespace Pulumi.AzureRM.MixedReality.V20200501
         /// <summary>
         /// Name of an Mixed Reality Account.
         /// </summary>
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
+        [Input("accountName", required: true)]
+        public string AccountName { get; set; } = null!;
 
         /// <summary>
         /// Name of an Azure resource group.

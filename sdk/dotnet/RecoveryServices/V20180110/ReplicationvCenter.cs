@@ -95,12 +95,6 @@ namespace Pulumi.AzureRM.RecoveryServices.V20180110
         public Input<string> FabricName { get; set; } = null!;
 
         /// <summary>
-        /// vCenter name.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        /// <summary>
         /// The properties of an add vCenter request.
         /// </summary>
         [Input("properties")]
@@ -117,6 +111,12 @@ namespace Pulumi.AzureRM.RecoveryServices.V20180110
         /// </summary>
         [Input("resourceName", required: true)]
         public Input<string> ResourceName { get; set; } = null!;
+
+        /// <summary>
+        /// vCenter name.
+        /// </summary>
+        [Input("vCenterName", required: true)]
+        public Input<string> VCenterName { get; set; } = null!;
 
         public ReplicationvCenterArgs()
         {

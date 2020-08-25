@@ -25,16 +25,16 @@ namespace Pulumi.AzureRM.DataLakeStore.V20161101
         public string AccountName { get; set; } = null!;
 
         /// <summary>
-        /// The name of the virtual network rule to retrieve.
-        /// </summary>
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
-
-        /// <summary>
         /// The name of the Azure resource group.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public string ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the virtual network rule to retrieve.
+        /// </summary>
+        [Input("virtualNetworkRuleName", required: true)]
+        public string VirtualNetworkRuleName { get; set; } = null!;
 
         public GetVirtualNetworkRuleArgs()
         {

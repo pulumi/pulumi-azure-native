@@ -106,16 +106,22 @@ namespace Pulumi.AzureRM.Network.V20200501
     public sealed class VirtualHubBgpConnectionArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The name of the connection.
+        /// </summary>
+        [Input("connectionName", required: true)]
+        public Input<string> ConnectionName { get; set; } = null!;
+
+        /// <summary>
         /// Resource ID.
         /// </summary>
         [Input("id")]
         public Input<string>? Id { get; set; }
 
         /// <summary>
-        /// The name of the connection.
+        /// Name of the connection.
         /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
+        [Input("name")]
+        public Input<string>? Name { get; set; }
 
         /// <summary>
         /// Peer ASN.

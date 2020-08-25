@@ -118,6 +118,12 @@ namespace Pulumi.AzureRM.AppConfiguration.V20191001
     public sealed class ConfigurationStoreArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The name of the configuration store.
+        /// </summary>
+        [Input("configStoreName", required: true)]
+        public Input<string> ConfigStoreName { get; set; } = null!;
+
+        /// <summary>
         /// The managed identity information, if configured.
         /// </summary>
         [Input("identity")]
@@ -128,12 +134,6 @@ namespace Pulumi.AzureRM.AppConfiguration.V20191001
         /// </summary>
         [Input("location", required: true)]
         public Input<string> Location { get; set; } = null!;
-
-        /// <summary>
-        /// The name of the configuration store.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group to which the container registry belongs.

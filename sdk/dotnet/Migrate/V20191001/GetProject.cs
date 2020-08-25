@@ -21,8 +21,8 @@ namespace Pulumi.AzureRM.Migrate.V20191001
         /// <summary>
         /// Name of the Azure Migrate project.
         /// </summary>
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
+        [Input("projectName", required: true)]
+        public string ProjectName { get; set; } = null!;
 
         /// <summary>
         /// Name of the Azure Resource Group that project is part of.

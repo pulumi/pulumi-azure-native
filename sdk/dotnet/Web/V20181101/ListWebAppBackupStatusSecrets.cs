@@ -19,6 +19,12 @@ namespace Pulumi.AzureRM.Web.V20181101
     public sealed class ListWebAppBackupStatusSecretsArgs : Pulumi.InvokeArgs
     {
         /// <summary>
+        /// ID of backup.
+        /// </summary>
+        [Input("backupId", required: true)]
+        public string BackupId { get; set; } = null!;
+
+        /// <summary>
         /// Name of the backup.
         /// </summary>
         [Input("backupName")]
@@ -55,7 +61,7 @@ namespace Pulumi.AzureRM.Web.V20181101
         public string? Kind { get; set; }
 
         /// <summary>
-        /// ID of backup.
+        /// Name of web app.
         /// </summary>
         [Input("name", required: true)]
         public string Name { get; set; } = null!;

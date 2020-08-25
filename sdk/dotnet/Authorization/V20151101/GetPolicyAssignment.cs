@@ -21,8 +21,8 @@ namespace Pulumi.AzureRM.Authorization.V20151101
         /// <summary>
         /// Policy assignment name.
         /// </summary>
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
+        [Input("policyAssignmentName", required: true)]
+        public string PolicyAssignmentName { get; set; } = null!;
 
         /// <summary>
         /// Scope.

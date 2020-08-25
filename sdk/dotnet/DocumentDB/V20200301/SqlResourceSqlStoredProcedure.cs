@@ -117,12 +117,6 @@ namespace Pulumi.AzureRM.DocumentDB.V20200301
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// Cosmos DB storedProcedure name.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        /// <summary>
         /// A key-value pair of options to be applied for the request. This corresponds to the headers sent with the request.
         /// </summary>
         [Input("options", required: true)]
@@ -139,6 +133,12 @@ namespace Pulumi.AzureRM.DocumentDB.V20200301
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// Cosmos DB storedProcedure name.
+        /// </summary>
+        [Input("storedProcedureName", required: true)]
+        public Input<string> StoredProcedureName { get; set; } = null!;
 
         [Input("tags")]
         private InputMap<string>? _tags;

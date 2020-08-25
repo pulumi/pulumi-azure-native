@@ -106,10 +106,16 @@ namespace Pulumi.AzureRM.Authorization.V20160401
         public Input<string>? DisplayName { get; set; }
 
         /// <summary>
+        /// The name of the policy definition. If you do not specify a value for name, the value is inferred from the name value in the request URI.
+        /// </summary>
+        [Input("name")]
+        public Input<string>? Name { get; set; }
+
+        /// <summary>
         /// The name of the policy definition to create.
         /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
+        [Input("policyDefinitionName", required: true)]
+        public Input<string> PolicyDefinitionName { get; set; } = null!;
 
         [Input("policyRule")]
         private InputMap<object>? _policyRule;

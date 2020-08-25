@@ -163,16 +163,16 @@ namespace Pulumi.AzureRM.Network.V20190601
         }
 
         /// <summary>
-        /// The name of the packet capture session.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        /// <summary>
         /// The name of the network watcher.
         /// </summary>
         [Input("networkWatcherName", required: true)]
         public Input<string> NetworkWatcherName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the packet capture session.
+        /// </summary>
+        [Input("packetCaptureName", required: true)]
+        public Input<string> PacketCaptureName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group.

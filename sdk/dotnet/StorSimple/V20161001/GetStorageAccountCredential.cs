@@ -19,16 +19,16 @@ namespace Pulumi.AzureRM.StorSimple.V20161001
     public sealed class GetStorageAccountCredentialArgs : Pulumi.InvokeArgs
     {
         /// <summary>
+        /// The name of storage account credential to be fetched.
+        /// </summary>
+        [Input("credentialName", required: true)]
+        public string CredentialName { get; set; } = null!;
+
+        /// <summary>
         /// The manager name
         /// </summary>
         [Input("managerName", required: true)]
         public string ManagerName { get; set; } = null!;
-
-        /// <summary>
-        /// The name of storage account credential to be fetched.
-        /// </summary>
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
 
         /// <summary>
         /// The resource group name

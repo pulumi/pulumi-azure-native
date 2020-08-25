@@ -92,8 +92,8 @@ namespace Pulumi.AzureRM.DBforMariaDB.V20180601
         /// <summary>
         /// The name of the server firewall rule.
         /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
+        [Input("firewallRuleName", required: true)]
+        public Input<string> FirewallRuleName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

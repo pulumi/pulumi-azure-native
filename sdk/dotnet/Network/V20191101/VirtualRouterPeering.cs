@@ -113,10 +113,10 @@ namespace Pulumi.AzureRM.Network.V20191101
         public Input<string>? Id { get; set; }
 
         /// <summary>
-        /// The name of the Virtual Router Peering.
+        /// Name of the virtual router peering that is unique within a virtual router.
         /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
+        [Input("name")]
+        public Input<string>? Name { get; set; }
 
         /// <summary>
         /// Peer ASN.
@@ -129,6 +129,12 @@ namespace Pulumi.AzureRM.Network.V20191101
         /// </summary>
         [Input("peerIp")]
         public Input<string>? PeerIp { get; set; }
+
+        /// <summary>
+        /// The name of the Virtual Router Peering.
+        /// </summary>
+        [Input("peeringName", required: true)]
+        public Input<string> PeeringName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group.

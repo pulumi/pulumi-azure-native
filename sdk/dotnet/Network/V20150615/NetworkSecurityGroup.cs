@@ -189,12 +189,6 @@ namespace Pulumi.AzureRM.Network.V20150615
         [Input("location")]
         public Input<string>? Location { get; set; }
 
-        /// <summary>
-        /// The name of the network security group.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
         [Input("networkInterfaces")]
         private InputList<Inputs.NetworkInterfaceArgs>? _networkInterfaces;
 
@@ -206,6 +200,12 @@ namespace Pulumi.AzureRM.Network.V20150615
             get => _networkInterfaces ?? (_networkInterfaces = new InputList<Inputs.NetworkInterfaceArgs>());
             set => _networkInterfaces = value;
         }
+
+        /// <summary>
+        /// The name of the network security group.
+        /// </summary>
+        [Input("networkSecurityGroupName", required: true)]
+        public Input<string> NetworkSecurityGroupName { get; set; } = null!;
 
         /// <summary>
         /// The provisioning state of the public IP resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.

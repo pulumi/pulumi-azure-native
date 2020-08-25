@@ -21,8 +21,8 @@ namespace Pulumi.AzureRM.StorageCache.V20191101
         /// <summary>
         /// Name of Cache.
         /// </summary>
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
+        [Input("cacheName", required: true)]
+        public string CacheName { get; set; } = null!;
 
         /// <summary>
         /// Target resource group.

@@ -25,6 +25,12 @@ namespace Pulumi.AzureRM.StorSimple.V20161001
         public string DeviceName { get; set; } = null!;
 
         /// <summary>
+        /// The disk name.
+        /// </summary>
+        [Input("diskName", required: true)]
+        public string DiskName { get; set; } = null!;
+
+        /// <summary>
         /// The iSCSI server name.
         /// </summary>
         [Input("iscsiServerName", required: true)]
@@ -35,12 +41,6 @@ namespace Pulumi.AzureRM.StorSimple.V20161001
         /// </summary>
         [Input("managerName", required: true)]
         public string ManagerName { get; set; } = null!;
-
-        /// <summary>
-        /// The disk name.
-        /// </summary>
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
 
         /// <summary>
         /// The resource group name

@@ -143,16 +143,16 @@ namespace Pulumi.AzureRM.AnalysisServices.V20160516
         public Input<string> Location { get; set; } = null!;
 
         /// <summary>
-        /// The name of the Analysis Services server. It must be a minimum of 3 characters, and a maximum of 63.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        /// <summary>
         /// The name of the Azure Resource group of which a given Analysis Services server is part. This name must be at least 1 character in length, and no more than 90.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the Analysis Services server. It must be a minimum of 3 characters, and a maximum of 63.
+        /// </summary>
+        [Input("serverName", required: true)]
+        public Input<string> ServerName { get; set; } = null!;
 
         /// <summary>
         /// The SKU of the Analysis Services resource.

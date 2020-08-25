@@ -21,8 +21,8 @@ namespace Pulumi.AzureRM.AVS.V20200320
         /// <summary>
         /// Name of the private cloud
         /// </summary>
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
+        [Input("privateCloudName", required: true)]
+        public string PrivateCloudName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

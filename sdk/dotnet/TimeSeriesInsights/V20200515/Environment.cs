@@ -100,6 +100,12 @@ namespace Pulumi.AzureRM.TimeSeriesInsights.V20200515
     public sealed class EnvironmentArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Name of the environment
+        /// </summary>
+        [Input("environmentName", required: true)]
+        public Input<string> EnvironmentName { get; set; } = null!;
+
+        /// <summary>
         /// The kind of the environment.
         /// </summary>
         [Input("kind", required: true)]
@@ -110,12 +116,6 @@ namespace Pulumi.AzureRM.TimeSeriesInsights.V20200515
         /// </summary>
         [Input("location", required: true)]
         public Input<string> Location { get; set; } = null!;
-
-        /// <summary>
-        /// Name of the environment
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
 
         /// <summary>
         /// Name of an Azure Resource group.

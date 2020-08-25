@@ -142,6 +142,12 @@ namespace Pulumi.AzureRM.Logic.V20160601
     public sealed class AgreementArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The integration account agreement name.
+        /// </summary>
+        [Input("agreementName", required: true)]
+        public Input<string> AgreementName { get; set; } = null!;
+
+        /// <summary>
         /// The agreement type.
         /// </summary>
         [Input("agreementType", required: true)]
@@ -200,12 +206,6 @@ namespace Pulumi.AzureRM.Logic.V20160601
             get => _metadata ?? (_metadata = new InputMap<object>());
             set => _metadata = value;
         }
-
-        /// <summary>
-        /// The integration account agreement name.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
 
         /// <summary>
         /// The resource group name.

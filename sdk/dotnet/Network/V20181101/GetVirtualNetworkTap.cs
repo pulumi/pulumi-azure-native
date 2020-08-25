@@ -19,16 +19,16 @@ namespace Pulumi.AzureRM.Network.V20181101
     public sealed class GetVirtualNetworkTapArgs : Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The name of virtual network tap.
-        /// </summary>
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
-
-        /// <summary>
         /// The name of the resource group.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public string ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of virtual network tap.
+        /// </summary>
+        [Input("tapName", required: true)]
+        public string TapName { get; set; } = null!;
 
         public GetVirtualNetworkTapArgs()
         {

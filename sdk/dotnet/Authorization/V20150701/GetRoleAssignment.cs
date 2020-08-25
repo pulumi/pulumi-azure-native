@@ -21,8 +21,8 @@ namespace Pulumi.AzureRM.Authorization.V20150701
         /// <summary>
         /// The name of the role assignment to get.
         /// </summary>
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
+        [Input("roleAssignmentName", required: true)]
+        public string RoleAssignmentName { get; set; } = null!;
 
         /// <summary>
         /// The scope of the role assignment.

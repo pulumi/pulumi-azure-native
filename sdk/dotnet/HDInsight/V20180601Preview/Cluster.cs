@@ -102,6 +102,12 @@ namespace Pulumi.AzureRM.HDInsight.V20180601Preview
     public sealed class ClusterArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The name of the cluster.
+        /// </summary>
+        [Input("clusterName", required: true)]
+        public Input<string> ClusterName { get; set; } = null!;
+
+        /// <summary>
         /// The identity of the cluster, if configured.
         /// </summary>
         [Input("identity")]
@@ -112,12 +118,6 @@ namespace Pulumi.AzureRM.HDInsight.V20180601Preview
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
-
-        /// <summary>
-        /// The name of the cluster.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
 
         /// <summary>
         /// The cluster create parameters.

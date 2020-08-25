@@ -246,8 +246,8 @@ namespace Pulumi.AzureRM.Network.V20200501
         /// <summary>
         /// The name of the network interface.
         /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
+        [Input("networkInterfaceName", required: true)]
+        public Input<string> NetworkInterfaceName { get; set; } = null!;
 
         /// <summary>
         /// The reference to the NetworkSecurityGroup resource.

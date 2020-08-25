@@ -19,12 +19,6 @@ namespace Pulumi.AzureRM.ApiManagement.V20180101
     public sealed class GetEmailTemplateArgs : Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Email Template Name Identifier.
-        /// </summary>
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
-
-        /// <summary>
         /// The name of the resource group.
         /// </summary>
         [Input("resourceGroupName", required: true)]
@@ -35,6 +29,12 @@ namespace Pulumi.AzureRM.ApiManagement.V20180101
         /// </summary>
         [Input("serviceName", required: true)]
         public string ServiceName { get; set; } = null!;
+
+        /// <summary>
+        /// Email Template Name Identifier.
+        /// </summary>
+        [Input("templateName", required: true)]
+        public string TemplateName { get; set; } = null!;
 
         public GetEmailTemplateArgs()
         {

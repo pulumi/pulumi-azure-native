@@ -19,12 +19,6 @@ namespace Pulumi.AzureRM.ContainerService.V20200201
     public sealed class ListManagedClusterAccessProfileArgs : Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The name of the role for managed cluster accessProfile resource.
-        /// </summary>
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
-
-        /// <summary>
         /// The name of the resource group.
         /// </summary>
         [Input("resourceGroupName", required: true)]
@@ -35,6 +29,12 @@ namespace Pulumi.AzureRM.ContainerService.V20200201
         /// </summary>
         [Input("resourceName", required: true)]
         public string ResourceName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the role for managed cluster accessProfile resource.
+        /// </summary>
+        [Input("roleName", required: true)]
+        public string RoleName { get; set; } = null!;
 
         public ListManagedClusterAccessProfileArgs()
         {

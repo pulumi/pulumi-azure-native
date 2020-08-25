@@ -19,16 +19,16 @@ namespace Pulumi.AzureRM.AnalysisServices.V20170714
     public sealed class GetServerDetailsArgs : Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The name of the Analysis Services server. It must be a minimum of 3 characters, and a maximum of 63.
-        /// </summary>
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
-
-        /// <summary>
         /// The name of the Azure Resource group of which a given Analysis Services server is part. This name must be at least 1 character in length, and no more than 90.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public string ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the Analysis Services server. It must be a minimum of 3 characters, and a maximum of 63.
+        /// </summary>
+        [Input("serverName", required: true)]
+        public string ServerName { get; set; } = null!;
 
         public GetServerDetailsArgs()
         {

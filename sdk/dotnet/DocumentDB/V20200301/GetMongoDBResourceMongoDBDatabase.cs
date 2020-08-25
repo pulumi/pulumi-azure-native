@@ -27,8 +27,8 @@ namespace Pulumi.AzureRM.DocumentDB.V20200301
         /// <summary>
         /// Cosmos DB database name.
         /// </summary>
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
+        [Input("databaseName", required: true)]
+        public string DatabaseName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

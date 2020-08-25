@@ -84,6 +84,12 @@ namespace Pulumi.AzureRM.OperationalInsights.V20200101
     public sealed class DataConnectorArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Connector ID
+        /// </summary>
+        [Input("dataConnectorId", required: true)]
+        public Input<string> DataConnectorId { get; set; } = null!;
+
+        /// <summary>
         /// Etag of the azure resource
         /// </summary>
         [Input("etag")]
@@ -94,12 +100,6 @@ namespace Pulumi.AzureRM.OperationalInsights.V20200101
         /// </summary>
         [Input("kind", required: true)]
         public Input<string> Kind { get; set; } = null!;
-
-        /// <summary>
-        /// Connector ID
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group within the user's subscription. The name is case insensitive.

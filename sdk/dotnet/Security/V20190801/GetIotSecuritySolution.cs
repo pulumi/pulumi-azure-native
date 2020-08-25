@@ -19,16 +19,16 @@ namespace Pulumi.AzureRM.Security.V20190801
     public sealed class GetIotSecuritySolutionArgs : Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The name of the IoT Security solution.
-        /// </summary>
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
-
-        /// <summary>
         /// The name of the resource group within the user's subscription. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public string ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the IoT Security solution.
+        /// </summary>
+        [Input("solutionName", required: true)]
+        public string SolutionName { get; set; } = null!;
 
         public GetIotSecuritySolutionArgs()
         {

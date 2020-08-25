@@ -21,8 +21,8 @@ namespace Pulumi.AzureRM.Network.V20200301
         /// <summary>
         /// The name of express route circuit.
         /// </summary>
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
+        [Input("circuitName", required: true)]
+        public string CircuitName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group.

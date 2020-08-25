@@ -215,6 +215,12 @@ namespace Pulumi.AzureRM.DataLakeAnalytics.V20161101
 
     public sealed class AccountArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The name of the Data Lake Analytics account.
+        /// </summary>
+        [Input("accountName", required: true)]
+        public Input<string> AccountName { get; set; } = null!;
+
         [Input("computePolicies")]
         private InputList<Inputs.CreateComputePolicyWithAccountParametersArgs>? _computePolicies;
 
@@ -298,12 +304,6 @@ namespace Pulumi.AzureRM.DataLakeAnalytics.V20161101
         /// </summary>
         [Input("minPriorityPerJob")]
         public Input<int>? MinPriorityPerJob { get; set; }
-
-        /// <summary>
-        /// The name of the Data Lake Analytics account.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
 
         /// <summary>
         /// The commitment tier for the next month.

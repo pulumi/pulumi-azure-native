@@ -207,12 +207,6 @@ namespace Pulumi.AzureRM.Network.V20190901
         public Input<string> Location { get; set; } = null!;
 
         /// <summary>
-        /// The name of the VpnSite being created or updated.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        /// <summary>
         /// The resource group name of the VpnSite.
         /// </summary>
         [Input("resourceGroupName", required: true)]
@@ -253,6 +247,12 @@ namespace Pulumi.AzureRM.Network.V20190901
             get => _vpnSiteLinks ?? (_vpnSiteLinks = new InputList<Inputs.VpnSiteLinkArgs>());
             set => _vpnSiteLinks = value;
         }
+
+        /// <summary>
+        /// The name of the VpnSite being created or updated.
+        /// </summary>
+        [Input("vpnSiteName", required: true)]
+        public Input<string> VpnSiteName { get; set; } = null!;
 
         public VpnSiteArgs()
         {

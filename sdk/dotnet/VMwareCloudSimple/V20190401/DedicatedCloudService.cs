@@ -108,6 +108,12 @@ namespace Pulumi.AzureRM.VMwareCloudSimple.V20190401
     public sealed class DedicatedCloudServiceArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// dedicated cloud Service name
+        /// </summary>
+        [Input("dedicatedCloudServiceName", required: true)]
+        public Input<string> DedicatedCloudServiceName { get; set; } = null!;
+
+        /// <summary>
         /// gateway Subnet for the account. It will collect the subnet address and always treat it as /28
         /// </summary>
         [Input("gatewaySubnet", required: true)]
@@ -118,12 +124,6 @@ namespace Pulumi.AzureRM.VMwareCloudSimple.V20190401
         /// </summary>
         [Input("location", required: true)]
         public Input<string> Location { get; set; } = null!;
-
-        /// <summary>
-        /// dedicated cloud Service name
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group

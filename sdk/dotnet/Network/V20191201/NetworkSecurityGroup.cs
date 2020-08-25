@@ -180,8 +180,8 @@ namespace Pulumi.AzureRM.Network.V20191201
         /// <summary>
         /// The name of the network security group.
         /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
+        [Input("networkSecurityGroupName", required: true)]
+        public Input<string> NetworkSecurityGroupName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group.

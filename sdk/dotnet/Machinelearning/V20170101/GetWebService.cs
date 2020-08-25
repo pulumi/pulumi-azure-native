@@ -19,12 +19,6 @@ namespace Pulumi.AzureRM.MachineLearning.V20170101
     public sealed class GetWebServiceArgs : Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The name of the web service.
-        /// </summary>
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
-
-        /// <summary>
         /// The region for which encrypted credential parameters are valid.
         /// </summary>
         [Input("region")]
@@ -35,6 +29,12 @@ namespace Pulumi.AzureRM.MachineLearning.V20170101
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public string ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the web service.
+        /// </summary>
+        [Input("webServiceName", required: true)]
+        public string WebServiceName { get; set; } = null!;
 
         public GetWebServiceArgs()
         {

@@ -21,6 +21,12 @@ namespace Pulumi.AzureRM.Web.V20180201
         /// <summary>
         /// Deployment ID.
         /// </summary>
+        [Input("id", required: true)]
+        public string Id { get; set; } = null!;
+
+        /// <summary>
+        /// Name of the app.
+        /// </summary>
         [Input("name", required: true)]
         public string Name { get; set; } = null!;
 

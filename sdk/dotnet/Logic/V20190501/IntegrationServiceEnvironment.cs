@@ -96,16 +96,16 @@ namespace Pulumi.AzureRM.Logic.V20190501
     public sealed class IntegrationServiceEnvironmentArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The integration service environment name.
+        /// </summary>
+        [Input("integrationServiceEnvironmentName", required: true)]
+        public Input<string> IntegrationServiceEnvironmentName { get; set; } = null!;
+
+        /// <summary>
         /// The resource location.
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
-
-        /// <summary>
-        /// The integration service environment name.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
 
         /// <summary>
         /// The integration service environment properties.

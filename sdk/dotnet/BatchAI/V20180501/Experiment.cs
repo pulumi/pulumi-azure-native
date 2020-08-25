@@ -92,8 +92,8 @@ namespace Pulumi.AzureRM.BatchAI.V20180501
         /// <summary>
         /// The name of the experiment. Experiment names can only contain a combination of alphanumeric characters along with dash (-) and underscore (_). The name must be from 1 through 64 characters long.
         /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
+        [Input("experimentName", required: true)]
+        public Input<string> ExperimentName { get; set; } = null!;
 
         /// <summary>
         /// Name of the resource group to which the resource belongs.

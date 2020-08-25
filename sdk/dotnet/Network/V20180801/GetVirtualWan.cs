@@ -19,16 +19,16 @@ namespace Pulumi.AzureRM.Network.V20180801
     public sealed class GetVirtualWanArgs : Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The name of the VirtualWAN being retrieved.
-        /// </summary>
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
-
-        /// <summary>
         /// The resource group name of the VirtualWan.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public string ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the VirtualWAN being retrieved.
+        /// </summary>
+        [Input("virtualWANName", required: true)]
+        public string VirtualWANName { get; set; } = null!;
 
         public GetVirtualWanArgs()
         {

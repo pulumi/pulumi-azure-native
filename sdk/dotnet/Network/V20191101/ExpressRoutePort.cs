@@ -192,6 +192,12 @@ namespace Pulumi.AzureRM.Network.V20191101
         public Input<string>? Encapsulation { get; set; }
 
         /// <summary>
+        /// The name of the ExpressRoutePort resource.
+        /// </summary>
+        [Input("expressRoutePortName", required: true)]
+        public Input<string> ExpressRoutePortName { get; set; } = null!;
+
+        /// <summary>
         /// Resource ID.
         /// </summary>
         [Input("id")]
@@ -220,12 +226,6 @@ namespace Pulumi.AzureRM.Network.V20191101
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
-
-        /// <summary>
-        /// The name of the ExpressRoutePort resource.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
 
         /// <summary>
         /// The name of the peering location that the ExpressRoutePort is mapped to physically.

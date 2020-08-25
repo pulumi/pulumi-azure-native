@@ -245,6 +245,12 @@ namespace Pulumi.AzureRM.DocumentDB.V20200401
     public sealed class DatabaseAccountArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Cosmos DB database account name.
+        /// </summary>
+        [Input("accountName", required: true)]
+        public Input<string> AccountName { get; set; } = null!;
+
+        /// <summary>
         /// API specific properties. Currently, supported only for MongoDB API.
         /// </summary>
         [Input("apiProperties")]
@@ -375,12 +381,6 @@ namespace Pulumi.AzureRM.DocumentDB.V20200401
             get => _locations ?? (_locations = new InputList<Inputs.LocationArgs>());
             set => _locations = value;
         }
-
-        /// <summary>
-        /// Cosmos DB database account name.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
 
         /// <summary>
         /// Whether requests from Public Network are allowed

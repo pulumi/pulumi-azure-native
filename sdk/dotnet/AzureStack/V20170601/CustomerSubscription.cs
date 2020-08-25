@@ -84,16 +84,16 @@ namespace Pulumi.AzureRM.AzureStack.V20170601
     public sealed class CustomerSubscriptionArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Name of the product.
+        /// </summary>
+        [Input("customerSubscriptionName", required: true)]
+        public Input<string> CustomerSubscriptionName { get; set; } = null!;
+
+        /// <summary>
         /// The entity tag used for optimistic concurrency when modifying the resource.
         /// </summary>
         [Input("etag")]
         public Input<string>? Etag { get; set; }
-
-        /// <summary>
-        /// Name of the product.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
 
         /// <summary>
         /// Name of the Azure Stack registration.

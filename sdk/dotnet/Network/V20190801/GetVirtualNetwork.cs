@@ -25,16 +25,16 @@ namespace Pulumi.AzureRM.Network.V20190801
         public string? Expand { get; set; }
 
         /// <summary>
-        /// The name of the virtual network.
-        /// </summary>
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
-
-        /// <summary>
         /// The name of the resource group.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public string ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the virtual network.
+        /// </summary>
+        [Input("virtualNetworkName", required: true)]
+        public string VirtualNetworkName { get; set; } = null!;
 
         public GetVirtualNetworkArgs()
         {

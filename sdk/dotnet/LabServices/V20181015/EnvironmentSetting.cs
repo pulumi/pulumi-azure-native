@@ -156,6 +156,12 @@ namespace Pulumi.AzureRM.LabServices.V20181015
         public Input<string>? Description { get; set; }
 
         /// <summary>
+        /// The name of the environment Setting.
+        /// </summary>
+        [Input("environmentSettingName", required: true)]
+        public Input<string> EnvironmentSettingName { get; set; } = null!;
+
+        /// <summary>
         /// The name of the lab Account.
         /// </summary>
         [Input("labAccountName", required: true)]
@@ -172,12 +178,6 @@ namespace Pulumi.AzureRM.LabServices.V20181015
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
-
-        /// <summary>
-        /// The name of the environment Setting.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
 
         /// <summary>
         /// The provisioning status of the resource.

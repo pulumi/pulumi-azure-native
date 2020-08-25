@@ -252,16 +252,16 @@ namespace Pulumi.AzureRM.StreamAnalytics.V20160301
         }
 
         /// <summary>
+        /// The name of the streaming job.
+        /// </summary>
+        [Input("jobName", required: true)]
+        public Input<string> JobName { get; set; } = null!;
+
+        /// <summary>
         /// Resource location. Required on PUT (CreateOrReplace) requests.
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
-
-        /// <summary>
-        /// The name of the streaming job.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
 
         /// <summary>
         /// Indicates the policy to apply to events that arrive at the output and cannot be written to the external storage due to being malformed (missing column values, column values of wrong type or size).

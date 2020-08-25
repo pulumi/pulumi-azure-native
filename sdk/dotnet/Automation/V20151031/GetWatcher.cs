@@ -25,16 +25,16 @@ namespace Pulumi.AzureRM.Automation.V20151031
         public string AutomationAccountName { get; set; } = null!;
 
         /// <summary>
-        /// The watcher name.
-        /// </summary>
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
-
-        /// <summary>
         /// Name of an Azure Resource group.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public string ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The watcher name.
+        /// </summary>
+        [Input("watcherName", required: true)]
+        public string WatcherName { get; set; } = null!;
 
         public GetWatcherArgs()
         {

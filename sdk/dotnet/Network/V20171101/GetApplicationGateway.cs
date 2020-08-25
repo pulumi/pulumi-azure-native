@@ -21,8 +21,8 @@ namespace Pulumi.AzureRM.Network.V20171101
         /// <summary>
         /// The name of the application gateway.
         /// </summary>
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
+        [Input("applicationGatewayName", required: true)]
+        public string ApplicationGatewayName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group.

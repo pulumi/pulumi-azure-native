@@ -158,10 +158,16 @@ namespace Pulumi.AzureRM.Web.V20160801
         public Input<string>? MarketplacePublisher { get; set; }
 
         /// <summary>
-        /// Premier add on Name.
+        /// Name of the app.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
+
+        /// <summary>
+        /// Premier add on Name.
+        /// </summary>
+        [Input("premierAddOnName", required: true)]
+        public Input<string> PremierAddOnName { get; set; } = null!;
 
         /// <summary>
         /// Premier add on Product.

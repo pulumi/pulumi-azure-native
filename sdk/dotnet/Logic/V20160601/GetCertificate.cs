@@ -19,16 +19,16 @@ namespace Pulumi.AzureRM.Logic.V20160601
     public sealed class GetCertificateArgs : Pulumi.InvokeArgs
     {
         /// <summary>
+        /// The integration account certificate name.
+        /// </summary>
+        [Input("certificateName", required: true)]
+        public string CertificateName { get; set; } = null!;
+
+        /// <summary>
         /// The integration account name.
         /// </summary>
         [Input("integrationAccountName", required: true)]
         public string IntegrationAccountName { get; set; } = null!;
-
-        /// <summary>
-        /// The integration account certificate name.
-        /// </summary>
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
 
         /// <summary>
         /// The resource group name.

@@ -19,12 +19,6 @@ namespace Pulumi.AzureRM.Resources.V20180201
     public sealed class GetResourceArgs : Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The name of the resource to get.
-        /// </summary>
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
-
-        /// <summary>
         /// The parent resource identity.
         /// </summary>
         [Input("parentResourcePath", required: true)]
@@ -35,6 +29,12 @@ namespace Pulumi.AzureRM.Resources.V20180201
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public string ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource to get.
+        /// </summary>
+        [Input("resourceName", required: true)]
+        public string ResourceName { get; set; } = null!;
 
         /// <summary>
         /// The namespace of the resource provider.

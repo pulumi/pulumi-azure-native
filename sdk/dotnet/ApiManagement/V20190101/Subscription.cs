@@ -176,12 +176,6 @@ namespace Pulumi.AzureRM.ApiManagement.V20190101
         public Input<string> DisplayName { get; set; } = null!;
 
         /// <summary>
-        /// Subscription entity Identifier. The entity represents the association between a user and a product in API Management.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        /// <summary>
         /// Notify change in Subscription State. 
         ///  - If false, do not send any email notification for change of state of subscription 
         ///  - If true, send email notification of change of state of subscription 
@@ -224,6 +218,12 @@ namespace Pulumi.AzureRM.ApiManagement.V20190101
         /// </summary>
         [Input("serviceName", required: true)]
         public Input<string> ServiceName { get; set; } = null!;
+
+        /// <summary>
+        /// Subscription entity Identifier. The entity represents the association between a user and a product in API Management.
+        /// </summary>
+        [Input("sid", required: true)]
+        public Input<string> Sid { get; set; } = null!;
 
         /// <summary>
         /// Initial subscription state. If no value is specified, subscription is created with Submitted state. Possible states are * active – the subscription is active, * suspended – the subscription is blocked, and the subscriber cannot call any APIs of the product, * submitted – the subscription request has been made by the developer, but has not yet been approved or rejected, * rejected – the subscription request has been denied by an administrator, * cancelled – the subscription has been cancelled by the developer or administrator, * expired – the subscription reached its expiration date and was deactivated.

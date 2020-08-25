@@ -19,16 +19,16 @@ namespace Pulumi.AzureRM.Cdn.V20150601
     public sealed class GetCustomDomainArgs : Pulumi.InvokeArgs
     {
         /// <summary>
+        /// Name of the custom domain within an endpoint.
+        /// </summary>
+        [Input("customDomainName", required: true)]
+        public string CustomDomainName { get; set; } = null!;
+
+        /// <summary>
         /// Name of the endpoint within the CDN profile.
         /// </summary>
         [Input("endpointName", required: true)]
         public string EndpointName { get; set; } = null!;
-
-        /// <summary>
-        /// Name of the custom domain within an endpoint.
-        /// </summary>
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
 
         /// <summary>
         /// Name of the CDN profile within the resource group.

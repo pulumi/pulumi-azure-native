@@ -19,16 +19,16 @@ namespace Pulumi.AzureRM.RecoveryServices.V20161201
     public sealed class GetProtectionContainerArgs : Pulumi.InvokeArgs
     {
         /// <summary>
+        /// Name of the container whose details need to be fetched.
+        /// </summary>
+        [Input("containerName", required: true)]
+        public string ContainerName { get; set; } = null!;
+
+        /// <summary>
         /// Name of the fabric where the container belongs.
         /// </summary>
         [Input("fabricName", required: true)]
         public string FabricName { get; set; } = null!;
-
-        /// <summary>
-        /// Name of the container whose details need to be fetched.
-        /// </summary>
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group where the recovery services vault is present.

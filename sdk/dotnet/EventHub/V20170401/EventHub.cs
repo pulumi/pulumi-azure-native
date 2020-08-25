@@ -125,16 +125,16 @@ namespace Pulumi.AzureRM.EventHub.V20170401
         public Input<Inputs.CaptureDescriptionArgs>? CaptureDescription { get; set; }
 
         /// <summary>
+        /// The Event Hub name
+        /// </summary>
+        [Input("eventHubName", required: true)]
+        public Input<string> EventHubName { get; set; } = null!;
+
+        /// <summary>
         /// Number of days to retain the events for this Event Hub, value should be 1 to 7 days
         /// </summary>
         [Input("messageRetentionInDays")]
         public Input<int>? MessageRetentionInDays { get; set; }
-
-        /// <summary>
-        /// The Event Hub name
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
 
         /// <summary>
         /// The Namespace name

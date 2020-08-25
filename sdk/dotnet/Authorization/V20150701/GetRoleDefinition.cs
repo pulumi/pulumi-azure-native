@@ -21,8 +21,8 @@ namespace Pulumi.AzureRM.Authorization.V20150701
         /// <summary>
         /// The ID of the role definition.
         /// </summary>
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
+        [Input("roleDefinitionId", required: true)]
+        public string RoleDefinitionId { get; set; } = null!;
 
         /// <summary>
         /// The scope of the role definition.

@@ -190,12 +190,6 @@ namespace Pulumi.AzureRM.StorageSync.V20191001
         public Input<string>? FriendlyName { get; set; }
 
         /// <summary>
-        /// Name of Server Endpoint object.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        /// <summary>
         /// Offline data transfer
         /// </summary>
         [Input("offlineDataTransfer")]
@@ -212,6 +206,12 @@ namespace Pulumi.AzureRM.StorageSync.V20191001
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// Name of Server Endpoint object.
+        /// </summary>
+        [Input("serverEndpointName", required: true)]
+        public Input<string> ServerEndpointName { get; set; } = null!;
 
         /// <summary>
         /// Server Local path.

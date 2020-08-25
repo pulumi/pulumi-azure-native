@@ -192,6 +192,12 @@ namespace Pulumi.AzureRM.Compute.V20191201
         public Input<string>? Eula { get; set; }
 
         /// <summary>
+        /// The name of the gallery Image Definition to be created or updated. The allowed characters are alphabets and numbers with dots, dashes, and periods allowed in the middle. The maximum length is 80 characters.
+        /// </summary>
+        [Input("galleryImageName", required: true)]
+        public Input<string> GalleryImageName { get; set; } = null!;
+
+        /// <summary>
         /// The name of the Shared Image Gallery in which the Image Definition is to be created.
         /// </summary>
         [Input("galleryName", required: true)]
@@ -214,12 +220,6 @@ namespace Pulumi.AzureRM.Compute.V20191201
         /// </summary>
         [Input("location", required: true)]
         public Input<string> Location { get; set; } = null!;
-
-        /// <summary>
-        /// The name of the gallery Image Definition to be created or updated. The allowed characters are alphabets and numbers with dots, dashes, and periods allowed in the middle. The maximum length is 80 characters.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
 
         /// <summary>
         /// This property allows the user to specify whether the virtual machines created under this image are 'Generalized' or 'Specialized'.

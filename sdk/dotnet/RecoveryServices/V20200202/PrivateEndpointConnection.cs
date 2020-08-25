@@ -110,8 +110,8 @@ namespace Pulumi.AzureRM.RecoveryServices.V20200202
         /// <summary>
         /// The name of the private endpoint connection.
         /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
+        [Input("privateEndpointConnectionName", required: true)]
+        public Input<string> PrivateEndpointConnectionName { get; set; } = null!;
 
         /// <summary>
         /// PrivateEndpointConnectionResource properties

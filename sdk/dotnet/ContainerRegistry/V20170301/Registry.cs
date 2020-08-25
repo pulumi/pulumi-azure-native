@@ -139,8 +139,8 @@ namespace Pulumi.AzureRM.ContainerRegistry.V20170301
         /// <summary>
         /// The name of the container registry.
         /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
+        [Input("registryName", required: true)]
+        public Input<string> RegistryName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group to which the container registry belongs.

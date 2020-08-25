@@ -25,16 +25,16 @@ namespace Pulumi.AzureRM.StorSimple.V20161001
         public string DeviceName { get; set; } = null!;
 
         /// <summary>
+        /// The iSCSI server name.
+        /// </summary>
+        [Input("iscsiServerName", required: true)]
+        public string IscsiServerName { get; set; } = null!;
+
+        /// <summary>
         /// The manager name
         /// </summary>
         [Input("managerName", required: true)]
         public string ManagerName { get; set; } = null!;
-
-        /// <summary>
-        /// The iSCSI server name.
-        /// </summary>
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
 
         /// <summary>
         /// The resource group name

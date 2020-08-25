@@ -120,6 +120,12 @@ namespace Pulumi.AzureRM.StorSimple.V20170601
         public Input<string> BackupPolicyName { get; set; } = null!;
 
         /// <summary>
+        /// The backup schedule name.
+        /// </summary>
+        [Input("backupScheduleName", required: true)]
+        public Input<string> BackupScheduleName { get; set; } = null!;
+
+        /// <summary>
         /// The type of backup which needs to be taken.
         /// </summary>
         [Input("backupType", required: true)]
@@ -142,12 +148,6 @@ namespace Pulumi.AzureRM.StorSimple.V20170601
         /// </summary>
         [Input("managerName", required: true)]
         public Input<string> ManagerName { get; set; } = null!;
-
-        /// <summary>
-        /// The backup schedule name.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
 
         /// <summary>
         /// The resource group name

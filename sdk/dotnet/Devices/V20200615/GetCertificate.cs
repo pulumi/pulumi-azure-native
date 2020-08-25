@@ -21,8 +21,8 @@ namespace Pulumi.AzureRM.Devices.V20200615
         /// <summary>
         /// The name of the certificate
         /// </summary>
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
+        [Input("certificateName", required: true)]
+        public string CertificateName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group that contains the IoT hub.

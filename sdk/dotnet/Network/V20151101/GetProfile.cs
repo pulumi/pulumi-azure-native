@@ -21,8 +21,8 @@ namespace Pulumi.AzureRM.Network.V20151101
         /// <summary>
         /// The name of the Traffic Manager profile.
         /// </summary>
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
+        [Input("profileName", required: true)]
+        public string ProfileName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group containing the Traffic Manager profile.

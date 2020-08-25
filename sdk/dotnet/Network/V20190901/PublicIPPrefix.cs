@@ -193,12 +193,6 @@ namespace Pulumi.AzureRM.Network.V20190901
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// The name of the public IP prefix.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        /// <summary>
         /// The Length of the Public IP Prefix.
         /// </summary>
         [Input("prefixLength")]
@@ -209,6 +203,12 @@ namespace Pulumi.AzureRM.Network.V20190901
         /// </summary>
         [Input("publicIPAddressVersion")]
         public Input<string>? PublicIPAddressVersion { get; set; }
+
+        /// <summary>
+        /// The name of the public IP prefix.
+        /// </summary>
+        [Input("publicIpPrefixName", required: true)]
+        public Input<string> PublicIpPrefixName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group.

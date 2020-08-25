@@ -21,8 +21,8 @@ namespace Pulumi.AzureRM.Batch.V20170501
         /// <summary>
         /// The name of the Batch account.
         /// </summary>
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
+        [Input("accountName", required: true)]
+        public string AccountName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group that contains the Batch account.

@@ -122,8 +122,8 @@ namespace Pulumi.AzureRM.Cdn.V20190415
         /// <summary>
         /// Name of the CDN profile which is unique within the resource group.
         /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
+        [Input("profileName", required: true)]
+        public Input<string> ProfileName { get; set; } = null!;
 
         /// <summary>
         /// Name of the Resource group within the Azure subscription.

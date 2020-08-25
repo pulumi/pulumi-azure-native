@@ -208,12 +208,6 @@ namespace Pulumi.AzureRM.MachineLearningServices.V20190501
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// Name of Azure Machine Learning workspace.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        /// <summary>
         /// Name of the resource group in which workspace is located.
         /// </summary>
         [Input("resourceGroupName", required: true)]
@@ -236,6 +230,12 @@ namespace Pulumi.AzureRM.MachineLearningServices.V20190501
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
+
+        /// <summary>
+        /// Name of Azure Machine Learning workspace.
+        /// </summary>
+        [Input("workspaceName", required: true)]
+        public Input<string> WorkspaceName { get; set; } = null!;
 
         public WorkspaceArgs()
         {

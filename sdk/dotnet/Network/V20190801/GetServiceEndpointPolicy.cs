@@ -25,16 +25,16 @@ namespace Pulumi.AzureRM.Network.V20190801
         public string? Expand { get; set; }
 
         /// <summary>
-        /// The name of the service endpoint policy.
-        /// </summary>
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
-
-        /// <summary>
         /// The name of the resource group.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public string ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the service endpoint policy.
+        /// </summary>
+        [Input("serviceEndpointPolicyName", required: true)]
+        public string ServiceEndpointPolicyName { get; set; } = null!;
 
         public GetServiceEndpointPolicyArgs()
         {

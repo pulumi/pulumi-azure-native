@@ -21,8 +21,8 @@ namespace Pulumi.AzureRM.Network.V20181001
         /// <summary>
         /// The name of the application security group.
         /// </summary>
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
+        [Input("applicationSecurityGroupName", required: true)]
+        public string ApplicationSecurityGroupName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group.

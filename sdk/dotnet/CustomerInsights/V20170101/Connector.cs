@@ -141,6 +141,12 @@ namespace Pulumi.AzureRM.CustomerInsights.V20170101
 
     public sealed class ConnectorArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Name of the connector.
+        /// </summary>
+        [Input("connectorName", required: true)]
+        public Input<string> ConnectorName { get; set; } = null!;
+
         [Input("connectorProperties", required: true)]
         private InputMap<ImmutableDictionary<string, object>>? _connectorProperties;
 
@@ -182,12 +188,6 @@ namespace Pulumi.AzureRM.CustomerInsights.V20170101
         /// </summary>
         [Input("isInternal")]
         public Input<bool>? IsInternal { get; set; }
-
-        /// <summary>
-        /// Name of the connector.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group.

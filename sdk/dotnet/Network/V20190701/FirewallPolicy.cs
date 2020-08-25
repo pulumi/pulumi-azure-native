@@ -144,6 +144,12 @@ namespace Pulumi.AzureRM.Network.V20190701
         public Input<Inputs.SubResourceArgs>? BasePolicy { get; set; }
 
         /// <summary>
+        /// The name of the Firewall Policy.
+        /// </summary>
+        [Input("firewallPolicyName", required: true)]
+        public Input<string> FirewallPolicyName { get; set; } = null!;
+
+        /// <summary>
         /// Resource ID.
         /// </summary>
         [Input("id")]
@@ -154,12 +160,6 @@ namespace Pulumi.AzureRM.Network.V20190701
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
-
-        /// <summary>
-        /// The name of the Firewall Policy.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
 
         /// <summary>
         /// The provisioning state of the firewall policy resource.

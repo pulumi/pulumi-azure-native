@@ -162,16 +162,16 @@ namespace Pulumi.AzureRM.Sql.V20140401
         public Input<string>? Edition { get; set; }
 
         /// <summary>
+        /// The name of the elastic pool to be operated on (updated or created).
+        /// </summary>
+        [Input("elasticPoolName", required: true)]
+        public Input<string> ElasticPoolName { get; set; } = null!;
+
+        /// <summary>
         /// Resource location.
         /// </summary>
         [Input("location", required: true)]
         public Input<string> Location { get; set; } = null!;
-
-        /// <summary>
-        /// The name of the elastic pool to be operated on (updated or created).
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.

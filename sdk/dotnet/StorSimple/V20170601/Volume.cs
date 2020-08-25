@@ -168,12 +168,6 @@ namespace Pulumi.AzureRM.StorSimple.V20170601
         public Input<string> MonitoringStatus { get; set; } = null!;
 
         /// <summary>
-        /// The volume name.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        /// <summary>
         /// The resource group name
         /// </summary>
         [Input("resourceGroupName", required: true)]
@@ -190,6 +184,12 @@ namespace Pulumi.AzureRM.StorSimple.V20170601
         /// </summary>
         [Input("volumeContainerName", required: true)]
         public Input<string> VolumeContainerName { get; set; } = null!;
+
+        /// <summary>
+        /// The volume name.
+        /// </summary>
+        [Input("volumeName", required: true)]
+        public Input<string> VolumeName { get; set; } = null!;
 
         /// <summary>
         /// The volume status.

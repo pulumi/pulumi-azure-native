@@ -215,6 +215,12 @@ namespace Pulumi.AzureRM.OperationalInsights.V20200101
         [Input("firstActivityTimeUtc")]
         public Input<string>? FirstActivityTimeUtc { get; set; }
 
+        /// <summary>
+        /// Incident ID
+        /// </summary>
+        [Input("incidentId", required: true)]
+        public Input<string> IncidentId { get; set; } = null!;
+
         [Input("labels")]
         private InputList<Inputs.IncidentLabelArgs>? _labels;
 
@@ -232,12 +238,6 @@ namespace Pulumi.AzureRM.OperationalInsights.V20200101
         /// </summary>
         [Input("lastActivityTimeUtc")]
         public Input<string>? LastActivityTimeUtc { get; set; }
-
-        /// <summary>
-        /// Incident ID
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
 
         /// <summary>
         /// Describes a user that the incident is assigned to

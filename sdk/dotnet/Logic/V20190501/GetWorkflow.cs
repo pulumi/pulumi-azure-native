@@ -19,16 +19,16 @@ namespace Pulumi.AzureRM.Logic.V20190501
     public sealed class GetWorkflowArgs : Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The workflow name.
-        /// </summary>
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
-
-        /// <summary>
         /// The resource group name.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public string ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The workflow name.
+        /// </summary>
+        [Input("workflowName", required: true)]
+        public string WorkflowName { get; set; } = null!;
 
         public GetWorkflowArgs()
         {

@@ -25,16 +25,16 @@ namespace Pulumi.AzureRM.Network.V20200401
         public string? Expand { get; set; }
 
         /// <summary>
-        /// The name of the Virtual Router.
-        /// </summary>
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
-
-        /// <summary>
         /// The name of the resource group.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public string ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the Virtual Router.
+        /// </summary>
+        [Input("virtualRouterName", required: true)]
+        public string VirtualRouterName { get; set; } = null!;
 
         public GetVirtualRouterArgs()
         {

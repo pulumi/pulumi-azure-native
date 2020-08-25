@@ -135,16 +135,16 @@ namespace Pulumi.AzureRM.Network.V20200501
         }
 
         /// <summary>
+        /// The name of the ipGroups.
+        /// </summary>
+        [Input("ipGroupsName", required: true)]
+        public Input<string> IpGroupsName { get; set; } = null!;
+
+        /// <summary>
         /// Resource location.
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
-
-        /// <summary>
-        /// The name of the ipGroups.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group.

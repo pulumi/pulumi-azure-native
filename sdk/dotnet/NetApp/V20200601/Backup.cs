@@ -114,6 +114,12 @@ namespace Pulumi.AzureRM.NetApp.V20200601
         public Input<string> AccountName { get; set; } = null!;
 
         /// <summary>
+        /// The name of the backup
+        /// </summary>
+        [Input("backupName", required: true)]
+        public Input<string> BackupName { get; set; } = null!;
+
+        /// <summary>
         /// Label for backup
         /// </summary>
         [Input("label")]
@@ -124,12 +130,6 @@ namespace Pulumi.AzureRM.NetApp.V20200601
         /// </summary>
         [Input("location", required: true)]
         public Input<string> Location { get; set; } = null!;
-
-        /// <summary>
-        /// The name of the backup
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
 
         /// <summary>
         /// The name of the capacity pool

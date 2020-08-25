@@ -96,6 +96,12 @@ namespace Pulumi.AzureRM.OperationalInsights.V20200801
     public sealed class DataSourceArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The name of the datasource resource.
+        /// </summary>
+        [Input("dataSourceName", required: true)]
+        public Input<string> DataSourceName { get; set; } = null!;
+
+        /// <summary>
         /// The ETag of the data source.
         /// </summary>
         [Input("etag")]
@@ -106,12 +112,6 @@ namespace Pulumi.AzureRM.OperationalInsights.V20200801
         /// </summary>
         [Input("kind", required: true)]
         public Input<string> Kind { get; set; } = null!;
-
-        /// <summary>
-        /// The name of the datasource resource.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
 
         [Input("properties", required: true)]
         private InputMap<object>? _properties;

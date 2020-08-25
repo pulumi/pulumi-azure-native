@@ -126,12 +126,6 @@ namespace Pulumi.AzureRM.StorSimple.V20170601
         public Input<string> ManagerName { get; set; } = null!;
 
         /// <summary>
-        /// The storage account credential name.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        /// <summary>
         /// The resource group name
         /// </summary>
         [Input("resourceGroupName", required: true)]
@@ -142,6 +136,12 @@ namespace Pulumi.AzureRM.StorSimple.V20170601
         /// </summary>
         [Input("sslStatus", required: true)]
         public Input<string> SslStatus { get; set; } = null!;
+
+        /// <summary>
+        /// The storage account credential name.
+        /// </summary>
+        [Input("storageAccountCredentialName", required: true)]
+        public Input<string> StorageAccountCredentialName { get; set; } = null!;
 
         public StorageAccountCredentialArgs()
         {

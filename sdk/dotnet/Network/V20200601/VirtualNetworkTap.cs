@@ -174,12 +174,6 @@ namespace Pulumi.AzureRM.Network.V20200601
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// The name of the virtual network tap.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        /// <summary>
         /// The name of the resource group.
         /// </summary>
         [Input("resourceGroupName", required: true)]
@@ -196,6 +190,12 @@ namespace Pulumi.AzureRM.Network.V20200601
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
+
+        /// <summary>
+        /// The name of the virtual network tap.
+        /// </summary>
+        [Input("tapName", required: true)]
+        public Input<string> TapName { get; set; } = null!;
 
         public VirtualNetworkTapArgs()
         {

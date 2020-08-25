@@ -19,16 +19,16 @@ namespace Pulumi.AzureRM.Compute.V20190301
     public sealed class GetGalleryImageArgs : Pulumi.InvokeArgs
     {
         /// <summary>
+        /// The name of the gallery Image Definition to be retrieved.
+        /// </summary>
+        [Input("galleryImageName", required: true)]
+        public string GalleryImageName { get; set; } = null!;
+
+        /// <summary>
         /// The name of the Shared Image Gallery from which the Image Definitions are to be retrieved.
         /// </summary>
         [Input("galleryName", required: true)]
         public string GalleryName { get; set; } = null!;
-
-        /// <summary>
-        /// The name of the gallery Image Definition to be retrieved.
-        /// </summary>
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group.

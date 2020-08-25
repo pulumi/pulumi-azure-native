@@ -251,12 +251,6 @@ namespace Pulumi.AzureRM.VMwareCloudSimple.V20190401
         [Input("location", required: true)]
         public Input<string> Location { get; set; } = null!;
 
-        /// <summary>
-        /// virtual machine name
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
         [Input("nics")]
         private InputList<Inputs.VirtualNicArgs>? _nics;
 
@@ -334,6 +328,12 @@ namespace Pulumi.AzureRM.VMwareCloudSimple.V20190401
             get => _vSphereNetworks ?? (_vSphereNetworks = new InputList<string>());
             set => _vSphereNetworks = value;
         }
+
+        /// <summary>
+        /// virtual machine name
+        /// </summary>
+        [Input("virtualMachineName", required: true)]
+        public Input<string> VirtualMachineName { get; set; } = null!;
 
         public VirtualMachineArgs()
         {

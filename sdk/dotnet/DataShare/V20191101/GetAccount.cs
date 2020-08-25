@@ -21,8 +21,8 @@ namespace Pulumi.AzureRM.DataShare.V20191101
         /// <summary>
         /// The name of the share account.
         /// </summary>
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
+        [Input("accountName", required: true)]
+        public string AccountName { get; set; } = null!;
 
         /// <summary>
         /// The resource group name.

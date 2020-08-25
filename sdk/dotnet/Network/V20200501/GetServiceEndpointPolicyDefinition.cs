@@ -19,16 +19,16 @@ namespace Pulumi.AzureRM.Network.V20200501
     public sealed class GetServiceEndpointPolicyDefinitionArgs : Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The name of the service endpoint policy definition name.
-        /// </summary>
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
-
-        /// <summary>
         /// The name of the resource group.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public string ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the service endpoint policy definition name.
+        /// </summary>
+        [Input("serviceEndpointPolicyDefinitionName", required: true)]
+        public string ServiceEndpointPolicyDefinitionName { get; set; } = null!;
 
         /// <summary>
         /// The name of the service endpoint policy name.

@@ -27,8 +27,8 @@ namespace Pulumi.AzureRM.Network.V20200401
         /// <summary>
         /// The name of the ipGroups.
         /// </summary>
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
+        [Input("ipGroupsName", required: true)]
+        public string IpGroupsName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group.

@@ -21,8 +21,8 @@ namespace Pulumi.AzureRM.ApiManagement.V20190101
         /// <summary>
         /// Identifier of the Cache entity. Cache identifier (should be either 'default' or valid Azure region identifier).
         /// </summary>
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
+        [Input("cacheId", required: true)]
+        public string CacheId { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group.

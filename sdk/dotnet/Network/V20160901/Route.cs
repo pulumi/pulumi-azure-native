@@ -148,10 +148,10 @@ namespace Pulumi.AzureRM.Network.V20160901
         public Input<string>? Id { get; set; }
 
         /// <summary>
-        /// The name of the route.
+        /// The name of the resource that is unique within a resource group. This name can be used to access the resource.
         /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
+        [Input("name")]
+        public Input<string>? Name { get; set; }
 
         /// <summary>
         /// The IP address packets should be forwarded to. Next hop values are only allowed in routes where the next hop type is VirtualAppliance.
@@ -176,6 +176,12 @@ namespace Pulumi.AzureRM.Network.V20160901
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the route.
+        /// </summary>
+        [Input("routeName", required: true)]
+        public Input<string> RouteName { get; set; } = null!;
 
         /// <summary>
         /// The name of the route table.

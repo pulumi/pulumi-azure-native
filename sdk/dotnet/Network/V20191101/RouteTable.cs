@@ -166,16 +166,16 @@ namespace Pulumi.AzureRM.Network.V20191101
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// The name of the route table.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        /// <summary>
         /// The name of the resource group.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the route table.
+        /// </summary>
+        [Input("routeTableName", required: true)]
+        public Input<string> RouteTableName { get; set; } = null!;
 
         [Input("routes")]
         private InputList<Inputs.RouteArgs>? _routes;

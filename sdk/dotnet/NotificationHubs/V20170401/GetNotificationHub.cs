@@ -19,16 +19,16 @@ namespace Pulumi.AzureRM.NotificationHubs.V20170401
     public sealed class GetNotificationHubArgs : Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The notification hub name.
-        /// </summary>
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
-
-        /// <summary>
         /// The namespace name.
         /// </summary>
         [Input("namespaceName", required: true)]
         public string NamespaceName { get; set; } = null!;
+
+        /// <summary>
+        /// The notification hub name.
+        /// </summary>
+        [Input("notificationHubName", required: true)]
+        public string NotificationHubName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group.

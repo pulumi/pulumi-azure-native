@@ -102,12 +102,6 @@ namespace Pulumi.AzureRM.KeyVault.V20190901
         public Input<string> Location { get; set; } = null!;
 
         /// <summary>
-        /// Name of the vault
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        /// <summary>
         /// Properties of the vault
         /// </summary>
         [Input("properties", required: true)]
@@ -130,6 +124,12 @@ namespace Pulumi.AzureRM.KeyVault.V20190901
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
+
+        /// <summary>
+        /// Name of the vault
+        /// </summary>
+        [Input("vaultName", required: true)]
+        public Input<string> VaultName { get; set; } = null!;
 
         public VaultArgs()
         {

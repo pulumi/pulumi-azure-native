@@ -19,16 +19,16 @@ namespace Pulumi.AzureRM.Sql.V20140401
     public sealed class GetDatabaseArgs : Pulumi.InvokeArgs
     {
         /// <summary>
+        /// The name of the database to be retrieved.
+        /// </summary>
+        [Input("databaseName", required: true)]
+        public string DatabaseName { get; set; } = null!;
+
+        /// <summary>
         /// A comma separated list of child objects to expand in the response. Possible properties: serviceTierAdvisors, transparentDataEncryption.
         /// </summary>
         [Input("expand")]
         public string? Expand { get; set; }
-
-        /// <summary>
-        /// The name of the database to be retrieved.
-        /// </summary>
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.

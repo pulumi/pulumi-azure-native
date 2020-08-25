@@ -107,6 +107,12 @@ namespace Pulumi.AzureRM.EventHub.V20140901
     public sealed class ConsumerGroupArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The consumer group name
+        /// </summary>
+        [Input("consumerGroupName", required: true)]
+        public Input<string> ConsumerGroupName { get; set; } = null!;
+
+        /// <summary>
         /// The Event Hub name
         /// </summary>
         [Input("eventHubName", required: true)]
@@ -119,10 +125,10 @@ namespace Pulumi.AzureRM.EventHub.V20140901
         public Input<string> Location { get; set; } = null!;
 
         /// <summary>
-        /// The consumer group name
+        /// Name of the consumer group.
         /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
+        [Input("name")]
+        public Input<string>? Name { get; set; }
 
         /// <summary>
         /// The Namespace name

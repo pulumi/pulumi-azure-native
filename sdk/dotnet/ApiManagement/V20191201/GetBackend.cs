@@ -21,8 +21,8 @@ namespace Pulumi.AzureRM.ApiManagement.V20191201
         /// <summary>
         /// Identifier of the Backend entity. Must be unique in the current API Management service instance.
         /// </summary>
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
+        [Input("backendId", required: true)]
+        public string BackendId { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group.

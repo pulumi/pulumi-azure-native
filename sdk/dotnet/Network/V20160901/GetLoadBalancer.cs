@@ -27,8 +27,8 @@ namespace Pulumi.AzureRM.Network.V20160901
         /// <summary>
         /// The name of the load balancer.
         /// </summary>
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
+        [Input("loadBalancerName", required: true)]
+        public string LoadBalancerName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group.

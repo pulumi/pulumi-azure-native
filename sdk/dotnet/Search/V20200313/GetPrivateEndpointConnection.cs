@@ -21,8 +21,8 @@ namespace Pulumi.AzureRM.Search.V20200313
         /// <summary>
         /// The name of the private endpoint connection to the Azure Cognitive Search service with the specified resource group.
         /// </summary>
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
+        [Input("privateEndpointConnectionName", required: true)]
+        public string PrivateEndpointConnectionName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group within the current subscription. You can obtain this value from the Azure Resource Manager API or the portal.

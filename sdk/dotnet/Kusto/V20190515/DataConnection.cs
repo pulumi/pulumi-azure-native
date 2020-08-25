@@ -98,6 +98,12 @@ namespace Pulumi.AzureRM.Kusto.V20190515
         public Input<string> ClusterName { get; set; } = null!;
 
         /// <summary>
+        /// The name of the data connection.
+        /// </summary>
+        [Input("dataConnectionName", required: true)]
+        public Input<string> DataConnectionName { get; set; } = null!;
+
+        /// <summary>
         /// The name of the database in the Kusto cluster.
         /// </summary>
         [Input("databaseName", required: true)]
@@ -114,12 +120,6 @@ namespace Pulumi.AzureRM.Kusto.V20190515
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
-
-        /// <summary>
-        /// The name of the data connection.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group containing the Kusto cluster.

@@ -114,6 +114,12 @@ namespace Pulumi.AzureRM.CognitiveServices.V20170418
     public sealed class AccountArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The name of Cognitive Services account.
+        /// </summary>
+        [Input("accountName", required: true)]
+        public Input<string> AccountName { get; set; } = null!;
+
+        /// <summary>
         /// The identity of Cognitive Services account.
         /// </summary>
         [Input("identity")]
@@ -130,12 +136,6 @@ namespace Pulumi.AzureRM.CognitiveServices.V20170418
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
-
-        /// <summary>
-        /// The name of Cognitive Services account.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
 
         /// <summary>
         /// Properties of Cognitive Services account.

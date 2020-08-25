@@ -158,6 +158,12 @@ namespace Pulumi.AzureRM.Network.V20200501
         public Input<Inputs.TrafficAnalyticsPropertiesArgs>? FlowAnalyticsConfiguration { get; set; }
 
         /// <summary>
+        /// The name of the flow log.
+        /// </summary>
+        [Input("flowLogName", required: true)]
+        public Input<string> FlowLogName { get; set; } = null!;
+
+        /// <summary>
         /// Parameters that define the flow log format.
         /// </summary>
         [Input("format")]
@@ -174,12 +180,6 @@ namespace Pulumi.AzureRM.Network.V20200501
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
-
-        /// <summary>
-        /// The name of the flow log.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
 
         /// <summary>
         /// The name of the network watcher.

@@ -21,8 +21,8 @@ namespace Pulumi.AzureRM.Cdn.V20200331
         /// <summary>
         /// The name of the CdnWebApplicationFirewallPolicy.
         /// </summary>
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
+        [Input("policyName", required: true)]
+        public string PolicyName { get; set; } = null!;
 
         /// <summary>
         /// Name of the Resource group within the Azure subscription.

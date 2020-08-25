@@ -120,10 +120,16 @@ namespace Pulumi.AzureRM.Network.V20191101
         public Input<string>? Location { get; set; }
 
         /// <summary>
+        /// The name of the Profile
+        /// </summary>
+        [Input("name")]
+        public Input<string>? Name { get; set; }
+
+        /// <summary>
         /// The Profile identifier associated with the Tenant and Partner
         /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
+        [Input("profileName", required: true)]
+        public Input<string> ProfileName { get; set; } = null!;
 
         /// <summary>
         /// Name of the Resource group within the Azure subscription.

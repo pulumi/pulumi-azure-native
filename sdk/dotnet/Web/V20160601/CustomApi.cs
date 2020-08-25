@@ -96,6 +96,12 @@ namespace Pulumi.AzureRM.Web.V20160601
     public sealed class CustomApiArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// API name
+        /// </summary>
+        [Input("apiName", required: true)]
+        public Input<string> ApiName { get; set; } = null!;
+
+        /// <summary>
         /// Resource ETag
         /// </summary>
         [Input("etag")]
@@ -106,12 +112,6 @@ namespace Pulumi.AzureRM.Web.V20160601
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
-
-        /// <summary>
-        /// API name
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
 
         /// <summary>
         /// Custom API properties

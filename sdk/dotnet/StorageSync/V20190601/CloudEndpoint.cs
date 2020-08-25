@@ -142,16 +142,16 @@ namespace Pulumi.AzureRM.StorageSync.V20190601
         public Input<string>? AzureFileShareName { get; set; }
 
         /// <summary>
+        /// Name of Cloud Endpoint object.
+        /// </summary>
+        [Input("cloudEndpointName", required: true)]
+        public Input<string> CloudEndpointName { get; set; } = null!;
+
+        /// <summary>
         /// Friendly Name
         /// </summary>
         [Input("friendlyName")]
         public Input<string>? FriendlyName { get; set; }
-
-        /// <summary>
-        /// Name of Cloud Endpoint object.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

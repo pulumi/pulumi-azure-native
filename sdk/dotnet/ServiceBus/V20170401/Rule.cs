@@ -114,12 +114,6 @@ namespace Pulumi.AzureRM.ServiceBus.V20170401
         public Input<string>? FilterType { get; set; }
 
         /// <summary>
-        /// The rule name.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        /// <summary>
         /// The namespace name
         /// </summary>
         [Input("namespaceName", required: true)]
@@ -130,6 +124,12 @@ namespace Pulumi.AzureRM.ServiceBus.V20170401
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The rule name.
+        /// </summary>
+        [Input("ruleName", required: true)]
+        public Input<string> RuleName { get; set; } = null!;
 
         /// <summary>
         /// Properties of sqlFilter

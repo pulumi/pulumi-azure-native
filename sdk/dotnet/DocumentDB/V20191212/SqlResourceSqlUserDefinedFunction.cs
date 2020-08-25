@@ -117,12 +117,6 @@ namespace Pulumi.AzureRM.DocumentDB.V20191212
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// Cosmos DB userDefinedFunction name.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        /// <summary>
         /// A key-value pair of options to be applied for the request. This corresponds to the headers sent with the request.
         /// </summary>
         [Input("options", required: true)]
@@ -151,6 +145,12 @@ namespace Pulumi.AzureRM.DocumentDB.V20191212
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
+
+        /// <summary>
+        /// Cosmos DB userDefinedFunction name.
+        /// </summary>
+        [Input("userDefinedFunctionName", required: true)]
+        public Input<string> UserDefinedFunctionName { get; set; } = null!;
 
         public SqlResourceSqlUserDefinedFunctionArgs()
         {

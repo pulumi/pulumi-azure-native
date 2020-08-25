@@ -174,6 +174,12 @@ namespace Pulumi.AzureRM.VMwareCloudSimple.V20190401
         public Input<string> AvailabilityZoneId { get; set; } = null!;
 
         /// <summary>
+        /// dedicated cloud node name
+        /// </summary>
+        [Input("dedicatedCloudNodeName", required: true)]
+        public Input<string> DedicatedCloudNodeName { get; set; } = null!;
+
+        /// <summary>
         /// SKU's id
         /// </summary>
         [Input("id", required: true)]
@@ -186,7 +192,7 @@ namespace Pulumi.AzureRM.VMwareCloudSimple.V20190401
         public Input<string> Location { get; set; } = null!;
 
         /// <summary>
-        /// dedicated cloud node name
+        /// SKU's name
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;

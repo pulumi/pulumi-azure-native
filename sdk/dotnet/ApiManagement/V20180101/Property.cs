@@ -111,8 +111,8 @@ namespace Pulumi.AzureRM.ApiManagement.V20180101
         /// <summary>
         /// Identifier of the property.
         /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
+        [Input("propId", required: true)]
+        public Input<string> PropId { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group.

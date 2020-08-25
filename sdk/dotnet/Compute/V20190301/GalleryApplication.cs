@@ -143,6 +143,12 @@ namespace Pulumi.AzureRM.Compute.V20190301
         public Input<string>? Eula { get; set; }
 
         /// <summary>
+        /// The name of the gallery Application Definition to be created or updated. The allowed characters are alphabets and numbers with dots, dashes, and periods allowed in the middle. The maximum length is 80 characters.
+        /// </summary>
+        [Input("galleryApplicationName", required: true)]
+        public Input<string> GalleryApplicationName { get; set; } = null!;
+
+        /// <summary>
         /// The name of the Shared Application Gallery in which the Application Definition is to be created.
         /// </summary>
         [Input("galleryName", required: true)]
@@ -153,12 +159,6 @@ namespace Pulumi.AzureRM.Compute.V20190301
         /// </summary>
         [Input("location", required: true)]
         public Input<string> Location { get; set; } = null!;
-
-        /// <summary>
-        /// The name of the gallery Application Definition to be created or updated. The allowed characters are alphabets and numbers with dots, dashes, and periods allowed in the middle. The maximum length is 80 characters.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
 
         /// <summary>
         /// The privacy statement uri.

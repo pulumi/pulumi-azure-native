@@ -204,6 +204,12 @@ namespace Pulumi.AzureRM.Migrate.V20180202
     public sealed class AssessmentArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Unique name of an assessment within a project.
+        /// </summary>
+        [Input("assessmentName", required: true)]
+        public Input<string> AssessmentName { get; set; } = null!;
+
+        /// <summary>
         /// AHUB discount on windows virtual machines.
         /// </summary>
         [Input("azureHybridUseBenefit", required: true)]
@@ -256,12 +262,6 @@ namespace Pulumi.AzureRM.Migrate.V20180202
         /// </summary>
         [Input("groupName", required: true)]
         public Input<string> GroupName { get; set; } = null!;
-
-        /// <summary>
-        /// Unique name of an assessment within a project.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
 
         /// <summary>
         /// Percentile of performance data used to recommend Azure size.

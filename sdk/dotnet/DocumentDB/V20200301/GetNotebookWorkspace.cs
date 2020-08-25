@@ -27,8 +27,8 @@ namespace Pulumi.AzureRM.DocumentDB.V20200301
         /// <summary>
         /// The name of the notebook workspace resource.
         /// </summary>
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
+        [Input("notebookWorkspaceName", required: true)]
+        public string NotebookWorkspaceName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

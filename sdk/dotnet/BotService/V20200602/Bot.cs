@@ -126,12 +126,6 @@ namespace Pulumi.AzureRM.BotService.V20200602
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// The name of the Bot resource.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        /// <summary>
         /// The set of properties specific to bot resource
         /// </summary>
         [Input("properties")]
@@ -142,6 +136,12 @@ namespace Pulumi.AzureRM.BotService.V20200602
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the Bot resource.
+        /// </summary>
+        [Input("resourceName", required: true)]
+        public Input<string> ResourceName { get; set; } = null!;
 
         /// <summary>
         /// Gets or sets the SKU of the resource.

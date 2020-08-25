@@ -130,16 +130,16 @@ namespace Pulumi.AzureRM.Network.V20200601
     public sealed class DdosProtectionPlanArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The name of the DDoS protection plan.
+        /// </summary>
+        [Input("ddosProtectionPlanName", required: true)]
+        public Input<string> DdosProtectionPlanName { get; set; } = null!;
+
+        /// <summary>
         /// Resource location.
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
-
-        /// <summary>
-        /// The name of the DDoS protection plan.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group.

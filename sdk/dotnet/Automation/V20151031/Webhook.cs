@@ -156,7 +156,7 @@ namespace Pulumi.AzureRM.Automation.V20151031
         public Input<bool>? IsEnabled { get; set; }
 
         /// <summary>
-        /// The webhook name.
+        /// Gets or sets the name of the webhook.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
@@ -196,6 +196,12 @@ namespace Pulumi.AzureRM.Automation.V20151031
         /// </summary>
         [Input("uri")]
         public Input<string>? Uri { get; set; }
+
+        /// <summary>
+        /// The webhook name.
+        /// </summary>
+        [Input("webhookName", required: true)]
+        public Input<string> WebhookName { get; set; } = null!;
 
         public WebhookArgs()
         {

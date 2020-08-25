@@ -196,6 +196,12 @@ namespace Pulumi.AzureRM.CustomerInsights.V20170101
     public sealed class RoleAssignmentArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The assignment name
+        /// </summary>
+        [Input("assignmentName", required: true)]
+        public Input<string> AssignmentName { get; set; } = null!;
+
+        /// <summary>
         /// Widget types set for the assignment.
         /// </summary>
         [Input("conflationPolicies")]
@@ -254,12 +260,6 @@ namespace Pulumi.AzureRM.CustomerInsights.V20170101
         /// </summary>
         [Input("links")]
         public Input<Inputs.ResourceSetDescriptionArgs>? Links { get; set; }
-
-        /// <summary>
-        /// The assignment name
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
 
         [Input("principals", required: true)]
         private InputList<Inputs.AssignmentPrincipalArgs>? _principals;

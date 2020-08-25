@@ -102,16 +102,16 @@ namespace Pulumi.AzureRM.Cache.V20171001
         public Input<string> EndIP { get; set; } = null!;
 
         /// <summary>
-        /// The name of the firewall rule.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        /// <summary>
         /// The name of the resource group.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the firewall rule.
+        /// </summary>
+        [Input("ruleName", required: true)]
+        public Input<string> RuleName { get; set; } = null!;
 
         /// <summary>
         /// lowest IP address included in the range

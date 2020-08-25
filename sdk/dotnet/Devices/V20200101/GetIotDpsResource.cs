@@ -21,8 +21,8 @@ namespace Pulumi.AzureRM.Devices.V20200101
         /// <summary>
         /// Name of the provisioning service to retrieve.
         /// </summary>
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
+        [Input("provisioningServiceName", required: true)]
+        public string ProvisioningServiceName { get; set; } = null!;
 
         /// <summary>
         /// Resource group name.

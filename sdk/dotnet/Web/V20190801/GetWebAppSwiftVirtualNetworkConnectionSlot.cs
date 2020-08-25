@@ -19,7 +19,7 @@ namespace Pulumi.AzureRM.Web.V20190801
     public sealed class GetWebAppSwiftVirtualNetworkConnectionSlotArgs : Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Name of the deployment slot. If a slot is not specified, the API will get a gateway for the production slot's Virtual Network.
+        /// Name of the app.
         /// </summary>
         [Input("name", required: true)]
         public string Name { get; set; } = null!;
@@ -29,6 +29,12 @@ namespace Pulumi.AzureRM.Web.V20190801
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public string ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// Name of the deployment slot. If a slot is not specified, the API will get a gateway for the production slot's Virtual Network.
+        /// </summary>
+        [Input("slot", required: true)]
+        public string Slot { get; set; } = null!;
 
         public GetWebAppSwiftVirtualNetworkConnectionSlotArgs()
         {

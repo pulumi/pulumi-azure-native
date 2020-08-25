@@ -21,8 +21,8 @@ namespace Pulumi.AzureRM.Network.V20200501
         /// <summary>
         /// The name of the ipconfig.
         /// </summary>
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
+        [Input("ipConfigName", required: true)]
+        public string IpConfigName { get; set; } = null!;
 
         /// <summary>
         /// The resource group name of the VirtualHub.

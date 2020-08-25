@@ -19,12 +19,6 @@ namespace Pulumi.AzureRM.ServiceBus.V20140901
     public sealed class GetSubscriptionArgs : Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The subscription name.
-        /// </summary>
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
-
-        /// <summary>
         /// The namespace name
         /// </summary>
         [Input("namespaceName", required: true)]
@@ -35,6 +29,12 @@ namespace Pulumi.AzureRM.ServiceBus.V20140901
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public string ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The subscription name.
+        /// </summary>
+        [Input("subscriptionName", required: true)]
+        public string SubscriptionName { get; set; } = null!;
 
         /// <summary>
         /// The topic name.

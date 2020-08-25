@@ -191,12 +191,6 @@ namespace Pulumi.AzureRM.Security.V20190801
         [Input("location")]
         public Input<string>? Location { get; set; }
 
-        /// <summary>
-        /// The name of the IoT Security solution.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
         [Input("recommendationsConfiguration")]
         private InputList<Inputs.RecommendationConfigurationPropertiesArgs>? _recommendationsConfiguration;
 
@@ -214,6 +208,12 @@ namespace Pulumi.AzureRM.Security.V20190801
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the IoT Security solution.
+        /// </summary>
+        [Input("solutionName", required: true)]
+        public Input<string> SolutionName { get; set; } = null!;
 
         /// <summary>
         /// Status of the IoT Security solution.

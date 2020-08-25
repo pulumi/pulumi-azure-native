@@ -238,12 +238,6 @@ namespace Pulumi.AzureRM.Network.V20160330
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// The name of the virtual network gateway.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        /// <summary>
         /// Gets or sets Provisioning state of the VirtualNetworkGateway resource Updating/Deleting/Failed
         /// </summary>
         [Input("provisioningState")]
@@ -278,6 +272,12 @@ namespace Pulumi.AzureRM.Network.V20160330
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
+
+        /// <summary>
+        /// The name of the virtual network gateway.
+        /// </summary>
+        [Input("virtualNetworkGatewayName", required: true)]
+        public Input<string> VirtualNetworkGatewayName { get; set; } = null!;
 
         /// <summary>
         /// Gets or sets the reference of the VpnClientConfiguration resource which represents the P2S VpnClient configurations.

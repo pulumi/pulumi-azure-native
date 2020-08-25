@@ -142,12 +142,6 @@ namespace Pulumi.AzureRM.CustomerInsights.V20170101
         public Input<string> HubName { get; set; } = null!;
 
         /// <summary>
-        /// The name of the view.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        /// <summary>
         /// The name of the resource group.
         /// </summary>
         [Input("resourceGroupName", required: true)]
@@ -158,6 +152,12 @@ namespace Pulumi.AzureRM.CustomerInsights.V20170101
         /// </summary>
         [Input("userId")]
         public Input<string>? UserId { get; set; }
+
+        /// <summary>
+        /// The name of the view.
+        /// </summary>
+        [Input("viewName", required: true)]
+        public Input<string> ViewName { get; set; } = null!;
 
         public ViewArgs()
         {

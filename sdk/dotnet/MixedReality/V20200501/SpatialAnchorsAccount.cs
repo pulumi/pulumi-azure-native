@@ -96,16 +96,16 @@ namespace Pulumi.AzureRM.MixedReality.V20200501
     public sealed class SpatialAnchorsAccountArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Name of an Mixed Reality Account.
+        /// </summary>
+        [Input("accountName", required: true)]
+        public Input<string> AccountName { get; set; } = null!;
+
+        /// <summary>
         /// The geo-location where the resource lives
         /// </summary>
         [Input("location", required: true)]
         public Input<string> Location { get; set; } = null!;
-
-        /// <summary>
-        /// Name of an Mixed Reality Account.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
 
         /// <summary>
         /// Name of an Azure resource group.

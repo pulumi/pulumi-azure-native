@@ -19,16 +19,16 @@ namespace Pulumi.AzureRM.Network.V20200401
     public sealed class GetPacketCaptureArgs : Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The name of the packet capture session.
-        /// </summary>
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
-
-        /// <summary>
         /// The name of the network watcher.
         /// </summary>
         [Input("networkWatcherName", required: true)]
         public string NetworkWatcherName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the packet capture session.
+        /// </summary>
+        [Input("packetCaptureName", required: true)]
+        public string PacketCaptureName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group.

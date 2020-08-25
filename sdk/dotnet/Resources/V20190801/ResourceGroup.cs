@@ -126,8 +126,8 @@ namespace Pulumi.AzureRM.Resources.V20190801
         /// <summary>
         /// The name of the resource group to create or update. Can include alphanumeric, underscore, parentheses, hyphen, period (except at end), and Unicode characters that match the allowed characters.
         /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
 
         [Input("tags")]
         private InputMap<string>? _tags;

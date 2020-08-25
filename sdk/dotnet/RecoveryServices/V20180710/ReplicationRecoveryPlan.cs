@@ -89,16 +89,16 @@ namespace Pulumi.AzureRM.RecoveryServices.V20180710
     public sealed class ReplicationRecoveryPlanArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Recovery plan name.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        /// <summary>
         /// Recovery plan creation properties.
         /// </summary>
         [Input("properties", required: true)]
         public Input<Inputs.CreateRecoveryPlanInputPropertiesArgs> Properties { get; set; } = null!;
+
+        /// <summary>
+        /// Recovery plan name.
+        /// </summary>
+        [Input("recoveryPlanName", required: true)]
+        public Input<string> RecoveryPlanName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group where the recovery services vault is present.

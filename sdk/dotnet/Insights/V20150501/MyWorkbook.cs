@@ -162,16 +162,22 @@ namespace Pulumi.AzureRM.Insights.V20150501
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// The name of the Application Insights component resource.
+        /// Azure resource name
         /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
+        [Input("name")]
+        public Input<string>? Name { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the Application Insights component resource.
+        /// </summary>
+        [Input("resourceName", required: true)]
+        public Input<string> ResourceName { get; set; } = null!;
 
         /// <summary>
         /// Configuration of this particular private workbook. Configuration data is a string containing valid JSON

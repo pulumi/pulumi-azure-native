@@ -216,12 +216,6 @@ namespace Pulumi.AzureRM.Network.V20190601
         [Input("location")]
         public Input<string>? Location { get; set; }
 
-        /// <summary>
-        /// The name of the private link service.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
         [Input("privateEndpointConnections")]
         private InputList<Inputs.PrivateEndpointConnectionArgs>? _privateEndpointConnections;
 
@@ -245,6 +239,12 @@ namespace Pulumi.AzureRM.Network.V20190601
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the private link service.
+        /// </summary>
+        [Input("serviceName", required: true)]
+        public Input<string> ServiceName { get; set; } = null!;
 
         [Input("tags")]
         private InputMap<string>? _tags;

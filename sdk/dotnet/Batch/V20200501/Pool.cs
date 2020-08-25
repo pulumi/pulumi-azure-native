@@ -302,16 +302,16 @@ namespace Pulumi.AzureRM.Batch.V20200501
         }
 
         /// <summary>
-        /// The pool name. This must be unique within the account.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        /// <summary>
         /// The network configuration for a pool.
         /// </summary>
         [Input("networkConfiguration")]
         public Input<Inputs.NetworkConfigurationArgs>? NetworkConfiguration { get; set; }
+
+        /// <summary>
+        /// The pool name. This must be unique within the account.
+        /// </summary>
+        [Input("poolName", required: true)]
+        public Input<string> PoolName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group that contains the Batch account.

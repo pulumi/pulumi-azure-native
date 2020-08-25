@@ -176,6 +176,12 @@ namespace Pulumi.AzureRM.Web.V20160801
         public Input<string>? EndTime { get; set; }
 
         /// <summary>
+        /// Identifier for deployment.
+        /// </summary>
+        [Input("id", required: true)]
+        public Input<string> Id { get; set; } = null!;
+
+        /// <summary>
         /// Kind of resource.
         /// </summary>
         [Input("kind")]
@@ -188,7 +194,7 @@ namespace Pulumi.AzureRM.Web.V20160801
         public Input<string>? Message { get; set; }
 
         /// <summary>
-        /// Identifier for deployment.
+        /// Name of the app.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;

@@ -160,6 +160,12 @@ namespace Pulumi.AzureRM.Network.V20180701
         public Input<bool>? AutoStart { get; set; }
 
         /// <summary>
+        /// The name of the connection monitor.
+        /// </summary>
+        [Input("connectionMonitorName", required: true)]
+        public Input<string> ConnectionMonitorName { get; set; } = null!;
+
+        /// <summary>
         /// Describes the destination of connection monitor.
         /// </summary>
         [Input("destination", required: true)]
@@ -176,12 +182,6 @@ namespace Pulumi.AzureRM.Network.V20180701
         /// </summary>
         [Input("monitoringIntervalInSeconds")]
         public Input<int>? MonitoringIntervalInSeconds { get; set; }
-
-        /// <summary>
-        /// The name of the connection monitor.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
 
         /// <summary>
         /// The name of the Network Watcher resource.

@@ -120,16 +120,16 @@ namespace Pulumi.AzureRM.Relay.V20170401
     public sealed class WCFRelayArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The relay name.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        /// <summary>
         /// The namespace name
         /// </summary>
         [Input("namespaceName", required: true)]
         public Input<string> NamespaceName { get; set; } = null!;
+
+        /// <summary>
+        /// The relay name.
+        /// </summary>
+        [Input("relayName", required: true)]
+        public Input<string> RelayName { get; set; } = null!;
 
         /// <summary>
         /// WCF relay type.

@@ -82,16 +82,16 @@ namespace Pulumi.AzureRM.ManagedServices.V20190901
     public sealed class RegistrationAssignmentArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Guid of the registration assignment.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        /// <summary>
         /// Properties of a registration assignment.
         /// </summary>
         [Input("properties")]
         public Input<Inputs.RegistrationAssignmentPropertiesArgs>? Properties { get; set; }
+
+        /// <summary>
+        /// Guid of the registration assignment.
+        /// </summary>
+        [Input("registrationAssignmentId", required: true)]
+        public Input<string> RegistrationAssignmentId { get; set; } = null!;
 
         /// <summary>
         /// Scope of the resource.

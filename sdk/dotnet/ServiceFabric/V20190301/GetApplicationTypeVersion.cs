@@ -31,16 +31,16 @@ namespace Pulumi.AzureRM.ServiceFabric.V20190301
         public string ClusterName { get; set; } = null!;
 
         /// <summary>
-        /// The application type version.
-        /// </summary>
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
-
-        /// <summary>
         /// The name of the resource group.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public string ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The application type version.
+        /// </summary>
+        [Input("version", required: true)]
+        public string Version { get; set; } = null!;
 
         public GetApplicationTypeVersionArgs()
         {

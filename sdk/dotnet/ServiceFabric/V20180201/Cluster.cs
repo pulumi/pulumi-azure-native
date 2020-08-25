@@ -302,6 +302,12 @@ namespace Pulumi.AzureRM.ServiceFabric.V20180201
         public Input<string>? ClusterCodeVersion { get; set; }
 
         /// <summary>
+        /// The name of the cluster resource.
+        /// </summary>
+        [Input("clusterName", required: true)]
+        public Input<string> ClusterName { get; set; } = null!;
+
+        /// <summary>
         /// The storage account information for storing Service Fabric diagnostic logs.
         /// </summary>
         [Input("diagnosticsStorageAccountConfig")]
@@ -330,12 +336,6 @@ namespace Pulumi.AzureRM.ServiceFabric.V20180201
         /// </summary>
         [Input("managementEndpoint", required: true)]
         public Input<string> ManagementEndpoint { get; set; } = null!;
-
-        /// <summary>
-        /// The name of the cluster resource.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
 
         [Input("nodeTypes", required: true)]
         private InputList<Inputs.NodeTypeDescriptionArgs>? _nodeTypes;

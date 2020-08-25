@@ -184,8 +184,8 @@ namespace Pulumi.AzureRM.Network.V20191201
         /// <summary>
         /// The name of the policy.
         /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
+        [Input("policyName", required: true)]
+        public Input<string> PolicyName { get; set; } = null!;
 
         /// <summary>
         /// The PolicySettings for policy.

@@ -96,12 +96,6 @@ namespace Pulumi.AzureRM.DBforMySQL.V20171201
         public Input<bool>? IgnoreMissingVnetServiceEndpoint { get; set; }
 
         /// <summary>
-        /// The name of the virtual network rule.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        /// <summary>
         /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
@@ -112,6 +106,12 @@ namespace Pulumi.AzureRM.DBforMySQL.V20171201
         /// </summary>
         [Input("serverName", required: true)]
         public Input<string> ServerName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the virtual network rule.
+        /// </summary>
+        [Input("virtualNetworkRuleName", required: true)]
+        public Input<string> VirtualNetworkRuleName { get; set; } = null!;
 
         /// <summary>
         /// The ARM resource id of the virtual network subnet.

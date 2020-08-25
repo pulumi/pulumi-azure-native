@@ -126,12 +126,6 @@ namespace Pulumi.AzureRM.ApiManagement.V20191201
         public Input<string>? ExternalDocsUrl { get; set; }
 
         /// <summary>
-        /// Tag description identifier. Used when creating tagDescription for API/Tag association. Based on API and Tag names.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        /// <summary>
         /// The name of the resource group.
         /// </summary>
         [Input("resourceGroupName", required: true)]
@@ -142,6 +136,12 @@ namespace Pulumi.AzureRM.ApiManagement.V20191201
         /// </summary>
         [Input("serviceName", required: true)]
         public Input<string> ServiceName { get; set; } = null!;
+
+        /// <summary>
+        /// Tag description identifier. Used when creating tagDescription for API/Tag association. Based on API and Tag names.
+        /// </summary>
+        [Input("tagDescriptionId", required: true)]
+        public Input<string> TagDescriptionId { get; set; } = null!;
 
         public ApiTagDescriptionArgs()
         {

@@ -138,6 +138,12 @@ namespace Pulumi.AzureRM.NetApp.V20200601
         public Input<string> AccountName { get; set; } = null!;
 
         /// <summary>
+        /// Backup policy Name which uniquely identify backup policy.
+        /// </summary>
+        [Input("backupPolicyName", required: true)]
+        public Input<string> BackupPolicyName { get; set; } = null!;
+
+        /// <summary>
         /// Daily backups count to keep
         /// </summary>
         [Input("dailyBackupsToKeep")]
@@ -160,12 +166,6 @@ namespace Pulumi.AzureRM.NetApp.V20200601
         /// </summary>
         [Input("monthlyBackupsToKeep")]
         public Input<int>? MonthlyBackupsToKeep { get; set; }
-
-        /// <summary>
-        /// Backup policy Name which uniquely identify backup policy.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group.

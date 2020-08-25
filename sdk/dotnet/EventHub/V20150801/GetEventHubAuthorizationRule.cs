@@ -19,16 +19,16 @@ namespace Pulumi.AzureRM.EventHub.V20150801
     public sealed class GetEventHubAuthorizationRuleArgs : Pulumi.InvokeArgs
     {
         /// <summary>
+        /// The authorization rule name.
+        /// </summary>
+        [Input("authorizationRuleName", required: true)]
+        public string AuthorizationRuleName { get; set; } = null!;
+
+        /// <summary>
         /// The Event Hub name
         /// </summary>
         [Input("eventHubName", required: true)]
         public string EventHubName { get; set; } = null!;
-
-        /// <summary>
-        /// The authorization rule name.
-        /// </summary>
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
 
         /// <summary>
         /// The Namespace name

@@ -27,8 +27,8 @@ namespace Pulumi.AzureRM.Network.V20190801
         /// <summary>
         /// The name of the peering.
         /// </summary>
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
+        [Input("peeringName", required: true)]
+        public string PeeringName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group.

@@ -19,13 +19,19 @@ namespace Pulumi.AzureRM.Web.V20150801
     public sealed class GetSiteInstanceDeploymentArgs : Pulumi.InvokeArgs
     {
         /// <summary>
+        /// Id of the deployment
+        /// </summary>
+        [Input("id", required: true)]
+        public string Id { get; set; } = null!;
+
+        /// <summary>
         /// Id of web app instance
         /// </summary>
         [Input("instanceId", required: true)]
         public string InstanceId { get; set; } = null!;
 
         /// <summary>
-        /// Id of the deployment
+        /// Name of web app
         /// </summary>
         [Input("name", required: true)]
         public string Name { get; set; } = null!;

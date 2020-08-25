@@ -31,16 +31,16 @@ namespace Pulumi.AzureRM.DocumentDB.V20190801
         public string KeyspaceName { get; set; } = null!;
 
         /// <summary>
-        /// Cosmos DB table name.
-        /// </summary>
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
-
-        /// <summary>
         /// Name of an Azure resource group.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public string ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// Cosmos DB table name.
+        /// </summary>
+        [Input("tableName", required: true)]
+        public string TableName { get; set; } = null!;
 
         public GetCassandraResourceCassandraTableArgs()
         {

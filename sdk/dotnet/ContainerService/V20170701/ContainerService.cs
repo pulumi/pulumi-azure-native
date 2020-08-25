@@ -156,6 +156,12 @@ namespace Pulumi.AzureRM.ContainerService.V20170701
         }
 
         /// <summary>
+        /// The name of the container service in the specified subscription and resource group.
+        /// </summary>
+        [Input("containerServiceName", required: true)]
+        public Input<string> ContainerServiceName { get; set; } = null!;
+
+        /// <summary>
         /// Properties to configure a custom container service cluster.
         /// </summary>
         [Input("customProfile")]
@@ -184,12 +190,6 @@ namespace Pulumi.AzureRM.ContainerService.V20170701
         /// </summary>
         [Input("masterProfile", required: true)]
         public Input<Inputs.ContainerServiceMasterProfileArgs> MasterProfile { get; set; } = null!;
-
-        /// <summary>
-        /// The name of the container service in the specified subscription and resource group.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
 
         /// <summary>
         /// Profile for the container service orchestrator.

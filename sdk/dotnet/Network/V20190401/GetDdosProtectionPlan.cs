@@ -21,8 +21,8 @@ namespace Pulumi.AzureRM.Network.V20190401
         /// <summary>
         /// The name of the DDoS protection plan.
         /// </summary>
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
+        [Input("ddosProtectionPlanName", required: true)]
+        public string DdosProtectionPlanName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group.

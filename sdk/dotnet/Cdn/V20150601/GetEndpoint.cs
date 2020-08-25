@@ -21,8 +21,8 @@ namespace Pulumi.AzureRM.Cdn.V20150601
         /// <summary>
         /// Name of the endpoint within the CDN profile.
         /// </summary>
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
+        [Input("endpointName", required: true)]
+        public string EndpointName { get; set; } = null!;
 
         /// <summary>
         /// Name of the CDN profile within the resource group.

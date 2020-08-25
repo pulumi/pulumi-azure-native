@@ -97,8 +97,8 @@ namespace Pulumi.AzureRM.RecoveryServices.V20180110
         /// <summary>
         /// Protection container mapping name.
         /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
+        [Input("mappingName", required: true)]
+        public Input<string> MappingName { get; set; } = null!;
 
         /// <summary>
         /// Configure protection input properties.

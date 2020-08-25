@@ -148,16 +148,16 @@ namespace Pulumi.AzureRM.TimeSeriesInsights.V20171115
         public Input<string> DataRetentionTime { get; set; } = null!;
 
         /// <summary>
+        /// Name of the environment
+        /// </summary>
+        [Input("environmentName", required: true)]
+        public Input<string> EnvironmentName { get; set; } = null!;
+
+        /// <summary>
         /// The location of the resource.
         /// </summary>
         [Input("location", required: true)]
         public Input<string> Location { get; set; } = null!;
-
-        /// <summary>
-        /// Name of the environment
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
 
         [Input("partitionKeyProperties")]
         private InputList<Inputs.PartitionKeyPropertyArgs>? _partitionKeyProperties;

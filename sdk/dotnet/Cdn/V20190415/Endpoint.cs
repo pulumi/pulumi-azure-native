@@ -203,6 +203,12 @@ namespace Pulumi.AzureRM.Cdn.V20190415
         [Input("deliveryPolicy")]
         public Input<Inputs.EndpointPropertiesUpdateParametersDeliveryPolicyArgs>? DeliveryPolicy { get; set; }
 
+        /// <summary>
+        /// Name of the endpoint under the profile which is unique globally.
+        /// </summary>
+        [Input("endpointName", required: true)]
+        public Input<string> EndpointName { get; set; } = null!;
+
         [Input("geoFilters")]
         private InputList<Inputs.GeoFilterArgs>? _geoFilters;
 
@@ -238,12 +244,6 @@ namespace Pulumi.AzureRM.Cdn.V20190415
         /// </summary>
         [Input("location", required: true)]
         public Input<string> Location { get; set; } = null!;
-
-        /// <summary>
-        /// Name of the endpoint under the profile which is unique globally.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
 
         /// <summary>
         /// Specifies what scenario the customer wants this CDN endpoint to optimize for, e.g. Download, Media services. With this information, CDN can apply scenario driven optimization.

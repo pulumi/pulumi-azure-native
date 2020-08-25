@@ -87,8 +87,8 @@ namespace Pulumi.AzureRM.Scheduler.V20160101
         /// <summary>
         /// The job name.
         /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
+        [Input("jobName", required: true)]
+        public Input<string> JobName { get; set; } = null!;
 
         /// <summary>
         /// Gets or sets the job properties.

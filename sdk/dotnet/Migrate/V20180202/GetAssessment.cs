@@ -19,16 +19,16 @@ namespace Pulumi.AzureRM.Migrate.V20180202
     public sealed class GetAssessmentArgs : Pulumi.InvokeArgs
     {
         /// <summary>
+        /// Unique name of an assessment within a project.
+        /// </summary>
+        [Input("assessmentName", required: true)]
+        public string AssessmentName { get; set; } = null!;
+
+        /// <summary>
         /// Unique name of a group within a project.
         /// </summary>
         [Input("groupName", required: true)]
         public string GroupName { get; set; } = null!;
-
-        /// <summary>
-        /// Unique name of an assessment within a project.
-        /// </summary>
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
 
         /// <summary>
         /// Name of the Azure Migrate project.

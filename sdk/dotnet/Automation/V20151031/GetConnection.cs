@@ -27,8 +27,8 @@ namespace Pulumi.AzureRM.Automation.V20151031
         /// <summary>
         /// The name of connection.
         /// </summary>
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
+        [Input("connectionName", required: true)]
+        public string ConnectionName { get; set; } = null!;
 
         /// <summary>
         /// Name of an Azure Resource group.

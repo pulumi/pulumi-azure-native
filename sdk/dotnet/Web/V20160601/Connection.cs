@@ -93,6 +93,12 @@ namespace Pulumi.AzureRM.Web.V20160601
     public sealed class ConnectionArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Connection name
+        /// </summary>
+        [Input("connectionName", required: true)]
+        public Input<string> ConnectionName { get; set; } = null!;
+
+        /// <summary>
         /// Resource ETag
         /// </summary>
         [Input("etag")]
@@ -103,12 +109,6 @@ namespace Pulumi.AzureRM.Web.V20160601
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
-
-        /// <summary>
-        /// Connection name
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
 
         [Input("properties")]
         public Input<Inputs.ApiConnectionDefinitionPropertiesArgs>? Properties { get; set; }

@@ -96,6 +96,12 @@ namespace Pulumi.AzureRM.Sql.V20140401
     public sealed class ServerAzureADAdministratorArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Name of the server administrator resource.
+        /// </summary>
+        [Input("administratorName", required: true)]
+        public Input<string> AdministratorName { get; set; } = null!;
+
+        /// <summary>
         /// The type of administrator.
         /// </summary>
         [Input("administratorType", required: true)]
@@ -106,12 +112,6 @@ namespace Pulumi.AzureRM.Sql.V20140401
         /// </summary>
         [Input("login", required: true)]
         public Input<string> Login { get; set; } = null!;
-
-        /// <summary>
-        /// Name of the server administrator resource.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.

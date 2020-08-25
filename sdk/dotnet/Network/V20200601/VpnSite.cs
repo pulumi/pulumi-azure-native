@@ -213,12 +213,6 @@ namespace Pulumi.AzureRM.Network.V20200601
         public Input<string> Location { get; set; } = null!;
 
         /// <summary>
-        /// The name of the VpnSite being created or updated.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        /// <summary>
         /// Office365 Policy.
         /// </summary>
         [Input("o365Policy")]
@@ -265,6 +259,12 @@ namespace Pulumi.AzureRM.Network.V20200601
             get => _vpnSiteLinks ?? (_vpnSiteLinks = new InputList<Inputs.VpnSiteLinkArgs>());
             set => _vpnSiteLinks = value;
         }
+
+        /// <summary>
+        /// The name of the VpnSite being created or updated.
+        /// </summary>
+        [Input("vpnSiteName", required: true)]
+        public Input<string> VpnSiteName { get; set; } = null!;
 
         public VpnSiteArgs()
         {

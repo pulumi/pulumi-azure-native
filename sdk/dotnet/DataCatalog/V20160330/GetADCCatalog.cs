@@ -21,8 +21,8 @@ namespace Pulumi.AzureRM.DataCatalog.V20160330
         /// <summary>
         /// The name of the data catalog in the specified subscription and resource group.
         /// </summary>
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
+        [Input("catalogName", required: true)]
+        public string CatalogName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group within the user's subscription. The name is case insensitive.

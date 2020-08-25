@@ -78,16 +78,16 @@ namespace Pulumi.AzureRM.Authorization.V20150701
     public sealed class RoleAssignmentArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The name of the role assignment to create. It can be any valid GUID.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        /// <summary>
         /// Role assignment properties.
         /// </summary>
         [Input("properties", required: true)]
         public Input<Inputs.RoleAssignmentPropertiesArgs> Properties { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the role assignment to create. It can be any valid GUID.
+        /// </summary>
+        [Input("roleAssignmentName", required: true)]
+        public Input<string> RoleAssignmentName { get; set; } = null!;
 
         /// <summary>
         /// The scope of the role assignment to create. The scope can be any REST resource instance. For example, use '/subscriptions/{subscription-id}/' for a subscription, '/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}' for a resource group, and '/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/{resource-provider}/{resource-type}/{resource-name}' for a resource.

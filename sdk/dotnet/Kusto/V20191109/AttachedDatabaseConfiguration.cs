@@ -114,6 +114,12 @@ namespace Pulumi.AzureRM.Kusto.V20191109
     public sealed class AttachedDatabaseConfigurationArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The name of the attached database configuration.
+        /// </summary>
+        [Input("attachedDatabaseConfigurationName", required: true)]
+        public Input<string> AttachedDatabaseConfigurationName { get; set; } = null!;
+
+        /// <summary>
         /// The name of the Kusto cluster.
         /// </summary>
         [Input("clusterName", required: true)]
@@ -142,12 +148,6 @@ namespace Pulumi.AzureRM.Kusto.V20191109
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
-
-        /// <summary>
-        /// The name of the attached database configuration.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group containing the Kusto cluster.

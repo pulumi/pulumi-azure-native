@@ -19,7 +19,7 @@ namespace Pulumi.AzureRM.Web.V20200601
     public sealed class GetWebAppVnetConnectionSlotArgs : Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Name of the virtual network.
+        /// Name of the app.
         /// </summary>
         [Input("name", required: true)]
         public string Name { get; set; } = null!;
@@ -35,6 +35,12 @@ namespace Pulumi.AzureRM.Web.V20200601
         /// </summary>
         [Input("slot", required: true)]
         public string Slot { get; set; } = null!;
+
+        /// <summary>
+        /// Name of the virtual network.
+        /// </summary>
+        [Input("vnetName", required: true)]
+        public string VnetName { get; set; } = null!;
 
         public GetWebAppVnetConnectionSlotArgs()
         {

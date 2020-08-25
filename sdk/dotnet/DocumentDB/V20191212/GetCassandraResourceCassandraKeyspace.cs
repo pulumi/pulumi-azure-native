@@ -27,8 +27,8 @@ namespace Pulumi.AzureRM.DocumentDB.V20191212
         /// <summary>
         /// Cosmos DB keyspace name.
         /// </summary>
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
+        [Input("keyspaceName", required: true)]
+        public string KeyspaceName { get; set; } = null!;
 
         /// <summary>
         /// Name of an Azure resource group.

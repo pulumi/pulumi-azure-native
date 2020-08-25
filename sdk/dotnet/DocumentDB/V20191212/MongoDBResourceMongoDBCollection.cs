@@ -99,6 +99,12 @@ namespace Pulumi.AzureRM.DocumentDB.V20191212
         public Input<string> AccountName { get; set; } = null!;
 
         /// <summary>
+        /// Cosmos DB collection name.
+        /// </summary>
+        [Input("collectionName", required: true)]
+        public Input<string> CollectionName { get; set; } = null!;
+
+        /// <summary>
         /// Cosmos DB database name.
         /// </summary>
         [Input("databaseName", required: true)]
@@ -109,12 +115,6 @@ namespace Pulumi.AzureRM.DocumentDB.V20191212
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
-
-        /// <summary>
-        /// Cosmos DB collection name.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
 
         /// <summary>
         /// A key-value pair of options to be applied for the request. This corresponds to the headers sent with the request.

@@ -92,8 +92,8 @@ namespace Pulumi.AzureRM.DataFactory.V20180601
         /// <summary>
         /// The linked service name.
         /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
+        [Input("linkedServiceName", required: true)]
+        public Input<string> LinkedServiceName { get; set; } = null!;
 
         /// <summary>
         /// Properties of linked service.

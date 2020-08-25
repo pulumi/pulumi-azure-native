@@ -21,8 +21,8 @@ namespace Pulumi.AzureRM.OperationalInsights.V20200801
         /// <summary>
         /// Name of the datasource
         /// </summary>
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
+        [Input("dataSourceName", required: true)]
+        public string DataSourceName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

@@ -138,6 +138,12 @@ namespace Pulumi.AzureRM.Network.V20200601
         public Input<string>? CommissionedState { get; set; }
 
         /// <summary>
+        /// The name of the custom IP prefix.
+        /// </summary>
+        [Input("customIpPrefixName", required: true)]
+        public Input<string> CustomIpPrefixName { get; set; } = null!;
+
+        /// <summary>
         /// Resource ID.
         /// </summary>
         [Input("id")]
@@ -148,12 +154,6 @@ namespace Pulumi.AzureRM.Network.V20200601
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
-
-        /// <summary>
-        /// The name of the custom IP prefix.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group.

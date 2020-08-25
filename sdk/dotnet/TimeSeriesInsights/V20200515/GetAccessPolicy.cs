@@ -19,16 +19,16 @@ namespace Pulumi.AzureRM.TimeSeriesInsights.V20200515
     public sealed class GetAccessPolicyArgs : Pulumi.InvokeArgs
     {
         /// <summary>
+        /// The name of the Time Series Insights access policy associated with the specified environment.
+        /// </summary>
+        [Input("accessPolicyName", required: true)]
+        public string AccessPolicyName { get; set; } = null!;
+
+        /// <summary>
         /// The name of the Time Series Insights environment associated with the specified resource group.
         /// </summary>
         [Input("environmentName", required: true)]
         public string EnvironmentName { get; set; } = null!;
-
-        /// <summary>
-        /// The name of the Time Series Insights access policy associated with the specified environment.
-        /// </summary>
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
 
         /// <summary>
         /// Name of an Azure Resource group.

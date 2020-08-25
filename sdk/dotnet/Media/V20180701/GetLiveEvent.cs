@@ -27,8 +27,8 @@ namespace Pulumi.AzureRM.Media.V20180701
         /// <summary>
         /// The name of the Live Event.
         /// </summary>
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
+        [Input("liveEventName", required: true)]
+        public string LiveEventName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group within the Azure subscription.

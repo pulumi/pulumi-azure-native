@@ -94,6 +94,12 @@ namespace Pulumi.AzureRM.StorSimple.V20170601
     public sealed class AccessControlRecordArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The name of the access control record.
+        /// </summary>
+        [Input("accessControlRecordName", required: true)]
+        public Input<string> AccessControlRecordName { get; set; } = null!;
+
+        /// <summary>
         /// The iSCSI initiator name (IQN).
         /// </summary>
         [Input("initiatorName", required: true)]
@@ -110,12 +116,6 @@ namespace Pulumi.AzureRM.StorSimple.V20170601
         /// </summary>
         [Input("managerName", required: true)]
         public Input<string> ManagerName { get; set; } = null!;
-
-        /// <summary>
-        /// The name of the access control record.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
 
         /// <summary>
         /// The resource group name

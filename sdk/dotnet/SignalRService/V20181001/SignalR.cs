@@ -161,12 +161,6 @@ namespace Pulumi.AzureRM.SignalRService.V20181001
         public Input<string> Location { get; set; } = null!;
 
         /// <summary>
-        /// The name of the SignalR resource.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        /// <summary>
         /// Settings used to provision or configure the resource
         /// </summary>
         [Input("properties")]
@@ -177,6 +171,12 @@ namespace Pulumi.AzureRM.SignalRService.V20181001
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the SignalR resource.
+        /// </summary>
+        [Input("resourceName", required: true)]
+        public Input<string> ResourceName { get; set; } = null!;
 
         /// <summary>
         /// The billing information of the resource.(e.g. basic vs. standard)

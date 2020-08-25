@@ -21,8 +21,8 @@ namespace Pulumi.AzureRM.Resources.V20190501
         /// <summary>
         /// The name of the resource group to get. The name is case insensitive.
         /// </summary>
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
+        [Input("resourceGroupName", required: true)]
+        public string ResourceGroupName { get; set; } = null!;
 
         public GetResourceGroupArgs()
         {

@@ -89,14 +89,14 @@ namespace Pulumi.AzureRM.DBforMySQL.V20180601
 
     public sealed class PrivateEndpointConnectionArgs : Pulumi.ResourceArgs
     {
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
         /// <summary>
         /// Private endpoint which the connection belongs to.
         /// </summary>
         [Input("privateEndpoint")]
         public Input<Inputs.PrivateEndpointPropertyArgs>? PrivateEndpoint { get; set; }
+
+        [Input("privateEndpointConnectionName", required: true)]
+        public Input<string> PrivateEndpointConnectionName { get; set; } = null!;
 
         /// <summary>
         /// Connection state of the private endpoint connection.

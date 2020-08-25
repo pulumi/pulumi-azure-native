@@ -127,10 +127,10 @@ namespace Pulumi.AzureRM.Network.V20191101
         public Input<string>? Id { get; set; }
 
         /// <summary>
-        /// The name of the service endpoint policy definition name.
+        /// The name of the resource that is unique within a resource group. This name can be used to access the resource.
         /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
+        [Input("name")]
+        public Input<string>? Name { get; set; }
 
         /// <summary>
         /// The name of the resource group.
@@ -143,6 +143,12 @@ namespace Pulumi.AzureRM.Network.V20191101
         /// </summary>
         [Input("service")]
         public Input<string>? Service { get; set; }
+
+        /// <summary>
+        /// The name of the service endpoint policy definition name.
+        /// </summary>
+        [Input("serviceEndpointPolicyDefinitionName", required: true)]
+        public Input<string> ServiceEndpointPolicyDefinitionName { get; set; } = null!;
 
         /// <summary>
         /// The name of the service endpoint policy.

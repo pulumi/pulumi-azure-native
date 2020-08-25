@@ -120,6 +120,12 @@ namespace Pulumi.AzureRM.OperationalInsights.V20200801
     public sealed class ClusterArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The name of the Log Analytics cluster.
+        /// </summary>
+        [Input("clusterName", required: true)]
+        public Input<string> ClusterName { get; set; } = null!;
+
+        /// <summary>
         /// The identity of the resource.
         /// </summary>
         [Input("identity")]
@@ -136,12 +142,6 @@ namespace Pulumi.AzureRM.OperationalInsights.V20200801
         /// </summary>
         [Input("location", required: true)]
         public Input<string> Location { get; set; } = null!;
-
-        /// <summary>
-        /// The name of the Log Analytics cluster.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
 
         /// <summary>
         /// The link used to get the next page of recommendations.

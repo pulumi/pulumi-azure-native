@@ -31,16 +31,16 @@ namespace Pulumi.AzureRM.ServiceFabric.V20200301
         public string ClusterName { get; set; } = null!;
 
         /// <summary>
-        /// The name of the service resource in the format of {applicationName}~{serviceName}.
-        /// </summary>
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
-
-        /// <summary>
         /// The name of the resource group.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public string ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the service resource in the format of {applicationName}~{serviceName}.
+        /// </summary>
+        [Input("serviceName", required: true)]
+        public string ServiceName { get; set; } = null!;
 
         public GetServiceArgs()
         {

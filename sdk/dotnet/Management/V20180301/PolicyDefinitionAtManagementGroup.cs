@@ -157,12 +157,6 @@ namespace Pulumi.AzureRM.Management.V20180301
         [Input("mode")]
         public Input<string>? Mode { get; set; }
 
-        /// <summary>
-        /// The name of the policy definition to create.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
         [Input("parameters")]
         private InputMap<object>? _parameters;
 
@@ -174,6 +168,12 @@ namespace Pulumi.AzureRM.Management.V20180301
             get => _parameters ?? (_parameters = new InputMap<object>());
             set => _parameters = value;
         }
+
+        /// <summary>
+        /// The name of the policy definition to create.
+        /// </summary>
+        [Input("policyDefinitionName", required: true)]
+        public Input<string> PolicyDefinitionName { get; set; } = null!;
 
         [Input("policyRule")]
         private InputMap<object>? _policyRule;

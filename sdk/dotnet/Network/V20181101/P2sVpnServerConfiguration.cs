@@ -151,10 +151,10 @@ namespace Pulumi.AzureRM.Network.V20181101
         public Input<string>? Id { get; set; }
 
         /// <summary>
-        /// The name of the P2SVpnServerConfiguration.
+        /// The name of the P2SVpnServerConfiguration that is unique within a VirtualWan in a resource group. This name can be used to access the resource along with Paren VirtualWan resource name.
         /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
+        [Input("name")]
+        public Input<string>? Name { get; set; }
 
         [Input("p2SVpnServerConfigRadiusClientRootCertificates")]
         private InputList<Inputs.P2SVpnServerConfigRadiusClientRootCertificateArgs>? _p2SVpnServerConfigRadiusClientRootCertificates;
@@ -203,6 +203,12 @@ namespace Pulumi.AzureRM.Network.V20181101
             get => _p2SVpnServerConfigVpnClientRootCertificates ?? (_p2SVpnServerConfigVpnClientRootCertificates = new InputList<Inputs.P2SVpnServerConfigVpnClientRootCertificateArgs>());
             set => _p2SVpnServerConfigVpnClientRootCertificates = value;
         }
+
+        /// <summary>
+        /// The name of the P2SVpnServerConfiguration.
+        /// </summary>
+        [Input("p2SVpnServerConfigurationName", required: true)]
+        public Input<string> P2SVpnServerConfigurationName { get; set; } = null!;
 
         /// <summary>
         /// The radius server address property of the P2SVpnServerConfiguration resource for point to site client connection.

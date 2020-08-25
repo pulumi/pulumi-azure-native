@@ -27,8 +27,8 @@ namespace Pulumi.AzureRM.DataBox.V20190901
         /// <summary>
         /// The name of the job Resource within the specified resource group. job names must be between 3 and 24 characters in length and use any alphanumeric and underscore only
         /// </summary>
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
+        [Input("jobName", required: true)]
+        public string JobName { get; set; } = null!;
 
         /// <summary>
         /// The Resource Group Name

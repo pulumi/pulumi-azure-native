@@ -27,8 +27,8 @@ namespace Pulumi.AzureRM.Scheduler.V20160301
         /// <summary>
         /// The job name.
         /// </summary>
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
+        [Input("jobName", required: true)]
+        public string JobName { get; set; } = null!;
 
         /// <summary>
         /// The resource group name.

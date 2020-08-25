@@ -112,10 +112,10 @@ namespace Pulumi.AzureRM.Network.V20200601
         public Input<string>? Id { get; set; }
 
         /// <summary>
-        /// The name of the FirewallPolicyRuleCollectionGroup.
+        /// The name of the resource that is unique within a resource group. This name can be used to access the resource.
         /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
+        [Input("name")]
+        public Input<string>? Name { get; set; }
 
         /// <summary>
         /// Priority of the Firewall Policy Rule Collection Group resource.
@@ -128,6 +128,12 @@ namespace Pulumi.AzureRM.Network.V20200601
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the FirewallPolicyRuleCollectionGroup.
+        /// </summary>
+        [Input("ruleCollectionGroupName", required: true)]
+        public Input<string> RuleCollectionGroupName { get; set; } = null!;
 
         [Input("ruleCollections")]
         private InputList<Inputs.FirewallPolicyRuleCollectionArgs>? _ruleCollections;

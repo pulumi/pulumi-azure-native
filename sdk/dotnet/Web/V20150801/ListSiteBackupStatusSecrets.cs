@@ -19,6 +19,12 @@ namespace Pulumi.AzureRM.Web.V20150801
     public sealed class ListSiteBackupStatusSecretsArgs : Pulumi.InvokeArgs
     {
         /// <summary>
+        /// Id of backup
+        /// </summary>
+        [Input("backupId", required: true)]
+        public string BackupId { get; set; } = null!;
+
+        /// <summary>
         /// Schedule for the backup if it is executed periodically
         /// </summary>
         [Input("backupSchedule")]
@@ -61,7 +67,7 @@ namespace Pulumi.AzureRM.Web.V20150801
         public string Location { get; set; } = null!;
 
         /// <summary>
-        /// Id of backup
+        /// Resource Name
         /// </summary>
         [Input("name", required: true)]
         public string Name { get; set; } = null!;

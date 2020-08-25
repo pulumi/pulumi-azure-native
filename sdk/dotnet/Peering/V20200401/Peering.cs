@@ -144,16 +144,16 @@ namespace Pulumi.AzureRM.Peering.V20200401
         public Input<string> Location { get; set; } = null!;
 
         /// <summary>
-        /// The name of the peering.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        /// <summary>
         /// The location of the peering.
         /// </summary>
         [Input("peeringLocation")]
         public Input<string>? PeeringLocation { get; set; }
+
+        /// <summary>
+        /// The name of the peering.
+        /// </summary>
+        [Input("peeringName", required: true)]
+        public Input<string> PeeringName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group.

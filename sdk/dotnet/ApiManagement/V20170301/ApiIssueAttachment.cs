@@ -102,6 +102,12 @@ namespace Pulumi.AzureRM.ApiManagement.V20170301
         public Input<string> ApiId { get; set; } = null!;
 
         /// <summary>
+        /// Attachment identifier within an Issue. Must be unique in the current Issue.
+        /// </summary>
+        [Input("attachmentId", required: true)]
+        public Input<string> AttachmentId { get; set; } = null!;
+
+        /// <summary>
         /// An HTTP link or Base64-encoded binary data.
         /// </summary>
         [Input("content", required: true)]
@@ -118,12 +124,6 @@ namespace Pulumi.AzureRM.ApiManagement.V20170301
         /// </summary>
         [Input("issueId", required: true)]
         public Input<string> IssueId { get; set; } = null!;
-
-        /// <summary>
-        /// Attachment identifier within an Issue. Must be unique in the current Issue.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group.

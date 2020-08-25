@@ -120,16 +120,16 @@ namespace Pulumi.AzureRM.LabServices.V20181015
         public Input<bool>? EnabledRegionSelection { get; set; }
 
         /// <summary>
+        /// The name of the lab Account.
+        /// </summary>
+        [Input("labAccountName", required: true)]
+        public Input<string> LabAccountName { get; set; } = null!;
+
+        /// <summary>
         /// The location of the resource.
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
-
-        /// <summary>
-        /// The name of the lab Account.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
 
         /// <summary>
         /// The provisioning status of the resource.

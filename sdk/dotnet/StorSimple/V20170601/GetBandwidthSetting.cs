@@ -19,16 +19,16 @@ namespace Pulumi.AzureRM.StorSimple.V20170601
     public sealed class GetBandwidthSettingArgs : Pulumi.InvokeArgs
     {
         /// <summary>
+        /// The name of bandwidth setting to be fetched.
+        /// </summary>
+        [Input("bandwidthSettingName", required: true)]
+        public string BandwidthSettingName { get; set; } = null!;
+
+        /// <summary>
         /// The manager name
         /// </summary>
         [Input("managerName", required: true)]
         public string ManagerName { get; set; } = null!;
-
-        /// <summary>
-        /// The name of bandwidth setting to be fetched.
-        /// </summary>
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
 
         /// <summary>
         /// The resource group name

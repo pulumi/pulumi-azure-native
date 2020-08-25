@@ -132,6 +132,12 @@ namespace Pulumi.AzureRM.Consumption.V20191001
         public Input<double> Amount { get; set; } = null!;
 
         /// <summary>
+        /// Budget Name.
+        /// </summary>
+        [Input("budgetName", required: true)]
+        public Input<string> BudgetName { get; set; } = null!;
+
+        /// <summary>
         /// The category of the budget, whether the budget tracks cost or usage.
         /// </summary>
         [Input("category", required: true)]
@@ -148,12 +154,6 @@ namespace Pulumi.AzureRM.Consumption.V20191001
         /// </summary>
         [Input("filter")]
         public Input<Inputs.BudgetFilterArgs>? Filter { get; set; }
-
-        /// <summary>
-        /// Budget Name.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
 
         [Input("notifications")]
         private InputMap<Inputs.NotificationArgs>? _notifications;

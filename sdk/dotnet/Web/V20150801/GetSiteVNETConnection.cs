@@ -19,7 +19,7 @@ namespace Pulumi.AzureRM.Web.V20150801
     public sealed class GetSiteVNETConnectionArgs : Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The name of the Virtual Network
+        /// The name of the web app
         /// </summary>
         [Input("name", required: true)]
         public string Name { get; set; } = null!;
@@ -29,6 +29,12 @@ namespace Pulumi.AzureRM.Web.V20150801
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public string ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the Virtual Network
+        /// </summary>
+        [Input("vnetName", required: true)]
+        public string VnetName { get; set; } = null!;
 
         public GetSiteVNETConnectionArgs()
         {

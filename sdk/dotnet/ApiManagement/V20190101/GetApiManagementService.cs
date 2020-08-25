@@ -19,16 +19,16 @@ namespace Pulumi.AzureRM.ApiManagement.V20190101
     public sealed class GetApiManagementServiceArgs : Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The name of the API Management service.
-        /// </summary>
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
-
-        /// <summary>
         /// The name of the resource group.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public string ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the API Management service.
+        /// </summary>
+        [Input("serviceName", required: true)]
+        public string ServiceName { get; set; } = null!;
 
         public GetApiManagementServiceArgs()
         {

@@ -183,6 +183,12 @@ namespace Pulumi.AzureRM.CustomerInsights.V20170426
         [Input("hubName", required: true)]
         public Input<string> HubName { get; set; } = null!;
 
+        /// <summary>
+        /// The name of the link.
+        /// </summary>
+        [Input("linkName", required: true)]
+        public Input<string> LinkName { get; set; } = null!;
+
         [Input("mappings")]
         private InputList<Inputs.TypePropertiesMappingArgs>? _mappings;
 
@@ -194,12 +200,6 @@ namespace Pulumi.AzureRM.CustomerInsights.V20170426
             get => _mappings ?? (_mappings = new InputList<Inputs.TypePropertiesMappingArgs>());
             set => _mappings = value;
         }
-
-        /// <summary>
-        /// The name of the link.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
 
         /// <summary>
         /// Determines whether this link is supposed to create or delete instances if Link is NOT Reference Only.

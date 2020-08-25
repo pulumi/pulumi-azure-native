@@ -264,12 +264,6 @@ namespace Pulumi.AzureRM.CustomerInsights.V20170426
         public Input<Inputs.PredictionMappingsArgs> Mappings { get; set; } = null!;
 
         /// <summary>
-        /// Name of the prediction.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        /// <summary>
         /// Negative outcome expression.
         /// </summary>
         [Input("negativeOutcomeExpression", required: true)]
@@ -280,6 +274,12 @@ namespace Pulumi.AzureRM.CustomerInsights.V20170426
         /// </summary>
         [Input("positiveOutcomeExpression", required: true)]
         public Input<string> PositiveOutcomeExpression { get; set; } = null!;
+
+        /// <summary>
+        /// Name of the prediction.
+        /// </summary>
+        [Input("predictionName", required: true)]
+        public Input<string> PredictionName { get; set; } = null!;
 
         /// <summary>
         /// Primary profile type.

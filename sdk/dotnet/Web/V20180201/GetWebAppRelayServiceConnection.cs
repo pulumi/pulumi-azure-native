@@ -21,6 +21,12 @@ namespace Pulumi.AzureRM.Web.V20180201
         /// <summary>
         /// Name of the hybrid connection.
         /// </summary>
+        [Input("entityName", required: true)]
+        public string EntityName { get; set; } = null!;
+
+        /// <summary>
+        /// Name of the app.
+        /// </summary>
         [Input("name", required: true)]
         public string Name { get; set; } = null!;
 

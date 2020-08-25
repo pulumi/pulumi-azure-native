@@ -392,7 +392,7 @@ namespace Pulumi.AzureRM.Web.V20160801
         public Input<string> Location { get; set; } = null!;
 
         /// <summary>
-        /// Name of the deployment slot to create or update. By default, this API attempts to create or modify the production slot.
+        /// Unique name of the app to create or update. To create or update a deployment slot, use the {slot} parameter.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
@@ -439,6 +439,12 @@ namespace Pulumi.AzureRM.Web.V20160801
         /// </summary>
         [Input("skipDnsRegistration")]
         public Input<bool>? SkipDnsRegistration { get; set; }
+
+        /// <summary>
+        /// Name of the deployment slot to create or update. By default, this API attempts to create or modify the production slot.
+        /// </summary>
+        [Input("slot", required: true)]
+        public Input<string> Slot { get; set; } = null!;
 
         /// <summary>
         /// If specified during app creation, the app is created from a previous snapshot.

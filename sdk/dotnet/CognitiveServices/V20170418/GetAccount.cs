@@ -21,8 +21,8 @@ namespace Pulumi.AzureRM.CognitiveServices.V20170418
         /// <summary>
         /// The name of Cognitive Services account.
         /// </summary>
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
+        [Input("accountName", required: true)]
+        public string AccountName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

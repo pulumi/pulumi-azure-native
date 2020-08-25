@@ -27,8 +27,8 @@ namespace Pulumi.AzureRM.DataFactory.V20180601
         /// <summary>
         /// The linked service name.
         /// </summary>
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
+        [Input("linkedServiceName", required: true)]
+        public string LinkedServiceName { get; set; } = null!;
 
         /// <summary>
         /// The resource group name.

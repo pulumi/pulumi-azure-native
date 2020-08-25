@@ -21,8 +21,8 @@ namespace Pulumi.AzureRM.PowerBIDedicated.V20171001
         /// <summary>
         /// The name of the dedicated capacity. It must be a minimum of 3 characters, and a maximum of 63.
         /// </summary>
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
+        [Input("dedicatedCapacityName", required: true)]
+        public string DedicatedCapacityName { get; set; } = null!;
 
         /// <summary>
         /// The name of the Azure Resource group of which a given PowerBIDedicated capacity is part. This name must be at least 1 character in length, and no more than 90.

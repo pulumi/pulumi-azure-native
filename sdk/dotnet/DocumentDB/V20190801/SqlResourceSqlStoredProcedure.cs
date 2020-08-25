@@ -116,12 +116,6 @@ namespace Pulumi.AzureRM.DocumentDB.V20190801
         [Input("location")]
         public Input<string>? Location { get; set; }
 
-        /// <summary>
-        /// Cosmos DB storedProcedure name.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
         [Input("options", required: true)]
         private InputMap<string>? _options;
 
@@ -145,6 +139,12 @@ namespace Pulumi.AzureRM.DocumentDB.V20190801
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// Cosmos DB storedProcedure name.
+        /// </summary>
+        [Input("storedProcedureName", required: true)]
+        public Input<string> StoredProcedureName { get; set; } = null!;
 
         [Input("tags")]
         private InputMap<string>? _tags;

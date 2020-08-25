@@ -162,8 +162,8 @@ namespace Pulumi.AzureRM.StorSimple.V20170601
         /// <summary>
         /// The manager name
         /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
+        [Input("managerName", required: true)]
+        public Input<string> ManagerName { get; set; } = null!;
 
         /// <summary>
         /// Represents the portal thumbprint which can be used optionally to encrypt the entire data before storing it.

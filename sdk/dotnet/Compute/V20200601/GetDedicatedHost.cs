@@ -33,8 +33,8 @@ namespace Pulumi.AzureRM.Compute.V20200601
         /// <summary>
         /// The name of the dedicated host.
         /// </summary>
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
+        [Input("hostName", required: true)]
+        public string HostName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group.

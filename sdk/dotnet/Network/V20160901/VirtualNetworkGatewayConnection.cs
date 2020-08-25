@@ -256,12 +256,6 @@ namespace Pulumi.AzureRM.Network.V20160901
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// The name of the virtual network gateway connection.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        /// <summary>
         /// The reference to peerings resource.
         /// </summary>
         [Input("peer")]
@@ -314,6 +308,12 @@ namespace Pulumi.AzureRM.Network.V20160901
         /// </summary>
         [Input("virtualNetworkGateway2")]
         public Input<Inputs.VirtualNetworkGatewayArgs>? VirtualNetworkGateway2 { get; set; }
+
+        /// <summary>
+        /// The name of the virtual network gateway connection.
+        /// </summary>
+        [Input("virtualNetworkGatewayConnectionName", required: true)]
+        public Input<string> VirtualNetworkGatewayConnectionName { get; set; } = null!;
 
         public VirtualNetworkGatewayConnectionArgs()
         {

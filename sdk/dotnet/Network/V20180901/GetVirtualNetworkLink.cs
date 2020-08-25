@@ -19,12 +19,6 @@ namespace Pulumi.AzureRM.Network.V20180901
     public sealed class GetVirtualNetworkLinkArgs : Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The name of the virtual network link.
-        /// </summary>
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
-
-        /// <summary>
         /// The name of the Private DNS zone (without a terminating dot).
         /// </summary>
         [Input("privateZoneName", required: true)]
@@ -35,6 +29,12 @@ namespace Pulumi.AzureRM.Network.V20180901
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public string ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the virtual network link.
+        /// </summary>
+        [Input("virtualNetworkLinkName", required: true)]
+        public string VirtualNetworkLinkName { get; set; } = null!;
 
         public GetVirtualNetworkLinkArgs()
         {

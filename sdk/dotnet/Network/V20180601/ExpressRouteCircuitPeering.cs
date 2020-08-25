@@ -268,16 +268,22 @@ namespace Pulumi.AzureRM.Network.V20180601
         public Input<Inputs.ExpressRouteCircuitPeeringConfigArgs>? MicrosoftPeeringConfig { get; set; }
 
         /// <summary>
-        /// The name of the peering.
+        /// Gets name of the resource that is unique within a resource group. This name can be used to access the resource.
         /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
+        [Input("name")]
+        public Input<string>? Name { get; set; }
 
         /// <summary>
         /// The peer ASN.
         /// </summary>
         [Input("peerASN")]
         public Input<int>? PeerASN { get; set; }
+
+        /// <summary>
+        /// The name of the peering.
+        /// </summary>
+        [Input("peeringName", required: true)]
+        public Input<string> PeeringName { get; set; } = null!;
 
         /// <summary>
         /// The peering type.

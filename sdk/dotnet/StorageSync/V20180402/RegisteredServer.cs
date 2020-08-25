@@ -226,12 +226,6 @@ namespace Pulumi.AzureRM.StorageSync.V20180402
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// Registered Server serverId
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        /// <summary>
         /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
@@ -242,6 +236,12 @@ namespace Pulumi.AzureRM.StorageSync.V20180402
         /// </summary>
         [Input("serverCertificate")]
         public Input<string>? ServerCertificate { get; set; }
+
+        /// <summary>
+        /// Registered Server serverId
+        /// </summary>
+        [Input("serverId", required: true)]
+        public Input<string> ServerId { get; set; } = null!;
 
         /// <summary>
         /// Registered Server OS Version

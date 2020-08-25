@@ -142,6 +142,12 @@ namespace Pulumi.AzureRM.AlertsManagement.V20190601
         public Input<Inputs.ActionGroupsInformationArgs> ActionGroups { get; set; } = null!;
 
         /// <summary>
+        /// The name of the alert rule.
+        /// </summary>
+        [Input("alertRuleName", required: true)]
+        public Input<string> AlertRuleName { get; set; } = null!;
+
+        /// <summary>
         /// The alert rule description.
         /// </summary>
         [Input("description")]
@@ -164,12 +170,6 @@ namespace Pulumi.AzureRM.AlertsManagement.V20190601
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
-
-        /// <summary>
-        /// The name of the alert rule.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group.

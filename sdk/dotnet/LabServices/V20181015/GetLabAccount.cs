@@ -27,8 +27,8 @@ namespace Pulumi.AzureRM.LabServices.V20181015
         /// <summary>
         /// The name of the lab Account.
         /// </summary>
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
+        [Input("labAccountName", required: true)]
+        public string LabAccountName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group.

@@ -119,12 +119,6 @@ namespace Pulumi.AzureRM.Authorization.V20150701
         [Input("description")]
         public Input<string>? Description { get; set; }
 
-        /// <summary>
-        /// The ID of the role definition.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
         [Input("permissions")]
         private InputList<Inputs.PermissionArgs>? _permissions;
 
@@ -136,6 +130,12 @@ namespace Pulumi.AzureRM.Authorization.V20150701
             get => _permissions ?? (_permissions = new InputList<Inputs.PermissionArgs>());
             set => _permissions = value;
         }
+
+        /// <summary>
+        /// The ID of the role definition.
+        /// </summary>
+        [Input("roleDefinitionId", required: true)]
+        public Input<string> RoleDefinitionId { get; set; } = null!;
 
         /// <summary>
         /// The role name.

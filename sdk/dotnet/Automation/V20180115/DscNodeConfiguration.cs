@@ -130,10 +130,16 @@ namespace Pulumi.AzureRM.Automation.V20180115
         public Input<bool>? IncrementNodeConfigurationBuild { get; set; }
 
         /// <summary>
+        /// Name of the node configuration.
+        /// </summary>
+        [Input("name")]
+        public Input<string>? Name { get; set; }
+
+        /// <summary>
         /// The Dsc node configuration name.
         /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
+        [Input("nodeConfigurationName", required: true)]
+        public Input<string> NodeConfigurationName { get; set; } = null!;
 
         /// <summary>
         /// Name of an Azure Resource group.

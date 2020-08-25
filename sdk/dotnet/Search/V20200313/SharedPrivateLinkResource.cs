@@ -78,12 +78,6 @@ namespace Pulumi.AzureRM.Search.V20200313
     public sealed class SharedPrivateLinkResourceArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The name of the shared private link resource managed by the Azure Cognitive Search service within the specified resource group.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        /// <summary>
         /// Describes the properties of a Shared Private Link Resource managed by the Azure Cognitive Search service.
         /// </summary>
         [Input("properties")]
@@ -100,6 +94,12 @@ namespace Pulumi.AzureRM.Search.V20200313
         /// </summary>
         [Input("searchServiceName", required: true)]
         public Input<string> SearchServiceName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the shared private link resource managed by the Azure Cognitive Search service within the specified resource group.
+        /// </summary>
+        [Input("sharedPrivateLinkResourceName", required: true)]
+        public Input<string> SharedPrivateLinkResourceName { get; set; } = null!;
 
         public SharedPrivateLinkResourceArgs()
         {

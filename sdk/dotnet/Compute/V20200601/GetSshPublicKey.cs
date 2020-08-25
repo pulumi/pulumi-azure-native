@@ -19,16 +19,16 @@ namespace Pulumi.AzureRM.Compute.V20200601
     public sealed class GetSshPublicKeyArgs : Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The name of the SSH public key.
-        /// </summary>
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
-
-        /// <summary>
         /// The name of the resource group.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public string ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the SSH public key.
+        /// </summary>
+        [Input("sshPublicKeyName", required: true)]
+        public string SshPublicKeyName { get; set; } = null!;
 
         public GetSshPublicKeyArgs()
         {

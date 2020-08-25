@@ -25,16 +25,16 @@ namespace Pulumi.AzureRM.DataBoxEdge.V20190801
         public string DeviceName { get; set; } = null!;
 
         /// <summary>
-        /// The storage account name.
-        /// </summary>
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
-
-        /// <summary>
         /// The resource group name.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public string ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The storage account name.
+        /// </summary>
+        [Input("storageAccountName", required: true)]
+        public string StorageAccountName { get; set; } = null!;
 
         public GetStorageAccountArgs()
         {

@@ -19,16 +19,16 @@ namespace Pulumi.AzureRM.OperationalInsights.V20150320
     public sealed class GetSavedSearchArgs : Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The id of the saved search.
-        /// </summary>
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
-
-        /// <summary>
         /// The Resource Group name.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public string ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The id of the saved search.
+        /// </summary>
+        [Input("savedSearchId", required: true)]
+        public string SavedSearchId { get; set; } = null!;
 
         /// <summary>
         /// The Log Analytics Workspace name.

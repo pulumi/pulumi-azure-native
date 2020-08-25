@@ -154,6 +154,12 @@ namespace Pulumi.AzureRM.StorageCache.V20200301
     public sealed class CacheArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Name of Cache. Length of name must be not greater than 80 and chars must be in list of [-0-9a-zA-Z_] char class.
+        /// </summary>
+        [Input("cacheName", required: true)]
+        public Input<string> CacheName { get; set; } = null!;
+
+        /// <summary>
         /// The size of this Cache, in GB.
         /// </summary>
         [Input("cacheSizeGB")]
@@ -176,12 +182,6 @@ namespace Pulumi.AzureRM.StorageCache.V20200301
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
-
-        /// <summary>
-        /// Name of Cache. Length of name must be not greater than 80 and chars must be in list of [-0-9a-zA-Z_] char class.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
 
         /// <summary>
         /// Specifies network settings of the cache.

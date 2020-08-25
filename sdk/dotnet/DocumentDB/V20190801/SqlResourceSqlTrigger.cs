@@ -116,12 +116,6 @@ namespace Pulumi.AzureRM.DocumentDB.V20190801
         [Input("location")]
         public Input<string>? Location { get; set; }
 
-        /// <summary>
-        /// Cosmos DB trigger name.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
         [Input("options", required: true)]
         private InputMap<string>? _options;
 
@@ -157,6 +151,12 @@ namespace Pulumi.AzureRM.DocumentDB.V20190801
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
+
+        /// <summary>
+        /// Cosmos DB trigger name.
+        /// </summary>
+        [Input("triggerName", required: true)]
+        public Input<string> TriggerName { get; set; } = null!;
 
         public SqlResourceSqlTriggerArgs()
         {

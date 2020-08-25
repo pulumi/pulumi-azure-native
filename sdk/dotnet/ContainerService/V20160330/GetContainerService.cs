@@ -21,8 +21,8 @@ namespace Pulumi.AzureRM.ContainerService.V20160330
         /// <summary>
         /// The name of the container service in the specified subscription and resource group.
         /// </summary>
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
+        [Input("containerServiceName", required: true)]
+        public string ContainerServiceName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group.

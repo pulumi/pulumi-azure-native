@@ -84,16 +84,16 @@ namespace Pulumi.AzureRM.DataShare.V20191101
         public Input<string> AccountName { get; set; } = null!;
 
         /// <summary>
+        /// The name of the dataSet.
+        /// </summary>
+        [Input("dataSetName", required: true)]
+        public Input<string> DataSetName { get; set; } = null!;
+
+        /// <summary>
         /// Kind of data set.
         /// </summary>
         [Input("kind", required: true)]
         public Input<string> Kind { get; set; } = null!;
-
-        /// <summary>
-        /// The name of the dataSet.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
 
         /// <summary>
         /// The resource group name.

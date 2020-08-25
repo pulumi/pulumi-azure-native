@@ -138,6 +138,12 @@ namespace Pulumi.AzureRM.Security.V20200101
     public sealed class AssessmentMetadataInSubscriptionArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The Assessment Key - Unique key for the assessment type
+        /// </summary>
+        [Input("assessmentMetadataName", required: true)]
+        public Input<string> AssessmentMetadataName { get; set; } = null!;
+
+        /// <summary>
         /// BuiltIn if the assessment based on built-in Azure Policy definition, Custom if the assessment based on custom Azure Policy definition
         /// </summary>
         [Input("assessmentType", required: true)]
@@ -168,12 +174,6 @@ namespace Pulumi.AzureRM.Security.V20200101
         /// </summary>
         [Input("implementationEffort")]
         public Input<string>? ImplementationEffort { get; set; }
-
-        /// <summary>
-        /// The Assessment Key - Unique key for the assessment type
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
 
         /// <summary>
         /// Describes the partner that created the assessment

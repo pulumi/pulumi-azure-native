@@ -21,8 +21,8 @@ namespace Pulumi.AzureRM.KeyVault.V20180214
         /// <summary>
         /// Name of the private endpoint connection associated with the key vault.
         /// </summary>
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
+        [Input("privateEndpointConnectionName", required: true)]
+        public string PrivateEndpointConnectionName { get; set; } = null!;
 
         /// <summary>
         /// Name of the resource group that contains the key vault.

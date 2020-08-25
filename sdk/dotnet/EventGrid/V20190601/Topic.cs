@@ -108,12 +108,6 @@ namespace Pulumi.AzureRM.EventGrid.V20190601
         public Input<string> Location { get; set; } = null!;
 
         /// <summary>
-        /// Name of the topic.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        /// <summary>
         /// The name of the resource group within the user's subscription.
         /// </summary>
         [Input("resourceGroupName", required: true)]
@@ -130,6 +124,12 @@ namespace Pulumi.AzureRM.EventGrid.V20190601
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
+
+        /// <summary>
+        /// Name of the topic.
+        /// </summary>
+        [Input("topicName", required: true)]
+        public Input<string> TopicName { get; set; } = null!;
 
         public TopicArgs()
         {

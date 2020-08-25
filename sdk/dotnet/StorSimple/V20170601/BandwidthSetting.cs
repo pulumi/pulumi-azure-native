@@ -90,6 +90,12 @@ namespace Pulumi.AzureRM.StorSimple.V20170601
     public sealed class BandwidthSettingArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The bandwidth setting name.
+        /// </summary>
+        [Input("bandwidthSettingName", required: true)]
+        public Input<string> BandwidthSettingName { get; set; } = null!;
+
+        /// <summary>
         /// The Kind of the object. Currently only Series8000 is supported
         /// </summary>
         [Input("kind")]
@@ -100,12 +106,6 @@ namespace Pulumi.AzureRM.StorSimple.V20170601
         /// </summary>
         [Input("managerName", required: true)]
         public Input<string> ManagerName { get; set; } = null!;
-
-        /// <summary>
-        /// The bandwidth setting name.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
 
         /// <summary>
         /// The resource group name

@@ -86,8 +86,8 @@ namespace Pulumi.AzureRM.AppPlatform.V20200701
         /// <summary>
         /// The name of the custom domain resource.
         /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
+        [Input("domainName", required: true)]
+        public Input<string> DomainName { get; set; } = null!;
 
         /// <summary>
         /// Properties of the custom domain resource.

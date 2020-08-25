@@ -19,6 +19,12 @@ namespace Pulumi.AzureRM.StorSimple.V20161001
     public sealed class GetChapSettingArgs : Pulumi.InvokeArgs
     {
         /// <summary>
+        /// The user name of chap to be fetched.
+        /// </summary>
+        [Input("chapUserName", required: true)]
+        public string ChapUserName { get; set; } = null!;
+
+        /// <summary>
         /// The device name.
         /// </summary>
         [Input("deviceName", required: true)]
@@ -29,12 +35,6 @@ namespace Pulumi.AzureRM.StorSimple.V20161001
         /// </summary>
         [Input("managerName", required: true)]
         public string ManagerName { get; set; } = null!;
-
-        /// <summary>
-        /// The user name of chap to be fetched.
-        /// </summary>
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
 
         /// <summary>
         /// The resource group name

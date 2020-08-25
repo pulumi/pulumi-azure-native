@@ -124,6 +124,12 @@ namespace Pulumi.AzureRM.HybridData.V20160601
         public Input<string> DataManagerName { get; set; } = null!;
 
         /// <summary>
+        /// The data store/repository name to be created or updated.
+        /// </summary>
+        [Input("dataStoreName", required: true)]
+        public Input<string> DataStoreName { get; set; } = null!;
+
+        /// <summary>
         /// The arm id of the data store type.
         /// </summary>
         [Input("dataStoreTypeId", required: true)]
@@ -140,12 +146,6 @@ namespace Pulumi.AzureRM.HybridData.V20160601
             get => _extendedProperties ?? (_extendedProperties = new InputMap<object>());
             set => _extendedProperties = value;
         }
-
-        /// <summary>
-        /// The data store/repository name to be created or updated.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
 
         /// <summary>
         /// Arm Id for the manager resource to which the data source is associated. This is optional.

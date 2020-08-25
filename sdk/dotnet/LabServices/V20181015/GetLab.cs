@@ -33,8 +33,8 @@ namespace Pulumi.AzureRM.LabServices.V20181015
         /// <summary>
         /// The name of the lab.
         /// </summary>
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
+        [Input("labName", required: true)]
+        public string LabName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group.

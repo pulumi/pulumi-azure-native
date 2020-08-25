@@ -21,8 +21,8 @@ namespace Pulumi.AzureRM.StorageCache.V20200301
         /// <summary>
         /// Name of Cache. Length of name must be not greater than 80 and chars must be in list of [-0-9a-zA-Z_] char class.
         /// </summary>
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
+        [Input("cacheName", required: true)]
+        public string CacheName { get; set; } = null!;
 
         /// <summary>
         /// Target resource group.

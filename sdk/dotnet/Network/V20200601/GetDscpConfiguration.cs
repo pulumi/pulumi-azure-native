@@ -21,8 +21,8 @@ namespace Pulumi.AzureRM.Network.V20200601
         /// <summary>
         /// The name of the resource.
         /// </summary>
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
+        [Input("dscpConfigurationName", required: true)]
+        public string DscpConfigurationName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group.

@@ -25,12 +25,6 @@ namespace Pulumi.AzureRM.NetApp.V20190701
         public string AccountName { get; set; } = null!;
 
         /// <summary>
-        /// The name of the mount target
-        /// </summary>
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
-
-        /// <summary>
         /// The name of the capacity pool
         /// </summary>
         [Input("poolName", required: true)]
@@ -41,6 +35,12 @@ namespace Pulumi.AzureRM.NetApp.V20190701
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public string ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the mount target
+        /// </summary>
+        [Input("snapshotName", required: true)]
+        public string SnapshotName { get; set; } = null!;
 
         /// <summary>
         /// The name of the volume

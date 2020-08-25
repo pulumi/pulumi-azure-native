@@ -21,8 +21,8 @@ namespace Pulumi.AzureRM.StorSimple.V20170601
         /// <summary>
         /// The manager name
         /// </summary>
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
+        [Input("managerName", required: true)]
+        public string ManagerName { get; set; } = null!;
 
         /// <summary>
         /// The resource group name

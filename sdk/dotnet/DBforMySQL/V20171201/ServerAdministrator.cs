@@ -108,16 +108,16 @@ namespace Pulumi.AzureRM.DBforMySQL.V20171201
         public Input<string> Login { get; set; } = null!;
 
         /// <summary>
-        /// The name of the server.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        /// <summary>
         /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the server.
+        /// </summary>
+        [Input("serverName", required: true)]
+        public Input<string> ServerName { get; set; } = null!;
 
         /// <summary>
         /// The server administrator Sid (Secure ID).

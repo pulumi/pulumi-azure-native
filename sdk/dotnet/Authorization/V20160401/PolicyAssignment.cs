@@ -104,8 +104,14 @@ namespace Pulumi.AzureRM.Authorization.V20160401
         /// <summary>
         /// The name of the policy assignment.
         /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
+        [Input("name")]
+        public Input<string>? Name { get; set; }
+
+        /// <summary>
+        /// The name of the policy assignment.
+        /// </summary>
+        [Input("policyAssignmentName", required: true)]
+        public Input<string> PolicyAssignmentName { get; set; } = null!;
 
         /// <summary>
         /// The ID of the policy definition.

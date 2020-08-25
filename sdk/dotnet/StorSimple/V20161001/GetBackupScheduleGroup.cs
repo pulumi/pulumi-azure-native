@@ -31,16 +31,16 @@ namespace Pulumi.AzureRM.StorSimple.V20161001
         public string ManagerName { get; set; } = null!;
 
         /// <summary>
-        /// The name of the schedule group.
-        /// </summary>
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
-
-        /// <summary>
         /// The resource group name
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public string ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the schedule group.
+        /// </summary>
+        [Input("scheduleGroupName", required: true)]
+        public string ScheduleGroupName { get; set; } = null!;
 
         public GetBackupScheduleGroupArgs()
         {

@@ -215,6 +215,12 @@ namespace Pulumi.AzureRM.CertificateRegistration.V20180201
         [Input("autoRenew")]
         public Input<bool>? AutoRenew { get; set; }
 
+        /// <summary>
+        /// Name of the certificate order.
+        /// </summary>
+        [Input("certificateOrderName", required: true)]
+        public Input<string> CertificateOrderName { get; set; } = null!;
+
         [Input("certificates")]
         private InputMap<Inputs.AppServiceCertificateArgs>? _certificates;
 
@@ -256,12 +262,6 @@ namespace Pulumi.AzureRM.CertificateRegistration.V20180201
         /// </summary>
         [Input("location", required: true)]
         public Input<string> Location { get; set; } = null!;
-
-        /// <summary>
-        /// Name of the certificate order.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
 
         /// <summary>
         /// Certificate product type.

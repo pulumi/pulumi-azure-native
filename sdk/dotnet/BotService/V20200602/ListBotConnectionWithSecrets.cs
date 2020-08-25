@@ -21,8 +21,8 @@ namespace Pulumi.AzureRM.BotService.V20200602
         /// <summary>
         /// The name of the Bot Service Connection Setting resource.
         /// </summary>
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
+        [Input("connectionName", required: true)]
+        public string ConnectionName { get; set; } = null!;
 
         /// <summary>
         /// The name of the Bot resource group in the user subscription.

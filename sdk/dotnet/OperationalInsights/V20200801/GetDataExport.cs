@@ -21,8 +21,8 @@ namespace Pulumi.AzureRM.OperationalInsights.V20200801
         /// <summary>
         /// The data export rule name.
         /// </summary>
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
+        [Input("dataExportName", required: true)]
+        public string DataExportName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

@@ -156,6 +156,12 @@ namespace Pulumi.AzureRM.Network.V20190401
         public Input<Inputs.AddressSpaceArgs>? CustomRoutes { get; set; }
 
         /// <summary>
+        /// The name of the gateway.
+        /// </summary>
+        [Input("gatewayName", required: true)]
+        public Input<string> GatewayName { get; set; } = null!;
+
+        /// <summary>
         /// Resource ID.
         /// </summary>
         [Input("id")]
@@ -166,12 +172,6 @@ namespace Pulumi.AzureRM.Network.V20190401
         /// </summary>
         [Input("location", required: true)]
         public Input<string> Location { get; set; } = null!;
-
-        /// <summary>
-        /// The name of the gateway.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
 
         /// <summary>
         /// The P2SVpnServerConfiguration to which the p2sVpnGateway is attached to.

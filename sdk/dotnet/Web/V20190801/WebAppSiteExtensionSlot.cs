@@ -202,7 +202,7 @@ namespace Pulumi.AzureRM.Web.V20190801
     public sealed class WebAppSiteExtensionSlotArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Site extension name.
+        /// Site name.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
@@ -212,6 +212,12 @@ namespace Pulumi.AzureRM.Web.V20190801
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// Site extension name.
+        /// </summary>
+        [Input("siteExtensionId", required: true)]
+        public Input<string> SiteExtensionId { get; set; } = null!;
 
         /// <summary>
         /// Name of the deployment slot. If a slot is not specified, the API uses the production slot.

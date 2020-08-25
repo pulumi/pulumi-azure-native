@@ -27,8 +27,8 @@ namespace Pulumi.AzureRM.DataShare.V20191101
         /// <summary>
         /// The name of the invitation.
         /// </summary>
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
+        [Input("invitationName", required: true)]
+        public string InvitationName { get; set; } = null!;
 
         /// <summary>
         /// The resource group name.

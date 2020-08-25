@@ -19,10 +19,16 @@ namespace Pulumi.AzureRM.Web.V20190801
     public sealed class ListStaticSiteBuildFunctionAppSettingsArgs : Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The stage site identifier.
+        /// Name of the static site.
         /// </summary>
         [Input("name", required: true)]
         public string Name { get; set; } = null!;
+
+        /// <summary>
+        /// The stage site identifier.
+        /// </summary>
+        [Input("prId", required: true)]
+        public string PrId { get; set; } = null!;
 
         /// <summary>
         /// Name of the resource group to which the resource belongs.

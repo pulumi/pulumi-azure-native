@@ -116,6 +116,12 @@ namespace Pulumi.AzureRM.Kusto.V20190515
         public Input<string> ClusterName { get; set; } = null!;
 
         /// <summary>
+        /// The name of the database in the Kusto cluster.
+        /// </summary>
+        [Input("databaseName", required: true)]
+        public Input<string> DatabaseName { get; set; } = null!;
+
+        /// <summary>
         /// The time the data should be kept in cache for fast queries in TimeSpan.
         /// </summary>
         [Input("hotCachePeriod")]
@@ -126,12 +132,6 @@ namespace Pulumi.AzureRM.Kusto.V20190515
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
-
-        /// <summary>
-        /// The name of the database in the Kusto cluster.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group containing the Kusto cluster.

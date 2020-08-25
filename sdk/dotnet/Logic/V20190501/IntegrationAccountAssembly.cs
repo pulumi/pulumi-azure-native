@@ -94,6 +94,12 @@ namespace Pulumi.AzureRM.Logic.V20190501
     public sealed class IntegrationAccountAssemblyArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The assembly artifact name.
+        /// </summary>
+        [Input("assemblyArtifactName", required: true)]
+        public Input<string> AssemblyArtifactName { get; set; } = null!;
+
+        /// <summary>
         /// The integration account name.
         /// </summary>
         [Input("integrationAccountName", required: true)]
@@ -104,12 +110,6 @@ namespace Pulumi.AzureRM.Logic.V20190501
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
-
-        /// <summary>
-        /// The assembly artifact name.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
 
         /// <summary>
         /// The assembly properties.

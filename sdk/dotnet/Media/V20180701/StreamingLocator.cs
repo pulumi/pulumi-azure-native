@@ -190,12 +190,6 @@ namespace Pulumi.AzureRM.Media.V20180701
         }
 
         /// <summary>
-        /// The Streaming Locator name.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        /// <summary>
         /// The name of the resource group within the Azure subscription.
         /// </summary>
         [Input("resourceGroupName", required: true)]
@@ -212,6 +206,12 @@ namespace Pulumi.AzureRM.Media.V20180701
         /// </summary>
         [Input("streamingLocatorId")]
         public Input<string>? StreamingLocatorId { get; set; }
+
+        /// <summary>
+        /// The Streaming Locator name.
+        /// </summary>
+        [Input("streamingLocatorName", required: true)]
+        public Input<string> StreamingLocatorName { get; set; } = null!;
 
         /// <summary>
         /// Name of the Streaming Policy used by this Streaming Locator. Either specify the name of Streaming Policy you created or use one of the predefined Streaming Policies. The predefined Streaming Policies available are: 'Predefined_DownloadOnly', 'Predefined_ClearStreamingOnly', 'Predefined_DownloadAndClearStreaming', 'Predefined_ClearKey', 'Predefined_MultiDrmCencStreaming' and 'Predefined_MultiDrmStreaming'

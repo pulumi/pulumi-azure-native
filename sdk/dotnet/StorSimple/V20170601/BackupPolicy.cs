@@ -120,6 +120,12 @@ namespace Pulumi.AzureRM.StorSimple.V20170601
     public sealed class BackupPolicyArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The name of the backup policy to be created/updated.
+        /// </summary>
+        [Input("backupPolicyName", required: true)]
+        public Input<string> BackupPolicyName { get; set; } = null!;
+
+        /// <summary>
         /// The device name
         /// </summary>
         [Input("deviceName", required: true)]
@@ -136,12 +142,6 @@ namespace Pulumi.AzureRM.StorSimple.V20170601
         /// </summary>
         [Input("managerName", required: true)]
         public Input<string> ManagerName { get; set; } = null!;
-
-        /// <summary>
-        /// The name of the backup policy to be created/updated.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
 
         /// <summary>
         /// The resource group name

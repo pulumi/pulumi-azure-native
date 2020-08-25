@@ -21,8 +21,8 @@ namespace Pulumi.AzureRM.Authorization.V20150101
         /// <summary>
         /// Name of the management lock.
         /// </summary>
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
+        [Input("lockName", required: true)]
+        public string LockName { get; set; } = null!;
 
         public GetManagementLockArgs()
         {

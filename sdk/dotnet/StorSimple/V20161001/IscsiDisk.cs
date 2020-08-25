@@ -150,6 +150,12 @@ namespace Pulumi.AzureRM.StorSimple.V20161001
         public Input<string> DeviceName { get; set; } = null!;
 
         /// <summary>
+        /// The disk name.
+        /// </summary>
+        [Input("diskName", required: true)]
+        public Input<string> DiskName { get; set; } = null!;
+
+        /// <summary>
         /// The disk status.
         /// </summary>
         [Input("diskStatus", required: true)]
@@ -172,12 +178,6 @@ namespace Pulumi.AzureRM.StorSimple.V20161001
         /// </summary>
         [Input("monitoringStatus", required: true)]
         public Input<string> MonitoringStatus { get; set; } = null!;
-
-        /// <summary>
-        /// The disk name.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
 
         /// <summary>
         /// The provisioned capacity in bytes.

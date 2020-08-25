@@ -21,8 +21,8 @@ namespace Pulumi.AzureRM.Automation.V20151031
         /// <summary>
         /// The name of the automation account.
         /// </summary>
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
+        [Input("automationAccountName", required: true)]
+        public string AutomationAccountName { get; set; } = null!;
 
         /// <summary>
         /// Name of an Azure Resource group.

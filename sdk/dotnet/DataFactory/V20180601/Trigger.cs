@@ -90,12 +90,6 @@ namespace Pulumi.AzureRM.DataFactory.V20180601
         public Input<string> FactoryName { get; set; } = null!;
 
         /// <summary>
-        /// The trigger name.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        /// <summary>
         /// Properties of the trigger.
         /// </summary>
         [Input("properties", required: true)]
@@ -106,6 +100,12 @@ namespace Pulumi.AzureRM.DataFactory.V20180601
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The trigger name.
+        /// </summary>
+        [Input("triggerName", required: true)]
+        public Input<string> TriggerName { get; set; } = null!;
 
         public TriggerArgs()
         {

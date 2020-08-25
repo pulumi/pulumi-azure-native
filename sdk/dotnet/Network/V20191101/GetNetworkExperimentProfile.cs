@@ -21,8 +21,8 @@ namespace Pulumi.AzureRM.Network.V20191101
         /// <summary>
         /// The Profile identifier associated with the Tenant and Partner
         /// </summary>
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
+        [Input("profileName", required: true)]
+        public string ProfileName { get; set; } = null!;
 
         /// <summary>
         /// Name of the Resource group within the Azure subscription.

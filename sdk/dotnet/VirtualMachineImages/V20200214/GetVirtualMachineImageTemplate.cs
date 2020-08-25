@@ -21,8 +21,8 @@ namespace Pulumi.AzureRM.VirtualMachineImages.V20200214
         /// <summary>
         /// The name of the image Template
         /// </summary>
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
+        [Input("imageTemplateName", required: true)]
+        public string ImageTemplateName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group.

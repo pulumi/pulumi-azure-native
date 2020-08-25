@@ -146,8 +146,8 @@ namespace Pulumi.AzureRM.Insights.V20160301
         /// <summary>
         /// The name of the log profile.
         /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
+        [Input("logProfileName", required: true)]
+        public Input<string> LogProfileName { get; set; } = null!;
 
         /// <summary>
         /// the retention policy for the events in the log.

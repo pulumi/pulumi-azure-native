@@ -150,16 +150,16 @@ namespace Pulumi.AzureRM.Network.V20191101
         public Input<Inputs.EndpointArgs>? EndpointB { get; set; }
 
         /// <summary>
+        /// The Experiment identifier associated with the Experiment
+        /// </summary>
+        [Input("experimentName", required: true)]
+        public Input<string> ExperimentName { get; set; } = null!;
+
+        /// <summary>
         /// Resource location.
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
-
-        /// <summary>
-        /// The Experiment identifier associated with the Experiment
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
 
         /// <summary>
         /// The Profile identifier associated with the Tenant and Partner

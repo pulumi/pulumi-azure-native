@@ -27,8 +27,8 @@ namespace Pulumi.AzureRM.ApiManagement.V20191201
         /// <summary>
         /// Gateway hostname configuration identifier. Must be unique in the scope of parent Gateway entity.
         /// </summary>
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
+        [Input("hcId", required: true)]
+        public string HcId { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group.

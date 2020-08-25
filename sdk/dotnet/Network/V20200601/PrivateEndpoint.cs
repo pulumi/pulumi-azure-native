@@ -177,8 +177,8 @@ namespace Pulumi.AzureRM.Network.V20200601
         /// <summary>
         /// The name of the private endpoint.
         /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
+        [Input("privateEndpointName", required: true)]
+        public Input<string> PrivateEndpointName { get; set; } = null!;
 
         [Input("privateLinkServiceConnections")]
         private InputList<Inputs.PrivateLinkServiceConnectionArgs>? _privateLinkServiceConnections;

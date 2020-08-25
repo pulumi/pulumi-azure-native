@@ -90,6 +90,12 @@ namespace Pulumi.AzureRM.OperationalInsights.V20200101
     public sealed class AlertRuleActionArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Action ID
+        /// </summary>
+        [Input("actionId", required: true)]
+        public Input<string> ActionId { get; set; } = null!;
+
+        /// <summary>
         /// Etag of the azure resource
         /// </summary>
         [Input("etag")]
@@ -100,12 +106,6 @@ namespace Pulumi.AzureRM.OperationalInsights.V20200101
         /// </summary>
         [Input("logicAppResourceId", required: true)]
         public Input<string> LogicAppResourceId { get; set; } = null!;
-
-        /// <summary>
-        /// Action ID
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group within the user's subscription. The name is case insensitive.

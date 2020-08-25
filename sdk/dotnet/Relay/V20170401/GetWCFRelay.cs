@@ -19,16 +19,16 @@ namespace Pulumi.AzureRM.Relay.V20170401
     public sealed class GetWCFRelayArgs : Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The relay name.
-        /// </summary>
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
-
-        /// <summary>
         /// The namespace name
         /// </summary>
         [Input("namespaceName", required: true)]
         public string NamespaceName { get; set; } = null!;
+
+        /// <summary>
+        /// The relay name.
+        /// </summary>
+        [Input("relayName", required: true)]
+        public string RelayName { get; set; } = null!;
 
         /// <summary>
         /// Name of the Resource group within the Azure subscription.

@@ -243,6 +243,12 @@ namespace Pulumi.AzureRM.Network.V20180701
             set => _inboundNatRules = value;
         }
 
+        /// <summary>
+        /// The name of the load balancer.
+        /// </summary>
+        [Input("loadBalancerName", required: true)]
+        public Input<string> LoadBalancerName { get; set; } = null!;
+
         [Input("loadBalancingRules")]
         private InputList<Inputs.LoadBalancingRuleArgs>? _loadBalancingRules;
 
@@ -260,12 +266,6 @@ namespace Pulumi.AzureRM.Network.V20180701
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
-
-        /// <summary>
-        /// The name of the load balancer.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
 
         [Input("outboundRules")]
         private InputList<Inputs.OutboundRuleArgs>? _outboundRules;

@@ -19,16 +19,16 @@ namespace Pulumi.AzureRM.Maintenance.V20200401
     public sealed class GetMaintenanceConfigurationArgs : Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Resource Identifier
-        /// </summary>
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
-
-        /// <summary>
         /// Resource Group Name
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public string ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// Resource Identifier
+        /// </summary>
+        [Input("resourceName", required: true)]
+        public string ResourceName { get; set; } = null!;
 
         public GetMaintenanceConfigurationArgs()
         {

@@ -193,6 +193,12 @@ namespace Pulumi.AzureRM.ApiManagement.V20191201
             set => _authorizationMethods = value;
         }
 
+        /// <summary>
+        /// Identifier of the authorization server.
+        /// </summary>
+        [Input("authsid", required: true)]
+        public Input<string> Authsid { get; set; } = null!;
+
         [Input("bearerTokenSendingMethods")]
         private InputList<string>? _bearerTokenSendingMethods;
 
@@ -264,12 +270,6 @@ namespace Pulumi.AzureRM.ApiManagement.V20191201
             get => _grantTypes ?? (_grantTypes = new InputList<string>());
             set => _grantTypes = value;
         }
-
-        /// <summary>
-        /// Identifier of the authorization server.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group.

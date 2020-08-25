@@ -106,10 +106,16 @@ namespace Pulumi.AzureRM.Resources.V20160201
         public Input<string> Location { get; set; } = null!;
 
         /// <summary>
+        /// The Name of the resource group.
+        /// </summary>
+        [Input("name")]
+        public Input<string>? Name { get; set; }
+
+        /// <summary>
         /// The name of the resource group to be created or updated.
         /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
 
         [Input("tags")]
         private InputMap<string>? _tags;

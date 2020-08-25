@@ -86,8 +86,8 @@ namespace Pulumi.AzureRM.CognitiveServices.V20170418
         /// <summary>
         /// The name of the private endpoint connection associated with the Cognitive Services Account
         /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
+        [Input("privateEndpointConnectionName", required: true)]
+        public Input<string> PrivateEndpointConnectionName { get; set; } = null!;
 
         /// <summary>
         /// Resource properties.

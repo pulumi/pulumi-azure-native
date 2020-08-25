@@ -19,16 +19,16 @@ namespace Pulumi.AzureRM.HealthcareApis.V20190916
     public sealed class GetServiceArgs : Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The name of the service instance.
-        /// </summary>
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
-
-        /// <summary>
         /// The name of the resource group that contains the service instance.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public string ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the service instance.
+        /// </summary>
+        [Input("resourceName", required: true)]
+        public string ResourceName { get; set; } = null!;
 
         public GetServiceArgs()
         {

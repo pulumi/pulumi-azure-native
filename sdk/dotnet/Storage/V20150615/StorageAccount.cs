@@ -163,6 +163,12 @@ namespace Pulumi.AzureRM.Storage.V20150615
     public sealed class StorageAccountArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.
+        /// </summary>
+        [Input("accountName", required: true)]
+        public Input<string> AccountName { get; set; } = null!;
+
+        /// <summary>
         /// The sku name. Required for account creation; optional for update. Note that in older versions, sku name was called accountType.
         /// </summary>
         [Input("accountType", required: true)]
@@ -173,12 +179,6 @@ namespace Pulumi.AzureRM.Storage.V20150615
         /// </summary>
         [Input("location", required: true)]
         public Input<string> Location { get; set; } = null!;
-
-        /// <summary>
-        /// The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group within the user's subscription. The name is case insensitive.

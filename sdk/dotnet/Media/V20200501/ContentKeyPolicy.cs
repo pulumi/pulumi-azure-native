@@ -112,16 +112,16 @@ namespace Pulumi.AzureRM.Media.V20200501
         public Input<string> AccountName { get; set; } = null!;
 
         /// <summary>
+        /// The Content Key Policy name.
+        /// </summary>
+        [Input("contentKeyPolicyName", required: true)]
+        public Input<string> ContentKeyPolicyName { get; set; } = null!;
+
+        /// <summary>
         /// A description for the Policy.
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
-
-        /// <summary>
-        /// The Content Key Policy name.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
 
         [Input("options", required: true)]
         private InputList<Inputs.ContentKeyPolicyOptionArgs>? _options;

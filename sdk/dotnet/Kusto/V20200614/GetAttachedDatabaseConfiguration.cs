@@ -19,16 +19,16 @@ namespace Pulumi.AzureRM.Kusto.V20200614
     public sealed class GetAttachedDatabaseConfigurationArgs : Pulumi.InvokeArgs
     {
         /// <summary>
+        /// The name of the attached database configuration.
+        /// </summary>
+        [Input("attachedDatabaseConfigurationName", required: true)]
+        public string AttachedDatabaseConfigurationName { get; set; } = null!;
+
+        /// <summary>
         /// The name of the Kusto cluster.
         /// </summary>
         [Input("clusterName", required: true)]
         public string ClusterName { get; set; } = null!;
-
-        /// <summary>
-        /// The name of the attached database configuration.
-        /// </summary>
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group containing the Kusto cluster.

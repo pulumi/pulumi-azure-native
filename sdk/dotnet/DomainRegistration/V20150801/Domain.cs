@@ -234,6 +234,12 @@ namespace Pulumi.AzureRM.DomainRegistration.V20150801
         [Input("createdTime")]
         public Input<string>? CreatedTime { get; set; }
 
+        /// <summary>
+        /// Name of the domain
+        /// </summary>
+        [Input("domainName", required: true)]
+        public Input<string> DomainName { get; set; } = null!;
+
         [Input("domainNotRenewableReasons")]
         private InputList<string>? _domainNotRenewableReasons;
 
@@ -289,10 +295,10 @@ namespace Pulumi.AzureRM.DomainRegistration.V20150801
         }
 
         /// <summary>
-        /// Name of the domain
+        /// Resource Name
         /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
+        [Input("name")]
+        public Input<string>? Name { get; set; }
 
         [Input("nameServers")]
         private InputList<string>? _nameServers;

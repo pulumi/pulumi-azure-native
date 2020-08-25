@@ -172,16 +172,16 @@ namespace Pulumi.AzureRM.Media.V20180701
         public Input<string> LiveEventName { get; set; } = null!;
 
         /// <summary>
+        /// The name of the Live Output.
+        /// </summary>
+        [Input("liveOutputName", required: true)]
+        public Input<string> LiveOutputName { get; set; } = null!;
+
+        /// <summary>
         /// The manifest file name.  If not provided, the service will generate one automatically.
         /// </summary>
         [Input("manifestName")]
         public Input<string>? ManifestName { get; set; }
-
-        /// <summary>
-        /// The name of the Live Output.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
 
         /// <summary>
         /// The output snapshot time.

@@ -118,6 +118,12 @@ namespace Pulumi.AzureRM.Logic.V20190501
     public sealed class IntegrationAccountCertificateArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The integration account certificate name.
+        /// </summary>
+        [Input("certificateName", required: true)]
+        public Input<string> CertificateName { get; set; } = null!;
+
+        /// <summary>
         /// The integration account name.
         /// </summary>
         [Input("integrationAccountName", required: true)]
@@ -146,12 +152,6 @@ namespace Pulumi.AzureRM.Logic.V20190501
             get => _metadata ?? (_metadata = new InputMap<object>());
             set => _metadata = value;
         }
-
-        /// <summary>
-        /// The integration account certificate name.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
 
         /// <summary>
         /// The public certificate.

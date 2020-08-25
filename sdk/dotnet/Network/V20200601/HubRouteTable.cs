@@ -131,16 +131,22 @@ namespace Pulumi.AzureRM.Network.V20200601
         }
 
         /// <summary>
-        /// The name of the RouteTable.
+        /// The name of the resource that is unique within a resource group. This name can be used to access the resource.
         /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
+        [Input("name")]
+        public Input<string>? Name { get; set; }
 
         /// <summary>
         /// The resource group name of the VirtualHub.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the RouteTable.
+        /// </summary>
+        [Input("routeTableName", required: true)]
+        public Input<string> RouteTableName { get; set; } = null!;
 
         [Input("routes")]
         private InputList<Inputs.HubRouteArgs>? _routes;

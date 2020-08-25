@@ -96,8 +96,8 @@ namespace Pulumi.AzureRM.Devices.V20200615
         /// <summary>
         /// The name of the certificate
         /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
+        [Input("certificateName", required: true)]
+        public Input<string> CertificateName { get; set; } = null!;
 
         /// <summary>
         /// The description of an X509 CA Certificate.

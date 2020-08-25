@@ -180,12 +180,6 @@ namespace Pulumi.AzureRM.ContainerService.V20190430
         public Input<Inputs.OpenShiftManagedClusterMasterPoolProfileArgs>? MasterPoolProfile { get; set; }
 
         /// <summary>
-        /// The name of the OpenShift managed cluster resource.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        /// <summary>
         /// Configuration for OpenShift networking.
         /// </summary>
         [Input("networkProfile")]
@@ -208,6 +202,12 @@ namespace Pulumi.AzureRM.ContainerService.V20190430
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the OpenShift managed cluster resource.
+        /// </summary>
+        [Input("resourceName", required: true)]
+        public Input<string> ResourceName { get; set; } = null!;
 
         [Input("routerProfiles")]
         private InputList<Inputs.OpenShiftRouterProfileArgs>? _routerProfiles;

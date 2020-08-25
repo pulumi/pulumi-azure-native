@@ -103,8 +103,8 @@ namespace Pulumi.AzureRM.NotificationHubs.V20140901
         /// <summary>
         /// The namespace name.
         /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
+        [Input("namespaceName", required: true)]
+        public Input<string> NamespaceName { get; set; } = null!;
 
         /// <summary>
         /// Gets or sets properties of the Namespace.

@@ -119,16 +119,16 @@ namespace Pulumi.AzureRM.Devices.V20180122
         public Input<string> Location { get; set; } = null!;
 
         /// <summary>
-        /// Name of provisioning service to create or update.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        /// <summary>
         /// Service specific properties for a provisioning service
         /// </summary>
         [Input("properties", required: true)]
         public Input<Inputs.IotDpsPropertiesDescriptionArgs> Properties { get; set; } = null!;
+
+        /// <summary>
+        /// Name of provisioning service to create or update.
+        /// </summary>
+        [Input("provisioningServiceName", required: true)]
+        public Input<string> ProvisioningServiceName { get; set; } = null!;
 
         /// <summary>
         /// Resource group identifier.

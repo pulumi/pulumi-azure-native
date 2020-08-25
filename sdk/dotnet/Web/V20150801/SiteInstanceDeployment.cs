@@ -180,6 +180,12 @@ namespace Pulumi.AzureRM.Web.V20150801
         public Input<string>? EndTime { get; set; }
 
         /// <summary>
+        /// Resource Id
+        /// </summary>
+        [Input("id", required: true)]
+        public Input<string> Id { get; set; } = null!;
+
+        /// <summary>
         /// Id of web app instance
         /// </summary>
         [Input("instanceId", required: true)]
@@ -204,7 +210,7 @@ namespace Pulumi.AzureRM.Web.V20150801
         public Input<string>? Message { get; set; }
 
         /// <summary>
-        /// Resource Id
+        /// Resource Name
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;

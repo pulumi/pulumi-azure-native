@@ -111,12 +111,6 @@ namespace Pulumi.AzureRM.Media.V20200501
         [Input("description")]
         public Input<string>? Description { get; set; }
 
-        /// <summary>
-        /// The Transform name.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
         [Input("outputs", required: true)]
         private InputList<Inputs.TransformOutputArgs>? _outputs;
 
@@ -134,6 +128,12 @@ namespace Pulumi.AzureRM.Media.V20200501
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The Transform name.
+        /// </summary>
+        [Input("transformName", required: true)]
+        public Input<string> TransformName { get; set; } = null!;
 
         public TransformArgs()
         {

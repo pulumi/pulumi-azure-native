@@ -21,8 +21,8 @@ namespace Pulumi.AzureRM.EventHub.V20150801
         /// <summary>
         /// The Namespace name
         /// </summary>
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
+        [Input("namespaceName", required: true)]
+        public string NamespaceName { get; set; } = null!;
 
         /// <summary>
         /// Name of the resource group within the azure subscription.

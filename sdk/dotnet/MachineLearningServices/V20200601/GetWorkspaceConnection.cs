@@ -21,8 +21,8 @@ namespace Pulumi.AzureRM.MachineLearningServices.V20200601
         /// <summary>
         /// Friendly name of the workspace connection
         /// </summary>
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
+        [Input("connectionName", required: true)]
+        public string ConnectionName { get; set; } = null!;
 
         /// <summary>
         /// Name of the resource group in which workspace is located.

@@ -19,16 +19,16 @@ namespace Pulumi.AzureRM.HybridCompute.V20200625
     public sealed class GetGuestConfigurationHCRPAssignmentArgs : Pulumi.InvokeArgs
     {
         /// <summary>
+        /// The guest configuration assignment name.
+        /// </summary>
+        [Input("guestConfigurationAssignmentName", required: true)]
+        public string GuestConfigurationAssignmentName { get; set; } = null!;
+
+        /// <summary>
         /// The name of the ARC machine.
         /// </summary>
         [Input("machineName", required: true)]
         public string MachineName { get; set; } = null!;
-
-        /// <summary>
-        /// The guest configuration assignment name.
-        /// </summary>
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
 
         /// <summary>
         /// The resource group name.

@@ -19,7 +19,7 @@ namespace Pulumi.AzureRM.Web.V20181101
     public sealed class ListWebAppSitePushSettingsSlotArgs : Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Name of web app slot. If not specified then will default to production slot.
+        /// Name of web app.
         /// </summary>
         [Input("name", required: true)]
         public string Name { get; set; } = null!;
@@ -29,6 +29,12 @@ namespace Pulumi.AzureRM.Web.V20181101
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public string ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// Name of web app slot. If not specified then will default to production slot.
+        /// </summary>
+        [Input("slot", required: true)]
+        public string Slot { get; set; } = null!;
 
         public ListWebAppSitePushSettingsSlotArgs()
         {

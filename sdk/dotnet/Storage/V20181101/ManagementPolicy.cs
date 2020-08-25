@@ -97,8 +97,8 @@ namespace Pulumi.AzureRM.Storage.V20181101
         /// <summary>
         /// The name of the Storage Account Management Policy. It should always be 'default'
         /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
+        [Input("managementPolicyName", required: true)]
+        public Input<string> ManagementPolicyName { get; set; } = null!;
 
         /// <summary>
         /// The Storage Account ManagementPolicy, in JSON format. See more details in: https://docs.microsoft.com/en-us/azure/storage/common/storage-lifecycle-managment-concepts.

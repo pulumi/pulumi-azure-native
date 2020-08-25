@@ -120,6 +120,12 @@ namespace Pulumi.AzureRM.Compute.V20191101
         public Input<Inputs.KeyVaultAndKeyReferenceArgs>? ActiveKey { get; set; }
 
         /// <summary>
+        /// The name of the disk encryption set that is being created. The name can't be changed after the disk encryption set is created. Supported characters for the name are a-z, A-Z, 0-9 and _. The maximum name length is 80 characters.
+        /// </summary>
+        [Input("diskEncryptionSetName", required: true)]
+        public Input<string> DiskEncryptionSetName { get; set; } = null!;
+
+        /// <summary>
         /// The managed identity for the disk encryption set. It should be given permission on the key vault before it can be used to encrypt disks.
         /// </summary>
         [Input("identity")]
@@ -130,12 +136,6 @@ namespace Pulumi.AzureRM.Compute.V20191101
         /// </summary>
         [Input("location", required: true)]
         public Input<string> Location { get; set; } = null!;
-
-        /// <summary>
-        /// The name of the disk encryption set that is being created. The name can't be changed after the disk encryption set is created. Supported characters for the name are a-z, A-Z, 0-9 and _. The maximum name length is 80 characters.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group.

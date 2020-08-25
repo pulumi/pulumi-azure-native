@@ -98,8 +98,8 @@ namespace Pulumi.AzureRM.ApiManagement.V20191201
         /// <summary>
         /// The identifier of the Policy.
         /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
+        [Input("policyId", required: true)]
+        public Input<string> PolicyId { get; set; } = null!;
 
         /// <summary>
         /// Product identifier. Must be unique in the current API Management service instance.

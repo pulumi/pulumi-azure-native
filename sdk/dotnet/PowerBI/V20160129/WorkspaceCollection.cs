@@ -93,12 +93,6 @@ namespace Pulumi.AzureRM.PowerBI.V20160129
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// Power BI Embedded Workspace Collection name
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        /// <summary>
         /// Azure resource group
         /// </summary>
         [Input("resourceGroupName", required: true)]
@@ -114,6 +108,12 @@ namespace Pulumi.AzureRM.PowerBI.V20160129
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
+
+        /// <summary>
+        /// Power BI Embedded Workspace Collection name
+        /// </summary>
+        [Input("workspaceCollectionName", required: true)]
+        public Input<string> WorkspaceCollectionName { get; set; } = null!;
 
         public WorkspaceCollectionArgs()
         {

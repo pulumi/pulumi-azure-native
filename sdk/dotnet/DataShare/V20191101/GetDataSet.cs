@@ -27,8 +27,8 @@ namespace Pulumi.AzureRM.DataShare.V20191101
         /// <summary>
         /// The name of the dataSet.
         /// </summary>
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
+        [Input("dataSetName", required: true)]
+        public string DataSetName { get; set; } = null!;
 
         /// <summary>
         /// The resource group name.

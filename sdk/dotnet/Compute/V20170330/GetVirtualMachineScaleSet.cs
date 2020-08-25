@@ -19,16 +19,16 @@ namespace Pulumi.AzureRM.Compute.V20170330
     public sealed class GetVirtualMachineScaleSetArgs : Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The name of the VM scale set.
-        /// </summary>
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
-
-        /// <summary>
         /// The name of the resource group.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public string ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the VM scale set.
+        /// </summary>
+        [Input("vmScaleSetName", required: true)]
+        public string VmScaleSetName { get; set; } = null!;
 
         public GetVirtualMachineScaleSetArgs()
         {

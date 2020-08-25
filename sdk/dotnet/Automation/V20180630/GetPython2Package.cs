@@ -27,8 +27,8 @@ namespace Pulumi.AzureRM.Automation.V20180630
         /// <summary>
         /// The python package name.
         /// </summary>
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
+        [Input("packageName", required: true)]
+        public string PackageName { get; set; } = null!;
 
         /// <summary>
         /// Name of an Azure Resource group.

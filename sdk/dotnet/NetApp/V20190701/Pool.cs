@@ -132,8 +132,8 @@ namespace Pulumi.AzureRM.NetApp.V20190701
         /// <summary>
         /// The name of the capacity pool
         /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
+        [Input("poolName", required: true)]
+        public Input<string> PoolName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group.

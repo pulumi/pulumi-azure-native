@@ -126,12 +126,6 @@ namespace Pulumi.AzureRM.Maintenance.V20200401
         public Input<string>? MaintenanceScope { get; set; }
 
         /// <summary>
-        /// Resource Identifier
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        /// <summary>
         /// Gets or sets namespace of the resource e.g. Microsoft.Maintenance or Microsoft.Sql
         /// </summary>
         [Input("namespace")]
@@ -142,6 +136,12 @@ namespace Pulumi.AzureRM.Maintenance.V20200401
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// Resource Identifier
+        /// </summary>
+        [Input("resourceName", required: true)]
+        public Input<string> ResourceName { get; set; } = null!;
 
         [Input("tags")]
         private InputMap<string>? _tags;

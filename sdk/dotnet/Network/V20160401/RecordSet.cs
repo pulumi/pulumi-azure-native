@@ -216,10 +216,10 @@ namespace Pulumi.AzureRM.Network.V20160401
         }
 
         /// <summary>
-        /// The name of the record set, relative to the name of the zone.
+        /// The name of the record set.
         /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
+        [Input("name")]
+        public Input<string>? Name { get; set; }
 
         [Input("nsRecords")]
         private InputList<Inputs.NsRecordArgs>? _nsRecords;
@@ -250,6 +250,12 @@ namespace Pulumi.AzureRM.Network.V20160401
         /// </summary>
         [Input("recordType", required: true)]
         public Input<string> RecordType { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the record set, relative to the name of the zone.
+        /// </summary>
+        [Input("relativeRecordSetName", required: true)]
+        public Input<string> RelativeRecordSetName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

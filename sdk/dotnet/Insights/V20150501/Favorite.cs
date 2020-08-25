@@ -138,6 +138,12 @@ namespace Pulumi.AzureRM.Insights.V20150501
         public Input<string>? Config { get; set; }
 
         /// <summary>
+        /// The Id of a specific favorite defined in the Application Insights component
+        /// </summary>
+        [Input("favoriteId", required: true)]
+        public Input<string> FavoriteId { get; set; } = null!;
+
+        /// <summary>
         /// Enum indicating if this favorite definition is owned by a specific user or is shared between all users with access to the Application Insights component.
         /// </summary>
         [Input("favoriteType")]
@@ -150,10 +156,10 @@ namespace Pulumi.AzureRM.Insights.V20150501
         public Input<bool>? IsGeneratedFromTemplate { get; set; }
 
         /// <summary>
-        /// The Id of a specific favorite defined in the Application Insights component
+        /// The user-defined name of the favorite.
         /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
+        [Input("name")]
+        public Input<string>? Name { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

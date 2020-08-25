@@ -19,12 +19,6 @@ namespace Pulumi.AzureRM.ApiManagement.V20180101
     public sealed class GetApiVersionSetArgs : Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Api Version Set identifier. Must be unique in the current API Management service instance.
-        /// </summary>
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
-
-        /// <summary>
         /// The name of the resource group.
         /// </summary>
         [Input("resourceGroupName", required: true)]
@@ -35,6 +29,12 @@ namespace Pulumi.AzureRM.ApiManagement.V20180101
         /// </summary>
         [Input("serviceName", required: true)]
         public string ServiceName { get; set; } = null!;
+
+        /// <summary>
+        /// Api Version Set identifier. Must be unique in the current API Management service instance.
+        /// </summary>
+        [Input("versionSetId", required: true)]
+        public string VersionSetId { get; set; } = null!;
 
         public GetApiVersionSetArgs()
         {

@@ -146,6 +146,12 @@ namespace Pulumi.AzureRM.Network.V20170301
         public Input<string>? EndpointMonitorStatus { get; set; }
 
         /// <summary>
+        /// The name of the Traffic Manager endpoint to be created or updated.
+        /// </summary>
+        [Input("endpointName", required: true)]
+        public Input<string> EndpointName { get; set; } = null!;
+
+        /// <summary>
         /// Gets or sets the status of the endpoint..  If the endpoint is Enabled, it is probed for endpoint health and is included in the traffic routing method.  Possible values are 'Enabled' and 'Disabled'.
         /// </summary>
         [Input("endpointStatus")]
@@ -182,10 +188,10 @@ namespace Pulumi.AzureRM.Network.V20170301
         public Input<int>? MinChildEndpoints { get; set; }
 
         /// <summary>
-        /// The name of the Traffic Manager endpoint to be created or updated.
+        /// Gets or sets the name of the Traffic Manager endpoint.
         /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
+        [Input("name")]
+        public Input<string>? Name { get; set; }
 
         /// <summary>
         /// Gets or sets the priority of this endpoint when using the ‘Priority’ traffic routing method. Possible values are from 1 to 1000, lower values represent higher priority. This is an optional parameter.  If specified, it must be specified on all endpoints, and no two endpoints can share the same priority value.

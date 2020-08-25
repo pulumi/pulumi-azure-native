@@ -21,8 +21,8 @@ namespace Pulumi.AzureRM.Consumption.V20180831
         /// <summary>
         /// Budget Name.
         /// </summary>
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
+        [Input("budgetName", required: true)]
+        public string BudgetName { get; set; } = null!;
 
         public GetBudgetArgs()
         {

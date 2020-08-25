@@ -164,8 +164,8 @@ namespace Pulumi.AzureRM.Databricks.V20180401
         /// <summary>
         /// The name of the workspace vNet peering.
         /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
+        [Input("peeringName", required: true)]
+        public Input<string> PeeringName { get; set; } = null!;
 
         /// <summary>
         /// The reference to the remote virtual network address space.

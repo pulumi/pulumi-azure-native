@@ -21,8 +21,8 @@ namespace Pulumi.AzureRM.RecoveryServices.V20160810
         /// <summary>
         /// Fabric name.
         /// </summary>
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
+        [Input("fabricName", required: true)]
+        public string FabricName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group where the recovery services vault is present.

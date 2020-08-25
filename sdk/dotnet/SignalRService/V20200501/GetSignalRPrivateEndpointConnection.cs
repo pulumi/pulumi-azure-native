@@ -21,8 +21,8 @@ namespace Pulumi.AzureRM.SignalRService.V20200501
         /// <summary>
         /// The name of the private endpoint connection associated with the SignalR resource.
         /// </summary>
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
+        [Input("privateEndpointConnectionName", required: true)]
+        public string PrivateEndpointConnectionName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.

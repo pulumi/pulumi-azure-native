@@ -95,12 +95,6 @@ namespace Pulumi.AzureRM.RecoveryServices.V20180110
         public Input<string> FabricName { get; set; } = null!;
 
         /// <summary>
-        /// Storage classification mapping name.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        /// <summary>
         /// Storage mapping input properties.
         /// </summary>
         [Input("properties")]
@@ -117,6 +111,12 @@ namespace Pulumi.AzureRM.RecoveryServices.V20180110
         /// </summary>
         [Input("resourceName", required: true)]
         public Input<string> ResourceName { get; set; } = null!;
+
+        /// <summary>
+        /// Storage classification mapping name.
+        /// </summary>
+        [Input("storageClassificationMappingName", required: true)]
+        public Input<string> StorageClassificationMappingName { get; set; } = null!;
 
         /// <summary>
         /// Storage classification name.

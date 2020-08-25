@@ -150,6 +150,12 @@ namespace Pulumi.AzureRM.Solutions.V20190701
         }
 
         /// <summary>
+        /// The name of the JIT request.
+        /// </summary>
+        [Input("jitRequestName", required: true)]
+        public Input<string> JitRequestName { get; set; } = null!;
+
+        /// <summary>
         /// The JIT request properties.
         /// </summary>
         [Input("jitSchedulingPolicy", required: true)]
@@ -160,12 +166,6 @@ namespace Pulumi.AzureRM.Solutions.V20190701
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
-
-        /// <summary>
-        /// The name of the JIT request.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

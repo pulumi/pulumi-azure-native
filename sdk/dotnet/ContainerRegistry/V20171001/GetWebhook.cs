@@ -19,12 +19,6 @@ namespace Pulumi.AzureRM.ContainerRegistry.V20171001
     public sealed class GetWebhookArgs : Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The name of the webhook.
-        /// </summary>
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
-
-        /// <summary>
         /// The name of the container registry.
         /// </summary>
         [Input("registryName", required: true)]
@@ -35,6 +29,12 @@ namespace Pulumi.AzureRM.ContainerRegistry.V20171001
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public string ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the webhook.
+        /// </summary>
+        [Input("webhookName", required: true)]
+        public string WebhookName { get; set; } = null!;
 
         public GetWebhookArgs()
         {

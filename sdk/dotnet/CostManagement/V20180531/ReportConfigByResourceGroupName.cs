@@ -122,8 +122,8 @@ namespace Pulumi.AzureRM.CostManagement.V20180531
         /// <summary>
         /// Report Config Name.
         /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
+        [Input("reportConfigName", required: true)]
+        public Input<string> ReportConfigName { get; set; } = null!;
 
         /// <summary>
         /// Azure Resource Group Name.

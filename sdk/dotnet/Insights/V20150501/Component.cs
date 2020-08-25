@@ -246,12 +246,6 @@ namespace Pulumi.AzureRM.Insights.V20150501
         public Input<string> Location { get; set; } = null!;
 
         /// <summary>
-        /// The name of the Application Insights component resource.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        /// <summary>
         /// Describes what tool created this Application Insights component. Customers using this API should set this to the default 'rest'.
         /// </summary>
         [Input("requestSource")]
@@ -262,6 +256,12 @@ namespace Pulumi.AzureRM.Insights.V20150501
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the Application Insights component resource.
+        /// </summary>
+        [Input("resourceName", required: true)]
+        public Input<string> ResourceName { get; set; } = null!;
 
         /// <summary>
         /// Retention period in days.

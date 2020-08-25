@@ -25,16 +25,16 @@ namespace Pulumi.AzureRM.Kusto.V20200614
         public string ClusterName { get; set; } = null!;
 
         /// <summary>
+        /// The name of the data connection.
+        /// </summary>
+        [Input("dataConnectionName", required: true)]
+        public string DataConnectionName { get; set; } = null!;
+
+        /// <summary>
         /// The name of the database in the Kusto cluster.
         /// </summary>
         [Input("databaseName", required: true)]
         public string DatabaseName { get; set; } = null!;
-
-        /// <summary>
-        /// The name of the data connection.
-        /// </summary>
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group containing the Kusto cluster.

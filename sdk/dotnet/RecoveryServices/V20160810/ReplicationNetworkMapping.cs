@@ -97,8 +97,8 @@ namespace Pulumi.AzureRM.RecoveryServices.V20160810
         /// <summary>
         /// Network mapping name.
         /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
+        [Input("networkMappingName", required: true)]
+        public Input<string> NetworkMappingName { get; set; } = null!;
 
         /// <summary>
         /// Primary network name.

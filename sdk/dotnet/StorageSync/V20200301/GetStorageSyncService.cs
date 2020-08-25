@@ -19,16 +19,16 @@ namespace Pulumi.AzureRM.StorageSync.V20200301
     public sealed class GetStorageSyncServiceArgs : Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Name of Storage Sync Service resource.
-        /// </summary>
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
-
-        /// <summary>
         /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public string ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// Name of Storage Sync Service resource.
+        /// </summary>
+        [Input("storageSyncServiceName", required: true)]
+        public string StorageSyncServiceName { get; set; } = null!;
 
         public GetStorageSyncServiceArgs()
         {

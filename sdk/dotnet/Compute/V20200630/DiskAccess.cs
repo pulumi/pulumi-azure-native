@@ -106,16 +106,16 @@ namespace Pulumi.AzureRM.Compute.V20200630
     public sealed class DiskAccessArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The name of the disk access resource that is being created. The name can't be changed after the disk encryption set is created. Supported characters for the name are a-z, A-Z, 0-9 and _. The maximum name length is 80 characters.
+        /// </summary>
+        [Input("diskAccessName", required: true)]
+        public Input<string> DiskAccessName { get; set; } = null!;
+
+        /// <summary>
         /// Resource location
         /// </summary>
         [Input("location", required: true)]
         public Input<string> Location { get; set; } = null!;
-
-        /// <summary>
-        /// The name of the disk access resource that is being created. The name can't be changed after the disk encryption set is created. Supported characters for the name are a-z, A-Z, 0-9 and _. The maximum name length is 80 characters.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group.

@@ -138,6 +138,12 @@ namespace Pulumi.AzureRM.OperationalInsights.V20200801
         public Input<string>? DataExportId { get; set; }
 
         /// <summary>
+        /// The data export rule name.
+        /// </summary>
+        [Input("dataExportName", required: true)]
+        public Input<string> DataExportName { get; set; } = null!;
+
+        /// <summary>
         /// Active when enabled.
         /// </summary>
         [Input("enable")]
@@ -154,12 +160,6 @@ namespace Pulumi.AzureRM.OperationalInsights.V20200801
         /// </summary>
         [Input("lastModifiedDate")]
         public Input<string>? LastModifiedDate { get; set; }
-
-        /// <summary>
-        /// The data export rule name.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

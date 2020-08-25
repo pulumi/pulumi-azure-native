@@ -144,6 +144,12 @@ namespace Pulumi.AzureRM.Batch.V20170901
         public Input<string> AccountName { get; set; } = null!;
 
         /// <summary>
+        /// The identifier for the certificate. This must be made up of algorithm and thumbprint separated by a dash, and must match the certificate data in the request. For example SHA1-a3d1c5.
+        /// </summary>
+        [Input("certificateName", required: true)]
+        public Input<string> CertificateName { get; set; } = null!;
+
+        /// <summary>
         /// The maximum size is 10KB.
         /// </summary>
         [Input("data", required: true)]
@@ -154,12 +160,6 @@ namespace Pulumi.AzureRM.Batch.V20170901
         /// </summary>
         [Input("format")]
         public Input<string>? Format { get; set; }
-
-        /// <summary>
-        /// The identifier for the certificate. This must be made up of algorithm and thumbprint separated by a dash, and must match the certificate data in the request. For example SHA1-a3d1c5.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
 
         /// <summary>
         /// This is required if the certificate format is pfx and must be omitted if the certificate format is cer.

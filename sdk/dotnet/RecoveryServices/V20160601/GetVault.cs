@@ -19,16 +19,16 @@ namespace Pulumi.AzureRM.RecoveryServices.V20160601
     public sealed class GetVaultArgs : Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The name of the recovery services vault.
-        /// </summary>
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
-
-        /// <summary>
         /// The name of the resource group where the recovery services vault is present.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public string ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the recovery services vault.
+        /// </summary>
+        [Input("vaultName", required: true)]
+        public string VaultName { get; set; } = null!;
 
         public GetVaultArgs()
         {

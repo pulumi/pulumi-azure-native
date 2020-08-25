@@ -138,12 +138,6 @@ namespace Pulumi.AzureRM.Devices.V20160203
         public Input<string> Location { get; set; } = null!;
 
         /// <summary>
-        /// The name of the IoT hub to create or update.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        /// <summary>
         /// The properties of an IoT hub.
         /// </summary>
         [Input("properties")]
@@ -154,6 +148,12 @@ namespace Pulumi.AzureRM.Devices.V20160203
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the IoT hub to create or update.
+        /// </summary>
+        [Input("resourceName", required: true)]
+        public Input<string> ResourceName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group that contains the IoT hub. A resource group name uniquely identifies the resource group within the subscription.

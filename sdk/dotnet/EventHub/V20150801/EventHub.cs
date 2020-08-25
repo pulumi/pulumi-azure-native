@@ -119,6 +119,12 @@ namespace Pulumi.AzureRM.EventHub.V20150801
     public sealed class EventHubArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The Event Hub name
+        /// </summary>
+        [Input("eventHubName", required: true)]
+        public Input<string> EventHubName { get; set; } = null!;
+
+        /// <summary>
         /// Location of the resource.
         /// </summary>
         [Input("location", required: true)]
@@ -131,10 +137,10 @@ namespace Pulumi.AzureRM.EventHub.V20150801
         public Input<int>? MessageRetentionInDays { get; set; }
 
         /// <summary>
-        /// The Event Hub name
+        /// Name of the Event Hub.
         /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
+        [Input("name")]
+        public Input<string>? Name { get; set; }
 
         /// <summary>
         /// The Namespace name

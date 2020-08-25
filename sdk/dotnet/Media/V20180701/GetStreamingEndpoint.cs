@@ -25,16 +25,16 @@ namespace Pulumi.AzureRM.Media.V20180701
         public string AccountName { get; set; } = null!;
 
         /// <summary>
-        /// The name of the StreamingEndpoint.
-        /// </summary>
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
-
-        /// <summary>
         /// The name of the resource group within the Azure subscription.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public string ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the StreamingEndpoint.
+        /// </summary>
+        [Input("streamingEndpointName", required: true)]
+        public string StreamingEndpointName { get; set; } = null!;
 
         public GetStreamingEndpointArgs()
         {

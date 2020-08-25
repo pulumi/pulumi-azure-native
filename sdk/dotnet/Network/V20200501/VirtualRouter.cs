@@ -161,12 +161,6 @@ namespace Pulumi.AzureRM.Network.V20200501
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// The name of the Virtual Router.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        /// <summary>
         /// The name of the resource group.
         /// </summary>
         [Input("resourceGroupName", required: true)]
@@ -201,6 +195,12 @@ namespace Pulumi.AzureRM.Network.V20200501
             get => _virtualRouterIps ?? (_virtualRouterIps = new InputList<string>());
             set => _virtualRouterIps = value;
         }
+
+        /// <summary>
+        /// The name of the Virtual Router.
+        /// </summary>
+        [Input("virtualRouterName", required: true)]
+        public Input<string> VirtualRouterName { get; set; } = null!;
 
         public VirtualRouterArgs()
         {

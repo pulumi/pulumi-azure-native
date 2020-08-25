@@ -19,16 +19,16 @@ namespace Pulumi.AzureRM.ApiManagement.V20191201
     public sealed class GetContentItemArgs : Pulumi.InvokeArgs
     {
         /// <summary>
+        /// Content item identifier.
+        /// </summary>
+        [Input("contentItemId", required: true)]
+        public string ContentItemId { get; set; } = null!;
+
+        /// <summary>
         /// Content type identifier.
         /// </summary>
         [Input("contentTypeId", required: true)]
         public string ContentTypeId { get; set; } = null!;
-
-        /// <summary>
-        /// Content item identifier.
-        /// </summary>
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group.

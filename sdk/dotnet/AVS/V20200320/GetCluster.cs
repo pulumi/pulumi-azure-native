@@ -21,8 +21,8 @@ namespace Pulumi.AzureRM.AVS.V20200320
         /// <summary>
         /// Name of the cluster in the private cloud
         /// </summary>
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
+        [Input("clusterName", required: true)]
+        public string ClusterName { get; set; } = null!;
 
         /// <summary>
         /// Name of the private cloud

@@ -19,12 +19,6 @@ namespace Pulumi.AzureRM.Network.V20180801
     public sealed class GetSecurityRuleArgs : Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The name of the security rule.
-        /// </summary>
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
-
-        /// <summary>
         /// The name of the network security group.
         /// </summary>
         [Input("networkSecurityGroupName", required: true)]
@@ -35,6 +29,12 @@ namespace Pulumi.AzureRM.Network.V20180801
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public string ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the security rule.
+        /// </summary>
+        [Input("securityRuleName", required: true)]
+        public string SecurityRuleName { get; set; } = null!;
 
         public GetSecurityRuleArgs()
         {

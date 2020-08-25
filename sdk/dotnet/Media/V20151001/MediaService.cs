@@ -104,8 +104,8 @@ namespace Pulumi.AzureRM.Media.V20151001
         /// <summary>
         /// Name of the Media Service.
         /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
+        [Input("mediaServiceName", required: true)]
+        public Input<string> MediaServiceName { get; set; } = null!;
 
         /// <summary>
         /// Name of the resource group within the Azure subscription.

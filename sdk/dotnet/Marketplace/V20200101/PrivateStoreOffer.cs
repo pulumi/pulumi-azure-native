@@ -128,8 +128,8 @@ namespace Pulumi.AzureRM.Marketplace.V20200101
         /// <summary>
         /// The offer ID to update or delete
         /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
+        [Input("offerId", required: true)]
+        public Input<string> OfferId { get; set; } = null!;
 
         /// <summary>
         /// The store ID - must use the tenant ID

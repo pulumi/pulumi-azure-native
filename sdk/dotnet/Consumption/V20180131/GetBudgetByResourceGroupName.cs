@@ -21,8 +21,8 @@ namespace Pulumi.AzureRM.Consumption.V20180131
         /// <summary>
         /// Budget Name.
         /// </summary>
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
+        [Input("budgetName", required: true)]
+        public string BudgetName { get; set; } = null!;
 
         /// <summary>
         /// Azure Resource Group Name.

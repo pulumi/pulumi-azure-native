@@ -21,8 +21,8 @@ namespace Pulumi.AzureRM.EventGrid.V20200601
         /// <summary>
         /// Name of the domain.
         /// </summary>
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
+        [Input("domainName", required: true)]
+        public string DomainName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group within the user's subscription.

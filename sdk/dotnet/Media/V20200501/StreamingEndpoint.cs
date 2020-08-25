@@ -262,12 +262,6 @@ namespace Pulumi.AzureRM.Media.V20200501
         public Input<int>? MaxCacheAge { get; set; }
 
         /// <summary>
-        /// The name of the StreamingEndpoint.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        /// <summary>
         /// The name of the resource group within the Azure subscription.
         /// </summary>
         [Input("resourceGroupName", required: true)]
@@ -278,6 +272,12 @@ namespace Pulumi.AzureRM.Media.V20200501
         /// </summary>
         [Input("scaleUnits", required: true)]
         public Input<int> ScaleUnits { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the StreamingEndpoint.
+        /// </summary>
+        [Input("streamingEndpointName", required: true)]
+        public Input<string> StreamingEndpointName { get; set; } = null!;
 
         [Input("tags")]
         private InputMap<string>? _tags;

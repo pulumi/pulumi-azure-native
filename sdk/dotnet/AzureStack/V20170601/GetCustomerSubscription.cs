@@ -21,8 +21,8 @@ namespace Pulumi.AzureRM.AzureStack.V20170601
         /// <summary>
         /// Name of the product.
         /// </summary>
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
+        [Input("customerSubscriptionName", required: true)]
+        public string CustomerSubscriptionName { get; set; } = null!;
 
         /// <summary>
         /// Name of the Azure Stack registration.

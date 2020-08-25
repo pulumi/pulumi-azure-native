@@ -85,6 +85,12 @@ namespace Pulumi.AzureRM.Web.V20160801
     public sealed class WebAppDomainOwnershipIdentifierSlotArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Name of domain ownership identifier.
+        /// </summary>
+        [Input("domainOwnershipIdentifierName", required: true)]
+        public Input<string> DomainOwnershipIdentifierName { get; set; } = null!;
+
+        /// <summary>
         /// String representation of the identity.
         /// </summary>
         [Input("id")]
@@ -97,7 +103,7 @@ namespace Pulumi.AzureRM.Web.V20160801
         public Input<string>? Kind { get; set; }
 
         /// <summary>
-        /// Name of domain ownership identifier.
+        /// Name of the app.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;

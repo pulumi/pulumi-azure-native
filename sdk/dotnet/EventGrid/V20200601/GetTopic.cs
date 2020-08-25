@@ -19,16 +19,16 @@ namespace Pulumi.AzureRM.EventGrid.V20200601
     public sealed class GetTopicArgs : Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Name of the topic.
-        /// </summary>
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
-
-        /// <summary>
         /// The name of the resource group within the user's subscription.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public string ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// Name of the topic.
+        /// </summary>
+        [Input("topicName", required: true)]
+        public string TopicName { get; set; } = null!;
 
         public GetTopicArgs()
         {

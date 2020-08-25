@@ -25,16 +25,16 @@ namespace Pulumi.AzureRM.Automation.V20151031
         public string AutomationAccountName { get; set; } = null!;
 
         /// <summary>
-        /// The name of variable.
-        /// </summary>
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
-
-        /// <summary>
         /// Name of an Azure Resource group.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public string ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of variable.
+        /// </summary>
+        [Input("variableName", required: true)]
+        public string VariableName { get; set; } = null!;
 
         public GetVariableArgs()
         {

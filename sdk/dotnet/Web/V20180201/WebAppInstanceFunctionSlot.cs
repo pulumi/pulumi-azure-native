@@ -199,6 +199,12 @@ namespace Pulumi.AzureRM.Web.V20180201
         public Input<string>? FunctionAppId { get; set; }
 
         /// <summary>
+        /// Function name.
+        /// </summary>
+        [Input("functionName", required: true)]
+        public Input<string> FunctionName { get; set; } = null!;
+
+        /// <summary>
         /// Function URI.
         /// </summary>
         [Input("href")]
@@ -229,7 +235,7 @@ namespace Pulumi.AzureRM.Web.V20180201
         public Input<string>? Language { get; set; }
 
         /// <summary>
-        /// Function name.
+        /// Site name.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;

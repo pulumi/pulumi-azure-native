@@ -25,16 +25,16 @@ namespace Pulumi.AzureRM.RecoveryServices.V20180110
         public string FabricName { get; set; } = null!;
 
         /// <summary>
-        /// Replication protected item name.
-        /// </summary>
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
-
-        /// <summary>
         /// Protection container name.
         /// </summary>
         [Input("protectionContainerName", required: true)]
         public string ProtectionContainerName { get; set; } = null!;
+
+        /// <summary>
+        /// Replication protected item name.
+        /// </summary>
+        [Input("replicatedProtectedItemName", required: true)]
+        public string ReplicatedProtectedItemName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group where the recovery services vault is present.

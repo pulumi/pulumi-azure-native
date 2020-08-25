@@ -96,12 +96,6 @@ namespace Pulumi.AzureRM.DataMigration.V20180419
         public Input<string> GroupName { get; set; } = null!;
 
         /// <summary>
-        /// Name of the Task
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        /// <summary>
         /// Name of the project
         /// </summary>
         [Input("projectName", required: true)]
@@ -118,6 +112,12 @@ namespace Pulumi.AzureRM.DataMigration.V20180419
         /// </summary>
         [Input("serviceName", required: true)]
         public Input<string> ServiceName { get; set; } = null!;
+
+        /// <summary>
+        /// Name of the Task
+        /// </summary>
+        [Input("taskName", required: true)]
+        public Input<string> TaskName { get; set; } = null!;
 
         public TaskArgs()
         {

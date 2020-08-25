@@ -102,13 +102,19 @@ namespace Pulumi.AzureRM.Automation.V20151031
         public Input<string> AutomationAccountName { get; set; } = null!;
 
         /// <summary>
+        /// The parameters supplied to the create or update credential operation.
+        /// </summary>
+        [Input("credentialName", required: true)]
+        public Input<string> CredentialName { get; set; } = null!;
+
+        /// <summary>
         /// Gets or sets the description of the credential.
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// The parameters supplied to the create or update credential operation.
+        /// Gets or sets the name of the credential.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;

@@ -27,8 +27,8 @@ namespace Pulumi.AzureRM.NetApp.V20200601
         /// <summary>
         /// Backup policy Name which uniquely identify backup policy.
         /// </summary>
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
+        [Input("backupPolicyName", required: true)]
+        public string BackupPolicyName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group.

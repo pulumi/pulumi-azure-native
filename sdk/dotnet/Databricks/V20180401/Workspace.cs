@@ -186,12 +186,6 @@ namespace Pulumi.AzureRM.Databricks.V20180401
         public Input<string> ManagedResourceGroupId { get; set; } = null!;
 
         /// <summary>
-        /// The name of the workspace.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        /// <summary>
         /// The workspace's custom parameters.
         /// </summary>
         [Input("parameters")]
@@ -226,6 +220,12 @@ namespace Pulumi.AzureRM.Databricks.V20180401
         /// </summary>
         [Input("uiDefinitionUri")]
         public Input<string>? UiDefinitionUri { get; set; }
+
+        /// <summary>
+        /// The name of the workspace.
+        /// </summary>
+        [Input("workspaceName", required: true)]
+        public Input<string> WorkspaceName { get; set; } = null!;
 
         public WorkspaceArgs()
         {

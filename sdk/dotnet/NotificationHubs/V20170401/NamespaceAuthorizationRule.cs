@@ -151,8 +151,8 @@ namespace Pulumi.AzureRM.NotificationHubs.V20170401
         /// <summary>
         /// Authorization Rule Name.
         /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
+        [Input("authorizationRuleName", required: true)]
+        public Input<string> AuthorizationRuleName { get; set; } = null!;
 
         /// <summary>
         /// The namespace name.

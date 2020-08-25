@@ -96,12 +96,6 @@ namespace Pulumi.AzureRM.MachineLearning.V20170101
         public Input<string> Location { get; set; } = null!;
 
         /// <summary>
-        /// The name of the web service.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        /// <summary>
         /// Contains the property payload that describes the web service.
         /// </summary>
         [Input("properties", required: true)]
@@ -124,6 +118,12 @@ namespace Pulumi.AzureRM.MachineLearning.V20170101
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
+
+        /// <summary>
+        /// The name of the web service.
+        /// </summary>
+        [Input("webServiceName", required: true)]
+        public Input<string> WebServiceName { get; set; } = null!;
 
         public WebServiceArgs()
         {

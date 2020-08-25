@@ -21,8 +21,8 @@ namespace Pulumi.AzureRM.HDInsight.V20180601Preview
         /// <summary>
         /// The name of the cluster.
         /// </summary>
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
+        [Input("clusterName", required: true)]
+        public string ClusterName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group.

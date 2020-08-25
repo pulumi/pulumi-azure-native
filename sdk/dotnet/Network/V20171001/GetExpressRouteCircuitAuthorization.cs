@@ -19,16 +19,16 @@ namespace Pulumi.AzureRM.Network.V20171001
     public sealed class GetExpressRouteCircuitAuthorizationArgs : Pulumi.InvokeArgs
     {
         /// <summary>
+        /// The name of the authorization.
+        /// </summary>
+        [Input("authorizationName", required: true)]
+        public string AuthorizationName { get; set; } = null!;
+
+        /// <summary>
         /// The name of the express route circuit.
         /// </summary>
         [Input("circuitName", required: true)]
         public string CircuitName { get; set; } = null!;
-
-        /// <summary>
-        /// The name of the authorization.
-        /// </summary>
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group.

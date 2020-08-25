@@ -150,12 +150,6 @@ namespace Pulumi.AzureRM.OperationalInsights.V20200801
         public Input<string> Location { get; set; } = null!;
 
         /// <summary>
-        /// The name of the workspace.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        /// <summary>
         /// The provisioning state of the workspace.
         /// </summary>
         [Input("provisioningState")]
@@ -208,6 +202,12 @@ namespace Pulumi.AzureRM.OperationalInsights.V20200801
         /// </summary>
         [Input("workspaceCapping")]
         public Input<Inputs.WorkspaceCappingArgs>? WorkspaceCapping { get; set; }
+
+        /// <summary>
+        /// The name of the workspace.
+        /// </summary>
+        [Input("workspaceName", required: true)]
+        public Input<string> WorkspaceName { get; set; } = null!;
 
         public WorkspaceArgs()
         {

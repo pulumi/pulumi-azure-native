@@ -33,8 +33,8 @@ namespace Pulumi.AzureRM.Management.V20200501
         /// <summary>
         /// Management Group ID.
         /// </summary>
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
+        [Input("groupId", required: true)]
+        public string GroupId { get; set; } = null!;
 
         /// <summary>
         /// The $recurse=true query string parameter allows clients to request inclusion of entire hierarchy in the response payload. Note that  $expand=children must be passed up if $recurse is set to true.

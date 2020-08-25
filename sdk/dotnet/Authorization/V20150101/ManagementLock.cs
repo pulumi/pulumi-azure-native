@@ -96,8 +96,14 @@ namespace Pulumi.AzureRM.Authorization.V20150101
         /// <summary>
         /// The name of lock.
         /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
+        [Input("lockName", required: true)]
+        public Input<string> LockName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the lock.
+        /// </summary>
+        [Input("name")]
+        public Input<string>? Name { get; set; }
 
         /// <summary>
         /// The notes of the management lock.

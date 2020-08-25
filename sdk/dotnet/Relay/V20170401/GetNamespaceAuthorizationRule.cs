@@ -21,8 +21,8 @@ namespace Pulumi.AzureRM.Relay.V20170401
         /// <summary>
         /// The authorization rule name.
         /// </summary>
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
+        [Input("authorizationRuleName", required: true)]
+        public string AuthorizationRuleName { get; set; } = null!;
 
         /// <summary>
         /// The namespace name

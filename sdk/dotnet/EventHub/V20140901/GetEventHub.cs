@@ -21,8 +21,8 @@ namespace Pulumi.AzureRM.EventHub.V20140901
         /// <summary>
         /// The Event Hub name
         /// </summary>
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
+        [Input("eventHubName", required: true)]
+        public string EventHubName { get; set; } = null!;
 
         /// <summary>
         /// The Namespace name

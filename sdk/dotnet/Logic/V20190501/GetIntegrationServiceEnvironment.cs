@@ -21,8 +21,8 @@ namespace Pulumi.AzureRM.Logic.V20190501
         /// <summary>
         /// The integration service environment name.
         /// </summary>
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
+        [Input("integrationServiceEnvironmentName", required: true)]
+        public string IntegrationServiceEnvironmentName { get; set; } = null!;
 
         /// <summary>
         /// The resource group.

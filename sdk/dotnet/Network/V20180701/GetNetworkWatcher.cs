@@ -21,8 +21,8 @@ namespace Pulumi.AzureRM.Network.V20180701
         /// <summary>
         /// The name of the network watcher.
         /// </summary>
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
+        [Input("networkWatcherName", required: true)]
+        public string NetworkWatcherName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group.

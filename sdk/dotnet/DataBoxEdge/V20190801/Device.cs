@@ -197,6 +197,12 @@ namespace Pulumi.AzureRM.DataBoxEdge.V20190801
         public Input<string>? Description { get; set; }
 
         /// <summary>
+        /// The device name.
+        /// </summary>
+        [Input("deviceName", required: true)]
+        public Input<string> DeviceName { get; set; } = null!;
+
+        /// <summary>
         /// The etag for the devices.
         /// </summary>
         [Input("etag")]
@@ -219,12 +225,6 @@ namespace Pulumi.AzureRM.DataBoxEdge.V20190801
         /// </summary>
         [Input("modelDescription")]
         public Input<string>? ModelDescription { get; set; }
-
-        /// <summary>
-        /// The device name.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
 
         /// <summary>
         /// The resource group name.

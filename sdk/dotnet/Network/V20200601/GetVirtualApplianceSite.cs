@@ -19,12 +19,6 @@ namespace Pulumi.AzureRM.Network.V20200601
     public sealed class GetVirtualApplianceSiteArgs : Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The name of the site.
-        /// </summary>
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
-
-        /// <summary>
         /// The name of the Network Virtual Appliance.
         /// </summary>
         [Input("networkVirtualApplianceName", required: true)]
@@ -35,6 +29,12 @@ namespace Pulumi.AzureRM.Network.V20200601
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public string ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the site.
+        /// </summary>
+        [Input("siteName", required: true)]
+        public string SiteName { get; set; } = null!;
 
         public GetVirtualApplianceSiteArgs()
         {

@@ -160,12 +160,6 @@ namespace Pulumi.AzureRM.Resources.V20190701
         public Input<string>? ManagedBy { get; set; }
 
         /// <summary>
-        /// The name of the resource to create.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        /// <summary>
         /// The parent resource identity.
         /// </summary>
         [Input("parentResourcePath", required: true)]
@@ -194,6 +188,12 @@ namespace Pulumi.AzureRM.Resources.V20190701
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource to create.
+        /// </summary>
+        [Input("resourceName", required: true)]
+        public Input<string> ResourceName { get; set; } = null!;
 
         /// <summary>
         /// The namespace of the resource provider.

@@ -127,8 +127,14 @@ namespace Pulumi.AzureRM.Management.V20191101
         /// <summary>
         /// Management Group ID.
         /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
+        [Input("groupId", required: true)]
+        public Input<string> GroupId { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the management group. For example, 00000000-0000-0000-0000-000000000000
+        /// </summary>
+        [Input("name")]
+        public Input<string>? Name { get; set; }
 
         public ManagementGroupArgs()
         {

@@ -180,12 +180,6 @@ namespace Pulumi.AzureRM.RedHatOpenShift.V20200430
         public Input<Inputs.MasterProfileArgs>? MasterProfile { get; set; }
 
         /// <summary>
-        /// The name of the OpenShift cluster resource.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        /// <summary>
         /// The cluster network profile.
         /// </summary>
         [Input("networkProfile")]
@@ -202,6 +196,12 @@ namespace Pulumi.AzureRM.RedHatOpenShift.V20200430
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the OpenShift cluster resource.
+        /// </summary>
+        [Input("resourceName", required: true)]
+        public Input<string> ResourceName { get; set; } = null!;
 
         /// <summary>
         /// The cluster service principal profile.

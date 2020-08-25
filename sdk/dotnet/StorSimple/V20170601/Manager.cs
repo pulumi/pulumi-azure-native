@@ -132,8 +132,8 @@ namespace Pulumi.AzureRM.StorSimple.V20170601
         /// <summary>
         /// The manager name
         /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
+        [Input("managerName", required: true)]
+        public Input<string> ManagerName { get; set; } = null!;
 
         /// <summary>
         /// Specifies the state of the resource as it is getting provisioned. Value of "Succeeded" means the Manager was successfully created.

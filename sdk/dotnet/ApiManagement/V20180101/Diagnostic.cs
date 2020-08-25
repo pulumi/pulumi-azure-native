@@ -84,16 +84,16 @@ namespace Pulumi.AzureRM.ApiManagement.V20180101
     public sealed class DiagnosticArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Diagnostic identifier. Must be unique in the current API Management service instance.
+        /// </summary>
+        [Input("diagnosticId", required: true)]
+        public Input<string> DiagnosticId { get; set; } = null!;
+
+        /// <summary>
         /// Indicates whether a diagnostic should receive data or not.
         /// </summary>
         [Input("enabled", required: true)]
         public Input<bool> Enabled { get; set; } = null!;
-
-        /// <summary>
-        /// Diagnostic identifier. Must be unique in the current API Management service instance.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group.

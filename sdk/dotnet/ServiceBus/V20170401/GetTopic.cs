@@ -19,12 +19,6 @@ namespace Pulumi.AzureRM.ServiceBus.V20170401
     public sealed class GetTopicArgs : Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The topic name.
-        /// </summary>
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
-
-        /// <summary>
         /// The namespace name
         /// </summary>
         [Input("namespaceName", required: true)]
@@ -35,6 +29,12 @@ namespace Pulumi.AzureRM.ServiceBus.V20170401
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public string ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The topic name.
+        /// </summary>
+        [Input("topicName", required: true)]
+        public string TopicName { get; set; } = null!;
 
         public GetTopicArgs()
         {

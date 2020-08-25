@@ -27,8 +27,8 @@ namespace Pulumi.AzureRM.Network.V20200501
         /// <summary>
         /// The name of the nat gateway.
         /// </summary>
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
+        [Input("natGatewayName", required: true)]
+        public string NatGatewayName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group.

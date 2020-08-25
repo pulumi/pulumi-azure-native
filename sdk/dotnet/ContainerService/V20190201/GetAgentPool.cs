@@ -19,16 +19,16 @@ namespace Pulumi.AzureRM.ContainerService.V20190201
     public sealed class GetAgentPoolArgs : Pulumi.InvokeArgs
     {
         /// <summary>
+        /// The name of the agent pool.
+        /// </summary>
+        [Input("agentPoolName", required: true)]
+        public string AgentPoolName { get; set; } = null!;
+
+        /// <summary>
         /// The name of the managed cluster resource.
         /// </summary>
         [Input("managedClusterName", required: true)]
         public string ManagedClusterName { get; set; } = null!;
-
-        /// <summary>
-        /// The name of the agent pool.
-        /// </summary>
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group.

@@ -21,8 +21,8 @@ namespace Pulumi.AzureRM.ApiManagement.V20191201
         /// <summary>
         /// Identifier of the NamedValue.
         /// </summary>
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
+        [Input("namedValueId", required: true)]
+        public string NamedValueId { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group.

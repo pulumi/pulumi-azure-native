@@ -100,6 +100,12 @@ namespace Pulumi.AzureRM.RecoveryServices.V20161201
     public sealed class ProtectionContainerArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Name of the container to be registered.
+        /// </summary>
+        [Input("containerName", required: true)]
+        public Input<string> ContainerName { get; set; } = null!;
+
+        /// <summary>
         /// Optional ETag.
         /// </summary>
         [Input("eTag")]
@@ -116,12 +122,6 @@ namespace Pulumi.AzureRM.RecoveryServices.V20161201
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
-
-        /// <summary>
-        /// Name of the container to be registered.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
 
         /// <summary>
         /// ProtectionContainerResource properties

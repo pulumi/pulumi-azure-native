@@ -25,12 +25,6 @@ namespace Pulumi.AzureRM.DataShare.V20191101
         public string AccountName { get; set; } = null!;
 
         /// <summary>
-        /// The name of the synchronizationSetting.
-        /// </summary>
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
-
-        /// <summary>
         /// The resource group name.
         /// </summary>
         [Input("resourceGroupName", required: true)]
@@ -41,6 +35,12 @@ namespace Pulumi.AzureRM.DataShare.V20191101
         /// </summary>
         [Input("shareName", required: true)]
         public string ShareName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the synchronizationSetting.
+        /// </summary>
+        [Input("synchronizationSettingName", required: true)]
+        public string SynchronizationSettingName { get; set; } = null!;
 
         public GetSynchronizationSettingArgs()
         {

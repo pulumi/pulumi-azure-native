@@ -25,12 +25,6 @@ namespace Pulumi.AzureRM.NetApp.V20190801
         public string AccountName { get; set; } = null!;
 
         /// <summary>
-        /// The name of the volume
-        /// </summary>
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
-
-        /// <summary>
         /// The name of the capacity pool
         /// </summary>
         [Input("poolName", required: true)]
@@ -41,6 +35,12 @@ namespace Pulumi.AzureRM.NetApp.V20190801
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public string ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the volume
+        /// </summary>
+        [Input("volumeName", required: true)]
+        public string VolumeName { get; set; } = null!;
 
         public GetVolumeArgs()
         {

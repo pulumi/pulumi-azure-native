@@ -188,8 +188,8 @@ namespace Pulumi.AzureRM.Migrate.V20180202
         /// <summary>
         /// Name of the Azure Migrate project.
         /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
+        [Input("projectName", required: true)]
+        public Input<string> ProjectName { get; set; } = null!;
 
         /// <summary>
         /// Provisioning state of the project.

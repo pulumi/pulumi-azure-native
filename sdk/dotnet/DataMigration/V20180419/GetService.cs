@@ -27,8 +27,8 @@ namespace Pulumi.AzureRM.DataMigration.V20180419
         /// <summary>
         /// Name of the service
         /// </summary>
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
+        [Input("serviceName", required: true)]
+        public string ServiceName { get; set; } = null!;
 
         public GetServiceArgs()
         {

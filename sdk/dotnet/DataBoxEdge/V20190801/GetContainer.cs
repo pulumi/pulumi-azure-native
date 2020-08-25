@@ -19,16 +19,16 @@ namespace Pulumi.AzureRM.DataBoxEdge.V20190801
     public sealed class GetContainerArgs : Pulumi.InvokeArgs
     {
         /// <summary>
+        /// The container Name
+        /// </summary>
+        [Input("containerName", required: true)]
+        public string ContainerName { get; set; } = null!;
+
+        /// <summary>
         /// The device name.
         /// </summary>
         [Input("deviceName", required: true)]
         public string DeviceName { get; set; } = null!;
-
-        /// <summary>
-        /// The container Name
-        /// </summary>
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
 
         /// <summary>
         /// The resource group name.

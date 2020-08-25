@@ -21,8 +21,8 @@ namespace Pulumi.AzureRM.ApiManagement.V20170301
         /// <summary>
         /// Product identifier. Must be unique in the current API Management service instance.
         /// </summary>
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
+        [Input("productId", required: true)]
+        public string ProductId { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group.

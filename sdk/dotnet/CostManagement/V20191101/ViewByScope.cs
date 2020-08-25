@@ -201,12 +201,6 @@ namespace Pulumi.AzureRM.CostManagement.V20191101
         [Input("metric")]
         public Input<string>? Metric { get; set; }
 
-        /// <summary>
-        /// View name
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
         [Input("pivots")]
         private InputList<Inputs.PivotPropertiesArgs>? _pivots;
 
@@ -242,6 +236,12 @@ namespace Pulumi.AzureRM.CostManagement.V20191101
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
+
+        /// <summary>
+        /// View name
+        /// </summary>
+        [Input("viewName", required: true)]
+        public Input<string> ViewName { get; set; } = null!;
 
         public ViewByScopeArgs()
         {

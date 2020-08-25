@@ -146,7 +146,7 @@ namespace Pulumi.AzureRM.Web.V20160801
         public Input<string>? Kind { get; set; }
 
         /// <summary>
-        /// Name of the deployment slot. If a slot is not specified, the API will update the source control configuration for the production slot.
+        /// Name of the app.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
@@ -162,6 +162,12 @@ namespace Pulumi.AzureRM.Web.V20160801
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// Name of the deployment slot. If a slot is not specified, the API will update the source control configuration for the production slot.
+        /// </summary>
+        [Input("slot", required: true)]
+        public Input<string> Slot { get; set; } = null!;
 
         public WebAppSourceControlSlotArgs()
         {

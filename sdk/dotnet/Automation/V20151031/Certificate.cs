@@ -120,6 +120,12 @@ namespace Pulumi.AzureRM.Automation.V20151031
         public Input<string> Base64Value { get; set; } = null!;
 
         /// <summary>
+        /// The parameters supplied to the create or update certificate operation.
+        /// </summary>
+        [Input("certificateName", required: true)]
+        public Input<string> CertificateName { get; set; } = null!;
+
+        /// <summary>
         /// Gets or sets the description of the certificate.
         /// </summary>
         [Input("description")]
@@ -132,7 +138,7 @@ namespace Pulumi.AzureRM.Automation.V20151031
         public Input<bool>? IsExportable { get; set; }
 
         /// <summary>
-        /// The parameters supplied to the create or update certificate operation.
+        /// Gets or sets the name of the certificate.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;

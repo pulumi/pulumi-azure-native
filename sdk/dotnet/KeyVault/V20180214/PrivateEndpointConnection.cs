@@ -108,8 +108,8 @@ namespace Pulumi.AzureRM.KeyVault.V20180214
         /// <summary>
         /// Name of the private endpoint connection associated with the key vault.
         /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
+        [Input("privateEndpointConnectionName", required: true)]
+        public Input<string> PrivateEndpointConnectionName { get; set; } = null!;
 
         /// <summary>
         /// Approval state of the private link connection.

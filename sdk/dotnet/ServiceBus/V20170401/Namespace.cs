@@ -133,8 +133,8 @@ namespace Pulumi.AzureRM.ServiceBus.V20170401
         /// <summary>
         /// The namespace name.
         /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
+        [Input("namespaceName", required: true)]
+        public Input<string> NamespaceName { get; set; } = null!;
 
         /// <summary>
         /// Name of the Resource group within the Azure subscription.

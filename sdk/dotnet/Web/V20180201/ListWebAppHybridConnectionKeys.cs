@@ -19,7 +19,7 @@ namespace Pulumi.AzureRM.Web.V20180201
     public sealed class ListWebAppHybridConnectionKeysArgs : Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The relay name for this hybrid connection.
+        /// The name of the web app.
         /// </summary>
         [Input("name", required: true)]
         public string Name { get; set; } = null!;
@@ -29,6 +29,12 @@ namespace Pulumi.AzureRM.Web.V20180201
         /// </summary>
         [Input("namespaceName", required: true)]
         public string NamespaceName { get; set; } = null!;
+
+        /// <summary>
+        /// The relay name for this hybrid connection.
+        /// </summary>
+        [Input("relayName", required: true)]
+        public string RelayName { get; set; } = null!;
 
         /// <summary>
         /// Name of the resource group to which the resource belongs.

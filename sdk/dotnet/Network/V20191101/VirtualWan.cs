@@ -183,12 +183,6 @@ namespace Pulumi.AzureRM.Network.V20191101
         public Input<string> Location { get; set; } = null!;
 
         /// <summary>
-        /// The name of the VirtualWAN being created or updated.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        /// <summary>
         /// The office local breakout category.
         /// </summary>
         [Input("office365LocalBreakoutCategory")]
@@ -217,6 +211,12 @@ namespace Pulumi.AzureRM.Network.V20191101
         /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }
+
+        /// <summary>
+        /// The name of the VirtualWAN being created or updated.
+        /// </summary>
+        [Input("virtualWANName", required: true)]
+        public Input<string> VirtualWANName { get; set; } = null!;
 
         public VirtualWanArgs()
         {

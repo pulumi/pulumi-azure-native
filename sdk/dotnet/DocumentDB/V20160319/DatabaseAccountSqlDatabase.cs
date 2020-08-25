@@ -129,8 +129,8 @@ namespace Pulumi.AzureRM.DocumentDB.V20160319
         /// <summary>
         /// Cosmos DB database name.
         /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
+        [Input("databaseName", required: true)]
+        public Input<string> DatabaseName { get; set; } = null!;
 
         [Input("options", required: true)]
         private InputMap<string>? _options;

@@ -162,12 +162,6 @@ namespace Pulumi.AzureRM.StorSimple.V20161001
         public Input<string> MonitoringStatus { get; set; } = null!;
 
         /// <summary>
-        /// The file share name.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        /// <summary>
         /// The total provisioned capacity in Bytes
         /// </summary>
         [Input("provisionedCapacityInBytes", required: true)]
@@ -178,6 +172,12 @@ namespace Pulumi.AzureRM.StorSimple.V20161001
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The file share name.
+        /// </summary>
+        [Input("shareName", required: true)]
+        public Input<string> ShareName { get; set; } = null!;
 
         /// <summary>
         /// The Share Status

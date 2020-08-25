@@ -144,6 +144,12 @@ namespace Pulumi.AzureRM.ContainerService.V20160330
         }
 
         /// <summary>
+        /// The name of the container service in the specified subscription and resource group.
+        /// </summary>
+        [Input("containerServiceName", required: true)]
+        public Input<string> ContainerServiceName { get; set; } = null!;
+
+        /// <summary>
         /// Properties of the diagnostic agent.
         /// </summary>
         [Input("diagnosticsProfile")]
@@ -166,12 +172,6 @@ namespace Pulumi.AzureRM.ContainerService.V20160330
         /// </summary>
         [Input("masterProfile", required: true)]
         public Input<Inputs.ContainerServiceMasterProfileArgs> MasterProfile { get; set; } = null!;
-
-        /// <summary>
-        /// The name of the container service in the specified subscription and resource group.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
 
         /// <summary>
         /// Properties of the orchestrator.

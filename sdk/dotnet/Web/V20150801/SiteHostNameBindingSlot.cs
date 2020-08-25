@@ -158,6 +158,12 @@ namespace Pulumi.AzureRM.Web.V20150801
         public Input<string>? DomainId { get; set; }
 
         /// <summary>
+        /// Name of host
+        /// </summary>
+        [Input("hostName", required: true)]
+        public Input<string> HostName { get; set; } = null!;
+
+        /// <summary>
         /// Host name type
         /// </summary>
         [Input("hostNameType")]
@@ -182,7 +188,7 @@ namespace Pulumi.AzureRM.Web.V20150801
         public Input<string> Location { get; set; } = null!;
 
         /// <summary>
-        /// Name of host
+        /// Resource Name
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;

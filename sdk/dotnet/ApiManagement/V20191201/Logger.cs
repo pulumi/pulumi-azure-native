@@ -132,16 +132,16 @@ namespace Pulumi.AzureRM.ApiManagement.V20191201
         public Input<bool>? IsBuffered { get; set; }
 
         /// <summary>
+        /// Logger identifier. Must be unique in the API Management service instance.
+        /// </summary>
+        [Input("loggerId", required: true)]
+        public Input<string> LoggerId { get; set; } = null!;
+
+        /// <summary>
         /// Logger type.
         /// </summary>
         [Input("loggerType", required: true)]
         public Input<string> LoggerType { get; set; } = null!;
-
-        /// <summary>
-        /// Logger identifier. Must be unique in the API Management service instance.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group.

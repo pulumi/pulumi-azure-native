@@ -143,10 +143,10 @@ namespace Pulumi.AzureRM.Compute.V20191201
         public Input<string>? ForceUpdateTag { get; set; }
 
         /// <summary>
-        /// The name of the VM scale set extension.
+        /// The name of the extension.
         /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
+        [Input("name")]
+        public Input<string>? Name { get; set; }
 
         [Input("protectedSettings")]
         private InputMap<object>? _protectedSettings;
@@ -213,6 +213,12 @@ namespace Pulumi.AzureRM.Compute.V20191201
         /// </summary>
         [Input("vmScaleSetName", required: true)]
         public Input<string> VmScaleSetName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the VM scale set extension.
+        /// </summary>
+        [Input("vmssExtensionName", required: true)]
+        public Input<string> VmssExtensionName { get; set; } = null!;
 
         public VirtualMachineScaleSetExtensionArgs()
         {

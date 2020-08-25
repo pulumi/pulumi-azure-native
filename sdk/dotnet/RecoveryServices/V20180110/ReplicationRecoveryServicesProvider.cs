@@ -95,16 +95,16 @@ namespace Pulumi.AzureRM.RecoveryServices.V20180110
         public Input<string> FabricName { get; set; } = null!;
 
         /// <summary>
-        /// Recovery services provider name.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        /// <summary>
         /// The properties of an add provider request.
         /// </summary>
         [Input("properties", required: true)]
         public Input<Inputs.AddRecoveryServicesProviderInputPropertiesArgs> Properties { get; set; } = null!;
+
+        /// <summary>
+        /// Recovery services provider name.
+        /// </summary>
+        [Input("providerName", required: true)]
+        public Input<string> ProviderName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group where the recovery services vault is present.

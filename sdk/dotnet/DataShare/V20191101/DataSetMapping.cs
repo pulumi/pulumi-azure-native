@@ -84,16 +84,16 @@ namespace Pulumi.AzureRM.DataShare.V20191101
         public Input<string> AccountName { get; set; } = null!;
 
         /// <summary>
+        /// The name of the data set mapping to be created.
+        /// </summary>
+        [Input("dataSetMappingName", required: true)]
+        public Input<string> DataSetMappingName { get; set; } = null!;
+
+        /// <summary>
         /// Kind of data set mapping.
         /// </summary>
         [Input("kind", required: true)]
         public Input<string> Kind { get; set; } = null!;
-
-        /// <summary>
-        /// The name of the data set mapping to be created.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
 
         /// <summary>
         /// The resource group name.

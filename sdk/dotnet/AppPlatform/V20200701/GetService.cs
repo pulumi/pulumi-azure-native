@@ -19,16 +19,16 @@ namespace Pulumi.AzureRM.AppPlatform.V20200701
     public sealed class GetServiceArgs : Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The name of the Service resource.
-        /// </summary>
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
-
-        /// <summary>
         /// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public string ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the Service resource.
+        /// </summary>
+        [Input("serviceName", required: true)]
+        public string ServiceName { get; set; } = null!;
 
         public GetServiceArgs()
         {

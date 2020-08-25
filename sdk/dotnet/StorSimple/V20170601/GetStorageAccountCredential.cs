@@ -25,16 +25,16 @@ namespace Pulumi.AzureRM.StorSimple.V20170601
         public string ManagerName { get; set; } = null!;
 
         /// <summary>
-        /// The name of storage account credential to be fetched.
-        /// </summary>
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
-
-        /// <summary>
         /// The resource group name
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public string ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of storage account credential to be fetched.
+        /// </summary>
+        [Input("storageAccountCredentialName", required: true)]
+        public string StorageAccountCredentialName { get; set; } = null!;
 
         public GetStorageAccountCredentialArgs()
         {

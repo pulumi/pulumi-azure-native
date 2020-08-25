@@ -108,16 +108,16 @@ namespace Pulumi.AzureRM.ManagedIdentity.V20181130
         public Input<string> Location { get; set; } = null!;
 
         /// <summary>
-        /// The name of the identity resource.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        /// <summary>
         /// The name of the Resource Group to which the identity belongs.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the identity resource.
+        /// </summary>
+        [Input("resourceName", required: true)]
+        public Input<string> ResourceName { get; set; } = null!;
 
         [Input("tags")]
         private InputMap<string>? _tags;

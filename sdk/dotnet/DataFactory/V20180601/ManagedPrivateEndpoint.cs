@@ -90,16 +90,16 @@ namespace Pulumi.AzureRM.DataFactory.V20180601
         public Input<string> FactoryName { get; set; } = null!;
 
         /// <summary>
+        /// Managed private endpoint name
+        /// </summary>
+        [Input("managedPrivateEndpointName", required: true)]
+        public Input<string> ManagedPrivateEndpointName { get; set; } = null!;
+
+        /// <summary>
         /// Managed virtual network name
         /// </summary>
         [Input("managedVirtualNetworkName", required: true)]
         public Input<string> ManagedVirtualNetworkName { get; set; } = null!;
-
-        /// <summary>
-        /// Managed private endpoint name
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
 
         /// <summary>
         /// Managed private endpoint properties.

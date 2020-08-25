@@ -19,12 +19,6 @@ namespace Pulumi.AzureRM.ApiManagement.V20180101
     public sealed class GetSubscriptionArgs : Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Subscription entity Identifier. The entity represents the association between a user and a product in API Management.
-        /// </summary>
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
-
-        /// <summary>
         /// The name of the resource group.
         /// </summary>
         [Input("resourceGroupName", required: true)]
@@ -35,6 +29,12 @@ namespace Pulumi.AzureRM.ApiManagement.V20180101
         /// </summary>
         [Input("serviceName", required: true)]
         public string ServiceName { get; set; } = null!;
+
+        /// <summary>
+        /// Subscription entity Identifier. The entity represents the association between a user and a product in API Management.
+        /// </summary>
+        [Input("sid", required: true)]
+        public string Sid { get; set; } = null!;
 
         public GetSubscriptionArgs()
         {

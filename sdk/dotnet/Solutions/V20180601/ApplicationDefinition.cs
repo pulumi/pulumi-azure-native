@@ -160,6 +160,12 @@ namespace Pulumi.AzureRM.Solutions.V20180601
 
     public sealed class ApplicationDefinitionArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The name of the managed application definition.
+        /// </summary>
+        [Input("applicationDefinitionName", required: true)]
+        public Input<string> ApplicationDefinitionName { get; set; } = null!;
+
         [Input("artifacts")]
         private InputList<Inputs.ApplicationArtifactArgs>? _artifacts;
 
@@ -249,12 +255,6 @@ namespace Pulumi.AzureRM.Solutions.V20180601
         /// </summary>
         [Input("managedBy")]
         public Input<string>? ManagedBy { get; set; }
-
-        /// <summary>
-        /// The name of the managed application definition.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
 
         /// <summary>
         /// The managed application definition package file Uri. Use this element

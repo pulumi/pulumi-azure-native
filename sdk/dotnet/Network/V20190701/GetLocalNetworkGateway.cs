@@ -21,8 +21,8 @@ namespace Pulumi.AzureRM.Network.V20190701
         /// <summary>
         /// The name of the local network gateway.
         /// </summary>
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
+        [Input("localNetworkGatewayName", required: true)]
+        public string LocalNetworkGatewayName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group.

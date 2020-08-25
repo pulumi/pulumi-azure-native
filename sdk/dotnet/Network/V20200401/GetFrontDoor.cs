@@ -21,8 +21,8 @@ namespace Pulumi.AzureRM.Network.V20200401
         /// <summary>
         /// Name of the Front Door which is globally unique.
         /// </summary>
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
+        [Input("frontDoorName", required: true)]
+        public string FrontDoorName { get; set; } = null!;
 
         /// <summary>
         /// Name of the Resource group within the Azure subscription.

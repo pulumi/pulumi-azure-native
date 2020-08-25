@@ -27,8 +27,8 @@ namespace Pulumi.AzureRM.Batch.V20181201
         /// <summary>
         /// The pool name. This must be unique within the account.
         /// </summary>
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
+        [Input("poolName", required: true)]
+        public string PoolName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group that contains the Batch account.

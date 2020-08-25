@@ -27,8 +27,8 @@ namespace Pulumi.AzureRM.Network.V20191201
         /// <summary>
         /// The name of the public IP prefix.
         /// </summary>
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
+        [Input("publicIpPrefixName", required: true)]
+        public string PublicIpPrefixName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group.

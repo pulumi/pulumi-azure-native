@@ -21,8 +21,8 @@ namespace Pulumi.AzureRM.AppConfiguration.V20191001
         /// <summary>
         /// The name of the configuration store.
         /// </summary>
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
+        [Input("configStoreName", required: true)]
+        public string ConfigStoreName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group to which the container registry belongs.
