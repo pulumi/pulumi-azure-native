@@ -19,6 +19,7 @@ class VirtualRouterPeering(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  peer_asn: Optional[pulumi.Input[float]] = None,
                  peer_ip: Optional[pulumi.Input[str]] = None,
+                 peering_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  virtual_router_name: Optional[pulumi.Input[str]] = None,
                  __props__=None,
@@ -30,9 +31,10 @@ class VirtualRouterPeering(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] id: Resource ID.
-        :param pulumi.Input[str] name: The name of the Virtual Router Peering.
+        :param pulumi.Input[str] name: Name of the virtual router peering that is unique within a virtual router.
         :param pulumi.Input[float] peer_asn: Peer ASN.
         :param pulumi.Input[str] peer_ip: Peer IP.
+        :param pulumi.Input[str] peering_name: The name of the Virtual Router Peering.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[str] virtual_router_name: The name of the Virtual Router.
         """
@@ -54,11 +56,12 @@ class VirtualRouterPeering(pulumi.CustomResource):
             __props__ = dict()
 
             __props__['id'] = id
-            if name is None:
-                raise TypeError("Missing required property 'name'")
             __props__['name'] = name
             __props__['peer_asn'] = peer_asn
             __props__['peer_ip'] = peer_ip
+            if peering_name is None:
+                raise TypeError("Missing required property 'peering_name'")
+            __props__['peering_name'] = peering_name
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name

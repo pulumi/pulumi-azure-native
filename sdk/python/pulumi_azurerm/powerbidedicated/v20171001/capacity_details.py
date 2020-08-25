@@ -18,8 +18,8 @@ class CapacityDetails(pulumi.CustomResource):
                  resource_name,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  administration: Optional[pulumi.Input[pulumi.InputType['DedicatedCapacityAdministratorsArgs']]] = None,
+                 dedicated_capacity_name: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  sku: Optional[pulumi.Input[pulumi.InputType['ResourceSkuArgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -32,8 +32,8 @@ class CapacityDetails(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['DedicatedCapacityAdministratorsArgs']] administration: A collection of Dedicated capacity administrators
+        :param pulumi.Input[str] dedicated_capacity_name: The name of the Dedicated capacity. It must be a minimum of 3 characters, and a maximum of 63.
         :param pulumi.Input[str] location: Location of the PowerBI Dedicated resource.
-        :param pulumi.Input[str] name: The name of the Dedicated capacity. It must be a minimum of 3 characters, and a maximum of 63.
         :param pulumi.Input[str] resource_group_name: The name of the Azure Resource group of which a given PowerBIDedicated capacity is part. This name must be at least 1 character in length, and no more than 90.
         :param pulumi.Input[pulumi.InputType['ResourceSkuArgs']] sku: The SKU of the PowerBI Dedicated resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value pairs of additional resource provisioning properties.
@@ -56,12 +56,12 @@ class CapacityDetails(pulumi.CustomResource):
             __props__ = dict()
 
             __props__['administration'] = administration
+            if dedicated_capacity_name is None:
+                raise TypeError("Missing required property 'dedicated_capacity_name'")
+            __props__['dedicated_capacity_name'] = dedicated_capacity_name
             if location is None:
                 raise TypeError("Missing required property 'location'")
             __props__['location'] = location
-            if name is None:
-                raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
@@ -69,6 +69,7 @@ class CapacityDetails(pulumi.CustomResource):
                 raise TypeError("Missing required property 'sku'")
             __props__['sku'] = sku
             __props__['tags'] = tags
+            __props__['name'] = None
             __props__['provisioning_state'] = None
             __props__['state'] = None
             __props__['type'] = None

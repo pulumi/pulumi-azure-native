@@ -20,9 +20,9 @@ class StorageDomain(pulumi.CustomResource):
                  encryption_key: Optional[pulumi.Input[pulumi.InputType['AsymmetricEncryptedSecretArgs']]] = None,
                  encryption_status: Optional[pulumi.Input[str]] = None,
                  manager_name: Optional[pulumi.Input[str]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  storage_account_credential_ids: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 storage_domain_name: Optional[pulumi.Input[str]] = None,
                  __props__=None,
                  __name__=None,
                  __opts__=None):
@@ -34,9 +34,9 @@ class StorageDomain(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['AsymmetricEncryptedSecretArgs']] encryption_key: The encryption key used to encrypt the data. This is a user secret.
         :param pulumi.Input[str] encryption_status: The encryption status "Enabled | Disabled".
         :param pulumi.Input[str] manager_name: The manager name
-        :param pulumi.Input[str] name: The storage domain name.
         :param pulumi.Input[str] resource_group_name: The resource group name
         :param pulumi.Input[List[pulumi.Input[str]]] storage_account_credential_ids: The storage account credentials.
+        :param pulumi.Input[str] storage_domain_name: The storage domain name.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -62,15 +62,16 @@ class StorageDomain(pulumi.CustomResource):
             if manager_name is None:
                 raise TypeError("Missing required property 'manager_name'")
             __props__['manager_name'] = manager_name
-            if name is None:
-                raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             if storage_account_credential_ids is None:
                 raise TypeError("Missing required property 'storage_account_credential_ids'")
             __props__['storage_account_credential_ids'] = storage_account_credential_ids
+            if storage_domain_name is None:
+                raise TypeError("Missing required property 'storage_domain_name'")
+            __props__['storage_domain_name'] = storage_domain_name
+            __props__['name'] = None
             __props__['type'] = None
         super(StorageDomain, __self__).__init__(
             'azurerm:storsimple/v20161001:StorageDomain',

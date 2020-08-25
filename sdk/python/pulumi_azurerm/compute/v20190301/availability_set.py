@@ -17,8 +17,8 @@ class AvailabilitySet(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 availability_set_name: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
                  platform_fault_domain_count: Optional[pulumi.Input[float]] = None,
                  platform_update_domain_count: Optional[pulumi.Input[float]] = None,
                  proximity_placement_group: Optional[pulumi.Input[pulumi.InputType['SubResourceArgs']]] = None,
@@ -34,8 +34,8 @@ class AvailabilitySet(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] availability_set_name: The name of the availability set.
         :param pulumi.Input[str] location: Resource location
-        :param pulumi.Input[str] name: The name of the availability set.
         :param pulumi.Input[float] platform_fault_domain_count: Fault Domain count.
         :param pulumi.Input[float] platform_update_domain_count: Update Domain count.
         :param pulumi.Input[pulumi.InputType['SubResourceArgs']] proximity_placement_group: Specifies information about the proximity placement group that the availability set should be assigned to. <br><br>Minimum api-version: 2018-04-01.
@@ -61,12 +61,12 @@ class AvailabilitySet(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
+            if availability_set_name is None:
+                raise TypeError("Missing required property 'availability_set_name'")
+            __props__['availability_set_name'] = availability_set_name
             if location is None:
                 raise TypeError("Missing required property 'location'")
             __props__['location'] = location
-            if name is None:
-                raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
             __props__['platform_fault_domain_count'] = platform_fault_domain_count
             __props__['platform_update_domain_count'] = platform_update_domain_count
             __props__['proximity_placement_group'] = proximity_placement_group
@@ -76,6 +76,7 @@ class AvailabilitySet(pulumi.CustomResource):
             __props__['sku'] = sku
             __props__['tags'] = tags
             __props__['virtual_machines'] = virtual_machines
+            __props__['name'] = None
             __props__['statuses'] = None
             __props__['type'] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:compute/v20150615:AvailabilitySet"), pulumi.Alias(type_="azurerm:compute/v20160330:AvailabilitySet"), pulumi.Alias(type_="azurerm:compute/v20170330:AvailabilitySet"), pulumi.Alias(type_="azurerm:compute/v20171201:AvailabilitySet"), pulumi.Alias(type_="azurerm:compute/v20180401:AvailabilitySet"), pulumi.Alias(type_="azurerm:compute/v20180601:AvailabilitySet"), pulumi.Alias(type_="azurerm:compute/v20181001:AvailabilitySet"), pulumi.Alias(type_="azurerm:compute/v20190701:AvailabilitySet"), pulumi.Alias(type_="azurerm:compute/v20191201:AvailabilitySet"), pulumi.Alias(type_="azurerm:compute/v20200601:AvailabilitySet")])

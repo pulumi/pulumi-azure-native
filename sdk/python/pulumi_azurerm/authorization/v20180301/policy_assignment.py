@@ -20,9 +20,9 @@ class PolicyAssignment(pulumi.CustomResource):
                  description: Optional[pulumi.Input[str]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
                  metadata: Optional[pulumi.Input[Mapping[str, Any]]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
                  not_scopes: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 policy_assignment_name: Optional[pulumi.Input[str]] = None,
                  policy_definition_id: Optional[pulumi.Input[str]] = None,
                  scope: Optional[pulumi.Input[str]] = None,
                  sku: Optional[pulumi.Input[pulumi.InputType['PolicySkuArgs']]] = None,
@@ -37,9 +37,9 @@ class PolicyAssignment(pulumi.CustomResource):
         :param pulumi.Input[str] description: This message will be part of response in case of policy violation.
         :param pulumi.Input[str] display_name: The display name of the policy assignment.
         :param pulumi.Input[Mapping[str, Any]] metadata: The policy assignment metadata.
-        :param pulumi.Input[str] name: The name of the policy assignment.
         :param pulumi.Input[List[pulumi.Input[str]]] not_scopes: The policy's excluded scopes.
         :param pulumi.Input[Mapping[str, Any]] parameters: Required if a parameter is used in policy rule.
+        :param pulumi.Input[str] policy_assignment_name: The name of the policy assignment.
         :param pulumi.Input[str] policy_definition_id: The ID of the policy definition or policy set definition being assigned.
         :param pulumi.Input[str] scope: The scope for the policy assignment.
         :param pulumi.Input[pulumi.InputType['PolicySkuArgs']] sku: The policy sku. This property is optional, obsolete, and will be ignored.
@@ -64,16 +64,17 @@ class PolicyAssignment(pulumi.CustomResource):
             __props__['description'] = description
             __props__['display_name'] = display_name
             __props__['metadata'] = metadata
-            if name is None:
-                raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
             __props__['not_scopes'] = not_scopes
             __props__['parameters'] = parameters
+            if policy_assignment_name is None:
+                raise TypeError("Missing required property 'policy_assignment_name'")
+            __props__['policy_assignment_name'] = policy_assignment_name
             __props__['policy_definition_id'] = policy_definition_id
             if scope is None:
                 raise TypeError("Missing required property 'scope'")
             __props__['scope'] = scope
             __props__['sku'] = sku
+            __props__['name'] = None
             __props__['type'] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:authorization/v20151101:PolicyAssignment"), pulumi.Alias(type_="azurerm:authorization/v20161201:PolicyAssignment"), pulumi.Alias(type_="azurerm:authorization/v20180501:PolicyAssignment"), pulumi.Alias(type_="azurerm:authorization/v20190101:PolicyAssignment"), pulumi.Alias(type_="azurerm:authorization/v20190601:PolicyAssignment"), pulumi.Alias(type_="azurerm:authorization/v20190901:PolicyAssignment")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)

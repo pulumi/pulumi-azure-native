@@ -198,18 +198,21 @@ class AwaitableGetSiteInstanceDeploymentResult(GetSiteInstanceDeploymentResult):
             type=self.type)
 
 
-def get_site_instance_deployment(instance_id: Optional[str] = None,
+def get_site_instance_deployment(id: Optional[str] = None,
+                                 instance_id: Optional[str] = None,
                                  name: Optional[str] = None,
                                  resource_group_name: Optional[str] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSiteInstanceDeploymentResult:
     """
     Use this data source to access information about an existing resource.
 
+    :param str id: Id of the deployment
     :param str instance_id: Id of web app instance
-    :param str name: Id of the deployment
+    :param str name: Name of web app
     :param str resource_group_name: Name of resource group
     """
     __args__ = dict()
+    __args__['id'] = id
     __args__['instanceId'] = instance_id
     __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name

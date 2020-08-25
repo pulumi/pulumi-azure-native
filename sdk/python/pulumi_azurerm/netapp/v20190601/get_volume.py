@@ -212,23 +212,23 @@ class AwaitableGetVolumeResult(GetVolumeResult):
 
 
 def get_volume(account_name: Optional[str] = None,
-               name: Optional[str] = None,
                pool_name: Optional[str] = None,
                resource_group_name: Optional[str] = None,
+               volume_name: Optional[str] = None,
                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVolumeResult:
     """
     Use this data source to access information about an existing resource.
 
     :param str account_name: The name of the NetApp account
-    :param str name: The name of the volume
     :param str pool_name: The name of the capacity pool
     :param str resource_group_name: The name of the resource group.
+    :param str volume_name: The name of the volume
     """
     __args__ = dict()
     __args__['accountName'] = account_name
-    __args__['name'] = name
     __args__['poolName'] = pool_name
     __args__['resourceGroupName'] = resource_group_name
+    __args__['volumeName'] = volume_name
     if opts is None:
         opts = pulumi.InvokeOptions()
     if opts.version is None:

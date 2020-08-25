@@ -29,6 +29,7 @@ class SiteVNETConnection(pulumi.CustomResource):
                  routes: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['VnetRouteArgs']]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  type: Optional[pulumi.Input[str]] = None,
+                 vnet_name: Optional[pulumi.Input[str]] = None,
                  vnet_resource_id: Optional[pulumi.Input[str]] = None,
                  __props__=None,
                  __name__=None,
@@ -45,12 +46,13 @@ class SiteVNETConnection(pulumi.CustomResource):
         :param pulumi.Input[str] id: Resource Id
         :param pulumi.Input[str] kind: Kind of resource
         :param pulumi.Input[str] location: Resource Location
-        :param pulumi.Input[str] name: The name of the Virtual Network
+        :param pulumi.Input[str] name: Resource Name
         :param pulumi.Input[str] resource_group_name: The resource group name
         :param pulumi.Input[bool] resync_required: Flag to determine if a resync is required
         :param pulumi.Input[List[pulumi.Input[pulumi.InputType['VnetRouteArgs']]]] routes: The routes that this virtual network connection uses.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags
         :param pulumi.Input[str] type: Resource type
+        :param pulumi.Input[str] vnet_name: The name of the Virtual Network
         :param pulumi.Input[str] vnet_resource_id: The vnet resource id
         """
         if __name__ is not None:
@@ -88,6 +90,9 @@ class SiteVNETConnection(pulumi.CustomResource):
             __props__['routes'] = routes
             __props__['tags'] = tags
             __props__['type'] = type
+            if vnet_name is None:
+                raise TypeError("Missing required property 'vnet_name'")
+            __props__['vnet_name'] = vnet_name
             __props__['vnet_resource_id'] = vnet_resource_id
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:web/v20160801:SiteVNETConnection"), pulumi.Alias(type_="azurerm:web/v20180201:SiteVNETConnection"), pulumi.Alias(type_="azurerm:web/v20181101:SiteVNETConnection"), pulumi.Alias(type_="azurerm:web/v20190801:SiteVNETConnection"), pulumi.Alias(type_="azurerm:web/v20200601:SiteVNETConnection")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)

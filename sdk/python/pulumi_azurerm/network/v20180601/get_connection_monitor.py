@@ -172,19 +172,19 @@ class AwaitableGetConnectionMonitorResult(GetConnectionMonitorResult):
             type=self.type)
 
 
-def get_connection_monitor(name: Optional[str] = None,
+def get_connection_monitor(connection_monitor_name: Optional[str] = None,
                            network_watcher_name: Optional[str] = None,
                            resource_group_name: Optional[str] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetConnectionMonitorResult:
     """
     Use this data source to access information about an existing resource.
 
-    :param str name: The name of the connection monitor.
+    :param str connection_monitor_name: The name of the connection monitor.
     :param str network_watcher_name: The name of the Network Watcher resource.
     :param str resource_group_name: The name of the resource group containing Network Watcher.
     """
     __args__ = dict()
-    __args__['name'] = name
+    __args__['connectionMonitorName'] = connection_monitor_name
     __args__['networkWatcherName'] = network_watcher_name
     __args__['resourceGroupName'] = resource_group_name
     if opts is None:

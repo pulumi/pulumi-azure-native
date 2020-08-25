@@ -27,6 +27,7 @@ class Runbook(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  publish_content_link: Optional[pulumi.Input[pulumi.InputType['ContentLinkArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
+                 runbook_name: Optional[pulumi.Input[str]] = None,
                  runbook_type: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None,
@@ -44,9 +45,10 @@ class Runbook(pulumi.CustomResource):
         :param pulumi.Input[float] log_activity_trace: Gets or sets the activity-level tracing options of the runbook.
         :param pulumi.Input[bool] log_progress: Gets or sets progress log option.
         :param pulumi.Input[bool] log_verbose: Gets or sets verbose log option.
-        :param pulumi.Input[str] name: The runbook name.
+        :param pulumi.Input[str] name: Gets or sets the name of the resource.
         :param pulumi.Input[pulumi.InputType['ContentLinkArgs']] publish_content_link: Gets or sets the published runbook content link.
         :param pulumi.Input[str] resource_group_name: Name of an Azure Resource group.
+        :param pulumi.Input[str] runbook_name: The runbook name.
         :param pulumi.Input[str] runbook_type: Gets or sets the type of the runbook.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Gets or sets the tags attached to the resource.
         """
@@ -76,13 +78,14 @@ class Runbook(pulumi.CustomResource):
             __props__['log_activity_trace'] = log_activity_trace
             __props__['log_progress'] = log_progress
             __props__['log_verbose'] = log_verbose
-            if name is None:
-                raise TypeError("Missing required property 'name'")
             __props__['name'] = name
             __props__['publish_content_link'] = publish_content_link
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
+            if runbook_name is None:
+                raise TypeError("Missing required property 'runbook_name'")
+            __props__['runbook_name'] = runbook_name
             if runbook_type is None:
                 raise TypeError("Missing required property 'runbook_type'")
             __props__['runbook_type'] = runbook_type

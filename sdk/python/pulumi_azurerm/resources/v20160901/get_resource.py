@@ -151,25 +151,25 @@ class AwaitableGetResourceResult(GetResourceResult):
             type=self.type)
 
 
-def get_resource(name: Optional[str] = None,
-                 parent_resource_path: Optional[str] = None,
+def get_resource(parent_resource_path: Optional[str] = None,
                  resource_group_name: Optional[str] = None,
+                 resource_name: Optional[str] = None,
                  resource_provider_namespace: Optional[str] = None,
                  resource_type: Optional[str] = None,
                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetResourceResult:
     """
     Use this data source to access information about an existing resource.
 
-    :param str name: The name of the resource to get.
     :param str parent_resource_path: The parent resource identity.
     :param str resource_group_name: The name of the resource group containing the resource to get. The name is case insensitive.
+    :param str resource_name: The name of the resource to get.
     :param str resource_provider_namespace: The namespace of the resource provider.
     :param str resource_type: The resource type of the resource.
     """
     __args__ = dict()
-    __args__['name'] = name
     __args__['parentResourcePath'] = parent_resource_path
     __args__['resourceGroupName'] = resource_group_name
+    __args__['resourceName'] = resource_name
     __args__['resourceProviderNamespace'] = resource_provider_namespace
     __args__['resourceType'] = resource_type
     if opts is None:

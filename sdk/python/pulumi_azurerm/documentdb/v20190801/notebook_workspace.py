@@ -16,7 +16,7 @@ class NotebookWorkspace(pulumi.CustomResource):
                  resource_name,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_name: Optional[pulumi.Input[str]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
+                 notebook_workspace_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  __props__=None,
                  __name__=None,
@@ -27,7 +27,7 @@ class NotebookWorkspace(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_name: Cosmos DB database account name.
-        :param pulumi.Input[str] name: The name of the notebook workspace resource.
+        :param pulumi.Input[str] notebook_workspace_name: The name of the notebook workspace resource.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         """
         if __name__ is not None:
@@ -50,12 +50,13 @@ class NotebookWorkspace(pulumi.CustomResource):
             if account_name is None:
                 raise TypeError("Missing required property 'account_name'")
             __props__['account_name'] = account_name
-            if name is None:
-                raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
+            if notebook_workspace_name is None:
+                raise TypeError("Missing required property 'notebook_workspace_name'")
+            __props__['notebook_workspace_name'] = notebook_workspace_name
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
+            __props__['name'] = None
             __props__['notebook_server_endpoint'] = None
             __props__['status'] = None
             __props__['type'] = None

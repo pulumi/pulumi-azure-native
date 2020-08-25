@@ -17,6 +17,7 @@ class WebAppRelayServiceConnectionSlot(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  biztalk_uri: Optional[pulumi.Input[str]] = None,
                  entity_connection_string: Optional[pulumi.Input[str]] = None,
+                 entity_name: Optional[pulumi.Input[str]] = None,
                  hostname: Optional[pulumi.Input[str]] = None,
                  kind: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -34,6 +35,7 @@ class WebAppRelayServiceConnectionSlot(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] kind: Kind of resource.
+        :param pulumi.Input[str] name: Name of the app.
         :param pulumi.Input[str] resource_group_name: Name of the resource group to which the resource belongs.
         :param pulumi.Input[str] slot: Name of the deployment slot. If a slot is not specified, the API will create or update a hybrid connection for the production slot.
         """
@@ -56,6 +58,9 @@ class WebAppRelayServiceConnectionSlot(pulumi.CustomResource):
 
             __props__['biztalk_uri'] = biztalk_uri
             __props__['entity_connection_string'] = entity_connection_string
+            if entity_name is None:
+                raise TypeError("Missing required property 'entity_name'")
+            __props__['entity_name'] = entity_name
             __props__['hostname'] = hostname
             __props__['kind'] = kind
             if name is None:
@@ -70,7 +75,6 @@ class WebAppRelayServiceConnectionSlot(pulumi.CustomResource):
             if slot is None:
                 raise TypeError("Missing required property 'slot'")
             __props__['slot'] = slot
-            __props__['entity_name'] = None
             __props__['type'] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:web/v20150801:WebAppRelayServiceConnectionSlot"), pulumi.Alias(type_="azurerm:web/v20180201:WebAppRelayServiceConnectionSlot"), pulumi.Alias(type_="azurerm:web/v20181101:WebAppRelayServiceConnectionSlot"), pulumi.Alias(type_="azurerm:web/v20190801:WebAppRelayServiceConnectionSlot"), pulumi.Alias(type_="azurerm:web/v20200601:WebAppRelayServiceConnectionSlot")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)

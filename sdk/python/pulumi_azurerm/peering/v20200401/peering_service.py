@@ -18,8 +18,8 @@ class PeeringService(pulumi.CustomResource):
                  resource_name,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
                  peering_service_location: Optional[pulumi.Input[str]] = None,
+                 peering_service_name: Optional[pulumi.Input[str]] = None,
                  peering_service_provider: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  sku: Optional[pulumi.Input[pulumi.InputType['PeeringServiceSkuArgs']]] = None,
@@ -33,8 +33,8 @@ class PeeringService(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] location: The location of the resource.
-        :param pulumi.Input[str] name: The name of the peering service.
         :param pulumi.Input[str] peering_service_location: The PeeringServiceLocation of the Customer.
+        :param pulumi.Input[str] peering_service_name: The name of the peering service.
         :param pulumi.Input[str] peering_service_provider: The MAPS Provider Name.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[pulumi.InputType['PeeringServiceSkuArgs']] sku: The SKU that defines the type of the peering service.
@@ -60,16 +60,17 @@ class PeeringService(pulumi.CustomResource):
             if location is None:
                 raise TypeError("Missing required property 'location'")
             __props__['location'] = location
-            if name is None:
-                raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
             __props__['peering_service_location'] = peering_service_location
+            if peering_service_name is None:
+                raise TypeError("Missing required property 'peering_service_name'")
+            __props__['peering_service_name'] = peering_service_name
             __props__['peering_service_provider'] = peering_service_provider
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['sku'] = sku
             __props__['tags'] = tags
+            __props__['name'] = None
             __props__['provisioning_state'] = None
             __props__['type'] = None
         super(PeeringService, __self__).__init__(

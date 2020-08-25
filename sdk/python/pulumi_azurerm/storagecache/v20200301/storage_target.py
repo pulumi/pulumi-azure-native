@@ -20,10 +20,10 @@ class StorageTarget(pulumi.CustomResource):
                  cache_name: Optional[pulumi.Input[str]] = None,
                  clfs: Optional[pulumi.Input[pulumi.InputType['ClfsTargetArgs']]] = None,
                  junctions: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['NamespaceJunctionArgs']]]]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
                  nfs3: Optional[pulumi.Input[pulumi.InputType['Nfs3TargetArgs']]] = None,
                  provisioning_state: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
+                 storage_target_name: Optional[pulumi.Input[str]] = None,
                  target_type: Optional[pulumi.Input[str]] = None,
                  unknown: Optional[pulumi.Input[pulumi.InputType['UnknownTargetArgs']]] = None,
                  __props__=None,
@@ -37,10 +37,10 @@ class StorageTarget(pulumi.CustomResource):
         :param pulumi.Input[str] cache_name: Name of Cache. Length of name must be not greater than 80 and chars must be in list of [-0-9a-zA-Z_] char class.
         :param pulumi.Input[pulumi.InputType['ClfsTargetArgs']] clfs: Properties when targetType is clfs.
         :param pulumi.Input[List[pulumi.Input[pulumi.InputType['NamespaceJunctionArgs']]]] junctions: List of Cache namespace junctions to target for namespace associations.
-        :param pulumi.Input[str] name: Name of the Storage Target. Length of name must be not greater than 80 and chars must be in list of [-0-9a-zA-Z_] char class.
         :param pulumi.Input[pulumi.InputType['Nfs3TargetArgs']] nfs3: Properties when targetType is nfs3.
         :param pulumi.Input[str] provisioning_state: ARM provisioning state, see https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/Addendum.md#provisioningstate-property
         :param pulumi.Input[str] resource_group_name: Target resource group.
+        :param pulumi.Input[str] storage_target_name: Name of the Storage Target. Length of name must be not greater than 80 and chars must be in list of [-0-9a-zA-Z_] char class.
         :param pulumi.Input[str] target_type: Type of the Storage Target.
         :param pulumi.Input[pulumi.InputType['UnknownTargetArgs']] unknown: Properties when targetType is unknown.
         """
@@ -66,18 +66,19 @@ class StorageTarget(pulumi.CustomResource):
             __props__['cache_name'] = cache_name
             __props__['clfs'] = clfs
             __props__['junctions'] = junctions
-            if name is None:
-                raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
             __props__['nfs3'] = nfs3
             __props__['provisioning_state'] = provisioning_state
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
+            if storage_target_name is None:
+                raise TypeError("Missing required property 'storage_target_name'")
+            __props__['storage_target_name'] = storage_target_name
             if target_type is None:
                 raise TypeError("Missing required property 'target_type'")
             __props__['target_type'] = target_type
             __props__['unknown'] = unknown
+            __props__['name'] = None
             __props__['type'] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:storagecache/v20191101:StorageTarget")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)

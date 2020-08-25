@@ -19,9 +19,9 @@ class ApplicationTypeVersion(pulumi.CustomResource):
                  application_type_name: Optional[pulumi.Input[str]] = None,
                  cluster_name: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 version: Optional[pulumi.Input[str]] = None,
                  __props__=None,
                  __name__=None,
                  __opts__=None):
@@ -34,9 +34,9 @@ class ApplicationTypeVersion(pulumi.CustomResource):
         :param pulumi.Input[str] application_type_name: The name of the application type name resource.
         :param pulumi.Input[str] cluster_name: The name of the cluster resource.
         :param pulumi.Input[str] location: It will be deprecated in New API, resource location depends on the parent resource.
-        :param pulumi.Input[str] name: The application type version.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Azure resource tags.
+        :param pulumi.Input[str] version: The application type version.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -65,15 +65,16 @@ class ApplicationTypeVersion(pulumi.CustomResource):
                 raise TypeError("Missing required property 'cluster_name'")
             __props__['cluster_name'] = cluster_name
             __props__['location'] = location
-            if name is None:
-                raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['tags'] = tags
+            if version is None:
+                raise TypeError("Missing required property 'version'")
+            __props__['version'] = version
             __props__['default_parameter_list'] = None
             __props__['etag'] = None
+            __props__['name'] = None
             __props__['provisioning_state'] = None
             __props__['type'] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:servicefabric/v20200301:ApplicationTypeVersion")])

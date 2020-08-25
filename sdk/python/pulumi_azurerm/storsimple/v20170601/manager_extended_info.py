@@ -21,7 +21,7 @@ class ManagerExtendedInfo(pulumi.CustomResource):
                  etag: Optional[pulumi.Input[str]] = None,
                  integrity_key: Optional[pulumi.Input[str]] = None,
                  kind: Optional[pulumi.Input[str]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
+                 manager_name: Optional[pulumi.Input[str]] = None,
                  portal_certificate_thumbprint: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  version: Optional[pulumi.Input[str]] = None,
@@ -39,7 +39,7 @@ class ManagerExtendedInfo(pulumi.CustomResource):
         :param pulumi.Input[str] etag: The etag of the resource.
         :param pulumi.Input[str] integrity_key: Represents the CIK of the resource.
         :param pulumi.Input[str] kind: The Kind of the object. Currently only Series8000 is supported
-        :param pulumi.Input[str] name: The manager name
+        :param pulumi.Input[str] manager_name: The manager name
         :param pulumi.Input[str] portal_certificate_thumbprint: Represents the portal thumbprint which can be used optionally to encrypt the entire data before storing it.
         :param pulumi.Input[str] resource_group_name: The resource group name
         :param pulumi.Input[str] version: The version of the extended info being persisted.
@@ -71,14 +71,15 @@ class ManagerExtendedInfo(pulumi.CustomResource):
                 raise TypeError("Missing required property 'integrity_key'")
             __props__['integrity_key'] = integrity_key
             __props__['kind'] = kind
-            if name is None:
-                raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
+            if manager_name is None:
+                raise TypeError("Missing required property 'manager_name'")
+            __props__['manager_name'] = manager_name
             __props__['portal_certificate_thumbprint'] = portal_certificate_thumbprint
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['version'] = version
+            __props__['name'] = None
             __props__['type'] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:storsimple/v20161001:ManagerExtendedInfo")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)

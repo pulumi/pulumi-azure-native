@@ -20,10 +20,10 @@ class Vault(pulumi.CustomResource):
                  e_tag: Optional[pulumi.Input[str]] = None,
                  identity: Optional[pulumi.Input[pulumi.InputType['IdentityDataArgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  sku: Optional[pulumi.Input[pulumi.InputType['SkuArgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 vault_name: Optional[pulumi.Input[str]] = None,
                  __props__=None,
                  __name__=None,
                  __opts__=None):
@@ -35,10 +35,10 @@ class Vault(pulumi.CustomResource):
         :param pulumi.Input[str] e_tag: Optional ETag.
         :param pulumi.Input[pulumi.InputType['IdentityDataArgs']] identity: Identity for the resource.
         :param pulumi.Input[str] location: Resource location.
-        :param pulumi.Input[str] name: The name of the recovery services vault.
         :param pulumi.Input[str] resource_group_name: The name of the resource group where the recovery services vault is present.
         :param pulumi.Input[pulumi.InputType['SkuArgs']] sku: Identifies the unique system identifier for each Azure resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
+        :param pulumi.Input[str] vault_name: The name of the recovery services vault.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -62,14 +62,15 @@ class Vault(pulumi.CustomResource):
             if location is None:
                 raise TypeError("Missing required property 'location'")
             __props__['location'] = location
-            if name is None:
-                raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['sku'] = sku
             __props__['tags'] = tags
+            if vault_name is None:
+                raise TypeError("Missing required property 'vault_name'")
+            __props__['vault_name'] = vault_name
+            __props__['name'] = None
             __props__['properties'] = None
             __props__['type'] = None
         super(Vault, __self__).__init__(

@@ -224,7 +224,8 @@ class AwaitableListWebAppBackupStatusSecretsSlotResult(ListWebAppBackupStatusSec
             website_size_in_bytes=self.website_size_in_bytes)
 
 
-def list_web_app_backup_status_secrets_slot(backup_request_name: Optional[str] = None,
+def list_web_app_backup_status_secrets_slot(backup_id: Optional[str] = None,
+                                            backup_request_name: Optional[str] = None,
                                             backup_schedule: Optional[pulumi.InputType['BackupScheduleArgs']] = None,
                                             databases: Optional[List[pulumi.InputType['DatabaseBackupSettingArgs']]] = None,
                                             enabled: Optional[bool] = None,
@@ -238,18 +239,20 @@ def list_web_app_backup_status_secrets_slot(backup_request_name: Optional[str] =
     """
     Use this data source to access information about an existing resource.
 
+    :param str backup_id: ID of backup.
     :param str backup_request_name: Name of the backup.
     :param pulumi.InputType['BackupScheduleArgs'] backup_schedule: Schedule for the backup if it is executed periodically.
     :param List[pulumi.InputType['DatabaseBackupSettingArgs']] databases: Databases included in the backup.
     :param bool enabled: True if the backup schedule is enabled (must be included in that case), false if the backup schedule should be disabled.
     :param str kind: Kind of resource.
-    :param str name: ID of backup.
+    :param str name: Name of web app.
     :param str resource_group_name: Name of the resource group to which the resource belongs.
     :param str slot: Name of web app slot. If not specified then will default to production slot.
     :param str storage_account_url: SAS URL to the container.
     :param str type: Type of the backup.
     """
     __args__ = dict()
+    __args__['backupId'] = backup_id
     __args__['backupRequestName'] = backup_request_name
     __args__['backupSchedule'] = backup_schedule
     __args__['databases'] = databases

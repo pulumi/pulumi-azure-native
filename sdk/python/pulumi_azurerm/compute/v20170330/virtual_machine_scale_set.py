@@ -19,7 +19,6 @@ class VirtualMachineScaleSet(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  identity: Optional[pulumi.Input[pulumi.InputType['VirtualMachineScaleSetIdentityArgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
                  overprovision: Optional[pulumi.Input[bool]] = None,
                  plan: Optional[pulumi.Input[pulumi.InputType['PlanArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -28,6 +27,7 @@ class VirtualMachineScaleSet(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  upgrade_policy: Optional[pulumi.Input[pulumi.InputType['UpgradePolicyArgs']]] = None,
                  virtual_machine_profile: Optional[pulumi.Input[pulumi.InputType['VirtualMachineScaleSetVMProfileArgs']]] = None,
+                 vm_scale_set_name: Optional[pulumi.Input[str]] = None,
                  zones: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
                  __props__=None,
                  __name__=None,
@@ -39,7 +39,6 @@ class VirtualMachineScaleSet(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['VirtualMachineScaleSetIdentityArgs']] identity: The identity of the virtual machine scale set, if configured.
         :param pulumi.Input[str] location: Resource location
-        :param pulumi.Input[str] name: The name of the VM scale set to create or update.
         :param pulumi.Input[bool] overprovision: Specifies whether the Virtual Machine Scale Set should be overprovisioned.
         :param pulumi.Input[pulumi.InputType['PlanArgs']] plan: Specifies information about the marketplace image used to create the virtual machine. This element is only used for marketplace images. Before you can use a marketplace image from an API, you must enable the image for programmatic use.  In the Azure portal, find the marketplace image that you want to use and then click **Want to deploy programmatically, Get Started ->**. Enter any required information and then click **Save**.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
@@ -48,6 +47,7 @@ class VirtualMachineScaleSet(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags
         :param pulumi.Input[pulumi.InputType['UpgradePolicyArgs']] upgrade_policy: The upgrade policy.
         :param pulumi.Input[pulumi.InputType['VirtualMachineScaleSetVMProfileArgs']] virtual_machine_profile: The virtual machine profile.
+        :param pulumi.Input[str] vm_scale_set_name: The name of the VM scale set to create or update.
         :param pulumi.Input[List[pulumi.Input[str]]] zones: The virtual machine scale set zones. NOTE: Availability zones can only be set when you create the scale set.
         """
         if __name__ is not None:
@@ -71,9 +71,6 @@ class VirtualMachineScaleSet(pulumi.CustomResource):
             if location is None:
                 raise TypeError("Missing required property 'location'")
             __props__['location'] = location
-            if name is None:
-                raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
             __props__['overprovision'] = overprovision
             __props__['plan'] = plan
             if resource_group_name is None:
@@ -84,7 +81,11 @@ class VirtualMachineScaleSet(pulumi.CustomResource):
             __props__['tags'] = tags
             __props__['upgrade_policy'] = upgrade_policy
             __props__['virtual_machine_profile'] = virtual_machine_profile
+            if vm_scale_set_name is None:
+                raise TypeError("Missing required property 'vm_scale_set_name'")
+            __props__['vm_scale_set_name'] = vm_scale_set_name
             __props__['zones'] = zones
+            __props__['name'] = None
             __props__['provisioning_state'] = None
             __props__['type'] = None
             __props__['unique_id'] = None

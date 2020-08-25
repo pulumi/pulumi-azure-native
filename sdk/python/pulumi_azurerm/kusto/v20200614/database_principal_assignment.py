@@ -17,7 +17,7 @@ class DatabasePrincipalAssignment(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  cluster_name: Optional[pulumi.Input[str]] = None,
                  database_name: Optional[pulumi.Input[str]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
+                 principal_assignment_name: Optional[pulumi.Input[str]] = None,
                  principal_id: Optional[pulumi.Input[str]] = None,
                  principal_type: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -33,7 +33,7 @@ class DatabasePrincipalAssignment(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] cluster_name: The name of the Kusto cluster.
         :param pulumi.Input[str] database_name: The name of the database in the Kusto cluster.
-        :param pulumi.Input[str] name: The name of the Kusto principalAssignment.
+        :param pulumi.Input[str] principal_assignment_name: The name of the Kusto principalAssignment.
         :param pulumi.Input[str] principal_id: The principal ID assigned to the database principal. It can be a user email, application ID, or security group name.
         :param pulumi.Input[str] principal_type: Principal type.
         :param pulumi.Input[str] resource_group_name: The name of the resource group containing the Kusto cluster.
@@ -63,9 +63,9 @@ class DatabasePrincipalAssignment(pulumi.CustomResource):
             if database_name is None:
                 raise TypeError("Missing required property 'database_name'")
             __props__['database_name'] = database_name
-            if name is None:
-                raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
+            if principal_assignment_name is None:
+                raise TypeError("Missing required property 'principal_assignment_name'")
+            __props__['principal_assignment_name'] = principal_assignment_name
             if principal_id is None:
                 raise TypeError("Missing required property 'principal_id'")
             __props__['principal_id'] = principal_id
@@ -79,6 +79,7 @@ class DatabasePrincipalAssignment(pulumi.CustomResource):
                 raise TypeError("Missing required property 'role'")
             __props__['role'] = role
             __props__['tenant_id'] = tenant_id
+            __props__['name'] = None
             __props__['principal_name'] = None
             __props__['provisioning_state'] = None
             __props__['tenant_name'] = None

@@ -17,6 +17,7 @@ class Cluster(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 cluster_name: Optional[pulumi.Input[str]] = None,
                  enable_disk_encryption: Optional[pulumi.Input[bool]] = None,
                  enable_purge: Optional[pulumi.Input[bool]] = None,
                  enable_streaming_ingest: Optional[pulumi.Input[bool]] = None,
@@ -24,7 +25,6 @@ class Cluster(pulumi.CustomResource):
                  key_vault_properties: Optional[pulumi.Input[pulumi.InputType['KeyVaultPropertiesArgs']]] = None,
                  language_extensions: Optional[pulumi.Input[pulumi.InputType['LanguageExtensionsListArgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
                  optimized_autoscale: Optional[pulumi.Input[pulumi.InputType['OptimizedAutoscaleArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  sku: Optional[pulumi.Input[pulumi.InputType['AzureSkuArgs']]] = None,
@@ -40,6 +40,7 @@ class Cluster(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] cluster_name: The name of the Kusto cluster.
         :param pulumi.Input[bool] enable_disk_encryption: A boolean value that indicates if the cluster's disks are encrypted.
         :param pulumi.Input[bool] enable_purge: A boolean value that indicates if the purge operations are enabled.
         :param pulumi.Input[bool] enable_streaming_ingest: A boolean value that indicates if the streaming ingest is enabled.
@@ -47,7 +48,6 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['KeyVaultPropertiesArgs']] key_vault_properties: KeyVault properties for the cluster encryption.
         :param pulumi.Input[pulumi.InputType['LanguageExtensionsListArgs']] language_extensions: List of the cluster's language extensions.
         :param pulumi.Input[str] location: The geo-location where the resource lives
-        :param pulumi.Input[str] name: The name of the Kusto cluster.
         :param pulumi.Input[pulumi.InputType['OptimizedAutoscaleArgs']] optimized_autoscale: Optimized auto scale definition.
         :param pulumi.Input[str] resource_group_name: The name of the resource group containing the Kusto cluster.
         :param pulumi.Input[pulumi.InputType['AzureSkuArgs']] sku: The SKU of the cluster.
@@ -73,6 +73,9 @@ class Cluster(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
+            if cluster_name is None:
+                raise TypeError("Missing required property 'cluster_name'")
+            __props__['cluster_name'] = cluster_name
             __props__['enable_disk_encryption'] = enable_disk_encryption
             __props__['enable_purge'] = enable_purge
             __props__['enable_streaming_ingest'] = enable_streaming_ingest
@@ -82,9 +85,6 @@ class Cluster(pulumi.CustomResource):
             if location is None:
                 raise TypeError("Missing required property 'location'")
             __props__['location'] = location
-            if name is None:
-                raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
             __props__['optimized_autoscale'] = optimized_autoscale
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
@@ -97,6 +97,7 @@ class Cluster(pulumi.CustomResource):
             __props__['virtual_network_configuration'] = virtual_network_configuration
             __props__['zones'] = zones
             __props__['data_ingestion_uri'] = None
+            __props__['name'] = None
             __props__['provisioning_state'] = None
             __props__['state'] = None
             __props__['state_reason'] = None

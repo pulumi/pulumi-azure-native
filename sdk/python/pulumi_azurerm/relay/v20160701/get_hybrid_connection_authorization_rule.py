@@ -66,22 +66,22 @@ class AwaitableGetHybridConnectionAuthorizationRuleResult(GetHybridConnectionAut
             type=self.type)
 
 
-def get_hybrid_connection_authorization_rule(hybrid_connection_name: Optional[str] = None,
-                                             name: Optional[str] = None,
+def get_hybrid_connection_authorization_rule(authorization_rule_name: Optional[str] = None,
+                                             hybrid_connection_name: Optional[str] = None,
                                              namespace_name: Optional[str] = None,
                                              resource_group_name: Optional[str] = None,
                                              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetHybridConnectionAuthorizationRuleResult:
     """
     Use this data source to access information about an existing resource.
 
+    :param str authorization_rule_name: The authorizationRule name.
     :param str hybrid_connection_name: The hybrid connection name.
-    :param str name: The authorizationRule name.
     :param str namespace_name: The Namespace Name
     :param str resource_group_name: Name of the Resource group within the Azure subscription.
     """
     __args__ = dict()
+    __args__['authorizationRuleName'] = authorization_rule_name
     __args__['hybridConnectionName'] = hybrid_connection_name
-    __args__['name'] = name
     __args__['namespaceName'] = namespace_name
     __args__['resourceGroupName'] = resource_group_name
     if opts is None:

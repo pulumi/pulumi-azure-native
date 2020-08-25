@@ -15,7 +15,7 @@ class MigrationConfig(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 name: Optional[pulumi.Input[str]] = None,
+                 config_name: Optional[pulumi.Input[str]] = None,
                  namespace_name: Optional[pulumi.Input[str]] = None,
                  post_migration_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -28,7 +28,7 @@ class MigrationConfig(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] name: The configuration name. Should always be "$default".
+        :param pulumi.Input[str] config_name: The configuration name. Should always be "$default".
         :param pulumi.Input[str] namespace_name: The namespace name
         :param pulumi.Input[str] post_migration_name: Name to access Standard Namespace after migration
         :param pulumi.Input[str] resource_group_name: Name of the Resource group within the Azure subscription.
@@ -51,9 +51,9 @@ class MigrationConfig(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if name is None:
-                raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
+            if config_name is None:
+                raise TypeError("Missing required property 'config_name'")
+            __props__['config_name'] = config_name
             if namespace_name is None:
                 raise TypeError("Missing required property 'namespace_name'")
             __props__['namespace_name'] = namespace_name
@@ -67,6 +67,7 @@ class MigrationConfig(pulumi.CustomResource):
                 raise TypeError("Missing required property 'target_namespace'")
             __props__['target_namespace'] = target_namespace
             __props__['migration_state'] = None
+            __props__['name'] = None
             __props__['pending_replication_operations_count'] = None
             __props__['provisioning_state'] = None
             __props__['type'] = None

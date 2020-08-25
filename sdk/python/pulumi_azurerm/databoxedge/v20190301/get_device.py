@@ -259,17 +259,17 @@ class AwaitableGetDeviceResult(GetDeviceResult):
             type=self.type)
 
 
-def get_device(name: Optional[str] = None,
+def get_device(device_name: Optional[str] = None,
                resource_group_name: Optional[str] = None,
                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDeviceResult:
     """
     Use this data source to access information about an existing resource.
 
-    :param str name: The device name.
+    :param str device_name: The device name.
     :param str resource_group_name: The resource group name.
     """
     __args__ = dict()
-    __args__['name'] = name
+    __args__['deviceName'] = device_name
     __args__['resourceGroupName'] = resource_group_name
     if opts is None:
         opts = pulumi.InvokeOptions()

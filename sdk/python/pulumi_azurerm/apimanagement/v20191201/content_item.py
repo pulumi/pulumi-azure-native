@@ -15,8 +15,8 @@ class ContentItem(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 content_item_id: Optional[pulumi.Input[str]] = None,
                  content_type_id: Optional[pulumi.Input[str]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  service_name: Optional[pulumi.Input[str]] = None,
                  __props__=None,
@@ -27,8 +27,8 @@ class ContentItem(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] content_item_id: Content item identifier.
         :param pulumi.Input[str] content_type_id: Content type identifier.
-        :param pulumi.Input[str] name: Content item identifier.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[str] service_name: The name of the API Management service.
         """
@@ -49,18 +49,19 @@ class ContentItem(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
+            if content_item_id is None:
+                raise TypeError("Missing required property 'content_item_id'")
+            __props__['content_item_id'] = content_item_id
             if content_type_id is None:
                 raise TypeError("Missing required property 'content_type_id'")
             __props__['content_type_id'] = content_type_id
-            if name is None:
-                raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             if service_name is None:
                 raise TypeError("Missing required property 'service_name'")
             __props__['service_name'] = service_name
+            __props__['name'] = None
             __props__['type'] = None
         super(ContentItem, __self__).__init__(
             'azurerm:apimanagement/v20191201:ContentItem',

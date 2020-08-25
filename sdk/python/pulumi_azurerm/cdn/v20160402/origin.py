@@ -19,7 +19,7 @@ class Origin(pulumi.CustomResource):
                  host_name: Optional[pulumi.Input[str]] = None,
                  http_port: Optional[pulumi.Input[float]] = None,
                  https_port: Optional[pulumi.Input[float]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
+                 origin_name: Optional[pulumi.Input[str]] = None,
                  profile_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  __props__=None,
@@ -34,7 +34,7 @@ class Origin(pulumi.CustomResource):
         :param pulumi.Input[str] host_name: The address of the origin. Domain names, IPv4 addresses, and IPv6 addresses are supported.
         :param pulumi.Input[float] http_port: The value of the HTTP port. Must be between 1 and 65535.
         :param pulumi.Input[float] https_port: The value of the HTTPS port. Must be between 1 and 65535.
-        :param pulumi.Input[str] name: Name of the origin, an arbitrary value but it needs to be unique under endpoint
+        :param pulumi.Input[str] origin_name: Name of the origin, an arbitrary value but it needs to be unique under endpoint
         :param pulumi.Input[str] profile_name: Name of the CDN profile within the resource group.
         :param pulumi.Input[str] resource_group_name: Name of the resource group within the Azure subscription.
         """
@@ -63,15 +63,16 @@ class Origin(pulumi.CustomResource):
             __props__['host_name'] = host_name
             __props__['http_port'] = http_port
             __props__['https_port'] = https_port
-            if name is None:
-                raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
+            if origin_name is None:
+                raise TypeError("Missing required property 'origin_name'")
+            __props__['origin_name'] = origin_name
             if profile_name is None:
                 raise TypeError("Missing required property 'profile_name'")
             __props__['profile_name'] = profile_name
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
+            __props__['name'] = None
             __props__['provisioning_state'] = None
             __props__['resource_state'] = None
             __props__['type'] = None

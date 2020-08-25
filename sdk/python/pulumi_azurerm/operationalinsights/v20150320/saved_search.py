@@ -20,9 +20,9 @@ class SavedSearch(pulumi.CustomResource):
                  category: Optional[pulumi.Input[str]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
                  e_tag: Optional[pulumi.Input[str]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
                  query: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
+                 saved_search_id: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['TagArgs']]]]] = None,
                  version: Optional[pulumi.Input[float]] = None,
                  workspace_name: Optional[pulumi.Input[str]] = None,
@@ -37,9 +37,9 @@ class SavedSearch(pulumi.CustomResource):
         :param pulumi.Input[str] category: The category of the saved search. This helps the user to find a saved search faster. 
         :param pulumi.Input[str] display_name: Saved search display name.
         :param pulumi.Input[str] e_tag: The ETag of the saved search.
-        :param pulumi.Input[str] name: The id of the saved search.
         :param pulumi.Input[str] query: The query expression for the saved search. Please see https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-search-reference for reference.
         :param pulumi.Input[str] resource_group_name: The Resource Group name.
+        :param pulumi.Input[str] saved_search_id: The id of the saved search.
         :param pulumi.Input[List[pulumi.Input[pulumi.InputType['TagArgs']]]] tags: The tags attached to the saved search.
         :param pulumi.Input[float] version: The version number of the query language. The current version is 2 and is the default.
         :param pulumi.Input[str] workspace_name: The Log Analytics Workspace name.
@@ -68,20 +68,21 @@ class SavedSearch(pulumi.CustomResource):
                 raise TypeError("Missing required property 'display_name'")
             __props__['display_name'] = display_name
             __props__['e_tag'] = e_tag
-            if name is None:
-                raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
             if query is None:
                 raise TypeError("Missing required property 'query'")
             __props__['query'] = query
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
+            if saved_search_id is None:
+                raise TypeError("Missing required property 'saved_search_id'")
+            __props__['saved_search_id'] = saved_search_id
             __props__['tags'] = tags
             __props__['version'] = version
             if workspace_name is None:
                 raise TypeError("Missing required property 'workspace_name'")
             __props__['workspace_name'] = workspace_name
+            __props__['name'] = None
             __props__['type'] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:operationalinsights/v20200801:SavedSearch")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)

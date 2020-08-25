@@ -79,19 +79,19 @@ class AwaitableGetGatewayResult(GetGatewayResult):
             type=self.type)
 
 
-def get_gateway(name: Optional[str] = None,
+def get_gateway(gateway_id: Optional[str] = None,
                 resource_group_name: Optional[str] = None,
                 service_name: Optional[str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetGatewayResult:
     """
     Use this data source to access information about an existing resource.
 
-    :param str name: Gateway entity identifier. Must be unique in the current API Management service instance. Must not have value 'managed'
+    :param str gateway_id: Gateway entity identifier. Must be unique in the current API Management service instance. Must not have value 'managed'
     :param str resource_group_name: The name of the resource group.
     :param str service_name: The name of the API Management service.
     """
     __args__ = dict()
-    __args__['name'] = name
+    __args__['gatewayId'] = gateway_id
     __args__['resourceGroupName'] = resource_group_name
     __args__['serviceName'] = service_name
     if opts is None:

@@ -15,9 +15,9 @@ class DataSource(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 data_source_name: Optional[pulumi.Input[str]] = None,
                  etag: Optional[pulumi.Input[str]] = None,
                  kind: Optional[pulumi.Input[str]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
                  properties: Optional[pulumi.Input[Mapping[str, Any]]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -30,9 +30,9 @@ class DataSource(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] data_source_name: The name of the datasource resource.
         :param pulumi.Input[str] etag: The ETag of the data source.
         :param pulumi.Input[str] kind: The kind of the DataSource.
-        :param pulumi.Input[str] name: The name of the datasource resource.
         :param pulumi.Input[Mapping[str, Any]] properties: The data source properties in raw json format, each kind of data source have it's own schema.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
@@ -55,13 +55,13 @@ class DataSource(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
+            if data_source_name is None:
+                raise TypeError("Missing required property 'data_source_name'")
+            __props__['data_source_name'] = data_source_name
             __props__['etag'] = etag
             if kind is None:
                 raise TypeError("Missing required property 'kind'")
             __props__['kind'] = kind
-            if name is None:
-                raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
             if properties is None:
                 raise TypeError("Missing required property 'properties'")
             __props__['properties'] = properties
@@ -72,6 +72,7 @@ class DataSource(pulumi.CustomResource):
             if workspace_name is None:
                 raise TypeError("Missing required property 'workspace_name'")
             __props__['workspace_name'] = workspace_name
+            __props__['name'] = None
             __props__['type'] = None
         super(DataSource, __self__).__init__(
             'azurerm:operationalinsights/v20200801:DataSource',

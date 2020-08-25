@@ -16,8 +16,8 @@ class Group(pulumi.CustomResource):
                  resource_name,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  e_tag: Optional[pulumi.Input[str]] = None,
+                 group_name: Optional[pulumi.Input[str]] = None,
                  machines: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
                  project_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  __props__=None,
@@ -29,8 +29,8 @@ class Group(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] e_tag: For optimistic concurrency control.
+        :param pulumi.Input[str] group_name: Unique name of a group within a project.
         :param pulumi.Input[List[pulumi.Input[str]]] machines: List of machine names that are part of this group.
-        :param pulumi.Input[str] name: Unique name of a group within a project.
         :param pulumi.Input[str] project_name: Name of the Azure Migrate project.
         :param pulumi.Input[str] resource_group_name: Name of the Azure Resource Group that project is part of.
         """
@@ -52,12 +52,12 @@ class Group(pulumi.CustomResource):
             __props__ = dict()
 
             __props__['e_tag'] = e_tag
+            if group_name is None:
+                raise TypeError("Missing required property 'group_name'")
+            __props__['group_name'] = group_name
             if machines is None:
                 raise TypeError("Missing required property 'machines'")
             __props__['machines'] = machines
-            if name is None:
-                raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
             if project_name is None:
                 raise TypeError("Missing required property 'project_name'")
             __props__['project_name'] = project_name
@@ -66,6 +66,7 @@ class Group(pulumi.CustomResource):
             __props__['resource_group_name'] = resource_group_name
             __props__['assessments'] = None
             __props__['created_timestamp'] = None
+            __props__['name'] = None
             __props__['type'] = None
             __props__['updated_timestamp'] = None
         super(Group, __self__).__init__(

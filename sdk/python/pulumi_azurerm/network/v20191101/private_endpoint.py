@@ -20,7 +20,7 @@ class PrivateEndpoint(pulumi.CustomResource):
                  id: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  manual_private_link_service_connections: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['PrivateLinkServiceConnectionArgs']]]]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
+                 private_endpoint_name: Optional[pulumi.Input[str]] = None,
                  private_link_service_connections: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['PrivateLinkServiceConnectionArgs']]]]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  subnet: Optional[pulumi.Input[pulumi.InputType['SubnetArgs']]] = None,
@@ -36,7 +36,7 @@ class PrivateEndpoint(pulumi.CustomResource):
         :param pulumi.Input[str] id: Resource ID.
         :param pulumi.Input[str] location: Resource location.
         :param pulumi.Input[List[pulumi.Input[pulumi.InputType['PrivateLinkServiceConnectionArgs']]]] manual_private_link_service_connections: A grouping of information about the connection to the remote resource. Used when the network admin does not have access to approve connections to the remote resource.
-        :param pulumi.Input[str] name: The name of the private endpoint.
+        :param pulumi.Input[str] private_endpoint_name: The name of the private endpoint.
         :param pulumi.Input[List[pulumi.Input[pulumi.InputType['PrivateLinkServiceConnectionArgs']]]] private_link_service_connections: A grouping of information about the connection to the remote resource.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[pulumi.InputType['SubnetArgs']] subnet: The ID of the subnet from which the private IP will be allocated.
@@ -62,9 +62,9 @@ class PrivateEndpoint(pulumi.CustomResource):
             __props__['id'] = id
             __props__['location'] = location
             __props__['manual_private_link_service_connections'] = manual_private_link_service_connections
-            if name is None:
-                raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
+            if private_endpoint_name is None:
+                raise TypeError("Missing required property 'private_endpoint_name'")
+            __props__['private_endpoint_name'] = private_endpoint_name
             __props__['private_link_service_connections'] = private_link_service_connections
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
@@ -72,6 +72,7 @@ class PrivateEndpoint(pulumi.CustomResource):
             __props__['subnet'] = subnet
             __props__['tags'] = tags
             __props__['etag'] = None
+            __props__['name'] = None
             __props__['network_interfaces'] = None
             __props__['provisioning_state'] = None
             __props__['type'] = None

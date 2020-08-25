@@ -103,17 +103,17 @@ class AwaitableGetDeviceSecurityGroupResult(GetDeviceSecurityGroupResult):
             type=self.type)
 
 
-def get_device_security_group(name: Optional[str] = None,
+def get_device_security_group(device_security_group_name: Optional[str] = None,
                               resource_id: Optional[str] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDeviceSecurityGroupResult:
     """
     Use this data source to access information about an existing resource.
 
-    :param str name: The name of the device security group. Note that the name of the device security group is case insensitive.
+    :param str device_security_group_name: The name of the device security group. Note that the name of the device security group is case insensitive.
     :param str resource_id: The identifier of the resource.
     """
     __args__ = dict()
-    __args__['name'] = name
+    __args__['deviceSecurityGroupName'] = device_security_group_name
     __args__['resourceId'] = resource_id
     if opts is None:
         opts = pulumi.InvokeOptions()

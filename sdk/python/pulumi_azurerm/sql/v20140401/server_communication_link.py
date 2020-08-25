@@ -15,7 +15,7 @@ class ServerCommunicationLink(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 name: Optional[pulumi.Input[str]] = None,
+                 communication_link_name: Optional[pulumi.Input[str]] = None,
                  partner_server: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  server_name: Optional[pulumi.Input[str]] = None,
@@ -27,7 +27,7 @@ class ServerCommunicationLink(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] name: The name of the server communication link.
+        :param pulumi.Input[str] communication_link_name: The name of the server communication link.
         :param pulumi.Input[str] partner_server: The name of the partner server.
         :param pulumi.Input[str] resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
         :param pulumi.Input[str] server_name: The name of the server.
@@ -49,9 +49,9 @@ class ServerCommunicationLink(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if name is None:
-                raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
+            if communication_link_name is None:
+                raise TypeError("Missing required property 'communication_link_name'")
+            __props__['communication_link_name'] = communication_link_name
             if partner_server is None:
                 raise TypeError("Missing required property 'partner_server'")
             __props__['partner_server'] = partner_server
@@ -63,6 +63,7 @@ class ServerCommunicationLink(pulumi.CustomResource):
             __props__['server_name'] = server_name
             __props__['kind'] = None
             __props__['location'] = None
+            __props__['name'] = None
             __props__['state'] = None
             __props__['type'] = None
         super(ServerCommunicationLink, __self__).__init__(

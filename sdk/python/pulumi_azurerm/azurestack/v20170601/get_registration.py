@@ -126,17 +126,17 @@ class AwaitableGetRegistrationResult(GetRegistrationResult):
             type=self.type)
 
 
-def get_registration(name: Optional[str] = None,
+def get_registration(registration_name: Optional[str] = None,
                      resource_group: Optional[str] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetRegistrationResult:
     """
     Use this data source to access information about an existing resource.
 
-    :param str name: Name of the Azure Stack registration.
+    :param str registration_name: Name of the Azure Stack registration.
     :param str resource_group: Name of the resource group.
     """
     __args__ = dict()
-    __args__['name'] = name
+    __args__['registrationName'] = registration_name
     __args__['resourceGroup'] = resource_group
     if opts is None:
         opts = pulumi.InvokeOptions()

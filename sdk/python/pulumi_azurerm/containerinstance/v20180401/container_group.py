@@ -17,11 +17,11 @@ class ContainerGroup(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 container_group_name: Optional[pulumi.Input[str]] = None,
                  containers: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['ContainerArgs']]]]] = None,
                  image_registry_credentials: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['ImageRegistryCredentialArgs']]]]] = None,
                  ip_address: Optional[pulumi.Input[pulumi.InputType['IpAddressArgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
                  os_type: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  restart_policy: Optional[pulumi.Input[str]] = None,
@@ -35,11 +35,11 @@ class ContainerGroup(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] container_group_name: The name of the container group.
         :param pulumi.Input[List[pulumi.Input[pulumi.InputType['ContainerArgs']]]] containers: The containers within the container group.
         :param pulumi.Input[List[pulumi.Input[pulumi.InputType['ImageRegistryCredentialArgs']]]] image_registry_credentials: The image registry credentials by which the container group is created from.
         :param pulumi.Input[pulumi.InputType['IpAddressArgs']] ip_address: The IP address type of the container group.
         :param pulumi.Input[str] location: The resource location.
-        :param pulumi.Input[str] name: The name of the container group.
         :param pulumi.Input[str] os_type: The operating system type required by the containers in the container group.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[str] restart_policy: Restart policy for all containers within the container group. 
@@ -66,15 +66,15 @@ class ContainerGroup(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
+            if container_group_name is None:
+                raise TypeError("Missing required property 'container_group_name'")
+            __props__['container_group_name'] = container_group_name
             if containers is None:
                 raise TypeError("Missing required property 'containers'")
             __props__['containers'] = containers
             __props__['image_registry_credentials'] = image_registry_credentials
             __props__['ip_address'] = ip_address
             __props__['location'] = location
-            if name is None:
-                raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
             if os_type is None:
                 raise TypeError("Missing required property 'os_type'")
             __props__['os_type'] = os_type
@@ -85,6 +85,7 @@ class ContainerGroup(pulumi.CustomResource):
             __props__['tags'] = tags
             __props__['volumes'] = volumes
             __props__['instance_view'] = None
+            __props__['name'] = None
             __props__['provisioning_state'] = None
             __props__['type'] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:containerinstance/v20180601:ContainerGroup"), pulumi.Alias(type_="azurerm:containerinstance/v20180901:ContainerGroup"), pulumi.Alias(type_="azurerm:containerinstance/v20181001:ContainerGroup"), pulumi.Alias(type_="azurerm:containerinstance/v20191201:ContainerGroup")])

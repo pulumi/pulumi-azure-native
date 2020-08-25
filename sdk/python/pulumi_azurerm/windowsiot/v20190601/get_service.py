@@ -150,17 +150,17 @@ class AwaitableGetServiceResult(GetServiceResult):
             type=self.type)
 
 
-def get_service(name: Optional[str] = None,
+def get_service(device_name: Optional[str] = None,
                 resource_group_name: Optional[str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetServiceResult:
     """
     Use this data source to access information about an existing resource.
 
-    :param str name: The name of the Windows IoT Device Service.
+    :param str device_name: The name of the Windows IoT Device Service.
     :param str resource_group_name: The name of the resource group that contains the Windows IoT Device Service.
     """
     __args__ = dict()
-    __args__['name'] = name
+    __args__['deviceName'] = device_name
     __args__['resourceGroupName'] = resource_group_name
     if opts is None:
         opts = pulumi.InvokeOptions()

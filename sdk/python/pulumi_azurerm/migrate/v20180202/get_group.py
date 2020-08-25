@@ -114,19 +114,19 @@ class AwaitableGetGroupResult(GetGroupResult):
             updated_timestamp=self.updated_timestamp)
 
 
-def get_group(name: Optional[str] = None,
+def get_group(group_name: Optional[str] = None,
               project_name: Optional[str] = None,
               resource_group_name: Optional[str] = None,
               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetGroupResult:
     """
     Use this data source to access information about an existing resource.
 
-    :param str name: Unique name of a group within a project.
+    :param str group_name: Unique name of a group within a project.
     :param str project_name: Name of the Azure Migrate project.
     :param str resource_group_name: Name of the Azure Resource Group that project is part of.
     """
     __args__ = dict()
-    __args__['name'] = name
+    __args__['groupName'] = group_name
     __args__['projectName'] = project_name
     __args__['resourceGroupName'] = resource_group_name
     if opts is None:

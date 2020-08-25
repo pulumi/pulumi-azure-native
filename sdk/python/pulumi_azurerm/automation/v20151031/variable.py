@@ -21,6 +21,7 @@ class Variable(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  value: Optional[pulumi.Input[str]] = None,
+                 variable_name: Optional[pulumi.Input[str]] = None,
                  __props__=None,
                  __name__=None,
                  __opts__=None):
@@ -32,9 +33,10 @@ class Variable(pulumi.CustomResource):
         :param pulumi.Input[str] automation_account_name: The name of the automation account.
         :param pulumi.Input[str] description: Gets or sets the description of the variable.
         :param pulumi.Input[bool] is_encrypted: Gets or sets the encrypted flag of the variable.
-        :param pulumi.Input[str] name: The variable name.
+        :param pulumi.Input[str] name: Gets or sets the name of the variable.
         :param pulumi.Input[str] resource_group_name: Name of an Azure Resource group.
         :param pulumi.Input[str] value: Gets or sets the value of the variable.
+        :param pulumi.Input[str] variable_name: The variable name.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -65,6 +67,9 @@ class Variable(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['value'] = value
+            if variable_name is None:
+                raise TypeError("Missing required property 'variable_name'")
+            __props__['variable_name'] = variable_name
             __props__['creation_time'] = None
             __props__['last_modified_time'] = None
             __props__['type'] = None

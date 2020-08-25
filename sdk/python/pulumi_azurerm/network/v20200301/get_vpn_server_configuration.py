@@ -247,18 +247,18 @@ class AwaitableGetVpnServerConfigurationResult(GetVpnServerConfigurationResult):
             vpn_protocols=self.vpn_protocols)
 
 
-def get_vpn_server_configuration(name: Optional[str] = None,
-                                 resource_group_name: Optional[str] = None,
+def get_vpn_server_configuration(resource_group_name: Optional[str] = None,
+                                 vpn_server_configuration_name: Optional[str] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVpnServerConfigurationResult:
     """
     Use this data source to access information about an existing resource.
 
-    :param str name: The name of the VpnServerConfiguration being retrieved.
     :param str resource_group_name: The resource group name of the VpnServerConfiguration.
+    :param str vpn_server_configuration_name: The name of the VpnServerConfiguration being retrieved.
     """
     __args__ = dict()
-    __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
+    __args__['vpnServerConfigurationName'] = vpn_server_configuration_name
     if opts is None:
         opts = pulumi.InvokeOptions()
     if opts.version is None:

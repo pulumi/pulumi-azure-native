@@ -18,7 +18,7 @@ class ManagementLockByScope(pulumi.CustomResource):
                  resource_name,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  level: Optional[pulumi.Input[str]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
+                 lock_name: Optional[pulumi.Input[str]] = None,
                  notes: Optional[pulumi.Input[str]] = None,
                  owners: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['ManagementLockOwnerArgs']]]]] = None,
                  scope: Optional[pulumi.Input[str]] = None,
@@ -31,7 +31,7 @@ class ManagementLockByScope(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] level: The level of the lock. Possible values are: NotSpecified, CanNotDelete, ReadOnly. CanNotDelete means authorized users are able to read and modify the resources, but not delete. ReadOnly means authorized users can only read from a resource, but they can't modify or delete it.
-        :param pulumi.Input[str] name: The name of lock.
+        :param pulumi.Input[str] lock_name: The name of lock.
         :param pulumi.Input[str] notes: Notes about the lock. Maximum of 512 characters.
         :param pulumi.Input[List[pulumi.Input[pulumi.InputType['ManagementLockOwnerArgs']]]] owners: The owners of the lock.
         :param pulumi.Input[str] scope: The scope for the lock. When providing a scope for the assignment, use '/subscriptions/{subscriptionId}' for subscriptions, '/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}' for resource groups, and '/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{parentResourcePathIfPresent}/{resourceType}/{resourceName}' for resources.
@@ -56,14 +56,15 @@ class ManagementLockByScope(pulumi.CustomResource):
             if level is None:
                 raise TypeError("Missing required property 'level'")
             __props__['level'] = level
-            if name is None:
-                raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
+            if lock_name is None:
+                raise TypeError("Missing required property 'lock_name'")
+            __props__['lock_name'] = lock_name
             __props__['notes'] = notes
             __props__['owners'] = owners
             if scope is None:
                 raise TypeError("Missing required property 'scope'")
             __props__['scope'] = scope
+            __props__['name'] = None
             __props__['type'] = None
         super(ManagementLockByScope, __self__).__init__(
             'azurerm:authorization/v20160901:ManagementLockByScope',

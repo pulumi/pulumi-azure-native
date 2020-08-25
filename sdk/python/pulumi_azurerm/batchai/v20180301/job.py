@@ -28,10 +28,10 @@ class Job(pulumi.CustomResource):
                  environment_variables: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['EnvironmentVariableArgs']]]]] = None,
                  experiment_name: Optional[pulumi.Input[str]] = None,
                  input_directories: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['InputDirectoryArgs']]]]] = None,
+                 job_name: Optional[pulumi.Input[str]] = None,
                  job_preparation: Optional[pulumi.Input[pulumi.InputType['JobPreparationArgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  mount_volumes: Optional[pulumi.Input[pulumi.InputType['MountVolumesArgs']]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
                  node_count: Optional[pulumi.Input[float]] = None,
                  output_directories: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['OutputDirectoryArgs']]]]] = None,
                  priority: Optional[pulumi.Input[float]] = None,
@@ -59,10 +59,10 @@ class Job(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['CustomToolkitSettingsArgs']] custom_toolkit_settings: Specifies the settings for a custom tool kit job.
         :param pulumi.Input[List[pulumi.Input[pulumi.InputType['EnvironmentVariableArgs']]]] environment_variables: Batch AI will setup these additional environment variables for the job.
         :param pulumi.Input[str] experiment_name: Describe the experiment information of the job
+        :param pulumi.Input[str] job_name: The name of the job within the specified resource group. Job names can only contain a combination of alphanumeric characters along with dash (-) and underscore (_). The name must be from 1 through 64 characters long.
         :param pulumi.Input[pulumi.InputType['JobPreparationArgs']] job_preparation: The specified actions will run on all the nodes that are part of the job
         :param pulumi.Input[str] location: The region in which to create the job.
         :param pulumi.Input[pulumi.InputType['MountVolumesArgs']] mount_volumes: These volumes will be mounted before the job execution and will be unmounted after the job completion. The volumes will be mounted at location specified by $AZ_BATCHAI_JOB_MOUNT_ROOT environment variable.
-        :param pulumi.Input[str] name: The name of the job within the specified resource group. Job names can only contain a combination of alphanumeric characters along with dash (-) and underscore (_). The name must be from 1 through 64 characters long.
         :param pulumi.Input[float] node_count: The job will be gang scheduled on that many compute nodes
         :param pulumi.Input[float] priority: Priority associated with the job. Priority values can range from -1000 to 1000, with -1000 being the lowest priority and 1000 being the highest priority. The default value is 0.
         :param pulumi.Input[pulumi.InputType['PyTorchSettingsArgs']] py_torch_settings: Specifies the settings for pyTorch job.
@@ -102,14 +102,14 @@ class Job(pulumi.CustomResource):
             __props__['environment_variables'] = environment_variables
             __props__['experiment_name'] = experiment_name
             __props__['input_directories'] = input_directories
+            if job_name is None:
+                raise TypeError("Missing required property 'job_name'")
+            __props__['job_name'] = job_name
             __props__['job_preparation'] = job_preparation
             if location is None:
                 raise TypeError("Missing required property 'location'")
             __props__['location'] = location
             __props__['mount_volumes'] = mount_volumes
-            if name is None:
-                raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
             if node_count is None:
                 raise TypeError("Missing required property 'node_count'")
             __props__['node_count'] = node_count
@@ -130,6 +130,7 @@ class Job(pulumi.CustomResource):
             __props__['execution_state'] = None
             __props__['execution_state_transition_time'] = None
             __props__['job_output_directory_path_segment'] = None
+            __props__['name'] = None
             __props__['provisioning_state'] = None
             __props__['provisioning_state_transition_time'] = None
             __props__['tool_type'] = None

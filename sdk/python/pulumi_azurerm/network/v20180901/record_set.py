@@ -23,10 +23,10 @@ class RecordSet(pulumi.CustomResource):
                  etag: Optional[pulumi.Input[str]] = None,
                  metadata: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  mx_records: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['MxRecordArgs']]]]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
                  private_zone_name: Optional[pulumi.Input[str]] = None,
                  ptr_records: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['PtrRecordArgs']]]]] = None,
                  record_type: Optional[pulumi.Input[str]] = None,
+                 relative_record_set_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  soa_record: Optional[pulumi.Input[pulumi.InputType['SoaRecordArgs']]] = None,
                  srv_records: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['SrvRecordArgs']]]]] = None,
@@ -46,10 +46,10 @@ class RecordSet(pulumi.CustomResource):
         :param pulumi.Input[str] etag: The ETag of the record set.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] metadata: The metadata attached to the record set.
         :param pulumi.Input[List[pulumi.Input[pulumi.InputType['MxRecordArgs']]]] mx_records: The list of MX records in the record set.
-        :param pulumi.Input[str] name: The name of the record set, relative to the name of the zone.
         :param pulumi.Input[str] private_zone_name: The name of the Private DNS zone (without a terminating dot).
         :param pulumi.Input[List[pulumi.Input[pulumi.InputType['PtrRecordArgs']]]] ptr_records: The list of PTR records in the record set.
         :param pulumi.Input[str] record_type: The type of DNS record in this record set. Record sets of type SOA can be updated but not created (they are created when the Private DNS zone is created).
+        :param pulumi.Input[str] relative_record_set_name: The name of the record set, relative to the name of the zone.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[pulumi.InputType['SoaRecordArgs']] soa_record: The SOA record in the record set.
         :param pulumi.Input[List[pulumi.Input[pulumi.InputType['SrvRecordArgs']]]] srv_records: The list of SRV records in the record set.
@@ -79,9 +79,6 @@ class RecordSet(pulumi.CustomResource):
             __props__['etag'] = etag
             __props__['metadata'] = metadata
             __props__['mx_records'] = mx_records
-            if name is None:
-                raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
             if private_zone_name is None:
                 raise TypeError("Missing required property 'private_zone_name'")
             __props__['private_zone_name'] = private_zone_name
@@ -89,6 +86,9 @@ class RecordSet(pulumi.CustomResource):
             if record_type is None:
                 raise TypeError("Missing required property 'record_type'")
             __props__['record_type'] = record_type
+            if relative_record_set_name is None:
+                raise TypeError("Missing required property 'relative_record_set_name'")
+            __props__['relative_record_set_name'] = relative_record_set_name
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
@@ -98,6 +98,7 @@ class RecordSet(pulumi.CustomResource):
             __props__['txt_records'] = txt_records
             __props__['fqdn'] = None
             __props__['is_auto_registered'] = None
+            __props__['name'] = None
             __props__['type'] = None
         super(RecordSet, __self__).__init__(
             'azurerm:network/v20180901:RecordSet',

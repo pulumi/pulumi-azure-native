@@ -18,10 +18,10 @@ class DiskEncryptionSet(pulumi.CustomResource):
                  resource_name,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  active_key: Optional[pulumi.Input[pulumi.InputType['KeyVaultAndKeyReferenceArgs']]] = None,
+                 disk_encryption_set_name: Optional[pulumi.Input[str]] = None,
                  encryption_type: Optional[pulumi.Input[str]] = None,
                  identity: Optional[pulumi.Input[pulumi.InputType['EncryptionSetIdentityArgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None,
@@ -33,10 +33,10 @@ class DiskEncryptionSet(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['KeyVaultAndKeyReferenceArgs']] active_key: The key vault key which is currently used by this disk encryption set.
+        :param pulumi.Input[str] disk_encryption_set_name: The name of the disk encryption set that is being created. The name can't be changed after the disk encryption set is created. Supported characters for the name are a-z, A-Z, 0-9 and _. The maximum name length is 80 characters.
         :param pulumi.Input[str] encryption_type: The type of key used to encrypt the data of the disk.
         :param pulumi.Input[pulumi.InputType['EncryptionSetIdentityArgs']] identity: The managed identity for the disk encryption set. It should be given permission on the key vault before it can be used to encrypt disks.
         :param pulumi.Input[str] location: Resource location
-        :param pulumi.Input[str] name: The name of the disk encryption set that is being created. The name can't be changed after the disk encryption set is created. Supported characters for the name are a-z, A-Z, 0-9 and _. The maximum name length is 80 characters.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags
         """
@@ -58,18 +58,19 @@ class DiskEncryptionSet(pulumi.CustomResource):
             __props__ = dict()
 
             __props__['active_key'] = active_key
+            if disk_encryption_set_name is None:
+                raise TypeError("Missing required property 'disk_encryption_set_name'")
+            __props__['disk_encryption_set_name'] = disk_encryption_set_name
             __props__['encryption_type'] = encryption_type
             __props__['identity'] = identity
             if location is None:
                 raise TypeError("Missing required property 'location'")
             __props__['location'] = location
-            if name is None:
-                raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['tags'] = tags
+            __props__['name'] = None
             __props__['previous_keys'] = None
             __props__['provisioning_state'] = None
             __props__['type'] = None

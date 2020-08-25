@@ -19,11 +19,11 @@ class DomainService(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  domain_name: Optional[pulumi.Input[str]] = None,
                  domain_security_settings: Optional[pulumi.Input[pulumi.InputType['DomainSecuritySettingsArgs']]] = None,
+                 domain_service_name: Optional[pulumi.Input[str]] = None,
                  etag: Optional[pulumi.Input[str]] = None,
                  filtered_sync: Optional[pulumi.Input[str]] = None,
                  ldaps_settings: Optional[pulumi.Input[pulumi.InputType['LdapsSettingsArgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
                  notification_settings: Optional[pulumi.Input[pulumi.InputType['NotificationSettingsArgs']]] = None,
                  replica_sets: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['ReplicaSetArgs']]]]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -38,11 +38,11 @@ class DomainService(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] domain_name: The name of the Azure domain that the user would like to deploy Domain Services to.
         :param pulumi.Input[pulumi.InputType['DomainSecuritySettingsArgs']] domain_security_settings: DomainSecurity Settings
+        :param pulumi.Input[str] domain_service_name: The name of the domain service.
         :param pulumi.Input[str] etag: Resource etag
         :param pulumi.Input[str] filtered_sync: Enabled or Disabled flag to turn on Group-based filtered sync
         :param pulumi.Input[pulumi.InputType['LdapsSettingsArgs']] ldaps_settings: Secure LDAP Settings
         :param pulumi.Input[str] location: Resource location
-        :param pulumi.Input[str] name: The name of the domain service.
         :param pulumi.Input[pulumi.InputType['NotificationSettingsArgs']] notification_settings: Notification Settings
         :param pulumi.Input[List[pulumi.Input[pulumi.InputType['ReplicaSetArgs']]]] replica_sets: List of ReplicaSets
         :param pulumi.Input[str] resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.
@@ -67,13 +67,13 @@ class DomainService(pulumi.CustomResource):
 
             __props__['domain_name'] = domain_name
             __props__['domain_security_settings'] = domain_security_settings
+            if domain_service_name is None:
+                raise TypeError("Missing required property 'domain_service_name'")
+            __props__['domain_service_name'] = domain_service_name
             __props__['etag'] = etag
             __props__['filtered_sync'] = filtered_sync
             __props__['ldaps_settings'] = ldaps_settings
             __props__['location'] = location
-            if name is None:
-                raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
             __props__['notification_settings'] = notification_settings
             __props__['replica_sets'] = replica_sets
             if resource_group_name is None:
@@ -81,6 +81,7 @@ class DomainService(pulumi.CustomResource):
             __props__['resource_group_name'] = resource_group_name
             __props__['tags'] = tags
             __props__['deployment_id'] = None
+            __props__['name'] = None
             __props__['provisioning_state'] = None
             __props__['sync_owner'] = None
             __props__['tenant_id'] = None

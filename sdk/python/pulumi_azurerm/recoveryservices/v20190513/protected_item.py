@@ -21,8 +21,8 @@ class ProtectedItem(pulumi.CustomResource):
                  e_tag: Optional[pulumi.Input[str]] = None,
                  fabric_name: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
                  properties: Optional[pulumi.Input[pulumi.InputType['ProtectedItemArgs']]] = None,
+                 protected_item_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  vault_name: Optional[pulumi.Input[str]] = None,
@@ -38,8 +38,8 @@ class ProtectedItem(pulumi.CustomResource):
         :param pulumi.Input[str] e_tag: Optional ETag.
         :param pulumi.Input[str] fabric_name: Fabric name associated with the backup item.
         :param pulumi.Input[str] location: Resource location.
-        :param pulumi.Input[str] name: Item name to be backed up.
         :param pulumi.Input[pulumi.InputType['ProtectedItemArgs']] properties: ProtectedItemResource properties
+        :param pulumi.Input[str] protected_item_name: Item name to be backed up.
         :param pulumi.Input[str] resource_group_name: The name of the resource group where the recovery services vault is present.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         :param pulumi.Input[str] vault_name: The name of the recovery services vault.
@@ -69,10 +69,10 @@ class ProtectedItem(pulumi.CustomResource):
                 raise TypeError("Missing required property 'fabric_name'")
             __props__['fabric_name'] = fabric_name
             __props__['location'] = location
-            if name is None:
-                raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
             __props__['properties'] = properties
+            if protected_item_name is None:
+                raise TypeError("Missing required property 'protected_item_name'")
+            __props__['protected_item_name'] = protected_item_name
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
@@ -80,6 +80,7 @@ class ProtectedItem(pulumi.CustomResource):
             if vault_name is None:
                 raise TypeError("Missing required property 'vault_name'")
             __props__['vault_name'] = vault_name
+            __props__['name'] = None
             __props__['type'] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:recoveryservices/v20160601:ProtectedItem"), pulumi.Alias(type_="azurerm:recoveryservices/v20190615:ProtectedItem")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)

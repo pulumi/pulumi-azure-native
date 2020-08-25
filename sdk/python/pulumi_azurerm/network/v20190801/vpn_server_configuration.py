@@ -33,6 +33,7 @@ class VpnServerConfiguration(pulumi.CustomResource):
                  vpn_client_revoked_certificates: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['VpnServerConfigVpnClientRevokedCertificateArgs']]]]] = None,
                  vpn_client_root_certificates: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['VpnServerConfigVpnClientRootCertificateArgs']]]]] = None,
                  vpn_protocols: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 vpn_server_configuration_name: Optional[pulumi.Input[str]] = None,
                  __props__=None,
                  __name__=None,
                  __opts__=None):
@@ -45,7 +46,7 @@ class VpnServerConfiguration(pulumi.CustomResource):
         :param pulumi.Input[str] etag: A unique read-only string that changes whenever the resource is updated.
         :param pulumi.Input[str] id: Resource ID.
         :param pulumi.Input[str] location: Resource location.
-        :param pulumi.Input[str] name: The name of the VpnServerConfiguration being created or updated.
+        :param pulumi.Input[str] name: The name of the VpnServerConfiguration that is unique within a resource group.
         :param pulumi.Input[List[pulumi.Input[pulumi.InputType['VpnServerConfigRadiusClientRootCertificateArgs']]]] radius_client_root_certificates: Radius client root certificate of VpnServerConfiguration.
         :param pulumi.Input[str] radius_server_address: The radius server address property of the VpnServerConfiguration resource for point to site client connection.
         :param pulumi.Input[List[pulumi.Input[pulumi.InputType['VpnServerConfigRadiusServerRootCertificateArgs']]]] radius_server_root_certificates: Radius Server root certificate of VpnServerConfiguration.
@@ -57,6 +58,7 @@ class VpnServerConfiguration(pulumi.CustomResource):
         :param pulumi.Input[List[pulumi.Input[pulumi.InputType['VpnServerConfigVpnClientRevokedCertificateArgs']]]] vpn_client_revoked_certificates: VPN client revoked certificate of VpnServerConfiguration.
         :param pulumi.Input[List[pulumi.Input[pulumi.InputType['VpnServerConfigVpnClientRootCertificateArgs']]]] vpn_client_root_certificates: VPN client root certificate of VpnServerConfiguration.
         :param pulumi.Input[List[pulumi.Input[str]]] vpn_protocols: VPN protocols for the VpnServerConfiguration.
+        :param pulumi.Input[str] vpn_server_configuration_name: The name of the VpnServerConfiguration being created or updated.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -79,8 +81,6 @@ class VpnServerConfiguration(pulumi.CustomResource):
             __props__['etag'] = etag
             __props__['id'] = id
             __props__['location'] = location
-            if name is None:
-                raise TypeError("Missing required property 'name'")
             __props__['name'] = name
             __props__['radius_client_root_certificates'] = radius_client_root_certificates
             __props__['radius_server_address'] = radius_server_address
@@ -95,6 +95,9 @@ class VpnServerConfiguration(pulumi.CustomResource):
             __props__['vpn_client_revoked_certificates'] = vpn_client_revoked_certificates
             __props__['vpn_client_root_certificates'] = vpn_client_root_certificates
             __props__['vpn_protocols'] = vpn_protocols
+            if vpn_server_configuration_name is None:
+                raise TypeError("Missing required property 'vpn_server_configuration_name'")
+            __props__['vpn_server_configuration_name'] = vpn_server_configuration_name
             __props__['p2_s_vpn_gateways'] = None
             __props__['provisioning_state'] = None
             __props__['type'] = None

@@ -18,7 +18,7 @@ class NetworkWatcher(pulumi.CustomResource):
                  etag: Optional[pulumi.Input[str]] = None,
                  id: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
+                 network_watcher_name: Optional[pulumi.Input[str]] = None,
                  provisioning_state: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -33,7 +33,7 @@ class NetworkWatcher(pulumi.CustomResource):
         :param pulumi.Input[str] etag: A unique read-only string that changes whenever the resource is updated.
         :param pulumi.Input[str] id: Resource ID.
         :param pulumi.Input[str] location: Resource location.
-        :param pulumi.Input[str] name: The name of the network watcher.
+        :param pulumi.Input[str] network_watcher_name: The name of the network watcher.
         :param pulumi.Input[str] provisioning_state: The provisioning state of the network watcher resource.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
@@ -58,14 +58,15 @@ class NetworkWatcher(pulumi.CustomResource):
             __props__['etag'] = etag
             __props__['id'] = id
             __props__['location'] = location
-            if name is None:
-                raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
+            if network_watcher_name is None:
+                raise TypeError("Missing required property 'network_watcher_name'")
+            __props__['network_watcher_name'] = network_watcher_name
             __props__['provisioning_state'] = provisioning_state
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['tags'] = tags
+            __props__['name'] = None
             __props__['type'] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:network/v20160901:NetworkWatcher"), pulumi.Alias(type_="azurerm:network/v20161201:NetworkWatcher"), pulumi.Alias(type_="azurerm:network/v20170301:NetworkWatcher"), pulumi.Alias(type_="azurerm:network/v20170601:NetworkWatcher"), pulumi.Alias(type_="azurerm:network/v20170801:NetworkWatcher"), pulumi.Alias(type_="azurerm:network/v20170901:NetworkWatcher"), pulumi.Alias(type_="azurerm:network/v20171001:NetworkWatcher"), pulumi.Alias(type_="azurerm:network/v20171101:NetworkWatcher"), pulumi.Alias(type_="azurerm:network/v20180101:NetworkWatcher"), pulumi.Alias(type_="azurerm:network/v20180201:NetworkWatcher"), pulumi.Alias(type_="azurerm:network/v20180401:NetworkWatcher"), pulumi.Alias(type_="azurerm:network/v20180601:NetworkWatcher"), pulumi.Alias(type_="azurerm:network/v20180701:NetworkWatcher"), pulumi.Alias(type_="azurerm:network/v20180801:NetworkWatcher"), pulumi.Alias(type_="azurerm:network/v20181001:NetworkWatcher"), pulumi.Alias(type_="azurerm:network/v20181101:NetworkWatcher"), pulumi.Alias(type_="azurerm:network/v20181201:NetworkWatcher"), pulumi.Alias(type_="azurerm:network/v20190201:NetworkWatcher"), pulumi.Alias(type_="azurerm:network/v20190401:NetworkWatcher"), pulumi.Alias(type_="azurerm:network/v20190601:NetworkWatcher"), pulumi.Alias(type_="azurerm:network/v20190801:NetworkWatcher"), pulumi.Alias(type_="azurerm:network/v20190901:NetworkWatcher"), pulumi.Alias(type_="azurerm:network/v20191101:NetworkWatcher"), pulumi.Alias(type_="azurerm:network/v20191201:NetworkWatcher"), pulumi.Alias(type_="azurerm:network/v20200301:NetworkWatcher"), pulumi.Alias(type_="azurerm:network/v20200401:NetworkWatcher"), pulumi.Alias(type_="azurerm:network/v20200501:NetworkWatcher"), pulumi.Alias(type_="azurerm:network/v20200601:NetworkWatcher")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)

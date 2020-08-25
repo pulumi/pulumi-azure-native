@@ -18,8 +18,8 @@ class FileServer(pulumi.CustomResource):
                  resource_name,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  data_disks: Optional[pulumi.Input[pulumi.InputType['DataDisksArgs']]] = None,
+                 file_server_name: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  ssh_configuration: Optional[pulumi.Input[pulumi.InputType['SshConfigurationArgs']]] = None,
                  subnet: Optional[pulumi.Input[pulumi.InputType['ResourceIdArgs']]] = None,
@@ -34,8 +34,8 @@ class FileServer(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['DataDisksArgs']] data_disks: Settings for the data disk which would be created for the File Server.
+        :param pulumi.Input[str] file_server_name: The name of the file server within the specified resource group. File server names can only contain a combination of alphanumeric characters along with dash (-) and underscore (_). The name must be from 1 through 64 characters long.
         :param pulumi.Input[str] location: The region in which to create the File Server.
-        :param pulumi.Input[str] name: The name of the file server within the specified resource group. File server names can only contain a combination of alphanumeric characters along with dash (-) and underscore (_). The name must be from 1 through 64 characters long.
         :param pulumi.Input[str] resource_group_name: Name of the resource group to which the resource belongs.
         :param pulumi.Input[pulumi.InputType['SshConfigurationArgs']] ssh_configuration: SSH configuration settings for the VM
         :param pulumi.Input[pulumi.InputType['ResourceIdArgs']] subnet: Represents a resource ID. For example, for a subnet, it is the resource URL for the subnet.
@@ -62,12 +62,12 @@ class FileServer(pulumi.CustomResource):
             if data_disks is None:
                 raise TypeError("Missing required property 'data_disks'")
             __props__['data_disks'] = data_disks
+            if file_server_name is None:
+                raise TypeError("Missing required property 'file_server_name'")
+            __props__['file_server_name'] = file_server_name
             if location is None:
                 raise TypeError("Missing required property 'location'")
             __props__['location'] = location
-            if name is None:
-                raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
@@ -81,6 +81,7 @@ class FileServer(pulumi.CustomResource):
             __props__['vm_size'] = vm_size
             __props__['creation_time'] = None
             __props__['mount_settings'] = None
+            __props__['name'] = None
             __props__['provisioning_state'] = None
             __props__['provisioning_state_transition_time'] = None
             __props__['type'] = None

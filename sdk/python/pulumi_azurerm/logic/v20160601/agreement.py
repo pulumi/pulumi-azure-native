@@ -17,6 +17,7 @@ class Agreement(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 agreement_name: Optional[pulumi.Input[str]] = None,
                  agreement_type: Optional[pulumi.Input[str]] = None,
                  content: Optional[pulumi.Input[pulumi.InputType['AgreementContentArgs']]] = None,
                  guest_identity: Optional[pulumi.Input[pulumi.InputType['BusinessIdentityArgs']]] = None,
@@ -26,7 +27,6 @@ class Agreement(pulumi.CustomResource):
                  integration_account_name: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  metadata: Optional[pulumi.Input[Mapping[str, Any]]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None,
@@ -37,6 +37,7 @@ class Agreement(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] agreement_name: The integration account agreement name.
         :param pulumi.Input[str] agreement_type: The agreement type.
         :param pulumi.Input[pulumi.InputType['AgreementContentArgs']] content: The agreement content.
         :param pulumi.Input[pulumi.InputType['BusinessIdentityArgs']] guest_identity: The business identity of the guest partner.
@@ -46,7 +47,6 @@ class Agreement(pulumi.CustomResource):
         :param pulumi.Input[str] integration_account_name: The integration account name.
         :param pulumi.Input[str] location: The resource location.
         :param pulumi.Input[Mapping[str, Any]] metadata: The metadata.
-        :param pulumi.Input[str] name: The integration account agreement name.
         :param pulumi.Input[str] resource_group_name: The resource group name.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The resource tags.
         """
@@ -67,6 +67,9 @@ class Agreement(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
+            if agreement_name is None:
+                raise TypeError("Missing required property 'agreement_name'")
+            __props__['agreement_name'] = agreement_name
             if agreement_type is None:
                 raise TypeError("Missing required property 'agreement_type'")
             __props__['agreement_type'] = agreement_type
@@ -90,15 +93,13 @@ class Agreement(pulumi.CustomResource):
             __props__['integration_account_name'] = integration_account_name
             __props__['location'] = location
             __props__['metadata'] = metadata
-            if name is None:
-                raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['tags'] = tags
             __props__['changed_time'] = None
             __props__['created_time'] = None
+            __props__['name'] = None
             __props__['type'] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:logic/v20190501:Agreement")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)

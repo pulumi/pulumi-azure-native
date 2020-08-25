@@ -127,17 +127,17 @@ class AwaitableGetAutoscaleSettingResult(GetAutoscaleSettingResult):
             type=self.type)
 
 
-def get_autoscale_setting(name: Optional[str] = None,
+def get_autoscale_setting(autoscale_setting_name: Optional[str] = None,
                           resource_group_name: Optional[str] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAutoscaleSettingResult:
     """
     Use this data source to access information about an existing resource.
 
-    :param str name: The autoscale setting name.
+    :param str autoscale_setting_name: The autoscale setting name.
     :param str resource_group_name: The name of the resource group.
     """
     __args__ = dict()
-    __args__['name'] = name
+    __args__['autoscaleSettingName'] = autoscale_setting_name
     __args__['resourceGroupName'] = resource_group_name
     if opts is None:
         opts = pulumi.InvokeOptions()

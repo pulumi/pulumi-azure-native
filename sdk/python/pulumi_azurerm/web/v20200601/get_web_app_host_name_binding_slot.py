@@ -174,18 +174,21 @@ class AwaitableGetWebAppHostNameBindingSlotResult(GetWebAppHostNameBindingSlotRe
             virtual_ip=self.virtual_ip)
 
 
-def get_web_app_host_name_binding_slot(name: Optional[str] = None,
+def get_web_app_host_name_binding_slot(host_name: Optional[str] = None,
+                                       name: Optional[str] = None,
                                        resource_group_name: Optional[str] = None,
                                        slot: Optional[str] = None,
                                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetWebAppHostNameBindingSlotResult:
     """
     Use this data source to access information about an existing resource.
 
-    :param str name: Hostname in the hostname binding.
+    :param str host_name: Hostname in the hostname binding.
+    :param str name: Name of the app.
     :param str resource_group_name: Name of the resource group to which the resource belongs.
     :param str slot: Name of the deployment slot. If a slot is not specified, the API the named binding for the production slot.
     """
     __args__ = dict()
+    __args__['hostName'] = host_name
     __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
     __args__['slot'] = slot

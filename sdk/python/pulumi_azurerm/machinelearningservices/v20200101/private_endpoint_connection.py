@@ -19,7 +19,7 @@ class PrivateEndpointConnection(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  identity: Optional[pulumi.Input[pulumi.InputType['IdentityArgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
+                 private_endpoint_connection_name: Optional[pulumi.Input[str]] = None,
                  private_link_service_connection_state: Optional[pulumi.Input[pulumi.InputType['PrivateLinkServiceConnectionStateArgs']]] = None,
                  provisioning_state: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -36,7 +36,7 @@ class PrivateEndpointConnection(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['IdentityArgs']] identity: The identity of the resource.
         :param pulumi.Input[str] location: Specifies the location of the resource.
-        :param pulumi.Input[str] name: The name of the private endpoint connection associated with the workspace
+        :param pulumi.Input[str] private_endpoint_connection_name: The name of the private endpoint connection associated with the workspace
         :param pulumi.Input[pulumi.InputType['PrivateLinkServiceConnectionStateArgs']] private_link_service_connection_state: A collection of information about the state of the connection between service consumer and provider.
         :param pulumi.Input[str] provisioning_state: The provisioning state of the private endpoint connection resource.
         :param pulumi.Input[str] resource_group_name: Name of the resource group in which workspace is located.
@@ -63,9 +63,9 @@ class PrivateEndpointConnection(pulumi.CustomResource):
 
             __props__['identity'] = identity
             __props__['location'] = location
-            if name is None:
-                raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
+            if private_endpoint_connection_name is None:
+                raise TypeError("Missing required property 'private_endpoint_connection_name'")
+            __props__['private_endpoint_connection_name'] = private_endpoint_connection_name
             if private_link_service_connection_state is None:
                 raise TypeError("Missing required property 'private_link_service_connection_state'")
             __props__['private_link_service_connection_state'] = private_link_service_connection_state
@@ -78,6 +78,7 @@ class PrivateEndpointConnection(pulumi.CustomResource):
             if workspace_name is None:
                 raise TypeError("Missing required property 'workspace_name'")
             __props__['workspace_name'] = workspace_name
+            __props__['name'] = None
             __props__['private_endpoint'] = None
             __props__['type'] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:machinelearningservices/v20200301:PrivateEndpointConnection"), pulumi.Alias(type_="azurerm:machinelearningservices/v20200401:PrivateEndpointConnection"), pulumi.Alias(type_="azurerm:machinelearningservices/v20200601:PrivateEndpointConnection")])

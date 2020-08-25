@@ -20,12 +20,12 @@ class Watcher(pulumi.CustomResource):
                  etag: Optional[pulumi.Input[str]] = None,
                  execution_frequency_in_seconds: Optional[pulumi.Input[float]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  script_name: Optional[pulumi.Input[str]] = None,
                  script_parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  script_run_on: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 watcher_name: Optional[pulumi.Input[str]] = None,
                  __props__=None,
                  __name__=None,
                  __opts__=None):
@@ -39,12 +39,12 @@ class Watcher(pulumi.CustomResource):
         :param pulumi.Input[str] etag: Gets or sets the etag of the resource.
         :param pulumi.Input[float] execution_frequency_in_seconds: Gets or sets the frequency at which the watcher is invoked.
         :param pulumi.Input[str] location: The Azure Region where the resource lives
-        :param pulumi.Input[str] name: The watcher name.
         :param pulumi.Input[str] resource_group_name: Name of an Azure Resource group.
         :param pulumi.Input[str] script_name: Gets or sets the name of the script the watcher is attached to, i.e. the name of an existing runbook.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] script_parameters: Gets or sets the parameters of the script.
         :param pulumi.Input[str] script_run_on: Gets or sets the name of the hybrid worker group the watcher will run on.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
+        :param pulumi.Input[str] watcher_name: The watcher name.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -70,9 +70,6 @@ class Watcher(pulumi.CustomResource):
             __props__['etag'] = etag
             __props__['execution_frequency_in_seconds'] = execution_frequency_in_seconds
             __props__['location'] = location
-            if name is None:
-                raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
@@ -80,9 +77,13 @@ class Watcher(pulumi.CustomResource):
             __props__['script_parameters'] = script_parameters
             __props__['script_run_on'] = script_run_on
             __props__['tags'] = tags
+            if watcher_name is None:
+                raise TypeError("Missing required property 'watcher_name'")
+            __props__['watcher_name'] = watcher_name
             __props__['creation_time'] = None
             __props__['last_modified_by'] = None
             __props__['last_modified_time'] = None
+            __props__['name'] = None
             __props__['status'] = None
             __props__['type'] = None
         super(Watcher, __self__).__init__(

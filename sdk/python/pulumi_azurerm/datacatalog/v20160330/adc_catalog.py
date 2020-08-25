@@ -18,10 +18,10 @@ class ADCCatalog(pulumi.CustomResource):
                  resource_name,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  admins: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['PrincipalsArgs']]]]] = None,
+                 catalog_name: Optional[pulumi.Input[str]] = None,
                  enable_automatic_unit_adjustment: Optional[pulumi.Input[bool]] = None,
                  etag: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  sku: Optional[pulumi.Input[str]] = None,
                  successfully_provisioned: Optional[pulumi.Input[bool]] = None,
@@ -37,10 +37,10 @@ class ADCCatalog(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[List[pulumi.Input[pulumi.InputType['PrincipalsArgs']]]] admins: Azure data catalog admin list.
+        :param pulumi.Input[str] catalog_name: The name of the data catalog in the specified subscription and resource group.
         :param pulumi.Input[bool] enable_automatic_unit_adjustment: Automatic unit adjustment enabled or not.
         :param pulumi.Input[str] etag: Resource etag
         :param pulumi.Input[str] location: Resource location
-        :param pulumi.Input[str] name: The name of the data catalog in the specified subscription and resource group.
         :param pulumi.Input[str] resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.
         :param pulumi.Input[str] sku: Azure data catalog SKU.
         :param pulumi.Input[bool] successfully_provisioned: Azure data catalog provision status.
@@ -66,12 +66,12 @@ class ADCCatalog(pulumi.CustomResource):
             __props__ = dict()
 
             __props__['admins'] = admins
+            if catalog_name is None:
+                raise TypeError("Missing required property 'catalog_name'")
+            __props__['catalog_name'] = catalog_name
             __props__['enable_automatic_unit_adjustment'] = enable_automatic_unit_adjustment
             __props__['etag'] = etag
             __props__['location'] = location
-            if name is None:
-                raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
@@ -80,6 +80,7 @@ class ADCCatalog(pulumi.CustomResource):
             __props__['tags'] = tags
             __props__['units'] = units
             __props__['users'] = users
+            __props__['name'] = None
             __props__['type'] = None
         super(ADCCatalog, __self__).__init__(
             'azurerm:datacatalog/v20160330:ADCCatalog',

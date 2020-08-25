@@ -18,6 +18,7 @@ class DedicatedCloudNode(pulumi.CustomResource):
                  resource_name,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  availability_zone_id: Optional[pulumi.Input[str]] = None,
+                 dedicated_cloud_node_name: Optional[pulumi.Input[str]] = None,
                  id: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -36,9 +37,10 @@ class DedicatedCloudNode(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] availability_zone_id: Availability Zone id, e.g. "az1"
+        :param pulumi.Input[str] dedicated_cloud_node_name: dedicated cloud node name
         :param pulumi.Input[str] id: SKU's id
         :param pulumi.Input[str] location: Azure region
-        :param pulumi.Input[str] name: dedicated cloud node name
+        :param pulumi.Input[str] name: SKU's name
         :param pulumi.Input[float] nodes_count: count of nodes to create
         :param pulumi.Input[str] placement_group_id: Placement Group id, e.g. "n1"
         :param pulumi.Input[str] purchase_id: purchase id
@@ -66,6 +68,9 @@ class DedicatedCloudNode(pulumi.CustomResource):
             if availability_zone_id is None:
                 raise TypeError("Missing required property 'availability_zone_id'")
             __props__['availability_zone_id'] = availability_zone_id
+            if dedicated_cloud_node_name is None:
+                raise TypeError("Missing required property 'dedicated_cloud_node_name'")
+            __props__['dedicated_cloud_node_name'] = dedicated_cloud_node_name
             if id is None:
                 raise TypeError("Missing required property 'id'")
             __props__['id'] = id

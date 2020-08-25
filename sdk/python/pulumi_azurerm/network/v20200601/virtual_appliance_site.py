@@ -23,6 +23,7 @@ class VirtualApplianceSite(pulumi.CustomResource):
                  network_virtual_appliance_name: Optional[pulumi.Input[str]] = None,
                  o365_policy: Optional[pulumi.Input[pulumi.InputType['Office365PolicyPropertiesArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
+                 site_name: Optional[pulumi.Input[str]] = None,
                  __props__=None,
                  __name__=None,
                  __opts__=None):
@@ -33,10 +34,11 @@ class VirtualApplianceSite(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] address_prefix: Address Prefix.
         :param pulumi.Input[str] id: Resource ID.
-        :param pulumi.Input[str] name: The name of the site.
+        :param pulumi.Input[str] name: Name of the virtual appliance site.
         :param pulumi.Input[str] network_virtual_appliance_name: The name of the Network Virtual Appliance.
         :param pulumi.Input[pulumi.InputType['Office365PolicyPropertiesArgs']] o365_policy: Office 365 Policy.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
+        :param pulumi.Input[str] site_name: The name of the site.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -57,8 +59,6 @@ class VirtualApplianceSite(pulumi.CustomResource):
 
             __props__['address_prefix'] = address_prefix
             __props__['id'] = id
-            if name is None:
-                raise TypeError("Missing required property 'name'")
             __props__['name'] = name
             if network_virtual_appliance_name is None:
                 raise TypeError("Missing required property 'network_virtual_appliance_name'")
@@ -67,6 +67,9 @@ class VirtualApplianceSite(pulumi.CustomResource):
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
+            if site_name is None:
+                raise TypeError("Missing required property 'site_name'")
+            __props__['site_name'] = site_name
             __props__['etag'] = None
             __props__['provisioning_state'] = None
             __props__['type'] = None

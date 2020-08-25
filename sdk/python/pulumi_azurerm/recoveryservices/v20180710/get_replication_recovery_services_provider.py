@@ -80,7 +80,7 @@ class AwaitableGetReplicationRecoveryServicesProviderResult(GetReplicationRecove
 
 
 def get_replication_recovery_services_provider(fabric_name: Optional[str] = None,
-                                               name: Optional[str] = None,
+                                               provider_name: Optional[str] = None,
                                                resource_group_name: Optional[str] = None,
                                                resource_name: Optional[str] = None,
                                                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetReplicationRecoveryServicesProviderResult:
@@ -88,13 +88,13 @@ def get_replication_recovery_services_provider(fabric_name: Optional[str] = None
     Use this data source to access information about an existing resource.
 
     :param str fabric_name: Fabric name.
-    :param str name: Recovery services provider name
+    :param str provider_name: Recovery services provider name
     :param str resource_group_name: The name of the resource group where the recovery services vault is present.
     :param str resource_name: The name of the recovery services vault.
     """
     __args__ = dict()
     __args__['fabricName'] = fabric_name
-    __args__['name'] = name
+    __args__['providerName'] = provider_name
     __args__['resourceGroupName'] = resource_group_name
     __args__['resourceName'] = resource_name
     if opts is None:

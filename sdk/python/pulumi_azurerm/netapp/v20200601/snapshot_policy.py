@@ -21,8 +21,8 @@ class SnapshotPolicy(pulumi.CustomResource):
                  hourly_schedule: Optional[pulumi.Input[Mapping[str, Any]]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  monthly_schedule: Optional[pulumi.Input[Mapping[str, Any]]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
+                 snapshot_policy_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  weekly_schedule: Optional[pulumi.Input[Mapping[str, Any]]] = None,
                  __props__=None,
@@ -39,8 +39,8 @@ class SnapshotPolicy(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, Any]] hourly_schedule: Schedule for hourly snapshots
         :param pulumi.Input[str] location: Resource location
         :param pulumi.Input[Mapping[str, Any]] monthly_schedule: Schedule for monthly snapshots
-        :param pulumi.Input[str] name: The name of the snapshot policy target
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
+        :param pulumi.Input[str] snapshot_policy_name: The name of the snapshot policy target
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags
         :param pulumi.Input[Mapping[str, Any]] weekly_schedule: Schedule for weekly snapshots
         """
@@ -71,14 +71,15 @@ class SnapshotPolicy(pulumi.CustomResource):
                 raise TypeError("Missing required property 'location'")
             __props__['location'] = location
             __props__['monthly_schedule'] = monthly_schedule
-            if name is None:
-                raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
+            if snapshot_policy_name is None:
+                raise TypeError("Missing required property 'snapshot_policy_name'")
+            __props__['snapshot_policy_name'] = snapshot_policy_name
             __props__['tags'] = tags
             __props__['weekly_schedule'] = weekly_schedule
+            __props__['name'] = None
             __props__['type'] = None
         super(SnapshotPolicy, __self__).__init__(
             'azurerm:netapp/v20200601:snapshotPolicy',

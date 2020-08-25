@@ -17,7 +17,7 @@ class HybridUseBenefit(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 name: Optional[pulumi.Input[str]] = None,
+                 plan_id: Optional[pulumi.Input[str]] = None,
                  scope: Optional[pulumi.Input[str]] = None,
                  sku: Optional[pulumi.Input[pulumi.InputType['SkuArgs']]] = None,
                  __props__=None,
@@ -28,7 +28,7 @@ class HybridUseBenefit(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] name: This is a unique identifier for a plan. Should be a guid.
+        :param pulumi.Input[str] plan_id: This is a unique identifier for a plan. Should be a guid.
         :param pulumi.Input[str] scope: The scope at which the operation is performed. This is limited to Microsoft.Compute/virtualMachines and Microsoft.Compute/hostGroups/hosts for now
         :param pulumi.Input[pulumi.InputType['SkuArgs']] sku: Hybrid use benefit SKU
         """
@@ -49,9 +49,9 @@ class HybridUseBenefit(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if name is None:
-                raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
+            if plan_id is None:
+                raise TypeError("Missing required property 'plan_id'")
+            __props__['plan_id'] = plan_id
             if scope is None:
                 raise TypeError("Missing required property 'scope'")
             __props__['scope'] = scope
@@ -61,6 +61,7 @@ class HybridUseBenefit(pulumi.CustomResource):
             __props__['created_date'] = None
             __props__['etag'] = None
             __props__['last_updated_date'] = None
+            __props__['name'] = None
             __props__['provisioning_state'] = None
             __props__['type'] = None
         super(HybridUseBenefit, __self__).__init__(

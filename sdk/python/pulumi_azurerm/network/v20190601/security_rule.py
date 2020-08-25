@@ -33,6 +33,7 @@ class SecurityRule(pulumi.CustomResource):
                  protocol: Optional[pulumi.Input[str]] = None,
                  provisioning_state: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
+                 security_rule_name: Optional[pulumi.Input[str]] = None,
                  source_address_prefix: Optional[pulumi.Input[str]] = None,
                  source_address_prefixes: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
                  source_application_security_groups: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['ApplicationSecurityGroupArgs']]]]] = None,
@@ -56,12 +57,13 @@ class SecurityRule(pulumi.CustomResource):
         :param pulumi.Input[str] direction: The direction of the rule. The direction specifies if rule will be evaluated on incoming or outgoing traffic.
         :param pulumi.Input[str] etag: A unique read-only string that changes whenever the resource is updated.
         :param pulumi.Input[str] id: Resource ID.
-        :param pulumi.Input[str] name: The name of the security rule.
+        :param pulumi.Input[str] name: The name of the resource that is unique within a resource group. This name can be used to access the resource.
         :param pulumi.Input[str] network_security_group_name: The name of the network security group.
         :param pulumi.Input[float] priority: The priority of the rule. The value can be between 100 and 4096. The priority number must be unique for each rule in the collection. The lower the priority number, the higher the priority of the rule.
         :param pulumi.Input[str] protocol: Network protocol this rule applies to.
         :param pulumi.Input[str] provisioning_state: The provisioning state of the public IP resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
+        :param pulumi.Input[str] security_rule_name: The name of the security rule.
         :param pulumi.Input[str] source_address_prefix: The CIDR or source IP range. Asterisk '*' can also be used to match all source IPs. Default tags such as 'VirtualNetwork', 'AzureLoadBalancer' and 'Internet' can also be used. If this is an ingress rule, specifies where network traffic originates from.
         :param pulumi.Input[List[pulumi.Input[str]]] source_address_prefixes: The CIDR or source IP ranges.
         :param pulumi.Input[List[pulumi.Input[pulumi.InputType['ApplicationSecurityGroupArgs']]]] source_application_security_groups: The application security group specified as source.
@@ -99,8 +101,6 @@ class SecurityRule(pulumi.CustomResource):
             __props__['direction'] = direction
             __props__['etag'] = etag
             __props__['id'] = id
-            if name is None:
-                raise TypeError("Missing required property 'name'")
             __props__['name'] = name
             if network_security_group_name is None:
                 raise TypeError("Missing required property 'network_security_group_name'")
@@ -113,6 +113,9 @@ class SecurityRule(pulumi.CustomResource):
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
+            if security_rule_name is None:
+                raise TypeError("Missing required property 'security_rule_name'")
+            __props__['security_rule_name'] = security_rule_name
             __props__['source_address_prefix'] = source_address_prefix
             __props__['source_address_prefixes'] = source_address_prefixes
             __props__['source_application_security_groups'] = source_application_security_groups

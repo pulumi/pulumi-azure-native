@@ -24,12 +24,12 @@ class View(pulumi.CustomResource):
                  e_tag: Optional[pulumi.Input[str]] = None,
                  kpis: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['KpiPropertiesArgs']]]]] = None,
                  metric: Optional[pulumi.Input[str]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
                  pivots: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['PivotPropertiesArgs']]]]] = None,
                  scope: Optional[pulumi.Input[str]] = None,
                  time_period: Optional[pulumi.Input[pulumi.InputType['ReportConfigTimePeriodArgs']]] = None,
                  timeframe: Optional[pulumi.Input[str]] = None,
                  type: Optional[pulumi.Input[str]] = None,
+                 view_name: Optional[pulumi.Input[str]] = None,
                  __props__=None,
                  __name__=None,
                  __opts__=None):
@@ -45,12 +45,12 @@ class View(pulumi.CustomResource):
         :param pulumi.Input[str] e_tag: eTag of the resource. To handle concurrent update scenario, this field will be used to determine whether the user is updating the latest version or not.
         :param pulumi.Input[List[pulumi.Input[pulumi.InputType['KpiPropertiesArgs']]]] kpis: List of KPIs to show in Cost Analysis UI.
         :param pulumi.Input[str] metric: Metric to use when displaying costs.
-        :param pulumi.Input[str] name: View name
         :param pulumi.Input[List[pulumi.Input[pulumi.InputType['PivotPropertiesArgs']]]] pivots: Configuration of 3 sub-views in the Cost Analysis UI.
         :param pulumi.Input[str] scope: Cost Management scope to save the view on. This includes 'subscriptions/{subscriptionId}' for subscription scope, 'subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}' for resourceGroup scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}' for Billing Account scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/departments/{departmentId}' for Department scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/enrollmentAccounts/{enrollmentAccountId}' for EnrollmentAccount scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/billingProfiles/{billingProfileId}' for BillingProfile scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/invoiceSections/{invoiceSectionId}' for InvoiceSection scope, 'providers/Microsoft.Management/managementGroups/{managementGroupId}' for Management Group scope, '/providers/Microsoft.CostManagement/externalBillingAccounts/{externalBillingAccountName}' for ExternalBillingAccount scope, and '/providers/Microsoft.CostManagement/externalSubscriptions/{externalSubscriptionName}' for ExternalSubscription scope.
         :param pulumi.Input[pulumi.InputType['ReportConfigTimePeriodArgs']] time_period: Has time period for pulling data for the report.
         :param pulumi.Input[str] timeframe: The time frame for pulling data for the report. If custom, then a specific time period must be provided.
         :param pulumi.Input[str] type: The type of the report. Usage represents actual usage, forecast represents forecasted data and UsageAndForecast represents both usage and forecasted data. Actual usage and forecasted data can be differentiated based on dates.
+        :param pulumi.Input[str] view_name: View name
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -76,9 +76,6 @@ class View(pulumi.CustomResource):
             __props__['e_tag'] = e_tag
             __props__['kpis'] = kpis
             __props__['metric'] = metric
-            if name is None:
-                raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
             __props__['pivots'] = pivots
             __props__['scope'] = scope
             __props__['time_period'] = time_period
@@ -88,8 +85,12 @@ class View(pulumi.CustomResource):
             if type is None:
                 raise TypeError("Missing required property 'type'")
             __props__['type'] = type
+            if view_name is None:
+                raise TypeError("Missing required property 'view_name'")
+            __props__['view_name'] = view_name
             __props__['created_on'] = None
             __props__['modified_on'] = None
+            __props__['name'] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:costmanagement/v20200601:View")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(View, __self__).__init__(

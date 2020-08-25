@@ -139,23 +139,23 @@ class AwaitableGetViewResult(GetViewResult):
 
 
 def get_view(hub_name: Optional[str] = None,
-             name: Optional[str] = None,
              resource_group_name: Optional[str] = None,
              user_id: Optional[str] = None,
+             view_name: Optional[str] = None,
              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetViewResult:
     """
     Use this data source to access information about an existing resource.
 
     :param str hub_name: The name of the hub.
-    :param str name: The name of the view.
     :param str resource_group_name: The name of the resource group.
     :param str user_id: The user ID. Use * to retrieve hub level view.
+    :param str view_name: The name of the view.
     """
     __args__ = dict()
     __args__['hubName'] = hub_name
-    __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
     __args__['userId'] = user_id
+    __args__['viewName'] = view_name
     if opts is None:
         opts = pulumi.InvokeOptions()
     if opts.version is None:

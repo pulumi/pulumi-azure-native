@@ -17,6 +17,7 @@ class ApplicationDefinition(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 application_definition_name: Optional[pulumi.Input[str]] = None,
                  artifacts: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['ApplicationArtifactArgs']]]]] = None,
                  authorizations: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['ApplicationProviderAuthorizationArgs']]]]] = None,
                  create_ui_definition: Optional[pulumi.Input[Mapping[str, Any]]] = None,
@@ -28,7 +29,6 @@ class ApplicationDefinition(pulumi.CustomResource):
                  lock_level: Optional[pulumi.Input[str]] = None,
                  main_template: Optional[pulumi.Input[Mapping[str, Any]]] = None,
                  managed_by: Optional[pulumi.Input[str]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
                  package_file_uri: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  sku: Optional[pulumi.Input[pulumi.InputType['SkuArgs']]] = None,
@@ -41,6 +41,7 @@ class ApplicationDefinition(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] application_definition_name: The name of the managed application definition.
         :param pulumi.Input[List[pulumi.Input[pulumi.InputType['ApplicationArtifactArgs']]]] artifacts: The collection of managed application artifacts. The portal will use the files specified as artifacts to construct the user experience of creating a managed application from a managed application definition.
         :param pulumi.Input[List[pulumi.Input[pulumi.InputType['ApplicationProviderAuthorizationArgs']]]] authorizations: The managed application provider authorizations.
         :param pulumi.Input[Mapping[str, Any]] create_ui_definition: The createUiDefinition json for the backing template with Microsoft.Solutions/applications resource. It can be a JObject or well-formed JSON string.
@@ -52,7 +53,6 @@ class ApplicationDefinition(pulumi.CustomResource):
         :param pulumi.Input[str] lock_level: The managed application lock level.
         :param pulumi.Input[Mapping[str, Any]] main_template: The inline main template json which has resources to be provisioned. It can be a JObject or well-formed JSON string.
         :param pulumi.Input[str] managed_by: ID of the resource that manages this resource.
-        :param pulumi.Input[str] name: The name of the managed application definition.
         :param pulumi.Input[str] package_file_uri: The managed application definition package file Uri. Use this element
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[pulumi.InputType['SkuArgs']] sku: The SKU of the resource.
@@ -75,6 +75,9 @@ class ApplicationDefinition(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
+            if application_definition_name is None:
+                raise TypeError("Missing required property 'application_definition_name'")
+            __props__['application_definition_name'] = application_definition_name
             __props__['artifacts'] = artifacts
             if authorizations is None:
                 raise TypeError("Missing required property 'authorizations'")
@@ -90,15 +93,13 @@ class ApplicationDefinition(pulumi.CustomResource):
             __props__['lock_level'] = lock_level
             __props__['main_template'] = main_template
             __props__['managed_by'] = managed_by
-            if name is None:
-                raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
             __props__['package_file_uri'] = package_file_uri
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['sku'] = sku
             __props__['tags'] = tags
+            __props__['name'] = None
             __props__['type'] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:solutions/v20170901:ApplicationDefinition"), pulumi.Alias(type_="azurerm:solutions/v20190701:ApplicationDefinition")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)

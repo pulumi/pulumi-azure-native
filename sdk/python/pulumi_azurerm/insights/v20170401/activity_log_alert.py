@@ -18,11 +18,11 @@ class ActivityLogAlert(pulumi.CustomResource):
                  resource_name,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  actions: Optional[pulumi.Input[pulumi.InputType['ActivityLogAlertActionListArgs']]] = None,
+                 activity_log_alert_name: Optional[pulumi.Input[str]] = None,
                  condition: Optional[pulumi.Input[pulumi.InputType['ActivityLogAlertAllOfConditionArgs']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  scopes: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -35,11 +35,11 @@ class ActivityLogAlert(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['ActivityLogAlertActionListArgs']] actions: The actions that will activate when the condition is met.
+        :param pulumi.Input[str] activity_log_alert_name: The name of the activity log alert.
         :param pulumi.Input[pulumi.InputType['ActivityLogAlertAllOfConditionArgs']] condition: The condition that will cause this alert to activate.
         :param pulumi.Input[str] description: A description of this activity log alert.
         :param pulumi.Input[bool] enabled: Indicates whether this activity log alert is enabled. If an activity log alert is not enabled, then none of its actions will be activated.
         :param pulumi.Input[str] location: Resource location
-        :param pulumi.Input[str] name: The name of the activity log alert.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[List[pulumi.Input[str]]] scopes: A list of resourceIds that will be used as prefixes. The alert will only apply to activityLogs with resourceIds that fall under one of these prefixes. This list must include at least one item.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags
@@ -64,6 +64,9 @@ class ActivityLogAlert(pulumi.CustomResource):
             if actions is None:
                 raise TypeError("Missing required property 'actions'")
             __props__['actions'] = actions
+            if activity_log_alert_name is None:
+                raise TypeError("Missing required property 'activity_log_alert_name'")
+            __props__['activity_log_alert_name'] = activity_log_alert_name
             if condition is None:
                 raise TypeError("Missing required property 'condition'")
             __props__['condition'] = condition
@@ -72,9 +75,6 @@ class ActivityLogAlert(pulumi.CustomResource):
             if location is None:
                 raise TypeError("Missing required property 'location'")
             __props__['location'] = location
-            if name is None:
-                raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
@@ -82,6 +82,7 @@ class ActivityLogAlert(pulumi.CustomResource):
                 raise TypeError("Missing required property 'scopes'")
             __props__['scopes'] = scopes
             __props__['tags'] = tags
+            __props__['name'] = None
             __props__['type'] = None
         super(ActivityLogAlert, __self__).__init__(
             'azurerm:insights/v20170401:ActivityLogAlert',

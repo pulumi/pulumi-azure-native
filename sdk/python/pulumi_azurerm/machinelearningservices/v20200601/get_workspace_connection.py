@@ -102,19 +102,19 @@ class AwaitableGetWorkspaceConnectionResult(GetWorkspaceConnectionResult):
             value=self.value)
 
 
-def get_workspace_connection(name: Optional[str] = None,
+def get_workspace_connection(connection_name: Optional[str] = None,
                              resource_group_name: Optional[str] = None,
                              workspace_name: Optional[str] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetWorkspaceConnectionResult:
     """
     Use this data source to access information about an existing resource.
 
-    :param str name: Friendly name of the workspace connection
+    :param str connection_name: Friendly name of the workspace connection
     :param str resource_group_name: Name of the resource group in which workspace is located.
     :param str workspace_name: Name of Azure Machine Learning workspace.
     """
     __args__ = dict()
-    __args__['name'] = name
+    __args__['connectionName'] = connection_name
     __args__['resourceGroupName'] = resource_group_name
     __args__['workspaceName'] = workspace_name
     if opts is None:

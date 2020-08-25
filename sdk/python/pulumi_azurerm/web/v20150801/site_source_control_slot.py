@@ -25,6 +25,7 @@ class SiteSourceControlSlot(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  repo_url: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
+                 slot: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  type: Optional[pulumi.Input[str]] = None,
                  __props__=None,
@@ -42,9 +43,10 @@ class SiteSourceControlSlot(pulumi.CustomResource):
         :param pulumi.Input[bool] is_mercurial: Mercurial or Git repository type
         :param pulumi.Input[str] kind: Kind of resource
         :param pulumi.Input[str] location: Resource Location
-        :param pulumi.Input[str] name: Name of web app slot. If not specified then will default to production slot.
+        :param pulumi.Input[str] name: Resource Name
         :param pulumi.Input[str] repo_url: Repository or source control url
         :param pulumi.Input[str] resource_group_name: Name of resource group
+        :param pulumi.Input[str] slot: Name of web app slot. If not specified then will default to production slot.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags
         :param pulumi.Input[str] type: Resource type
         """
@@ -81,6 +83,9 @@ class SiteSourceControlSlot(pulumi.CustomResource):
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
+            if slot is None:
+                raise TypeError("Missing required property 'slot'")
+            __props__['slot'] = slot
             __props__['tags'] = tags
             __props__['type'] = type
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:web/v20160801:SiteSourceControlSlot"), pulumi.Alias(type_="azurerm:web/v20180201:SiteSourceControlSlot"), pulumi.Alias(type_="azurerm:web/v20181101:SiteSourceControlSlot"), pulumi.Alias(type_="azurerm:web/v20190801:SiteSourceControlSlot"), pulumi.Alias(type_="azurerm:web/v20200601:SiteSourceControlSlot")])

@@ -18,9 +18,9 @@ class EventSubscription(pulumi.CustomResource):
                  resource_name,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  destination: Optional[pulumi.Input[pulumi.InputType['EventSubscriptionDestinationArgs']]] = None,
+                 event_subscription_name: Optional[pulumi.Input[str]] = None,
                  filter: Optional[pulumi.Input[pulumi.InputType['EventSubscriptionFilterArgs']]] = None,
                  labels: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
                  scope: Optional[pulumi.Input[str]] = None,
                  __props__=None,
                  __name__=None,
@@ -31,9 +31,9 @@ class EventSubscription(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['EventSubscriptionDestinationArgs']] destination: Information about the destination where events have to be delivered for the event subscription.
+        :param pulumi.Input[str] event_subscription_name: Name of the event subscription. Event subscription names must be between 3 and 64 characters in length and should use alphanumeric letters only.
         :param pulumi.Input[pulumi.InputType['EventSubscriptionFilterArgs']] filter: Information about the filter for the event subscription.
         :param pulumi.Input[List[pulumi.Input[str]]] labels: List of user defined labels.
-        :param pulumi.Input[str] name: Name of the event subscription. Event subscription names must be between 3 and 64 characters in length and should use alphanumeric letters only.
         :param pulumi.Input[str] scope: The identifier of the resource to which the event subscription needs to be created or updated. The scope can be a subscription, or a resource group, or a top level resource belonging to a resource provider namespace, or an EventGrid topic. For example, use '/subscriptions/{subscriptionId}/' for a subscription, '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}' for a resource group, and '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}' for a resource, and '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.EventGrid/topics/{topicName}' for an EventGrid topic.
         """
         if __name__ is not None:
@@ -54,14 +54,15 @@ class EventSubscription(pulumi.CustomResource):
             __props__ = dict()
 
             __props__['destination'] = destination
+            if event_subscription_name is None:
+                raise TypeError("Missing required property 'event_subscription_name'")
+            __props__['event_subscription_name'] = event_subscription_name
             __props__['filter'] = filter
             __props__['labels'] = labels
-            if name is None:
-                raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
             if scope is None:
                 raise TypeError("Missing required property 'scope'")
             __props__['scope'] = scope
+            __props__['name'] = None
             __props__['provisioning_state'] = None
             __props__['topic'] = None
             __props__['type'] = None

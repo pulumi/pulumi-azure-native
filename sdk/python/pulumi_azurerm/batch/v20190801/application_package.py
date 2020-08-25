@@ -17,8 +17,8 @@ class ApplicationPackage(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_name: Optional[pulumi.Input[str]] = None,
                  application_name: Optional[pulumi.Input[str]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
+                 version_name: Optional[pulumi.Input[str]] = None,
                  __props__=None,
                  __name__=None,
                  __opts__=None):
@@ -29,8 +29,8 @@ class ApplicationPackage(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_name: The name of the Batch account.
         :param pulumi.Input[str] application_name: The name of the application. This must be unique within the account.
-        :param pulumi.Input[str] name: The version of the application.
         :param pulumi.Input[str] resource_group_name: The name of the resource group that contains the Batch account.
+        :param pulumi.Input[str] version_name: The version of the application.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -55,15 +55,16 @@ class ApplicationPackage(pulumi.CustomResource):
             if application_name is None:
                 raise TypeError("Missing required property 'application_name'")
             __props__['application_name'] = application_name
-            if name is None:
-                raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
+            if version_name is None:
+                raise TypeError("Missing required property 'version_name'")
+            __props__['version_name'] = version_name
             __props__['etag'] = None
             __props__['format'] = None
             __props__['last_activation_time'] = None
+            __props__['name'] = None
             __props__['state'] = None
             __props__['storage_url'] = None
             __props__['storage_url_expiry'] = None

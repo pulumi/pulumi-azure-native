@@ -15,9 +15,9 @@ class DedicatedCloudService(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 dedicated_cloud_service_name: Optional[pulumi.Input[str]] = None,
                  gateway_subnet: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None,
@@ -28,9 +28,9 @@ class DedicatedCloudService(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] dedicated_cloud_service_name: dedicated cloud Service name
         :param pulumi.Input[str] gateway_subnet: gateway Subnet for the account. It will collect the subnet address and always treat it as /28
         :param pulumi.Input[str] location: Azure region
-        :param pulumi.Input[str] name: dedicated cloud Service name
         :param pulumi.Input[str] resource_group_name: The name of the resource group
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The list of tags
         """
@@ -51,20 +51,21 @@ class DedicatedCloudService(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
+            if dedicated_cloud_service_name is None:
+                raise TypeError("Missing required property 'dedicated_cloud_service_name'")
+            __props__['dedicated_cloud_service_name'] = dedicated_cloud_service_name
             if gateway_subnet is None:
                 raise TypeError("Missing required property 'gateway_subnet'")
             __props__['gateway_subnet'] = gateway_subnet
             if location is None:
                 raise TypeError("Missing required property 'location'")
             __props__['location'] = location
-            if name is None:
-                raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['tags'] = tags
             __props__['is_account_onboarded'] = None
+            __props__['name'] = None
             __props__['nodes'] = None
             __props__['service_url'] = None
             __props__['type'] = None

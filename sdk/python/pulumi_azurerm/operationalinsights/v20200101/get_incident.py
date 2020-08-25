@@ -271,19 +271,19 @@ class AwaitableGetIncidentResult(GetIncidentResult):
             type=self.type)
 
 
-def get_incident(name: Optional[str] = None,
+def get_incident(incident_id: Optional[str] = None,
                  resource_group_name: Optional[str] = None,
                  workspace_name: Optional[str] = None,
                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetIncidentResult:
     """
     Use this data source to access information about an existing resource.
 
-    :param str name: Incident ID
+    :param str incident_id: Incident ID
     :param str resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.
     :param str workspace_name: The name of the workspace.
     """
     __args__ = dict()
-    __args__['name'] = name
+    __args__['incidentId'] = incident_id
     __args__['resourceGroupName'] = resource_group_name
     __args__['workspaceName'] = workspace_name
     if opts is None:

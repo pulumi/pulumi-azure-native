@@ -23,10 +23,10 @@ class OpenShiftCluster(pulumi.CustomResource):
                  ingress_profiles: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['IngressProfileArgs']]]]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  master_profile: Optional[pulumi.Input[pulumi.InputType['MasterProfileArgs']]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
                  network_profile: Optional[pulumi.Input[pulumi.InputType['NetworkProfileArgs']]] = None,
                  provisioning_state: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
+                 resource_name_: Optional[pulumi.Input[str]] = None,
                  service_principal_profile: Optional[pulumi.Input[pulumi.InputType['ServicePrincipalProfileArgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  worker_profiles: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['WorkerProfileArgs']]]]] = None,
@@ -44,10 +44,10 @@ class OpenShiftCluster(pulumi.CustomResource):
         :param pulumi.Input[List[pulumi.Input[pulumi.InputType['IngressProfileArgs']]]] ingress_profiles: The cluster ingress profiles.
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input[pulumi.InputType['MasterProfileArgs']] master_profile: The cluster master profile.
-        :param pulumi.Input[str] name: The name of the OpenShift cluster resource.
         :param pulumi.Input[pulumi.InputType['NetworkProfileArgs']] network_profile: The cluster network profile.
         :param pulumi.Input[str] provisioning_state: The cluster provisioning state (immutable).
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
+        :param pulumi.Input[str] resource_name_: The name of the OpenShift cluster resource.
         :param pulumi.Input[pulumi.InputType['ServicePrincipalProfileArgs']] service_principal_profile: The cluster service principal profile.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         :param pulumi.Input[List[pulumi.Input[pulumi.InputType['WorkerProfileArgs']]]] worker_profiles: The cluster worker profiles.
@@ -77,17 +77,18 @@ class OpenShiftCluster(pulumi.CustomResource):
                 raise TypeError("Missing required property 'location'")
             __props__['location'] = location
             __props__['master_profile'] = master_profile
-            if name is None:
-                raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
             __props__['network_profile'] = network_profile
             __props__['provisioning_state'] = provisioning_state
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
+            if resource_name_ is None:
+                raise TypeError("Missing required property 'resource_name_'")
+            __props__['resource_name'] = resource_name_
             __props__['service_principal_profile'] = service_principal_profile
             __props__['tags'] = tags
             __props__['worker_profiles'] = worker_profiles
+            __props__['name'] = None
             __props__['type'] = None
         super(OpenShiftCluster, __self__).__init__(
             'azurerm:redhatopenshift/v20200430:OpenShiftCluster',

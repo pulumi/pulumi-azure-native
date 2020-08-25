@@ -17,8 +17,8 @@ class RedisFirewallRule(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  cache_name: Optional[pulumi.Input[str]] = None,
                  end_ip: Optional[pulumi.Input[str]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
+                 rule_name: Optional[pulumi.Input[str]] = None,
                  start_ip: Optional[pulumi.Input[str]] = None,
                  __props__=None,
                  __name__=None,
@@ -30,8 +30,8 @@ class RedisFirewallRule(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] cache_name: The name of the Redis cache.
         :param pulumi.Input[str] end_ip: highest IP address included in the range
-        :param pulumi.Input[str] name: The name of the firewall rule.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
+        :param pulumi.Input[str] rule_name: The name of the firewall rule.
         :param pulumi.Input[str] start_ip: lowest IP address included in the range
         """
         if __name__ is not None:
@@ -57,15 +57,16 @@ class RedisFirewallRule(pulumi.CustomResource):
             if end_ip is None:
                 raise TypeError("Missing required property 'end_ip'")
             __props__['end_ip'] = end_ip
-            if name is None:
-                raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
+            if rule_name is None:
+                raise TypeError("Missing required property 'rule_name'")
+            __props__['rule_name'] = rule_name
             if start_ip is None:
                 raise TypeError("Missing required property 'start_ip'")
             __props__['start_ip'] = start_ip
+            __props__['name'] = None
             __props__['type'] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:cache/v20170201:RedisFirewallRule"), pulumi.Alias(type_="azurerm:cache/v20171001:RedisFirewallRule"), pulumi.Alias(type_="azurerm:cache/v20180301:RedisFirewallRule")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)

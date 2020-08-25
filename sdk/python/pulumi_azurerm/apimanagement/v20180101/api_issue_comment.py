@@ -16,9 +16,9 @@ class ApiIssueComment(pulumi.CustomResource):
                  resource_name,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  api_id: Optional[pulumi.Input[str]] = None,
+                 comment_id: Optional[pulumi.Input[str]] = None,
                  created_date: Optional[pulumi.Input[str]] = None,
                  issue_id: Optional[pulumi.Input[str]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  service_name: Optional[pulumi.Input[str]] = None,
                  text: Optional[pulumi.Input[str]] = None,
@@ -32,9 +32,9 @@ class ApiIssueComment(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] api_id: API identifier. Must be unique in the current API Management service instance.
+        :param pulumi.Input[str] comment_id: Comment identifier within an Issue. Must be unique in the current Issue.
         :param pulumi.Input[str] created_date: Date and time when the comment was created.
         :param pulumi.Input[str] issue_id: Issue identifier. Must be unique in the current API Management service instance.
-        :param pulumi.Input[str] name: Comment identifier within an Issue. Must be unique in the current Issue.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[str] service_name: The name of the API Management service.
         :param pulumi.Input[str] text: Comment text.
@@ -60,13 +60,13 @@ class ApiIssueComment(pulumi.CustomResource):
             if api_id is None:
                 raise TypeError("Missing required property 'api_id'")
             __props__['api_id'] = api_id
+            if comment_id is None:
+                raise TypeError("Missing required property 'comment_id'")
+            __props__['comment_id'] = comment_id
             __props__['created_date'] = created_date
             if issue_id is None:
                 raise TypeError("Missing required property 'issue_id'")
             __props__['issue_id'] = issue_id
-            if name is None:
-                raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
@@ -79,6 +79,7 @@ class ApiIssueComment(pulumi.CustomResource):
             if user_id is None:
                 raise TypeError("Missing required property 'user_id'")
             __props__['user_id'] = user_id
+            __props__['name'] = None
             __props__['type'] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:apimanagement/v20170301:ApiIssueComment"), pulumi.Alias(type_="azurerm:apimanagement/v20190101:ApiIssueComment"), pulumi.Alias(type_="azurerm:apimanagement/v20191201:ApiIssueComment")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)

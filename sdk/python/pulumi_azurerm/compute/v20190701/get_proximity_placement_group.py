@@ -140,19 +140,19 @@ class AwaitableGetProximityPlacementGroupResult(GetProximityPlacementGroupResult
 
 
 def get_proximity_placement_group(include_colocation_status: Optional[str] = None,
-                                  name: Optional[str] = None,
+                                  proximity_placement_group_name: Optional[str] = None,
                                   resource_group_name: Optional[str] = None,
                                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetProximityPlacementGroupResult:
     """
     Use this data source to access information about an existing resource.
 
     :param str include_colocation_status: includeColocationStatus=true enables fetching the colocation status of all the resources in the proximity placement group.
-    :param str name: The name of the proximity placement group.
+    :param str proximity_placement_group_name: The name of the proximity placement group.
     :param str resource_group_name: The name of the resource group.
     """
     __args__ = dict()
     __args__['includeColocationStatus'] = include_colocation_status
-    __args__['name'] = name
+    __args__['proximityPlacementGroupName'] = proximity_placement_group_name
     __args__['resourceGroupName'] = resource_group_name
     if opts is None:
         opts = pulumi.InvokeOptions()

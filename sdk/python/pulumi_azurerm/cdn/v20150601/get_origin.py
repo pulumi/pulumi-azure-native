@@ -115,7 +115,7 @@ class AwaitableGetOriginResult(GetOriginResult):
 
 
 def get_origin(endpoint_name: Optional[str] = None,
-               name: Optional[str] = None,
+               origin_name: Optional[str] = None,
                profile_name: Optional[str] = None,
                resource_group_name: Optional[str] = None,
                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetOriginResult:
@@ -123,13 +123,13 @@ def get_origin(endpoint_name: Optional[str] = None,
     Use this data source to access information about an existing resource.
 
     :param str endpoint_name: Name of the endpoint within the CDN profile.
-    :param str name: Name of the origin, an arbitrary value but it needs to be unique under endpoint
+    :param str origin_name: Name of the origin, an arbitrary value but it needs to be unique under endpoint
     :param str profile_name: Name of the CDN profile within the resource group.
     :param str resource_group_name: Name of the resource group within the Azure subscription.
     """
     __args__ = dict()
     __args__['endpointName'] = endpoint_name
-    __args__['name'] = name
+    __args__['originName'] = origin_name
     __args__['profileName'] = profile_name
     __args__['resourceGroupName'] = resource_group_name
     if opts is None:

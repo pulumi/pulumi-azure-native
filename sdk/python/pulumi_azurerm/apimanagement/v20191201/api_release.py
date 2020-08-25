@@ -16,8 +16,8 @@ class ApiRelease(pulumi.CustomResource):
                  resource_name,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  api_id: Optional[pulumi.Input[str]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
                  notes: Optional[pulumi.Input[str]] = None,
+                 release_id: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  service_name: Optional[pulumi.Input[str]] = None,
                  __props__=None,
@@ -29,8 +29,8 @@ class ApiRelease(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] api_id: Identifier of the API the release belongs to.
-        :param pulumi.Input[str] name: Release identifier within an API. Must be unique in the current API Management service instance.
         :param pulumi.Input[str] notes: Release Notes
+        :param pulumi.Input[str] release_id: Release identifier within an API. Must be unique in the current API Management service instance.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[str] service_name: The name of the API Management service.
         """
@@ -54,10 +54,10 @@ class ApiRelease(pulumi.CustomResource):
             if api_id is None:
                 raise TypeError("Missing required property 'api_id'")
             __props__['api_id'] = api_id
-            if name is None:
-                raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
             __props__['notes'] = notes
+            if release_id is None:
+                raise TypeError("Missing required property 'release_id'")
+            __props__['release_id'] = release_id
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
@@ -65,6 +65,7 @@ class ApiRelease(pulumi.CustomResource):
                 raise TypeError("Missing required property 'service_name'")
             __props__['service_name'] = service_name
             __props__['created_date_time'] = None
+            __props__['name'] = None
             __props__['type'] = None
             __props__['updated_date_time'] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:apimanagement/v20170301:ApiRelease"), pulumi.Alias(type_="azurerm:apimanagement/v20180101:ApiRelease"), pulumi.Alias(type_="azurerm:apimanagement/v20190101:ApiRelease")])

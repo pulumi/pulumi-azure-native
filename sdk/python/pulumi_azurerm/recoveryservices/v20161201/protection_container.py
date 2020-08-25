@@ -17,10 +17,10 @@ class ProtectionContainer(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 container_name: Optional[pulumi.Input[str]] = None,
                  e_tag: Optional[pulumi.Input[str]] = None,
                  fabric_name: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
                  properties: Optional[pulumi.Input[pulumi.InputType['ProtectionContainerArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -33,10 +33,10 @@ class ProtectionContainer(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] container_name: Name of the container to be registered.
         :param pulumi.Input[str] e_tag: Optional ETag.
         :param pulumi.Input[str] fabric_name: Fabric name associated with the container.
         :param pulumi.Input[str] location: Resource location.
-        :param pulumi.Input[str] name: Name of the container to be registered.
         :param pulumi.Input[pulumi.InputType['ProtectionContainerArgs']] properties: ProtectionContainerResource properties
         :param pulumi.Input[str] resource_group_name: The name of the resource group where the recovery services vault is present.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
@@ -59,14 +59,14 @@ class ProtectionContainer(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
+            if container_name is None:
+                raise TypeError("Missing required property 'container_name'")
+            __props__['container_name'] = container_name
             __props__['e_tag'] = e_tag
             if fabric_name is None:
                 raise TypeError("Missing required property 'fabric_name'")
             __props__['fabric_name'] = fabric_name
             __props__['location'] = location
-            if name is None:
-                raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
             __props__['properties'] = properties
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
@@ -75,6 +75,7 @@ class ProtectionContainer(pulumi.CustomResource):
             if vault_name is None:
                 raise TypeError("Missing required property 'vault_name'")
             __props__['vault_name'] = vault_name
+            __props__['name'] = None
             __props__['type'] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:recoveryservices/v20160601:ProtectionContainer")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)

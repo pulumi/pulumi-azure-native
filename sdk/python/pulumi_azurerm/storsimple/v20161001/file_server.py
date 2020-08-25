@@ -19,8 +19,8 @@ class FileServer(pulumi.CustomResource):
                  description: Optional[pulumi.Input[str]] = None,
                  device_name: Optional[pulumi.Input[str]] = None,
                  domain_name: Optional[pulumi.Input[str]] = None,
+                 file_server_name: Optional[pulumi.Input[str]] = None,
                  manager_name: Optional[pulumi.Input[str]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  storage_domain_id: Optional[pulumi.Input[str]] = None,
                  __props__=None,
@@ -35,8 +35,8 @@ class FileServer(pulumi.CustomResource):
         :param pulumi.Input[str] description: The description of the file server
         :param pulumi.Input[str] device_name: The device name.
         :param pulumi.Input[str] domain_name: Domain of the file server
+        :param pulumi.Input[str] file_server_name: The file server name.
         :param pulumi.Input[str] manager_name: The manager name
-        :param pulumi.Input[str] name: The file server name.
         :param pulumi.Input[str] resource_group_name: The resource group name
         :param pulumi.Input[str] storage_domain_id: The storage domain id.
         """
@@ -67,18 +67,19 @@ class FileServer(pulumi.CustomResource):
             if domain_name is None:
                 raise TypeError("Missing required property 'domain_name'")
             __props__['domain_name'] = domain_name
+            if file_server_name is None:
+                raise TypeError("Missing required property 'file_server_name'")
+            __props__['file_server_name'] = file_server_name
             if manager_name is None:
                 raise TypeError("Missing required property 'manager_name'")
             __props__['manager_name'] = manager_name
-            if name is None:
-                raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             if storage_domain_id is None:
                 raise TypeError("Missing required property 'storage_domain_id'")
             __props__['storage_domain_id'] = storage_domain_id
+            __props__['name'] = None
             __props__['type'] = None
         super(FileServer, __self__).__init__(
             'azurerm:storsimple/v20161001:FileServer',

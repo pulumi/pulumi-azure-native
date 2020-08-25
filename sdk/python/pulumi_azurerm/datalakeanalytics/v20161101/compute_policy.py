@@ -16,9 +16,9 @@ class ComputePolicy(pulumi.CustomResource):
                  resource_name,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_name: Optional[pulumi.Input[str]] = None,
+                 compute_policy_name: Optional[pulumi.Input[str]] = None,
                  max_degree_of_parallelism_per_job: Optional[pulumi.Input[float]] = None,
                  min_priority_per_job: Optional[pulumi.Input[float]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
                  object_id: Optional[pulumi.Input[str]] = None,
                  object_type: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -31,9 +31,9 @@ class ComputePolicy(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_name: The name of the Data Lake Analytics account.
+        :param pulumi.Input[str] compute_policy_name: The name of the compute policy to create or update.
         :param pulumi.Input[float] max_degree_of_parallelism_per_job: The maximum degree of parallelism per job this user can use to submit jobs. This property, the min priority per job property, or both must be passed.
         :param pulumi.Input[float] min_priority_per_job: The minimum priority per job this user can use to submit jobs. This property, the max degree of parallelism per job property, or both must be passed.
-        :param pulumi.Input[str] name: The name of the compute policy to create or update.
         :param pulumi.Input[str] object_id: The AAD object identifier for the entity to create a policy for.
         :param pulumi.Input[str] object_type: The type of AAD object the object identifier refers to.
         :param pulumi.Input[str] resource_group_name: The name of the Azure resource group.
@@ -58,11 +58,11 @@ class ComputePolicy(pulumi.CustomResource):
             if account_name is None:
                 raise TypeError("Missing required property 'account_name'")
             __props__['account_name'] = account_name
+            if compute_policy_name is None:
+                raise TypeError("Missing required property 'compute_policy_name'")
+            __props__['compute_policy_name'] = compute_policy_name
             __props__['max_degree_of_parallelism_per_job'] = max_degree_of_parallelism_per_job
             __props__['min_priority_per_job'] = min_priority_per_job
-            if name is None:
-                raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
             if object_id is None:
                 raise TypeError("Missing required property 'object_id'")
             __props__['object_id'] = object_id
@@ -72,6 +72,7 @@ class ComputePolicy(pulumi.CustomResource):
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
+            __props__['name'] = None
             __props__['type'] = None
         super(ComputePolicy, __self__).__init__(
             'azurerm:datalakeanalytics/v20161101:ComputePolicy',

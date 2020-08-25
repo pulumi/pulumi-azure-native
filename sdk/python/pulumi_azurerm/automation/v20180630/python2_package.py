@@ -19,7 +19,7 @@ class Python2Package(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  automation_account_name: Optional[pulumi.Input[str]] = None,
                  content_link: Optional[pulumi.Input[pulumi.InputType['ContentLinkArgs']]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
+                 package_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None,
@@ -32,7 +32,7 @@ class Python2Package(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] automation_account_name: The name of the automation account.
         :param pulumi.Input[pulumi.InputType['ContentLinkArgs']] content_link: Gets or sets the module content link.
-        :param pulumi.Input[str] name: The name of python package.
+        :param pulumi.Input[str] package_name: The name of python package.
         :param pulumi.Input[str] resource_group_name: Name of an Azure Resource group.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Gets or sets the tags attached to the resource.
         """
@@ -59,9 +59,9 @@ class Python2Package(pulumi.CustomResource):
             if content_link is None:
                 raise TypeError("Missing required property 'content_link'")
             __props__['content_link'] = content_link
-            if name is None:
-                raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
+            if package_name is None:
+                raise TypeError("Missing required property 'package_name'")
+            __props__['package_name'] = package_name
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
@@ -75,6 +75,7 @@ class Python2Package(pulumi.CustomResource):
             __props__['is_global'] = None
             __props__['last_modified_time'] = None
             __props__['location'] = None
+            __props__['name'] = None
             __props__['provisioning_state'] = None
             __props__['size_in_bytes'] = None
             __props__['type'] = None

@@ -18,6 +18,7 @@ class ExpressRouteConnection(pulumi.CustomResource):
                  resource_name,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  authorization_key: Optional[pulumi.Input[str]] = None,
+                 connection_name: Optional[pulumi.Input[str]] = None,
                  express_route_circuit_peering: Optional[pulumi.Input[pulumi.InputType['ExpressRouteCircuitPeeringIdArgs']]] = None,
                  express_route_gateway_name: Optional[pulumi.Input[str]] = None,
                  id: Optional[pulumi.Input[str]] = None,
@@ -33,10 +34,11 @@ class ExpressRouteConnection(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] authorization_key: Authorization key to establish the connection.
+        :param pulumi.Input[str] connection_name: The name of the connection subresource.
         :param pulumi.Input[pulumi.InputType['ExpressRouteCircuitPeeringIdArgs']] express_route_circuit_peering: The ExpressRoute circuit peering.
         :param pulumi.Input[str] express_route_gateway_name: The name of the ExpressRoute gateway.
         :param pulumi.Input[str] id: Resource ID.
-        :param pulumi.Input[str] name: The name of the connection subresource.
+        :param pulumi.Input[str] name: The name of the resource.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[float] routing_weight: The routing weight associated to the connection.
         """
@@ -58,6 +60,9 @@ class ExpressRouteConnection(pulumi.CustomResource):
             __props__ = dict()
 
             __props__['authorization_key'] = authorization_key
+            if connection_name is None:
+                raise TypeError("Missing required property 'connection_name'")
+            __props__['connection_name'] = connection_name
             if express_route_circuit_peering is None:
                 raise TypeError("Missing required property 'express_route_circuit_peering'")
             __props__['express_route_circuit_peering'] = express_route_circuit_peering

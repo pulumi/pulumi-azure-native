@@ -90,22 +90,22 @@ class AwaitableGetConsumerGroupResult(GetConsumerGroupResult):
             user_metadata=self.user_metadata)
 
 
-def get_consumer_group(event_hub_name: Optional[str] = None,
-                       name: Optional[str] = None,
+def get_consumer_group(consumer_group_name: Optional[str] = None,
+                       event_hub_name: Optional[str] = None,
                        namespace_name: Optional[str] = None,
                        resource_group_name: Optional[str] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetConsumerGroupResult:
     """
     Use this data source to access information about an existing resource.
 
+    :param str consumer_group_name: The consumer group name
     :param str event_hub_name: The Event Hub name
-    :param str name: The consumer group name
     :param str namespace_name: The Namespace name
     :param str resource_group_name: Name of the resource group within the azure subscription.
     """
     __args__ = dict()
+    __args__['consumerGroupName'] = consumer_group_name
     __args__['eventHubName'] = event_hub_name
-    __args__['name'] = name
     __args__['namespaceName'] = namespace_name
     __args__['resourceGroupName'] = resource_group_name
     if opts is None:

@@ -18,11 +18,11 @@ class ContainerService(pulumi.CustomResource):
                  resource_name,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  agent_pool_profiles: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['ContainerServiceAgentPoolProfileArgs']]]]] = None,
+                 container_service_name: Optional[pulumi.Input[str]] = None,
                  diagnostics_profile: Optional[pulumi.Input[pulumi.InputType['ContainerServiceDiagnosticsProfileArgs']]] = None,
                  linux_profile: Optional[pulumi.Input[pulumi.InputType['ContainerServiceLinuxProfileArgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  master_profile: Optional[pulumi.Input[pulumi.InputType['ContainerServiceMasterProfileArgs']]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
                  orchestrator_profile: Optional[pulumi.Input[pulumi.InputType['ContainerServiceOrchestratorProfileArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -36,11 +36,11 @@ class ContainerService(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[List[pulumi.Input[pulumi.InputType['ContainerServiceAgentPoolProfileArgs']]]] agent_pool_profiles: Properties of the agent pool.
+        :param pulumi.Input[str] container_service_name: The name of the container service in the specified subscription and resource group.
         :param pulumi.Input[pulumi.InputType['ContainerServiceDiagnosticsProfileArgs']] diagnostics_profile: Properties of the diagnostic agent.
         :param pulumi.Input[pulumi.InputType['ContainerServiceLinuxProfileArgs']] linux_profile: Properties of Linux VMs.
         :param pulumi.Input[str] location: Resource location
         :param pulumi.Input[pulumi.InputType['ContainerServiceMasterProfileArgs']] master_profile: Properties of master agents.
-        :param pulumi.Input[str] name: The name of the container service in the specified subscription and resource group.
         :param pulumi.Input[pulumi.InputType['ContainerServiceOrchestratorProfileArgs']] orchestrator_profile: Properties of the orchestrator.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags
@@ -66,6 +66,9 @@ class ContainerService(pulumi.CustomResource):
             if agent_pool_profiles is None:
                 raise TypeError("Missing required property 'agent_pool_profiles'")
             __props__['agent_pool_profiles'] = agent_pool_profiles
+            if container_service_name is None:
+                raise TypeError("Missing required property 'container_service_name'")
+            __props__['container_service_name'] = container_service_name
             __props__['diagnostics_profile'] = diagnostics_profile
             if linux_profile is None:
                 raise TypeError("Missing required property 'linux_profile'")
@@ -76,15 +79,13 @@ class ContainerService(pulumi.CustomResource):
             if master_profile is None:
                 raise TypeError("Missing required property 'master_profile'")
             __props__['master_profile'] = master_profile
-            if name is None:
-                raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
             __props__['orchestrator_profile'] = orchestrator_profile
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['tags'] = tags
             __props__['windows_profile'] = windows_profile
+            __props__['name'] = None
             __props__['provisioning_state'] = None
             __props__['type'] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:containerservice/v20160930:ContainerService"), pulumi.Alias(type_="azurerm:containerservice/v20170131:ContainerService"), pulumi.Alias(type_="azurerm:containerservice/v20170701:ContainerService")])

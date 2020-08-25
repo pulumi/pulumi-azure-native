@@ -19,8 +19,8 @@ class App(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
+                 resource_name_: Optional[pulumi.Input[str]] = None,
                  sku: Optional[pulumi.Input[pulumi.InputType['AppSkuInfoArgs']]] = None,
                  subdomain: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -35,8 +35,8 @@ class App(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] display_name: The display name of the application.
         :param pulumi.Input[str] location: The resource location.
-        :param pulumi.Input[str] name: The ARM resource name of the IoT Central application.
         :param pulumi.Input[str] resource_group_name: The name of the resource group that contains the IoT Central application.
+        :param pulumi.Input[str] resource_name_: The ARM resource name of the IoT Central application.
         :param pulumi.Input[pulumi.InputType['AppSkuInfoArgs']] sku: A valid instance SKU.
         :param pulumi.Input[str] subdomain: The subdomain of the application.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The resource tags.
@@ -63,12 +63,12 @@ class App(pulumi.CustomResource):
             if location is None:
                 raise TypeError("Missing required property 'location'")
             __props__['location'] = location
-            if name is None:
-                raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
+            if resource_name_ is None:
+                raise TypeError("Missing required property 'resource_name_'")
+            __props__['resource_name'] = resource_name_
             if sku is None:
                 raise TypeError("Missing required property 'sku'")
             __props__['sku'] = sku
@@ -76,6 +76,7 @@ class App(pulumi.CustomResource):
             __props__['tags'] = tags
             __props__['template'] = template
             __props__['application_id'] = None
+            __props__['name'] = None
             __props__['type'] = None
         super(App, __self__).__init__(
             'azurerm:iotcentral/v20180901:App',

@@ -19,9 +19,9 @@ class EventSubscription(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  dead_letter_destination: Optional[pulumi.Input[pulumi.InputType['DeadLetterDestinationArgs']]] = None,
                  destination: Optional[pulumi.Input[pulumi.InputType['EventSubscriptionDestinationArgs']]] = None,
+                 event_subscription_name: Optional[pulumi.Input[str]] = None,
                  filter: Optional[pulumi.Input[pulumi.InputType['EventSubscriptionFilterArgs']]] = None,
                  labels: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
                  retry_policy: Optional[pulumi.Input[pulumi.InputType['RetryPolicyArgs']]] = None,
                  scope: Optional[pulumi.Input[str]] = None,
                  __props__=None,
@@ -34,9 +34,9 @@ class EventSubscription(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['DeadLetterDestinationArgs']] dead_letter_destination: The DeadLetter destination of the event subscription.
         :param pulumi.Input[pulumi.InputType['EventSubscriptionDestinationArgs']] destination: Information about the destination where events have to be delivered for the event subscription.
+        :param pulumi.Input[str] event_subscription_name: Name of the event subscription. Event subscription names must be between 3 and 64 characters in length and should use alphanumeric letters only.
         :param pulumi.Input[pulumi.InputType['EventSubscriptionFilterArgs']] filter: Information about the filter for the event subscription.
         :param pulumi.Input[List[pulumi.Input[str]]] labels: List of user defined labels.
-        :param pulumi.Input[str] name: Name of the event subscription. Event subscription names must be between 3 and 64 characters in length and should use alphanumeric letters only.
         :param pulumi.Input[pulumi.InputType['RetryPolicyArgs']] retry_policy: The retry policy for events. This can be used to configure maximum number of delivery attempts and time to live for events.
         :param pulumi.Input[str] scope: The identifier of the resource to which the event subscription needs to be created or updated. The scope can be a subscription, or a resource group, or a top level resource belonging to a resource provider namespace, or an EventGrid topic. For example, use '/subscriptions/{subscriptionId}/' for a subscription, '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}' for a resource group, and '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}' for a resource, and '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.EventGrid/topics/{topicName}' for an EventGrid topic.
         """
@@ -59,15 +59,16 @@ class EventSubscription(pulumi.CustomResource):
 
             __props__['dead_letter_destination'] = dead_letter_destination
             __props__['destination'] = destination
+            if event_subscription_name is None:
+                raise TypeError("Missing required property 'event_subscription_name'")
+            __props__['event_subscription_name'] = event_subscription_name
             __props__['filter'] = filter
             __props__['labels'] = labels
-            if name is None:
-                raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
             __props__['retry_policy'] = retry_policy
             if scope is None:
                 raise TypeError("Missing required property 'scope'")
             __props__['scope'] = scope
+            __props__['name'] = None
             __props__['provisioning_state'] = None
             __props__['topic'] = None
             __props__['type'] = None

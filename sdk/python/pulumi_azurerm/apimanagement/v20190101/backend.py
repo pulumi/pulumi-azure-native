@@ -17,9 +17,9 @@ class Backend(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 backend_id: Optional[pulumi.Input[str]] = None,
                  credentials: Optional[pulumi.Input[pulumi.InputType['BackendCredentialsContractArgs']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
                  properties: Optional[pulumi.Input[pulumi.InputType['BackendPropertiesArgs']]] = None,
                  protocol: Optional[pulumi.Input[str]] = None,
                  proxy: Optional[pulumi.Input[pulumi.InputType['BackendProxyContractArgs']]] = None,
@@ -37,9 +37,9 @@ class Backend(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] backend_id: Identifier of the Backend entity. Must be unique in the current API Management service instance.
         :param pulumi.Input[pulumi.InputType['BackendCredentialsContractArgs']] credentials: Backend Credentials Contract Properties
         :param pulumi.Input[str] description: Backend Description.
-        :param pulumi.Input[str] name: Identifier of the Backend entity. Must be unique in the current API Management service instance.
         :param pulumi.Input[pulumi.InputType['BackendPropertiesArgs']] properties: Backend Properties contract
         :param pulumi.Input[str] protocol: Backend communication protocol.
         :param pulumi.Input[pulumi.InputType['BackendProxyContractArgs']] proxy: Backend Proxy Contract Properties
@@ -67,11 +67,11 @@ class Backend(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
+            if backend_id is None:
+                raise TypeError("Missing required property 'backend_id'")
+            __props__['backend_id'] = backend_id
             __props__['credentials'] = credentials
             __props__['description'] = description
-            if name is None:
-                raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
             __props__['properties'] = properties
             if protocol is None:
                 raise TypeError("Missing required property 'protocol'")
@@ -89,6 +89,7 @@ class Backend(pulumi.CustomResource):
             if url is None:
                 raise TypeError("Missing required property 'url'")
             __props__['url'] = url
+            __props__['name'] = None
             __props__['type'] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:apimanagement/v20191201:Backend")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)

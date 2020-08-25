@@ -22,7 +22,6 @@ class VirtualMachine(pulumi.CustomResource):
                  disks: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['VirtualDiskArgs']]]]] = None,
                  expose_to_guest_vm: Optional[pulumi.Input[bool]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
                  nics: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['VirtualNicArgs']]]]] = None,
                  number_of_cores: Optional[pulumi.Input[float]] = None,
                  password: Optional[pulumi.Input[str]] = None,
@@ -33,6 +32,7 @@ class VirtualMachine(pulumi.CustomResource):
                  template_id: Optional[pulumi.Input[str]] = None,
                  username: Optional[pulumi.Input[str]] = None,
                  v_sphere_networks: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 virtual_machine_name: Optional[pulumi.Input[str]] = None,
                  __props__=None,
                  __name__=None,
                  __opts__=None):
@@ -46,7 +46,6 @@ class VirtualMachine(pulumi.CustomResource):
         :param pulumi.Input[List[pulumi.Input[pulumi.InputType['VirtualDiskArgs']]]] disks: The list of Virtual Disks
         :param pulumi.Input[bool] expose_to_guest_vm: Expose Guest OS or not
         :param pulumi.Input[str] location: Azure region
-        :param pulumi.Input[str] name: virtual machine name
         :param pulumi.Input[List[pulumi.Input[pulumi.InputType['VirtualNicArgs']]]] nics: The list of Virtual NICs
         :param pulumi.Input[float] number_of_cores: The number of CPU cores
         :param pulumi.Input[str] password: Password for login. Deprecated - use customization property
@@ -57,6 +56,7 @@ class VirtualMachine(pulumi.CustomResource):
         :param pulumi.Input[str] template_id: Virtual Machine Template Id
         :param pulumi.Input[str] username: Username for login. Deprecated - use customization property
         :param pulumi.Input[List[pulumi.Input[str]]] v_sphere_networks: The list of Virtual VSphere Networks
+        :param pulumi.Input[str] virtual_machine_name: virtual machine name
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -84,9 +84,6 @@ class VirtualMachine(pulumi.CustomResource):
             if location is None:
                 raise TypeError("Missing required property 'location'")
             __props__['location'] = location
-            if name is None:
-                raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
             __props__['nics'] = nics
             if number_of_cores is None:
                 raise TypeError("Missing required property 'number_of_cores'")
@@ -103,11 +100,15 @@ class VirtualMachine(pulumi.CustomResource):
             __props__['template_id'] = template_id
             __props__['username'] = username
             __props__['v_sphere_networks'] = v_sphere_networks
+            if virtual_machine_name is None:
+                raise TypeError("Missing required property 'virtual_machine_name'")
+            __props__['virtual_machine_name'] = virtual_machine_name
             __props__['controllers'] = None
             __props__['dnsname'] = None
             __props__['folder'] = None
             __props__['guest_os'] = None
             __props__['guest_os_type'] = None
+            __props__['name'] = None
             __props__['provisioning_state'] = None
             __props__['public_ip'] = None
             __props__['status'] = None

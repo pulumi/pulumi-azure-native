@@ -18,11 +18,11 @@ class SmartDetectorAlertRule(pulumi.CustomResource):
                  resource_name,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  action_groups: Optional[pulumi.Input[pulumi.InputType['ActionGroupsInformationArgs']]] = None,
+                 alert_rule_name: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  detector: Optional[pulumi.Input[pulumi.InputType['DetectorArgs']]] = None,
                  frequency: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  scope: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
                  severity: Optional[pulumi.Input[str]] = None,
@@ -38,11 +38,11 @@ class SmartDetectorAlertRule(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['ActionGroupsInformationArgs']] action_groups: The alert rule actions.
+        :param pulumi.Input[str] alert_rule_name: The name of the alert rule.
         :param pulumi.Input[str] description: The alert rule description.
         :param pulumi.Input[pulumi.InputType['DetectorArgs']] detector: The alert rule's detector.
         :param pulumi.Input[str] frequency: The alert rule frequency in ISO8601 format. The time granularity must be in minutes and minimum value is 5 minutes.
         :param pulumi.Input[str] location: The resource location.
-        :param pulumi.Input[str] name: The name of the alert rule.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[List[pulumi.Input[str]]] scope: The alert rule resources scope.
         :param pulumi.Input[str] severity: The alert rule severity.
@@ -70,6 +70,9 @@ class SmartDetectorAlertRule(pulumi.CustomResource):
             if action_groups is None:
                 raise TypeError("Missing required property 'action_groups'")
             __props__['action_groups'] = action_groups
+            if alert_rule_name is None:
+                raise TypeError("Missing required property 'alert_rule_name'")
+            __props__['alert_rule_name'] = alert_rule_name
             __props__['description'] = description
             if detector is None:
                 raise TypeError("Missing required property 'detector'")
@@ -78,9 +81,6 @@ class SmartDetectorAlertRule(pulumi.CustomResource):
                 raise TypeError("Missing required property 'frequency'")
             __props__['frequency'] = frequency
             __props__['location'] = location
-            if name is None:
-                raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
@@ -95,6 +95,7 @@ class SmartDetectorAlertRule(pulumi.CustomResource):
             __props__['state'] = state
             __props__['tags'] = tags
             __props__['throttling'] = throttling
+            __props__['name'] = None
             __props__['type'] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:alertsmanagement/v20190301:SmartDetectorAlertRule")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)

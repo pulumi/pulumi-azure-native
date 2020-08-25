@@ -21,8 +21,8 @@ class PolicyDefinition(pulumi.CustomResource):
                  display_name: Optional[pulumi.Input[str]] = None,
                  metadata: Optional[pulumi.Input[Mapping[str, Any]]] = None,
                  mode: Optional[pulumi.Input[str]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[pulumi.InputType['ParameterDefinitionsValueArgs']]]]] = None,
+                 policy_definition_name: Optional[pulumi.Input[str]] = None,
                  policy_rule: Optional[pulumi.Input[Mapping[str, Any]]] = None,
                  policy_type: Optional[pulumi.Input[str]] = None,
                  __props__=None,
@@ -37,8 +37,8 @@ class PolicyDefinition(pulumi.CustomResource):
         :param pulumi.Input[str] display_name: The display name of the policy definition.
         :param pulumi.Input[Mapping[str, Any]] metadata: The policy definition metadata.  Metadata is an open ended object and is typically a collection of key value pairs.
         :param pulumi.Input[str] mode: The policy definition mode. Some examples are All, Indexed, Microsoft.KeyVault.Data.
-        :param pulumi.Input[str] name: The name of the policy definition to create.
         :param pulumi.Input[Mapping[str, pulumi.Input[pulumi.InputType['ParameterDefinitionsValueArgs']]]] parameters: The parameter definitions for parameters used in the policy rule. The keys are the parameter names.
+        :param pulumi.Input[str] policy_definition_name: The name of the policy definition to create.
         :param pulumi.Input[Mapping[str, Any]] policy_rule: The policy rule.
         :param pulumi.Input[str] policy_type: The type of policy definition. Possible values are NotSpecified, BuiltIn, Custom, and Static.
         """
@@ -63,12 +63,13 @@ class PolicyDefinition(pulumi.CustomResource):
             __props__['display_name'] = display_name
             __props__['metadata'] = metadata
             __props__['mode'] = mode
-            if name is None:
-                raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
             __props__['parameters'] = parameters
+            if policy_definition_name is None:
+                raise TypeError("Missing required property 'policy_definition_name'")
+            __props__['policy_definition_name'] = policy_definition_name
             __props__['policy_rule'] = policy_rule
             __props__['policy_type'] = policy_type
+            __props__['name'] = None
             __props__['type'] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:authorization/v20161201:PolicyDefinition"), pulumi.Alias(type_="azurerm:authorization/v20180301:PolicyDefinition"), pulumi.Alias(type_="azurerm:authorization/v20180501:PolicyDefinition"), pulumi.Alias(type_="azurerm:authorization/v20190101:PolicyDefinition"), pulumi.Alias(type_="azurerm:authorization/v20190601:PolicyDefinition")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)

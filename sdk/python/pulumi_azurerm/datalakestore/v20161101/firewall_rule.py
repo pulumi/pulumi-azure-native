@@ -17,7 +17,7 @@ class FirewallRule(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_name: Optional[pulumi.Input[str]] = None,
                  end_ip_address: Optional[pulumi.Input[str]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
+                 firewall_rule_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  start_ip_address: Optional[pulumi.Input[str]] = None,
                  __props__=None,
@@ -30,7 +30,7 @@ class FirewallRule(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_name: The name of the Data Lake Store account.
         :param pulumi.Input[str] end_ip_address: The end IP address for the firewall rule. This can be either ipv4 or ipv6. Start and End should be in the same protocol.
-        :param pulumi.Input[str] name: The name of the firewall rule to create or update.
+        :param pulumi.Input[str] firewall_rule_name: The name of the firewall rule to create or update.
         :param pulumi.Input[str] resource_group_name: The name of the Azure resource group.
         :param pulumi.Input[str] start_ip_address: The start IP address for the firewall rule. This can be either ipv4 or ipv6. Start and End should be in the same protocol.
         """
@@ -57,15 +57,16 @@ class FirewallRule(pulumi.CustomResource):
             if end_ip_address is None:
                 raise TypeError("Missing required property 'end_ip_address'")
             __props__['end_ip_address'] = end_ip_address
-            if name is None:
-                raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
+            if firewall_rule_name is None:
+                raise TypeError("Missing required property 'firewall_rule_name'")
+            __props__['firewall_rule_name'] = firewall_rule_name
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             if start_ip_address is None:
                 raise TypeError("Missing required property 'start_ip_address'")
             __props__['start_ip_address'] = start_ip_address
+            __props__['name'] = None
             __props__['type'] = None
         super(FirewallRule, __self__).__init__(
             'azurerm:datalakestore/v20161101:FirewallRule',

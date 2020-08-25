@@ -32,6 +32,7 @@ class Subnet(pulumi.CustomResource):
                  service_association_links: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['ServiceAssociationLinkArgs']]]]] = None,
                  service_endpoint_policies: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['ServiceEndpointPolicyArgs']]]]] = None,
                  service_endpoints: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['ServiceEndpointPropertiesFormatArgs']]]]] = None,
+                 subnet_name: Optional[pulumi.Input[str]] = None,
                  virtual_network_name: Optional[pulumi.Input[str]] = None,
                  __props__=None,
                  __name__=None,
@@ -46,7 +47,7 @@ class Subnet(pulumi.CustomResource):
         :param pulumi.Input[List[pulumi.Input[pulumi.InputType['DelegationArgs']]]] delegations: Gets an array of references to the delegations on the subnet.
         :param pulumi.Input[str] etag: A unique read-only string that changes whenever the resource is updated.
         :param pulumi.Input[str] id: Resource ID.
-        :param pulumi.Input[str] name: The name of the subnet.
+        :param pulumi.Input[str] name: The name of the resource that is unique within a resource group. This name can be used to access the resource.
         :param pulumi.Input[pulumi.InputType['SubResourceArgs']] nat_gateway: Nat gateway associated with this subnet.
         :param pulumi.Input[pulumi.InputType['NetworkSecurityGroupArgs']] network_security_group: The reference of the NetworkSecurityGroup resource.
         :param pulumi.Input[str] provisioning_state: The provisioning state of the resource.
@@ -56,6 +57,7 @@ class Subnet(pulumi.CustomResource):
         :param pulumi.Input[List[pulumi.Input[pulumi.InputType['ServiceAssociationLinkArgs']]]] service_association_links: Gets an array of references to services injecting into this subnet.
         :param pulumi.Input[List[pulumi.Input[pulumi.InputType['ServiceEndpointPolicyArgs']]]] service_endpoint_policies: An array of service endpoint policies.
         :param pulumi.Input[List[pulumi.Input[pulumi.InputType['ServiceEndpointPropertiesFormatArgs']]]] service_endpoints: An array of service endpoints.
+        :param pulumi.Input[str] subnet_name: The name of the subnet.
         :param pulumi.Input[str] virtual_network_name: The name of the virtual network.
         """
         if __name__ is not None:
@@ -80,8 +82,6 @@ class Subnet(pulumi.CustomResource):
             __props__['delegations'] = delegations
             __props__['etag'] = etag
             __props__['id'] = id
-            if name is None:
-                raise TypeError("Missing required property 'name'")
             __props__['name'] = name
             __props__['nat_gateway'] = nat_gateway
             __props__['network_security_group'] = network_security_group
@@ -94,6 +94,9 @@ class Subnet(pulumi.CustomResource):
             __props__['service_association_links'] = service_association_links
             __props__['service_endpoint_policies'] = service_endpoint_policies
             __props__['service_endpoints'] = service_endpoints
+            if subnet_name is None:
+                raise TypeError("Missing required property 'subnet_name'")
+            __props__['subnet_name'] = subnet_name
             if virtual_network_name is None:
                 raise TypeError("Missing required property 'virtual_network_name'")
             __props__['virtual_network_name'] = virtual_network_name

@@ -18,9 +18,9 @@ class Trigger(pulumi.CustomResource):
                  resource_name,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  factory_name: Optional[pulumi.Input[str]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
                  properties: Optional[pulumi.Input[pulumi.InputType['TriggerArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
+                 trigger_name: Optional[pulumi.Input[str]] = None,
                  __props__=None,
                  __name__=None,
                  __opts__=None):
@@ -30,9 +30,9 @@ class Trigger(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] factory_name: The factory name.
-        :param pulumi.Input[str] name: The trigger name.
         :param pulumi.Input[pulumi.InputType['TriggerArgs']] properties: Properties of the trigger.
         :param pulumi.Input[str] resource_group_name: The resource group name.
+        :param pulumi.Input[str] trigger_name: The trigger name.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -54,16 +54,17 @@ class Trigger(pulumi.CustomResource):
             if factory_name is None:
                 raise TypeError("Missing required property 'factory_name'")
             __props__['factory_name'] = factory_name
-            if name is None:
-                raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
             if properties is None:
                 raise TypeError("Missing required property 'properties'")
             __props__['properties'] = properties
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
+            if trigger_name is None:
+                raise TypeError("Missing required property 'trigger_name'")
+            __props__['trigger_name'] = trigger_name
             __props__['etag'] = None
+            __props__['name'] = None
             __props__['type'] = None
         super(Trigger, __self__).__init__(
             'azurerm:datafactory/v20180601:Trigger',

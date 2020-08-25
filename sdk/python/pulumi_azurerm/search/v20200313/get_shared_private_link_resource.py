@@ -67,21 +67,21 @@ class AwaitableGetSharedPrivateLinkResourceResult(GetSharedPrivateLinkResourceRe
             type=self.type)
 
 
-def get_shared_private_link_resource(name: Optional[str] = None,
-                                     resource_group_name: Optional[str] = None,
+def get_shared_private_link_resource(resource_group_name: Optional[str] = None,
                                      search_service_name: Optional[str] = None,
+                                     shared_private_link_resource_name: Optional[str] = None,
                                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSharedPrivateLinkResourceResult:
     """
     Use this data source to access information about an existing resource.
 
-    :param str name: The name of the shared private link resource managed by the Azure Cognitive Search service within the specified resource group.
     :param str resource_group_name: The name of the resource group within the current subscription. You can obtain this value from the Azure Resource Manager API or the portal.
     :param str search_service_name: The name of the Azure Cognitive Search service associated with the specified resource group.
+    :param str shared_private_link_resource_name: The name of the shared private link resource managed by the Azure Cognitive Search service within the specified resource group.
     """
     __args__ = dict()
-    __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
     __args__['searchServiceName'] = search_service_name
+    __args__['sharedPrivateLinkResourceName'] = shared_private_link_resource_name
     if opts is None:
         opts = pulumi.InvokeOptions()
     if opts.version is None:

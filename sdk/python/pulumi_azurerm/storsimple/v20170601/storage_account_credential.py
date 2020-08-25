@@ -21,9 +21,9 @@ class StorageAccountCredential(pulumi.CustomResource):
                  end_point: Optional[pulumi.Input[str]] = None,
                  kind: Optional[pulumi.Input[str]] = None,
                  manager_name: Optional[pulumi.Input[str]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  ssl_status: Optional[pulumi.Input[str]] = None,
+                 storage_account_credential_name: Optional[pulumi.Input[str]] = None,
                  __props__=None,
                  __name__=None,
                  __opts__=None):
@@ -36,9 +36,9 @@ class StorageAccountCredential(pulumi.CustomResource):
         :param pulumi.Input[str] end_point: The storage endpoint
         :param pulumi.Input[str] kind: The Kind of the object. Currently only Series8000 is supported
         :param pulumi.Input[str] manager_name: The manager name
-        :param pulumi.Input[str] name: The storage account credential name.
         :param pulumi.Input[str] resource_group_name: The resource group name
         :param pulumi.Input[str] ssl_status: Signifies whether SSL needs to be enabled or not.
+        :param pulumi.Input[str] storage_account_credential_name: The storage account credential name.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -65,15 +65,16 @@ class StorageAccountCredential(pulumi.CustomResource):
             if manager_name is None:
                 raise TypeError("Missing required property 'manager_name'")
             __props__['manager_name'] = manager_name
-            if name is None:
-                raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             if ssl_status is None:
                 raise TypeError("Missing required property 'ssl_status'")
             __props__['ssl_status'] = ssl_status
+            if storage_account_credential_name is None:
+                raise TypeError("Missing required property 'storage_account_credential_name'")
+            __props__['storage_account_credential_name'] = storage_account_credential_name
+            __props__['name'] = None
             __props__['type'] = None
             __props__['volumes_count'] = None
         super(StorageAccountCredential, __self__).__init__(

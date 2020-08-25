@@ -18,8 +18,8 @@ class Assessment(pulumi.CustomResource):
                  resource_name,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  additional_data: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 assessment_name: Optional[pulumi.Input[str]] = None,
                  metadata: Optional[pulumi.Input[pulumi.InputType['SecurityAssessmentMetadataPropertiesArgs']]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
                  partners_data: Optional[pulumi.Input[pulumi.InputType['SecurityAssessmentPartnerDataArgs']]] = None,
                  resource_details: Optional[pulumi.Input[pulumi.InputType['ResourceDetailsArgs']]] = None,
                  resource_id: Optional[pulumi.Input[str]] = None,
@@ -33,8 +33,8 @@ class Assessment(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] additional_data: Additional data regarding the assessment
+        :param pulumi.Input[str] assessment_name: The Assessment Key - Unique key for the assessment type
         :param pulumi.Input[pulumi.InputType['SecurityAssessmentMetadataPropertiesArgs']] metadata: Describes properties of an assessment metadata.
-        :param pulumi.Input[str] name: The Assessment Key - Unique key for the assessment type
         :param pulumi.Input[pulumi.InputType['SecurityAssessmentPartnerDataArgs']] partners_data: Data regarding 3rd party partner integration
         :param pulumi.Input[pulumi.InputType['ResourceDetailsArgs']] resource_details: Details of the resource that was assessed
         :param pulumi.Input[str] resource_id: The identifier of the resource.
@@ -58,10 +58,10 @@ class Assessment(pulumi.CustomResource):
             __props__ = dict()
 
             __props__['additional_data'] = additional_data
+            if assessment_name is None:
+                raise TypeError("Missing required property 'assessment_name'")
+            __props__['assessment_name'] = assessment_name
             __props__['metadata'] = metadata
-            if name is None:
-                raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
             __props__['partners_data'] = partners_data
             if resource_details is None:
                 raise TypeError("Missing required property 'resource_details'")
@@ -74,6 +74,7 @@ class Assessment(pulumi.CustomResource):
             __props__['status'] = status
             __props__['display_name'] = None
             __props__['links'] = None
+            __props__['name'] = None
             __props__['type'] = None
         super(Assessment, __self__).__init__(
             'azurerm:security/v20200101:Assessment',

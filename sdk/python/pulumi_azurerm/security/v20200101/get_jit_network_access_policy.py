@@ -110,19 +110,19 @@ class AwaitableGetJitNetworkAccessPolicyResult(GetJitNetworkAccessPolicyResult):
 
 
 def get_jit_network_access_policy(asc_location: Optional[str] = None,
-                                  name: Optional[str] = None,
+                                  jit_network_access_policy_name: Optional[str] = None,
                                   resource_group_name: Optional[str] = None,
                                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetJitNetworkAccessPolicyResult:
     """
     Use this data source to access information about an existing resource.
 
     :param str asc_location: The location where ASC stores the data of the subscription. can be retrieved from Get locations
-    :param str name: Name of a Just-in-Time access configuration policy.
+    :param str jit_network_access_policy_name: Name of a Just-in-Time access configuration policy.
     :param str resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.
     """
     __args__ = dict()
     __args__['ascLocation'] = asc_location
-    __args__['name'] = name
+    __args__['jitNetworkAccessPolicyName'] = jit_network_access_policy_name
     __args__['resourceGroupName'] = resource_group_name
     if opts is None:
         opts = pulumi.InvokeOptions()

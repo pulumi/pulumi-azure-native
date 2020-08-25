@@ -15,8 +15,8 @@ class CustomerSubscription(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 customer_subscription_name: Optional[pulumi.Input[str]] = None,
                  etag: Optional[pulumi.Input[str]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
                  registration_name: Optional[pulumi.Input[str]] = None,
                  resource_group: Optional[pulumi.Input[str]] = None,
                  tenant_id: Optional[pulumi.Input[str]] = None,
@@ -28,8 +28,8 @@ class CustomerSubscription(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] customer_subscription_name: Name of the product.
         :param pulumi.Input[str] etag: The entity tag used for optimistic concurrency when modifying the resource.
-        :param pulumi.Input[str] name: Name of the product.
         :param pulumi.Input[str] registration_name: Name of the Azure Stack registration.
         :param pulumi.Input[str] resource_group: Name of the resource group.
         :param pulumi.Input[str] tenant_id: Tenant Id.
@@ -51,10 +51,10 @@ class CustomerSubscription(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
+            if customer_subscription_name is None:
+                raise TypeError("Missing required property 'customer_subscription_name'")
+            __props__['customer_subscription_name'] = customer_subscription_name
             __props__['etag'] = etag
-            if name is None:
-                raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
             if registration_name is None:
                 raise TypeError("Missing required property 'registration_name'")
             __props__['registration_name'] = registration_name
@@ -62,6 +62,7 @@ class CustomerSubscription(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_group'")
             __props__['resource_group'] = resource_group
             __props__['tenant_id'] = tenant_id
+            __props__['name'] = None
             __props__['type'] = None
         super(CustomerSubscription, __self__).__init__(
             'azurerm:azurestack/v20170601:CustomerSubscription',

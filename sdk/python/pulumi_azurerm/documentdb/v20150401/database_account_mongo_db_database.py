@@ -17,7 +17,7 @@ class DatabaseAccountMongoDBDatabase(pulumi.CustomResource):
                  resource_name,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_name: Optional[pulumi.Input[str]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
+                 database_name: Optional[pulumi.Input[str]] = None,
                  options: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  resource: Optional[pulumi.Input[pulumi.InputType['MongoDBDatabaseResourceArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -30,7 +30,7 @@ class DatabaseAccountMongoDBDatabase(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_name: Cosmos DB database account name.
-        :param pulumi.Input[str] name: Cosmos DB database name.
+        :param pulumi.Input[str] database_name: Cosmos DB database name.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] options: A key-value pair of options to be applied for the request. This corresponds to the headers sent with the request.
         :param pulumi.Input[pulumi.InputType['MongoDBDatabaseResourceArgs']] resource: The standard JSON format of a MongoDB database
         :param pulumi.Input[str] resource_group_name: Name of an Azure resource group.
@@ -55,9 +55,9 @@ class DatabaseAccountMongoDBDatabase(pulumi.CustomResource):
             if account_name is None:
                 raise TypeError("Missing required property 'account_name'")
             __props__['account_name'] = account_name
-            if name is None:
-                raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
+            if database_name is None:
+                raise TypeError("Missing required property 'database_name'")
+            __props__['database_name'] = database_name
             if options is None:
                 raise TypeError("Missing required property 'options'")
             __props__['options'] = options
@@ -68,6 +68,7 @@ class DatabaseAccountMongoDBDatabase(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['location'] = None
+            __props__['name'] = None
             __props__['tags'] = None
             __props__['type'] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:documentdb/v20150408:DatabaseAccountMongoDBDatabase"), pulumi.Alias(type_="azurerm:documentdb/v20151106:DatabaseAccountMongoDBDatabase"), pulumi.Alias(type_="azurerm:documentdb/v20160319:DatabaseAccountMongoDBDatabase"), pulumi.Alias(type_="azurerm:documentdb/v20160331:DatabaseAccountMongoDBDatabase")])

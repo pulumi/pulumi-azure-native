@@ -18,8 +18,8 @@ class GremlinResourceGremlinDatabase(pulumi.CustomResource):
                  resource_name,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_name: Optional[pulumi.Input[str]] = None,
+                 database_name: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
                  options: Optional[pulumi.Input[pulumi.InputType['CreateUpdateOptionsArgs']]] = None,
                  resource: Optional[pulumi.Input[pulumi.InputType['GremlinDatabaseResourceArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -33,8 +33,8 @@ class GremlinResourceGremlinDatabase(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_name: Cosmos DB database account name.
+        :param pulumi.Input[str] database_name: Cosmos DB database name.
         :param pulumi.Input[str] location: The location of the resource group to which the resource belongs.
-        :param pulumi.Input[str] name: Cosmos DB database name.
         :param pulumi.Input[pulumi.InputType['CreateUpdateOptionsArgs']] options: A key-value pair of options to be applied for the request. This corresponds to the headers sent with the request.
         :param pulumi.Input[pulumi.InputType['GremlinDatabaseResourceArgs']] resource: The standard JSON format of a Gremlin database
         :param pulumi.Input[str] resource_group_name: Name of an Azure resource group.
@@ -60,10 +60,10 @@ class GremlinResourceGremlinDatabase(pulumi.CustomResource):
             if account_name is None:
                 raise TypeError("Missing required property 'account_name'")
             __props__['account_name'] = account_name
+            if database_name is None:
+                raise TypeError("Missing required property 'database_name'")
+            __props__['database_name'] = database_name
             __props__['location'] = location
-            if name is None:
-                raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
             if options is None:
                 raise TypeError("Missing required property 'options'")
             __props__['options'] = options
@@ -74,6 +74,7 @@ class GremlinResourceGremlinDatabase(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['tags'] = tags
+            __props__['name'] = None
             __props__['type'] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:documentdb/v20190801:GremlinResourceGremlinDatabase"), pulumi.Alias(type_="azurerm:documentdb/v20200301:GremlinResourceGremlinDatabase"), pulumi.Alias(type_="azurerm:documentdb/v20200401:GremlinResourceGremlinDatabase")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)

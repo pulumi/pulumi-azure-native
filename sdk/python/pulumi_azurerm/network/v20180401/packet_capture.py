@@ -19,8 +19,8 @@ class PacketCapture(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  bytes_to_capture_per_packet: Optional[pulumi.Input[float]] = None,
                  filters: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['PacketCaptureFilterArgs']]]]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
                  network_watcher_name: Optional[pulumi.Input[str]] = None,
+                 packet_capture_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  storage_location: Optional[pulumi.Input[pulumi.InputType['PacketCaptureStorageLocationArgs']]] = None,
                  target: Optional[pulumi.Input[str]] = None,
@@ -35,8 +35,8 @@ class PacketCapture(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[float] bytes_to_capture_per_packet: Number of bytes captured per packet, the remaining bytes are truncated.
-        :param pulumi.Input[str] name: The name of the packet capture session.
         :param pulumi.Input[str] network_watcher_name: The name of the network watcher.
+        :param pulumi.Input[str] packet_capture_name: The name of the packet capture session.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[pulumi.InputType['PacketCaptureStorageLocationArgs']] storage_location: Describes the storage location for a packet capture session.
         :param pulumi.Input[str] target: The ID of the targeted resource, only VM is currently supported.
@@ -62,12 +62,12 @@ class PacketCapture(pulumi.CustomResource):
 
             __props__['bytes_to_capture_per_packet'] = bytes_to_capture_per_packet
             __props__['filters'] = filters
-            if name is None:
-                raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
             if network_watcher_name is None:
                 raise TypeError("Missing required property 'network_watcher_name'")
             __props__['network_watcher_name'] = network_watcher_name
+            if packet_capture_name is None:
+                raise TypeError("Missing required property 'packet_capture_name'")
+            __props__['packet_capture_name'] = packet_capture_name
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
@@ -80,6 +80,7 @@ class PacketCapture(pulumi.CustomResource):
             __props__['time_limit_in_seconds'] = time_limit_in_seconds
             __props__['total_bytes_per_session'] = total_bytes_per_session
             __props__['etag'] = None
+            __props__['name'] = None
             __props__['provisioning_state'] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:network/v20160901:PacketCapture"), pulumi.Alias(type_="azurerm:network/v20161201:PacketCapture"), pulumi.Alias(type_="azurerm:network/v20170301:PacketCapture"), pulumi.Alias(type_="azurerm:network/v20170601:PacketCapture"), pulumi.Alias(type_="azurerm:network/v20170801:PacketCapture"), pulumi.Alias(type_="azurerm:network/v20170901:PacketCapture"), pulumi.Alias(type_="azurerm:network/v20171001:PacketCapture"), pulumi.Alias(type_="azurerm:network/v20171101:PacketCapture"), pulumi.Alias(type_="azurerm:network/v20180101:PacketCapture"), pulumi.Alias(type_="azurerm:network/v20180201:PacketCapture"), pulumi.Alias(type_="azurerm:network/v20180601:PacketCapture"), pulumi.Alias(type_="azurerm:network/v20180701:PacketCapture"), pulumi.Alias(type_="azurerm:network/v20180801:PacketCapture"), pulumi.Alias(type_="azurerm:network/v20181001:PacketCapture"), pulumi.Alias(type_="azurerm:network/v20181101:PacketCapture"), pulumi.Alias(type_="azurerm:network/v20181201:PacketCapture"), pulumi.Alias(type_="azurerm:network/v20190201:PacketCapture"), pulumi.Alias(type_="azurerm:network/v20190401:PacketCapture"), pulumi.Alias(type_="azurerm:network/v20190601:PacketCapture"), pulumi.Alias(type_="azurerm:network/v20190701:PacketCapture"), pulumi.Alias(type_="azurerm:network/v20190801:PacketCapture"), pulumi.Alias(type_="azurerm:network/v20190901:PacketCapture"), pulumi.Alias(type_="azurerm:network/v20191101:PacketCapture"), pulumi.Alias(type_="azurerm:network/v20191201:PacketCapture"), pulumi.Alias(type_="azurerm:network/v20200301:PacketCapture"), pulumi.Alias(type_="azurerm:network/v20200401:PacketCapture"), pulumi.Alias(type_="azurerm:network/v20200501:PacketCapture"), pulumi.Alias(type_="azurerm:network/v20200601:PacketCapture")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)

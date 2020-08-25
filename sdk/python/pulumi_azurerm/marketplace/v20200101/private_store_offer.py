@@ -16,7 +16,7 @@ class PrivateStoreOffer(pulumi.CustomResource):
                  resource_name,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  e_tag: Optional[pulumi.Input[str]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
+                 offer_id: Optional[pulumi.Input[str]] = None,
                  private_store_id: Optional[pulumi.Input[str]] = None,
                  specific_plan_ids_limitation: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
                  __props__=None,
@@ -28,7 +28,7 @@ class PrivateStoreOffer(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] e_tag: Identifier for purposes of race condition
-        :param pulumi.Input[str] name: The offer ID to update or delete
+        :param pulumi.Input[str] offer_id: The offer ID to update or delete
         :param pulumi.Input[str] private_store_id: The store ID - must use the tenant ID
         :param pulumi.Input[List[pulumi.Input[str]]] specific_plan_ids_limitation: Plan ids limitation for this offer
         """
@@ -50,15 +50,16 @@ class PrivateStoreOffer(pulumi.CustomResource):
             __props__ = dict()
 
             __props__['e_tag'] = e_tag
-            if name is None:
-                raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
+            if offer_id is None:
+                raise TypeError("Missing required property 'offer_id'")
+            __props__['offer_id'] = offer_id
             if private_store_id is None:
                 raise TypeError("Missing required property 'private_store_id'")
             __props__['private_store_id'] = private_store_id
             __props__['specific_plan_ids_limitation'] = specific_plan_ids_limitation
             __props__['created_by'] = None
             __props__['created_date'] = None
+            __props__['name'] = None
             __props__['offer_display_name'] = None
             __props__['publisher_display_name'] = None
             __props__['type'] = None

@@ -16,7 +16,7 @@ class Registration(pulumi.CustomResource):
                  resource_name,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
+                 registration_name: Optional[pulumi.Input[str]] = None,
                  registration_token: Optional[pulumi.Input[str]] = None,
                  resource_group: Optional[pulumi.Input[str]] = None,
                  __props__=None,
@@ -28,7 +28,7 @@ class Registration(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] location: Location of the resource.
-        :param pulumi.Input[str] name: Name of the Azure Stack registration.
+        :param pulumi.Input[str] registration_name: Name of the Azure Stack registration.
         :param pulumi.Input[str] registration_token: The token identifying registered Azure Stack
         :param pulumi.Input[str] resource_group: Name of the resource group.
         """
@@ -52,9 +52,9 @@ class Registration(pulumi.CustomResource):
             if location is None:
                 raise TypeError("Missing required property 'location'")
             __props__['location'] = location
-            if name is None:
-                raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
+            if registration_name is None:
+                raise TypeError("Missing required property 'registration_name'")
+            __props__['registration_name'] = registration_name
             if registration_token is None:
                 raise TypeError("Missing required property 'registration_token'")
             __props__['registration_token'] = registration_token
@@ -64,6 +64,7 @@ class Registration(pulumi.CustomResource):
             __props__['billing_model'] = None
             __props__['cloud_id'] = None
             __props__['etag'] = None
+            __props__['name'] = None
             __props__['object_id'] = None
             __props__['tags'] = None
             __props__['type'] = None

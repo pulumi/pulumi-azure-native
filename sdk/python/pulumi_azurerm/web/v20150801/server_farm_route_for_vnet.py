@@ -21,6 +21,7 @@ class ServerFarmRouteForVnet(pulumi.CustomResource):
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
+                 route_name: Optional[pulumi.Input[str]] = None,
                  route_type: Optional[pulumi.Input[str]] = None,
                  start_address: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -38,8 +39,9 @@ class ServerFarmRouteForVnet(pulumi.CustomResource):
         :param pulumi.Input[str] id: Resource Id
         :param pulumi.Input[str] kind: Kind of resource
         :param pulumi.Input[str] location: Resource Location
-        :param pulumi.Input[str] name: Name of the virtual network route
+        :param pulumi.Input[str] name: Resource Name
         :param pulumi.Input[str] resource_group_name: Name of resource group
+        :param pulumi.Input[str] route_name: Name of the virtual network route
         :param pulumi.Input[str] route_type: The type of route this is:
                            DEFAULT - By default, every web app has routes to the local address ranges specified by RFC1918
                            INHERITED - Routes inherited from the real Virtual Network routes
@@ -81,6 +83,9 @@ class ServerFarmRouteForVnet(pulumi.CustomResource):
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
+            if route_name is None:
+                raise TypeError("Missing required property 'route_name'")
+            __props__['route_name'] = route_name
             __props__['route_type'] = route_type
             __props__['start_address'] = start_address
             __props__['tags'] = tags

@@ -18,10 +18,10 @@ class Vault(pulumi.CustomResource):
                  resource_name,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
                  properties: Optional[pulumi.Input[pulumi.InputType['VaultPropertiesArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 vault_name: Optional[pulumi.Input[str]] = None,
                  __props__=None,
                  __name__=None,
                  __opts__=None):
@@ -31,10 +31,10 @@ class Vault(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] location: The supported Azure location where the key vault should be created.
-        :param pulumi.Input[str] name: Name of the vault
         :param pulumi.Input[pulumi.InputType['VaultPropertiesArgs']] properties: Properties of the vault
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group to which the server belongs.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The tags that will be assigned to the key vault. 
+        :param pulumi.Input[str] vault_name: Name of the vault
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -56,9 +56,6 @@ class Vault(pulumi.CustomResource):
             if location is None:
                 raise TypeError("Missing required property 'location'")
             __props__['location'] = location
-            if name is None:
-                raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
             if properties is None:
                 raise TypeError("Missing required property 'properties'")
             __props__['properties'] = properties
@@ -66,6 +63,10 @@ class Vault(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['tags'] = tags
+            if vault_name is None:
+                raise TypeError("Missing required property 'vault_name'")
+            __props__['vault_name'] = vault_name
+            __props__['name'] = None
             __props__['type'] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:keyvault/v20161001:Vault"), pulumi.Alias(type_="azurerm:keyvault/v20180214:Vault"), pulumi.Alias(type_="azurerm:keyvault/v20190901:Vault")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)

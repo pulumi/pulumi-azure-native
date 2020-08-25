@@ -91,17 +91,17 @@ class AwaitableGetManagementLockByScopeResult(GetManagementLockByScopeResult):
             type=self.type)
 
 
-def get_management_lock_by_scope(name: Optional[str] = None,
+def get_management_lock_by_scope(lock_name: Optional[str] = None,
                                  scope: Optional[str] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetManagementLockByScopeResult:
     """
     Use this data source to access information about an existing resource.
 
-    :param str name: The name of lock.
+    :param str lock_name: The name of lock.
     :param str scope: The scope for the lock. 
     """
     __args__ = dict()
-    __args__['name'] = name
+    __args__['lockName'] = lock_name
     __args__['scope'] = scope
     if opts is None:
         opts = pulumi.InvokeOptions()

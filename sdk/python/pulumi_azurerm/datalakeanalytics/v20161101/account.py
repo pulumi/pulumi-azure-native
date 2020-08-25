@@ -17,6 +17,7 @@ class Account(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 account_name: Optional[pulumi.Input[str]] = None,
                  compute_policies: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['CreateComputePolicyWithAccountParametersArgs']]]]] = None,
                  data_lake_store_accounts: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['AddDataLakeStoreWithAccountParametersArgs']]]]] = None,
                  default_data_lake_store_account: Optional[pulumi.Input[str]] = None,
@@ -28,7 +29,6 @@ class Account(pulumi.CustomResource):
                  max_degree_of_parallelism_per_job: Optional[pulumi.Input[float]] = None,
                  max_job_count: Optional[pulumi.Input[float]] = None,
                  min_priority_per_job: Optional[pulumi.Input[float]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
                  new_tier: Optional[pulumi.Input[str]] = None,
                  query_store_retention: Optional[pulumi.Input[float]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -42,6 +42,7 @@ class Account(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] account_name: The name of the Data Lake Analytics account.
         :param pulumi.Input[List[pulumi.Input[pulumi.InputType['CreateComputePolicyWithAccountParametersArgs']]]] compute_policies: The list of compute policies associated with this account.
         :param pulumi.Input[List[pulumi.Input[pulumi.InputType['AddDataLakeStoreWithAccountParametersArgs']]]] data_lake_store_accounts: The list of Data Lake Store accounts associated with this account.
         :param pulumi.Input[str] default_data_lake_store_account: The default Data Lake Store account associated with this account.
@@ -53,7 +54,6 @@ class Account(pulumi.CustomResource):
         :param pulumi.Input[float] max_degree_of_parallelism_per_job: The maximum supported degree of parallelism per job for this account.
         :param pulumi.Input[float] max_job_count: The maximum supported jobs running under the account at the same time.
         :param pulumi.Input[float] min_priority_per_job: The minimum supported priority per job for this account.
-        :param pulumi.Input[str] name: The name of the Data Lake Analytics account.
         :param pulumi.Input[str] new_tier: The commitment tier for the next month.
         :param pulumi.Input[float] query_store_retention: The number of days that job metadata is retained.
         :param pulumi.Input[str] resource_group_name: The name of the Azure resource group.
@@ -77,6 +77,9 @@ class Account(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
+            if account_name is None:
+                raise TypeError("Missing required property 'account_name'")
+            __props__['account_name'] = account_name
             __props__['compute_policies'] = compute_policies
             if data_lake_store_accounts is None:
                 raise TypeError("Missing required property 'data_lake_store_accounts'")
@@ -94,9 +97,6 @@ class Account(pulumi.CustomResource):
             __props__['max_degree_of_parallelism_per_job'] = max_degree_of_parallelism_per_job
             __props__['max_job_count'] = max_job_count
             __props__['min_priority_per_job'] = min_priority_per_job
-            if name is None:
-                raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
             __props__['new_tier'] = new_tier
             __props__['query_store_retention'] = query_store_retention
             if resource_group_name is None:
@@ -109,6 +109,7 @@ class Account(pulumi.CustomResource):
             __props__['current_tier'] = None
             __props__['endpoint'] = None
             __props__['last_modified_time'] = None
+            __props__['name'] = None
             __props__['provisioning_state'] = None
             __props__['state'] = None
             __props__['system_max_degree_of_parallelism'] = None

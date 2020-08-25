@@ -24,6 +24,7 @@ class WebAppSourceControlSlot(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  repo_url: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
+                 slot: Optional[pulumi.Input[str]] = None,
                  __props__=None,
                  __name__=None,
                  __opts__=None):
@@ -38,9 +39,10 @@ class WebAppSourceControlSlot(pulumi.CustomResource):
         :param pulumi.Input[bool] is_manual_integration: <code>true</code> to limit to manual integration; <code>false</code> to enable continuous integration (which configures webhooks into online repos like GitHub).
         :param pulumi.Input[bool] is_mercurial: <code>true</code> for a Mercurial repository; <code>false</code> for a Git repository.
         :param pulumi.Input[str] kind: Kind of resource.
-        :param pulumi.Input[str] name: Name of the deployment slot. If a slot is not specified, the API will update the source control configuration for the production slot.
+        :param pulumi.Input[str] name: Name of the app.
         :param pulumi.Input[str] repo_url: Repository or source control URL.
         :param pulumi.Input[str] resource_group_name: Name of the resource group to which the resource belongs.
+        :param pulumi.Input[str] slot: Name of the deployment slot. If a slot is not specified, the API will update the source control configuration for the production slot.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -72,6 +74,9 @@ class WebAppSourceControlSlot(pulumi.CustomResource):
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
+            if slot is None:
+                raise TypeError("Missing required property 'slot'")
+            __props__['slot'] = slot
             __props__['type'] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:web/v20150801:WebAppSourceControlSlot"), pulumi.Alias(type_="azurerm:web/v20160801:WebAppSourceControlSlot"), pulumi.Alias(type_="azurerm:web/v20180201:WebAppSourceControlSlot"), pulumi.Alias(type_="azurerm:web/v20181101:WebAppSourceControlSlot"), pulumi.Alias(type_="azurerm:web/v20190801:WebAppSourceControlSlot")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)

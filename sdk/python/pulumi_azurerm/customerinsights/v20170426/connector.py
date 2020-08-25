@@ -15,13 +15,13 @@ class Connector(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 connector_name: Optional[pulumi.Input[str]] = None,
                  connector_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[Mapping[str, Any]]]]] = None,
                  connector_type: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
                  hub_name: Optional[pulumi.Input[str]] = None,
                  is_internal: Optional[pulumi.Input[bool]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  __props__=None,
                  __name__=None,
@@ -31,13 +31,13 @@ class Connector(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] connector_name: Name of the connector.
         :param pulumi.Input[Mapping[str, pulumi.Input[Mapping[str, Any]]]] connector_properties: The connector properties.
         :param pulumi.Input[str] connector_type: Type of connector.
         :param pulumi.Input[str] description: Description of the connector.
         :param pulumi.Input[str] display_name: Display name of the connector.
         :param pulumi.Input[str] hub_name: The name of the hub.
         :param pulumi.Input[bool] is_internal: If this is an internal connector.
-        :param pulumi.Input[str] name: Name of the connector.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         """
         if __name__ is not None:
@@ -57,6 +57,9 @@ class Connector(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
+            if connector_name is None:
+                raise TypeError("Missing required property 'connector_name'")
+            __props__['connector_name'] = connector_name
             if connector_properties is None:
                 raise TypeError("Missing required property 'connector_properties'")
             __props__['connector_properties'] = connector_properties
@@ -69,16 +72,13 @@ class Connector(pulumi.CustomResource):
                 raise TypeError("Missing required property 'hub_name'")
             __props__['hub_name'] = hub_name
             __props__['is_internal'] = is_internal
-            if name is None:
-                raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['connector_id'] = None
-            __props__['connector_name'] = None
             __props__['created'] = None
             __props__['last_modified'] = None
+            __props__['name'] = None
             __props__['state'] = None
             __props__['tenant_id'] = None
             __props__['type'] = None

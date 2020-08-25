@@ -17,9 +17,9 @@ class P2sVpnGateway(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 gateway_name: Optional[pulumi.Input[str]] = None,
                  id: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
                  p2_s_connection_configurations: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['P2SConnectionConfigurationArgs']]]]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -34,9 +34,9 @@ class P2sVpnGateway(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] gateway_name: The name of the gateway.
         :param pulumi.Input[str] id: Resource ID.
         :param pulumi.Input[str] location: Resource location.
-        :param pulumi.Input[str] name: The name of the gateway.
         :param pulumi.Input[List[pulumi.Input[pulumi.InputType['P2SConnectionConfigurationArgs']]]] p2_s_connection_configurations: List of all p2s connection configurations of the gateway.
         :param pulumi.Input[str] resource_group_name: The resource group name of the P2SVpnGateway.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
@@ -61,13 +61,13 @@ class P2sVpnGateway(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
+            if gateway_name is None:
+                raise TypeError("Missing required property 'gateway_name'")
+            __props__['gateway_name'] = gateway_name
             __props__['id'] = id
             if location is None:
                 raise TypeError("Missing required property 'location'")
             __props__['location'] = location
-            if name is None:
-                raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
             __props__['p2_s_connection_configurations'] = p2_s_connection_configurations
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
@@ -77,6 +77,7 @@ class P2sVpnGateway(pulumi.CustomResource):
             __props__['vpn_gateway_scale_unit'] = vpn_gateway_scale_unit
             __props__['vpn_server_configuration'] = vpn_server_configuration
             __props__['etag'] = None
+            __props__['name'] = None
             __props__['provisioning_state'] = None
             __props__['type'] = None
             __props__['vpn_client_connection_health'] = None

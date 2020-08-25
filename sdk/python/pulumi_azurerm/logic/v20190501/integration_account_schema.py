@@ -23,8 +23,8 @@ class IntegrationAccountSchema(pulumi.CustomResource):
                  integration_account_name: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  metadata: Optional[pulumi.Input[Mapping[str, Any]]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
+                 schema_name: Optional[pulumi.Input[str]] = None,
                  schema_type: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  target_namespace: Optional[pulumi.Input[str]] = None,
@@ -43,8 +43,8 @@ class IntegrationAccountSchema(pulumi.CustomResource):
         :param pulumi.Input[str] integration_account_name: The integration account name.
         :param pulumi.Input[str] location: The resource location.
         :param pulumi.Input[Mapping[str, Any]] metadata: The metadata.
-        :param pulumi.Input[str] name: The integration account schema name.
         :param pulumi.Input[str] resource_group_name: The resource group name.
+        :param pulumi.Input[str] schema_name: The integration account schema name.
         :param pulumi.Input[str] schema_type: The schema type.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The resource tags.
         :param pulumi.Input[str] target_namespace: The target namespace of the schema.
@@ -75,12 +75,12 @@ class IntegrationAccountSchema(pulumi.CustomResource):
             __props__['integration_account_name'] = integration_account_name
             __props__['location'] = location
             __props__['metadata'] = metadata
-            if name is None:
-                raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
+            if schema_name is None:
+                raise TypeError("Missing required property 'schema_name'")
+            __props__['schema_name'] = schema_name
             if schema_type is None:
                 raise TypeError("Missing required property 'schema_type'")
             __props__['schema_type'] = schema_type
@@ -89,6 +89,7 @@ class IntegrationAccountSchema(pulumi.CustomResource):
             __props__['changed_time'] = None
             __props__['content_link'] = None
             __props__['created_time'] = None
+            __props__['name'] = None
             __props__['type'] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:logic/v20160601:IntegrationAccountSchema")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)

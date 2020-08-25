@@ -15,8 +15,8 @@ class ConsumerGroup(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 consumer_group_name: Optional[pulumi.Input[str]] = None,
                  event_hub_name: Optional[pulumi.Input[str]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
                  namespace_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  user_metadata: Optional[pulumi.Input[str]] = None,
@@ -28,8 +28,8 @@ class ConsumerGroup(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] consumer_group_name: The consumer group name
         :param pulumi.Input[str] event_hub_name: The Event Hub name
-        :param pulumi.Input[str] name: The consumer group name
         :param pulumi.Input[str] namespace_name: The Namespace name
         :param pulumi.Input[str] resource_group_name: Name of the resource group within the azure subscription.
         :param pulumi.Input[str] user_metadata: User Metadata is a placeholder to store user-defined string data with maximum length 1024. e.g. it can be used to store descriptive data, such as list of teams and their contact information also user-defined configuration settings can be stored.
@@ -51,12 +51,12 @@ class ConsumerGroup(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
+            if consumer_group_name is None:
+                raise TypeError("Missing required property 'consumer_group_name'")
+            __props__['consumer_group_name'] = consumer_group_name
             if event_hub_name is None:
                 raise TypeError("Missing required property 'event_hub_name'")
             __props__['event_hub_name'] = event_hub_name
-            if name is None:
-                raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
             if namespace_name is None:
                 raise TypeError("Missing required property 'namespace_name'")
             __props__['namespace_name'] = namespace_name
@@ -65,6 +65,7 @@ class ConsumerGroup(pulumi.CustomResource):
             __props__['resource_group_name'] = resource_group_name
             __props__['user_metadata'] = user_metadata
             __props__['created_at'] = None
+            __props__['name'] = None
             __props__['type'] = None
             __props__['updated_at'] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:eventhub/v20140901:ConsumerGroup"), pulumi.Alias(type_="azurerm:eventhub/v20150801:ConsumerGroup")])

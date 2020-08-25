@@ -15,7 +15,7 @@ class HcxEnterpriseSite(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 name: Optional[pulumi.Input[str]] = None,
+                 hcx_enterprise_site_name: Optional[pulumi.Input[str]] = None,
                  private_cloud_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  __props__=None,
@@ -26,7 +26,7 @@ class HcxEnterpriseSite(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] name: Name of the HCX Enterprise Site in the private cloud
+        :param pulumi.Input[str] hcx_enterprise_site_name: Name of the HCX Enterprise Site in the private cloud
         :param pulumi.Input[str] private_cloud_name: The name of the private cloud.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         """
@@ -47,9 +47,9 @@ class HcxEnterpriseSite(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if name is None:
-                raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
+            if hcx_enterprise_site_name is None:
+                raise TypeError("Missing required property 'hcx_enterprise_site_name'")
+            __props__['hcx_enterprise_site_name'] = hcx_enterprise_site_name
             if private_cloud_name is None:
                 raise TypeError("Missing required property 'private_cloud_name'")
             __props__['private_cloud_name'] = private_cloud_name
@@ -57,6 +57,7 @@ class HcxEnterpriseSite(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['activation_key'] = None
+            __props__['name'] = None
             __props__['status'] = None
             __props__['type'] = None
         super(HcxEnterpriseSite, __self__).__init__(

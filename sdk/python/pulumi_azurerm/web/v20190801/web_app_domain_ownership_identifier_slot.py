@@ -15,6 +15,7 @@ class WebAppDomainOwnershipIdentifierSlot(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 domain_ownership_identifier_name: Optional[pulumi.Input[str]] = None,
                  kind: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -28,8 +29,9 @@ class WebAppDomainOwnershipIdentifierSlot(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] domain_ownership_identifier_name: Name of domain ownership identifier.
         :param pulumi.Input[str] kind: Kind of resource.
-        :param pulumi.Input[str] name: Name of domain ownership identifier.
+        :param pulumi.Input[str] name: Name of the app.
         :param pulumi.Input[str] resource_group_name: Name of the resource group to which the resource belongs.
         :param pulumi.Input[str] slot: Name of the deployment slot. If a slot is not specified, the API will delete the binding for the production slot.
         :param pulumi.Input[str] value: String representation of the identity.
@@ -51,6 +53,9 @@ class WebAppDomainOwnershipIdentifierSlot(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
+            if domain_ownership_identifier_name is None:
+                raise TypeError("Missing required property 'domain_ownership_identifier_name'")
+            __props__['domain_ownership_identifier_name'] = domain_ownership_identifier_name
             __props__['kind'] = kind
             if name is None:
                 raise TypeError("Missing required property 'name'")

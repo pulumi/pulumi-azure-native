@@ -20,11 +20,11 @@ class Disk(pulumi.CustomResource):
                  creation_data: Optional[pulumi.Input[pulumi.InputType['CreationDataArgs']]] = None,
                  disk_iops_read_write: Optional[pulumi.Input[float]] = None,
                  disk_m_bps_read_write: Optional[pulumi.Input[float]] = None,
+                 disk_name: Optional[pulumi.Input[str]] = None,
                  disk_size_gb: Optional[pulumi.Input[float]] = None,
                  encryption_settings_collection: Optional[pulumi.Input[pulumi.InputType['EncryptionSettingsCollectionArgs']]] = None,
                  hyper_v_generation: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
                  os_type: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  sku: Optional[pulumi.Input[pulumi.InputType['DiskSkuArgs']]] = None,
@@ -41,11 +41,11 @@ class Disk(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['CreationDataArgs']] creation_data: Disk source information. CreationData information cannot be changed after the disk has been created.
         :param pulumi.Input[float] disk_iops_read_write: The number of IOPS allowed for this disk; only settable for UltraSSD disks. One operation can transfer between 4k and 256k bytes.
         :param pulumi.Input[float] disk_m_bps_read_write: The bandwidth allowed for this disk; only settable for UltraSSD disks. MBps means millions of bytes per second - MB here uses the ISO notation, of powers of 10.
+        :param pulumi.Input[str] disk_name: The name of the managed disk that is being created. The name can't be changed after the disk is created. Supported characters for the name are a-z, A-Z, 0-9 and _. The maximum name length is 80 characters.
         :param pulumi.Input[float] disk_size_gb: If creationData.createOption is Empty, this field is mandatory and it indicates the size of the disk to create. If this field is present for updates or creation with other options, it indicates a resize. Resizes are only allowed if the disk is not attached to a running VM, and can only increase the disk's size.
         :param pulumi.Input[pulumi.InputType['EncryptionSettingsCollectionArgs']] encryption_settings_collection: Encryption settings collection used for Azure Disk Encryption, can contain multiple encryption settings per disk or snapshot.
         :param pulumi.Input[str] hyper_v_generation: The hypervisor generation of the Virtual Machine. Applicable to OS disks only.
         :param pulumi.Input[str] location: Resource location
-        :param pulumi.Input[str] name: The name of the managed disk that is being created. The name can't be changed after the disk is created. Supported characters for the name are a-z, A-Z, 0-9 and _. The maximum name length is 80 characters.
         :param pulumi.Input[str] os_type: The Operating System type.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[pulumi.InputType['DiskSkuArgs']] sku: The disks sku name. Can be Standard_LRS, Premium_LRS, StandardSSD_LRS, or UltraSSD_LRS.
@@ -74,15 +74,15 @@ class Disk(pulumi.CustomResource):
             __props__['creation_data'] = creation_data
             __props__['disk_iops_read_write'] = disk_iops_read_write
             __props__['disk_m_bps_read_write'] = disk_m_bps_read_write
+            if disk_name is None:
+                raise TypeError("Missing required property 'disk_name'")
+            __props__['disk_name'] = disk_name
             __props__['disk_size_gb'] = disk_size_gb
             __props__['encryption_settings_collection'] = encryption_settings_collection
             __props__['hyper_v_generation'] = hyper_v_generation
             if location is None:
                 raise TypeError("Missing required property 'location'")
             __props__['location'] = location
-            if name is None:
-                raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
             __props__['os_type'] = os_type
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
@@ -93,6 +93,7 @@ class Disk(pulumi.CustomResource):
             __props__['disk_size_bytes'] = None
             __props__['disk_state'] = None
             __props__['managed_by'] = None
+            __props__['name'] = None
             __props__['provisioning_state'] = None
             __props__['time_created'] = None
             __props__['type'] = None

@@ -140,25 +140,25 @@ class AwaitableGetBackupScheduleResult(GetBackupScheduleResult):
 
 
 def get_backup_schedule(backup_policy_name: Optional[str] = None,
+                        backup_schedule_name: Optional[str] = None,
                         device_name: Optional[str] = None,
                         manager_name: Optional[str] = None,
-                        name: Optional[str] = None,
                         resource_group_name: Optional[str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetBackupScheduleResult:
     """
     Use this data source to access information about an existing resource.
 
     :param str backup_policy_name: The backup policy name.
+    :param str backup_schedule_name: The name of the backup schedule to be fetched
     :param str device_name: The device name
     :param str manager_name: The manager name
-    :param str name: The name of the backup schedule to be fetched
     :param str resource_group_name: The resource group name
     """
     __args__ = dict()
     __args__['backupPolicyName'] = backup_policy_name
+    __args__['backupScheduleName'] = backup_schedule_name
     __args__['deviceName'] = device_name
     __args__['managerName'] = manager_name
-    __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
     if opts is None:
         opts = pulumi.InvokeOptions()

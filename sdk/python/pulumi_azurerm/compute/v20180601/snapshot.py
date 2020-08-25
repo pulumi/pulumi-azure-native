@@ -21,10 +21,10 @@ class Snapshot(pulumi.CustomResource):
                  disk_size_gb: Optional[pulumi.Input[float]] = None,
                  encryption_settings: Optional[pulumi.Input[pulumi.InputType['EncryptionSettingsArgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
                  os_type: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  sku: Optional[pulumi.Input[pulumi.InputType['SnapshotSkuArgs']]] = None,
+                 snapshot_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None,
                  __name__=None,
@@ -38,10 +38,10 @@ class Snapshot(pulumi.CustomResource):
         :param pulumi.Input[float] disk_size_gb: If creationData.createOption is Empty, this field is mandatory and it indicates the size of the VHD to create. If this field is present for updates or creation with other options, it indicates a resize. Resizes are only allowed if the disk is not attached to a running VM, and can only increase the disk's size.
         :param pulumi.Input[pulumi.InputType['EncryptionSettingsArgs']] encryption_settings: Encryption settings for disk or snapshot
         :param pulumi.Input[str] location: Resource location
-        :param pulumi.Input[str] name: The name of the snapshot that is being created. The name can't be changed after the snapshot is created. Supported characters for the name are a-z, A-Z, 0-9 and _. The max name length is 80 characters.
         :param pulumi.Input[str] os_type: The Operating System type.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[pulumi.InputType['SnapshotSkuArgs']] sku: The snapshots sku name. Can be Standard_LRS, Premium_LRS, or Standard_ZRS.
+        :param pulumi.Input[str] snapshot_name: The name of the snapshot that is being created. The name can't be changed after the snapshot is created. Supported characters for the name are a-z, A-Z, 0-9 and _. The max name length is 80 characters.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags
         """
         if __name__ is not None:
@@ -69,16 +69,17 @@ class Snapshot(pulumi.CustomResource):
             if location is None:
                 raise TypeError("Missing required property 'location'")
             __props__['location'] = location
-            if name is None:
-                raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
             __props__['os_type'] = os_type
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['sku'] = sku
+            if snapshot_name is None:
+                raise TypeError("Missing required property 'snapshot_name'")
+            __props__['snapshot_name'] = snapshot_name
             __props__['tags'] = tags
             __props__['managed_by'] = None
+            __props__['name'] = None
             __props__['provisioning_state'] = None
             __props__['time_created'] = None
             __props__['type'] = None

@@ -17,6 +17,7 @@ class Favorite(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  category: Optional[pulumi.Input[str]] = None,
                  config: Optional[pulumi.Input[str]] = None,
+                 favorite_id: Optional[pulumi.Input[str]] = None,
                  favorite_type: Optional[pulumi.Input[str]] = None,
                  is_generated_from_template: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -35,9 +36,10 @@ class Favorite(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] category: Favorite category, as defined by the user at creation time.
         :param pulumi.Input[str] config: Configuration of this particular favorite, which are driven by the Azure portal UX. Configuration data is a string containing valid JSON
+        :param pulumi.Input[str] favorite_id: The Id of a specific favorite defined in the Application Insights component
         :param pulumi.Input[str] favorite_type: Enum indicating if this favorite definition is owned by a specific user or is shared between all users with access to the Application Insights component.
         :param pulumi.Input[bool] is_generated_from_template: Flag denoting wether or not this favorite was generated from a template.
-        :param pulumi.Input[str] name: The Id of a specific favorite defined in the Application Insights component
+        :param pulumi.Input[str] name: The user-defined name of the favorite.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] resource_name_: The name of the Application Insights component resource.
         :param pulumi.Input[str] source_type: The source of the favorite definition.
@@ -63,10 +65,11 @@ class Favorite(pulumi.CustomResource):
 
             __props__['category'] = category
             __props__['config'] = config
+            if favorite_id is None:
+                raise TypeError("Missing required property 'favorite_id'")
+            __props__['favorite_id'] = favorite_id
             __props__['favorite_type'] = favorite_type
             __props__['is_generated_from_template'] = is_generated_from_template
-            if name is None:
-                raise TypeError("Missing required property 'name'")
             __props__['name'] = name
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
@@ -77,7 +80,6 @@ class Favorite(pulumi.CustomResource):
             __props__['source_type'] = source_type
             __props__['tags'] = tags
             __props__['version'] = version
-            __props__['favorite_id'] = None
             __props__['time_modified'] = None
             __props__['user_id'] = None
         super(Favorite, __self__).__init__(

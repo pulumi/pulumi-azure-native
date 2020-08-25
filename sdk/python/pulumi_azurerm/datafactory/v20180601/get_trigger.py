@@ -80,20 +80,20 @@ class AwaitableGetTriggerResult(GetTriggerResult):
 
 
 def get_trigger(factory_name: Optional[str] = None,
-                name: Optional[str] = None,
                 resource_group_name: Optional[str] = None,
+                trigger_name: Optional[str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetTriggerResult:
     """
     Use this data source to access information about an existing resource.
 
     :param str factory_name: The factory name.
-    :param str name: The trigger name.
     :param str resource_group_name: The resource group name.
+    :param str trigger_name: The trigger name.
     """
     __args__ = dict()
     __args__['factoryName'] = factory_name
-    __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
+    __args__['triggerName'] = trigger_name
     if opts is None:
         opts = pulumi.InvokeOptions()
     if opts.version is None:

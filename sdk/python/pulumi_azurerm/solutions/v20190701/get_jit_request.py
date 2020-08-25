@@ -175,17 +175,17 @@ class AwaitableGetJitRequestResult(GetJitRequestResult):
             updated_by=self.updated_by)
 
 
-def get_jit_request(name: Optional[str] = None,
+def get_jit_request(jit_request_name: Optional[str] = None,
                     resource_group_name: Optional[str] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetJitRequestResult:
     """
     Use this data source to access information about an existing resource.
 
-    :param str name: The name of the JIT request.
+    :param str jit_request_name: The name of the JIT request.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
     __args__ = dict()
-    __args__['name'] = name
+    __args__['jitRequestName'] = jit_request_name
     __args__['resourceGroupName'] = resource_group_name
     if opts is None:
         opts = pulumi.InvokeOptions()

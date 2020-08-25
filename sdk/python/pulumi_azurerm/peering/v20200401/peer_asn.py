@@ -17,8 +17,8 @@ class PeerAsn(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 name: Optional[pulumi.Input[str]] = None,
                  peer_asn: Optional[pulumi.Input[float]] = None,
+                 peer_asn_name: Optional[pulumi.Input[str]] = None,
                  peer_contact_detail: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['ContactDetailArgs']]]]] = None,
                  peer_name: Optional[pulumi.Input[str]] = None,
                  validation_state: Optional[pulumi.Input[str]] = None,
@@ -30,8 +30,8 @@ class PeerAsn(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] name: The peer ASN name.
         :param pulumi.Input[float] peer_asn: The Autonomous System Number (ASN) of the peer.
+        :param pulumi.Input[str] peer_asn_name: The peer ASN name.
         :param pulumi.Input[List[pulumi.Input[pulumi.InputType['ContactDetailArgs']]]] peer_contact_detail: The contact details of the peer.
         :param pulumi.Input[str] peer_name: The name of the peer.
         :param pulumi.Input[str] validation_state: The validation state of the ASN associated with the peer.
@@ -53,14 +53,15 @@ class PeerAsn(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if name is None:
-                raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
             __props__['peer_asn'] = peer_asn
+            if peer_asn_name is None:
+                raise TypeError("Missing required property 'peer_asn_name'")
+            __props__['peer_asn_name'] = peer_asn_name
             __props__['peer_contact_detail'] = peer_contact_detail
             __props__['peer_name'] = peer_name
             __props__['validation_state'] = validation_state
             __props__['error_message'] = None
+            __props__['name'] = None
             __props__['type'] = None
         super(PeerAsn, __self__).__init__(
             'azurerm:peering/v20200401:PeerAsn',

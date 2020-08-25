@@ -18,10 +18,10 @@ class PrivateEndpointConnection(pulumi.CustomResource):
                  resource_name,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  group_ids: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
                  parent_name: Optional[pulumi.Input[str]] = None,
                  parent_type: Optional[pulumi.Input[str]] = None,
                  private_endpoint: Optional[pulumi.Input[pulumi.InputType['PrivateEndpointArgs']]] = None,
+                 private_endpoint_connection_name: Optional[pulumi.Input[str]] = None,
                  private_link_service_connection_state: Optional[pulumi.Input[pulumi.InputType['ConnectionStateArgs']]] = None,
                  provisioning_state: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -33,10 +33,10 @@ class PrivateEndpointConnection(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[List[pulumi.Input[str]]] group_ids: GroupIds from the private link service resource.
-        :param pulumi.Input[str] name: The name of the private endpoint connection connection.
         :param pulumi.Input[str] parent_name: The name of the parent resource (namely, either, the topic name or domain name).
         :param pulumi.Input[str] parent_type: The type of the parent resource. This can be either \'topics\' or \'domains\'.
         :param pulumi.Input[pulumi.InputType['PrivateEndpointArgs']] private_endpoint: The Private Endpoint resource for this Connection.
+        :param pulumi.Input[str] private_endpoint_connection_name: The name of the private endpoint connection connection.
         :param pulumi.Input[pulumi.InputType['ConnectionStateArgs']] private_link_service_connection_state: Details about the state of the connection.
         :param pulumi.Input[str] provisioning_state: Provisioning state of the Private Endpoint Connection.
         :param pulumi.Input[str] resource_group_name: The name of the resource group within the user's subscription.
@@ -59,9 +59,6 @@ class PrivateEndpointConnection(pulumi.CustomResource):
             __props__ = dict()
 
             __props__['group_ids'] = group_ids
-            if name is None:
-                raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
             if parent_name is None:
                 raise TypeError("Missing required property 'parent_name'")
             __props__['parent_name'] = parent_name
@@ -69,11 +66,15 @@ class PrivateEndpointConnection(pulumi.CustomResource):
                 raise TypeError("Missing required property 'parent_type'")
             __props__['parent_type'] = parent_type
             __props__['private_endpoint'] = private_endpoint
+            if private_endpoint_connection_name is None:
+                raise TypeError("Missing required property 'private_endpoint_connection_name'")
+            __props__['private_endpoint_connection_name'] = private_endpoint_connection_name
             __props__['private_link_service_connection_state'] = private_link_service_connection_state
             __props__['provisioning_state'] = provisioning_state
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
+            __props__['name'] = None
             __props__['type'] = None
         super(PrivateEndpointConnection, __self__).__init__(
             'azurerm:eventgrid/v20200601:PrivateEndpointConnection',

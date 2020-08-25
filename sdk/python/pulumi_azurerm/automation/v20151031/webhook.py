@@ -26,6 +26,7 @@ class Webhook(pulumi.CustomResource):
                  run_on: Optional[pulumi.Input[str]] = None,
                  runbook: Optional[pulumi.Input[pulumi.InputType['RunbookAssociationPropertyArgs']]] = None,
                  uri: Optional[pulumi.Input[str]] = None,
+                 webhook_name: Optional[pulumi.Input[str]] = None,
                  __props__=None,
                  __name__=None,
                  __opts__=None):
@@ -37,12 +38,13 @@ class Webhook(pulumi.CustomResource):
         :param pulumi.Input[str] automation_account_name: The name of the automation account.
         :param pulumi.Input[str] expiry_time: Gets or sets the expiry time.
         :param pulumi.Input[bool] is_enabled: Gets or sets the value of the enabled flag of webhook.
-        :param pulumi.Input[str] name: The webhook name.
+        :param pulumi.Input[str] name: Gets or sets the name of the webhook.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameters: Gets or sets the parameters of the job.
         :param pulumi.Input[str] resource_group_name: Name of an Azure Resource group.
         :param pulumi.Input[str] run_on: Gets or sets the name of the hybrid worker group the webhook job will run on.
         :param pulumi.Input[pulumi.InputType['RunbookAssociationPropertyArgs']] runbook: Gets or sets the runbook.
         :param pulumi.Input[str] uri: Gets or sets the uri.
+        :param pulumi.Input[str] webhook_name: The webhook name.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -76,6 +78,9 @@ class Webhook(pulumi.CustomResource):
             __props__['run_on'] = run_on
             __props__['runbook'] = runbook
             __props__['uri'] = uri
+            if webhook_name is None:
+                raise TypeError("Missing required property 'webhook_name'")
+            __props__['webhook_name'] = webhook_name
             __props__['creation_time'] = None
             __props__['description'] = None
             __props__['last_invoked_time'] = None

@@ -17,13 +17,13 @@ class Bookmark(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 bookmark_id: Optional[pulumi.Input[str]] = None,
                  created: Optional[pulumi.Input[str]] = None,
                  created_by: Optional[pulumi.Input[pulumi.InputType['UserInfoArgs']]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
                  etag: Optional[pulumi.Input[str]] = None,
                  incident_info: Optional[pulumi.Input[pulumi.InputType['IncidentInfoArgs']]] = None,
                  labels: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
                  notes: Optional[pulumi.Input[str]] = None,
                  query: Optional[pulumi.Input[str]] = None,
                  query_result: Optional[pulumi.Input[str]] = None,
@@ -39,13 +39,13 @@ class Bookmark(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] bookmark_id: Bookmark ID
         :param pulumi.Input[str] created: The time the bookmark was created
         :param pulumi.Input[pulumi.InputType['UserInfoArgs']] created_by: Describes a user that created the bookmark
         :param pulumi.Input[str] display_name: The display name of the bookmark
         :param pulumi.Input[str] etag: Etag of the azure resource
         :param pulumi.Input[pulumi.InputType['IncidentInfoArgs']] incident_info: Describes an incident that relates to bookmark
         :param pulumi.Input[List[pulumi.Input[str]]] labels: List of labels relevant to this bookmark
-        :param pulumi.Input[str] name: Bookmark ID
         :param pulumi.Input[str] notes: The notes of the bookmark
         :param pulumi.Input[str] query: The query of the bookmark.
         :param pulumi.Input[str] query_result: The query result of the bookmark.
@@ -71,6 +71,9 @@ class Bookmark(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
+            if bookmark_id is None:
+                raise TypeError("Missing required property 'bookmark_id'")
+            __props__['bookmark_id'] = bookmark_id
             __props__['created'] = created
             __props__['created_by'] = created_by
             if display_name is None:
@@ -79,9 +82,6 @@ class Bookmark(pulumi.CustomResource):
             __props__['etag'] = etag
             __props__['incident_info'] = incident_info
             __props__['labels'] = labels
-            if name is None:
-                raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
             __props__['notes'] = notes
             if query is None:
                 raise TypeError("Missing required property 'query'")
@@ -95,6 +95,7 @@ class Bookmark(pulumi.CustomResource):
             if workspace_name is None:
                 raise TypeError("Missing required property 'workspace_name'")
             __props__['workspace_name'] = workspace_name
+            __props__['name'] = None
             __props__['type'] = None
         super(Bookmark, __self__).__init__(
             'azurerm:operationalinsights/v20200101:Bookmark',

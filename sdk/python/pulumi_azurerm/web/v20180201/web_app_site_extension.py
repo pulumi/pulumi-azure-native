@@ -17,6 +17,7 @@ class WebAppSiteExtension(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
+                 site_extension_id: Optional[pulumi.Input[str]] = None,
                  __props__=None,
                  __name__=None,
                  __opts__=None):
@@ -25,8 +26,9 @@ class WebAppSiteExtension(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] name: Site extension name.
+        :param pulumi.Input[str] name: Site name.
         :param pulumi.Input[str] resource_group_name: Name of the resource group to which the resource belongs.
+        :param pulumi.Input[str] site_extension_id: Site extension name.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -51,6 +53,9 @@ class WebAppSiteExtension(pulumi.CustomResource):
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
+            if site_extension_id is None:
+                raise TypeError("Missing required property 'site_extension_id'")
+            __props__['site_extension_id'] = site_extension_id
             __props__['authors'] = None
             __props__['comment'] = None
             __props__['description'] = None

@@ -15,8 +15,8 @@ class Certificate(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 certificate_id: Optional[pulumi.Input[str]] = None,
                  data: Optional[pulumi.Input[str]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
                  password: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  service_name: Optional[pulumi.Input[str]] = None,
@@ -28,8 +28,8 @@ class Certificate(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] certificate_id: Identifier of the certificate entity. Must be unique in the current API Management service instance.
         :param pulumi.Input[str] data: Base 64 encoded certificate using the application/x-pkcs12 representation.
-        :param pulumi.Input[str] name: Identifier of the certificate entity. Must be unique in the current API Management service instance.
         :param pulumi.Input[str] password: Password for the Certificate
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[str] service_name: The name of the API Management service.
@@ -51,12 +51,12 @@ class Certificate(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
+            if certificate_id is None:
+                raise TypeError("Missing required property 'certificate_id'")
+            __props__['certificate_id'] = certificate_id
             if data is None:
                 raise TypeError("Missing required property 'data'")
             __props__['data'] = data
-            if name is None:
-                raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
             if password is None:
                 raise TypeError("Missing required property 'password'")
             __props__['password'] = password
@@ -67,6 +67,7 @@ class Certificate(pulumi.CustomResource):
                 raise TypeError("Missing required property 'service_name'")
             __props__['service_name'] = service_name
             __props__['expiration_date'] = None
+            __props__['name'] = None
             __props__['subject'] = None
             __props__['thumbprint'] = None
             __props__['type'] = None

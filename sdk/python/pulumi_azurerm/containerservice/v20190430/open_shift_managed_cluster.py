@@ -21,11 +21,11 @@ class OpenShiftManagedCluster(pulumi.CustomResource):
                  auth_profile: Optional[pulumi.Input[pulumi.InputType['OpenShiftManagedClusterAuthProfileArgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  master_pool_profile: Optional[pulumi.Input[pulumi.InputType['OpenShiftManagedClusterMasterPoolProfileArgs']]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
                  network_profile: Optional[pulumi.Input[pulumi.InputType['NetworkProfileArgs']]] = None,
                  open_shift_version: Optional[pulumi.Input[str]] = None,
                  plan: Optional[pulumi.Input[pulumi.InputType['PurchasePlanArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
+                 resource_name_: Optional[pulumi.Input[str]] = None,
                  router_profiles: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['OpenShiftRouterProfileArgs']]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None,
@@ -40,11 +40,11 @@ class OpenShiftManagedCluster(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['OpenShiftManagedClusterAuthProfileArgs']] auth_profile: Configures OpenShift authentication.
         :param pulumi.Input[str] location: Resource location
         :param pulumi.Input[pulumi.InputType['OpenShiftManagedClusterMasterPoolProfileArgs']] master_pool_profile: Configuration for OpenShift master VMs.
-        :param pulumi.Input[str] name: The name of the OpenShift managed cluster resource.
         :param pulumi.Input[pulumi.InputType['NetworkProfileArgs']] network_profile: Configuration for OpenShift networking.
         :param pulumi.Input[str] open_shift_version: Version of OpenShift specified when creating the cluster.
         :param pulumi.Input[pulumi.InputType['PurchasePlanArgs']] plan: Define the resource plan as required by ARM for billing purposes
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
+        :param pulumi.Input[str] resource_name_: The name of the OpenShift managed cluster resource.
         :param pulumi.Input[List[pulumi.Input[pulumi.InputType['OpenShiftRouterProfileArgs']]]] router_profiles: Configuration for OpenShift router(s).
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags
         """
@@ -71,9 +71,6 @@ class OpenShiftManagedCluster(pulumi.CustomResource):
                 raise TypeError("Missing required property 'location'")
             __props__['location'] = location
             __props__['master_pool_profile'] = master_pool_profile
-            if name is None:
-                raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
             __props__['network_profile'] = network_profile
             if open_shift_version is None:
                 raise TypeError("Missing required property 'open_shift_version'")
@@ -82,10 +79,14 @@ class OpenShiftManagedCluster(pulumi.CustomResource):
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
+            if resource_name_ is None:
+                raise TypeError("Missing required property 'resource_name_'")
+            __props__['resource_name'] = resource_name_
             __props__['router_profiles'] = router_profiles
             __props__['tags'] = tags
             __props__['cluster_version'] = None
             __props__['fqdn'] = None
+            __props__['name'] = None
             __props__['provisioning_state'] = None
             __props__['public_hostname'] = None
             __props__['type'] = None

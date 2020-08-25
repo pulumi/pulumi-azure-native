@@ -18,6 +18,7 @@ class Connection(pulumi.CustomResource):
                  resource_name,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  automation_account_name: Optional[pulumi.Input[str]] = None,
+                 connection_name: Optional[pulumi.Input[str]] = None,
                  connection_type: Optional[pulumi.Input[pulumi.InputType['ConnectionTypeAssociationPropertyArgs']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  field_definition_values: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -32,10 +33,11 @@ class Connection(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] automation_account_name: The name of the automation account.
+        :param pulumi.Input[str] connection_name: The parameters supplied to the create or update connection operation.
         :param pulumi.Input[pulumi.InputType['ConnectionTypeAssociationPropertyArgs']] connection_type: Gets or sets the connectionType of the connection.
         :param pulumi.Input[str] description: Gets or sets the description of the connection.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] field_definition_values: Gets or sets the field definition properties of the connection.
-        :param pulumi.Input[str] name: The parameters supplied to the create or update connection operation.
+        :param pulumi.Input[str] name: Gets or sets the name of the connection.
         :param pulumi.Input[str] resource_group_name: Name of an Azure Resource group.
         """
         if __name__ is not None:
@@ -58,6 +60,9 @@ class Connection(pulumi.CustomResource):
             if automation_account_name is None:
                 raise TypeError("Missing required property 'automation_account_name'")
             __props__['automation_account_name'] = automation_account_name
+            if connection_name is None:
+                raise TypeError("Missing required property 'connection_name'")
+            __props__['connection_name'] = connection_name
             if connection_type is None:
                 raise TypeError("Missing required property 'connection_type'")
             __props__['connection_type'] = connection_type

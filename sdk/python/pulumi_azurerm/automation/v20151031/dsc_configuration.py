@@ -18,6 +18,7 @@ class DscConfiguration(pulumi.CustomResource):
                  resource_name,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  automation_account_name: Optional[pulumi.Input[str]] = None,
+                 configuration_name: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  log_progress: Optional[pulumi.Input[bool]] = None,
@@ -36,11 +37,12 @@ class DscConfiguration(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] automation_account_name: The name of the automation account.
+        :param pulumi.Input[str] configuration_name: The create or update parameters for configuration.
         :param pulumi.Input[str] description: Gets or sets the description of the configuration.
         :param pulumi.Input[str] location: Gets or sets the location of the resource.
         :param pulumi.Input[bool] log_progress: Gets or sets progress log option.
         :param pulumi.Input[bool] log_verbose: Gets or sets verbose log option.
-        :param pulumi.Input[str] name: The create or update parameters for configuration.
+        :param pulumi.Input[str] name: Gets or sets name of the resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[pulumi.InputType['DscConfigurationParameterArgs']]]] parameters: Gets or sets the configuration parameters.
         :param pulumi.Input[str] resource_group_name: Name of an Azure Resource group.
         :param pulumi.Input[pulumi.InputType['ContentSourceArgs']] source: Gets or sets the source.
@@ -66,12 +68,13 @@ class DscConfiguration(pulumi.CustomResource):
             if automation_account_name is None:
                 raise TypeError("Missing required property 'automation_account_name'")
             __props__['automation_account_name'] = automation_account_name
+            if configuration_name is None:
+                raise TypeError("Missing required property 'configuration_name'")
+            __props__['configuration_name'] = configuration_name
             __props__['description'] = description
             __props__['location'] = location
             __props__['log_progress'] = log_progress
             __props__['log_verbose'] = log_verbose
-            if name is None:
-                raise TypeError("Missing required property 'name'")
             __props__['name'] = name
             __props__['parameters'] = parameters
             if resource_group_name is None:

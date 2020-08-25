@@ -21,7 +21,7 @@ class Policy(pulumi.CustomResource):
                  etag: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  managed_rules: Optional[pulumi.Input[pulumi.InputType['ManagedRuleSetListArgs']]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
+                 policy_name: Optional[pulumi.Input[str]] = None,
                  policy_settings: Optional[pulumi.Input[pulumi.InputType['PolicySettingsArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -37,7 +37,7 @@ class Policy(pulumi.CustomResource):
         :param pulumi.Input[str] etag: Gets a unique read-only string that changes whenever the resource is updated.
         :param pulumi.Input[str] location: Resource location.
         :param pulumi.Input[pulumi.InputType['ManagedRuleSetListArgs']] managed_rules: Describes managed rules inside the policy.
-        :param pulumi.Input[str] name: The name of the Web Application Firewall Policy.
+        :param pulumi.Input[str] policy_name: The name of the Web Application Firewall Policy.
         :param pulumi.Input[pulumi.InputType['PolicySettingsArgs']] policy_settings: Describes settings for the policy.
         :param pulumi.Input[str] resource_group_name: Name of the Resource group within the Azure subscription.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
@@ -63,15 +63,16 @@ class Policy(pulumi.CustomResource):
             __props__['etag'] = etag
             __props__['location'] = location
             __props__['managed_rules'] = managed_rules
-            if name is None:
-                raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
+            if policy_name is None:
+                raise TypeError("Missing required property 'policy_name'")
+            __props__['policy_name'] = policy_name
             __props__['policy_settings'] = policy_settings
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['tags'] = tags
             __props__['frontend_endpoint_links'] = None
+            __props__['name'] = None
             __props__['provisioning_state'] = None
             __props__['resource_state'] = None
             __props__['routing_rule_links'] = None

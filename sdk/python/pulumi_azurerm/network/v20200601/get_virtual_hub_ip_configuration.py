@@ -127,19 +127,19 @@ class AwaitableGetVirtualHubIpConfigurationResult(GetVirtualHubIpConfigurationRe
             type=self.type)
 
 
-def get_virtual_hub_ip_configuration(name: Optional[str] = None,
+def get_virtual_hub_ip_configuration(ip_config_name: Optional[str] = None,
                                      resource_group_name: Optional[str] = None,
                                      virtual_hub_name: Optional[str] = None,
                                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVirtualHubIpConfigurationResult:
     """
     Use this data source to access information about an existing resource.
 
-    :param str name: The name of the ipconfig.
+    :param str ip_config_name: The name of the ipconfig.
     :param str resource_group_name: The resource group name of the VirtualHub.
     :param str virtual_hub_name: The name of the VirtualHub.
     """
     __args__ = dict()
-    __args__['name'] = name
+    __args__['ipConfigName'] = ip_config_name
     __args__['resourceGroupName'] = resource_group_name
     __args__['virtualHubName'] = virtual_hub_name
     if opts is None:

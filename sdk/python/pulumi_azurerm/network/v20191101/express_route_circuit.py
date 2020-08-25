@@ -20,13 +20,13 @@ class ExpressRouteCircuit(pulumi.CustomResource):
                  allow_classic_operations: Optional[pulumi.Input[bool]] = None,
                  authorizations: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['ExpressRouteCircuitAuthorizationArgs']]]]] = None,
                  bandwidth_in_gbps: Optional[pulumi.Input[float]] = None,
+                 circuit_name: Optional[pulumi.Input[str]] = None,
                  circuit_provisioning_state: Optional[pulumi.Input[str]] = None,
                  express_route_port: Optional[pulumi.Input[pulumi.InputType['SubResourceArgs']]] = None,
                  gateway_manager_etag: Optional[pulumi.Input[str]] = None,
                  global_reach_enabled: Optional[pulumi.Input[bool]] = None,
                  id: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
                  peerings: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['ExpressRouteCircuitPeeringArgs']]]]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  service_key: Optional[pulumi.Input[str]] = None,
@@ -46,13 +46,13 @@ class ExpressRouteCircuit(pulumi.CustomResource):
         :param pulumi.Input[bool] allow_classic_operations: Allow classic operations.
         :param pulumi.Input[List[pulumi.Input[pulumi.InputType['ExpressRouteCircuitAuthorizationArgs']]]] authorizations: The list of authorizations.
         :param pulumi.Input[float] bandwidth_in_gbps: The bandwidth of the circuit when the circuit is provisioned on an ExpressRoutePort resource.
+        :param pulumi.Input[str] circuit_name: The name of the circuit.
         :param pulumi.Input[str] circuit_provisioning_state: The CircuitProvisioningState state of the resource.
         :param pulumi.Input[pulumi.InputType['SubResourceArgs']] express_route_port: The reference to the ExpressRoutePort resource when the circuit is provisioned on an ExpressRoutePort resource.
         :param pulumi.Input[str] gateway_manager_etag: The GatewayManager Etag.
         :param pulumi.Input[bool] global_reach_enabled: Flag denoting Global reach status.
         :param pulumi.Input[str] id: Resource ID.
         :param pulumi.Input[str] location: Resource location.
-        :param pulumi.Input[str] name: The name of the circuit.
         :param pulumi.Input[List[pulumi.Input[pulumi.InputType['ExpressRouteCircuitPeeringArgs']]]] peerings: The list of peerings.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[str] service_key: The ServiceKey.
@@ -82,15 +82,15 @@ class ExpressRouteCircuit(pulumi.CustomResource):
             __props__['allow_classic_operations'] = allow_classic_operations
             __props__['authorizations'] = authorizations
             __props__['bandwidth_in_gbps'] = bandwidth_in_gbps
+            if circuit_name is None:
+                raise TypeError("Missing required property 'circuit_name'")
+            __props__['circuit_name'] = circuit_name
             __props__['circuit_provisioning_state'] = circuit_provisioning_state
             __props__['express_route_port'] = express_route_port
             __props__['gateway_manager_etag'] = gateway_manager_etag
             __props__['global_reach_enabled'] = global_reach_enabled
             __props__['id'] = id
             __props__['location'] = location
-            if name is None:
-                raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
             __props__['peerings'] = peerings
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
@@ -102,6 +102,7 @@ class ExpressRouteCircuit(pulumi.CustomResource):
             __props__['sku'] = sku
             __props__['tags'] = tags
             __props__['etag'] = None
+            __props__['name'] = None
             __props__['provisioning_state'] = None
             __props__['stag'] = None
             __props__['type'] = None

@@ -115,15 +115,15 @@ class AwaitableGetPeerAsnResult(GetPeerAsnResult):
             validation_state=self.validation_state)
 
 
-def get_peer_asn(name: Optional[str] = None,
+def get_peer_asn(peer_asn_name: Optional[str] = None,
                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPeerAsnResult:
     """
     Use this data source to access information about an existing resource.
 
-    :param str name: The peer ASN name.
+    :param str peer_asn_name: The peer ASN name.
     """
     __args__ = dict()
-    __args__['name'] = name
+    __args__['peerAsnName'] = peer_asn_name
     if opts is None:
         opts = pulumi.InvokeOptions()
     if opts.version is None:

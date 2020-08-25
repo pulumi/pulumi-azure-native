@@ -17,8 +17,8 @@ class ShareSubscription(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_name: Optional[pulumi.Input[str]] = None,
                  invitation_id: Optional[pulumi.Input[str]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
+                 share_subscription_name: Optional[pulumi.Input[str]] = None,
                  source_share_location: Optional[pulumi.Input[str]] = None,
                  __props__=None,
                  __name__=None,
@@ -30,8 +30,8 @@ class ShareSubscription(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_name: The name of the share account.
         :param pulumi.Input[str] invitation_id: The invitation id.
-        :param pulumi.Input[str] name: The name of the shareSubscription.
         :param pulumi.Input[str] resource_group_name: The resource group name.
+        :param pulumi.Input[str] share_subscription_name: The name of the shareSubscription.
         :param pulumi.Input[str] source_share_location: Source share location.
         """
         if __name__ is not None:
@@ -57,16 +57,17 @@ class ShareSubscription(pulumi.CustomResource):
             if invitation_id is None:
                 raise TypeError("Missing required property 'invitation_id'")
             __props__['invitation_id'] = invitation_id
-            if name is None:
-                raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
+            if share_subscription_name is None:
+                raise TypeError("Missing required property 'share_subscription_name'")
+            __props__['share_subscription_name'] = share_subscription_name
             if source_share_location is None:
                 raise TypeError("Missing required property 'source_share_location'")
             __props__['source_share_location'] = source_share_location
             __props__['created_at'] = None
+            __props__['name'] = None
             __props__['provider_email'] = None
             __props__['provider_name'] = None
             __props__['provider_tenant_name'] = None

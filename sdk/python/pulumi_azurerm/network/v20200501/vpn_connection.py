@@ -18,6 +18,7 @@ class VpnConnection(pulumi.CustomResource):
                  resource_name,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  connection_bandwidth: Optional[pulumi.Input[float]] = None,
+                 connection_name: Optional[pulumi.Input[str]] = None,
                  connection_status: Optional[pulumi.Input[str]] = None,
                  dpd_timeout_seconds: Optional[pulumi.Input[float]] = None,
                  enable_bgp: Optional[pulumi.Input[bool]] = None,
@@ -45,6 +46,7 @@ class VpnConnection(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[float] connection_bandwidth: Expected bandwidth in MBPS.
+        :param pulumi.Input[str] connection_name: The name of the connection.
         :param pulumi.Input[str] connection_status: The connection status.
         :param pulumi.Input[float] dpd_timeout_seconds: The dead peer detection timeout for a vpn connection in seconds.
         :param pulumi.Input[bool] enable_bgp: EnableBgp flag.
@@ -53,7 +55,7 @@ class VpnConnection(pulumi.CustomResource):
         :param pulumi.Input[str] gateway_name: The name of the gateway.
         :param pulumi.Input[str] id: Resource ID.
         :param pulumi.Input[List[pulumi.Input[pulumi.InputType['IpsecPolicyArgs']]]] ipsec_policies: The IPSec Policies to be considered by this connection.
-        :param pulumi.Input[str] name: The name of the connection.
+        :param pulumi.Input[str] name: The name of the resource that is unique within a resource group. This name can be used to access the resource.
         :param pulumi.Input[pulumi.InputType['SubResourceArgs']] remote_vpn_site: Id of the connected vpn site.
         :param pulumi.Input[str] resource_group_name: The resource group name of the VpnGateway.
         :param pulumi.Input[pulumi.InputType['RoutingConfigurationArgs']] routing_configuration: The Routing Configuration indicating the associated and propagated route tables on this connection.
@@ -82,6 +84,9 @@ class VpnConnection(pulumi.CustomResource):
             __props__ = dict()
 
             __props__['connection_bandwidth'] = connection_bandwidth
+            if connection_name is None:
+                raise TypeError("Missing required property 'connection_name'")
+            __props__['connection_name'] = connection_name
             __props__['connection_status'] = connection_status
             __props__['dpd_timeout_seconds'] = dpd_timeout_seconds
             __props__['enable_bgp'] = enable_bgp
@@ -92,8 +97,6 @@ class VpnConnection(pulumi.CustomResource):
             __props__['gateway_name'] = gateway_name
             __props__['id'] = id
             __props__['ipsec_policies'] = ipsec_policies
-            if name is None:
-                raise TypeError("Missing required property 'name'")
             __props__['name'] = name
             __props__['remote_vpn_site'] = remote_vpn_site
             if resource_group_name is None:

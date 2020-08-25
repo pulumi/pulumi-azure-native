@@ -22,9 +22,9 @@ class FileShare(pulumi.CustomResource):
                  file_server_name: Optional[pulumi.Input[str]] = None,
                  manager_name: Optional[pulumi.Input[str]] = None,
                  monitoring_status: Optional[pulumi.Input[str]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
                  provisioned_capacity_in_bytes: Optional[pulumi.Input[float]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
+                 share_name: Optional[pulumi.Input[str]] = None,
                  share_status: Optional[pulumi.Input[str]] = None,
                  __props__=None,
                  __name__=None,
@@ -41,9 +41,9 @@ class FileShare(pulumi.CustomResource):
         :param pulumi.Input[str] file_server_name: The file server name.
         :param pulumi.Input[str] manager_name: The manager name
         :param pulumi.Input[str] monitoring_status: The monitoring status
-        :param pulumi.Input[str] name: The file share name.
         :param pulumi.Input[float] provisioned_capacity_in_bytes: The total provisioned capacity in Bytes
         :param pulumi.Input[str] resource_group_name: The resource group name
+        :param pulumi.Input[str] share_name: The file share name.
         :param pulumi.Input[str] share_status: The Share Status
         """
         if __name__ is not None:
@@ -82,19 +82,20 @@ class FileShare(pulumi.CustomResource):
             if monitoring_status is None:
                 raise TypeError("Missing required property 'monitoring_status'")
             __props__['monitoring_status'] = monitoring_status
-            if name is None:
-                raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
             if provisioned_capacity_in_bytes is None:
                 raise TypeError("Missing required property 'provisioned_capacity_in_bytes'")
             __props__['provisioned_capacity_in_bytes'] = provisioned_capacity_in_bytes
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
+            if share_name is None:
+                raise TypeError("Missing required property 'share_name'")
+            __props__['share_name'] = share_name
             if share_status is None:
                 raise TypeError("Missing required property 'share_status'")
             __props__['share_status'] = share_status
             __props__['local_used_capacity_in_bytes'] = None
+            __props__['name'] = None
             __props__['type'] = None
             __props__['used_capacity_in_bytes'] = None
         super(FileShare, __self__).__init__(

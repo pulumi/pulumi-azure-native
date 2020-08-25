@@ -24,8 +24,8 @@ class StreamingJob(pulumi.CustomResource):
                  events_out_of_order_policy: Optional[pulumi.Input[str]] = None,
                  functions: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['FunctionArgs']]]]] = None,
                  inputs: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['InputArgs']]]]] = None,
+                 job_name: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
                  output_error_policy: Optional[pulumi.Input[str]] = None,
                  output_start_mode: Optional[pulumi.Input[str]] = None,
                  output_start_time: Optional[pulumi.Input[str]] = None,
@@ -49,8 +49,8 @@ class StreamingJob(pulumi.CustomResource):
         :param pulumi.Input[str] events_out_of_order_policy: Indicates the policy to apply to events that arrive out of order in the input event stream.
         :param pulumi.Input[List[pulumi.Input[pulumi.InputType['FunctionArgs']]]] functions: A list of one or more functions for the streaming job. The name property for each function is required when specifying this property in a PUT request. This property cannot be modify via a PATCH operation. You must use the PATCH API available for the individual transformation.
         :param pulumi.Input[List[pulumi.Input[pulumi.InputType['InputArgs']]]] inputs: A list of one or more inputs to the streaming job. The name property for each input is required when specifying this property in a PUT request. This property cannot be modify via a PATCH operation. You must use the PATCH API available for the individual input.
+        :param pulumi.Input[str] job_name: The name of the streaming job.
         :param pulumi.Input[str] location: Resource location. Required on PUT (CreateOrReplace) requests.
-        :param pulumi.Input[str] name: The name of the streaming job.
         :param pulumi.Input[str] output_error_policy: Indicates the policy to apply to events that arrive at the output and cannot be written to the external storage due to being malformed (missing column values, column values of wrong type or size).
         :param pulumi.Input[str] output_start_mode: This property should only be utilized when it is desired that the job be started immediately upon creation. Value may be JobStartTime, CustomTime, or LastOutputEventTime to indicate whether the starting point of the output event stream should start whenever the job is started, start at a custom user time stamp specified via the outputStartTime property, or start from the last event output time.
         :param pulumi.Input[str] output_start_time: Value is either an ISO-8601 formatted time stamp that indicates the starting point of the output event stream, or null to indicate that the output event stream will start whenever the streaming job is started. This property must have a value if outputStartMode is set to CustomTime.
@@ -84,10 +84,10 @@ class StreamingJob(pulumi.CustomResource):
             __props__['events_out_of_order_policy'] = events_out_of_order_policy
             __props__['functions'] = functions
             __props__['inputs'] = inputs
+            if job_name is None:
+                raise TypeError("Missing required property 'job_name'")
+            __props__['job_name'] = job_name
             __props__['location'] = location
-            if name is None:
-                raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
             __props__['output_error_policy'] = output_error_policy
             __props__['output_start_mode'] = output_start_mode
             __props__['output_start_time'] = output_start_time
@@ -103,6 +103,7 @@ class StreamingJob(pulumi.CustomResource):
             __props__['job_id'] = None
             __props__['job_state'] = None
             __props__['last_output_event_time'] = None
+            __props__['name'] = None
             __props__['provisioning_state'] = None
             __props__['type'] = None
         super(StreamingJob, __self__).__init__(

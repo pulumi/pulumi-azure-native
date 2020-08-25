@@ -16,8 +16,8 @@ class RegisteredAsn(pulumi.CustomResource):
                  resource_name,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  asn: Optional[pulumi.Input[float]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
                  peering_name: Optional[pulumi.Input[str]] = None,
+                 registered_asn_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  __props__=None,
                  __name__=None,
@@ -28,8 +28,8 @@ class RegisteredAsn(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[float] asn: The customer's ASN from which traffic originates.
-        :param pulumi.Input[str] name: The name of the ASN.
         :param pulumi.Input[str] peering_name: The name of the peering.
+        :param pulumi.Input[str] registered_asn_name: The name of the ASN.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         """
         if __name__ is not None:
@@ -50,15 +50,16 @@ class RegisteredAsn(pulumi.CustomResource):
             __props__ = dict()
 
             __props__['asn'] = asn
-            if name is None:
-                raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
             if peering_name is None:
                 raise TypeError("Missing required property 'peering_name'")
             __props__['peering_name'] = peering_name
+            if registered_asn_name is None:
+                raise TypeError("Missing required property 'registered_asn_name'")
+            __props__['registered_asn_name'] = registered_asn_name
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
+            __props__['name'] = None
             __props__['peering_service_prefix_key'] = None
             __props__['provisioning_state'] = None
             __props__['type'] = None

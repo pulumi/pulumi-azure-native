@@ -21,8 +21,8 @@ class InterfaceEndpoint(pulumi.CustomResource):
                  etag: Optional[pulumi.Input[str]] = None,
                  fqdn: Optional[pulumi.Input[str]] = None,
                  id: Optional[pulumi.Input[str]] = None,
+                 interface_endpoint_name: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  subnet: Optional[pulumi.Input[pulumi.InputType['SubnetArgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -38,8 +38,8 @@ class InterfaceEndpoint(pulumi.CustomResource):
         :param pulumi.Input[str] etag: Gets a unique read-only string that changes whenever the resource is updated.
         :param pulumi.Input[str] fqdn: A first-party service's FQDN that is mapped to the private IP allocated via this interface endpoint.
         :param pulumi.Input[str] id: Resource ID.
+        :param pulumi.Input[str] interface_endpoint_name: The name of the interface endpoint.
         :param pulumi.Input[str] location: Resource location.
-        :param pulumi.Input[str] name: The name of the interface endpoint.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[pulumi.InputType['SubnetArgs']] subnet: The ID of the subnet from which the private IP will be allocated.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
@@ -65,15 +65,16 @@ class InterfaceEndpoint(pulumi.CustomResource):
             __props__['etag'] = etag
             __props__['fqdn'] = fqdn
             __props__['id'] = id
+            if interface_endpoint_name is None:
+                raise TypeError("Missing required property 'interface_endpoint_name'")
+            __props__['interface_endpoint_name'] = interface_endpoint_name
             __props__['location'] = location
-            if name is None:
-                raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['subnet'] = subnet
             __props__['tags'] = tags
+            __props__['name'] = None
             __props__['network_interfaces'] = None
             __props__['owner'] = None
             __props__['provisioning_state'] = None

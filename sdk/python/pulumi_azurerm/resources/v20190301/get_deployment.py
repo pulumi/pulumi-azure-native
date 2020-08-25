@@ -79,17 +79,17 @@ class AwaitableGetDeploymentResult(GetDeploymentResult):
             type=self.type)
 
 
-def get_deployment(name: Optional[str] = None,
+def get_deployment(deployment_name: Optional[str] = None,
                    resource_group_name: Optional[str] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDeploymentResult:
     """
     Use this data source to access information about an existing resource.
 
-    :param str name: The name of the deployment to get.
+    :param str deployment_name: The name of the deployment to get.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
     __args__ = dict()
-    __args__['name'] = name
+    __args__['deploymentName'] = deployment_name
     __args__['resourceGroupName'] = resource_group_name
     if opts is None:
         opts = pulumi.InvokeOptions()

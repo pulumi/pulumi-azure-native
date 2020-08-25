@@ -18,9 +18,9 @@ class SignalR(pulumi.CustomResource):
                  resource_name,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
                  properties: Optional[pulumi.Input[pulumi.InputType['SignalRCreateOrUpdatePropertiesArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
+                 resource_name_: Optional[pulumi.Input[str]] = None,
                  sku: Optional[pulumi.Input[pulumi.InputType['ResourceSkuArgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None,
@@ -33,9 +33,9 @@ class SignalR(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] location: Azure GEO region: e.g. West US | East US | North Central US | South Central US | West Europe | North Europe | East Asia | Southeast Asia | etc. 
                The geo region of a resource never changes after it is created.
-        :param pulumi.Input[str] name: The name of the SignalR resource.
         :param pulumi.Input[pulumi.InputType['SignalRCreateOrUpdatePropertiesArgs']] properties: Settings used to provision or configure the resource
         :param pulumi.Input[str] resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+        :param pulumi.Input[str] resource_name_: The name of the SignalR resource.
         :param pulumi.Input[pulumi.InputType['ResourceSkuArgs']] sku: The billing information of the resource.(e.g. basic vs. standard)
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A list of key value pairs that describe the resource.
         """
@@ -59,13 +59,13 @@ class SignalR(pulumi.CustomResource):
             if location is None:
                 raise TypeError("Missing required property 'location'")
             __props__['location'] = location
-            if name is None:
-                raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
             __props__['properties'] = properties
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
+            if resource_name_ is None:
+                raise TypeError("Missing required property 'resource_name_'")
+            __props__['resource_name'] = resource_name_
             __props__['sku'] = sku
             __props__['tags'] = tags
             __props__['cors'] = None
@@ -73,6 +73,7 @@ class SignalR(pulumi.CustomResource):
             __props__['features'] = None
             __props__['host_name'] = None
             __props__['host_name_prefix'] = None
+            __props__['name'] = None
             __props__['provisioning_state'] = None
             __props__['public_port'] = None
             __props__['server_port'] = None

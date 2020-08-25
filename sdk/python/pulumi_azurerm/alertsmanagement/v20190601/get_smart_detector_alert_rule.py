@@ -175,20 +175,20 @@ class AwaitableGetSmartDetectorAlertRuleResult(GetSmartDetectorAlertRuleResult):
             type=self.type)
 
 
-def get_smart_detector_alert_rule(expand_detector: Optional[bool] = None,
-                                  name: Optional[str] = None,
+def get_smart_detector_alert_rule(alert_rule_name: Optional[str] = None,
+                                  expand_detector: Optional[bool] = None,
                                   resource_group_name: Optional[str] = None,
                                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSmartDetectorAlertRuleResult:
     """
     Use this data source to access information about an existing resource.
 
+    :param str alert_rule_name: The name of the alert rule.
     :param bool expand_detector: Indicates if Smart Detector should be expanded.
-    :param str name: The name of the alert rule.
     :param str resource_group_name: The name of the resource group.
     """
     __args__ = dict()
+    __args__['alertRuleName'] = alert_rule_name
     __args__['expandDetector'] = expand_detector
-    __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
     if opts is None:
         opts = pulumi.InvokeOptions()

@@ -211,18 +211,18 @@ class AwaitableGetViewByScopeResult(GetViewByScopeResult):
             type=self.type)
 
 
-def get_view_by_scope(name: Optional[str] = None,
-                      scope: Optional[str] = None,
+def get_view_by_scope(scope: Optional[str] = None,
+                      view_name: Optional[str] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetViewByScopeResult:
     """
     Use this data source to access information about an existing resource.
 
-    :param str name: View name
     :param str scope: The scope associated with view operations. This includes 'subscriptions/{subscriptionId}' for subscription scope, 'subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}' for resourceGroup scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}' for Billing Account scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/departments/{departmentId}' for Department scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/enrollmentAccounts/{enrollmentAccountId}' for EnrollmentAccount scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/billingProfiles/{billingProfileId}' for BillingProfile scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/invoiceSections/{invoiceSectionId}' for InvoiceSection scope, 'providers/Microsoft.Management/managementGroups/{managementGroupId}' for Management Group scope, 'providers/Microsoft.CostManagement/externalBillingAccounts/{externalBillingAccountName}' for External Billing Account scope and 'providers/Microsoft.CostManagement/externalSubscriptions/{externalSubscriptionName}' for External Subscription scope.
+    :param str view_name: View name
     """
     __args__ = dict()
-    __args__['name'] = name
     __args__['scope'] = scope
+    __args__['viewName'] = view_name
     if opts is None:
         opts = pulumi.InvokeOptions()
     if opts.version is None:

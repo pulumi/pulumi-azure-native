@@ -151,19 +151,19 @@ class AwaitableGetFileServerResult(GetFileServerResult):
             vm_size=self.vm_size)
 
 
-def get_file_server(name: Optional[str] = None,
+def get_file_server(file_server_name: Optional[str] = None,
                     resource_group_name: Optional[str] = None,
                     workspace_name: Optional[str] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetFileServerResult:
     """
     Use this data source to access information about an existing resource.
 
-    :param str name: The name of the file server within the specified resource group. File server names can only contain a combination of alphanumeric characters along with dash (-) and underscore (_). The name must be from 1 through 64 characters long.
+    :param str file_server_name: The name of the file server within the specified resource group. File server names can only contain a combination of alphanumeric characters along with dash (-) and underscore (_). The name must be from 1 through 64 characters long.
     :param str resource_group_name: Name of the resource group to which the resource belongs.
     :param str workspace_name: The name of the workspace. Workspace names can only contain a combination of alphanumeric characters along with dash (-) and underscore (_). The name must be from 1 through 64 characters long.
     """
     __args__ = dict()
-    __args__['name'] = name
+    __args__['fileServerName'] = file_server_name
     __args__['resourceGroupName'] = resource_group_name
     __args__['workspaceName'] = workspace_name
     if opts is None:

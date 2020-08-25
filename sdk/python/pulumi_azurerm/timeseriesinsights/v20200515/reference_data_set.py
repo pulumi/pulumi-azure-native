@@ -21,7 +21,7 @@ class ReferenceDataSet(pulumi.CustomResource):
                  environment_name: Optional[pulumi.Input[str]] = None,
                  key_properties: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['ReferenceDataSetKeyPropertyArgs']]]]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
+                 reference_data_set_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None,
@@ -36,7 +36,7 @@ class ReferenceDataSet(pulumi.CustomResource):
         :param pulumi.Input[str] environment_name: The name of the Time Series Insights environment associated with the specified resource group.
         :param pulumi.Input[List[pulumi.Input[pulumi.InputType['ReferenceDataSetKeyPropertyArgs']]]] key_properties: The list of key properties for the reference data set.
         :param pulumi.Input[str] location: The location of the resource.
-        :param pulumi.Input[str] name: Name of the reference data set.
+        :param pulumi.Input[str] reference_data_set_name: Name of the reference data set.
         :param pulumi.Input[str] resource_group_name: Name of an Azure Resource group.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value pairs of additional properties for the resource.
         """
@@ -67,14 +67,15 @@ class ReferenceDataSet(pulumi.CustomResource):
             if location is None:
                 raise TypeError("Missing required property 'location'")
             __props__['location'] = location
-            if name is None:
-                raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
+            if reference_data_set_name is None:
+                raise TypeError("Missing required property 'reference_data_set_name'")
+            __props__['reference_data_set_name'] = reference_data_set_name
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['tags'] = tags
             __props__['creation_time'] = None
+            __props__['name'] = None
             __props__['provisioning_state'] = None
             __props__['type'] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:timeseriesinsights/v20171115:ReferenceDataSet")])

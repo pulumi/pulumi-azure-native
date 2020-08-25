@@ -116,19 +116,19 @@ class AwaitableGetImageResult(GetImageResult):
 
 
 def get_image(expand: Optional[str] = None,
-              name: Optional[str] = None,
+              image_name: Optional[str] = None,
               resource_group_name: Optional[str] = None,
               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetImageResult:
     """
     Use this data source to access information about an existing resource.
 
     :param str expand: The expand expression to apply on the operation.
-    :param str name: The name of the image.
+    :param str image_name: The name of the image.
     :param str resource_group_name: The name of the resource group.
     """
     __args__ = dict()
     __args__['expand'] = expand
-    __args__['name'] = name
+    __args__['imageName'] = image_name
     __args__['resourceGroupName'] = resource_group_name
     if opts is None:
         opts = pulumi.InvokeOptions()

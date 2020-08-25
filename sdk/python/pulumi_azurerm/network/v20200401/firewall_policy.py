@@ -18,9 +18,9 @@ class FirewallPolicy(pulumi.CustomResource):
                  resource_name,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  base_policy: Optional[pulumi.Input[pulumi.InputType['SubResourceArgs']]] = None,
+                 firewall_policy_name: Optional[pulumi.Input[str]] = None,
                  id: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  threat_intel_mode: Optional[pulumi.Input[str]] = None,
@@ -34,9 +34,9 @@ class FirewallPolicy(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['SubResourceArgs']] base_policy: The parent firewall policy from which rules are inherited.
+        :param pulumi.Input[str] firewall_policy_name: The name of the Firewall Policy.
         :param pulumi.Input[str] id: Resource ID.
         :param pulumi.Input[str] location: Resource location.
-        :param pulumi.Input[str] name: The name of the Firewall Policy.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         :param pulumi.Input[str] threat_intel_mode: The operation mode for Threat Intelligence.
@@ -60,11 +60,11 @@ class FirewallPolicy(pulumi.CustomResource):
             __props__ = dict()
 
             __props__['base_policy'] = base_policy
+            if firewall_policy_name is None:
+                raise TypeError("Missing required property 'firewall_policy_name'")
+            __props__['firewall_policy_name'] = firewall_policy_name
             __props__['id'] = id
             __props__['location'] = location
-            if name is None:
-                raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
@@ -74,6 +74,7 @@ class FirewallPolicy(pulumi.CustomResource):
             __props__['child_policies'] = None
             __props__['etag'] = None
             __props__['firewalls'] = None
+            __props__['name'] = None
             __props__['provisioning_state'] = None
             __props__['rule_groups'] = None
             __props__['type'] = None

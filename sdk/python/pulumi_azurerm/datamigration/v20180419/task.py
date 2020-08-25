@@ -19,10 +19,10 @@ class Task(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  etag: Optional[pulumi.Input[str]] = None,
                  group_name: Optional[pulumi.Input[str]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
                  project_name: Optional[pulumi.Input[str]] = None,
                  properties: Optional[pulumi.Input[pulumi.InputType['ProjectTaskPropertiesArgs']]] = None,
                  service_name: Optional[pulumi.Input[str]] = None,
+                 task_name: Optional[pulumi.Input[str]] = None,
                  __props__=None,
                  __name__=None,
                  __opts__=None):
@@ -33,10 +33,10 @@ class Task(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] etag: HTTP strong entity tag value. This is ignored if submitted.
         :param pulumi.Input[str] group_name: Name of the resource group
-        :param pulumi.Input[str] name: Name of the Task
         :param pulumi.Input[str] project_name: Name of the project
         :param pulumi.Input[pulumi.InputType['ProjectTaskPropertiesArgs']] properties: Custom task properties
         :param pulumi.Input[str] service_name: Name of the service
+        :param pulumi.Input[str] task_name: Name of the Task
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -59,9 +59,6 @@ class Task(pulumi.CustomResource):
             if group_name is None:
                 raise TypeError("Missing required property 'group_name'")
             __props__['group_name'] = group_name
-            if name is None:
-                raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
             if project_name is None:
                 raise TypeError("Missing required property 'project_name'")
             __props__['project_name'] = project_name
@@ -69,6 +66,10 @@ class Task(pulumi.CustomResource):
             if service_name is None:
                 raise TypeError("Missing required property 'service_name'")
             __props__['service_name'] = service_name
+            if task_name is None:
+                raise TypeError("Missing required property 'task_name'")
+            __props__['task_name'] = task_name
+            __props__['name'] = None
             __props__['type'] = None
         super(Task, __self__).__init__(
             'azurerm:datamigration/v20180419:Task',

@@ -140,19 +140,19 @@ class AwaitableGetNetworkProfileResult(GetNetworkProfileResult):
 
 
 def get_network_profile(expand: Optional[str] = None,
-                        name: Optional[str] = None,
+                        network_profile_name: Optional[str] = None,
                         resource_group_name: Optional[str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetNetworkProfileResult:
     """
     Use this data source to access information about an existing resource.
 
     :param str expand: Expands referenced resources.
-    :param str name: The name of the public IP prefix.
+    :param str network_profile_name: The name of the public IP prefix.
     :param str resource_group_name: The name of the resource group.
     """
     __args__ = dict()
     __args__['expand'] = expand
-    __args__['name'] = name
+    __args__['networkProfileName'] = network_profile_name
     __args__['resourceGroupName'] = resource_group_name
     if opts is None:
         opts = pulumi.InvokeOptions()

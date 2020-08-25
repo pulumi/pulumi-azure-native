@@ -17,8 +17,8 @@ class Cluster(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 cluster_name: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
                  node_setup: Optional[pulumi.Input[pulumi.InputType['NodeSetupArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  scale_settings: Optional[pulumi.Input[pulumi.InputType['ScaleSettingsArgs']]] = None,
@@ -36,8 +36,8 @@ class Cluster(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] cluster_name: The name of the cluster within the specified resource group. Cluster names can only contain a combination of alphanumeric characters along with dash (-) and underscore (_). The name must be from 1 through 64 characters long.
         :param pulumi.Input[str] location: The region in which to create the cluster.
-        :param pulumi.Input[str] name: The name of the cluster within the specified resource group. Cluster names can only contain a combination of alphanumeric characters along with dash (-) and underscore (_). The name must be from 1 through 64 characters long.
         :param pulumi.Input[pulumi.InputType['NodeSetupArgs']] node_setup: Use this to prepare the VM. NOTE: The volumes specified in mountVolumes are mounted first and then the setupTask is run. Therefore the setup task can use local mountPaths in its execution.
         :param pulumi.Input[str] resource_group_name: Name of the resource group to which the resource belongs.
         :param pulumi.Input[pulumi.InputType['ScaleSettingsArgs']] scale_settings: At least one of manual or autoScale settings must be specified. Only one of manual or autoScale settings can be specified. If autoScale settings are specified, the system automatically scales the cluster up and down (within the supplied limits) based on the pending jobs on the cluster.
@@ -65,12 +65,12 @@ class Cluster(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
+            if cluster_name is None:
+                raise TypeError("Missing required property 'cluster_name'")
+            __props__['cluster_name'] = cluster_name
             if location is None:
                 raise TypeError("Missing required property 'location'")
             __props__['location'] = location
-            if name is None:
-                raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
             __props__['node_setup'] = node_setup
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
@@ -91,6 +91,7 @@ class Cluster(pulumi.CustomResource):
             __props__['creation_time'] = None
             __props__['current_node_count'] = None
             __props__['errors'] = None
+            __props__['name'] = None
             __props__['node_state_counts'] = None
             __props__['provisioning_state'] = None
             __props__['provisioning_state_transition_time'] = None

@@ -20,6 +20,7 @@ class PrivateDnsZoneGroup(pulumi.CustomResource):
                  id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  private_dns_zone_configs: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['PrivateDnsZoneConfigArgs']]]]] = None,
+                 private_dns_zone_group_name: Optional[pulumi.Input[str]] = None,
                  private_endpoint_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  __props__=None,
@@ -31,8 +32,9 @@ class PrivateDnsZoneGroup(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] id: Resource ID.
-        :param pulumi.Input[str] name: The name of the private dns zone group.
+        :param pulumi.Input[str] name: Name of the resource that is unique within a resource group. This name can be used to access the resource.
         :param pulumi.Input[List[pulumi.Input[pulumi.InputType['PrivateDnsZoneConfigArgs']]]] private_dns_zone_configs: A collection of private dns zone configurations of the private dns zone group.
+        :param pulumi.Input[str] private_dns_zone_group_name: The name of the private dns zone group.
         :param pulumi.Input[str] private_endpoint_name: The name of the private endpoint.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         """
@@ -54,10 +56,11 @@ class PrivateDnsZoneGroup(pulumi.CustomResource):
             __props__ = dict()
 
             __props__['id'] = id
-            if name is None:
-                raise TypeError("Missing required property 'name'")
             __props__['name'] = name
             __props__['private_dns_zone_configs'] = private_dns_zone_configs
+            if private_dns_zone_group_name is None:
+                raise TypeError("Missing required property 'private_dns_zone_group_name'")
+            __props__['private_dns_zone_group_name'] = private_dns_zone_group_name
             if private_endpoint_name is None:
                 raise TypeError("Missing required property 'private_endpoint_name'")
             __props__['private_endpoint_name'] = private_endpoint_name

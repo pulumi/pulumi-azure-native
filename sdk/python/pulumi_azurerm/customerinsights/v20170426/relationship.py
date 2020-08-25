@@ -24,9 +24,9 @@ class Relationship(pulumi.CustomResource):
                  fields: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['PropertyDefinitionArgs']]]]] = None,
                  hub_name: Optional[pulumi.Input[str]] = None,
                  lookup_mappings: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['RelationshipTypeMappingArgs']]]]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
                  profile_type: Optional[pulumi.Input[str]] = None,
                  related_profile_type: Optional[pulumi.Input[str]] = None,
+                 relationship_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  __props__=None,
                  __name__=None,
@@ -43,9 +43,9 @@ class Relationship(pulumi.CustomResource):
         :param pulumi.Input[List[pulumi.Input[pulumi.InputType['PropertyDefinitionArgs']]]] fields: The properties of the Relationship.
         :param pulumi.Input[str] hub_name: The name of the hub.
         :param pulumi.Input[List[pulumi.Input[pulumi.InputType['RelationshipTypeMappingArgs']]]] lookup_mappings: Optional property to be used to map fields in profile to their strong ids in related profile.
-        :param pulumi.Input[str] name: The name of the Relationship.
         :param pulumi.Input[str] profile_type: Profile type.
         :param pulumi.Input[str] related_profile_type: Related profile being referenced.
+        :param pulumi.Input[str] relationship_name: The name of the Relationship.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         """
         if __name__ is not None:
@@ -74,21 +74,21 @@ class Relationship(pulumi.CustomResource):
                 raise TypeError("Missing required property 'hub_name'")
             __props__['hub_name'] = hub_name
             __props__['lookup_mappings'] = lookup_mappings
-            if name is None:
-                raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
             if profile_type is None:
                 raise TypeError("Missing required property 'profile_type'")
             __props__['profile_type'] = profile_type
             if related_profile_type is None:
                 raise TypeError("Missing required property 'related_profile_type'")
             __props__['related_profile_type'] = related_profile_type
+            if relationship_name is None:
+                raise TypeError("Missing required property 'relationship_name'")
+            __props__['relationship_name'] = relationship_name
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
+            __props__['name'] = None
             __props__['provisioning_state'] = None
             __props__['relationship_guid_id'] = None
-            __props__['relationship_name'] = None
             __props__['tenant_id'] = None
             __props__['type'] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:customerinsights/v20170101:Relationship")])

@@ -188,21 +188,21 @@ class AwaitableListTaskDetailsResult(ListTaskDetailsResult):
             type=self.type)
 
 
-def list_task_details(name: Optional[str] = None,
-                      registry_name: Optional[str] = None,
+def list_task_details(registry_name: Optional[str] = None,
                       resource_group_name: Optional[str] = None,
+                      task_name: Optional[str] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListTaskDetailsResult:
     """
     Use this data source to access information about an existing resource.
 
-    :param str name: The name of the container registry task.
     :param str registry_name: The name of the container registry.
     :param str resource_group_name: The name of the resource group to which the container registry belongs.
+    :param str task_name: The name of the container registry task.
     """
     __args__ = dict()
-    __args__['name'] = name
     __args__['registryName'] = registry_name
     __args__['resourceGroupName'] = resource_group_name
+    __args__['taskName'] = task_name
     if opts is None:
         opts = pulumi.InvokeOptions()
     if opts.version is None:

@@ -16,10 +16,10 @@ class Prefix(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 name: Optional[pulumi.Input[str]] = None,
                  peering_service_name: Optional[pulumi.Input[str]] = None,
                  peering_service_prefix_key: Optional[pulumi.Input[str]] = None,
                  prefix: Optional[pulumi.Input[str]] = None,
+                 prefix_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  __props__=None,
                  __name__=None,
@@ -29,10 +29,10 @@ class Prefix(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] name: The name of the prefix.
         :param pulumi.Input[str] peering_service_name: The name of the peering service.
         :param pulumi.Input[str] peering_service_prefix_key: The peering service prefix key
         :param pulumi.Input[str] prefix: The prefix from which your traffic originates.
+        :param pulumi.Input[str] prefix_name: The name of the prefix.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         """
         if __name__ is not None:
@@ -52,20 +52,21 @@ class Prefix(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if name is None:
-                raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
             if peering_service_name is None:
                 raise TypeError("Missing required property 'peering_service_name'")
             __props__['peering_service_name'] = peering_service_name
             __props__['peering_service_prefix_key'] = peering_service_prefix_key
             __props__['prefix'] = prefix
+            if prefix_name is None:
+                raise TypeError("Missing required property 'prefix_name'")
+            __props__['prefix_name'] = prefix_name
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['error_message'] = None
             __props__['events'] = None
             __props__['learned_type'] = None
+            __props__['name'] = None
             __props__['prefix_validation_state'] = None
             __props__['provisioning_state'] = None
             __props__['type'] = None

@@ -15,7 +15,7 @@ class LinkedStorageAccount(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 name: Optional[pulumi.Input[str]] = None,
+                 data_source_type: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  storage_account_ids: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
                  workspace_name: Optional[pulumi.Input[str]] = None,
@@ -27,7 +27,7 @@ class LinkedStorageAccount(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] name: Linked storage accounts type.
+        :param pulumi.Input[str] data_source_type: Linked storage accounts type.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[List[pulumi.Input[str]]] storage_account_ids: Linked storage accounts resources ids.
         :param pulumi.Input[str] workspace_name: The name of the workspace.
@@ -49,9 +49,9 @@ class LinkedStorageAccount(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if name is None:
-                raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
+            if data_source_type is None:
+                raise TypeError("Missing required property 'data_source_type'")
+            __props__['data_source_type'] = data_source_type
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
@@ -59,7 +59,7 @@ class LinkedStorageAccount(pulumi.CustomResource):
             if workspace_name is None:
                 raise TypeError("Missing required property 'workspace_name'")
             __props__['workspace_name'] = workspace_name
-            __props__['data_source_type'] = None
+            __props__['name'] = None
             __props__['type'] = None
         super(LinkedStorageAccount, __self__).__init__(
             'azurerm:operationalinsights/v20200801:LinkedStorageAccount',

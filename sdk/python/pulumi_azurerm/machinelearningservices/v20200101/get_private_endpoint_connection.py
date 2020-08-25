@@ -139,19 +139,19 @@ class AwaitableGetPrivateEndpointConnectionResult(GetPrivateEndpointConnectionRe
             type=self.type)
 
 
-def get_private_endpoint_connection(name: Optional[str] = None,
+def get_private_endpoint_connection(private_endpoint_connection_name: Optional[str] = None,
                                     resource_group_name: Optional[str] = None,
                                     workspace_name: Optional[str] = None,
                                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPrivateEndpointConnectionResult:
     """
     Use this data source to access information about an existing resource.
 
-    :param str name: The name of the private endpoint connection associated with the workspace
+    :param str private_endpoint_connection_name: The name of the private endpoint connection associated with the workspace
     :param str resource_group_name: Name of the resource group in which workspace is located.
     :param str workspace_name: Name of Azure Machine Learning workspace.
     """
     __args__ = dict()
-    __args__['name'] = name
+    __args__['privateEndpointConnectionName'] = private_endpoint_connection_name
     __args__['resourceGroupName'] = resource_group_name
     __args__['workspaceName'] = workspace_name
     if opts is None:

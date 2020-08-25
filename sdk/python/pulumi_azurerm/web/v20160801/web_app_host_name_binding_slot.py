@@ -19,6 +19,7 @@ class WebAppHostNameBindingSlot(pulumi.CustomResource):
                  azure_resource_type: Optional[pulumi.Input[str]] = None,
                  custom_host_name_dns_record_type: Optional[pulumi.Input[str]] = None,
                  domain_id: Optional[pulumi.Input[str]] = None,
+                 host_name: Optional[pulumi.Input[str]] = None,
                  host_name_type: Optional[pulumi.Input[str]] = None,
                  kind: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -39,9 +40,10 @@ class WebAppHostNameBindingSlot(pulumi.CustomResource):
         :param pulumi.Input[str] azure_resource_type: Azure resource type.
         :param pulumi.Input[str] custom_host_name_dns_record_type: Custom DNS record type.
         :param pulumi.Input[str] domain_id: Fully qualified ARM domain resource URI.
+        :param pulumi.Input[str] host_name: Hostname in the hostname binding.
         :param pulumi.Input[str] host_name_type: Hostname type.
         :param pulumi.Input[str] kind: Kind of resource.
-        :param pulumi.Input[str] name: Hostname in the hostname binding.
+        :param pulumi.Input[str] name: Name of the app.
         :param pulumi.Input[str] resource_group_name: Name of the resource group to which the resource belongs.
         :param pulumi.Input[str] site_name: App Service app name.
         :param pulumi.Input[str] slot: Name of the deployment slot. If a slot is not specified, the API will create a binding for the production slot.
@@ -69,6 +71,9 @@ class WebAppHostNameBindingSlot(pulumi.CustomResource):
             __props__['azure_resource_type'] = azure_resource_type
             __props__['custom_host_name_dns_record_type'] = custom_host_name_dns_record_type
             __props__['domain_id'] = domain_id
+            if host_name is None:
+                raise TypeError("Missing required property 'host_name'")
+            __props__['host_name'] = host_name
             __props__['host_name_type'] = host_name_type
             __props__['kind'] = kind
             if name is None:

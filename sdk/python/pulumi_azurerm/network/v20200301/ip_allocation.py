@@ -18,9 +18,9 @@ class IpAllocation(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  allocation_tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  id: Optional[pulumi.Input[str]] = None,
+                 ip_allocation_name: Optional[pulumi.Input[str]] = None,
                  ipam_allocation_id: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
                  prefix: Optional[pulumi.Input[str]] = None,
                  prefix_length: Optional[pulumi.Input[float]] = None,
                  prefix_type: Optional[pulumi.Input[str]] = None,
@@ -37,9 +37,9 @@ class IpAllocation(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] allocation_tags: IpAllocation tags.
         :param pulumi.Input[str] id: Resource ID.
+        :param pulumi.Input[str] ip_allocation_name: The name of the IpAllocation.
         :param pulumi.Input[str] ipam_allocation_id: The IPAM allocation ID.
         :param pulumi.Input[str] location: Resource location.
-        :param pulumi.Input[str] name: The name of the IpAllocation.
         :param pulumi.Input[str] prefix: The address prefix for the IpAllocation.
         :param pulumi.Input[float] prefix_length: The address prefix length for the IpAllocation.
         :param pulumi.Input[str] prefix_type: The address prefix Type for the IpAllocation.
@@ -66,11 +66,11 @@ class IpAllocation(pulumi.CustomResource):
 
             __props__['allocation_tags'] = allocation_tags
             __props__['id'] = id
+            if ip_allocation_name is None:
+                raise TypeError("Missing required property 'ip_allocation_name'")
+            __props__['ip_allocation_name'] = ip_allocation_name
             __props__['ipam_allocation_id'] = ipam_allocation_id
             __props__['location'] = location
-            if name is None:
-                raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
             __props__['prefix'] = prefix
             __props__['prefix_length'] = prefix_length
             __props__['prefix_type'] = prefix_type
@@ -80,6 +80,7 @@ class IpAllocation(pulumi.CustomResource):
             __props__['tags'] = tags
             __props__['type'] = type
             __props__['etag'] = None
+            __props__['name'] = None
             __props__['subnet'] = None
             __props__['virtual_network'] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:network/v20200401:IpAllocation"), pulumi.Alias(type_="azurerm:network/v20200501:IpAllocation"), pulumi.Alias(type_="azurerm:network/v20200601:IpAllocation")])

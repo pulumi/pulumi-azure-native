@@ -20,7 +20,7 @@ class Project(pulumi.CustomResource):
                  databases_info: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['DatabaseInfoArgs']]]]] = None,
                  group_name: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
+                 project_name: Optional[pulumi.Input[str]] = None,
                  service_name: Optional[pulumi.Input[str]] = None,
                  source_connection_info: Optional[pulumi.Input[pulumi.InputType['ConnectionInfoArgs']]] = None,
                  source_platform: Optional[pulumi.Input[str]] = None,
@@ -38,7 +38,7 @@ class Project(pulumi.CustomResource):
         :param pulumi.Input[List[pulumi.Input[pulumi.InputType['DatabaseInfoArgs']]]] databases_info: List of DatabaseInfo
         :param pulumi.Input[str] group_name: Name of the resource group
         :param pulumi.Input[str] location: Resource location.
-        :param pulumi.Input[str] name: Name of the project
+        :param pulumi.Input[str] project_name: Name of the project
         :param pulumi.Input[str] service_name: Name of the service
         :param pulumi.Input[pulumi.InputType['ConnectionInfoArgs']] source_connection_info: Information for connecting to source
         :param pulumi.Input[str] source_platform: Source platform for the project
@@ -70,9 +70,9 @@ class Project(pulumi.CustomResource):
             if location is None:
                 raise TypeError("Missing required property 'location'")
             __props__['location'] = location
-            if name is None:
-                raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
+            if project_name is None:
+                raise TypeError("Missing required property 'project_name'")
+            __props__['project_name'] = project_name
             if service_name is None:
                 raise TypeError("Missing required property 'service_name'")
             __props__['service_name'] = service_name
@@ -86,6 +86,7 @@ class Project(pulumi.CustomResource):
                 raise TypeError("Missing required property 'target_platform'")
             __props__['target_platform'] = target_platform
             __props__['creation_time'] = None
+            __props__['name'] = None
             __props__['provisioning_state'] = None
             __props__['type'] = None
         super(Project, __self__).__init__(

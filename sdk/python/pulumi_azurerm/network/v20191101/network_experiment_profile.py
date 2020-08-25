@@ -19,6 +19,7 @@ class NetworkExperimentProfile(pulumi.CustomResource):
                  etag: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 profile_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  resource_state: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -33,7 +34,8 @@ class NetworkExperimentProfile(pulumi.CustomResource):
         :param pulumi.Input[str] enabled_state: The state of the Experiment
         :param pulumi.Input[str] etag: Gets a unique read-only string that changes whenever the resource is updated.
         :param pulumi.Input[str] location: Resource location.
-        :param pulumi.Input[str] name: The Profile identifier associated with the Tenant and Partner
+        :param pulumi.Input[str] name: The name of the Profile
+        :param pulumi.Input[str] profile_name: The Profile identifier associated with the Tenant and Partner
         :param pulumi.Input[str] resource_group_name: Name of the Resource group within the Azure subscription.
         :param pulumi.Input[str] resource_state: Resource status.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
@@ -58,9 +60,10 @@ class NetworkExperimentProfile(pulumi.CustomResource):
             __props__['enabled_state'] = enabled_state
             __props__['etag'] = etag
             __props__['location'] = location
-            if name is None:
-                raise TypeError("Missing required property 'name'")
             __props__['name'] = name
+            if profile_name is None:
+                raise TypeError("Missing required property 'profile_name'")
+            __props__['profile_name'] = profile_name
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name

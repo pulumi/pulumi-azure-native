@@ -21,11 +21,11 @@ class VirtualRouter(pulumi.CustomResource):
                  hosted_subnet: Optional[pulumi.Input[pulumi.InputType['SubResourceArgs']]] = None,
                  id: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  virtual_router_asn: Optional[pulumi.Input[float]] = None,
                  virtual_router_ips: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 virtual_router_name: Optional[pulumi.Input[str]] = None,
                  __props__=None,
                  __name__=None,
                  __opts__=None):
@@ -38,11 +38,11 @@ class VirtualRouter(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['SubResourceArgs']] hosted_subnet: The Subnet on which VirtualRouter is hosted.
         :param pulumi.Input[str] id: Resource ID.
         :param pulumi.Input[str] location: Resource location.
-        :param pulumi.Input[str] name: The name of the Virtual Router.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         :param pulumi.Input[float] virtual_router_asn: VirtualRouter ASN.
         :param pulumi.Input[List[pulumi.Input[str]]] virtual_router_ips: VirtualRouter IPs.
+        :param pulumi.Input[str] virtual_router_name: The name of the Virtual Router.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -65,16 +65,17 @@ class VirtualRouter(pulumi.CustomResource):
             __props__['hosted_subnet'] = hosted_subnet
             __props__['id'] = id
             __props__['location'] = location
-            if name is None:
-                raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['tags'] = tags
             __props__['virtual_router_asn'] = virtual_router_asn
             __props__['virtual_router_ips'] = virtual_router_ips
+            if virtual_router_name is None:
+                raise TypeError("Missing required property 'virtual_router_name'")
+            __props__['virtual_router_name'] = virtual_router_name
             __props__['etag'] = None
+            __props__['name'] = None
             __props__['peerings'] = None
             __props__['provisioning_state'] = None
             __props__['type'] = None

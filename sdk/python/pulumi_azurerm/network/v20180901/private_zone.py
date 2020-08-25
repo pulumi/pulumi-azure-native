@@ -17,7 +17,7 @@ class PrivateZone(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  etag: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
+                 private_zone_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None,
@@ -30,7 +30,7 @@ class PrivateZone(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] etag: The ETag of the zone.
         :param pulumi.Input[str] location: The Azure Region where the resource lives
-        :param pulumi.Input[str] name: The name of the Private DNS zone (without a terminating dot).
+        :param pulumi.Input[str] private_zone_name: The name of the Private DNS zone (without a terminating dot).
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
@@ -53,9 +53,9 @@ class PrivateZone(pulumi.CustomResource):
 
             __props__['etag'] = etag
             __props__['location'] = location
-            if name is None:
-                raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
+            if private_zone_name is None:
+                raise TypeError("Missing required property 'private_zone_name'")
+            __props__['private_zone_name'] = private_zone_name
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
@@ -63,6 +63,7 @@ class PrivateZone(pulumi.CustomResource):
             __props__['max_number_of_record_sets'] = None
             __props__['max_number_of_virtual_network_links'] = None
             __props__['max_number_of_virtual_network_links_with_registration'] = None
+            __props__['name'] = None
             __props__['number_of_record_sets'] = None
             __props__['number_of_virtual_network_links'] = None
             __props__['number_of_virtual_network_links_with_registration'] = None

@@ -18,7 +18,7 @@ class JobSchedule(pulumi.CustomResource):
                  resource_name,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  automation_account_name: Optional[pulumi.Input[str]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
+                 job_schedule_id: Optional[pulumi.Input[str]] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  run_on: Optional[pulumi.Input[str]] = None,
@@ -33,7 +33,7 @@ class JobSchedule(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] automation_account_name: The name of the automation account.
-        :param pulumi.Input[str] name: The job schedule name.
+        :param pulumi.Input[str] job_schedule_id: The job schedule name.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameters: Gets or sets a list of job properties.
         :param pulumi.Input[str] resource_group_name: Name of an Azure Resource group.
         :param pulumi.Input[str] run_on: Gets or sets the hybrid worker group that the scheduled job should run on.
@@ -60,9 +60,9 @@ class JobSchedule(pulumi.CustomResource):
             if automation_account_name is None:
                 raise TypeError("Missing required property 'automation_account_name'")
             __props__['automation_account_name'] = automation_account_name
-            if name is None:
-                raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
+            if job_schedule_id is None:
+                raise TypeError("Missing required property 'job_schedule_id'")
+            __props__['job_schedule_id'] = job_schedule_id
             __props__['parameters'] = parameters
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
@@ -74,7 +74,7 @@ class JobSchedule(pulumi.CustomResource):
             if schedule is None:
                 raise TypeError("Missing required property 'schedule'")
             __props__['schedule'] = schedule
-            __props__['job_schedule_id'] = None
+            __props__['name'] = None
             __props__['type'] = None
         super(JobSchedule, __self__).__init__(
             'azurerm:automation/v20151031:JobSchedule',

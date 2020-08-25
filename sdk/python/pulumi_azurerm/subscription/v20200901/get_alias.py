@@ -67,15 +67,15 @@ class AwaitableGetAliasResult(GetAliasResult):
             type=self.type)
 
 
-def get_alias(name: Optional[str] = None,
+def get_alias(alias_name: Optional[str] = None,
               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAliasResult:
     """
     Use this data source to access information about an existing resource.
 
-    :param str name: Alias Name
+    :param str alias_name: Alias Name
     """
     __args__ = dict()
-    __args__['name'] = name
+    __args__['aliasName'] = alias_name
     if opts is None:
         opts = pulumi.InvokeOptions()
     if opts.version is None:

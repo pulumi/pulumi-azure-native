@@ -26,6 +26,7 @@ class NotificationHub(pulumi.CustomResource):
                  mpns_credential: Optional[pulumi.Input[pulumi.InputType['MpnsCredentialArgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  namespace_name: Optional[pulumi.Input[str]] = None,
+                 notification_hub_name: Optional[pulumi.Input[str]] = None,
                  registration_ttl: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  sku: Optional[pulumi.Input[pulumi.InputType['SkuArgs']]] = None,
@@ -46,8 +47,9 @@ class NotificationHub(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['GcmCredentialArgs']] gcm_credential: The GcmCredential of the created NotificationHub
         :param pulumi.Input[str] location: Resource location
         :param pulumi.Input[pulumi.InputType['MpnsCredentialArgs']] mpns_credential: The MpnsCredential of the created NotificationHub
-        :param pulumi.Input[str] name: The notification hub name.
+        :param pulumi.Input[str] name: The NotificationHub name.
         :param pulumi.Input[str] namespace_name: The namespace name.
+        :param pulumi.Input[str] notification_hub_name: The notification hub name.
         :param pulumi.Input[str] registration_ttl: The RegistrationTtl of the created NotificationHub
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[pulumi.InputType['SkuArgs']] sku: The sku of the created namespace
@@ -78,12 +80,13 @@ class NotificationHub(pulumi.CustomResource):
             __props__['gcm_credential'] = gcm_credential
             __props__['location'] = location
             __props__['mpns_credential'] = mpns_credential
-            if name is None:
-                raise TypeError("Missing required property 'name'")
             __props__['name'] = name
             if namespace_name is None:
                 raise TypeError("Missing required property 'namespace_name'")
             __props__['namespace_name'] = namespace_name
+            if notification_hub_name is None:
+                raise TypeError("Missing required property 'notification_hub_name'")
+            __props__['notification_hub_name'] = notification_hub_name
             __props__['registration_ttl'] = registration_ttl
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")

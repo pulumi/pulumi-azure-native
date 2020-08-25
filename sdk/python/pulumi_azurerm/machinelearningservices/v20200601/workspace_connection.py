@@ -17,6 +17,7 @@ class WorkspaceConnection(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  auth_type: Optional[pulumi.Input[str]] = None,
                  category: Optional[pulumi.Input[str]] = None,
+                 connection_name: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  target: Optional[pulumi.Input[str]] = None,
@@ -32,6 +33,7 @@ class WorkspaceConnection(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] auth_type: Authorization type of the workspace connection.
         :param pulumi.Input[str] category: Category of the workspace connection.
+        :param pulumi.Input[str] connection_name: Friendly name of the workspace connection
         :param pulumi.Input[str] name: Friendly name of the workspace connection
         :param pulumi.Input[str] resource_group_name: Name of the resource group in which workspace is located.
         :param pulumi.Input[str] target: Target of the workspace connection.
@@ -57,8 +59,9 @@ class WorkspaceConnection(pulumi.CustomResource):
 
             __props__['auth_type'] = auth_type
             __props__['category'] = category
-            if name is None:
-                raise TypeError("Missing required property 'name'")
+            if connection_name is None:
+                raise TypeError("Missing required property 'connection_name'")
+            __props__['connection_name'] = connection_name
             __props__['name'] = name
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")

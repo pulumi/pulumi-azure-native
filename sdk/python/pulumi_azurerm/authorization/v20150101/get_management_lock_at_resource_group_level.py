@@ -78,17 +78,17 @@ class AwaitableGetManagementLockAtResourceGroupLevelResult(GetManagementLockAtRe
             type=self.type)
 
 
-def get_management_lock_at_resource_group_level(name: Optional[str] = None,
+def get_management_lock_at_resource_group_level(lock_name: Optional[str] = None,
                                                 resource_group_name: Optional[str] = None,
                                                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetManagementLockAtResourceGroupLevelResult:
     """
     Use this data source to access information about an existing resource.
 
-    :param str name: The lock name.
+    :param str lock_name: The lock name.
     :param str resource_group_name: The resource group name.
     """
     __args__ = dict()
-    __args__['name'] = name
+    __args__['lockName'] = lock_name
     __args__['resourceGroupName'] = resource_group_name
     if opts is None:
         opts = pulumi.InvokeOptions()

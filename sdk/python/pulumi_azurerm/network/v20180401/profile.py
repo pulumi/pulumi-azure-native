@@ -24,6 +24,7 @@ class Profile(pulumi.CustomResource):
                  max_return: Optional[pulumi.Input[float]] = None,
                  monitor_config: Optional[pulumi.Input[pulumi.InputType['MonitorConfigArgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 profile_name: Optional[pulumi.Input[str]] = None,
                  profile_status: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -44,7 +45,8 @@ class Profile(pulumi.CustomResource):
         :param pulumi.Input[str] location: The Azure Region where the resource lives
         :param pulumi.Input[float] max_return: Maximum number of endpoints to be returned for MultiValue routing type.
         :param pulumi.Input[pulumi.InputType['MonitorConfigArgs']] monitor_config: The endpoint monitoring settings of the Traffic Manager profile.
-        :param pulumi.Input[str] name: The name of the Traffic Manager profile.
+        :param pulumi.Input[str] name: The name of the resource
+        :param pulumi.Input[str] profile_name: The name of the Traffic Manager profile.
         :param pulumi.Input[str] profile_status: The status of the Traffic Manager profile.
         :param pulumi.Input[str] resource_group_name: The name of the resource group containing the Traffic Manager profile.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
@@ -75,9 +77,10 @@ class Profile(pulumi.CustomResource):
             __props__['location'] = location
             __props__['max_return'] = max_return
             __props__['monitor_config'] = monitor_config
-            if name is None:
-                raise TypeError("Missing required property 'name'")
             __props__['name'] = name
+            if profile_name is None:
+                raise TypeError("Missing required property 'profile_name'")
+            __props__['profile_name'] = profile_name
             __props__['profile_status'] = profile_status
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")

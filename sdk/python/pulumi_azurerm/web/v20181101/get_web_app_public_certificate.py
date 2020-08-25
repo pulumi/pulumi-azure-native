@@ -103,16 +103,19 @@ class AwaitableGetWebAppPublicCertificateResult(GetWebAppPublicCertificateResult
 
 
 def get_web_app_public_certificate(name: Optional[str] = None,
+                                   public_certificate_name: Optional[str] = None,
                                    resource_group_name: Optional[str] = None,
                                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetWebAppPublicCertificateResult:
     """
     Use this data source to access information about an existing resource.
 
-    :param str name: Public certificate name.
+    :param str name: Name of the app.
+    :param str public_certificate_name: Public certificate name.
     :param str resource_group_name: Name of the resource group to which the resource belongs.
     """
     __args__ = dict()
     __args__['name'] = name
+    __args__['publicCertificateName'] = public_certificate_name
     __args__['resourceGroupName'] = resource_group_name
     if opts is None:
         opts = pulumi.InvokeOptions()

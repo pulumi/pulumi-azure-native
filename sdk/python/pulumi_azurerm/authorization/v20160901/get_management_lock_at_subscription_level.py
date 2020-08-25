@@ -91,15 +91,15 @@ class AwaitableGetManagementLockAtSubscriptionLevelResult(GetManagementLockAtSub
             type=self.type)
 
 
-def get_management_lock_at_subscription_level(name: Optional[str] = None,
+def get_management_lock_at_subscription_level(lock_name: Optional[str] = None,
                                               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetManagementLockAtSubscriptionLevelResult:
     """
     Use this data source to access information about an existing resource.
 
-    :param str name: The name of the lock to get.
+    :param str lock_name: The name of the lock to get.
     """
     __args__ = dict()
-    __args__['name'] = name
+    __args__['lockName'] = lock_name
     if opts is None:
         opts = pulumi.InvokeOptions()
     if opts.version is None:

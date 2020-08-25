@@ -26,10 +26,10 @@ class VirtualNetwork(pulumi.CustomResource):
                  id: Optional[pulumi.Input[str]] = None,
                  ip_allocations: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['SubResourceArgs']]]]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  subnets: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['SubnetArgs']]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 virtual_network_name: Optional[pulumi.Input[str]] = None,
                  virtual_network_peerings: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['VirtualNetworkPeeringArgs']]]]] = None,
                  __props__=None,
                  __name__=None,
@@ -48,10 +48,10 @@ class VirtualNetwork(pulumi.CustomResource):
         :param pulumi.Input[str] id: Resource ID.
         :param pulumi.Input[List[pulumi.Input[pulumi.InputType['SubResourceArgs']]]] ip_allocations: Array of IpAllocation which reference this VNET.
         :param pulumi.Input[str] location: Resource location.
-        :param pulumi.Input[str] name: The name of the virtual network.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[List[pulumi.Input[pulumi.InputType['SubnetArgs']]]] subnets: A list of subnets in a Virtual Network.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
+        :param pulumi.Input[str] virtual_network_name: The name of the virtual network.
         :param pulumi.Input[List[pulumi.Input[pulumi.InputType['VirtualNetworkPeeringArgs']]]] virtual_network_peerings: A list of peerings in a Virtual Network.
         """
         if __name__ is not None:
@@ -80,16 +80,17 @@ class VirtualNetwork(pulumi.CustomResource):
             __props__['id'] = id
             __props__['ip_allocations'] = ip_allocations
             __props__['location'] = location
-            if name is None:
-                raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['subnets'] = subnets
             __props__['tags'] = tags
+            if virtual_network_name is None:
+                raise TypeError("Missing required property 'virtual_network_name'")
+            __props__['virtual_network_name'] = virtual_network_name
             __props__['virtual_network_peerings'] = virtual_network_peerings
             __props__['etag'] = None
+            __props__['name'] = None
             __props__['provisioning_state'] = None
             __props__['resource_guid'] = None
             __props__['type'] = None

@@ -138,22 +138,22 @@ class AwaitableGetCustomDomainResult(GetCustomDomainResult):
             validation_data=self.validation_data)
 
 
-def get_custom_domain(endpoint_name: Optional[str] = None,
-                      name: Optional[str] = None,
+def get_custom_domain(custom_domain_name: Optional[str] = None,
+                      endpoint_name: Optional[str] = None,
                       profile_name: Optional[str] = None,
                       resource_group_name: Optional[str] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetCustomDomainResult:
     """
     Use this data source to access information about an existing resource.
 
+    :param str custom_domain_name: Name of the custom domain within an endpoint.
     :param str endpoint_name: Name of the endpoint under the profile which is unique globally.
-    :param str name: Name of the custom domain within an endpoint.
     :param str profile_name: Name of the CDN profile which is unique within the resource group.
     :param str resource_group_name: Name of the Resource group within the Azure subscription.
     """
     __args__ = dict()
+    __args__['customDomainName'] = custom_domain_name
     __args__['endpointName'] = endpoint_name
-    __args__['name'] = name
     __args__['profileName'] = profile_name
     __args__['resourceGroupName'] = resource_group_name
     if opts is None:

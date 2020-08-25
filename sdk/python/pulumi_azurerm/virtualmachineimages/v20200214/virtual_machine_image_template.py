@@ -21,8 +21,8 @@ class VirtualMachineImageTemplate(pulumi.CustomResource):
                  customize: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['ImageTemplateCustomizerArgs']]]]] = None,
                  distribute: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['ImageTemplateDistributorArgs']]]]] = None,
                  identity: Optional[pulumi.Input[pulumi.InputType['ImageTemplateIdentityArgs']]] = None,
+                 image_template_name: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  source: Optional[pulumi.Input[pulumi.InputType['ImageTemplateSourceArgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -39,8 +39,8 @@ class VirtualMachineImageTemplate(pulumi.CustomResource):
         :param pulumi.Input[List[pulumi.Input[pulumi.InputType['ImageTemplateCustomizerArgs']]]] customize: Specifies the properties used to describe the customization steps of the image, like Image source etc
         :param pulumi.Input[List[pulumi.Input[pulumi.InputType['ImageTemplateDistributorArgs']]]] distribute: The distribution targets where the image output needs to go to.
         :param pulumi.Input[pulumi.InputType['ImageTemplateIdentityArgs']] identity: The identity of the image template, if configured.
+        :param pulumi.Input[str] image_template_name: The name of the image Template
         :param pulumi.Input[str] location: Resource location
-        :param pulumi.Input[str] name: The name of the image Template
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[pulumi.InputType['ImageTemplateSourceArgs']] source: Specifies the properties used to describe the source image.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags
@@ -71,12 +71,12 @@ class VirtualMachineImageTemplate(pulumi.CustomResource):
             if identity is None:
                 raise TypeError("Missing required property 'identity'")
             __props__['identity'] = identity
+            if image_template_name is None:
+                raise TypeError("Missing required property 'image_template_name'")
+            __props__['image_template_name'] = image_template_name
             if location is None:
                 raise TypeError("Missing required property 'location'")
             __props__['location'] = location
-            if name is None:
-                raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
@@ -86,6 +86,7 @@ class VirtualMachineImageTemplate(pulumi.CustomResource):
             __props__['tags'] = tags
             __props__['vm_profile'] = vm_profile
             __props__['last_run_status'] = None
+            __props__['name'] = None
             __props__['provisioning_error'] = None
             __props__['provisioning_state'] = None
             __props__['type'] = None

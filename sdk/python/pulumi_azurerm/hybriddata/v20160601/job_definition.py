@@ -23,8 +23,8 @@ class JobDefinition(pulumi.CustomResource):
                  data_service_name: Optional[pulumi.Input[str]] = None,
                  data_sink_id: Optional[pulumi.Input[str]] = None,
                  data_source_id: Optional[pulumi.Input[str]] = None,
+                 job_definition_name: Optional[pulumi.Input[str]] = None,
                  last_modified_time: Optional[pulumi.Input[str]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  run_location: Optional[pulumi.Input[str]] = None,
                  schedules: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['ScheduleArgs']]]]] = None,
@@ -44,8 +44,8 @@ class JobDefinition(pulumi.CustomResource):
         :param pulumi.Input[str] data_service_name: The data service type of the job definition.
         :param pulumi.Input[str] data_sink_id: Data Sink Id associated to the job definition.
         :param pulumi.Input[str] data_source_id: Data Source Id associated to the job definition.
+        :param pulumi.Input[str] job_definition_name: The job definition name to be created or updated.
         :param pulumi.Input[str] last_modified_time: Last modified time of the job definition.
-        :param pulumi.Input[str] name: The job definition name to be created or updated.
         :param pulumi.Input[str] resource_group_name: The Resource Group Name
         :param pulumi.Input[str] run_location: This is the preferred geo location for the job to run.
         :param pulumi.Input[List[pulumi.Input[pulumi.InputType['ScheduleArgs']]]] schedules: Schedule for running the job definition
@@ -83,10 +83,10 @@ class JobDefinition(pulumi.CustomResource):
             if data_source_id is None:
                 raise TypeError("Missing required property 'data_source_id'")
             __props__['data_source_id'] = data_source_id
+            if job_definition_name is None:
+                raise TypeError("Missing required property 'job_definition_name'")
+            __props__['job_definition_name'] = job_definition_name
             __props__['last_modified_time'] = last_modified_time
-            if name is None:
-                raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
@@ -96,6 +96,7 @@ class JobDefinition(pulumi.CustomResource):
                 raise TypeError("Missing required property 'state'")
             __props__['state'] = state
             __props__['user_confirmation'] = user_confirmation
+            __props__['name'] = None
             __props__['type'] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:hybriddata/v20190601:JobDefinition")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)

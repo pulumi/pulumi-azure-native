@@ -17,6 +17,7 @@ class WebAppRelayServiceConnection(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  biztalk_uri: Optional[pulumi.Input[str]] = None,
                  entity_connection_string: Optional[pulumi.Input[str]] = None,
+                 entity_name: Optional[pulumi.Input[str]] = None,
                  hostname: Optional[pulumi.Input[str]] = None,
                  kind: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -33,6 +34,7 @@ class WebAppRelayServiceConnection(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] kind: Kind of resource.
+        :param pulumi.Input[str] name: Name of the app.
         :param pulumi.Input[str] resource_group_name: Name of the resource group to which the resource belongs.
         """
         if __name__ is not None:
@@ -54,6 +56,9 @@ class WebAppRelayServiceConnection(pulumi.CustomResource):
 
             __props__['biztalk_uri'] = biztalk_uri
             __props__['entity_connection_string'] = entity_connection_string
+            if entity_name is None:
+                raise TypeError("Missing required property 'entity_name'")
+            __props__['entity_name'] = entity_name
             __props__['hostname'] = hostname
             __props__['kind'] = kind
             if name is None:
@@ -65,7 +70,6 @@ class WebAppRelayServiceConnection(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['resource_type'] = resource_type
-            __props__['entity_name'] = None
             __props__['type'] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:web/v20150801:WebAppRelayServiceConnection"), pulumi.Alias(type_="azurerm:web/v20180201:WebAppRelayServiceConnection"), pulumi.Alias(type_="azurerm:web/v20181101:WebAppRelayServiceConnection"), pulumi.Alias(type_="azurerm:web/v20190801:WebAppRelayServiceConnection"), pulumi.Alias(type_="azurerm:web/v20200601:WebAppRelayServiceConnection")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)

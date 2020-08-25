@@ -247,19 +247,19 @@ class AwaitableGetAuthorizationServerResult(GetAuthorizationServerResult):
             type=self.type)
 
 
-def get_authorization_server(name: Optional[str] = None,
+def get_authorization_server(authsid: Optional[str] = None,
                              resource_group_name: Optional[str] = None,
                              service_name: Optional[str] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAuthorizationServerResult:
     """
     Use this data source to access information about an existing resource.
 
-    :param str name: Identifier of the authorization server.
+    :param str authsid: Identifier of the authorization server.
     :param str resource_group_name: The name of the resource group.
     :param str service_name: The name of the API Management service.
     """
     __args__ = dict()
-    __args__['name'] = name
+    __args__['authsid'] = authsid
     __args__['resourceGroupName'] = resource_group_name
     __args__['serviceName'] = service_name
     if opts is None:

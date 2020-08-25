@@ -211,15 +211,15 @@ class AwaitableGetViewResult(GetViewResult):
             type=self.type)
 
 
-def get_view(name: Optional[str] = None,
+def get_view(view_name: Optional[str] = None,
              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetViewResult:
     """
     Use this data source to access information about an existing resource.
 
-    :param str name: View name
+    :param str view_name: View name
     """
     __args__ = dict()
-    __args__['name'] = name
+    __args__['viewName'] = view_name
     if opts is None:
         opts = pulumi.InvokeOptions()
     if opts.version is None:

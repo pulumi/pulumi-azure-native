@@ -90,15 +90,15 @@ class AwaitableGetHierarchySettingResult(GetHierarchySettingResult):
             type=self.type)
 
 
-def get_hierarchy_setting(name: Optional[str] = None,
+def get_hierarchy_setting(group_id: Optional[str] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetHierarchySettingResult:
     """
     Use this data source to access information about an existing resource.
 
-    :param str name: Management Group ID.
+    :param str group_id: Management Group ID.
     """
     __args__ = dict()
-    __args__['name'] = name
+    __args__['groupId'] = group_id
     if opts is None:
         opts = pulumi.InvokeOptions()
     if opts.version is None:

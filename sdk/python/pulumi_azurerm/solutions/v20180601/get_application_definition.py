@@ -223,17 +223,17 @@ class AwaitableGetApplicationDefinitionResult(GetApplicationDefinitionResult):
             type=self.type)
 
 
-def get_application_definition(name: Optional[str] = None,
+def get_application_definition(application_definition_name: Optional[str] = None,
                                resource_group_name: Optional[str] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetApplicationDefinitionResult:
     """
     Use this data source to access information about an existing resource.
 
-    :param str name: The name of the managed application definition.
+    :param str application_definition_name: The name of the managed application definition.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
     __args__ = dict()
-    __args__['name'] = name
+    __args__['applicationDefinitionName'] = application_definition_name
     __args__['resourceGroupName'] = resource_group_name
     if opts is None:
         opts = pulumi.InvokeOptions()

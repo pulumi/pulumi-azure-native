@@ -151,17 +151,17 @@ class AwaitableGetRemediationAtResourceGroupResult(GetRemediationAtResourceGroup
             type=self.type)
 
 
-def get_remediation_at_resource_group(name: Optional[str] = None,
+def get_remediation_at_resource_group(remediation_name: Optional[str] = None,
                                       resource_group_name: Optional[str] = None,
                                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetRemediationAtResourceGroupResult:
     """
     Use this data source to access information about an existing resource.
 
-    :param str name: The name of the remediation.
+    :param str remediation_name: The name of the remediation.
     :param str resource_group_name: Resource group name.
     """
     __args__ = dict()
-    __args__['name'] = name
+    __args__['remediationName'] = remediation_name
     __args__['resourceGroupName'] = resource_group_name
     if opts is None:
         opts = pulumi.InvokeOptions()

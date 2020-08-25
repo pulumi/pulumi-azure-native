@@ -17,8 +17,8 @@ class Cluster(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 cluster_name: Optional[pulumi.Input[str]] = None,
                  cluster_size: Optional[pulumi.Input[float]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
                  private_cloud_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  sku: Optional[pulumi.Input[pulumi.InputType['SkuArgs']]] = None,
@@ -30,8 +30,8 @@ class Cluster(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] cluster_name: Name of the cluster in the private cloud
         :param pulumi.Input[float] cluster_size: The cluster size
-        :param pulumi.Input[str] name: Name of the cluster in the private cloud
         :param pulumi.Input[str] private_cloud_name: The name of the private cloud.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[pulumi.InputType['SkuArgs']] sku: The cluster SKU
@@ -53,12 +53,12 @@ class Cluster(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
+            if cluster_name is None:
+                raise TypeError("Missing required property 'cluster_name'")
+            __props__['cluster_name'] = cluster_name
             if cluster_size is None:
                 raise TypeError("Missing required property 'cluster_size'")
             __props__['cluster_size'] = cluster_size
-            if name is None:
-                raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
             if private_cloud_name is None:
                 raise TypeError("Missing required property 'private_cloud_name'")
             __props__['private_cloud_name'] = private_cloud_name
@@ -70,6 +70,7 @@ class Cluster(pulumi.CustomResource):
             __props__['sku'] = sku
             __props__['cluster_id'] = None
             __props__['hosts'] = None
+            __props__['name'] = None
             __props__['provisioning_state'] = None
             __props__['type'] = None
         super(Cluster, __self__).__init__(

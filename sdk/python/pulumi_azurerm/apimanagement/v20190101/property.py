@@ -16,7 +16,7 @@ class Property(pulumi.CustomResource):
                  resource_name,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
+                 prop_id: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  secret: Optional[pulumi.Input[bool]] = None,
                  service_name: Optional[pulumi.Input[str]] = None,
@@ -31,7 +31,7 @@ class Property(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] display_name: Unique name of Property. It may contain only letters, digits, period, dash, and underscore characters.
-        :param pulumi.Input[str] name: Identifier of the property.
+        :param pulumi.Input[str] prop_id: Identifier of the property.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[bool] secret: Determines whether the value is a secret and should be encrypted or not. Default value is false.
         :param pulumi.Input[str] service_name: The name of the API Management service.
@@ -58,9 +58,9 @@ class Property(pulumi.CustomResource):
             if display_name is None:
                 raise TypeError("Missing required property 'display_name'")
             __props__['display_name'] = display_name
-            if name is None:
-                raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
+            if prop_id is None:
+                raise TypeError("Missing required property 'prop_id'")
+            __props__['prop_id'] = prop_id
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
@@ -72,6 +72,7 @@ class Property(pulumi.CustomResource):
             if value is None:
                 raise TypeError("Missing required property 'value'")
             __props__['value'] = value
+            __props__['name'] = None
             __props__['type'] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:apimanagement/v20160707:Property"), pulumi.Alias(type_="azurerm:apimanagement/v20161010:Property"), pulumi.Alias(type_="azurerm:apimanagement/v20170301:Property"), pulumi.Alias(type_="azurerm:apimanagement/v20180101:Property")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)

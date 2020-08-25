@@ -199,18 +199,18 @@ class AwaitableGetIotSecuritySolutionResult(GetIotSecuritySolutionResult):
             workspace=self.workspace)
 
 
-def get_iot_security_solution(name: Optional[str] = None,
-                              resource_group_name: Optional[str] = None,
+def get_iot_security_solution(resource_group_name: Optional[str] = None,
+                              solution_name: Optional[str] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetIotSecuritySolutionResult:
     """
     Use this data source to access information about an existing resource.
 
-    :param str name: The name of the IoT Security solution.
     :param str resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.
+    :param str solution_name: The name of the IoT Security solution.
     """
     __args__ = dict()
-    __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
+    __args__['solutionName'] = solution_name
     if opts is None:
         opts = pulumi.InvokeOptions()
     if opts.version is None:

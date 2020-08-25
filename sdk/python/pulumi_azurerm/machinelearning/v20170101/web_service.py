@@ -18,10 +18,10 @@ class WebService(pulumi.CustomResource):
                  resource_name,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
                  properties: Optional[pulumi.Input[pulumi.InputType['WebServicePropertiesArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 web_service_name: Optional[pulumi.Input[str]] = None,
                  __props__=None,
                  __name__=None,
                  __opts__=None):
@@ -31,10 +31,10 @@ class WebService(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] location: Specifies the location of the resource.
-        :param pulumi.Input[str] name: The name of the web service.
         :param pulumi.Input[pulumi.InputType['WebServicePropertiesArgs']] properties: Contains the property payload that describes the web service.
         :param pulumi.Input[str] resource_group_name: Name of the resource group in which the web service is located.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Contains resource tags defined as key/value pairs.
+        :param pulumi.Input[str] web_service_name: The name of the web service.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -56,9 +56,6 @@ class WebService(pulumi.CustomResource):
             if location is None:
                 raise TypeError("Missing required property 'location'")
             __props__['location'] = location
-            if name is None:
-                raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
             if properties is None:
                 raise TypeError("Missing required property 'properties'")
             __props__['properties'] = properties
@@ -66,6 +63,10 @@ class WebService(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['tags'] = tags
+            if web_service_name is None:
+                raise TypeError("Missing required property 'web_service_name'")
+            __props__['web_service_name'] = web_service_name
+            __props__['name'] = None
             __props__['type'] = None
         super(WebService, __self__).__init__(
             'azurerm:machinelearning/v20170101:WebService',

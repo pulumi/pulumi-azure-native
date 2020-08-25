@@ -17,9 +17,9 @@ class Certificate(pulumi.CustomResource):
                  resource_name,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_name: Optional[pulumi.Input[str]] = None,
+                 certificate_name: Optional[pulumi.Input[str]] = None,
                  data: Optional[pulumi.Input[str]] = None,
                  format: Optional[pulumi.Input[str]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
                  password: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  thumbprint: Optional[pulumi.Input[str]] = None,
@@ -33,9 +33,9 @@ class Certificate(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_name: The name of the Batch account.
+        :param pulumi.Input[str] certificate_name: The identifier for the certificate. This must be made up of algorithm and thumbprint separated by a dash, and must match the certificate data in the request. For example SHA1-a3d1c5.
         :param pulumi.Input[str] data: The maximum size is 10KB.
         :param pulumi.Input[str] format: The format of the certificate - either Pfx or Cer. If omitted, the default is Pfx.
-        :param pulumi.Input[str] name: The identifier for the certificate. This must be made up of algorithm and thumbprint separated by a dash, and must match the certificate data in the request. For example SHA1-a3d1c5.
         :param pulumi.Input[str] password: This must not be specified if the certificate format is Cer.
         :param pulumi.Input[str] resource_group_name: The name of the resource group that contains the Batch account.
         :param pulumi.Input[str] thumbprint: This must match the thumbprint from the name.
@@ -61,13 +61,13 @@ class Certificate(pulumi.CustomResource):
             if account_name is None:
                 raise TypeError("Missing required property 'account_name'")
             __props__['account_name'] = account_name
+            if certificate_name is None:
+                raise TypeError("Missing required property 'certificate_name'")
+            __props__['certificate_name'] = certificate_name
             if data is None:
                 raise TypeError("Missing required property 'data'")
             __props__['data'] = data
             __props__['format'] = format
-            if name is None:
-                raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
             __props__['password'] = password
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
@@ -76,6 +76,7 @@ class Certificate(pulumi.CustomResource):
             __props__['thumbprint_algorithm'] = thumbprint_algorithm
             __props__['delete_certificate_error'] = None
             __props__['etag'] = None
+            __props__['name'] = None
             __props__['previous_provisioning_state'] = None
             __props__['previous_provisioning_state_transition_time'] = None
             __props__['provisioning_state'] = None

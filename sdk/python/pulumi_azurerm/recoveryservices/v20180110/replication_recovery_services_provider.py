@@ -18,8 +18,8 @@ class ReplicationRecoveryServicesProvider(pulumi.CustomResource):
                  resource_name,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  fabric_name: Optional[pulumi.Input[str]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
                  properties: Optional[pulumi.Input[pulumi.InputType['AddRecoveryServicesProviderInputPropertiesArgs']]] = None,
+                 provider_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  resource_name_: Optional[pulumi.Input[str]] = None,
                  __props__=None,
@@ -31,8 +31,8 @@ class ReplicationRecoveryServicesProvider(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] fabric_name: Fabric name.
-        :param pulumi.Input[str] name: Recovery services provider name.
         :param pulumi.Input[pulumi.InputType['AddRecoveryServicesProviderInputPropertiesArgs']] properties: The properties of an add provider request.
+        :param pulumi.Input[str] provider_name: Recovery services provider name.
         :param pulumi.Input[str] resource_group_name: The name of the resource group where the recovery services vault is present.
         :param pulumi.Input[str] resource_name_: The name of the recovery services vault.
         """
@@ -56,12 +56,12 @@ class ReplicationRecoveryServicesProvider(pulumi.CustomResource):
             if fabric_name is None:
                 raise TypeError("Missing required property 'fabric_name'")
             __props__['fabric_name'] = fabric_name
-            if name is None:
-                raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
             if properties is None:
                 raise TypeError("Missing required property 'properties'")
             __props__['properties'] = properties
+            if provider_name is None:
+                raise TypeError("Missing required property 'provider_name'")
+            __props__['provider_name'] = provider_name
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
@@ -69,6 +69,7 @@ class ReplicationRecoveryServicesProvider(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_name_'")
             __props__['resource_name'] = resource_name_
             __props__['location'] = None
+            __props__['name'] = None
             __props__['type'] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:recoveryservices/v20160810:ReplicationRecoveryServicesProvider"), pulumi.Alias(type_="azurerm:recoveryservices/v20180710:ReplicationRecoveryServicesProvider")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)

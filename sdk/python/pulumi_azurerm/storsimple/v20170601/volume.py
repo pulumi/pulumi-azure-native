@@ -20,10 +20,10 @@ class Volume(pulumi.CustomResource):
                  kind: Optional[pulumi.Input[str]] = None,
                  manager_name: Optional[pulumi.Input[str]] = None,
                  monitoring_status: Optional[pulumi.Input[str]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  size_in_bytes: Optional[pulumi.Input[float]] = None,
                  volume_container_name: Optional[pulumi.Input[str]] = None,
+                 volume_name: Optional[pulumi.Input[str]] = None,
                  volume_status: Optional[pulumi.Input[str]] = None,
                  volume_type: Optional[pulumi.Input[str]] = None,
                  __props__=None,
@@ -39,10 +39,10 @@ class Volume(pulumi.CustomResource):
         :param pulumi.Input[str] kind: The Kind of the object. Currently only Series8000 is supported
         :param pulumi.Input[str] manager_name: The manager name
         :param pulumi.Input[str] monitoring_status: The monitoring status of the volume.
-        :param pulumi.Input[str] name: The volume name.
         :param pulumi.Input[str] resource_group_name: The resource group name
         :param pulumi.Input[float] size_in_bytes: The size of the volume in bytes.
         :param pulumi.Input[str] volume_container_name: The volume container name.
+        :param pulumi.Input[str] volume_name: The volume name.
         :param pulumi.Input[str] volume_status: The volume status.
         :param pulumi.Input[str] volume_type: The type of the volume.
         """
@@ -76,9 +76,6 @@ class Volume(pulumi.CustomResource):
             if monitoring_status is None:
                 raise TypeError("Missing required property 'monitoring_status'")
             __props__['monitoring_status'] = monitoring_status
-            if name is None:
-                raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
@@ -88,6 +85,9 @@ class Volume(pulumi.CustomResource):
             if volume_container_name is None:
                 raise TypeError("Missing required property 'volume_container_name'")
             __props__['volume_container_name'] = volume_container_name
+            if volume_name is None:
+                raise TypeError("Missing required property 'volume_name'")
+            __props__['volume_name'] = volume_name
             if volume_status is None:
                 raise TypeError("Missing required property 'volume_status'")
             __props__['volume_status'] = volume_status
@@ -96,6 +96,7 @@ class Volume(pulumi.CustomResource):
             __props__['volume_type'] = volume_type
             __props__['backup_policy_ids'] = None
             __props__['backup_status'] = None
+            __props__['name'] = None
             __props__['operation_status'] = None
             __props__['type'] = None
             __props__['volume_container_id'] = None

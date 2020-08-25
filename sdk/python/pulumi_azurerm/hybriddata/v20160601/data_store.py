@@ -19,9 +19,9 @@ class DataStore(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  customer_secrets: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['CustomerSecretArgs']]]]] = None,
                  data_manager_name: Optional[pulumi.Input[str]] = None,
+                 data_store_name: Optional[pulumi.Input[str]] = None,
                  data_store_type_id: Optional[pulumi.Input[str]] = None,
                  extended_properties: Optional[pulumi.Input[Mapping[str, Any]]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
                  repository_id: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  state: Optional[pulumi.Input[str]] = None,
@@ -35,9 +35,9 @@ class DataStore(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[List[pulumi.Input[pulumi.InputType['CustomerSecretArgs']]]] customer_secrets: List of customer secrets containing a key identifier and key value. The key identifier is a way for the specific data source to understand the key. Value contains customer secret encrypted by the encryptionKeys.
         :param pulumi.Input[str] data_manager_name: The name of the DataManager Resource within the specified resource group. DataManager names must be between 3 and 24 characters in length and use any alphanumeric and underscore only
+        :param pulumi.Input[str] data_store_name: The data store/repository name to be created or updated.
         :param pulumi.Input[str] data_store_type_id: The arm id of the data store type.
         :param pulumi.Input[Mapping[str, Any]] extended_properties: A generic json used differently by each data source type.
-        :param pulumi.Input[str] name: The data store/repository name to be created or updated.
         :param pulumi.Input[str] repository_id: Arm Id for the manager resource to which the data source is associated. This is optional.
         :param pulumi.Input[str] resource_group_name: The Resource Group Name
         :param pulumi.Input[str] state: State of the data source.
@@ -63,13 +63,13 @@ class DataStore(pulumi.CustomResource):
             if data_manager_name is None:
                 raise TypeError("Missing required property 'data_manager_name'")
             __props__['data_manager_name'] = data_manager_name
+            if data_store_name is None:
+                raise TypeError("Missing required property 'data_store_name'")
+            __props__['data_store_name'] = data_store_name
             if data_store_type_id is None:
                 raise TypeError("Missing required property 'data_store_type_id'")
             __props__['data_store_type_id'] = data_store_type_id
             __props__['extended_properties'] = extended_properties
-            if name is None:
-                raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
             __props__['repository_id'] = repository_id
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
@@ -77,6 +77,7 @@ class DataStore(pulumi.CustomResource):
             if state is None:
                 raise TypeError("Missing required property 'state'")
             __props__['state'] = state
+            __props__['name'] = None
             __props__['type'] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:hybriddata/v20190601:DataStore")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)

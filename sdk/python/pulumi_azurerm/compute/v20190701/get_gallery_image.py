@@ -235,20 +235,20 @@ class AwaitableGetGalleryImageResult(GetGalleryImageResult):
             type=self.type)
 
 
-def get_gallery_image(gallery_name: Optional[str] = None,
-                      name: Optional[str] = None,
+def get_gallery_image(gallery_image_name: Optional[str] = None,
+                      gallery_name: Optional[str] = None,
                       resource_group_name: Optional[str] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetGalleryImageResult:
     """
     Use this data source to access information about an existing resource.
 
+    :param str gallery_image_name: The name of the gallery Image Definition to be retrieved.
     :param str gallery_name: The name of the Shared Image Gallery from which the Image Definitions are to be retrieved.
-    :param str name: The name of the gallery Image Definition to be retrieved.
     :param str resource_group_name: The name of the resource group.
     """
     __args__ = dict()
+    __args__['galleryImageName'] = gallery_image_name
     __args__['galleryName'] = gallery_name
-    __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
     if opts is None:
         opts = pulumi.InvokeOptions()

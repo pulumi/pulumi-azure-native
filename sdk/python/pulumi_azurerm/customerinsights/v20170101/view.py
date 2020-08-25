@@ -18,9 +18,9 @@ class View(pulumi.CustomResource):
                  definition: Optional[pulumi.Input[str]] = None,
                  display_name: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  hub_name: Optional[pulumi.Input[str]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  user_id: Optional[pulumi.Input[str]] = None,
+                 view_name: Optional[pulumi.Input[str]] = None,
                  __props__=None,
                  __name__=None,
                  __opts__=None):
@@ -32,9 +32,9 @@ class View(pulumi.CustomResource):
         :param pulumi.Input[str] definition: View definition.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] display_name: Localized display name for the view.
         :param pulumi.Input[str] hub_name: The name of the hub.
-        :param pulumi.Input[str] name: The name of the view.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[str] user_id: the user ID.
+        :param pulumi.Input[str] view_name: The name of the view.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -60,18 +60,18 @@ class View(pulumi.CustomResource):
             if hub_name is None:
                 raise TypeError("Missing required property 'hub_name'")
             __props__['hub_name'] = hub_name
-            if name is None:
-                raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['user_id'] = user_id
+            if view_name is None:
+                raise TypeError("Missing required property 'view_name'")
+            __props__['view_name'] = view_name
             __props__['changed'] = None
             __props__['created'] = None
+            __props__['name'] = None
             __props__['tenant_id'] = None
             __props__['type'] = None
-            __props__['view_name'] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:customerinsights/v20170426:View")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(View, __self__).__init__(

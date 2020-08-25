@@ -152,7 +152,7 @@ class AwaitableGetApiDiagnosticResult(GetApiDiagnosticResult):
 
 
 def get_api_diagnostic(api_id: Optional[str] = None,
-                       name: Optional[str] = None,
+                       diagnostic_id: Optional[str] = None,
                        resource_group_name: Optional[str] = None,
                        service_name: Optional[str] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetApiDiagnosticResult:
@@ -160,13 +160,13 @@ def get_api_diagnostic(api_id: Optional[str] = None,
     Use this data source to access information about an existing resource.
 
     :param str api_id: API identifier. Must be unique in the current API Management service instance.
-    :param str name: Diagnostic identifier. Must be unique in the current API Management service instance.
+    :param str diagnostic_id: Diagnostic identifier. Must be unique in the current API Management service instance.
     :param str resource_group_name: The name of the resource group.
     :param str service_name: The name of the API Management service.
     """
     __args__ = dict()
     __args__['apiId'] = api_id
-    __args__['name'] = name
+    __args__['diagnosticId'] = diagnostic_id
     __args__['resourceGroupName'] = resource_group_name
     __args__['serviceName'] = service_name
     if opts is None:

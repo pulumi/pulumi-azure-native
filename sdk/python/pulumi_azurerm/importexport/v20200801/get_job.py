@@ -103,17 +103,17 @@ class AwaitableGetJobResult(GetJobResult):
             type=self.type)
 
 
-def get_job(name: Optional[str] = None,
+def get_job(job_name: Optional[str] = None,
             resource_group_name: Optional[str] = None,
             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetJobResult:
     """
     Use this data source to access information about an existing resource.
 
-    :param str name: The name of the import/export job.
+    :param str job_name: The name of the import/export job.
     :param str resource_group_name: The resource group name uniquely identifies the resource group within the user subscription.
     """
     __args__ = dict()
-    __args__['name'] = name
+    __args__['jobName'] = job_name
     __args__['resourceGroupName'] = resource_group_name
     if opts is None:
         opts = pulumi.InvokeOptions()

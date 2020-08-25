@@ -22,9 +22,9 @@ class VirtualNetworkTap(pulumi.CustomResource):
                  destination_port: Optional[pulumi.Input[float]] = None,
                  id: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tap_name: Optional[pulumi.Input[str]] = None,
                  __props__=None,
                  __name__=None,
                  __opts__=None):
@@ -38,9 +38,9 @@ class VirtualNetworkTap(pulumi.CustomResource):
         :param pulumi.Input[float] destination_port: The VXLAN destination port that will receive the tapped traffic.
         :param pulumi.Input[str] id: Resource ID.
         :param pulumi.Input[str] location: Resource location.
-        :param pulumi.Input[str] name: The name of the virtual network tap.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
+        :param pulumi.Input[str] tap_name: The name of the virtual network tap.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -64,14 +64,15 @@ class VirtualNetworkTap(pulumi.CustomResource):
             __props__['destination_port'] = destination_port
             __props__['id'] = id
             __props__['location'] = location
-            if name is None:
-                raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['tags'] = tags
+            if tap_name is None:
+                raise TypeError("Missing required property 'tap_name'")
+            __props__['tap_name'] = tap_name
             __props__['etag'] = None
+            __props__['name'] = None
             __props__['network_interface_tap_configurations'] = None
             __props__['provisioning_state'] = None
             __props__['resource_guid'] = None

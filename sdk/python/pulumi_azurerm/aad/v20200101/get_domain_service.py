@@ -223,17 +223,17 @@ class AwaitableGetDomainServiceResult(GetDomainServiceResult):
             version=self.version)
 
 
-def get_domain_service(name: Optional[str] = None,
+def get_domain_service(domain_service_name: Optional[str] = None,
                        resource_group_name: Optional[str] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDomainServiceResult:
     """
     Use this data source to access information about an existing resource.
 
-    :param str name: The name of the domain service.
+    :param str domain_service_name: The name of the domain service.
     :param str resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.
     """
     __args__ = dict()
-    __args__['name'] = name
+    __args__['domainServiceName'] = domain_service_name
     __args__['resourceGroupName'] = resource_group_name
     if opts is None:
         opts = pulumi.InvokeOptions()

@@ -172,19 +172,19 @@ class AwaitableGetP2sVpnServerConfigurationResult(GetP2sVpnServerConfigurationRe
             vpn_protocols=self.vpn_protocols)
 
 
-def get_p2s_vpn_server_configuration(name: Optional[str] = None,
+def get_p2s_vpn_server_configuration(p2_s_vpn_server_configuration_name: Optional[str] = None,
                                      resource_group_name: Optional[str] = None,
                                      virtual_wan_name: Optional[str] = None,
                                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetP2sVpnServerConfigurationResult:
     """
     Use this data source to access information about an existing resource.
 
-    :param str name: The name of the P2SVpnServerConfiguration.
+    :param str p2_s_vpn_server_configuration_name: The name of the P2SVpnServerConfiguration.
     :param str resource_group_name: The resource group name of the P2SVpnServerConfiguration.
     :param str virtual_wan_name: The name of the VirtualWan.
     """
     __args__ = dict()
-    __args__['name'] = name
+    __args__['p2SVpnServerConfigurationName'] = p2_s_vpn_server_configuration_name
     __args__['resourceGroupName'] = resource_group_name
     __args__['virtualWanName'] = virtual_wan_name
     if opts is None:

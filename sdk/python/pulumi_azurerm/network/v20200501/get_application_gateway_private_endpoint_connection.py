@@ -116,19 +116,19 @@ class AwaitableGetApplicationGatewayPrivateEndpointConnectionResult(GetApplicati
 
 
 def get_application_gateway_private_endpoint_connection(application_gateway_name: Optional[str] = None,
-                                                        name: Optional[str] = None,
+                                                        connection_name: Optional[str] = None,
                                                         resource_group_name: Optional[str] = None,
                                                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetApplicationGatewayPrivateEndpointConnectionResult:
     """
     Use this data source to access information about an existing resource.
 
     :param str application_gateway_name: The name of the application gateway.
-    :param str name: The name of the application gateway private endpoint connection.
+    :param str connection_name: The name of the application gateway private endpoint connection.
     :param str resource_group_name: The name of the resource group.
     """
     __args__ = dict()
     __args__['applicationGatewayName'] = application_gateway_name
-    __args__['name'] = name
+    __args__['connectionName'] = connection_name
     __args__['resourceGroupName'] = resource_group_name
     if opts is None:
         opts = pulumi.InvokeOptions()

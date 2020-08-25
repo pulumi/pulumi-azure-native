@@ -18,8 +18,8 @@ class JitNetworkAccessPolicy(pulumi.CustomResource):
                  resource_name,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  asc_location: Optional[pulumi.Input[str]] = None,
+                 jit_network_access_policy_name: Optional[pulumi.Input[str]] = None,
                  kind: Optional[pulumi.Input[str]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
                  requests: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['JitNetworkAccessRequestArgs']]]]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  virtual_machines: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['JitNetworkAccessPolicyVirtualMachineArgs']]]]] = None,
@@ -31,8 +31,8 @@ class JitNetworkAccessPolicy(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] asc_location: The location where ASC stores the data of the subscription. can be retrieved from Get locations
+        :param pulumi.Input[str] jit_network_access_policy_name: Name of a Just-in-Time access configuration policy.
         :param pulumi.Input[str] kind: Kind of the resource
-        :param pulumi.Input[str] name: Name of a Just-in-Time access configuration policy.
         :param pulumi.Input[str] resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.
         :param pulumi.Input[List[pulumi.Input[pulumi.InputType['JitNetworkAccessPolicyVirtualMachineArgs']]]] virtual_machines: Configurations for Microsoft.Compute/virtualMachines resource type.
         """
@@ -56,10 +56,10 @@ class JitNetworkAccessPolicy(pulumi.CustomResource):
             if asc_location is None:
                 raise TypeError("Missing required property 'asc_location'")
             __props__['asc_location'] = asc_location
+            if jit_network_access_policy_name is None:
+                raise TypeError("Missing required property 'jit_network_access_policy_name'")
+            __props__['jit_network_access_policy_name'] = jit_network_access_policy_name
             __props__['kind'] = kind
-            if name is None:
-                raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
             __props__['requests'] = requests
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
@@ -68,6 +68,7 @@ class JitNetworkAccessPolicy(pulumi.CustomResource):
                 raise TypeError("Missing required property 'virtual_machines'")
             __props__['virtual_machines'] = virtual_machines
             __props__['location'] = None
+            __props__['name'] = None
             __props__['provisioning_state'] = None
             __props__['type'] = None
         super(JitNetworkAccessPolicy, __self__).__init__(

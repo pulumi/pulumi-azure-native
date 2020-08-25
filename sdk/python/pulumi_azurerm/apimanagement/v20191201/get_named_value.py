@@ -102,19 +102,19 @@ class AwaitableGetNamedValueResult(GetNamedValueResult):
             value=self.value)
 
 
-def get_named_value(name: Optional[str] = None,
+def get_named_value(named_value_id: Optional[str] = None,
                     resource_group_name: Optional[str] = None,
                     service_name: Optional[str] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetNamedValueResult:
     """
     Use this data source to access information about an existing resource.
 
-    :param str name: Identifier of the NamedValue.
+    :param str named_value_id: Identifier of the NamedValue.
     :param str resource_group_name: The name of the resource group.
     :param str service_name: The name of the API Management service.
     """
     __args__ = dict()
-    __args__['name'] = name
+    __args__['namedValueId'] = named_value_id
     __args__['resourceGroupName'] = resource_group_name
     __args__['serviceName'] = service_name
     if opts is None:

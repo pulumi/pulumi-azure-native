@@ -79,19 +79,19 @@ class AwaitableGetPrivateDnsZoneGroupResult(GetPrivateDnsZoneGroupResult):
             provisioning_state=self.provisioning_state)
 
 
-def get_private_dns_zone_group(name: Optional[str] = None,
+def get_private_dns_zone_group(private_dns_zone_group_name: Optional[str] = None,
                                private_endpoint_name: Optional[str] = None,
                                resource_group_name: Optional[str] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPrivateDnsZoneGroupResult:
     """
     Use this data source to access information about an existing resource.
 
-    :param str name: The name of the private dns zone group.
+    :param str private_dns_zone_group_name: The name of the private dns zone group.
     :param str private_endpoint_name: The name of the private endpoint.
     :param str resource_group_name: The name of the resource group.
     """
     __args__ = dict()
-    __args__['name'] = name
+    __args__['privateDnsZoneGroupName'] = private_dns_zone_group_name
     __args__['privateEndpointName'] = private_endpoint_name
     __args__['resourceGroupName'] = resource_group_name
     if opts is None:

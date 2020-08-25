@@ -151,18 +151,18 @@ class AwaitableGetServerDetailsResult(GetServerDetailsResult):
             type=self.type)
 
 
-def get_server_details(name: Optional[str] = None,
-                       resource_group_name: Optional[str] = None,
+def get_server_details(resource_group_name: Optional[str] = None,
+                       server_name: Optional[str] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetServerDetailsResult:
     """
     Use this data source to access information about an existing resource.
 
-    :param str name: The name of the Analysis Services server. It must be a minimum of 3 characters, and a maximum of 63.
     :param str resource_group_name: The name of the Azure Resource group of which a given Analysis Services server is part. This name must be at least 1 character in length, and no more than 90.
+    :param str server_name: The name of the Analysis Services server. It must be a minimum of 3 characters, and a maximum of 63.
     """
     __args__ = dict()
-    __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
+    __args__['serverName'] = server_name
     if opts is None:
         opts = pulumi.InvokeOptions()
     if opts.version is None:

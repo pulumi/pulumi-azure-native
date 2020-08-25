@@ -22,8 +22,8 @@ class LocalNetworkGateway(pulumi.CustomResource):
                  gateway_ip_address: Optional[pulumi.Input[str]] = None,
                  id: Optional[pulumi.Input[str]] = None,
                  local_network_address_space: Optional[pulumi.Input[pulumi.InputType['AddressSpaceArgs']]] = None,
+                 local_network_gateway_name: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  resource_guid: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -40,8 +40,8 @@ class LocalNetworkGateway(pulumi.CustomResource):
         :param pulumi.Input[str] gateway_ip_address: IP address of local network gateway.
         :param pulumi.Input[str] id: Resource ID.
         :param pulumi.Input[pulumi.InputType['AddressSpaceArgs']] local_network_address_space: Local network site address space.
+        :param pulumi.Input[str] local_network_gateway_name: The name of the local network gateway.
         :param pulumi.Input[str] location: Resource location.
-        :param pulumi.Input[str] name: The name of the local network gateway.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[str] resource_guid: The resource GUID property of the LocalNetworkGateway resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
@@ -68,15 +68,16 @@ class LocalNetworkGateway(pulumi.CustomResource):
             __props__['gateway_ip_address'] = gateway_ip_address
             __props__['id'] = id
             __props__['local_network_address_space'] = local_network_address_space
+            if local_network_gateway_name is None:
+                raise TypeError("Missing required property 'local_network_gateway_name'")
+            __props__['local_network_gateway_name'] = local_network_gateway_name
             __props__['location'] = location
-            if name is None:
-                raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['resource_guid'] = resource_guid
             __props__['tags'] = tags
+            __props__['name'] = None
             __props__['provisioning_state'] = None
             __props__['type'] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:network/v20150615:LocalNetworkGateway"), pulumi.Alias(type_="azurerm:network/v20160330:LocalNetworkGateway"), pulumi.Alias(type_="azurerm:network/v20160601:LocalNetworkGateway"), pulumi.Alias(type_="azurerm:network/v20160901:LocalNetworkGateway"), pulumi.Alias(type_="azurerm:network/v20161201:LocalNetworkGateway"), pulumi.Alias(type_="azurerm:network/v20170301:LocalNetworkGateway"), pulumi.Alias(type_="azurerm:network/v20170801:LocalNetworkGateway"), pulumi.Alias(type_="azurerm:network/v20170901:LocalNetworkGateway"), pulumi.Alias(type_="azurerm:network/v20171001:LocalNetworkGateway"), pulumi.Alias(type_="azurerm:network/v20171101:LocalNetworkGateway"), pulumi.Alias(type_="azurerm:network/v20180101:LocalNetworkGateway"), pulumi.Alias(type_="azurerm:network/v20180201:LocalNetworkGateway"), pulumi.Alias(type_="azurerm:network/v20180401:LocalNetworkGateway"), pulumi.Alias(type_="azurerm:network/v20180601:LocalNetworkGateway"), pulumi.Alias(type_="azurerm:network/v20180701:LocalNetworkGateway"), pulumi.Alias(type_="azurerm:network/v20180801:LocalNetworkGateway"), pulumi.Alias(type_="azurerm:network/v20181001:LocalNetworkGateway"), pulumi.Alias(type_="azurerm:network/v20181101:LocalNetworkGateway"), pulumi.Alias(type_="azurerm:network/v20181201:LocalNetworkGateway"), pulumi.Alias(type_="azurerm:network/v20190201:LocalNetworkGateway"), pulumi.Alias(type_="azurerm:network/v20190401:LocalNetworkGateway"), pulumi.Alias(type_="azurerm:network/v20190601:LocalNetworkGateway"), pulumi.Alias(type_="azurerm:network/v20190701:LocalNetworkGateway"), pulumi.Alias(type_="azurerm:network/v20190801:LocalNetworkGateway"), pulumi.Alias(type_="azurerm:network/v20190901:LocalNetworkGateway"), pulumi.Alias(type_="azurerm:network/v20191101:LocalNetworkGateway"), pulumi.Alias(type_="azurerm:network/v20191201:LocalNetworkGateway"), pulumi.Alias(type_="azurerm:network/v20200301:LocalNetworkGateway"), pulumi.Alias(type_="azurerm:network/v20200401:LocalNetworkGateway"), pulumi.Alias(type_="azurerm:network/v20200501:LocalNetworkGateway"), pulumi.Alias(type_="azurerm:network/v20200601:LocalNetworkGateway")])

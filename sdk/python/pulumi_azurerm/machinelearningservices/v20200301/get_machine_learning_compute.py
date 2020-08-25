@@ -115,19 +115,19 @@ class AwaitableGetMachineLearningComputeResult(GetMachineLearningComputeResult):
             type=self.type)
 
 
-def get_machine_learning_compute(name: Optional[str] = None,
+def get_machine_learning_compute(compute_name: Optional[str] = None,
                                  resource_group_name: Optional[str] = None,
                                  workspace_name: Optional[str] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetMachineLearningComputeResult:
     """
     Use this data source to access information about an existing resource.
 
-    :param str name: Name of the Azure Machine Learning compute.
+    :param str compute_name: Name of the Azure Machine Learning compute.
     :param str resource_group_name: Name of the resource group in which workspace is located.
     :param str workspace_name: Name of Azure Machine Learning workspace.
     """
     __args__ = dict()
-    __args__['name'] = name
+    __args__['computeName'] = compute_name
     __args__['resourceGroupName'] = resource_group_name
     __args__['workspaceName'] = workspace_name
     if opts is None:

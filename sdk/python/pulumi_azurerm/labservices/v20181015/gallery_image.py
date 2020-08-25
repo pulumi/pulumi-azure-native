@@ -16,12 +16,12 @@ class GalleryImage(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 gallery_image_name: Optional[pulumi.Input[str]] = None,
                  is_enabled: Optional[pulumi.Input[bool]] = None,
                  is_override: Optional[pulumi.Input[bool]] = None,
                  is_plan_authorized: Optional[pulumi.Input[bool]] = None,
                  lab_account_name: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
                  provisioning_state: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -34,12 +34,12 @@ class GalleryImage(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] gallery_image_name: The name of the gallery Image.
         :param pulumi.Input[bool] is_enabled: Indicates whether this gallery image is enabled.
         :param pulumi.Input[bool] is_override: Indicates whether this gallery has been overridden for this lab account
         :param pulumi.Input[bool] is_plan_authorized: Indicates if the plan has been authorized for programmatic deployment.
         :param pulumi.Input[str] lab_account_name: The name of the lab Account.
         :param pulumi.Input[str] location: The location of the resource.
-        :param pulumi.Input[str] name: The name of the gallery Image.
         :param pulumi.Input[str] provisioning_state: The provisioning status of the resource.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The tags of the resource.
@@ -62,6 +62,9 @@ class GalleryImage(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
+            if gallery_image_name is None:
+                raise TypeError("Missing required property 'gallery_image_name'")
+            __props__['gallery_image_name'] = gallery_image_name
             __props__['is_enabled'] = is_enabled
             __props__['is_override'] = is_override
             __props__['is_plan_authorized'] = is_plan_authorized
@@ -69,9 +72,6 @@ class GalleryImage(pulumi.CustomResource):
                 raise TypeError("Missing required property 'lab_account_name'")
             __props__['lab_account_name'] = lab_account_name
             __props__['location'] = location
-            if name is None:
-                raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
             __props__['provisioning_state'] = provisioning_state
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
@@ -84,6 +84,7 @@ class GalleryImage(pulumi.CustomResource):
             __props__['icon'] = None
             __props__['image_reference'] = None
             __props__['latest_operation_result'] = None
+            __props__['name'] = None
             __props__['plan_id'] = None
             __props__['type'] = None
         super(GalleryImage, __self__).__init__(

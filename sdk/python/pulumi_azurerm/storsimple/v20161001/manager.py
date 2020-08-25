@@ -20,7 +20,7 @@ class Manager(pulumi.CustomResource):
                  cis_intrinsic_settings: Optional[pulumi.Input[pulumi.InputType['ManagerIntrinsicSettingsArgs']]] = None,
                  etag: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
+                 manager_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  sku: Optional[pulumi.Input[pulumi.InputType['ManagerSkuArgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -35,7 +35,7 @@ class Manager(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['ManagerIntrinsicSettingsArgs']] cis_intrinsic_settings: Specifies if the Manager is Garda or Helsinki
         :param pulumi.Input[str] etag: ETag of the Manager
         :param pulumi.Input[str] location: The Geo location of the Manager
-        :param pulumi.Input[str] name: The manager name
+        :param pulumi.Input[str] manager_name: The manager name
         :param pulumi.Input[str] resource_group_name: The resource group name
         :param pulumi.Input[pulumi.InputType['ManagerSkuArgs']] sku: Specifies the Sku
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Tags attached to the Manager
@@ -62,14 +62,15 @@ class Manager(pulumi.CustomResource):
             if location is None:
                 raise TypeError("Missing required property 'location'")
             __props__['location'] = location
-            if name is None:
-                raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
+            if manager_name is None:
+                raise TypeError("Missing required property 'manager_name'")
+            __props__['manager_name'] = manager_name
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['sku'] = sku
             __props__['tags'] = tags
+            __props__['name'] = None
             __props__['provisioning_state'] = None
             __props__['type'] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:storsimple/v20170601:Manager")])

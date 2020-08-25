@@ -18,8 +18,8 @@ class PrivateEndpointConnection(pulumi.CustomResource):
                  resource_name,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  config_store_name: Optional[pulumi.Input[str]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
                  private_endpoint: Optional[pulumi.Input[pulumi.InputType['PrivateEndpointArgs']]] = None,
+                 private_endpoint_connection_name: Optional[pulumi.Input[str]] = None,
                  private_link_service_connection_state: Optional[pulumi.Input[pulumi.InputType['PrivateLinkServiceConnectionStateArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  __props__=None,
@@ -31,8 +31,8 @@ class PrivateEndpointConnection(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] config_store_name: The name of the configuration store.
-        :param pulumi.Input[str] name: Private endpoint connection name
         :param pulumi.Input[pulumi.InputType['PrivateEndpointArgs']] private_endpoint: The resource of private endpoint.
+        :param pulumi.Input[str] private_endpoint_connection_name: Private endpoint connection name
         :param pulumi.Input[pulumi.InputType['PrivateLinkServiceConnectionStateArgs']] private_link_service_connection_state: A collection of information about the state of the connection between service consumer and provider.
         :param pulumi.Input[str] resource_group_name: The name of the resource group to which the container registry belongs.
         """
@@ -56,16 +56,17 @@ class PrivateEndpointConnection(pulumi.CustomResource):
             if config_store_name is None:
                 raise TypeError("Missing required property 'config_store_name'")
             __props__['config_store_name'] = config_store_name
-            if name is None:
-                raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
             __props__['private_endpoint'] = private_endpoint
+            if private_endpoint_connection_name is None:
+                raise TypeError("Missing required property 'private_endpoint_connection_name'")
+            __props__['private_endpoint_connection_name'] = private_endpoint_connection_name
             if private_link_service_connection_state is None:
                 raise TypeError("Missing required property 'private_link_service_connection_state'")
             __props__['private_link_service_connection_state'] = private_link_service_connection_state
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
+            __props__['name'] = None
             __props__['provisioning_state'] = None
             __props__['type'] = None
         super(PrivateEndpointConnection, __self__).__init__(

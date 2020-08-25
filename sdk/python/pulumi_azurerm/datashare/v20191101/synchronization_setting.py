@@ -17,9 +17,9 @@ class SynchronizationSetting(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_name: Optional[pulumi.Input[str]] = None,
                  kind: Optional[pulumi.Input[str]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  share_name: Optional[pulumi.Input[str]] = None,
+                 synchronization_setting_name: Optional[pulumi.Input[str]] = None,
                  __props__=None,
                  __name__=None,
                  __opts__=None):
@@ -30,9 +30,9 @@ class SynchronizationSetting(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_name: The name of the share account.
         :param pulumi.Input[str] kind: Kind of synchronization
-        :param pulumi.Input[str] name: The name of the synchronizationSetting.
         :param pulumi.Input[str] resource_group_name: The resource group name.
         :param pulumi.Input[str] share_name: The name of the share to add the synchronization setting to.
+        :param pulumi.Input[str] synchronization_setting_name: The name of the synchronizationSetting.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -57,15 +57,16 @@ class SynchronizationSetting(pulumi.CustomResource):
             if kind is None:
                 raise TypeError("Missing required property 'kind'")
             __props__['kind'] = kind
-            if name is None:
-                raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             if share_name is None:
                 raise TypeError("Missing required property 'share_name'")
             __props__['share_name'] = share_name
+            if synchronization_setting_name is None:
+                raise TypeError("Missing required property 'synchronization_setting_name'")
+            __props__['synchronization_setting_name'] = synchronization_setting_name
+            __props__['name'] = None
             __props__['type'] = None
         super(SynchronizationSetting, __self__).__init__(
             'azurerm:datashare/v20191101:SynchronizationSetting',

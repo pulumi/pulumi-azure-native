@@ -16,9 +16,9 @@ class Database(pulumi.CustomResource):
                  resource_name,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  cluster_name: Optional[pulumi.Input[str]] = None,
+                 database_name: Optional[pulumi.Input[str]] = None,
                  kind: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  __props__=None,
                  __name__=None,
@@ -29,9 +29,9 @@ class Database(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] cluster_name: The name of the Kusto cluster.
+        :param pulumi.Input[str] database_name: The name of the database in the Kusto cluster.
         :param pulumi.Input[str] kind: Kind of the database
         :param pulumi.Input[str] location: Resource location.
-        :param pulumi.Input[str] name: The name of the database in the Kusto cluster.
         :param pulumi.Input[str] resource_group_name: The name of the resource group containing the Kusto cluster.
         """
         if __name__ is not None:
@@ -54,14 +54,15 @@ class Database(pulumi.CustomResource):
             if cluster_name is None:
                 raise TypeError("Missing required property 'cluster_name'")
             __props__['cluster_name'] = cluster_name
+            if database_name is None:
+                raise TypeError("Missing required property 'database_name'")
+            __props__['database_name'] = database_name
             __props__['kind'] = kind
             __props__['location'] = location
-            if name is None:
-                raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
+            __props__['name'] = None
             __props__['type'] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:kusto/v20190121:Database"), pulumi.Alias(type_="azurerm:kusto/v20190515:Database"), pulumi.Alias(type_="azurerm:kusto/v20191109:Database"), pulumi.Alias(type_="azurerm:kusto/v20200215:Database"), pulumi.Alias(type_="azurerm:kusto/v20200614:Database")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)

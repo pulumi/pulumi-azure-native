@@ -162,22 +162,22 @@ class AwaitableGetEndpointResult(GetEndpointResult):
             weight=self.weight)
 
 
-def get_endpoint(endpoint_type: Optional[str] = None,
-                 name: Optional[str] = None,
+def get_endpoint(endpoint_name: Optional[str] = None,
+                 endpoint_type: Optional[str] = None,
                  profile_name: Optional[str] = None,
                  resource_group_name: Optional[str] = None,
                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetEndpointResult:
     """
     Use this data source to access information about an existing resource.
 
+    :param str endpoint_name: The name of the Traffic Manager endpoint.
     :param str endpoint_type: The type of the Traffic Manager endpoint.
-    :param str name: The name of the Traffic Manager endpoint.
     :param str profile_name: The name of the Traffic Manager profile.
     :param str resource_group_name: The name of the resource group containing the Traffic Manager endpoint.
     """
     __args__ = dict()
+    __args__['endpointName'] = endpoint_name
     __args__['endpointType'] = endpoint_type
-    __args__['name'] = name
     __args__['profileName'] = profile_name
     __args__['resourceGroupName'] = resource_group_name
     if opts is None:

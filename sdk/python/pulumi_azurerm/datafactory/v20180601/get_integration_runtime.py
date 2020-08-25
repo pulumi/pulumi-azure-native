@@ -80,19 +80,19 @@ class AwaitableGetIntegrationRuntimeResult(GetIntegrationRuntimeResult):
 
 
 def get_integration_runtime(factory_name: Optional[str] = None,
-                            name: Optional[str] = None,
+                            integration_runtime_name: Optional[str] = None,
                             resource_group_name: Optional[str] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetIntegrationRuntimeResult:
     """
     Use this data source to access information about an existing resource.
 
     :param str factory_name: The factory name.
-    :param str name: The integration runtime name.
+    :param str integration_runtime_name: The integration runtime name.
     :param str resource_group_name: The resource group name.
     """
     __args__ = dict()
     __args__['factoryName'] = factory_name
-    __args__['name'] = name
+    __args__['integrationRuntimeName'] = integration_runtime_name
     __args__['resourceGroupName'] = resource_group_name
     if opts is None:
         opts = pulumi.InvokeOptions()

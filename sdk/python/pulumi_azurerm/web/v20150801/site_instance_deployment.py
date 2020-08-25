@@ -21,6 +21,7 @@ class SiteInstanceDeployment(pulumi.CustomResource):
                  deployer: Optional[pulumi.Input[str]] = None,
                  details: Optional[pulumi.Input[str]] = None,
                  end_time: Optional[pulumi.Input[str]] = None,
+                 id: Optional[pulumi.Input[str]] = None,
                  instance_id: Optional[pulumi.Input[str]] = None,
                  kind: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
@@ -45,11 +46,12 @@ class SiteInstanceDeployment(pulumi.CustomResource):
         :param pulumi.Input[str] deployer: Deployer
         :param pulumi.Input[str] details: Detail
         :param pulumi.Input[str] end_time: EndTime
+        :param pulumi.Input[str] id: Resource Id
         :param pulumi.Input[str] instance_id: Id of web app instance
         :param pulumi.Input[str] kind: Kind of resource
         :param pulumi.Input[str] location: Resource Location
         :param pulumi.Input[str] message: Message
-        :param pulumi.Input[str] name: Resource Id
+        :param pulumi.Input[str] name: Resource Name
         :param pulumi.Input[str] resource_group_name: Name of resource group
         :param pulumi.Input[str] start_time: StartTime
         :param pulumi.Input[float] status: Status
@@ -79,6 +81,9 @@ class SiteInstanceDeployment(pulumi.CustomResource):
             __props__['deployer'] = deployer
             __props__['details'] = details
             __props__['end_time'] = end_time
+            if id is None:
+                raise TypeError("Missing required property 'id'")
+            __props__['id'] = id
             if instance_id is None:
                 raise TypeError("Missing required property 'instance_id'")
             __props__['instance_id'] = instance_id

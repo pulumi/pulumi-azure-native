@@ -16,8 +16,8 @@ class DedicatedHostGroup(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 host_group_name: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
                  platform_fault_domain_count: Optional[pulumi.Input[float]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -30,8 +30,8 @@ class DedicatedHostGroup(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] host_group_name: The name of the dedicated host group.
         :param pulumi.Input[str] location: Resource location
-        :param pulumi.Input[str] name: The name of the dedicated host group.
         :param pulumi.Input[float] platform_fault_domain_count: Number of fault domains that the host group can span.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags
@@ -54,12 +54,12 @@ class DedicatedHostGroup(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
+            if host_group_name is None:
+                raise TypeError("Missing required property 'host_group_name'")
+            __props__['host_group_name'] = host_group_name
             if location is None:
                 raise TypeError("Missing required property 'location'")
             __props__['location'] = location
-            if name is None:
-                raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
             if platform_fault_domain_count is None:
                 raise TypeError("Missing required property 'platform_fault_domain_count'")
             __props__['platform_fault_domain_count'] = platform_fault_domain_count
@@ -69,6 +69,7 @@ class DedicatedHostGroup(pulumi.CustomResource):
             __props__['tags'] = tags
             __props__['zones'] = zones
             __props__['hosts'] = None
+            __props__['name'] = None
             __props__['type'] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:compute/v20190301:DedicatedHostGroup"), pulumi.Alias(type_="azurerm:compute/v20190701:DedicatedHostGroup"), pulumi.Alias(type_="azurerm:compute/v20200601:DedicatedHostGroup")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)

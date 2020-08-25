@@ -17,7 +17,7 @@ class Alias(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 name: Optional[pulumi.Input[str]] = None,
+                 alias_name: Optional[pulumi.Input[str]] = None,
                  properties: Optional[pulumi.Input[pulumi.InputType['PutAliasRequestPropertiesArgs']]] = None,
                  __props__=None,
                  __name__=None,
@@ -27,7 +27,7 @@ class Alias(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] name: Alias Name
+        :param pulumi.Input[str] alias_name: Alias Name
         :param pulumi.Input[pulumi.InputType['PutAliasRequestPropertiesArgs']] properties: Put alias request properties.
         """
         if __name__ is not None:
@@ -47,12 +47,13 @@ class Alias(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if name is None:
-                raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
+            if alias_name is None:
+                raise TypeError("Missing required property 'alias_name'")
+            __props__['alias_name'] = alias_name
             if properties is None:
                 raise TypeError("Missing required property 'properties'")
             __props__['properties'] = properties
+            __props__['name'] = None
             __props__['type'] = None
         super(Alias, __self__).__init__(
             'azurerm:subscription/v20200901:Alias',

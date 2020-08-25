@@ -176,19 +176,19 @@ class AwaitableGetOuContainerResult(GetOuContainerResult):
 
 
 def get_ou_container(domain_service_name: Optional[str] = None,
-                     name: Optional[str] = None,
+                     ou_container_name: Optional[str] = None,
                      resource_group_name: Optional[str] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetOuContainerResult:
     """
     Use this data source to access information about an existing resource.
 
     :param str domain_service_name: The name of the domain service.
-    :param str name: The name of the OuContainer.
+    :param str ou_container_name: The name of the OuContainer.
     :param str resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.
     """
     __args__ = dict()
     __args__['domainServiceName'] = domain_service_name
-    __args__['name'] = name
+    __args__['ouContainerName'] = ou_container_name
     __args__['resourceGroupName'] = resource_group_name
     if opts is None:
         opts = pulumi.InvokeOptions()

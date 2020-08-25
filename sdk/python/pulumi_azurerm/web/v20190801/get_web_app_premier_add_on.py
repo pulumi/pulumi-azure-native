@@ -151,16 +151,19 @@ class AwaitableGetWebAppPremierAddOnResult(GetWebAppPremierAddOnResult):
 
 
 def get_web_app_premier_add_on(name: Optional[str] = None,
+                               premier_add_on_name: Optional[str] = None,
                                resource_group_name: Optional[str] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetWebAppPremierAddOnResult:
     """
     Use this data source to access information about an existing resource.
 
-    :param str name: Add-on name.
+    :param str name: Name of the app.
+    :param str premier_add_on_name: Add-on name.
     :param str resource_group_name: Name of the resource group to which the resource belongs.
     """
     __args__ = dict()
     __args__['name'] = name
+    __args__['premierAddOnName'] = premier_add_on_name
     __args__['resourceGroupName'] = resource_group_name
     if opts is None:
         opts = pulumi.InvokeOptions()

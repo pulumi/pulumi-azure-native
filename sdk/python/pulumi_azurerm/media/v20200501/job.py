@@ -21,7 +21,7 @@ class Job(pulumi.CustomResource):
                  correlation_data: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  input: Optional[pulumi.Input[pulumi.InputType['JobInputArgs']]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
+                 job_name: Optional[pulumi.Input[str]] = None,
                  outputs: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['JobOutputArgs']]]]] = None,
                  priority: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -38,7 +38,7 @@ class Job(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] correlation_data: Customer provided key, value pairs that will be returned in Job and JobOutput state events.
         :param pulumi.Input[str] description: Optional customer supplied description of the Job.
         :param pulumi.Input[pulumi.InputType['JobInputArgs']] input: The inputs for the Job.
-        :param pulumi.Input[str] name: The Job name.
+        :param pulumi.Input[str] job_name: The Job name.
         :param pulumi.Input[List[pulumi.Input[pulumi.InputType['JobOutputArgs']]]] outputs: The outputs for the Job.
         :param pulumi.Input[str] priority: Priority with which the job should be processed. Higher priority jobs are processed before lower priority jobs. If not set, the default is normal.
         :param pulumi.Input[str] resource_group_name: The name of the resource group within the Azure subscription.
@@ -69,9 +69,9 @@ class Job(pulumi.CustomResource):
             if input is None:
                 raise TypeError("Missing required property 'input'")
             __props__['input'] = input
-            if name is None:
-                raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
+            if job_name is None:
+                raise TypeError("Missing required property 'job_name'")
+            __props__['job_name'] = job_name
             if outputs is None:
                 raise TypeError("Missing required property 'outputs'")
             __props__['outputs'] = outputs
@@ -85,6 +85,7 @@ class Job(pulumi.CustomResource):
             __props__['created'] = None
             __props__['end_time'] = None
             __props__['last_modified'] = None
+            __props__['name'] = None
             __props__['start_time'] = None
             __props__['state'] = None
             __props__['type'] = None

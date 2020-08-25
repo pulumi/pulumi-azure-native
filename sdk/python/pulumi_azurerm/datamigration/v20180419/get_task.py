@@ -81,25 +81,25 @@ class AwaitableGetTaskResult(GetTaskResult):
 
 def get_task(expand: Optional[str] = None,
              group_name: Optional[str] = None,
-             name: Optional[str] = None,
              project_name: Optional[str] = None,
              service_name: Optional[str] = None,
+             task_name: Optional[str] = None,
              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetTaskResult:
     """
     Use this data source to access information about an existing resource.
 
     :param str expand: Expand the response
     :param str group_name: Name of the resource group
-    :param str name: Name of the Task
     :param str project_name: Name of the project
     :param str service_name: Name of the service
+    :param str task_name: Name of the Task
     """
     __args__ = dict()
     __args__['expand'] = expand
     __args__['groupName'] = group_name
-    __args__['name'] = name
     __args__['projectName'] = project_name
     __args__['serviceName'] = service_name
+    __args__['taskName'] = task_name
     if opts is None:
         opts = pulumi.InvokeOptions()
     if opts.version is None:

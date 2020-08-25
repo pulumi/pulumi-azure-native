@@ -16,7 +16,7 @@ class Invitation(pulumi.CustomResource):
                  resource_name,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_name: Optional[pulumi.Input[str]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
+                 invitation_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  share_name: Optional[pulumi.Input[str]] = None,
                  target_active_directory_id: Optional[pulumi.Input[str]] = None,
@@ -31,7 +31,7 @@ class Invitation(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_name: The name of the share account.
-        :param pulumi.Input[str] name: The name of the invitation.
+        :param pulumi.Input[str] invitation_name: The name of the invitation.
         :param pulumi.Input[str] resource_group_name: The resource group name.
         :param pulumi.Input[str] share_name: The name of the share to send the invitation for.
         :param pulumi.Input[str] target_active_directory_id: The target Azure AD Id. Can't be combined with email.
@@ -60,9 +60,9 @@ class Invitation(pulumi.CustomResource):
             if account_name is None:
                 raise TypeError("Missing required property 'account_name'")
             __props__['account_name'] = account_name
-            if name is None:
-                raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
+            if invitation_name is None:
+                raise TypeError("Missing required property 'invitation_name'")
+            __props__['invitation_name'] = invitation_name
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
@@ -74,6 +74,7 @@ class Invitation(pulumi.CustomResource):
             __props__['target_object_id'] = target_object_id
             __props__['invitation_id'] = None
             __props__['invitation_status'] = None
+            __props__['name'] = None
             __props__['responded_at'] = None
             __props__['sent_at'] = None
             __props__['type'] = None

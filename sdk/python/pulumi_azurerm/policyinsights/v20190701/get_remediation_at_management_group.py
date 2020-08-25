@@ -153,19 +153,19 @@ class AwaitableGetRemediationAtManagementGroupResult(GetRemediationAtManagementG
 
 def get_remediation_at_management_group(management_group_id: Optional[str] = None,
                                         management_groups_namespace: Optional[str] = None,
-                                        name: Optional[str] = None,
+                                        remediation_name: Optional[str] = None,
                                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetRemediationAtManagementGroupResult:
     """
     Use this data source to access information about an existing resource.
 
     :param str management_group_id: Management group ID.
     :param str management_groups_namespace: The namespace for Microsoft Management RP; only "Microsoft.Management" is allowed.
-    :param str name: The name of the remediation.
+    :param str remediation_name: The name of the remediation.
     """
     __args__ = dict()
     __args__['managementGroupId'] = management_group_id
     __args__['managementGroupsNamespace'] = management_groups_namespace
-    __args__['name'] = name
+    __args__['remediationName'] = remediation_name
     if opts is None:
         opts = pulumi.InvokeOptions()
     if opts.version is None:

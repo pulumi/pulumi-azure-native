@@ -26,8 +26,8 @@ class Pool(pulumi.CustomResource):
                  inter_node_communication: Optional[pulumi.Input[str]] = None,
                  max_tasks_per_node: Optional[pulumi.Input[float]] = None,
                  metadata: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['MetadataItemArgs']]]]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
                  network_configuration: Optional[pulumi.Input[pulumi.InputType['NetworkConfigurationArgs']]] = None,
+                 pool_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  scale_settings: Optional[pulumi.Input[pulumi.InputType['ScaleSettingsArgs']]] = None,
                  start_task: Optional[pulumi.Input[pulumi.InputType['StartTaskArgs']]] = None,
@@ -51,8 +51,8 @@ class Pool(pulumi.CustomResource):
         :param pulumi.Input[str] inter_node_communication: This imposes restrictions on which nodes can be assigned to the pool. Enabling this value can reduce the chance of the requested number of nodes to be allocated in the pool. If not specified, this value defaults to 'Disabled'.
         :param pulumi.Input[float] max_tasks_per_node: The default value is 1. The maximum value is the smaller of 4 times the number of cores of the vmSize of the pool or 256.
         :param pulumi.Input[List[pulumi.Input[pulumi.InputType['MetadataItemArgs']]]] metadata: The Batch service does not assign any meaning to metadata; it is solely for the use of user code.
-        :param pulumi.Input[str] name: The pool name. This must be unique within the account.
         :param pulumi.Input[pulumi.InputType['NetworkConfigurationArgs']] network_configuration: The network configuration for a pool.
+        :param pulumi.Input[str] pool_name: The pool name. This must be unique within the account.
         :param pulumi.Input[str] resource_group_name: The name of the resource group that contains the Batch account.
         :param pulumi.Input[pulumi.InputType['ScaleSettingsArgs']] scale_settings: Defines the desired size of the pool. This can either be 'fixedScale' where the requested targetDedicatedNodes is specified, or 'autoScale' which defines a formula which is periodically reevaluated. If this property is not specified, the pool will have a fixed scale with 0 targetDedicatedNodes.
         :param pulumi.Input[pulumi.InputType['StartTaskArgs']] start_task: In an PATCH (update) operation, this property can be set to an empty object to remove the start task from the pool.
@@ -87,10 +87,10 @@ class Pool(pulumi.CustomResource):
             __props__['inter_node_communication'] = inter_node_communication
             __props__['max_tasks_per_node'] = max_tasks_per_node
             __props__['metadata'] = metadata
-            if name is None:
-                raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
             __props__['network_configuration'] = network_configuration
+            if pool_name is None:
+                raise TypeError("Missing required property 'pool_name'")
+            __props__['pool_name'] = pool_name
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
@@ -107,6 +107,7 @@ class Pool(pulumi.CustomResource):
             __props__['current_low_priority_nodes'] = None
             __props__['etag'] = None
             __props__['last_modified'] = None
+            __props__['name'] = None
             __props__['provisioning_state'] = None
             __props__['provisioning_state_transition_time'] = None
             __props__['resize_operation_status'] = None

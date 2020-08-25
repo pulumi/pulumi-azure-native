@@ -102,19 +102,19 @@ class AwaitableGetFirewallRuleResult(GetFirewallRuleResult):
             type=self.type)
 
 
-def get_firewall_rule(name: Optional[str] = None,
+def get_firewall_rule(firewall_rule_name: Optional[str] = None,
                       resource_group_name: Optional[str] = None,
                       server_name: Optional[str] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetFirewallRuleResult:
     """
     Use this data source to access information about an existing resource.
 
-    :param str name: The name of the firewall rule.
+    :param str firewall_rule_name: The name of the firewall rule.
     :param str resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
     :param str server_name: The name of the server.
     """
     __args__ = dict()
-    __args__['name'] = name
+    __args__['firewallRuleName'] = firewall_rule_name
     __args__['resourceGroupName'] = resource_group_name
     __args__['serverName'] = server_name
     if opts is None:

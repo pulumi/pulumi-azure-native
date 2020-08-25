@@ -103,25 +103,25 @@ class AwaitableGetRuleResult(GetRuleResult):
             type=self.type)
 
 
-def get_rule(name: Optional[str] = None,
-             namespace_name: Optional[str] = None,
+def get_rule(namespace_name: Optional[str] = None,
              resource_group_name: Optional[str] = None,
+             rule_name: Optional[str] = None,
              subscription_name: Optional[str] = None,
              topic_name: Optional[str] = None,
              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetRuleResult:
     """
     Use this data source to access information about an existing resource.
 
-    :param str name: The rule name.
     :param str namespace_name: The namespace name
     :param str resource_group_name: Name of the Resource group within the Azure subscription.
+    :param str rule_name: The rule name.
     :param str subscription_name: The subscription name.
     :param str topic_name: The topic name.
     """
     __args__ = dict()
-    __args__['name'] = name
     __args__['namespaceName'] = namespace_name
     __args__['resourceGroupName'] = resource_group_name
+    __args__['ruleName'] = rule_name
     __args__['subscriptionName'] = subscription_name
     __args__['topicName'] = topic_name
     if opts is None:

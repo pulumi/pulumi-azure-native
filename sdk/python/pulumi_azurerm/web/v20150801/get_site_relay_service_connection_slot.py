@@ -153,18 +153,21 @@ class AwaitableGetSiteRelayServiceConnectionSlotResult(GetSiteRelayServiceConnec
             type=self.type)
 
 
-def get_site_relay_service_connection_slot(name: Optional[str] = None,
+def get_site_relay_service_connection_slot(entity_name: Optional[str] = None,
+                                           name: Optional[str] = None,
                                            resource_group_name: Optional[str] = None,
                                            slot: Optional[str] = None,
                                            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSiteRelayServiceConnectionSlotResult:
     """
     Use this data source to access information about an existing resource.
 
-    :param str name: The name by which the Hybrid Connection is identified
+    :param str entity_name: The name by which the Hybrid Connection is identified
+    :param str name: The name of the web app
     :param str resource_group_name: The resource group name
     :param str slot: The name of the slot for the web app.
     """
     __args__ = dict()
+    __args__['entityName'] = entity_name
     __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
     __args__['slot'] = slot

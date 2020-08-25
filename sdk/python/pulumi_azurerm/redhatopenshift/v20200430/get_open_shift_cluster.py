@@ -187,18 +187,18 @@ class AwaitableGetOpenShiftClusterResult(GetOpenShiftClusterResult):
             worker_profiles=self.worker_profiles)
 
 
-def get_open_shift_cluster(name: Optional[str] = None,
-                           resource_group_name: Optional[str] = None,
+def get_open_shift_cluster(resource_group_name: Optional[str] = None,
+                           resource_name: Optional[str] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetOpenShiftClusterResult:
     """
     Use this data source to access information about an existing resource.
 
-    :param str name: The name of the OpenShift cluster resource.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
+    :param str resource_name: The name of the OpenShift cluster resource.
     """
     __args__ = dict()
-    __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
+    __args__['resourceName'] = resource_name
     if opts is None:
         opts = pulumi.InvokeOptions()
     if opts.version is None:

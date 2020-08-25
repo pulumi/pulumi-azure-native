@@ -223,29 +223,29 @@ class AwaitableGetEnvironmentResult(GetEnvironmentResult):
             unique_identifier=self.unique_identifier)
 
 
-def get_environment(environment_setting_name: Optional[str] = None,
+def get_environment(environment_name: Optional[str] = None,
+                    environment_setting_name: Optional[str] = None,
                     expand: Optional[str] = None,
                     lab_account_name: Optional[str] = None,
                     lab_name: Optional[str] = None,
-                    name: Optional[str] = None,
                     resource_group_name: Optional[str] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetEnvironmentResult:
     """
     Use this data source to access information about an existing resource.
 
+    :param str environment_name: The name of the environment.
     :param str environment_setting_name: The name of the environment Setting.
     :param str expand: Specify the $expand query. Example: 'properties($expand=networkInterface)'
     :param str lab_account_name: The name of the lab Account.
     :param str lab_name: The name of the lab.
-    :param str name: The name of the environment.
     :param str resource_group_name: The name of the resource group.
     """
     __args__ = dict()
+    __args__['environmentName'] = environment_name
     __args__['environmentSettingName'] = environment_setting_name
     __args__['expand'] = expand
     __args__['labAccountName'] = lab_account_name
     __args__['labName'] = lab_name
-    __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
     if opts is None:
         opts = pulumi.InvokeOptions()

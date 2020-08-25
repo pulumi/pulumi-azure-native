@@ -320,7 +320,7 @@ class AwaitableGetVirtualMachineScaleSetVMResult(GetVirtualMachineScaleSetVMResu
 
 
 def get_virtual_machine_scale_set_vm(expand: Optional[str] = None,
-                                     name: Optional[str] = None,
+                                     instance_id: Optional[str] = None,
                                      resource_group_name: Optional[str] = None,
                                      vm_scale_set_name: Optional[str] = None,
                                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVirtualMachineScaleSetVMResult:
@@ -328,13 +328,13 @@ def get_virtual_machine_scale_set_vm(expand: Optional[str] = None,
     Use this data source to access information about an existing resource.
 
     :param str expand: The expand expression to apply on the operation.
-    :param str name: The instance ID of the virtual machine.
+    :param str instance_id: The instance ID of the virtual machine.
     :param str resource_group_name: The name of the resource group.
     :param str vm_scale_set_name: The name of the VM scale set.
     """
     __args__ = dict()
     __args__['expand'] = expand
-    __args__['name'] = name
+    __args__['instanceId'] = instance_id
     __args__['resourceGroupName'] = resource_group_name
     __args__['vmScaleSetName'] = vm_scale_set_name
     if opts is None:

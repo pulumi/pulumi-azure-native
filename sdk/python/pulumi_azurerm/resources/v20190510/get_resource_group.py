@@ -103,15 +103,15 @@ class AwaitableGetResourceGroupResult(GetResourceGroupResult):
             type=self.type)
 
 
-def get_resource_group(name: Optional[str] = None,
+def get_resource_group(resource_group_name: Optional[str] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetResourceGroupResult:
     """
     Use this data source to access information about an existing resource.
 
-    :param str name: The name of the resource group to get. The name is case insensitive.
+    :param str resource_group_name: The name of the resource group to get. The name is case insensitive.
     """
     __args__ = dict()
-    __args__['name'] = name
+    __args__['resourceGroupName'] = resource_group_name
     if opts is None:
         opts = pulumi.InvokeOptions()
     if opts.version is None:

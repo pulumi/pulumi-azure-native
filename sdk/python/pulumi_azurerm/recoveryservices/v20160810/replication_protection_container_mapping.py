@@ -18,7 +18,7 @@ class ReplicationProtectionContainerMapping(pulumi.CustomResource):
                  resource_name,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  fabric_name: Optional[pulumi.Input[str]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
+                 mapping_name: Optional[pulumi.Input[str]] = None,
                  properties: Optional[pulumi.Input[pulumi.InputType['CreateProtectionContainerMappingInputPropertiesArgs']]] = None,
                  protection_container_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -32,7 +32,7 @@ class ReplicationProtectionContainerMapping(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] fabric_name: Fabric name.
-        :param pulumi.Input[str] name: Protection container mapping name.
+        :param pulumi.Input[str] mapping_name: Protection container mapping name.
         :param pulumi.Input[pulumi.InputType['CreateProtectionContainerMappingInputPropertiesArgs']] properties: Configure protection input properties.
         :param pulumi.Input[str] protection_container_name: Protection container name.
         :param pulumi.Input[str] resource_group_name: The name of the resource group where the recovery services vault is present.
@@ -58,9 +58,9 @@ class ReplicationProtectionContainerMapping(pulumi.CustomResource):
             if fabric_name is None:
                 raise TypeError("Missing required property 'fabric_name'")
             __props__['fabric_name'] = fabric_name
-            if name is None:
-                raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
+            if mapping_name is None:
+                raise TypeError("Missing required property 'mapping_name'")
+            __props__['mapping_name'] = mapping_name
             __props__['properties'] = properties
             if protection_container_name is None:
                 raise TypeError("Missing required property 'protection_container_name'")
@@ -72,6 +72,7 @@ class ReplicationProtectionContainerMapping(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_name_'")
             __props__['resource_name'] = resource_name_
             __props__['location'] = None
+            __props__['name'] = None
             __props__['type'] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:recoveryservices/v20180110:ReplicationProtectionContainerMapping"), pulumi.Alias(type_="azurerm:recoveryservices/v20180710:ReplicationProtectionContainerMapping")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)

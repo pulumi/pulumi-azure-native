@@ -18,7 +18,7 @@ class ManagementPolicy(pulumi.CustomResource):
                  resource_name,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_name: Optional[pulumi.Input[str]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
+                 management_policy_name: Optional[pulumi.Input[str]] = None,
                  policy: Optional[pulumi.Input[pulumi.InputType['ManagementPolicySchemaArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  __props__=None,
@@ -30,7 +30,7 @@ class ManagementPolicy(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_name: The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.
-        :param pulumi.Input[str] name: The name of the Storage Account Management Policy. It should always be 'default'
+        :param pulumi.Input[str] management_policy_name: The name of the Storage Account Management Policy. It should always be 'default'
         :param pulumi.Input[pulumi.InputType['ManagementPolicySchemaArgs']] policy: The Storage Account ManagementPolicy, in JSON format. See more details in: https://docs.microsoft.com/en-us/azure/storage/common/storage-lifecycle-managment-concepts.
         :param pulumi.Input[str] resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.
         """
@@ -54,9 +54,9 @@ class ManagementPolicy(pulumi.CustomResource):
             if account_name is None:
                 raise TypeError("Missing required property 'account_name'")
             __props__['account_name'] = account_name
-            if name is None:
-                raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
+            if management_policy_name is None:
+                raise TypeError("Missing required property 'management_policy_name'")
+            __props__['management_policy_name'] = management_policy_name
             if policy is None:
                 raise TypeError("Missing required property 'policy'")
             __props__['policy'] = policy
@@ -64,6 +64,7 @@ class ManagementPolicy(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['last_modified_time'] = None
+            __props__['name'] = None
             __props__['type'] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:storage/v20181101:ManagementPolicy"), pulumi.Alias(type_="azurerm:storage/v20190401:ManagementPolicy")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)

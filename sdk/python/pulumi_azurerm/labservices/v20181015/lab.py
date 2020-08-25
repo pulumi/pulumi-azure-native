@@ -17,9 +17,9 @@ class Lab(pulumi.CustomResource):
                  resource_name,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  lab_account_name: Optional[pulumi.Input[str]] = None,
+                 lab_name: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  max_users_in_lab: Optional[pulumi.Input[float]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
                  provisioning_state: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -35,9 +35,9 @@ class Lab(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] lab_account_name: The name of the lab Account.
+        :param pulumi.Input[str] lab_name: The name of the lab.
         :param pulumi.Input[str] location: The location of the resource.
         :param pulumi.Input[float] max_users_in_lab: Maximum number of users allowed in the lab.
-        :param pulumi.Input[str] name: The name of the lab.
         :param pulumi.Input[str] provisioning_state: The provisioning status of the resource.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The tags of the resource.
@@ -65,11 +65,11 @@ class Lab(pulumi.CustomResource):
             if lab_account_name is None:
                 raise TypeError("Missing required property 'lab_account_name'")
             __props__['lab_account_name'] = lab_account_name
+            if lab_name is None:
+                raise TypeError("Missing required property 'lab_name'")
+            __props__['lab_name'] = lab_name
             __props__['location'] = location
             __props__['max_users_in_lab'] = max_users_in_lab
-            if name is None:
-                raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
             __props__['provisioning_state'] = provisioning_state
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
@@ -83,6 +83,7 @@ class Lab(pulumi.CustomResource):
             __props__['created_date'] = None
             __props__['invitation_code'] = None
             __props__['latest_operation_result'] = None
+            __props__['name'] = None
             __props__['type'] = None
             __props__['user_quota'] = None
         super(Lab, __self__).__init__(

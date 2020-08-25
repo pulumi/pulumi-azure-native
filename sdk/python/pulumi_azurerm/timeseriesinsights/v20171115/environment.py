@@ -18,8 +18,8 @@ class Environment(pulumi.CustomResource):
                  resource_name,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  data_retention_time: Optional[pulumi.Input[str]] = None,
+                 environment_name: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
                  partition_key_properties: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['PartitionKeyPropertyArgs']]]]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  sku: Optional[pulumi.Input[pulumi.InputType['SkuArgs']]] = None,
@@ -34,8 +34,8 @@ class Environment(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] data_retention_time: ISO8601 timespan specifying the minimum number of days the environment's events will be available for query.
+        :param pulumi.Input[str] environment_name: Name of the environment
         :param pulumi.Input[str] location: The location of the resource.
-        :param pulumi.Input[str] name: Name of the environment
         :param pulumi.Input[List[pulumi.Input[pulumi.InputType['PartitionKeyPropertyArgs']]]] partition_key_properties: The list of partition keys according to which the data in the environment will be ordered.
         :param pulumi.Input[str] resource_group_name: Name of an Azure Resource group.
         :param pulumi.Input[pulumi.InputType['SkuArgs']] sku: The sku determines the capacity of the environment, the SLA (in queries-per-minute and total capacity), and the billing rate.
@@ -62,12 +62,12 @@ class Environment(pulumi.CustomResource):
             if data_retention_time is None:
                 raise TypeError("Missing required property 'data_retention_time'")
             __props__['data_retention_time'] = data_retention_time
+            if environment_name is None:
+                raise TypeError("Missing required property 'environment_name'")
+            __props__['environment_name'] = environment_name
             if location is None:
                 raise TypeError("Missing required property 'location'")
             __props__['location'] = location
-            if name is None:
-                raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
             __props__['partition_key_properties'] = partition_key_properties
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
@@ -80,6 +80,7 @@ class Environment(pulumi.CustomResource):
             __props__['creation_time'] = None
             __props__['data_access_fqdn'] = None
             __props__['data_access_id'] = None
+            __props__['name'] = None
             __props__['provisioning_state'] = None
             __props__['status'] = None
             __props__['type'] = None

@@ -18,9 +18,9 @@ class RemediationAtSubscription(pulumi.CustomResource):
                  resource_name,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  filters: Optional[pulumi.Input[pulumi.InputType['RemediationFiltersArgs']]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
                  policy_assignment_id: Optional[pulumi.Input[str]] = None,
                  policy_definition_reference_id: Optional[pulumi.Input[str]] = None,
+                 remediation_name: Optional[pulumi.Input[str]] = None,
                  resource_discovery_mode: Optional[pulumi.Input[str]] = None,
                  __props__=None,
                  __name__=None,
@@ -31,9 +31,9 @@ class RemediationAtSubscription(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['RemediationFiltersArgs']] filters: The filters that will be applied to determine which resources to remediate.
-        :param pulumi.Input[str] name: The name of the remediation.
         :param pulumi.Input[str] policy_assignment_id: The resource ID of the policy assignment that should be remediated.
         :param pulumi.Input[str] policy_definition_reference_id: The policy definition reference ID of the individual definition that should be remediated. Required when the policy assignment being remediated assigns a policy set definition.
+        :param pulumi.Input[str] remediation_name: The name of the remediation.
         :param pulumi.Input[str] resource_discovery_mode: The way resources to remediate are discovered. Defaults to ExistingNonCompliant if not specified.
         """
         if __name__ is not None:
@@ -54,15 +54,16 @@ class RemediationAtSubscription(pulumi.CustomResource):
             __props__ = dict()
 
             __props__['filters'] = filters
-            if name is None:
-                raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
             __props__['policy_assignment_id'] = policy_assignment_id
             __props__['policy_definition_reference_id'] = policy_definition_reference_id
+            if remediation_name is None:
+                raise TypeError("Missing required property 'remediation_name'")
+            __props__['remediation_name'] = remediation_name
             __props__['resource_discovery_mode'] = resource_discovery_mode
             __props__['created_on'] = None
             __props__['deployment_status'] = None
             __props__['last_updated_on'] = None
+            __props__['name'] = None
             __props__['provisioning_state'] = None
             __props__['type'] = None
         super(RemediationAtSubscription, __self__).__init__(

@@ -19,11 +19,11 @@ class EmailTemplate(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  body: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
                  parameters: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['EmailTemplateParametersContractPropertiesArgs']]]]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  service_name: Optional[pulumi.Input[str]] = None,
                  subject: Optional[pulumi.Input[str]] = None,
+                 template_name: Optional[pulumi.Input[str]] = None,
                  title: Optional[pulumi.Input[str]] = None,
                  __props__=None,
                  __name__=None,
@@ -35,11 +35,11 @@ class EmailTemplate(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] body: Email Template Body. This should be a valid XDocument
         :param pulumi.Input[str] description: Description of the Email Template.
-        :param pulumi.Input[str] name: Email Template Name Identifier.
         :param pulumi.Input[List[pulumi.Input[pulumi.InputType['EmailTemplateParametersContractPropertiesArgs']]]] parameters: Email Template Parameter values.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[str] service_name: The name of the API Management service.
         :param pulumi.Input[str] subject: Subject of the Template.
+        :param pulumi.Input[str] template_name: Email Template Name Identifier.
         :param pulumi.Input[str] title: Title of the Template.
         """
         if __name__ is not None:
@@ -61,9 +61,6 @@ class EmailTemplate(pulumi.CustomResource):
 
             __props__['body'] = body
             __props__['description'] = description
-            if name is None:
-                raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
             __props__['parameters'] = parameters
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
@@ -72,8 +69,12 @@ class EmailTemplate(pulumi.CustomResource):
                 raise TypeError("Missing required property 'service_name'")
             __props__['service_name'] = service_name
             __props__['subject'] = subject
+            if template_name is None:
+                raise TypeError("Missing required property 'template_name'")
+            __props__['template_name'] = template_name
             __props__['title'] = title
             __props__['is_default'] = None
+            __props__['name'] = None
             __props__['type'] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:apimanagement/v20180101:EmailTemplate"), pulumi.Alias(type_="azurerm:apimanagement/v20190101:EmailTemplate"), pulumi.Alias(type_="azurerm:apimanagement/v20191201:EmailTemplate")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)

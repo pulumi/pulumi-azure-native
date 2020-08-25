@@ -68,16 +68,19 @@ class AwaitableListWebAppApplicationSettingsSlotResult(ListWebAppApplicationSett
 
 def list_web_app_application_settings_slot(name: Optional[str] = None,
                                            resource_group_name: Optional[str] = None,
+                                           slot: Optional[str] = None,
                                            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListWebAppApplicationSettingsSlotResult:
     """
     Use this data source to access information about an existing resource.
 
-    :param str name: Name of the deployment slot. If a slot is not specified, the API will get the application settings for the production slot.
+    :param str name: Name of the app.
     :param str resource_group_name: Name of the resource group to which the resource belongs.
+    :param str slot: Name of the deployment slot. If a slot is not specified, the API will get the application settings for the production slot.
     """
     __args__ = dict()
     __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
+    __args__['slot'] = slot
     if opts is None:
         opts = pulumi.InvokeOptions()
     if opts.version is None:

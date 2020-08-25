@@ -19,7 +19,7 @@ class ObjectReplicationPolicy(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_name: Optional[pulumi.Input[str]] = None,
                  destination_account: Optional[pulumi.Input[str]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
+                 object_replication_policy_id: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  rules: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['ObjectReplicationPolicyRuleArgs']]]]] = None,
                  source_account: Optional[pulumi.Input[str]] = None,
@@ -33,7 +33,7 @@ class ObjectReplicationPolicy(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_name: The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.
         :param pulumi.Input[str] destination_account: Required. Destination account name.
-        :param pulumi.Input[str] name: The ID of object replication policy or 'default' if the policy ID is unknown.
+        :param pulumi.Input[str] object_replication_policy_id: The ID of object replication policy or 'default' if the policy ID is unknown.
         :param pulumi.Input[str] resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.
         :param pulumi.Input[List[pulumi.Input[pulumi.InputType['ObjectReplicationPolicyRuleArgs']]]] rules: The storage account object replication rules.
         :param pulumi.Input[str] source_account: Required. Source account name.
@@ -61,9 +61,9 @@ class ObjectReplicationPolicy(pulumi.CustomResource):
             if destination_account is None:
                 raise TypeError("Missing required property 'destination_account'")
             __props__['destination_account'] = destination_account
-            if name is None:
-                raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
+            if object_replication_policy_id is None:
+                raise TypeError("Missing required property 'object_replication_policy_id'")
+            __props__['object_replication_policy_id'] = object_replication_policy_id
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
@@ -72,6 +72,7 @@ class ObjectReplicationPolicy(pulumi.CustomResource):
                 raise TypeError("Missing required property 'source_account'")
             __props__['source_account'] = source_account
             __props__['enabled_time'] = None
+            __props__['name'] = None
             __props__['policy_id'] = None
             __props__['type'] = None
         super(ObjectReplicationPolicy, __self__).__init__(

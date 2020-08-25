@@ -26,7 +26,6 @@ class VirtualNetworkGatewayConnection(pulumi.CustomResource):
                  ipsec_policies: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['IpsecPolicyArgs']]]]] = None,
                  local_network_gateway2: Optional[pulumi.Input[pulumi.InputType['LocalNetworkGatewayArgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
                  peer: Optional[pulumi.Input[pulumi.InputType['SubResourceArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  routing_weight: Optional[pulumi.Input[float]] = None,
@@ -37,6 +36,7 @@ class VirtualNetworkGatewayConnection(pulumi.CustomResource):
                  use_policy_based_traffic_selectors: Optional[pulumi.Input[bool]] = None,
                  virtual_network_gateway1: Optional[pulumi.Input[pulumi.InputType['VirtualNetworkGatewayArgs']]] = None,
                  virtual_network_gateway2: Optional[pulumi.Input[pulumi.InputType['VirtualNetworkGatewayArgs']]] = None,
+                 virtual_network_gateway_connection_name: Optional[pulumi.Input[str]] = None,
                  __props__=None,
                  __name__=None,
                  __opts__=None):
@@ -54,7 +54,6 @@ class VirtualNetworkGatewayConnection(pulumi.CustomResource):
         :param pulumi.Input[List[pulumi.Input[pulumi.InputType['IpsecPolicyArgs']]]] ipsec_policies: The IPSec Policies to be considered by this connection.
         :param pulumi.Input[pulumi.InputType['LocalNetworkGatewayArgs']] local_network_gateway2: The reference to local network gateway resource.
         :param pulumi.Input[str] location: Resource location.
-        :param pulumi.Input[str] name: The name of the virtual network gateway connection.
         :param pulumi.Input[pulumi.InputType['SubResourceArgs']] peer: The reference to peerings resource.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[float] routing_weight: The routing weight.
@@ -65,6 +64,7 @@ class VirtualNetworkGatewayConnection(pulumi.CustomResource):
         :param pulumi.Input[bool] use_policy_based_traffic_selectors: Enable policy-based traffic selectors.
         :param pulumi.Input[pulumi.InputType['VirtualNetworkGatewayArgs']] virtual_network_gateway1: The reference to virtual network gateway resource.
         :param pulumi.Input[pulumi.InputType['VirtualNetworkGatewayArgs']] virtual_network_gateway2: The reference to virtual network gateway resource.
+        :param pulumi.Input[str] virtual_network_gateway_connection_name: The name of the virtual network gateway connection.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -94,9 +94,6 @@ class VirtualNetworkGatewayConnection(pulumi.CustomResource):
             __props__['ipsec_policies'] = ipsec_policies
             __props__['local_network_gateway2'] = local_network_gateway2
             __props__['location'] = location
-            if name is None:
-                raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
             __props__['peer'] = peer
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
@@ -111,10 +108,14 @@ class VirtualNetworkGatewayConnection(pulumi.CustomResource):
                 raise TypeError("Missing required property 'virtual_network_gateway1'")
             __props__['virtual_network_gateway1'] = virtual_network_gateway1
             __props__['virtual_network_gateway2'] = virtual_network_gateway2
+            if virtual_network_gateway_connection_name is None:
+                raise TypeError("Missing required property 'virtual_network_gateway_connection_name'")
+            __props__['virtual_network_gateway_connection_name'] = virtual_network_gateway_connection_name
             __props__['connection_status'] = None
             __props__['egress_bytes_transferred'] = None
             __props__['etag'] = None
             __props__['ingress_bytes_transferred'] = None
+            __props__['name'] = None
             __props__['provisioning_state'] = None
             __props__['resource_guid'] = None
             __props__['tunnel_connection_status'] = None

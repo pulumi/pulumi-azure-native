@@ -80,7 +80,7 @@ class AwaitableGetReplicationMigrationItemResult(GetReplicationMigrationItemResu
 
 
 def get_replication_migration_item(fabric_name: Optional[str] = None,
-                                   name: Optional[str] = None,
+                                   migration_item_name: Optional[str] = None,
                                    protection_container_name: Optional[str] = None,
                                    resource_group_name: Optional[str] = None,
                                    resource_name: Optional[str] = None,
@@ -89,14 +89,14 @@ def get_replication_migration_item(fabric_name: Optional[str] = None,
     Use this data source to access information about an existing resource.
 
     :param str fabric_name: Fabric unique name.
-    :param str name: Migration item name.
+    :param str migration_item_name: Migration item name.
     :param str protection_container_name: Protection container name.
     :param str resource_group_name: The name of the resource group where the recovery services vault is present.
     :param str resource_name: The name of the recovery services vault.
     """
     __args__ = dict()
     __args__['fabricName'] = fabric_name
-    __args__['name'] = name
+    __args__['migrationItemName'] = migration_item_name
     __args__['protectionContainerName'] = protection_container_name
     __args__['resourceGroupName'] = resource_group_name
     __args__['resourceName'] = resource_name

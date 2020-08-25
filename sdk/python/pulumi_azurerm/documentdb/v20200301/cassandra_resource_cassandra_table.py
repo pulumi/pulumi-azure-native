@@ -20,10 +20,10 @@ class CassandraResourceCassandraTable(pulumi.CustomResource):
                  account_name: Optional[pulumi.Input[str]] = None,
                  keyspace_name: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
                  options: Optional[pulumi.Input[pulumi.InputType['CreateUpdateOptionsArgs']]] = None,
                  resource: Optional[pulumi.Input[pulumi.InputType['CassandraTableResourceArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
+                 table_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None,
                  __name__=None,
@@ -36,10 +36,10 @@ class CassandraResourceCassandraTable(pulumi.CustomResource):
         :param pulumi.Input[str] account_name: Cosmos DB database account name.
         :param pulumi.Input[str] keyspace_name: Cosmos DB keyspace name.
         :param pulumi.Input[str] location: The location of the resource group to which the resource belongs.
-        :param pulumi.Input[str] name: Cosmos DB table name.
         :param pulumi.Input[pulumi.InputType['CreateUpdateOptionsArgs']] options: A key-value pair of options to be applied for the request. This corresponds to the headers sent with the request.
         :param pulumi.Input[pulumi.InputType['CassandraTableResourceArgs']] resource: The standard JSON format of a Cassandra table
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
+        :param pulumi.Input[str] table_name: Cosmos DB table name.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Tags are a list of key-value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters. For example, the default experience for a template type is set with "defaultExperience": "Cassandra". Current "defaultExperience" values also include "Table", "Graph", "DocumentDB", and "MongoDB".
         """
         if __name__ is not None:
@@ -66,9 +66,6 @@ class CassandraResourceCassandraTable(pulumi.CustomResource):
                 raise TypeError("Missing required property 'keyspace_name'")
             __props__['keyspace_name'] = keyspace_name
             __props__['location'] = location
-            if name is None:
-                raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
             if options is None:
                 raise TypeError("Missing required property 'options'")
             __props__['options'] = options
@@ -78,7 +75,11 @@ class CassandraResourceCassandraTable(pulumi.CustomResource):
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
+            if table_name is None:
+                raise TypeError("Missing required property 'table_name'")
+            __props__['table_name'] = table_name
             __props__['tags'] = tags
+            __props__['name'] = None
             __props__['type'] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:documentdb/v20190801:CassandraResourceCassandraTable"), pulumi.Alias(type_="azurerm:documentdb/v20191212:CassandraResourceCassandraTable"), pulumi.Alias(type_="azurerm:documentdb/v20200401:CassandraResourceCassandraTable")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)

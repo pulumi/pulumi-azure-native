@@ -17,11 +17,11 @@ class IntegrationAccountCertificate(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 certificate_name: Optional[pulumi.Input[str]] = None,
                  integration_account_name: Optional[pulumi.Input[str]] = None,
                  key: Optional[pulumi.Input[pulumi.InputType['KeyVaultKeyReferenceArgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  metadata: Optional[pulumi.Input[Mapping[str, Any]]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
                  public_certificate: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -33,11 +33,11 @@ class IntegrationAccountCertificate(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] certificate_name: The integration account certificate name.
         :param pulumi.Input[str] integration_account_name: The integration account name.
         :param pulumi.Input[pulumi.InputType['KeyVaultKeyReferenceArgs']] key: The key details in the key vault.
         :param pulumi.Input[str] location: The resource location.
         :param pulumi.Input[Mapping[str, Any]] metadata: The metadata.
-        :param pulumi.Input[str] name: The integration account certificate name.
         :param pulumi.Input[str] public_certificate: The public certificate.
         :param pulumi.Input[str] resource_group_name: The resource group name.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The resource tags.
@@ -59,15 +59,15 @@ class IntegrationAccountCertificate(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
+            if certificate_name is None:
+                raise TypeError("Missing required property 'certificate_name'")
+            __props__['certificate_name'] = certificate_name
             if integration_account_name is None:
                 raise TypeError("Missing required property 'integration_account_name'")
             __props__['integration_account_name'] = integration_account_name
             __props__['key'] = key
             __props__['location'] = location
             __props__['metadata'] = metadata
-            if name is None:
-                raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
             __props__['public_certificate'] = public_certificate
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
@@ -75,6 +75,7 @@ class IntegrationAccountCertificate(pulumi.CustomResource):
             __props__['tags'] = tags
             __props__['changed_time'] = None
             __props__['created_time'] = None
+            __props__['name'] = None
             __props__['type'] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:logic/v20160601:IntegrationAccountCertificate")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)

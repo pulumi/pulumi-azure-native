@@ -18,10 +18,10 @@ class RulesEngine(pulumi.CustomResource):
                  resource_name,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  front_door_name: Optional[pulumi.Input[str]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  resource_state: Optional[pulumi.Input[str]] = None,
                  rules: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['RulesEngineRuleArgs']]]]] = None,
+                 rules_engine_name: Optional[pulumi.Input[str]] = None,
                  __props__=None,
                  __name__=None,
                  __opts__=None):
@@ -31,10 +31,10 @@ class RulesEngine(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] front_door_name: Name of the Front Door which is globally unique.
-        :param pulumi.Input[str] name: Name of the Rules Engine which is unique within the Front Door.
         :param pulumi.Input[str] resource_group_name: Name of the Resource group within the Azure subscription.
         :param pulumi.Input[str] resource_state: Resource status.
         :param pulumi.Input[List[pulumi.Input[pulumi.InputType['RulesEngineRuleArgs']]]] rules: A list of rules that define a particular Rules Engine Configuration.
+        :param pulumi.Input[str] rules_engine_name: Name of the Rules Engine which is unique within the Front Door.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -56,14 +56,15 @@ class RulesEngine(pulumi.CustomResource):
             if front_door_name is None:
                 raise TypeError("Missing required property 'front_door_name'")
             __props__['front_door_name'] = front_door_name
-            if name is None:
-                raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['resource_state'] = resource_state
             __props__['rules'] = rules
+            if rules_engine_name is None:
+                raise TypeError("Missing required property 'rules_engine_name'")
+            __props__['rules_engine_name'] = rules_engine_name
+            __props__['name'] = None
             __props__['type'] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:network/v20200101:RulesEngine"), pulumi.Alias(type_="azurerm:network/v20200401:RulesEngine")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)

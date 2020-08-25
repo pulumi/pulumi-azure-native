@@ -17,10 +17,10 @@ class Factory(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 factory_name: Optional[pulumi.Input[str]] = None,
                  global_parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[pulumi.InputType['GlobalParameterSpecificationArgs']]]]] = None,
                  identity: Optional[pulumi.Input[pulumi.InputType['FactoryIdentityArgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
                  repo_configuration: Optional[pulumi.Input[pulumi.InputType['FactoryRepoConfigurationArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -32,10 +32,10 @@ class Factory(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] factory_name: The factory name.
         :param pulumi.Input[Mapping[str, pulumi.Input[pulumi.InputType['GlobalParameterSpecificationArgs']]]] global_parameters: List of parameters for factory.
         :param pulumi.Input[pulumi.InputType['FactoryIdentityArgs']] identity: Managed service identity of the factory.
         :param pulumi.Input[str] location: The resource location.
-        :param pulumi.Input[str] name: The factory name.
         :param pulumi.Input[pulumi.InputType['FactoryRepoConfigurationArgs']] repo_configuration: Git repo information of the factory.
         :param pulumi.Input[str] resource_group_name: The resource group name.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The resource tags.
@@ -57,12 +57,12 @@ class Factory(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
+            if factory_name is None:
+                raise TypeError("Missing required property 'factory_name'")
+            __props__['factory_name'] = factory_name
             __props__['global_parameters'] = global_parameters
             __props__['identity'] = identity
             __props__['location'] = location
-            if name is None:
-                raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
             __props__['repo_configuration'] = repo_configuration
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
@@ -70,6 +70,7 @@ class Factory(pulumi.CustomResource):
             __props__['tags'] = tags
             __props__['create_time'] = None
             __props__['e_tag'] = None
+            __props__['name'] = None
             __props__['provisioning_state'] = None
             __props__['type'] = None
             __props__['version'] = None

@@ -20,7 +20,7 @@ class Namespace(pulumi.CustomResource):
                  create_acs_namespace: Optional[pulumi.Input[bool]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
+                 namespace_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  sku: Optional[pulumi.Input[pulumi.InputType['SkuArgs']]] = None,
                  status: Optional[pulumi.Input[str]] = None,
@@ -36,7 +36,7 @@ class Namespace(pulumi.CustomResource):
         :param pulumi.Input[bool] create_acs_namespace: Indicates whether to create an ACS namespace.
         :param pulumi.Input[bool] enabled: Specifies whether this instance is enabled.
         :param pulumi.Input[str] location: Namespace location.
-        :param pulumi.Input[str] name: The namespace name.
+        :param pulumi.Input[str] namespace_name: The namespace name.
         :param pulumi.Input[str] resource_group_name: Name of the Resource group within the Azure subscription.
         :param pulumi.Input[pulumi.InputType['SkuArgs']] sku: SKU of the namespace.
         :param pulumi.Input[str] status: State of the namespace.
@@ -64,9 +64,9 @@ class Namespace(pulumi.CustomResource):
             if location is None:
                 raise TypeError("Missing required property 'location'")
             __props__['location'] = location
-            if name is None:
-                raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
+            if namespace_name is None:
+                raise TypeError("Missing required property 'namespace_name'")
+            __props__['namespace_name'] = namespace_name
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
@@ -74,6 +74,7 @@ class Namespace(pulumi.CustomResource):
             __props__['status'] = status
             __props__['tags'] = tags
             __props__['created_at'] = None
+            __props__['name'] = None
             __props__['provisioning_state'] = None
             __props__['service_bus_endpoint'] = None
             __props__['type'] = None

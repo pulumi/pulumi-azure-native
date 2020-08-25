@@ -18,9 +18,9 @@ class ExpressRouteGateway(pulumi.CustomResource):
                  resource_name,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  auto_scale_configuration: Optional[pulumi.Input[pulumi.InputType['ExpressRouteGatewayPropertiesAutoScaleConfigurationArgs']]] = None,
+                 express_route_gateway_name: Optional[pulumi.Input[str]] = None,
                  id: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  virtual_hub: Optional[pulumi.Input[pulumi.InputType['VirtualHubIdArgs']]] = None,
@@ -33,9 +33,9 @@ class ExpressRouteGateway(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['ExpressRouteGatewayPropertiesAutoScaleConfigurationArgs']] auto_scale_configuration: Configuration for auto scaling.
+        :param pulumi.Input[str] express_route_gateway_name: The name of the ExpressRoute gateway.
         :param pulumi.Input[str] id: Resource ID.
         :param pulumi.Input[str] location: Resource location.
-        :param pulumi.Input[str] name: The name of the ExpressRoute gateway.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         :param pulumi.Input[pulumi.InputType['VirtualHubIdArgs']] virtual_hub: The Virtual Hub where the ExpressRoute gateway is or will be deployed.
@@ -58,11 +58,11 @@ class ExpressRouteGateway(pulumi.CustomResource):
             __props__ = dict()
 
             __props__['auto_scale_configuration'] = auto_scale_configuration
+            if express_route_gateway_name is None:
+                raise TypeError("Missing required property 'express_route_gateway_name'")
+            __props__['express_route_gateway_name'] = express_route_gateway_name
             __props__['id'] = id
             __props__['location'] = location
-            if name is None:
-                raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
@@ -72,6 +72,7 @@ class ExpressRouteGateway(pulumi.CustomResource):
             __props__['virtual_hub'] = virtual_hub
             __props__['etag'] = None
             __props__['express_route_connections'] = None
+            __props__['name'] = None
             __props__['provisioning_state'] = None
             __props__['type'] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:network/v20180801:ExpressRouteGateway"), pulumi.Alias(type_="azurerm:network/v20181001:ExpressRouteGateway"), pulumi.Alias(type_="azurerm:network/v20181101:ExpressRouteGateway"), pulumi.Alias(type_="azurerm:network/v20181201:ExpressRouteGateway"), pulumi.Alias(type_="azurerm:network/v20190201:ExpressRouteGateway"), pulumi.Alias(type_="azurerm:network/v20190401:ExpressRouteGateway"), pulumi.Alias(type_="azurerm:network/v20190601:ExpressRouteGateway"), pulumi.Alias(type_="azurerm:network/v20190701:ExpressRouteGateway"), pulumi.Alias(type_="azurerm:network/v20190801:ExpressRouteGateway"), pulumi.Alias(type_="azurerm:network/v20190901:ExpressRouteGateway"), pulumi.Alias(type_="azurerm:network/v20191101:ExpressRouteGateway"), pulumi.Alias(type_="azurerm:network/v20191201:ExpressRouteGateway"), pulumi.Alias(type_="azurerm:network/v20200401:ExpressRouteGateway"), pulumi.Alias(type_="azurerm:network/v20200501:ExpressRouteGateway"), pulumi.Alias(type_="azurerm:network/v20200601:ExpressRouteGateway")])

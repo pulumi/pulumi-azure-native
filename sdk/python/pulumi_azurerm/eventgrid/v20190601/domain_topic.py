@@ -16,7 +16,7 @@ class DomainTopic(pulumi.CustomResource):
                  resource_name,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  domain_name: Optional[pulumi.Input[str]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
+                 domain_topic_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  __props__=None,
                  __name__=None,
@@ -27,7 +27,7 @@ class DomainTopic(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] domain_name: Name of the domain.
-        :param pulumi.Input[str] name: Name of the domain topic.
+        :param pulumi.Input[str] domain_topic_name: Name of the domain topic.
         :param pulumi.Input[str] resource_group_name: The name of the resource group within the user's subscription.
         """
         if __name__ is not None:
@@ -50,12 +50,13 @@ class DomainTopic(pulumi.CustomResource):
             if domain_name is None:
                 raise TypeError("Missing required property 'domain_name'")
             __props__['domain_name'] = domain_name
-            if name is None:
-                raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
+            if domain_topic_name is None:
+                raise TypeError("Missing required property 'domain_topic_name'")
+            __props__['domain_topic_name'] = domain_topic_name
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
+            __props__['name'] = None
             __props__['provisioning_state'] = None
             __props__['type'] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:eventgrid/v20200601:DomainTopic")])

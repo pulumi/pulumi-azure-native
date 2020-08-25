@@ -18,6 +18,7 @@ class WebAppSwiftVirtualNetworkConnectionSlot(pulumi.CustomResource):
                  kind: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
+                 slot: Optional[pulumi.Input[str]] = None,
                  subnet_resource_id: Optional[pulumi.Input[str]] = None,
                  swift_supported: Optional[pulumi.Input[bool]] = None,
                  __props__=None,
@@ -29,8 +30,9 @@ class WebAppSwiftVirtualNetworkConnectionSlot(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] kind: Kind of resource.
-        :param pulumi.Input[str] name: Name of the deployment slot. If a slot is not specified, the API will add or update connections for the production slot.
+        :param pulumi.Input[str] name: Name of the app.
         :param pulumi.Input[str] resource_group_name: Name of the resource group to which the resource belongs.
+        :param pulumi.Input[str] slot: Name of the deployment slot. If a slot is not specified, the API will add or update connections for the production slot.
         :param pulumi.Input[str] subnet_resource_id: The Virtual Network subnet's resource ID. This is the subnet that this Web App will join. This subnet must have a delegation to Microsoft.Web/serverFarms defined first.
         :param pulumi.Input[bool] swift_supported: A flag that specifies if the scale unit this Web App is on supports Swift integration.
         """
@@ -58,6 +60,9 @@ class WebAppSwiftVirtualNetworkConnectionSlot(pulumi.CustomResource):
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
+            if slot is None:
+                raise TypeError("Missing required property 'slot'")
+            __props__['slot'] = slot
             __props__['subnet_resource_id'] = subnet_resource_id
             __props__['swift_supported'] = swift_supported
             __props__['type'] = None

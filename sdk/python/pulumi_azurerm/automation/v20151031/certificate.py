@@ -17,6 +17,7 @@ class Certificate(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  automation_account_name: Optional[pulumi.Input[str]] = None,
                  base64_value: Optional[pulumi.Input[str]] = None,
+                 certificate_name: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  is_exportable: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -32,9 +33,10 @@ class Certificate(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] automation_account_name: The name of the automation account.
         :param pulumi.Input[str] base64_value: Gets or sets the base64 encoded value of the certificate.
+        :param pulumi.Input[str] certificate_name: The parameters supplied to the create or update certificate operation.
         :param pulumi.Input[str] description: Gets or sets the description of the certificate.
         :param pulumi.Input[bool] is_exportable: Gets or sets the is exportable flag of the certificate.
-        :param pulumi.Input[str] name: The parameters supplied to the create or update certificate operation.
+        :param pulumi.Input[str] name: Gets or sets the name of the certificate.
         :param pulumi.Input[str] resource_group_name: Name of an Azure Resource group.
         :param pulumi.Input[str] thumbprint: Gets or sets the thumbprint of the certificate.
         """
@@ -61,6 +63,9 @@ class Certificate(pulumi.CustomResource):
             if base64_value is None:
                 raise TypeError("Missing required property 'base64_value'")
             __props__['base64_value'] = base64_value
+            if certificate_name is None:
+                raise TypeError("Missing required property 'certificate_name'")
+            __props__['certificate_name'] = certificate_name
             __props__['description'] = description
             __props__['is_exportable'] = is_exportable
             if name is None:

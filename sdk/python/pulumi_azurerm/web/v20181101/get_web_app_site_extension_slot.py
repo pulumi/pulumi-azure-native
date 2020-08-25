@@ -305,18 +305,21 @@ class AwaitableGetWebAppSiteExtensionSlotResult(GetWebAppSiteExtensionSlotResult
 
 def get_web_app_site_extension_slot(name: Optional[str] = None,
                                     resource_group_name: Optional[str] = None,
+                                    site_extension_id: Optional[str] = None,
                                     slot: Optional[str] = None,
                                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetWebAppSiteExtensionSlotResult:
     """
     Use this data source to access information about an existing resource.
 
-    :param str name: Site extension name.
+    :param str name: Site name.
     :param str resource_group_name: Name of the resource group to which the resource belongs.
+    :param str site_extension_id: Site extension name.
     :param str slot: Name of the deployment slot. If a slot is not specified, the API deletes a deployment for the production slot.
     """
     __args__ = dict()
     __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
+    __args__['siteExtensionId'] = site_extension_id
     __args__['slot'] = slot
     if opts is None:
         opts = pulumi.InvokeOptions()

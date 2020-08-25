@@ -19,8 +19,8 @@ class BackupScheduleGroup(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  device_name: Optional[pulumi.Input[str]] = None,
                  manager_name: Optional[pulumi.Input[str]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
+                 schedule_group_name: Optional[pulumi.Input[str]] = None,
                  start_time: Optional[pulumi.Input[pulumi.InputType['TimeArgs']]] = None,
                  __props__=None,
                  __name__=None,
@@ -32,8 +32,8 @@ class BackupScheduleGroup(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] device_name: The name of the device.
         :param pulumi.Input[str] manager_name: The manager name
-        :param pulumi.Input[str] name: The name of the schedule group.
         :param pulumi.Input[str] resource_group_name: The resource group name
+        :param pulumi.Input[str] schedule_group_name: The name of the schedule group.
         :param pulumi.Input[pulumi.InputType['TimeArgs']] start_time: The start time. When this field is specified we will generate Default GrandFather Father Son Backup Schedules.
         """
         if __name__ is not None:
@@ -59,15 +59,16 @@ class BackupScheduleGroup(pulumi.CustomResource):
             if manager_name is None:
                 raise TypeError("Missing required property 'manager_name'")
             __props__['manager_name'] = manager_name
-            if name is None:
-                raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
+            if schedule_group_name is None:
+                raise TypeError("Missing required property 'schedule_group_name'")
+            __props__['schedule_group_name'] = schedule_group_name
             if start_time is None:
                 raise TypeError("Missing required property 'start_time'")
             __props__['start_time'] = start_time
+            __props__['name'] = None
             __props__['type'] = None
         super(BackupScheduleGroup, __self__).__init__(
             'azurerm:storsimple/v20161001:BackupScheduleGroup',

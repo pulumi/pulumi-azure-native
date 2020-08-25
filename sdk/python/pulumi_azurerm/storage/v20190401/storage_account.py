@@ -18,6 +18,7 @@ class StorageAccount(pulumi.CustomResource):
                  resource_name,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  access_tier: Optional[pulumi.Input[str]] = None,
+                 account_name: Optional[pulumi.Input[str]] = None,
                  allow_blob_public_access: Optional[pulumi.Input[bool]] = None,
                  azure_files_identity_based_authentication: Optional[pulumi.Input[pulumi.InputType['AzureFilesIdentityBasedAuthenticationArgs']]] = None,
                  custom_domain: Optional[pulumi.Input[pulumi.InputType['CustomDomainArgs']]] = None,
@@ -29,7 +30,6 @@ class StorageAccount(pulumi.CustomResource):
                  large_file_shares_state: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  minimum_tls_version: Optional[pulumi.Input[str]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
                  network_rule_set: Optional[pulumi.Input[pulumi.InputType['NetworkRuleSetArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  sku: Optional[pulumi.Input[pulumi.InputType['SkuArgs']]] = None,
@@ -43,6 +43,7 @@ class StorageAccount(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] access_tier: Required for storage accounts where kind = BlobStorage. The access tier used for billing.
+        :param pulumi.Input[str] account_name: The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.
         :param pulumi.Input[bool] allow_blob_public_access: Allow or disallow public access to all blobs or containers in the storage account. The default interpretation is true for this property.
         :param pulumi.Input[pulumi.InputType['AzureFilesIdentityBasedAuthenticationArgs']] azure_files_identity_based_authentication: Provides the identity based authentication settings for Azure Files.
         :param pulumi.Input[pulumi.InputType['CustomDomainArgs']] custom_domain: User domain assigned to the storage account. Name is the CNAME source. Only one custom domain is supported per storage account at this time. To clear the existing custom domain, use an empty string for the custom domain name property.
@@ -54,7 +55,6 @@ class StorageAccount(pulumi.CustomResource):
         :param pulumi.Input[str] large_file_shares_state: Allow large file shares if sets to Enabled. It cannot be disabled once it is enabled.
         :param pulumi.Input[str] location: Required. Gets or sets the location of the resource. This will be one of the supported and registered Azure Geo Regions (e.g. West US, East US, Southeast Asia, etc.). The geo region of a resource cannot be changed once it is created, but if an identical geo region is specified on update, the request will succeed.
         :param pulumi.Input[str] minimum_tls_version: Set the minimum TLS version to be permitted on requests to storage. The default interpretation is TLS 1.0 for this property.
-        :param pulumi.Input[str] name: The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.
         :param pulumi.Input[pulumi.InputType['NetworkRuleSetArgs']] network_rule_set: Network rule set
         :param pulumi.Input[str] resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.
         :param pulumi.Input[pulumi.InputType['SkuArgs']] sku: Required. Gets or sets the SKU name.
@@ -78,6 +78,9 @@ class StorageAccount(pulumi.CustomResource):
             __props__ = dict()
 
             __props__['access_tier'] = access_tier
+            if account_name is None:
+                raise TypeError("Missing required property 'account_name'")
+            __props__['account_name'] = account_name
             __props__['allow_blob_public_access'] = allow_blob_public_access
             __props__['azure_files_identity_based_authentication'] = azure_files_identity_based_authentication
             __props__['custom_domain'] = custom_domain
@@ -93,9 +96,6 @@ class StorageAccount(pulumi.CustomResource):
                 raise TypeError("Missing required property 'location'")
             __props__['location'] = location
             __props__['minimum_tls_version'] = minimum_tls_version
-            if name is None:
-                raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
             __props__['network_rule_set'] = network_rule_set
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
@@ -108,6 +108,7 @@ class StorageAccount(pulumi.CustomResource):
             __props__['failover_in_progress'] = None
             __props__['geo_replication_stats'] = None
             __props__['last_geo_failover_time'] = None
+            __props__['name'] = None
             __props__['primary_endpoints'] = None
             __props__['primary_location'] = None
             __props__['provisioning_state'] = None

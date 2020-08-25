@@ -19,10 +19,10 @@ class RouteFilterRule(pulumi.CustomResource):
                  communities: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
                  id: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  route_filter_name: Optional[pulumi.Input[str]] = None,
                  route_filter_rule_type: Optional[pulumi.Input[str]] = None,
+                 rule_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None,
                  __name__=None,
@@ -36,10 +36,10 @@ class RouteFilterRule(pulumi.CustomResource):
         :param pulumi.Input[List[pulumi.Input[str]]] communities: The collection for bgp community values to filter on. e.g. ['12076:5010','12076:5020']
         :param pulumi.Input[str] id: Resource ID.
         :param pulumi.Input[str] location: Resource location.
-        :param pulumi.Input[str] name: The name of the route filter rule.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[str] route_filter_name: The name of the route filter.
         :param pulumi.Input[str] route_filter_rule_type: The rule type of the rule. Valid value is: 'Community'
+        :param pulumi.Input[str] rule_name: The name of the route filter rule.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
         if __name__ is not None:
@@ -67,9 +67,6 @@ class RouteFilterRule(pulumi.CustomResource):
             __props__['communities'] = communities
             __props__['id'] = id
             __props__['location'] = location
-            if name is None:
-                raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
@@ -79,8 +76,12 @@ class RouteFilterRule(pulumi.CustomResource):
             if route_filter_rule_type is None:
                 raise TypeError("Missing required property 'route_filter_rule_type'")
             __props__['route_filter_rule_type'] = route_filter_rule_type
+            if rule_name is None:
+                raise TypeError("Missing required property 'rule_name'")
+            __props__['rule_name'] = rule_name
             __props__['tags'] = tags
             __props__['etag'] = None
+            __props__['name'] = None
             __props__['provisioning_state'] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:network/v20170301:RouteFilterRule"), pulumi.Alias(type_="azurerm:network/v20170601:RouteFilterRule"), pulumi.Alias(type_="azurerm:network/v20170801:RouteFilterRule"), pulumi.Alias(type_="azurerm:network/v20170901:RouteFilterRule"), pulumi.Alias(type_="azurerm:network/v20171001:RouteFilterRule"), pulumi.Alias(type_="azurerm:network/v20171101:RouteFilterRule"), pulumi.Alias(type_="azurerm:network/v20180101:RouteFilterRule"), pulumi.Alias(type_="azurerm:network/v20180201:RouteFilterRule"), pulumi.Alias(type_="azurerm:network/v20180401:RouteFilterRule"), pulumi.Alias(type_="azurerm:network/v20180601:RouteFilterRule"), pulumi.Alias(type_="azurerm:network/v20180701:RouteFilterRule"), pulumi.Alias(type_="azurerm:network/v20180801:RouteFilterRule"), pulumi.Alias(type_="azurerm:network/v20181001:RouteFilterRule"), pulumi.Alias(type_="azurerm:network/v20181101:RouteFilterRule"), pulumi.Alias(type_="azurerm:network/v20181201:RouteFilterRule"), pulumi.Alias(type_="azurerm:network/v20190201:RouteFilterRule"), pulumi.Alias(type_="azurerm:network/v20190401:RouteFilterRule"), pulumi.Alias(type_="azurerm:network/v20190601:RouteFilterRule"), pulumi.Alias(type_="azurerm:network/v20190701:RouteFilterRule"), pulumi.Alias(type_="azurerm:network/v20190801:RouteFilterRule"), pulumi.Alias(type_="azurerm:network/v20190901:RouteFilterRule"), pulumi.Alias(type_="azurerm:network/v20191101:RouteFilterRule"), pulumi.Alias(type_="azurerm:network/v20191201:RouteFilterRule"), pulumi.Alias(type_="azurerm:network/v20200301:RouteFilterRule"), pulumi.Alias(type_="azurerm:network/v20200401:RouteFilterRule"), pulumi.Alias(type_="azurerm:network/v20200501:RouteFilterRule"), pulumi.Alias(type_="azurerm:network/v20200601:RouteFilterRule")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)

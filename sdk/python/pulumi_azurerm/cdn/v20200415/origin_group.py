@@ -19,7 +19,7 @@ class OriginGroup(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  endpoint_name: Optional[pulumi.Input[str]] = None,
                  health_probe_settings: Optional[pulumi.Input[pulumi.InputType['HealthProbeParametersArgs']]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
+                 origin_group_name: Optional[pulumi.Input[str]] = None,
                  origins: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['ResourceReferenceArgs']]]]] = None,
                  profile_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -35,7 +35,7 @@ class OriginGroup(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] endpoint_name: Name of the endpoint under the profile which is unique globally.
         :param pulumi.Input[pulumi.InputType['HealthProbeParametersArgs']] health_probe_settings: Health probe settings to the origin that is used to determine the health of the origin.
-        :param pulumi.Input[str] name: Name of the origin group which is unique within the endpoint.
+        :param pulumi.Input[str] origin_group_name: Name of the origin group which is unique within the endpoint.
         :param pulumi.Input[List[pulumi.Input[pulumi.InputType['ResourceReferenceArgs']]]] origins: The source of the content being delivered via CDN within given origin group.
         :param pulumi.Input[str] profile_name: Name of the CDN profile which is unique within the resource group.
         :param pulumi.Input[str] resource_group_name: Name of the Resource group within the Azure subscription.
@@ -63,9 +63,9 @@ class OriginGroup(pulumi.CustomResource):
                 raise TypeError("Missing required property 'endpoint_name'")
             __props__['endpoint_name'] = endpoint_name
             __props__['health_probe_settings'] = health_probe_settings
-            if name is None:
-                raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
+            if origin_group_name is None:
+                raise TypeError("Missing required property 'origin_group_name'")
+            __props__['origin_group_name'] = origin_group_name
             if origins is None:
                 raise TypeError("Missing required property 'origins'")
             __props__['origins'] = origins
@@ -77,6 +77,7 @@ class OriginGroup(pulumi.CustomResource):
             __props__['resource_group_name'] = resource_group_name
             __props__['response_based_origin_error_detection_settings'] = response_based_origin_error_detection_settings
             __props__['traffic_restoration_time_to_healed_or_new_endpoints_in_minutes'] = traffic_restoration_time_to_healed_or_new_endpoints_in_minutes
+            __props__['name'] = None
             __props__['provisioning_state'] = None
             __props__['resource_state'] = None
             __props__['type'] = None

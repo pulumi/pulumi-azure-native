@@ -19,9 +19,9 @@ class DedicatedHost(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  auto_replace_on_failure: Optional[pulumi.Input[bool]] = None,
                  host_group_name: Optional[pulumi.Input[str]] = None,
+                 host_name: Optional[pulumi.Input[str]] = None,
                  license_type: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
                  platform_fault_domain: Optional[pulumi.Input[float]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  sku: Optional[pulumi.Input[pulumi.InputType['SkuArgs']]] = None,
@@ -36,9 +36,9 @@ class DedicatedHost(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] auto_replace_on_failure: Specifies whether the dedicated host should be replaced automatically in case of a failure. The value is defaulted to 'true' when not provided.
         :param pulumi.Input[str] host_group_name: The name of the dedicated host group.
+        :param pulumi.Input[str] host_name: The name of the dedicated host .
         :param pulumi.Input[str] license_type: Specifies the software license type that will be applied to the VMs deployed on the dedicated host. <br><br> Possible values are: <br><br> **None** <br><br> **Windows_Server_Hybrid** <br><br> **Windows_Server_Perpetual** <br><br> Default: **None**
         :param pulumi.Input[str] location: Resource location
-        :param pulumi.Input[str] name: The name of the dedicated host .
         :param pulumi.Input[float] platform_fault_domain: Fault domain of the dedicated host within a dedicated host group.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[pulumi.InputType['SkuArgs']] sku: SKU of the dedicated host for Hardware Generation and VM family. Only name is required to be set. List Microsoft.Compute SKUs for a list of possible values.
@@ -65,13 +65,13 @@ class DedicatedHost(pulumi.CustomResource):
             if host_group_name is None:
                 raise TypeError("Missing required property 'host_group_name'")
             __props__['host_group_name'] = host_group_name
+            if host_name is None:
+                raise TypeError("Missing required property 'host_name'")
+            __props__['host_name'] = host_name
             __props__['license_type'] = license_type
             if location is None:
                 raise TypeError("Missing required property 'location'")
             __props__['location'] = location
-            if name is None:
-                raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
             __props__['platform_fault_domain'] = platform_fault_domain
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
@@ -82,6 +82,7 @@ class DedicatedHost(pulumi.CustomResource):
             __props__['tags'] = tags
             __props__['host_id'] = None
             __props__['instance_view'] = None
+            __props__['name'] = None
             __props__['provisioning_state'] = None
             __props__['provisioning_time'] = None
             __props__['type'] = None

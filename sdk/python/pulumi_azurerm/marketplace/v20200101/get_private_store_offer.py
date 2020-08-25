@@ -150,17 +150,17 @@ class AwaitableGetPrivateStoreOfferResult(GetPrivateStoreOfferResult):
             unique_offer_id=self.unique_offer_id)
 
 
-def get_private_store_offer(name: Optional[str] = None,
+def get_private_store_offer(offer_id: Optional[str] = None,
                             private_store_id: Optional[str] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPrivateStoreOfferResult:
     """
     Use this data source to access information about an existing resource.
 
-    :param str name: The offer ID to update or delete
+    :param str offer_id: The offer ID to update or delete
     :param str private_store_id: The store ID - must use the tenant ID
     """
     __args__ = dict()
-    __args__['name'] = name
+    __args__['offerId'] = offer_id
     __args__['privateStoreId'] = private_store_id
     if opts is None:
         opts = pulumi.InvokeOptions()

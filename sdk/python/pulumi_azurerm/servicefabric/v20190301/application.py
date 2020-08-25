@@ -17,12 +17,12 @@ class Application(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 application_name: Optional[pulumi.Input[str]] = None,
                  cluster_name: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  maximum_nodes: Optional[pulumi.Input[float]] = None,
                  metrics: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['ApplicationMetricDescriptionArgs']]]]] = None,
                  minimum_nodes: Optional[pulumi.Input[float]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  remove_application_capacity: Optional[pulumi.Input[bool]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -38,12 +38,12 @@ class Application(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] application_name: The name of the application resource.
         :param pulumi.Input[str] cluster_name: The name of the cluster resource.
         :param pulumi.Input[str] location: It will be deprecated in New API, resource location depends on the parent resource.
         :param pulumi.Input[float] maximum_nodes: The maximum number of nodes where Service Fabric will reserve capacity for this application. Note that this does not mean that the services of this application will be placed on all of those nodes. By default, the value of this property is zero and it means that the services can be placed on any node.
         :param pulumi.Input[List[pulumi.Input[pulumi.InputType['ApplicationMetricDescriptionArgs']]]] metrics: List of application capacity metric description.
         :param pulumi.Input[float] minimum_nodes: The minimum number of nodes where Service Fabric will reserve capacity for this application. Note that this does not mean that the services of this application will be placed on all of those nodes. If this property is set to zero, no capacity will be reserved. The value of this property cannot be more than the value of the MaximumNodes property.
-        :param pulumi.Input[str] name: The name of the application resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameters: List of application parameters with overridden values from their default values specified in the application manifest.
         :param pulumi.Input[bool] remove_application_capacity: Remove the current application capacity settings.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
@@ -69,6 +69,9 @@ class Application(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
+            if application_name is None:
+                raise TypeError("Missing required property 'application_name'")
+            __props__['application_name'] = application_name
             if cluster_name is None:
                 raise TypeError("Missing required property 'cluster_name'")
             __props__['cluster_name'] = cluster_name
@@ -76,9 +79,6 @@ class Application(pulumi.CustomResource):
             __props__['maximum_nodes'] = maximum_nodes
             __props__['metrics'] = metrics
             __props__['minimum_nodes'] = minimum_nodes
-            if name is None:
-                raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
             __props__['parameters'] = parameters
             __props__['remove_application_capacity'] = remove_application_capacity
             if resource_group_name is None:
@@ -89,6 +89,7 @@ class Application(pulumi.CustomResource):
             __props__['type_version'] = type_version
             __props__['upgrade_policy'] = upgrade_policy
             __props__['etag'] = None
+            __props__['name'] = None
             __props__['provisioning_state'] = None
             __props__['type'] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:servicefabric/v20200301:Application")])

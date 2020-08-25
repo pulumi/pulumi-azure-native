@@ -21,7 +21,7 @@ class WebApplicationFirewallPolicy(pulumi.CustomResource):
                  id: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  managed_rules: Optional[pulumi.Input[pulumi.InputType['ManagedRulesDefinitionArgs']]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
+                 policy_name: Optional[pulumi.Input[str]] = None,
                  policy_settings: Optional[pulumi.Input[pulumi.InputType['PolicySettingsArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -37,7 +37,7 @@ class WebApplicationFirewallPolicy(pulumi.CustomResource):
         :param pulumi.Input[str] id: Resource ID.
         :param pulumi.Input[str] location: Resource location.
         :param pulumi.Input[pulumi.InputType['ManagedRulesDefinitionArgs']] managed_rules: Describes the managedRules structure.
-        :param pulumi.Input[str] name: The name of the policy.
+        :param pulumi.Input[str] policy_name: The name of the policy.
         :param pulumi.Input[pulumi.InputType['PolicySettingsArgs']] policy_settings: The PolicySettings for policy.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
@@ -65,9 +65,9 @@ class WebApplicationFirewallPolicy(pulumi.CustomResource):
             if managed_rules is None:
                 raise TypeError("Missing required property 'managed_rules'")
             __props__['managed_rules'] = managed_rules
-            if name is None:
-                raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
+            if policy_name is None:
+                raise TypeError("Missing required property 'policy_name'")
+            __props__['policy_name'] = policy_name
             __props__['policy_settings'] = policy_settings
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
@@ -76,6 +76,7 @@ class WebApplicationFirewallPolicy(pulumi.CustomResource):
             __props__['application_gateways'] = None
             __props__['etag'] = None
             __props__['http_listeners'] = None
+            __props__['name'] = None
             __props__['path_based_rules'] = None
             __props__['provisioning_state'] = None
             __props__['resource_state'] = None

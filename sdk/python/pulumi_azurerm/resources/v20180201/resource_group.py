@@ -19,6 +19,7 @@ class ResourceGroup(pulumi.CustomResource):
                  location: Optional[pulumi.Input[str]] = None,
                  managed_by: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None,
                  __name__=None,
@@ -30,7 +31,8 @@ class ResourceGroup(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] location: The location of the resource group. It cannot be changed after the resource group has been created. It must be one of the supported Azure locations.
         :param pulumi.Input[str] managed_by: The ID of the resource that manages this resource group.
-        :param pulumi.Input[str] name: The name of the resource group to create or update.
+        :param pulumi.Input[str] name: The name of the resource group.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group to create or update.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The tags attached to the resource group.
         """
         if __name__ is not None:
@@ -54,9 +56,10 @@ class ResourceGroup(pulumi.CustomResource):
                 raise TypeError("Missing required property 'location'")
             __props__['location'] = location
             __props__['managed_by'] = managed_by
-            if name is None:
-                raise TypeError("Missing required property 'name'")
             __props__['name'] = name
+            if resource_group_name is None:
+                raise TypeError("Missing required property 'resource_group_name'")
+            __props__['resource_group_name'] = resource_group_name
             __props__['tags'] = tags
             __props__['properties'] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:resources/v20151101:ResourceGroup"), pulumi.Alias(type_="azurerm:resources/v20160201:ResourceGroup"), pulumi.Alias(type_="azurerm:resources/v20160701:ResourceGroup"), pulumi.Alias(type_="azurerm:resources/v20160901:ResourceGroup"), pulumi.Alias(type_="azurerm:resources/v20170510:ResourceGroup"), pulumi.Alias(type_="azurerm:resources/v20180501:ResourceGroup"), pulumi.Alias(type_="azurerm:resources/v20190301:ResourceGroup"), pulumi.Alias(type_="azurerm:resources/v20190501:ResourceGroup"), pulumi.Alias(type_="azurerm:resources/v20190510:ResourceGroup"), pulumi.Alias(type_="azurerm:resources/v20190701:ResourceGroup"), pulumi.Alias(type_="azurerm:resources/v20190801:ResourceGroup"), pulumi.Alias(type_="azurerm:resources/v20191001:ResourceGroup"), pulumi.Alias(type_="azurerm:resources/v20200601:ResourceGroup")])

@@ -91,7 +91,7 @@ class AwaitableGetGatewayHostnameConfigurationResult(GetGatewayHostnameConfigura
 
 
 def get_gateway_hostname_configuration(gateway_id: Optional[str] = None,
-                                       name: Optional[str] = None,
+                                       hc_id: Optional[str] = None,
                                        resource_group_name: Optional[str] = None,
                                        service_name: Optional[str] = None,
                                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetGatewayHostnameConfigurationResult:
@@ -99,13 +99,13 @@ def get_gateway_hostname_configuration(gateway_id: Optional[str] = None,
     Use this data source to access information about an existing resource.
 
     :param str gateway_id: Gateway entity identifier. Must be unique in the current API Management service instance. Must not have value 'managed'
-    :param str name: Gateway hostname configuration identifier. Must be unique in the scope of parent Gateway entity.
+    :param str hc_id: Gateway hostname configuration identifier. Must be unique in the scope of parent Gateway entity.
     :param str resource_group_name: The name of the resource group.
     :param str service_name: The name of the API Management service.
     """
     __args__ = dict()
     __args__['gatewayId'] = gateway_id
-    __args__['name'] = name
+    __args__['hcId'] = hc_id
     __args__['resourceGroupName'] = resource_group_name
     __args__['serviceName'] = service_name
     if opts is None:

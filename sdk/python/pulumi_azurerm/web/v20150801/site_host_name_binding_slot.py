@@ -19,6 +19,7 @@ class SiteHostNameBindingSlot(pulumi.CustomResource):
                  azure_resource_type: Optional[pulumi.Input[str]] = None,
                  custom_host_name_dns_record_type: Optional[pulumi.Input[str]] = None,
                  domain_id: Optional[pulumi.Input[str]] = None,
+                 host_name: Optional[pulumi.Input[str]] = None,
                  host_name_type: Optional[pulumi.Input[str]] = None,
                  id: Optional[pulumi.Input[str]] = None,
                  kind: Optional[pulumi.Input[str]] = None,
@@ -41,11 +42,12 @@ class SiteHostNameBindingSlot(pulumi.CustomResource):
         :param pulumi.Input[str] azure_resource_type: Azure resource type
         :param pulumi.Input[str] custom_host_name_dns_record_type: Custom DNS record type
         :param pulumi.Input[str] domain_id: Fully qualified ARM domain resource URI
+        :param pulumi.Input[str] host_name: Name of host
         :param pulumi.Input[str] host_name_type: Host name type
         :param pulumi.Input[str] id: Resource Id
         :param pulumi.Input[str] kind: Kind of resource
         :param pulumi.Input[str] location: Resource Location
-        :param pulumi.Input[str] name: Name of host
+        :param pulumi.Input[str] name: Resource Name
         :param pulumi.Input[str] resource_group_name: Name of resource group
         :param pulumi.Input[str] site_name: Web app name
         :param pulumi.Input[str] slot: Name of web app slot. If not specified then will default to production slot.
@@ -73,6 +75,9 @@ class SiteHostNameBindingSlot(pulumi.CustomResource):
             __props__['azure_resource_type'] = azure_resource_type
             __props__['custom_host_name_dns_record_type'] = custom_host_name_dns_record_type
             __props__['domain_id'] = domain_id
+            if host_name is None:
+                raise TypeError("Missing required property 'host_name'")
+            __props__['host_name'] = host_name
             __props__['host_name_type'] = host_name_type
             __props__['id'] = id
             __props__['kind'] = kind

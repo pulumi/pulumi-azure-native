@@ -23,6 +23,7 @@ class FirewallPolicyRuleGroup(pulumi.CustomResource):
                  priority: Optional[pulumi.Input[float]] = None,
                  provisioning_state: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
+                 rule_group_name: Optional[pulumi.Input[str]] = None,
                  rules: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['FirewallPolicyRuleArgs']]]]] = None,
                  __props__=None,
                  __name__=None,
@@ -34,10 +35,11 @@ class FirewallPolicyRuleGroup(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] firewall_policy_name: The name of the Firewall Policy.
         :param pulumi.Input[str] id: Resource ID.
-        :param pulumi.Input[str] name: The name of the FirewallPolicyRuleGroup.
+        :param pulumi.Input[str] name: The name of the resource that is unique within a resource group. This name can be used to access the resource.
         :param pulumi.Input[float] priority: Priority of the Firewall Policy Rule Group resource.
         :param pulumi.Input[str] provisioning_state: The provisioning state of the firewall policy rule group resource.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
+        :param pulumi.Input[str] rule_group_name: The name of the FirewallPolicyRuleGroup.
         :param pulumi.Input[List[pulumi.Input[pulumi.InputType['FirewallPolicyRuleArgs']]]] rules: Group of Firewall Policy rules.
         """
         if __name__ is not None:
@@ -61,14 +63,15 @@ class FirewallPolicyRuleGroup(pulumi.CustomResource):
                 raise TypeError("Missing required property 'firewall_policy_name'")
             __props__['firewall_policy_name'] = firewall_policy_name
             __props__['id'] = id
-            if name is None:
-                raise TypeError("Missing required property 'name'")
             __props__['name'] = name
             __props__['priority'] = priority
             __props__['provisioning_state'] = provisioning_state
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
+            if rule_group_name is None:
+                raise TypeError("Missing required property 'rule_group_name'")
+            __props__['rule_group_name'] = rule_group_name
             __props__['rules'] = rules
             __props__['etag'] = None
             __props__['type'] = None

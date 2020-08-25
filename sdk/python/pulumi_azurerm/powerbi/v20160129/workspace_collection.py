@@ -18,10 +18,10 @@ class WorkspaceCollection(pulumi.CustomResource):
                  resource_name,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  sku: Optional[pulumi.Input[pulumi.InputType['AzureSkuArgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 workspace_collection_name: Optional[pulumi.Input[str]] = None,
                  __props__=None,
                  __name__=None,
                  __opts__=None):
@@ -30,8 +30,8 @@ class WorkspaceCollection(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] location: Azure location
-        :param pulumi.Input[str] name: Power BI Embedded Workspace Collection name
         :param pulumi.Input[str] resource_group_name: Azure resource group
+        :param pulumi.Input[str] workspace_collection_name: Power BI Embedded Workspace Collection name
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -51,14 +51,15 @@ class WorkspaceCollection(pulumi.CustomResource):
             __props__ = dict()
 
             __props__['location'] = location
-            if name is None:
-                raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['sku'] = sku
             __props__['tags'] = tags
+            if workspace_collection_name is None:
+                raise TypeError("Missing required property 'workspace_collection_name'")
+            __props__['workspace_collection_name'] = workspace_collection_name
+            __props__['name'] = None
             __props__['properties'] = None
             __props__['type'] = None
         super(WorkspaceCollection, __self__).__init__(

@@ -17,11 +17,11 @@ class Environment(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 environment_name: Optional[pulumi.Input[str]] = None,
                  environment_setting_name: Optional[pulumi.Input[str]] = None,
                  lab_account_name: Optional[pulumi.Input[str]] = None,
                  lab_name: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
                  provisioning_state: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  resource_sets: Optional[pulumi.Input[pulumi.InputType['ResourceSetArgs']]] = None,
@@ -35,11 +35,11 @@ class Environment(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] environment_name: The name of the environment.
         :param pulumi.Input[str] environment_setting_name: The name of the environment Setting.
         :param pulumi.Input[str] lab_account_name: The name of the lab Account.
         :param pulumi.Input[str] lab_name: The name of the lab.
         :param pulumi.Input[str] location: The location of the resource.
-        :param pulumi.Input[str] name: The name of the environment.
         :param pulumi.Input[str] provisioning_state: The provisioning status of the resource.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[pulumi.InputType['ResourceSetArgs']] resource_sets: The set of a VM and the setting id it was created for
@@ -63,6 +63,9 @@ class Environment(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
+            if environment_name is None:
+                raise TypeError("Missing required property 'environment_name'")
+            __props__['environment_name'] = environment_name
             if environment_setting_name is None:
                 raise TypeError("Missing required property 'environment_setting_name'")
             __props__['environment_setting_name'] = environment_setting_name
@@ -73,9 +76,6 @@ class Environment(pulumi.CustomResource):
                 raise TypeError("Missing required property 'lab_name'")
             __props__['lab_name'] = lab_name
             __props__['location'] = location
-            if name is None:
-                raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
             __props__['provisioning_state'] = provisioning_state
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
@@ -89,6 +89,7 @@ class Environment(pulumi.CustomResource):
             __props__['is_claimed'] = None
             __props__['last_known_power_state'] = None
             __props__['latest_operation_result'] = None
+            __props__['name'] = None
             __props__['network_interface'] = None
             __props__['password_last_reset'] = None
             __props__['total_usage'] = None

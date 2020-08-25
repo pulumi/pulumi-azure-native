@@ -25,6 +25,7 @@ class InboundNatRule(pulumi.CustomResource):
                  frontend_port: Optional[pulumi.Input[float]] = None,
                  id: Optional[pulumi.Input[str]] = None,
                  idle_timeout_in_minutes: Optional[pulumi.Input[float]] = None,
+                 inbound_nat_rule_name: Optional[pulumi.Input[str]] = None,
                  load_balancer_name: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  protocol: Optional[pulumi.Input[str]] = None,
@@ -46,8 +47,9 @@ class InboundNatRule(pulumi.CustomResource):
         :param pulumi.Input[float] frontend_port: The port for the external endpoint. Port numbers for each rule must be unique within the Load Balancer. Acceptable values range from 1 to 65534.
         :param pulumi.Input[str] id: Resource ID.
         :param pulumi.Input[float] idle_timeout_in_minutes: The timeout for the TCP idle connection. The value can be set between 4 and 30 minutes. The default value is 4 minutes. This element is only used when the protocol is set to TCP.
+        :param pulumi.Input[str] inbound_nat_rule_name: The name of the inbound nat rule.
         :param pulumi.Input[str] load_balancer_name: The name of the load balancer.
-        :param pulumi.Input[str] name: The name of the inbound nat rule.
+        :param pulumi.Input[str] name: Gets name of the resource that is unique within a resource group. This name can be used to access the resource.
         :param pulumi.Input[str] protocol: The transport protocol for the endpoint. Possible values are 'Udp' or 'Tcp' or 'All'.
         :param pulumi.Input[str] provisioning_state: Gets the provisioning state of the public IP resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
@@ -77,11 +79,12 @@ class InboundNatRule(pulumi.CustomResource):
             __props__['frontend_port'] = frontend_port
             __props__['id'] = id
             __props__['idle_timeout_in_minutes'] = idle_timeout_in_minutes
+            if inbound_nat_rule_name is None:
+                raise TypeError("Missing required property 'inbound_nat_rule_name'")
+            __props__['inbound_nat_rule_name'] = inbound_nat_rule_name
             if load_balancer_name is None:
                 raise TypeError("Missing required property 'load_balancer_name'")
             __props__['load_balancer_name'] = load_balancer_name
-            if name is None:
-                raise TypeError("Missing required property 'name'")
             __props__['name'] = name
             __props__['protocol'] = protocol
             __props__['provisioning_state'] = provisioning_state

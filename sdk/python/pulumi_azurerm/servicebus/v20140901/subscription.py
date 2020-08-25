@@ -26,11 +26,11 @@ class Subscription(pulumi.CustomResource):
                  location: Optional[pulumi.Input[str]] = None,
                  lock_duration: Optional[pulumi.Input[str]] = None,
                  max_delivery_count: Optional[pulumi.Input[float]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
                  namespace_name: Optional[pulumi.Input[str]] = None,
                  requires_session: Optional[pulumi.Input[bool]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  status: Optional[pulumi.Input[str]] = None,
+                 subscription_name: Optional[pulumi.Input[str]] = None,
                  topic_name: Optional[pulumi.Input[str]] = None,
                  type: Optional[pulumi.Input[str]] = None,
                  __props__=None,
@@ -51,11 +51,11 @@ class Subscription(pulumi.CustomResource):
         :param pulumi.Input[str] location: Subscription data center location.
         :param pulumi.Input[str] lock_duration: The lock duration time span for the subscription.
         :param pulumi.Input[float] max_delivery_count: Number of maximum deliveries.
-        :param pulumi.Input[str] name: The subscription name.
         :param pulumi.Input[str] namespace_name: The namespace name
         :param pulumi.Input[bool] requires_session: Value indicating if a subscription supports the concept of sessions.
         :param pulumi.Input[str] resource_group_name: Name of the Resource group within the Azure subscription.
         :param pulumi.Input[str] status: Enumerates the possible values for the status of a messaging entity.
+        :param pulumi.Input[str] subscription_name: The subscription name.
         :param pulumi.Input[str] topic_name: The topic name.
         :param pulumi.Input[str] type: Resource manager type of the resource.
         """
@@ -88,9 +88,6 @@ class Subscription(pulumi.CustomResource):
             __props__['location'] = location
             __props__['lock_duration'] = lock_duration
             __props__['max_delivery_count'] = max_delivery_count
-            if name is None:
-                raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
             if namespace_name is None:
                 raise TypeError("Missing required property 'namespace_name'")
             __props__['namespace_name'] = namespace_name
@@ -99,6 +96,9 @@ class Subscription(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['status'] = status
+            if subscription_name is None:
+                raise TypeError("Missing required property 'subscription_name'")
+            __props__['subscription_name'] = subscription_name
             if topic_name is None:
                 raise TypeError("Missing required property 'topic_name'")
             __props__['topic_name'] = topic_name
@@ -107,6 +107,7 @@ class Subscription(pulumi.CustomResource):
             __props__['count_details'] = None
             __props__['created_at'] = None
             __props__['message_count'] = None
+            __props__['name'] = None
             __props__['updated_at'] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:servicebus/v20150801:Subscription"), pulumi.Alias(type_="azurerm:servicebus/v20170401:Subscription")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)

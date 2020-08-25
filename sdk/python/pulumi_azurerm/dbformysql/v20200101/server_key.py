@@ -15,7 +15,7 @@ class ServerKey(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 name: Optional[pulumi.Input[str]] = None,
+                 key_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  server_key_type: Optional[pulumi.Input[str]] = None,
                  server_name: Optional[pulumi.Input[str]] = None,
@@ -28,7 +28,7 @@ class ServerKey(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] name: The name of the MySQL Server key to be operated on (updated or created).
+        :param pulumi.Input[str] key_name: The name of the MySQL Server key to be operated on (updated or created).
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] server_key_type: The key type like 'AzureKeyVault'.
         :param pulumi.Input[str] server_name: The name of the server.
@@ -51,9 +51,9 @@ class ServerKey(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if name is None:
-                raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
+            if key_name is None:
+                raise TypeError("Missing required property 'key_name'")
+            __props__['key_name'] = key_name
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
@@ -66,6 +66,7 @@ class ServerKey(pulumi.CustomResource):
             __props__['uri'] = uri
             __props__['creation_date'] = None
             __props__['kind'] = None
+            __props__['name'] = None
             __props__['type'] = None
         super(ServerKey, __self__).__init__(
             'azurerm:dbformysql/v20200101:ServerKey',

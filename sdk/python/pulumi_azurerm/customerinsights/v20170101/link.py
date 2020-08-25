@@ -20,8 +20,8 @@ class Link(pulumi.CustomResource):
                  description: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  display_name: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  hub_name: Optional[pulumi.Input[str]] = None,
+                 link_name: Optional[pulumi.Input[str]] = None,
                  mappings: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['TypePropertiesMappingArgs']]]]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
                  operation_type: Optional[pulumi.Input[str]] = None,
                  participant_property_references: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['ParticipantPropertyReferenceArgs']]]]] = None,
                  reference_only: Optional[pulumi.Input[bool]] = None,
@@ -39,8 +39,8 @@ class Link(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] description: Localized descriptions for the Link.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] display_name: Localized display name for the Link.
         :param pulumi.Input[str] hub_name: The name of the hub.
+        :param pulumi.Input[str] link_name: The name of the link.
         :param pulumi.Input[List[pulumi.Input[pulumi.InputType['TypePropertiesMappingArgs']]]] mappings: The set of properties mappings between the source and target Types.
-        :param pulumi.Input[str] name: The name of the link.
         :param pulumi.Input[str] operation_type: Determines whether this link is supposed to create or delete instances if Link is NOT Reference Only.
         :param pulumi.Input[List[pulumi.Input[pulumi.InputType['ParticipantPropertyReferenceArgs']]]] participant_property_references: The properties that represent the participating profile.
         :param pulumi.Input[bool] reference_only: Indicating whether the link is reference only link. This flag is ignored if the Mappings are defined. If the mappings are not defined and it is set to true, links processing will not create or update profiles.
@@ -70,10 +70,10 @@ class Link(pulumi.CustomResource):
             if hub_name is None:
                 raise TypeError("Missing required property 'hub_name'")
             __props__['hub_name'] = hub_name
+            if link_name is None:
+                raise TypeError("Missing required property 'link_name'")
+            __props__['link_name'] = link_name
             __props__['mappings'] = mappings
-            if name is None:
-                raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
             __props__['operation_type'] = operation_type
             if participant_property_references is None:
                 raise TypeError("Missing required property 'participant_property_references'")
@@ -88,7 +88,7 @@ class Link(pulumi.CustomResource):
             if target_profile_type is None:
                 raise TypeError("Missing required property 'target_profile_type'")
             __props__['target_profile_type'] = target_profile_type
-            __props__['link_name'] = None
+            __props__['name'] = None
             __props__['provisioning_state'] = None
             __props__['tenant_id'] = None
             __props__['type'] = None

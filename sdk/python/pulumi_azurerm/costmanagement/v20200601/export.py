@@ -20,8 +20,8 @@ class Export(pulumi.CustomResource):
                  definition: Optional[pulumi.Input[pulumi.InputType['ExportDefinitionArgs']]] = None,
                  delivery_info: Optional[pulumi.Input[pulumi.InputType['ExportDeliveryInfoArgs']]] = None,
                  e_tag: Optional[pulumi.Input[str]] = None,
+                 export_name: Optional[pulumi.Input[str]] = None,
                  format: Optional[pulumi.Input[str]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
                  schedule: Optional[pulumi.Input[pulumi.InputType['ExportScheduleArgs']]] = None,
                  scope: Optional[pulumi.Input[str]] = None,
                  __props__=None,
@@ -35,8 +35,8 @@ class Export(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['ExportDefinitionArgs']] definition: Has the definition for the export.
         :param pulumi.Input[pulumi.InputType['ExportDeliveryInfoArgs']] delivery_info: Has delivery information for the export.
         :param pulumi.Input[str] e_tag: eTag of the resource. To handle concurrent update scenario, this field will be used to determine whether the user is updating the latest version or not.
+        :param pulumi.Input[str] export_name: Export Name.
         :param pulumi.Input[str] format: The format of the export being delivered. Currently only 'Csv' is supported.
-        :param pulumi.Input[str] name: Export Name.
         :param pulumi.Input[pulumi.InputType['ExportScheduleArgs']] schedule: Has schedule information for the export.
         :param pulumi.Input[str] scope: The scope associated with query and export operations. This includes '/subscriptions/{subscriptionId}/' for subscription scope, '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}' for resourceGroup scope, '/providers/Microsoft.Billing/billingAccounts/{billingAccountId}' for Billing Account scope and '/providers/Microsoft.Billing/billingAccounts/{billingAccountId}/departments/{departmentId}' for Department scope, '/providers/Microsoft.Billing/billingAccounts/{billingAccountId}/enrollmentAccounts/{enrollmentAccountId}' for EnrollmentAccount scope, '/providers/Microsoft.Management/managementGroups/{managementGroupId} for Management Group scope, '/providers/Microsoft.Billing/billingAccounts/{billingAccountId}/billingProfiles/{billingProfileId}' for billingProfile scope, '/providers/Microsoft.Billing/billingAccounts/{billingAccountId}/billingProfiles/{billingProfileId}/invoiceSections/{invoiceSectionId}' for invoiceSection scope, and '/providers/Microsoft.Billing/billingAccounts/{billingAccountId}/customers/{customerId}' specific for partners.
         """
@@ -64,14 +64,15 @@ class Export(pulumi.CustomResource):
                 raise TypeError("Missing required property 'delivery_info'")
             __props__['delivery_info'] = delivery_info
             __props__['e_tag'] = e_tag
+            if export_name is None:
+                raise TypeError("Missing required property 'export_name'")
+            __props__['export_name'] = export_name
             __props__['format'] = format
-            if name is None:
-                raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
             __props__['schedule'] = schedule
             if scope is None:
                 raise TypeError("Missing required property 'scope'")
             __props__['scope'] = scope
+            __props__['name'] = None
             __props__['next_run_time_estimate'] = None
             __props__['run_history'] = None
             __props__['type'] = None

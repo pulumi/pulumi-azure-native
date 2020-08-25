@@ -20,10 +20,10 @@ class ServerEndpoint(pulumi.CustomResource):
                  friendly_name: Optional[pulumi.Input[str]] = None,
                  initial_download_policy: Optional[pulumi.Input[str]] = None,
                  local_cache_mode: Optional[pulumi.Input[str]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
                  offline_data_transfer: Optional[pulumi.Input[str]] = None,
                  offline_data_transfer_share_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
+                 server_endpoint_name: Optional[pulumi.Input[str]] = None,
                  server_local_path: Optional[pulumi.Input[str]] = None,
                  server_resource_id: Optional[pulumi.Input[str]] = None,
                  storage_sync_service_name: Optional[pulumi.Input[str]] = None,
@@ -42,10 +42,10 @@ class ServerEndpoint(pulumi.CustomResource):
         :param pulumi.Input[str] friendly_name: Friendly Name
         :param pulumi.Input[str] initial_download_policy: Policy for how namespace and files are recalled during FastDr.
         :param pulumi.Input[str] local_cache_mode: Policy for enabling follow-the-sun business models: link local cache to cloud behavior to pre-populate before local access.
-        :param pulumi.Input[str] name: Name of Server Endpoint object.
         :param pulumi.Input[str] offline_data_transfer: Offline data transfer
         :param pulumi.Input[str] offline_data_transfer_share_name: Offline data transfer share name
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
+        :param pulumi.Input[str] server_endpoint_name: Name of Server Endpoint object.
         :param pulumi.Input[str] server_local_path: Server Local path.
         :param pulumi.Input[str] server_resource_id: Server Resource Id.
         :param pulumi.Input[str] storage_sync_service_name: Name of Storage Sync Service resource.
@@ -74,14 +74,14 @@ class ServerEndpoint(pulumi.CustomResource):
             __props__['friendly_name'] = friendly_name
             __props__['initial_download_policy'] = initial_download_policy
             __props__['local_cache_mode'] = local_cache_mode
-            if name is None:
-                raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
             __props__['offline_data_transfer'] = offline_data_transfer
             __props__['offline_data_transfer_share_name'] = offline_data_transfer_share_name
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
+            if server_endpoint_name is None:
+                raise TypeError("Missing required property 'server_endpoint_name'")
+            __props__['server_endpoint_name'] = server_endpoint_name
             __props__['server_local_path'] = server_local_path
             __props__['server_resource_id'] = server_resource_id
             if storage_sync_service_name is None:
@@ -95,6 +95,7 @@ class ServerEndpoint(pulumi.CustomResource):
             __props__['cloud_tiering_status'] = None
             __props__['last_operation_name'] = None
             __props__['last_workflow_id'] = None
+            __props__['name'] = None
             __props__['offline_data_transfer_storage_account_resource_id'] = None
             __props__['offline_data_transfer_storage_account_tenant_id'] = None
             __props__['provisioning_state'] = None

@@ -222,18 +222,21 @@ class AwaitableGetWebAppInstanceFunctionSlotResult(GetWebAppInstanceFunctionSlot
             type=self.type)
 
 
-def get_web_app_instance_function_slot(name: Optional[str] = None,
+def get_web_app_instance_function_slot(function_name: Optional[str] = None,
+                                       name: Optional[str] = None,
                                        resource_group_name: Optional[str] = None,
                                        slot: Optional[str] = None,
                                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetWebAppInstanceFunctionSlotResult:
     """
     Use this data source to access information about an existing resource.
 
-    :param str name: Function name.
+    :param str function_name: Function name.
+    :param str name: Site name.
     :param str resource_group_name: Name of the resource group to which the resource belongs.
     :param str slot: Name of the deployment slot.
     """
     __args__ = dict()
+    __args__['functionName'] = function_name
     __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
     __args__['slot'] = slot

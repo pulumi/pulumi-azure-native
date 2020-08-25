@@ -17,7 +17,7 @@ class DatabaseAccountSqlDatabase(pulumi.CustomResource):
                  resource_name,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_name: Optional[pulumi.Input[str]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
+                 database_name: Optional[pulumi.Input[str]] = None,
                  options: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  resource: Optional[pulumi.Input[pulumi.InputType['SqlDatabaseResourceArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -30,7 +30,7 @@ class DatabaseAccountSqlDatabase(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_name: Cosmos DB database account name.
-        :param pulumi.Input[str] name: Cosmos DB database name.
+        :param pulumi.Input[str] database_name: Cosmos DB database name.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] options: A key-value pair of options to be applied for the request. This corresponds to the headers sent with the request.
         :param pulumi.Input[pulumi.InputType['SqlDatabaseResourceArgs']] resource: The standard JSON format of a SQL database
         :param pulumi.Input[str] resource_group_name: Name of an Azure resource group.
@@ -55,9 +55,9 @@ class DatabaseAccountSqlDatabase(pulumi.CustomResource):
             if account_name is None:
                 raise TypeError("Missing required property 'account_name'")
             __props__['account_name'] = account_name
-            if name is None:
-                raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
+            if database_name is None:
+                raise TypeError("Missing required property 'database_name'")
+            __props__['database_name'] = database_name
             if options is None:
                 raise TypeError("Missing required property 'options'")
             __props__['options'] = options
@@ -70,6 +70,7 @@ class DatabaseAccountSqlDatabase(pulumi.CustomResource):
             __props__['colls'] = None
             __props__['etag'] = None
             __props__['location'] = None
+            __props__['name'] = None
             __props__['rid'] = None
             __props__['tags'] = None
             __props__['ts'] = None

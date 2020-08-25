@@ -23,12 +23,12 @@ class RosettaNetProcessConfiguration(pulumi.CustomResource):
                  integration_account_name: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  metadata: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
                  process_code: Optional[pulumi.Input[str]] = None,
                  process_name: Optional[pulumi.Input[str]] = None,
                  process_version: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  responder_role_settings: Optional[pulumi.Input[pulumi.InputType['RosettaNetPipRoleSettingsArgs']]] = None,
+                 rosetta_net_process_configuration_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None,
                  __name__=None,
@@ -44,12 +44,12 @@ class RosettaNetProcessConfiguration(pulumi.CustomResource):
         :param pulumi.Input[str] integration_account_name: The integration account name.
         :param pulumi.Input[str] location: The resource location.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] metadata: The metadata.
-        :param pulumi.Input[str] name: The integration account RosettaNet ProcessConfiguration name.
         :param pulumi.Input[str] process_code: The integration account RosettaNet process code.
         :param pulumi.Input[str] process_name: The integration account RosettaNet process name.
         :param pulumi.Input[str] process_version: The integration account RosettaNet process version.
         :param pulumi.Input[str] resource_group_name: The resource group name.
         :param pulumi.Input[pulumi.InputType['RosettaNetPipRoleSettingsArgs']] responder_role_settings: The RosettaNet responder role settings.
+        :param pulumi.Input[str] rosetta_net_process_configuration_name: The integration account RosettaNet ProcessConfiguration name.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The resource tags.
         """
         if __name__ is not None:
@@ -81,9 +81,6 @@ class RosettaNetProcessConfiguration(pulumi.CustomResource):
             __props__['integration_account_name'] = integration_account_name
             __props__['location'] = location
             __props__['metadata'] = metadata
-            if name is None:
-                raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
             if process_code is None:
                 raise TypeError("Missing required property 'process_code'")
             __props__['process_code'] = process_code
@@ -99,9 +96,13 @@ class RosettaNetProcessConfiguration(pulumi.CustomResource):
             if responder_role_settings is None:
                 raise TypeError("Missing required property 'responder_role_settings'")
             __props__['responder_role_settings'] = responder_role_settings
+            if rosetta_net_process_configuration_name is None:
+                raise TypeError("Missing required property 'rosetta_net_process_configuration_name'")
+            __props__['rosetta_net_process_configuration_name'] = rosetta_net_process_configuration_name
             __props__['tags'] = tags
             __props__['changed_time'] = None
             __props__['created_time'] = None
+            __props__['name'] = None
             __props__['type'] = None
         super(RosettaNetProcessConfiguration, __self__).__init__(
             'azurerm:logic/v20160601:RosettaNetProcessConfiguration',

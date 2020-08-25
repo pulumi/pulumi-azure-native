@@ -17,6 +17,7 @@ class ContainerGroup(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 container_group_name: Optional[pulumi.Input[str]] = None,
                  containers: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['ContainerArgs']]]]] = None,
                  diagnostics: Optional[pulumi.Input[pulumi.InputType['ContainerGroupDiagnosticsArgs']]] = None,
                  dns_config: Optional[pulumi.Input[pulumi.InputType['DnsConfigurationArgs']]] = None,
@@ -26,7 +27,6 @@ class ContainerGroup(pulumi.CustomResource):
                  init_containers: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['InitContainerDefinitionArgs']]]]] = None,
                  ip_address: Optional[pulumi.Input[pulumi.InputType['IpAddressArgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
                  network_profile: Optional[pulumi.Input[pulumi.InputType['ContainerGroupNetworkProfileArgs']]] = None,
                  os_type: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -42,6 +42,7 @@ class ContainerGroup(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] container_group_name: The name of the container group.
         :param pulumi.Input[List[pulumi.Input[pulumi.InputType['ContainerArgs']]]] containers: The containers within the container group.
         :param pulumi.Input[pulumi.InputType['ContainerGroupDiagnosticsArgs']] diagnostics: The diagnostic information for a container group.
         :param pulumi.Input[pulumi.InputType['DnsConfigurationArgs']] dns_config: The DNS config information for a container group.
@@ -51,7 +52,6 @@ class ContainerGroup(pulumi.CustomResource):
         :param pulumi.Input[List[pulumi.Input[pulumi.InputType['InitContainerDefinitionArgs']]]] init_containers: The init containers for a container group.
         :param pulumi.Input[pulumi.InputType['IpAddressArgs']] ip_address: The IP address type of the container group.
         :param pulumi.Input[str] location: The resource location.
-        :param pulumi.Input[str] name: The name of the container group.
         :param pulumi.Input[pulumi.InputType['ContainerGroupNetworkProfileArgs']] network_profile: The network profile information for a container group.
         :param pulumi.Input[str] os_type: The operating system type required by the containers in the container group.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
@@ -80,6 +80,9 @@ class ContainerGroup(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
+            if container_group_name is None:
+                raise TypeError("Missing required property 'container_group_name'")
+            __props__['container_group_name'] = container_group_name
             if containers is None:
                 raise TypeError("Missing required property 'containers'")
             __props__['containers'] = containers
@@ -91,9 +94,6 @@ class ContainerGroup(pulumi.CustomResource):
             __props__['init_containers'] = init_containers
             __props__['ip_address'] = ip_address
             __props__['location'] = location
-            if name is None:
-                raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
             __props__['network_profile'] = network_profile
             if os_type is None:
                 raise TypeError("Missing required property 'os_type'")
@@ -106,6 +106,7 @@ class ContainerGroup(pulumi.CustomResource):
             __props__['tags'] = tags
             __props__['volumes'] = volumes
             __props__['instance_view'] = None
+            __props__['name'] = None
             __props__['provisioning_state'] = None
             __props__['type'] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:containerinstance/v20180401:ContainerGroup"), pulumi.Alias(type_="azurerm:containerinstance/v20180601:ContainerGroup"), pulumi.Alias(type_="azurerm:containerinstance/v20180901:ContainerGroup"), pulumi.Alias(type_="azurerm:containerinstance/v20181001:ContainerGroup")])

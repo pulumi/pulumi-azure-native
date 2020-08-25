@@ -79,19 +79,19 @@ class AwaitableGetFirewallRuleResult(GetFirewallRuleResult):
 
 
 def get_firewall_rule(account_name: Optional[str] = None,
-                      name: Optional[str] = None,
+                      firewall_rule_name: Optional[str] = None,
                       resource_group_name: Optional[str] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetFirewallRuleResult:
     """
     Use this data source to access information about an existing resource.
 
     :param str account_name: The name of the Data Lake Analytics account.
-    :param str name: The name of the firewall rule to retrieve.
+    :param str firewall_rule_name: The name of the firewall rule to retrieve.
     :param str resource_group_name: The name of the Azure resource group.
     """
     __args__ = dict()
     __args__['accountName'] = account_name
-    __args__['name'] = name
+    __args__['firewallRuleName'] = firewall_rule_name
     __args__['resourceGroupName'] = resource_group_name
     if opts is None:
         opts = pulumi.InvokeOptions()

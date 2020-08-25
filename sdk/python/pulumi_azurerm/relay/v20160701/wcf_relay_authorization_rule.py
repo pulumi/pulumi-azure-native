@@ -15,7 +15,7 @@ class WCFRelayAuthorizationRule(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 name: Optional[pulumi.Input[str]] = None,
+                 authorization_rule_name: Optional[pulumi.Input[str]] = None,
                  namespace_name: Optional[pulumi.Input[str]] = None,
                  relay_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -28,7 +28,7 @@ class WCFRelayAuthorizationRule(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] name: The authorizationRule name.
+        :param pulumi.Input[str] authorization_rule_name: The authorizationRule name.
         :param pulumi.Input[str] namespace_name: The Namespace Name
         :param pulumi.Input[str] relay_name: The relay name
         :param pulumi.Input[str] resource_group_name: Name of the Resource group within the Azure subscription.
@@ -51,9 +51,9 @@ class WCFRelayAuthorizationRule(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if name is None:
-                raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
+            if authorization_rule_name is None:
+                raise TypeError("Missing required property 'authorization_rule_name'")
+            __props__['authorization_rule_name'] = authorization_rule_name
             if namespace_name is None:
                 raise TypeError("Missing required property 'namespace_name'")
             __props__['namespace_name'] = namespace_name
@@ -66,6 +66,7 @@ class WCFRelayAuthorizationRule(pulumi.CustomResource):
             if rights is None:
                 raise TypeError("Missing required property 'rights'")
             __props__['rights'] = rights
+            __props__['name'] = None
             __props__['type'] = None
         super(WCFRelayAuthorizationRule, __self__).__init__(
             'azurerm:relay/v20160701:WCFRelayAuthorizationRule',

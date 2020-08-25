@@ -16,9 +16,9 @@ class Container(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 container_name: Optional[pulumi.Input[str]] = None,
                  data_format: Optional[pulumi.Input[str]] = None,
                  device_name: Optional[pulumi.Input[str]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  storage_account_name: Optional[pulumi.Input[str]] = None,
                  __props__=None,
@@ -29,9 +29,9 @@ class Container(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] container_name: The container name.
         :param pulumi.Input[str] data_format: DataFormat for Container
         :param pulumi.Input[str] device_name: The device name.
-        :param pulumi.Input[str] name: The container name.
         :param pulumi.Input[str] resource_group_name: The resource group name.
         :param pulumi.Input[str] storage_account_name: The Storage Account Name
         """
@@ -52,15 +52,15 @@ class Container(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
+            if container_name is None:
+                raise TypeError("Missing required property 'container_name'")
+            __props__['container_name'] = container_name
             if data_format is None:
                 raise TypeError("Missing required property 'data_format'")
             __props__['data_format'] = data_format
             if device_name is None:
                 raise TypeError("Missing required property 'device_name'")
             __props__['device_name'] = device_name
-            if name is None:
-                raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
@@ -69,6 +69,7 @@ class Container(pulumi.CustomResource):
             __props__['storage_account_name'] = storage_account_name
             __props__['container_status'] = None
             __props__['created_date_time'] = None
+            __props__['name'] = None
             __props__['refresh_details'] = None
             __props__['type'] = None
         super(Container, __self__).__init__(

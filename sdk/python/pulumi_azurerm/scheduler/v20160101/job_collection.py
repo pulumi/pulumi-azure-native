@@ -17,6 +17,7 @@ class JobCollection(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 job_collection_name: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  properties: Optional[pulumi.Input[pulumi.InputType['JobCollectionPropertiesArgs']]] = None,
@@ -29,8 +30,9 @@ class JobCollection(pulumi.CustomResource):
         Create a JobCollection resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] job_collection_name: The job collection name.
         :param pulumi.Input[str] location: Gets or sets the storage account location.
-        :param pulumi.Input[str] name: The job collection name.
+        :param pulumi.Input[str] name: Gets or sets the job collection resource name.
         :param pulumi.Input[pulumi.InputType['JobCollectionPropertiesArgs']] properties: Gets or sets the job collection properties.
         :param pulumi.Input[str] resource_group_name: The resource group name.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Gets or sets the tags.
@@ -52,9 +54,10 @@ class JobCollection(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
+            if job_collection_name is None:
+                raise TypeError("Missing required property 'job_collection_name'")
+            __props__['job_collection_name'] = job_collection_name
             __props__['location'] = location
-            if name is None:
-                raise TypeError("Missing required property 'name'")
             __props__['name'] = name
             __props__['properties'] = properties
             if resource_group_name is None:

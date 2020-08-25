@@ -20,6 +20,7 @@ class Workbook(pulumi.CustomResource):
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
+                 resource_name_: Optional[pulumi.Input[str]] = None,
                  serialized_data: Optional[pulumi.Input[str]] = None,
                  shared_type_kind: Optional[pulumi.Input[str]] = None,
                  source_resource_id: Optional[pulumi.Input[str]] = None,
@@ -38,8 +39,9 @@ class Workbook(pulumi.CustomResource):
         :param pulumi.Input[str] category: Workbook category, as defined by the user at creation time.
         :param pulumi.Input[str] kind: The kind of workbook. Choices are user and shared.
         :param pulumi.Input[str] location: Resource location
-        :param pulumi.Input[str] name: The name of the Application Insights component resource.
+        :param pulumi.Input[str] name: The user-defined name of the workbook.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
+        :param pulumi.Input[str] resource_name_: The name of the Application Insights component resource.
         :param pulumi.Input[str] serialized_data: Configuration of this particular workbook. Configuration data is a string containing valid JSON
         :param pulumi.Input[str] shared_type_kind: Enum indicating if this workbook definition is owned by a specific user or is shared between all users with access to the Application Insights component.
         :param pulumi.Input[str] source_resource_id: Optional resourceId for a source resource.
@@ -76,6 +78,9 @@ class Workbook(pulumi.CustomResource):
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
+            if resource_name_ is None:
+                raise TypeError("Missing required property 'resource_name_'")
+            __props__['resource_name'] = resource_name_
             if serialized_data is None:
                 raise TypeError("Missing required property 'serialized_data'")
             __props__['serialized_data'] = serialized_data

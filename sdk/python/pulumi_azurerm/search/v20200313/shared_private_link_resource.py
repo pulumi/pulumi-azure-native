@@ -17,10 +17,10 @@ class SharedPrivateLinkResource(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 name: Optional[pulumi.Input[str]] = None,
                  properties: Optional[pulumi.Input[pulumi.InputType['SharedPrivateLinkResourcePropertiesArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  search_service_name: Optional[pulumi.Input[str]] = None,
+                 shared_private_link_resource_name: Optional[pulumi.Input[str]] = None,
                  __props__=None,
                  __name__=None,
                  __opts__=None):
@@ -29,10 +29,10 @@ class SharedPrivateLinkResource(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] name: The name of the shared private link resource managed by the Azure Cognitive Search service within the specified resource group.
         :param pulumi.Input[pulumi.InputType['SharedPrivateLinkResourcePropertiesArgs']] properties: Describes the properties of a Shared Private Link Resource managed by the Azure Cognitive Search service.
         :param pulumi.Input[str] resource_group_name: The name of the resource group within the current subscription. You can obtain this value from the Azure Resource Manager API or the portal.
         :param pulumi.Input[str] search_service_name: The name of the Azure Cognitive Search service associated with the specified resource group.
+        :param pulumi.Input[str] shared_private_link_resource_name: The name of the shared private link resource managed by the Azure Cognitive Search service within the specified resource group.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -51,9 +51,6 @@ class SharedPrivateLinkResource(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if name is None:
-                raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
             __props__['properties'] = properties
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
@@ -61,6 +58,10 @@ class SharedPrivateLinkResource(pulumi.CustomResource):
             if search_service_name is None:
                 raise TypeError("Missing required property 'search_service_name'")
             __props__['search_service_name'] = search_service_name
+            if shared_private_link_resource_name is None:
+                raise TypeError("Missing required property 'shared_private_link_resource_name'")
+            __props__['shared_private_link_resource_name'] = shared_private_link_resource_name
+            __props__['name'] = None
             __props__['type'] = None
         super(SharedPrivateLinkResource, __self__).__init__(
             'azurerm:search/v20200313:SharedPrivateLinkResource',

@@ -90,19 +90,19 @@ class AwaitableGetAuthorizationResult(GetAuthorizationResult):
             type=self.type)
 
 
-def get_authorization(name: Optional[str] = None,
+def get_authorization(authorization_name: Optional[str] = None,
                       private_cloud_name: Optional[str] = None,
                       resource_group_name: Optional[str] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAuthorizationResult:
     """
     Use this data source to access information about an existing resource.
 
-    :param str name: Name of the ExpressRoute Circuit Authorization in the private cloud
+    :param str authorization_name: Name of the ExpressRoute Circuit Authorization in the private cloud
     :param str private_cloud_name: Name of the private cloud
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
     __args__ = dict()
-    __args__['name'] = name
+    __args__['authorizationName'] = authorization_name
     __args__['privateCloudName'] = private_cloud_name
     __args__['resourceGroupName'] = resource_group_name
     if opts is None:

@@ -177,7 +177,7 @@ class AwaitableGetLiveOutputResult(GetLiveOutputResult):
 
 def get_live_output(account_name: Optional[str] = None,
                     live_event_name: Optional[str] = None,
-                    name: Optional[str] = None,
+                    live_output_name: Optional[str] = None,
                     resource_group_name: Optional[str] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetLiveOutputResult:
     """
@@ -185,13 +185,13 @@ def get_live_output(account_name: Optional[str] = None,
 
     :param str account_name: The Media Services account name.
     :param str live_event_name: The name of the Live Event.
-    :param str name: The name of the Live Output.
+    :param str live_output_name: The name of the Live Output.
     :param str resource_group_name: The name of the resource group within the Azure subscription.
     """
     __args__ = dict()
     __args__['accountName'] = account_name
     __args__['liveEventName'] = live_event_name
-    __args__['name'] = name
+    __args__['liveOutputName'] = live_output_name
     __args__['resourceGroupName'] = resource_group_name
     if opts is None:
         opts = pulumi.InvokeOptions()

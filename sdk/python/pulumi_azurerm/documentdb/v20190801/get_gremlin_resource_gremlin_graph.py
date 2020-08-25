@@ -90,7 +90,7 @@ class AwaitableGetGremlinResourceGremlinGraphResult(GetGremlinResourceGremlinGra
 
 def get_gremlin_resource_gremlin_graph(account_name: Optional[str] = None,
                                        database_name: Optional[str] = None,
-                                       name: Optional[str] = None,
+                                       graph_name: Optional[str] = None,
                                        resource_group_name: Optional[str] = None,
                                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetGremlinResourceGremlinGraphResult:
     """
@@ -98,13 +98,13 @@ def get_gremlin_resource_gremlin_graph(account_name: Optional[str] = None,
 
     :param str account_name: Cosmos DB database account name.
     :param str database_name: Cosmos DB database name.
-    :param str name: Cosmos DB graph name.
+    :param str graph_name: Cosmos DB graph name.
     :param str resource_group_name: Name of an Azure resource group.
     """
     __args__ = dict()
     __args__['accountName'] = account_name
     __args__['databaseName'] = database_name
-    __args__['name'] = name
+    __args__['graphName'] = graph_name
     __args__['resourceGroupName'] = resource_group_name
     if opts is None:
         opts = pulumi.InvokeOptions()

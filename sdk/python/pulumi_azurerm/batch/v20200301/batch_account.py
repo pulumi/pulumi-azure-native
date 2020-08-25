@@ -17,11 +17,11 @@ class BatchAccount(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 account_name: Optional[pulumi.Input[str]] = None,
                  auto_storage: Optional[pulumi.Input[pulumi.InputType['AutoStorageBasePropertiesArgs']]] = None,
                  encryption: Optional[pulumi.Input[pulumi.InputType['EncryptionPropertiesArgs']]] = None,
                  key_vault_reference: Optional[pulumi.Input[pulumi.InputType['KeyVaultReferenceArgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
                  pool_allocation_mode: Optional[pulumi.Input[str]] = None,
                  public_network_access: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -34,10 +34,10 @@ class BatchAccount(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] account_name: A name for the Batch account which must be unique within the region. Batch account names must be between 3 and 24 characters in length and must use only numbers and lowercase letters. This name is used as part of the DNS name that is used to access the Batch service in the region in which the account is created. For example: http://accountname.region.batch.azure.com/.
         :param pulumi.Input[pulumi.InputType['AutoStorageBasePropertiesArgs']] auto_storage: The properties related to the auto-storage account.
         :param pulumi.Input[pulumi.InputType['KeyVaultReferenceArgs']] key_vault_reference: A reference to the Azure key vault associated with the Batch account.
         :param pulumi.Input[str] location: The region in which to create the account.
-        :param pulumi.Input[str] name: A name for the Batch account which must be unique within the region. Batch account names must be between 3 and 24 characters in length and must use only numbers and lowercase letters. This name is used as part of the DNS name that is used to access the Batch service in the region in which the account is created. For example: http://accountname.region.batch.azure.com/.
         :param pulumi.Input[str] pool_allocation_mode: The pool allocation mode also affects how clients may authenticate to the Batch Service API. If the mode is BatchService, clients may authenticate using access keys or Azure Active Directory. If the mode is UserSubscription, clients must use Azure Active Directory. The default is BatchService.
         :param pulumi.Input[str] public_network_access: If not specified, the default value is 'enabled'.
         :param pulumi.Input[str] resource_group_name: The name of the resource group that contains the Batch account.
@@ -60,15 +60,15 @@ class BatchAccount(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
+            if account_name is None:
+                raise TypeError("Missing required property 'account_name'")
+            __props__['account_name'] = account_name
             __props__['auto_storage'] = auto_storage
             __props__['encryption'] = encryption
             __props__['key_vault_reference'] = key_vault_reference
             if location is None:
                 raise TypeError("Missing required property 'location'")
             __props__['location'] = location
-            if name is None:
-                raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
             __props__['pool_allocation_mode'] = pool_allocation_mode
             __props__['public_network_access'] = public_network_access
             if resource_group_name is None:
@@ -81,6 +81,7 @@ class BatchAccount(pulumi.CustomResource):
             __props__['dedicated_core_quota_per_vm_family'] = None
             __props__['dedicated_core_quota_per_vm_family_enforced'] = None
             __props__['low_priority_core_quota'] = None
+            __props__['name'] = None
             __props__['pool_quota'] = None
             __props__['private_endpoint_connections'] = None
             __props__['provisioning_state'] = None

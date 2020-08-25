@@ -17,7 +17,7 @@ class Service(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  admin_domain_name: Optional[pulumi.Input[str]] = None,
                  billing_domain_name: Optional[pulumi.Input[str]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
+                 device_name: Optional[pulumi.Input[str]] = None,
                  notes: Optional[pulumi.Input[str]] = None,
                  quantity: Optional[pulumi.Input[float]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -31,7 +31,7 @@ class Service(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] admin_domain_name: Windows IoT Device Service OEM AAD domain
         :param pulumi.Input[str] billing_domain_name: Windows IoT Device Service ODM AAD domain
-        :param pulumi.Input[str] name: The name of the Windows IoT Device Service.
+        :param pulumi.Input[str] device_name: The name of the Windows IoT Device Service.
         :param pulumi.Input[str] notes: Windows IoT Device Service notes.
         :param pulumi.Input[float] quantity: Windows IoT Device Service device allocation,
         :param pulumi.Input[str] resource_group_name: The name of the resource group that contains the Windows IoT Device Service.
@@ -55,9 +55,9 @@ class Service(pulumi.CustomResource):
 
             __props__['admin_domain_name'] = admin_domain_name
             __props__['billing_domain_name'] = billing_domain_name
-            if name is None:
-                raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
+            if device_name is None:
+                raise TypeError("Missing required property 'device_name'")
+            __props__['device_name'] = device_name
             __props__['notes'] = notes
             __props__['quantity'] = quantity
             if resource_group_name is None:
@@ -65,6 +65,7 @@ class Service(pulumi.CustomResource):
             __props__['resource_group_name'] = resource_group_name
             __props__['etag'] = None
             __props__['location'] = None
+            __props__['name'] = None
             __props__['start_date'] = None
             __props__['tags'] = None
             __props__['type'] = None

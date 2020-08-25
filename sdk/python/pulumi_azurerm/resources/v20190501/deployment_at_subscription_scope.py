@@ -17,8 +17,8 @@ class DeploymentAtSubscriptionScope(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 deployment_name: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
                  properties: Optional[pulumi.Input[pulumi.InputType['DeploymentPropertiesArgs']]] = None,
                  __props__=None,
                  __name__=None,
@@ -28,8 +28,8 @@ class DeploymentAtSubscriptionScope(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] deployment_name: The name of the deployment.
         :param pulumi.Input[str] location: The location to store the deployment data.
-        :param pulumi.Input[str] name: The name of the deployment.
         :param pulumi.Input[pulumi.InputType['DeploymentPropertiesArgs']] properties: The deployment properties.
         """
         if __name__ is not None:
@@ -49,13 +49,14 @@ class DeploymentAtSubscriptionScope(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
+            if deployment_name is None:
+                raise TypeError("Missing required property 'deployment_name'")
+            __props__['deployment_name'] = deployment_name
             __props__['location'] = location
-            if name is None:
-                raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
             if properties is None:
                 raise TypeError("Missing required property 'properties'")
             __props__['properties'] = properties
+            __props__['name'] = None
             __props__['type'] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:resources/v20180501:DeploymentAtSubscriptionScope"), pulumi.Alias(type_="azurerm:resources/v20190301:DeploymentAtSubscriptionScope"), pulumi.Alias(type_="azurerm:resources/v20190510:DeploymentAtSubscriptionScope"), pulumi.Alias(type_="azurerm:resources/v20190701:DeploymentAtSubscriptionScope"), pulumi.Alias(type_="azurerm:resources/v20190801:DeploymentAtSubscriptionScope"), pulumi.Alias(type_="azurerm:resources/v20191001:DeploymentAtSubscriptionScope"), pulumi.Alias(type_="azurerm:resources/v20200601:DeploymentAtSubscriptionScope")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)

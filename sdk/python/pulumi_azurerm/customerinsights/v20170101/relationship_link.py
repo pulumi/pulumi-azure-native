@@ -22,9 +22,9 @@ class RelationshipLink(pulumi.CustomResource):
                  hub_name: Optional[pulumi.Input[str]] = None,
                  interaction_type: Optional[pulumi.Input[str]] = None,
                  mappings: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['RelationshipLinkFieldMappingArgs']]]]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
                  profile_property_references: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['ParticipantPropertyReferenceArgs']]]]] = None,
                  related_profile_property_references: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['ParticipantPropertyReferenceArgs']]]]] = None,
+                 relationship_link_name: Optional[pulumi.Input[str]] = None,
                  relationship_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  __props__=None,
@@ -40,9 +40,9 @@ class RelationshipLink(pulumi.CustomResource):
         :param pulumi.Input[str] hub_name: The name of the hub.
         :param pulumi.Input[str] interaction_type: The InteractionType associated with the Relationship Link.
         :param pulumi.Input[List[pulumi.Input[pulumi.InputType['RelationshipLinkFieldMappingArgs']]]] mappings: The mappings between Interaction and Relationship fields.
-        :param pulumi.Input[str] name: The name of the relationship link.
         :param pulumi.Input[List[pulumi.Input[pulumi.InputType['ParticipantPropertyReferenceArgs']]]] profile_property_references: The property references for the Profile of the Relationship.
         :param pulumi.Input[List[pulumi.Input[pulumi.InputType['ParticipantPropertyReferenceArgs']]]] related_profile_property_references: The property references for the Related Profile of the Relationship.
+        :param pulumi.Input[str] relationship_link_name: The name of the relationship link.
         :param pulumi.Input[str] relationship_name: The Relationship associated with the Link.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         """
@@ -72,15 +72,15 @@ class RelationshipLink(pulumi.CustomResource):
                 raise TypeError("Missing required property 'interaction_type'")
             __props__['interaction_type'] = interaction_type
             __props__['mappings'] = mappings
-            if name is None:
-                raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
             if profile_property_references is None:
                 raise TypeError("Missing required property 'profile_property_references'")
             __props__['profile_property_references'] = profile_property_references
             if related_profile_property_references is None:
                 raise TypeError("Missing required property 'related_profile_property_references'")
             __props__['related_profile_property_references'] = related_profile_property_references
+            if relationship_link_name is None:
+                raise TypeError("Missing required property 'relationship_link_name'")
+            __props__['relationship_link_name'] = relationship_link_name
             if relationship_name is None:
                 raise TypeError("Missing required property 'relationship_name'")
             __props__['relationship_name'] = relationship_name
@@ -88,6 +88,7 @@ class RelationshipLink(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['link_name'] = None
+            __props__['name'] = None
             __props__['provisioning_state'] = None
             __props__['relationship_guid_id'] = None
             __props__['tenant_id'] = None

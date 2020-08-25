@@ -187,19 +187,19 @@ class AwaitableGetBookmarkResult(GetBookmarkResult):
             updated_by=self.updated_by)
 
 
-def get_bookmark(name: Optional[str] = None,
+def get_bookmark(bookmark_id: Optional[str] = None,
                  resource_group_name: Optional[str] = None,
                  workspace_name: Optional[str] = None,
                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetBookmarkResult:
     """
     Use this data source to access information about an existing resource.
 
-    :param str name: Bookmark ID
+    :param str bookmark_id: Bookmark ID
     :param str resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.
     :param str workspace_name: The name of the workspace.
     """
     __args__ = dict()
-    __args__['name'] = name
+    __args__['bookmarkId'] = bookmark_id
     __args__['resourceGroupName'] = resource_group_name
     __args__['workspaceName'] = workspace_name
     if opts is None:

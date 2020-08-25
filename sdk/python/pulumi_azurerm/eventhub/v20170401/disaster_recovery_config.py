@@ -15,8 +15,8 @@ class DisasterRecoveryConfig(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 alias: Optional[pulumi.Input[str]] = None,
                  alternate_name: Optional[pulumi.Input[str]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
                  namespace_name: Optional[pulumi.Input[str]] = None,
                  partner_namespace: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -28,8 +28,8 @@ class DisasterRecoveryConfig(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] alias: The Disaster Recovery configuration name
         :param pulumi.Input[str] alternate_name: Alternate name specified when alias and namespace names are same.
-        :param pulumi.Input[str] name: The Disaster Recovery configuration name
         :param pulumi.Input[str] namespace_name: The Namespace name
         :param pulumi.Input[str] partner_namespace: ARM Id of the Primary/Secondary eventhub namespace name, which is part of GEO DR pairing
         :param pulumi.Input[str] resource_group_name: Name of the resource group within the azure subscription.
@@ -51,10 +51,10 @@ class DisasterRecoveryConfig(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
+            if alias is None:
+                raise TypeError("Missing required property 'alias'")
+            __props__['alias'] = alias
             __props__['alternate_name'] = alternate_name
-            if name is None:
-                raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
             if namespace_name is None:
                 raise TypeError("Missing required property 'namespace_name'")
             __props__['namespace_name'] = namespace_name
@@ -62,6 +62,7 @@ class DisasterRecoveryConfig(pulumi.CustomResource):
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
+            __props__['name'] = None
             __props__['pending_replication_operations_count'] = None
             __props__['provisioning_state'] = None
             __props__['role'] = None

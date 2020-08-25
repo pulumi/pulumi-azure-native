@@ -127,20 +127,20 @@ class AwaitableGetStorageInsightResult(GetStorageInsightResult):
             type=self.type)
 
 
-def get_storage_insight(name: Optional[str] = None,
-                        resource_group_name: Optional[str] = None,
+def get_storage_insight(resource_group_name: Optional[str] = None,
+                        storage_insight_name: Optional[str] = None,
                         workspace_name: Optional[str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetStorageInsightResult:
     """
     Use this data source to access information about an existing resource.
 
-    :param str name: Name of the storageInsightsConfigs resource
     :param str resource_group_name: The Resource Group name.
+    :param str storage_insight_name: Name of the storageInsightsConfigs resource
     :param str workspace_name: The Log Analytics Workspace name.
     """
     __args__ = dict()
-    __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
+    __args__['storageInsightName'] = storage_insight_name
     __args__['workspaceName'] = workspace_name
     if opts is None:
         opts = pulumi.InvokeOptions()

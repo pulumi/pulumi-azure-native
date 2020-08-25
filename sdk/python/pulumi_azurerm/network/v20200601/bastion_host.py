@@ -17,11 +17,11 @@ class BastionHost(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 bastion_host_name: Optional[pulumi.Input[str]] = None,
                  dns_name: Optional[pulumi.Input[str]] = None,
                  id: Optional[pulumi.Input[str]] = None,
                  ip_configurations: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['BastionHostIPConfigurationArgs']]]]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None,
@@ -32,11 +32,11 @@ class BastionHost(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] bastion_host_name: The name of the Bastion Host.
         :param pulumi.Input[str] dns_name: FQDN for the endpoint on which bastion host is accessible.
         :param pulumi.Input[str] id: Resource ID.
         :param pulumi.Input[List[pulumi.Input[pulumi.InputType['BastionHostIPConfigurationArgs']]]] ip_configurations: IP configuration of the Bastion Host resource.
         :param pulumi.Input[str] location: Resource location.
-        :param pulumi.Input[str] name: The name of the Bastion Host.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
@@ -57,18 +57,19 @@ class BastionHost(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
+            if bastion_host_name is None:
+                raise TypeError("Missing required property 'bastion_host_name'")
+            __props__['bastion_host_name'] = bastion_host_name
             __props__['dns_name'] = dns_name
             __props__['id'] = id
             __props__['ip_configurations'] = ip_configurations
             __props__['location'] = location
-            if name is None:
-                raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['tags'] = tags
             __props__['etag'] = None
+            __props__['name'] = None
             __props__['provisioning_state'] = None
             __props__['type'] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:network/v20190401:BastionHost"), pulumi.Alias(type_="azurerm:network/v20190601:BastionHost"), pulumi.Alias(type_="azurerm:network/v20190701:BastionHost"), pulumi.Alias(type_="azurerm:network/v20190801:BastionHost"), pulumi.Alias(type_="azurerm:network/v20190901:BastionHost"), pulumi.Alias(type_="azurerm:network/v20191101:BastionHost"), pulumi.Alias(type_="azurerm:network/v20191201:BastionHost"), pulumi.Alias(type_="azurerm:network/v20200301:BastionHost"), pulumi.Alias(type_="azurerm:network/v20200401:BastionHost"), pulumi.Alias(type_="azurerm:network/v20200501:BastionHost")])

@@ -10,11 +10,38 @@ from ... import _utilities, _tables
 from . import outputs
 
 __all__ = [
+    'DescendantParentGroupInfoResponse',
     'ManagementGroupChildInfoResponse',
     'ManagementGroupDetailsResponse',
     'ManagementGroupPathElementResponse',
     'ParentGroupInfoResponse',
 ]
+
+@pulumi.output_type
+class DescendantParentGroupInfoResponse(dict):
+    """
+    The ID of the parent management group.
+    """
+    def __init__(__self__, *,
+                 id: Optional[str] = None):
+        """
+        The ID of the parent management group.
+        :param str id: The fully qualified ID for the parent management group.  For example, /providers/Microsoft.Management/managementGroups/0000000-0000-0000-0000-000000000000
+        """
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        """
+        The fully qualified ID for the parent management group.  For example, /providers/Microsoft.Management/managementGroups/0000000-0000-0000-0000-000000000000
+        """
+        return pulumi.get(self, "id")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
 
 @pulumi.output_type
 class ManagementGroupChildInfoResponse(dict):

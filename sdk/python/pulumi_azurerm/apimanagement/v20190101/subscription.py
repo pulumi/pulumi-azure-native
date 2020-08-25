@@ -18,7 +18,6 @@ class Subscription(pulumi.CustomResource):
                  allow_tracing: Optional[pulumi.Input[bool]] = None,
                  app_type: Optional[pulumi.Input[str]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
                  notify: Optional[pulumi.Input[bool]] = None,
                  owner_id: Optional[pulumi.Input[str]] = None,
                  primary_key: Optional[pulumi.Input[str]] = None,
@@ -26,6 +25,7 @@ class Subscription(pulumi.CustomResource):
                  scope: Optional[pulumi.Input[str]] = None,
                  secondary_key: Optional[pulumi.Input[str]] = None,
                  service_name: Optional[pulumi.Input[str]] = None,
+                 sid: Optional[pulumi.Input[str]] = None,
                  state: Optional[pulumi.Input[str]] = None,
                  __props__=None,
                  __name__=None,
@@ -38,7 +38,6 @@ class Subscription(pulumi.CustomResource):
         :param pulumi.Input[bool] allow_tracing: Determines whether tracing can be enabled
         :param pulumi.Input[str] app_type: Determines the type of application which send the create user request. Default is legacy publisher portal.
         :param pulumi.Input[str] display_name: Subscription name.
-        :param pulumi.Input[str] name: Subscription entity Identifier. The entity represents the association between a user and a product in API Management.
         :param pulumi.Input[bool] notify: Notify change in Subscription State. 
                 - If false, do not send any email notification for change of state of subscription 
                 - If true, send email notification of change of state of subscription 
@@ -48,6 +47,7 @@ class Subscription(pulumi.CustomResource):
         :param pulumi.Input[str] scope: Scope like /products/{productId} or /apis or /apis/{apiId}.
         :param pulumi.Input[str] secondary_key: Secondary subscription key. If not specified during request key will be generated automatically.
         :param pulumi.Input[str] service_name: The name of the API Management service.
+        :param pulumi.Input[str] sid: Subscription entity Identifier. The entity represents the association between a user and a product in API Management.
         :param pulumi.Input[str] state: Initial subscription state. If no value is specified, subscription is created with Submitted state. Possible states are * active – the subscription is active, * suspended – the subscription is blocked, and the subscriber cannot call any APIs of the product, * submitted – the subscription request has been made by the developer, but has not yet been approved or rejected, * rejected – the subscription request has been denied by an administrator, * cancelled – the subscription has been cancelled by the developer or administrator, * expired – the subscription reached its expiration date and was deactivated.
         """
         if __name__ is not None:
@@ -72,9 +72,6 @@ class Subscription(pulumi.CustomResource):
             if display_name is None:
                 raise TypeError("Missing required property 'display_name'")
             __props__['display_name'] = display_name
-            if name is None:
-                raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
             __props__['notify'] = notify
             __props__['owner_id'] = owner_id
             __props__['primary_key'] = primary_key
@@ -88,10 +85,14 @@ class Subscription(pulumi.CustomResource):
             if service_name is None:
                 raise TypeError("Missing required property 'service_name'")
             __props__['service_name'] = service_name
+            if sid is None:
+                raise TypeError("Missing required property 'sid'")
+            __props__['sid'] = sid
             __props__['state'] = state
             __props__['created_date'] = None
             __props__['end_date'] = None
             __props__['expiration_date'] = None
+            __props__['name'] = None
             __props__['notification_date'] = None
             __props__['start_date'] = None
             __props__['state_comment'] = None

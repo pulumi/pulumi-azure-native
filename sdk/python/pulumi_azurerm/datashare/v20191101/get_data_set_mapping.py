@@ -67,7 +67,7 @@ class AwaitableGetDataSetMappingResult(GetDataSetMappingResult):
 
 
 def get_data_set_mapping(account_name: Optional[str] = None,
-                         name: Optional[str] = None,
+                         data_set_mapping_name: Optional[str] = None,
                          resource_group_name: Optional[str] = None,
                          share_subscription_name: Optional[str] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDataSetMappingResult:
@@ -75,13 +75,13 @@ def get_data_set_mapping(account_name: Optional[str] = None,
     Use this data source to access information about an existing resource.
 
     :param str account_name: The name of the share account.
-    :param str name: The name of the dataSetMapping.
+    :param str data_set_mapping_name: The name of the dataSetMapping.
     :param str resource_group_name: The resource group name.
     :param str share_subscription_name: The name of the shareSubscription.
     """
     __args__ = dict()
     __args__['accountName'] = account_name
-    __args__['name'] = name
+    __args__['dataSetMappingName'] = data_set_mapping_name
     __args__['resourceGroupName'] = resource_group_name
     __args__['shareSubscriptionName'] = share_subscription_name
     if opts is None:

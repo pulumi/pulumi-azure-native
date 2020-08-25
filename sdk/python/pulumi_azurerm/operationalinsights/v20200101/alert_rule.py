@@ -17,8 +17,8 @@ class AlertRule(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  etag: Optional[pulumi.Input[str]] = None,
                  kind: Optional[pulumi.Input[str]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
+                 rule_id: Optional[pulumi.Input[str]] = None,
                  workspace_name: Optional[pulumi.Input[str]] = None,
                  __props__=None,
                  __name__=None,
@@ -30,8 +30,8 @@ class AlertRule(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] etag: Etag of the azure resource
         :param pulumi.Input[str] kind: The alert rule kind
-        :param pulumi.Input[str] name: Alert rule ID
         :param pulumi.Input[str] resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.
+        :param pulumi.Input[str] rule_id: Alert rule ID
         :param pulumi.Input[str] workspace_name: The name of the workspace.
         """
         if __name__ is not None:
@@ -55,15 +55,16 @@ class AlertRule(pulumi.CustomResource):
             if kind is None:
                 raise TypeError("Missing required property 'kind'")
             __props__['kind'] = kind
-            if name is None:
-                raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
+            if rule_id is None:
+                raise TypeError("Missing required property 'rule_id'")
+            __props__['rule_id'] = rule_id
             if workspace_name is None:
                 raise TypeError("Missing required property 'workspace_name'")
             __props__['workspace_name'] = workspace_name
+            __props__['name'] = None
             __props__['type'] = None
         super(AlertRule, __self__).__init__(
             'azurerm:operationalinsights/v20200101:AlertRule',

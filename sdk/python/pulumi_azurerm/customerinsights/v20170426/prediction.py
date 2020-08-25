@@ -26,9 +26,9 @@ class Prediction(pulumi.CustomResource):
                  involved_kpi_types: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
                  involved_relationships: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
                  mappings: Optional[pulumi.Input[pulumi.InputType['PredictionMappingsArgs']]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
                  negative_outcome_expression: Optional[pulumi.Input[str]] = None,
                  positive_outcome_expression: Optional[pulumi.Input[str]] = None,
+                 prediction_name: Optional[pulumi.Input[str]] = None,
                  primary_profile_type: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  scope_expression: Optional[pulumi.Input[str]] = None,
@@ -50,9 +50,9 @@ class Prediction(pulumi.CustomResource):
         :param pulumi.Input[List[pulumi.Input[str]]] involved_kpi_types: KPI types involved in the prediction.
         :param pulumi.Input[List[pulumi.Input[str]]] involved_relationships: Relationships involved in the prediction.
         :param pulumi.Input[pulumi.InputType['PredictionMappingsArgs']] mappings: Definition of the link mapping of prediction.
-        :param pulumi.Input[str] name: Name of the prediction.
         :param pulumi.Input[str] negative_outcome_expression: Negative outcome expression.
         :param pulumi.Input[str] positive_outcome_expression: Positive outcome expression.
+        :param pulumi.Input[str] prediction_name: Name of the prediction.
         :param pulumi.Input[str] primary_profile_type: Primary profile type.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[str] scope_expression: Scope expression.
@@ -90,15 +90,15 @@ class Prediction(pulumi.CustomResource):
             if mappings is None:
                 raise TypeError("Missing required property 'mappings'")
             __props__['mappings'] = mappings
-            if name is None:
-                raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
             if negative_outcome_expression is None:
                 raise TypeError("Missing required property 'negative_outcome_expression'")
             __props__['negative_outcome_expression'] = negative_outcome_expression
             if positive_outcome_expression is None:
                 raise TypeError("Missing required property 'positive_outcome_expression'")
             __props__['positive_outcome_expression'] = positive_outcome_expression
+            if prediction_name is None:
+                raise TypeError("Missing required property 'prediction_name'")
+            __props__['prediction_name'] = prediction_name
             if primary_profile_type is None:
                 raise TypeError("Missing required property 'primary_profile_type'")
             __props__['primary_profile_type'] = primary_profile_type
@@ -111,7 +111,7 @@ class Prediction(pulumi.CustomResource):
             if score_label is None:
                 raise TypeError("Missing required property 'score_label'")
             __props__['score_label'] = score_label
-            __props__['prediction_name'] = None
+            __props__['name'] = None
             __props__['provisioning_state'] = None
             __props__['system_generated_entities'] = None
             __props__['tenant_id'] = None

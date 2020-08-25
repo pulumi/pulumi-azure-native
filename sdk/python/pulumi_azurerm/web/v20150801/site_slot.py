@@ -39,6 +39,7 @@ class SiteSlot(pulumi.CustomResource):
                  site_config: Optional[pulumi.Input[pulumi.InputType['SiteConfigArgs']]] = None,
                  skip_custom_domain_verification: Optional[pulumi.Input[str]] = None,
                  skip_dns_registration: Optional[pulumi.Input[str]] = None,
+                 slot: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  ttl_in_seconds: Optional[pulumi.Input[str]] = None,
                  type: Optional[pulumi.Input[str]] = None,
@@ -67,13 +68,14 @@ class SiteSlot(pulumi.CustomResource):
         :param pulumi.Input[str] location: Resource Location
         :param pulumi.Input[float] max_number_of_workers: Maximum number of workers
                            This only applies to function container
-        :param pulumi.Input[str] name: Name of web app slot. If not specified then will default to production slot.
+        :param pulumi.Input[str] name: Resource Name
         :param pulumi.Input[str] resource_group_name: Name of the resource group
         :param pulumi.Input[bool] scm_site_also_stopped: If set indicates whether to stop SCM (KUDU) site when the web app is stopped. Default is false.
         :param pulumi.Input[pulumi.InputType['SiteConfigArgs']] site_config: Configuration of web app
         :param pulumi.Input[str] skip_custom_domain_verification: If true, custom (non *.azurewebsites.net) domains associated with web app are not verified.
         :param pulumi.Input[str] skip_dns_registration: If true web app hostname is not registered with DNS on creation. This parameter is
                            only used for app creation
+        :param pulumi.Input[str] slot: Name of web app slot. If not specified then will default to production slot.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags
         :param pulumi.Input[str] ttl_in_seconds: Time to live in seconds for web app's default domain name
         :param pulumi.Input[str] type: Resource type
@@ -123,6 +125,9 @@ class SiteSlot(pulumi.CustomResource):
             __props__['site_config'] = site_config
             __props__['skip_custom_domain_verification'] = skip_custom_domain_verification
             __props__['skip_dns_registration'] = skip_dns_registration
+            if slot is None:
+                raise TypeError("Missing required property 'slot'")
+            __props__['slot'] = slot
             __props__['tags'] = tags
             __props__['ttl_in_seconds'] = ttl_in_seconds
             __props__['type'] = type

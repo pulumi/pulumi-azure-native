@@ -133,20 +133,20 @@ class AwaitableGetPacketCaptureResult(GetPacketCaptureResult):
             total_bytes_per_session=self.total_bytes_per_session)
 
 
-def get_packet_capture(name: Optional[str] = None,
-                       network_watcher_name: Optional[str] = None,
+def get_packet_capture(network_watcher_name: Optional[str] = None,
+                       packet_capture_name: Optional[str] = None,
                        resource_group_name: Optional[str] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPacketCaptureResult:
     """
     Use this data source to access information about an existing resource.
 
-    :param str name: The name of the packet capture session.
     :param str network_watcher_name: The name of the network watcher.
+    :param str packet_capture_name: The name of the packet capture session.
     :param str resource_group_name: The name of the resource group.
     """
     __args__ = dict()
-    __args__['name'] = name
     __args__['networkWatcherName'] = network_watcher_name
+    __args__['packetCaptureName'] = packet_capture_name
     __args__['resourceGroupName'] = resource_group_name
     if opts is None:
         opts = pulumi.InvokeOptions()

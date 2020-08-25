@@ -23,9 +23,9 @@ class LoadBalancer(pulumi.CustomResource):
                  id: Optional[pulumi.Input[str]] = None,
                  inbound_nat_pools: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['InboundNatPoolArgs']]]]] = None,
                  inbound_nat_rules: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['InboundNatRuleArgs']]]]] = None,
+                 load_balancer_name: Optional[pulumi.Input[str]] = None,
                  load_balancing_rules: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['LoadBalancingRuleArgs']]]]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
                  outbound_nat_rules: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['OutboundNatRuleArgs']]]]] = None,
                  probes: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['ProbeArgs']]]]] = None,
                  provisioning_state: Optional[pulumi.Input[str]] = None,
@@ -46,9 +46,9 @@ class LoadBalancer(pulumi.CustomResource):
         :param pulumi.Input[str] id: Resource Id
         :param pulumi.Input[List[pulumi.Input[pulumi.InputType['InboundNatPoolArgs']]]] inbound_nat_pools: Gets or sets inbound NAT pools
         :param pulumi.Input[List[pulumi.Input[pulumi.InputType['InboundNatRuleArgs']]]] inbound_nat_rules: Gets or sets list of inbound rules
+        :param pulumi.Input[str] load_balancer_name: The name of the loadBalancer.
         :param pulumi.Input[List[pulumi.Input[pulumi.InputType['LoadBalancingRuleArgs']]]] load_balancing_rules: Gets or sets load balancing rules
         :param pulumi.Input[str] location: Resource location
-        :param pulumi.Input[str] name: The name of the loadBalancer.
         :param pulumi.Input[List[pulumi.Input[pulumi.InputType['OutboundNatRuleArgs']]]] outbound_nat_rules: Gets or sets outbound NAT rules
         :param pulumi.Input[List[pulumi.Input[pulumi.InputType['ProbeArgs']]]] probes: Gets or sets list of Load balancer probes
         :param pulumi.Input[str] provisioning_state: Gets or sets Provisioning state of the PublicIP resource Updating/Deleting/Failed
@@ -79,11 +79,11 @@ class LoadBalancer(pulumi.CustomResource):
             __props__['id'] = id
             __props__['inbound_nat_pools'] = inbound_nat_pools
             __props__['inbound_nat_rules'] = inbound_nat_rules
+            if load_balancer_name is None:
+                raise TypeError("Missing required property 'load_balancer_name'")
+            __props__['load_balancer_name'] = load_balancer_name
             __props__['load_balancing_rules'] = load_balancing_rules
             __props__['location'] = location
-            if name is None:
-                raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
             __props__['outbound_nat_rules'] = outbound_nat_rules
             __props__['probes'] = probes
             __props__['provisioning_state'] = provisioning_state
@@ -92,6 +92,7 @@ class LoadBalancer(pulumi.CustomResource):
             __props__['resource_group_name'] = resource_group_name
             __props__['resource_guid'] = resource_guid
             __props__['tags'] = tags
+            __props__['name'] = None
             __props__['type'] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:network/v20150615:LoadBalancer"), pulumi.Alias(type_="azurerm:network/v20160601:LoadBalancer"), pulumi.Alias(type_="azurerm:network/v20160901:LoadBalancer"), pulumi.Alias(type_="azurerm:network/v20161201:LoadBalancer"), pulumi.Alias(type_="azurerm:network/v20170301:LoadBalancer"), pulumi.Alias(type_="azurerm:network/v20170601:LoadBalancer"), pulumi.Alias(type_="azurerm:network/v20170801:LoadBalancer"), pulumi.Alias(type_="azurerm:network/v20170901:LoadBalancer"), pulumi.Alias(type_="azurerm:network/v20171001:LoadBalancer"), pulumi.Alias(type_="azurerm:network/v20171101:LoadBalancer"), pulumi.Alias(type_="azurerm:network/v20180101:LoadBalancer"), pulumi.Alias(type_="azurerm:network/v20180201:LoadBalancer"), pulumi.Alias(type_="azurerm:network/v20180401:LoadBalancer"), pulumi.Alias(type_="azurerm:network/v20180601:LoadBalancer"), pulumi.Alias(type_="azurerm:network/v20180701:LoadBalancer"), pulumi.Alias(type_="azurerm:network/v20180801:LoadBalancer"), pulumi.Alias(type_="azurerm:network/v20181001:LoadBalancer"), pulumi.Alias(type_="azurerm:network/v20181101:LoadBalancer"), pulumi.Alias(type_="azurerm:network/v20181201:LoadBalancer"), pulumi.Alias(type_="azurerm:network/v20190201:LoadBalancer"), pulumi.Alias(type_="azurerm:network/v20190401:LoadBalancer"), pulumi.Alias(type_="azurerm:network/v20190601:LoadBalancer"), pulumi.Alias(type_="azurerm:network/v20190701:LoadBalancer"), pulumi.Alias(type_="azurerm:network/v20190801:LoadBalancer"), pulumi.Alias(type_="azurerm:network/v20190901:LoadBalancer"), pulumi.Alias(type_="azurerm:network/v20191101:LoadBalancer"), pulumi.Alias(type_="azurerm:network/v20191201:LoadBalancer"), pulumi.Alias(type_="azurerm:network/v20200301:LoadBalancer"), pulumi.Alias(type_="azurerm:network/v20200401:LoadBalancer"), pulumi.Alias(type_="azurerm:network/v20200501:LoadBalancer"), pulumi.Alias(type_="azurerm:network/v20200601:LoadBalancer")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)

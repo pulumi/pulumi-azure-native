@@ -66,24 +66,24 @@ class AwaitableGetTagByProductResult(GetTagByProductResult):
             type=self.type)
 
 
-def get_tag_by_product(name: Optional[str] = None,
-                       product_id: Optional[str] = None,
+def get_tag_by_product(product_id: Optional[str] = None,
                        resource_group_name: Optional[str] = None,
                        service_name: Optional[str] = None,
+                       tag_id: Optional[str] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetTagByProductResult:
     """
     Use this data source to access information about an existing resource.
 
-    :param str name: Tag identifier. Must be unique in the current API Management service instance.
     :param str product_id: Product identifier. Must be unique in the current API Management service instance.
     :param str resource_group_name: The name of the resource group.
     :param str service_name: The name of the API Management service.
+    :param str tag_id: Tag identifier. Must be unique in the current API Management service instance.
     """
     __args__ = dict()
-    __args__['name'] = name
     __args__['productId'] = product_id
     __args__['resourceGroupName'] = resource_group_name
     __args__['serviceName'] = service_name
+    __args__['tagId'] = tag_id
     if opts is None:
         opts = pulumi.InvokeOptions()
     if opts.version is None:

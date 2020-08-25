@@ -15,9 +15,9 @@ class Cache(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 cache_id: Optional[pulumi.Input[str]] = None,
                  connection_string: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  resource_id: Optional[pulumi.Input[str]] = None,
                  service_name: Optional[pulumi.Input[str]] = None,
@@ -29,9 +29,9 @@ class Cache(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] cache_id: Identifier of the Cache entity. Cache identifier (should be either 'default' or valid Azure region identifier).
         :param pulumi.Input[str] connection_string: Runtime connection string to cache
         :param pulumi.Input[str] description: Cache description
-        :param pulumi.Input[str] name: Identifier of the Cache entity. Cache identifier (should be either 'default' or valid Azure region identifier).
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[str] resource_id: Original uri of entity in external system cache points to
         :param pulumi.Input[str] service_name: The name of the API Management service.
@@ -53,13 +53,13 @@ class Cache(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
+            if cache_id is None:
+                raise TypeError("Missing required property 'cache_id'")
+            __props__['cache_id'] = cache_id
             if connection_string is None:
                 raise TypeError("Missing required property 'connection_string'")
             __props__['connection_string'] = connection_string
             __props__['description'] = description
-            if name is None:
-                raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
@@ -67,6 +67,7 @@ class Cache(pulumi.CustomResource):
             if service_name is None:
                 raise TypeError("Missing required property 'service_name'")
             __props__['service_name'] = service_name
+            __props__['name'] = None
             __props__['type'] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:apimanagement/v20190101:Cache")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)

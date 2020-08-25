@@ -25,12 +25,12 @@ class VirtualNetworkGateway(pulumi.CustomResource):
                  id: Optional[pulumi.Input[str]] = None,
                  ip_configurations: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['VirtualNetworkGatewayIPConfigurationArgs']]]]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
                  provisioning_state: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  resource_guid: Optional[pulumi.Input[str]] = None,
                  sku: Optional[pulumi.Input[pulumi.InputType['VirtualNetworkGatewaySkuArgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 virtual_network_gateway_name: Optional[pulumi.Input[str]] = None,
                  vpn_client_configuration: Optional[pulumi.Input[pulumi.InputType['VpnClientConfigurationArgs']]] = None,
                  vpn_type: Optional[pulumi.Input[str]] = None,
                  __props__=None,
@@ -49,12 +49,12 @@ class VirtualNetworkGateway(pulumi.CustomResource):
         :param pulumi.Input[str] id: Resource Identifier.
         :param pulumi.Input[List[pulumi.Input[pulumi.InputType['VirtualNetworkGatewayIPConfigurationArgs']]]] ip_configurations: IP configurations for virtual network gateway.
         :param pulumi.Input[str] location: Resource location.
-        :param pulumi.Input[str] name: The name of the virtual network gateway.
         :param pulumi.Input[str] provisioning_state: The provisioning state of the VirtualNetworkGateway resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[str] resource_guid: The resource GUID property of the VirtualNetworkGateway resource.
         :param pulumi.Input[pulumi.InputType['VirtualNetworkGatewaySkuArgs']] sku: The reference of the VirtualNetworkGatewaySku resource which represents the SKU selected for Virtual network gateway.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
+        :param pulumi.Input[str] virtual_network_gateway_name: The name of the virtual network gateway.
         :param pulumi.Input[pulumi.InputType['VpnClientConfigurationArgs']] vpn_client_configuration: The reference of the VpnClientConfiguration resource which represents the P2S VpnClient configurations.
         :param pulumi.Input[str] vpn_type: The type of this virtual network gateway. Possible values are: 'PolicyBased' and 'RouteBased'.
         """
@@ -83,9 +83,6 @@ class VirtualNetworkGateway(pulumi.CustomResource):
             __props__['id'] = id
             __props__['ip_configurations'] = ip_configurations
             __props__['location'] = location
-            if name is None:
-                raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
             __props__['provisioning_state'] = provisioning_state
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
@@ -93,8 +90,12 @@ class VirtualNetworkGateway(pulumi.CustomResource):
             __props__['resource_guid'] = resource_guid
             __props__['sku'] = sku
             __props__['tags'] = tags
+            if virtual_network_gateway_name is None:
+                raise TypeError("Missing required property 'virtual_network_gateway_name'")
+            __props__['virtual_network_gateway_name'] = virtual_network_gateway_name
             __props__['vpn_client_configuration'] = vpn_client_configuration
             __props__['vpn_type'] = vpn_type
+            __props__['name'] = None
             __props__['type'] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:network/v20160330:VirtualNetworkGateway"), pulumi.Alias(type_="azurerm:network/v20160601:VirtualNetworkGateway"), pulumi.Alias(type_="azurerm:network/v20160901:VirtualNetworkGateway"), pulumi.Alias(type_="azurerm:network/v20161201:VirtualNetworkGateway"), pulumi.Alias(type_="azurerm:network/v20170301:VirtualNetworkGateway"), pulumi.Alias(type_="azurerm:network/v20170601:VirtualNetworkGateway"), pulumi.Alias(type_="azurerm:network/v20170801:VirtualNetworkGateway"), pulumi.Alias(type_="azurerm:network/v20170901:VirtualNetworkGateway"), pulumi.Alias(type_="azurerm:network/v20171001:VirtualNetworkGateway"), pulumi.Alias(type_="azurerm:network/v20171101:VirtualNetworkGateway"), pulumi.Alias(type_="azurerm:network/v20180101:VirtualNetworkGateway"), pulumi.Alias(type_="azurerm:network/v20180201:VirtualNetworkGateway"), pulumi.Alias(type_="azurerm:network/v20180401:VirtualNetworkGateway"), pulumi.Alias(type_="azurerm:network/v20180601:VirtualNetworkGateway"), pulumi.Alias(type_="azurerm:network/v20180701:VirtualNetworkGateway"), pulumi.Alias(type_="azurerm:network/v20180801:VirtualNetworkGateway"), pulumi.Alias(type_="azurerm:network/v20181001:VirtualNetworkGateway"), pulumi.Alias(type_="azurerm:network/v20181101:VirtualNetworkGateway"), pulumi.Alias(type_="azurerm:network/v20181201:VirtualNetworkGateway"), pulumi.Alias(type_="azurerm:network/v20190201:VirtualNetworkGateway"), pulumi.Alias(type_="azurerm:network/v20190401:VirtualNetworkGateway"), pulumi.Alias(type_="azurerm:network/v20190601:VirtualNetworkGateway"), pulumi.Alias(type_="azurerm:network/v20190701:VirtualNetworkGateway"), pulumi.Alias(type_="azurerm:network/v20190801:VirtualNetworkGateway"), pulumi.Alias(type_="azurerm:network/v20190901:VirtualNetworkGateway"), pulumi.Alias(type_="azurerm:network/v20191101:VirtualNetworkGateway"), pulumi.Alias(type_="azurerm:network/v20191201:VirtualNetworkGateway"), pulumi.Alias(type_="azurerm:network/v20200301:VirtualNetworkGateway"), pulumi.Alias(type_="azurerm:network/v20200401:VirtualNetworkGateway"), pulumi.Alias(type_="azurerm:network/v20200501:VirtualNetworkGateway"), pulumi.Alias(type_="azurerm:network/v20200601:VirtualNetworkGateway")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)

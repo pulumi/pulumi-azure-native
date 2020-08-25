@@ -18,9 +18,9 @@ class Database(pulumi.CustomResource):
                  resource_name,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  cluster_name: Optional[pulumi.Input[str]] = None,
+                 database_name: Optional[pulumi.Input[str]] = None,
                  hot_cache_period: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  soft_delete_period: Optional[pulumi.Input[str]] = None,
                  statistics: Optional[pulumi.Input[pulumi.InputType['DatabaseStatisticsArgs']]] = None,
@@ -33,9 +33,9 @@ class Database(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] cluster_name: The name of the Kusto cluster.
+        :param pulumi.Input[str] database_name: The name of the database in the Kusto cluster.
         :param pulumi.Input[str] hot_cache_period: The time the data should be kept in cache for fast queries in TimeSpan.
         :param pulumi.Input[str] location: Resource location.
-        :param pulumi.Input[str] name: The name of the database in the Kusto cluster.
         :param pulumi.Input[str] resource_group_name: The name of the resource group containing the Kusto cluster.
         :param pulumi.Input[str] soft_delete_period: The time the data should be kept before it stops being accessible to queries in TimeSpan.
         :param pulumi.Input[pulumi.InputType['DatabaseStatisticsArgs']] statistics: The statistics of the database.
@@ -60,16 +60,17 @@ class Database(pulumi.CustomResource):
             if cluster_name is None:
                 raise TypeError("Missing required property 'cluster_name'")
             __props__['cluster_name'] = cluster_name
+            if database_name is None:
+                raise TypeError("Missing required property 'database_name'")
+            __props__['database_name'] = database_name
             __props__['hot_cache_period'] = hot_cache_period
             __props__['location'] = location
-            if name is None:
-                raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['soft_delete_period'] = soft_delete_period
             __props__['statistics'] = statistics
+            __props__['name'] = None
             __props__['provisioning_state'] = None
             __props__['type'] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:kusto/v20190121:Database"), pulumi.Alias(type_="azurerm:kusto/v20190907:Database"), pulumi.Alias(type_="azurerm:kusto/v20191109:Database"), pulumi.Alias(type_="azurerm:kusto/v20200215:Database"), pulumi.Alias(type_="azurerm:kusto/v20200614:Database")])

@@ -115,17 +115,17 @@ class AwaitableGetRoleDefinitionResult(GetRoleDefinitionResult):
             type=self.type)
 
 
-def get_role_definition(name: Optional[str] = None,
+def get_role_definition(role_definition_id: Optional[str] = None,
                         scope: Optional[str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetRoleDefinitionResult:
     """
     Use this data source to access information about an existing resource.
 
-    :param str name: The ID of the role definition.
+    :param str role_definition_id: The ID of the role definition.
     :param str scope: The scope of the role definition.
     """
     __args__ = dict()
-    __args__['name'] = name
+    __args__['roleDefinitionId'] = role_definition_id
     __args__['scope'] = scope
     if opts is None:
         opts = pulumi.InvokeOptions()

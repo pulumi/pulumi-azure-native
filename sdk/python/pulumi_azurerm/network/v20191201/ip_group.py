@@ -18,8 +18,8 @@ class IpGroup(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  id: Optional[pulumi.Input[str]] = None,
                  ip_addresses: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 ip_groups_name: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None,
@@ -32,8 +32,8 @@ class IpGroup(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] id: Resource ID.
         :param pulumi.Input[List[pulumi.Input[str]]] ip_addresses: IpAddresses/IpAddressPrefixes in the IpGroups resource.
+        :param pulumi.Input[str] ip_groups_name: The name of the ipGroups.
         :param pulumi.Input[str] location: Resource location.
-        :param pulumi.Input[str] name: The name of the ipGroups.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
@@ -56,16 +56,17 @@ class IpGroup(pulumi.CustomResource):
 
             __props__['id'] = id
             __props__['ip_addresses'] = ip_addresses
+            if ip_groups_name is None:
+                raise TypeError("Missing required property 'ip_groups_name'")
+            __props__['ip_groups_name'] = ip_groups_name
             __props__['location'] = location
-            if name is None:
-                raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['tags'] = tags
             __props__['etag'] = None
             __props__['firewalls'] = None
+            __props__['name'] = None
             __props__['provisioning_state'] = None
             __props__['type'] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:network/v20190901:IpGroup"), pulumi.Alias(type_="azurerm:network/v20191101:IpGroup"), pulumi.Alias(type_="azurerm:network/v20200301:IpGroup"), pulumi.Alias(type_="azurerm:network/v20200401:IpGroup"), pulumi.Alias(type_="azurerm:network/v20200501:IpGroup"), pulumi.Alias(type_="azurerm:network/v20200601:IpGroup")])

@@ -91,19 +91,19 @@ class AwaitableGetPrivateEndpointConnectionResult(GetPrivateEndpointConnectionRe
             type=self.type)
 
 
-def get_private_endpoint_connection(name: Optional[str] = None,
+def get_private_endpoint_connection(private_endpoint_connection_name: Optional[str] = None,
                                     resource_group_name: Optional[str] = None,
                                     resource_name: Optional[str] = None,
                                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPrivateEndpointConnectionResult:
     """
     Use this data source to access information about an existing resource.
 
-    :param str name: The name of the private endpoint connection.
+    :param str private_endpoint_connection_name: The name of the private endpoint connection.
     :param str resource_group_name: The name of the resource group.
     :param str resource_name: The name of the managed cluster resource.
     """
     __args__ = dict()
-    __args__['name'] = name
+    __args__['privateEndpointConnectionName'] = private_endpoint_connection_name
     __args__['resourceGroupName'] = resource_group_name
     __args__['resourceName'] = resource_name
     if opts is None:

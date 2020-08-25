@@ -18,8 +18,8 @@ class NotificationHub(pulumi.CustomResource):
                  resource_name,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
                  namespace_name: Optional[pulumi.Input[str]] = None,
+                 notification_hub_name: Optional[pulumi.Input[str]] = None,
                  properties: Optional[pulumi.Input[pulumi.InputType['NotificationHubPropertiesArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -32,8 +32,8 @@ class NotificationHub(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] location: Gets or sets NotificationHub data center location.
-        :param pulumi.Input[str] name: The notification hub name.
         :param pulumi.Input[str] namespace_name: The namespace name.
+        :param pulumi.Input[str] notification_hub_name: The notification hub name.
         :param pulumi.Input[pulumi.InputType['NotificationHubPropertiesArgs']] properties: Gets or sets properties of the NotificationHub.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Gets or sets NotificationHub tags.
@@ -58,12 +58,12 @@ class NotificationHub(pulumi.CustomResource):
             if location is None:
                 raise TypeError("Missing required property 'location'")
             __props__['location'] = location
-            if name is None:
-                raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
             if namespace_name is None:
                 raise TypeError("Missing required property 'namespace_name'")
             __props__['namespace_name'] = namespace_name
+            if notification_hub_name is None:
+                raise TypeError("Missing required property 'notification_hub_name'")
+            __props__['notification_hub_name'] = notification_hub_name
             if properties is None:
                 raise TypeError("Missing required property 'properties'")
             __props__['properties'] = properties
@@ -71,6 +71,7 @@ class NotificationHub(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['tags'] = tags
+            __props__['name'] = None
             __props__['type'] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:notificationhubs/v20160301:NotificationHub"), pulumi.Alias(type_="azurerm:notificationhubs/v20170401:NotificationHub")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)

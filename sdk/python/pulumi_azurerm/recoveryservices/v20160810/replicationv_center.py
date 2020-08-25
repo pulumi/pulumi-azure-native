@@ -18,10 +18,10 @@ class ReplicationvCenter(pulumi.CustomResource):
                  resource_name,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  fabric_name: Optional[pulumi.Input[str]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
                  properties: Optional[pulumi.Input[pulumi.InputType['AddVCenterRequestPropertiesArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  resource_name_: Optional[pulumi.Input[str]] = None,
+                 v_center_name: Optional[pulumi.Input[str]] = None,
                  __props__=None,
                  __name__=None,
                  __opts__=None):
@@ -31,10 +31,10 @@ class ReplicationvCenter(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] fabric_name: Fabric name.
-        :param pulumi.Input[str] name: vCenter name.
         :param pulumi.Input[pulumi.InputType['AddVCenterRequestPropertiesArgs']] properties: The properties of an add vCenter request.
         :param pulumi.Input[str] resource_group_name: The name of the resource group where the recovery services vault is present.
         :param pulumi.Input[str] resource_name_: The name of the recovery services vault.
+        :param pulumi.Input[str] v_center_name: vCenter name.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -56,9 +56,6 @@ class ReplicationvCenter(pulumi.CustomResource):
             if fabric_name is None:
                 raise TypeError("Missing required property 'fabric_name'")
             __props__['fabric_name'] = fabric_name
-            if name is None:
-                raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
             __props__['properties'] = properties
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
@@ -66,7 +63,11 @@ class ReplicationvCenter(pulumi.CustomResource):
             if resource_name_ is None:
                 raise TypeError("Missing required property 'resource_name_'")
             __props__['resource_name'] = resource_name_
+            if v_center_name is None:
+                raise TypeError("Missing required property 'v_center_name'")
+            __props__['v_center_name'] = v_center_name
             __props__['location'] = None
+            __props__['name'] = None
             __props__['type'] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:recoveryservices/v20180110:ReplicationvCenter"), pulumi.Alias(type_="azurerm:recoveryservices/v20180710:ReplicationvCenter")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)

@@ -22,12 +22,12 @@ class Service(pulumi.CustomResource):
                  correlation_scheme: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['ServiceCorrelationDescriptionArgs']]]]] = None,
                  default_move_cost: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
                  partition_description: Optional[pulumi.Input[pulumi.InputType['PartitionSchemeDescriptionArgs']]] = None,
                  placement_constraints: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  service_kind: Optional[pulumi.Input[str]] = None,
                  service_load_metrics: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['ServiceLoadMetricDescriptionArgs']]]]] = None,
+                 service_name: Optional[pulumi.Input[str]] = None,
                  service_package_activation_mode: Optional[pulumi.Input[str]] = None,
                  service_placement_policies: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['ServicePlacementPolicyDescriptionArgs']]]]] = None,
                  service_type_name: Optional[pulumi.Input[str]] = None,
@@ -45,12 +45,12 @@ class Service(pulumi.CustomResource):
         :param pulumi.Input[List[pulumi.Input[pulumi.InputType['ServiceCorrelationDescriptionArgs']]]] correlation_scheme: A list that describes the correlation of the service with other services.
         :param pulumi.Input[str] default_move_cost: Specifies the move cost for the service.
         :param pulumi.Input[str] location: It will be deprecated in New API, resource location depends on the parent resource.
-        :param pulumi.Input[str] name: The name of the service resource in the format of {applicationName}~{serviceName}.
         :param pulumi.Input[pulumi.InputType['PartitionSchemeDescriptionArgs']] partition_description: Describes how the service is partitioned.
         :param pulumi.Input[str] placement_constraints: The placement constraints as a string. Placement constraints are boolean expressions on node properties and allow for restricting a service to particular nodes based on the service requirements. For example, to place a service on nodes where NodeType is blue specify the following: "NodeColor == blue)".
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[str] service_kind: The kind of service (Stateless or Stateful).
         :param pulumi.Input[List[pulumi.Input[pulumi.InputType['ServiceLoadMetricDescriptionArgs']]]] service_load_metrics: The service load metrics is given as an array of ServiceLoadMetricDescription objects.
+        :param pulumi.Input[str] service_name: The name of the service resource in the format of {applicationName}~{serviceName}.
         :param pulumi.Input[str] service_package_activation_mode: The activation Mode of the service package
         :param pulumi.Input[List[pulumi.Input[pulumi.InputType['ServicePlacementPolicyDescriptionArgs']]]] service_placement_policies: A list that describes the correlation of the service with other services.
         :param pulumi.Input[str] service_type_name: The name of the service type
@@ -82,9 +82,6 @@ class Service(pulumi.CustomResource):
             __props__['correlation_scheme'] = correlation_scheme
             __props__['default_move_cost'] = default_move_cost
             __props__['location'] = location
-            if name is None:
-                raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
             __props__['partition_description'] = partition_description
             __props__['placement_constraints'] = placement_constraints
             if resource_group_name is None:
@@ -94,11 +91,15 @@ class Service(pulumi.CustomResource):
                 raise TypeError("Missing required property 'service_kind'")
             __props__['service_kind'] = service_kind
             __props__['service_load_metrics'] = service_load_metrics
+            if service_name is None:
+                raise TypeError("Missing required property 'service_name'")
+            __props__['service_name'] = service_name
             __props__['service_package_activation_mode'] = service_package_activation_mode
             __props__['service_placement_policies'] = service_placement_policies
             __props__['service_type_name'] = service_type_name
             __props__['tags'] = tags
             __props__['etag'] = None
+            __props__['name'] = None
             __props__['provisioning_state'] = None
             __props__['type'] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:servicefabric/v20200301:Service")])

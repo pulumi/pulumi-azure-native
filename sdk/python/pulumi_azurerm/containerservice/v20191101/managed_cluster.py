@@ -29,10 +29,10 @@ class ManagedCluster(pulumi.CustomResource):
                  kubernetes_version: Optional[pulumi.Input[str]] = None,
                  linux_profile: Optional[pulumi.Input[pulumi.InputType['ContainerServiceLinuxProfileArgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
                  network_profile: Optional[pulumi.Input[pulumi.InputType['ContainerServiceNetworkProfileArgs']]] = None,
                  node_resource_group: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
+                 resource_name_: Optional[pulumi.Input[str]] = None,
                  service_principal_profile: Optional[pulumi.Input[pulumi.InputType['ManagedClusterServicePrincipalProfileArgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  windows_profile: Optional[pulumi.Input[pulumi.InputType['ManagedClusterWindowsProfileArgs']]] = None,
@@ -56,10 +56,10 @@ class ManagedCluster(pulumi.CustomResource):
         :param pulumi.Input[str] kubernetes_version: Version of Kubernetes specified when creating the managed cluster.
         :param pulumi.Input[pulumi.InputType['ContainerServiceLinuxProfileArgs']] linux_profile: Profile for Linux VMs in the container service cluster.
         :param pulumi.Input[str] location: Resource location
-        :param pulumi.Input[str] name: The name of the managed cluster resource.
         :param pulumi.Input[pulumi.InputType['ContainerServiceNetworkProfileArgs']] network_profile: Profile of network configuration.
         :param pulumi.Input[str] node_resource_group: Name of the resource group containing agent pool nodes.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
+        :param pulumi.Input[str] resource_name_: The name of the managed cluster resource.
         :param pulumi.Input[pulumi.InputType['ManagedClusterServicePrincipalProfileArgs']] service_principal_profile: Information about a service principal identity for the cluster to use for manipulating Azure APIs.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags
         :param pulumi.Input[pulumi.InputType['ManagedClusterWindowsProfileArgs']] windows_profile: Profile for Windows VMs in the container service cluster.
@@ -95,19 +95,20 @@ class ManagedCluster(pulumi.CustomResource):
             if location is None:
                 raise TypeError("Missing required property 'location'")
             __props__['location'] = location
-            if name is None:
-                raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
             __props__['network_profile'] = network_profile
             __props__['node_resource_group'] = node_resource_group
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
+            if resource_name_ is None:
+                raise TypeError("Missing required property 'resource_name_'")
+            __props__['resource_name'] = resource_name_
             __props__['service_principal_profile'] = service_principal_profile
             __props__['tags'] = tags
             __props__['windows_profile'] = windows_profile
             __props__['fqdn'] = None
             __props__['max_agent_pools'] = None
+            __props__['name'] = None
             __props__['private_fqdn'] = None
             __props__['provisioning_state'] = None
             __props__['type'] = None

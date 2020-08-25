@@ -200,20 +200,20 @@ class AwaitableGetRosettaNetProcessConfigurationResult(GetRosettaNetProcessConfi
 
 
 def get_rosetta_net_process_configuration(integration_account_name: Optional[str] = None,
-                                          name: Optional[str] = None,
                                           resource_group_name: Optional[str] = None,
+                                          rosetta_net_process_configuration_name: Optional[str] = None,
                                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetRosettaNetProcessConfigurationResult:
     """
     Use this data source to access information about an existing resource.
 
     :param str integration_account_name: The integration account name.
-    :param str name: The integration account RosettaNetProcessConfiguration name.
     :param str resource_group_name: The resource group name.
+    :param str rosetta_net_process_configuration_name: The integration account RosettaNetProcessConfiguration name.
     """
     __args__ = dict()
     __args__['integrationAccountName'] = integration_account_name
-    __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
+    __args__['rosettaNetProcessConfigurationName'] = rosetta_net_process_configuration_name
     if opts is None:
         opts = pulumi.InvokeOptions()
     if opts.version is None:

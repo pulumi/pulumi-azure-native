@@ -198,7 +198,8 @@ class AwaitableGetSiteInstanceDeploymentSlotResult(GetSiteInstanceDeploymentSlot
             type=self.type)
 
 
-def get_site_instance_deployment_slot(instance_id: Optional[str] = None,
+def get_site_instance_deployment_slot(id: Optional[str] = None,
+                                      instance_id: Optional[str] = None,
                                       name: Optional[str] = None,
                                       resource_group_name: Optional[str] = None,
                                       slot: Optional[str] = None,
@@ -206,12 +207,14 @@ def get_site_instance_deployment_slot(instance_id: Optional[str] = None,
     """
     Use this data source to access information about an existing resource.
 
+    :param str id: Id of the deployment
     :param str instance_id: Id of web app instance
-    :param str name: Id of the deployment
+    :param str name: Name of web app
     :param str resource_group_name: Name of resource group
     :param str slot: Name of web app slot. If not specified then will default to production slot.
     """
     __args__ = dict()
+    __args__['id'] = id
     __args__['instanceId'] = instance_id
     __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name

@@ -199,18 +199,18 @@ class AwaitableGetVpnSiteResult(GetVpnSiteResult):
             vpn_site_links=self.vpn_site_links)
 
 
-def get_vpn_site(name: Optional[str] = None,
-                 resource_group_name: Optional[str] = None,
+def get_vpn_site(resource_group_name: Optional[str] = None,
+                 vpn_site_name: Optional[str] = None,
                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVpnSiteResult:
     """
     Use this data source to access information about an existing resource.
 
-    :param str name: The name of the VpnSite being retrieved.
     :param str resource_group_name: The resource group name of the VpnSite.
+    :param str vpn_site_name: The name of the VpnSite being retrieved.
     """
     __args__ = dict()
-    __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
+    __args__['vpnSiteName'] = vpn_site_name
     if opts is None:
         opts = pulumi.InvokeOptions()
     if opts.version is None:

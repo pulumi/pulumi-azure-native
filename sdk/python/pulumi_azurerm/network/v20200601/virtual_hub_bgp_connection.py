@@ -15,6 +15,7 @@ class VirtualHubBgpConnection(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 connection_name: Optional[pulumi.Input[str]] = None,
                  id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  peer_asn: Optional[pulumi.Input[float]] = None,
@@ -29,8 +30,9 @@ class VirtualHubBgpConnection(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] connection_name: The name of the connection.
         :param pulumi.Input[str] id: Resource ID.
-        :param pulumi.Input[str] name: The name of the connection.
+        :param pulumi.Input[str] name: Name of the connection.
         :param pulumi.Input[float] peer_asn: Peer ASN.
         :param pulumi.Input[str] peer_ip: Peer IP.
         :param pulumi.Input[str] resource_group_name: The resource group name of the VirtualHub.
@@ -53,9 +55,10 @@ class VirtualHubBgpConnection(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
+            if connection_name is None:
+                raise TypeError("Missing required property 'connection_name'")
+            __props__['connection_name'] = connection_name
             __props__['id'] = id
-            if name is None:
-                raise TypeError("Missing required property 'name'")
             __props__['name'] = name
             __props__['peer_asn'] = peer_asn
             __props__['peer_ip'] = peer_ip

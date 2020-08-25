@@ -16,8 +16,8 @@ class DataSetMapping(pulumi.CustomResource):
                  resource_name,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_name: Optional[pulumi.Input[str]] = None,
+                 data_set_mapping_name: Optional[pulumi.Input[str]] = None,
                  kind: Optional[pulumi.Input[str]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  share_subscription_name: Optional[pulumi.Input[str]] = None,
                  __props__=None,
@@ -29,8 +29,8 @@ class DataSetMapping(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_name: The name of the share account.
+        :param pulumi.Input[str] data_set_mapping_name: The name of the data set mapping to be created.
         :param pulumi.Input[str] kind: Kind of data set mapping.
-        :param pulumi.Input[str] name: The name of the data set mapping to be created.
         :param pulumi.Input[str] resource_group_name: The resource group name.
         :param pulumi.Input[str] share_subscription_name: The name of the share subscription which will hold the data set sink.
         """
@@ -54,18 +54,19 @@ class DataSetMapping(pulumi.CustomResource):
             if account_name is None:
                 raise TypeError("Missing required property 'account_name'")
             __props__['account_name'] = account_name
+            if data_set_mapping_name is None:
+                raise TypeError("Missing required property 'data_set_mapping_name'")
+            __props__['data_set_mapping_name'] = data_set_mapping_name
             if kind is None:
                 raise TypeError("Missing required property 'kind'")
             __props__['kind'] = kind
-            if name is None:
-                raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             if share_subscription_name is None:
                 raise TypeError("Missing required property 'share_subscription_name'")
             __props__['share_subscription_name'] = share_subscription_name
+            __props__['name'] = None
             __props__['type'] = None
         super(DataSetMapping, __self__).__init__(
             'azurerm:datashare/v20191101:DataSetMapping',

@@ -17,11 +17,11 @@ class ApiVersionSet(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  service_name: Optional[pulumi.Input[str]] = None,
                  version_header_name: Optional[pulumi.Input[str]] = None,
                  version_query_name: Optional[pulumi.Input[str]] = None,
+                 version_set_id: Optional[pulumi.Input[str]] = None,
                  versioning_scheme: Optional[pulumi.Input[str]] = None,
                  __props__=None,
                  __name__=None,
@@ -33,11 +33,11 @@ class ApiVersionSet(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: Description of API Version Set.
         :param pulumi.Input[str] display_name: Name of API Version Set
-        :param pulumi.Input[str] name: Api Version Set identifier. Must be unique in the current API Management service instance.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[str] service_name: The name of the API Management service.
         :param pulumi.Input[str] version_header_name: Name of HTTP header parameter that indicates the API Version if versioningScheme is set to `header`.
         :param pulumi.Input[str] version_query_name: Name of query parameter that indicates the API Version if versioningScheme is set to `query`.
+        :param pulumi.Input[str] version_set_id: Api Version Set identifier. Must be unique in the current API Management service instance.
         :param pulumi.Input[str] versioning_scheme: An value that determines where the API Version identifer will be located in a HTTP request.
         """
         if __name__ is not None:
@@ -61,9 +61,6 @@ class ApiVersionSet(pulumi.CustomResource):
             if display_name is None:
                 raise TypeError("Missing required property 'display_name'")
             __props__['display_name'] = display_name
-            if name is None:
-                raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
@@ -72,9 +69,13 @@ class ApiVersionSet(pulumi.CustomResource):
             __props__['service_name'] = service_name
             __props__['version_header_name'] = version_header_name
             __props__['version_query_name'] = version_query_name
+            if version_set_id is None:
+                raise TypeError("Missing required property 'version_set_id'")
+            __props__['version_set_id'] = version_set_id
             if versioning_scheme is None:
                 raise TypeError("Missing required property 'versioning_scheme'")
             __props__['versioning_scheme'] = versioning_scheme
+            __props__['name'] = None
             __props__['type'] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:apimanagement/v20180101:ApiVersionSet")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
