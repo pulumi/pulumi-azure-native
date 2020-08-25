@@ -46,6 +46,12 @@ namespace Pulumi.AzureRM.AppPlatform.V20200701.Inputs
         public Input<int>? MemoryInGB { get; set; }
 
         /// <summary>
+        /// The path to the .NET executable relative to zip root
+        /// </summary>
+        [Input("netCoreMainEntryPath")]
+        public Input<string>? NetCoreMainEntryPath { get; set; }
+
+        /// <summary>
         /// Runtime version
         /// </summary>
         [Input("runtimeVersion")]

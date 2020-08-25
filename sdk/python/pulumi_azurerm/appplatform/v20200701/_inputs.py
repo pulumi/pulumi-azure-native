@@ -349,6 +349,7 @@ class DeploymentSettingsArgs:
                  environment_variables: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  jvm_options: Optional[pulumi.Input[str]] = None,
                  memory_in_gb: Optional[pulumi.Input[float]] = None,
+                 net_core_main_entry_path: Optional[pulumi.Input[str]] = None,
                  runtime_version: Optional[pulumi.Input[str]] = None):
         """
         Deployment settings payload
@@ -356,6 +357,7 @@ class DeploymentSettingsArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] environment_variables: Collection of environment variables
         :param pulumi.Input[str] jvm_options: JVM parameter
         :param pulumi.Input[float] memory_in_gb: Required Memory size in GB, basic tier should be in range (1, 2), standard tier should be in range (1, 8)
+        :param pulumi.Input[str] net_core_main_entry_path: The path to the .NET executable relative to zip root
         :param pulumi.Input[str] runtime_version: Runtime version
         """
         if cpu is not None:
@@ -366,6 +368,8 @@ class DeploymentSettingsArgs:
             pulumi.set(__self__, "jvm_options", jvm_options)
         if memory_in_gb is not None:
             pulumi.set(__self__, "memory_in_gb", memory_in_gb)
+        if net_core_main_entry_path is not None:
+            pulumi.set(__self__, "net_core_main_entry_path", net_core_main_entry_path)
         if runtime_version is not None:
             pulumi.set(__self__, "runtime_version", runtime_version)
 
@@ -416,6 +420,18 @@ class DeploymentSettingsArgs:
     @memory_in_gb.setter
     def memory_in_gb(self, value: Optional[pulumi.Input[float]]):
         pulumi.set(self, "memory_in_gb", value)
+
+    @property
+    @pulumi.getter(name="netCoreMainEntryPath")
+    def net_core_main_entry_path(self) -> Optional[pulumi.Input[str]]:
+        """
+        The path to the .NET executable relative to zip root
+        """
+        return pulumi.get(self, "net_core_main_entry_path")
+
+    @net_core_main_entry_path.setter
+    def net_core_main_entry_path(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "net_core_main_entry_path", value)
 
     @property
     @pulumi.getter(name="runtimeVersion")
