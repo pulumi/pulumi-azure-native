@@ -52,11 +52,11 @@ func NewDisk(ctx *pulumi.Context,
 	if args == nil || args.CreationData == nil {
 		return nil, errors.New("missing required argument 'CreationData'")
 	}
+	if args == nil || args.DiskName == nil {
+		return nil, errors.New("missing required argument 'DiskName'")
+	}
 	if args == nil || args.Location == nil {
 		return nil, errors.New("missing required argument 'Location'")
-	}
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
 	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
@@ -189,14 +189,14 @@ type diskArgs struct {
 	DiskIOPSReadWrite *int `pulumi:"diskIOPSReadWrite"`
 	// The bandwidth allowed for this disk; only settable for UltraSSD disks. MBps means millions of bytes per second - MB here uses the ISO notation, of powers of 10. For a description of the range of values you can set, see [Ultra SSD Managed Disk Offerings](https://docs.microsoft.com/azure/virtual-machines/windows/disks-ultra-ssd#ultra-ssd-managed-disk-offerings).
 	DiskMBpsReadWrite *int `pulumi:"diskMBpsReadWrite"`
+	// The name of the managed disk that is being created. The name can't be changed after the disk is created. Supported characters for the name are a-z, A-Z, 0-9 and _. The maximum name length is 80 characters.
+	DiskName string `pulumi:"diskName"`
 	// If creationData.createOption is Empty, this field is mandatory and it indicates the size of the VHD to create. If this field is present for updates or creation with other options, it indicates a resize. Resizes are only allowed if the disk is not attached to a running VM, and can only increase the disk's size.
 	DiskSizeGB *int `pulumi:"diskSizeGB"`
 	// Encryption settings for disk or snapshot
 	EncryptionSettings *EncryptionSettings `pulumi:"encryptionSettings"`
 	// Resource location
 	Location string `pulumi:"location"`
-	// The name of the managed disk that is being created. The name can't be changed after the disk is created. Supported characters for the name are a-z, A-Z, 0-9 and _. The maximum name length is 80 characters.
-	Name string `pulumi:"name"`
 	// The Operating System type.
 	OsType *string `pulumi:"osType"`
 	// The name of the resource group.
@@ -217,14 +217,14 @@ type DiskArgs struct {
 	DiskIOPSReadWrite pulumi.IntPtrInput
 	// The bandwidth allowed for this disk; only settable for UltraSSD disks. MBps means millions of bytes per second - MB here uses the ISO notation, of powers of 10. For a description of the range of values you can set, see [Ultra SSD Managed Disk Offerings](https://docs.microsoft.com/azure/virtual-machines/windows/disks-ultra-ssd#ultra-ssd-managed-disk-offerings).
 	DiskMBpsReadWrite pulumi.IntPtrInput
+	// The name of the managed disk that is being created. The name can't be changed after the disk is created. Supported characters for the name are a-z, A-Z, 0-9 and _. The maximum name length is 80 characters.
+	DiskName pulumi.StringInput
 	// If creationData.createOption is Empty, this field is mandatory and it indicates the size of the VHD to create. If this field is present for updates or creation with other options, it indicates a resize. Resizes are only allowed if the disk is not attached to a running VM, and can only increase the disk's size.
 	DiskSizeGB pulumi.IntPtrInput
 	// Encryption settings for disk or snapshot
 	EncryptionSettings EncryptionSettingsPtrInput
 	// Resource location
 	Location pulumi.StringInput
-	// The name of the managed disk that is being created. The name can't be changed after the disk is created. Supported characters for the name are a-z, A-Z, 0-9 and _. The maximum name length is 80 characters.
-	Name pulumi.StringInput
 	// The Operating System type.
 	OsType pulumi.StringPtrInput
 	// The name of the resource group.

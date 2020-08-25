@@ -18,7 +18,7 @@ func LookupJob(ctx *pulumi.Context, args *LookupJobArgs, opts ...pulumi.InvokeOp
 
 type LookupJobArgs struct {
 	// The name of the import/export job.
-	Name string `pulumi:"name"`
+	JobName string `pulumi:"jobName"`
 	// The resource group name uniquely identifies the resource group within the user subscription.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }

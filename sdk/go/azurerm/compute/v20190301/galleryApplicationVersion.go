@@ -36,14 +36,14 @@ func NewGalleryApplicationVersion(ctx *pulumi.Context,
 	if args == nil || args.GalleryApplicationName == nil {
 		return nil, errors.New("missing required argument 'GalleryApplicationName'")
 	}
+	if args == nil || args.GalleryApplicationVersionName == nil {
+		return nil, errors.New("missing required argument 'GalleryApplicationVersionName'")
+	}
 	if args == nil || args.GalleryName == nil {
 		return nil, errors.New("missing required argument 'GalleryName'")
 	}
 	if args == nil || args.Location == nil {
 		return nil, errors.New("missing required argument 'Location'")
-	}
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
 	}
 	if args == nil || args.PublishingProfile == nil {
 		return nil, errors.New("missing required argument 'PublishingProfile'")
@@ -125,12 +125,12 @@ func (GalleryApplicationVersionState) ElementType() reflect.Type {
 type galleryApplicationVersionArgs struct {
 	// The name of the gallery Application Definition in which the Application Version is to be created.
 	GalleryApplicationName string `pulumi:"galleryApplicationName"`
+	// The name of the gallery Application Version to be created. Needs to follow semantic version name pattern: The allowed characters are digit and period. Digits must be within the range of a 32-bit integer. Format: <MajorVersion>.<MinorVersion>.<Patch>
+	GalleryApplicationVersionName string `pulumi:"galleryApplicationVersionName"`
 	// The name of the Shared Application Gallery in which the Application Definition resides.
 	GalleryName string `pulumi:"galleryName"`
 	// Resource location
 	Location string `pulumi:"location"`
-	// The name of the gallery Application Version to be created. Needs to follow semantic version name pattern: The allowed characters are digit and period. Digits must be within the range of a 32-bit integer. Format: <MajorVersion>.<MinorVersion>.<Patch>
-	Name string `pulumi:"name"`
 	// The publishing profile of a gallery Image Version.
 	PublishingProfile GalleryApplicationVersionPublishingProfile `pulumi:"publishingProfile"`
 	// The name of the resource group.
@@ -143,12 +143,12 @@ type galleryApplicationVersionArgs struct {
 type GalleryApplicationVersionArgs struct {
 	// The name of the gallery Application Definition in which the Application Version is to be created.
 	GalleryApplicationName pulumi.StringInput
+	// The name of the gallery Application Version to be created. Needs to follow semantic version name pattern: The allowed characters are digit and period. Digits must be within the range of a 32-bit integer. Format: <MajorVersion>.<MinorVersion>.<Patch>
+	GalleryApplicationVersionName pulumi.StringInput
 	// The name of the Shared Application Gallery in which the Application Definition resides.
 	GalleryName pulumi.StringInput
 	// Resource location
 	Location pulumi.StringInput
-	// The name of the gallery Application Version to be created. Needs to follow semantic version name pattern: The allowed characters are digit and period. Digits must be within the range of a 32-bit integer. Format: <MajorVersion>.<MinorVersion>.<Patch>
-	Name pulumi.StringInput
 	// The publishing profile of a gallery Image Version.
 	PublishingProfile GalleryApplicationVersionPublishingProfileInput
 	// The name of the resource group.

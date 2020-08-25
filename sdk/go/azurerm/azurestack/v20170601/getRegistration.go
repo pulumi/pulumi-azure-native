@@ -18,7 +18,7 @@ func LookupRegistration(ctx *pulumi.Context, args *LookupRegistrationArgs, opts 
 
 type LookupRegistrationArgs struct {
 	// Name of the Azure Stack registration.
-	Name string `pulumi:"name"`
+	RegistrationName string `pulumi:"registrationName"`
 	// Name of the resource group.
 	ResourceGroup string `pulumi:"resourceGroup"`
 }

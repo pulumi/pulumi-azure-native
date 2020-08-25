@@ -39,14 +39,14 @@ type VirtualNetworkPeering struct {
 // NewVirtualNetworkPeering registers a new resource with the given unique name, arguments, and options.
 func NewVirtualNetworkPeering(ctx *pulumi.Context,
 	name string, args *VirtualNetworkPeeringArgs, opts ...pulumi.ResourceOption) (*VirtualNetworkPeering, error) {
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
-	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
 	}
 	if args == nil || args.VirtualNetworkName == nil {
 		return nil, errors.New("missing required argument 'VirtualNetworkName'")
+	}
+	if args == nil || args.VirtualNetworkPeeringName == nil {
+		return nil, errors.New("missing required argument 'VirtualNetworkPeeringName'")
 	}
 	if args == nil {
 		args = &VirtualNetworkPeeringArgs{}
@@ -221,8 +221,8 @@ type virtualNetworkPeeringArgs struct {
 	AllowVirtualNetworkAccess *bool `pulumi:"allowVirtualNetworkAccess"`
 	// Resource ID.
 	Id *string `pulumi:"id"`
-	// The name of the peering.
-	Name string `pulumi:"name"`
+	// The name of the resource that is unique within a resource group. This name can be used to access the resource.
+	Name *string `pulumi:"name"`
 	// The status of the virtual network peering.
 	PeeringState *string `pulumi:"peeringState"`
 	// The reference of the remote virtual network address space.
@@ -235,6 +235,8 @@ type virtualNetworkPeeringArgs struct {
 	UseRemoteGateways *bool `pulumi:"useRemoteGateways"`
 	// The name of the virtual network.
 	VirtualNetworkName string `pulumi:"virtualNetworkName"`
+	// The name of the peering.
+	VirtualNetworkPeeringName string `pulumi:"virtualNetworkPeeringName"`
 }
 
 // The set of arguments for constructing a VirtualNetworkPeering resource.
@@ -247,8 +249,8 @@ type VirtualNetworkPeeringArgs struct {
 	AllowVirtualNetworkAccess pulumi.BoolPtrInput
 	// Resource ID.
 	Id pulumi.StringPtrInput
-	// The name of the peering.
-	Name pulumi.StringInput
+	// The name of the resource that is unique within a resource group. This name can be used to access the resource.
+	Name pulumi.StringPtrInput
 	// The status of the virtual network peering.
 	PeeringState pulumi.StringPtrInput
 	// The reference of the remote virtual network address space.
@@ -261,6 +263,8 @@ type VirtualNetworkPeeringArgs struct {
 	UseRemoteGateways pulumi.BoolPtrInput
 	// The name of the virtual network.
 	VirtualNetworkName pulumi.StringInput
+	// The name of the peering.
+	VirtualNetworkPeeringName pulumi.StringInput
 }
 
 func (VirtualNetworkPeeringArgs) ElementType() reflect.Type {

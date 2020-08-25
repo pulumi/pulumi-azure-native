@@ -19,10 +19,10 @@ func LookupStorageDomain(ctx *pulumi.Context, args *LookupStorageDomainArgs, opt
 type LookupStorageDomainArgs struct {
 	// The manager name
 	ManagerName string `pulumi:"managerName"`
-	// The storage domain name.
-	Name string `pulumi:"name"`
 	// The resource group name
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// The storage domain name.
+	StorageDomainName string `pulumi:"storageDomainName"`
 }
 
 // The storage domain.

@@ -45,11 +45,11 @@ type Bookmark struct {
 // NewBookmark registers a new resource with the given unique name, arguments, and options.
 func NewBookmark(ctx *pulumi.Context,
 	name string, args *BookmarkArgs, opts ...pulumi.ResourceOption) (*Bookmark, error) {
+	if args == nil || args.BookmarkId == nil {
+		return nil, errors.New("missing required argument 'BookmarkId'")
+	}
 	if args == nil || args.DisplayName == nil {
 		return nil, errors.New("missing required argument 'DisplayName'")
-	}
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
 	}
 	if args == nil || args.Query == nil {
 		return nil, errors.New("missing required argument 'Query'")
@@ -147,6 +147,8 @@ func (BookmarkState) ElementType() reflect.Type {
 }
 
 type bookmarkArgs struct {
+	// Bookmark ID
+	BookmarkId string `pulumi:"bookmarkId"`
 	// The time the bookmark was created
 	Created *string `pulumi:"created"`
 	// Describes a user that created the bookmark
@@ -159,8 +161,6 @@ type bookmarkArgs struct {
 	IncidentInfo *IncidentInfo `pulumi:"incidentInfo"`
 	// List of labels relevant to this bookmark
 	Labels []string `pulumi:"labels"`
-	// Bookmark ID
-	Name string `pulumi:"name"`
 	// The notes of the bookmark
 	Notes *string `pulumi:"notes"`
 	// The query of the bookmark.
@@ -179,6 +179,8 @@ type bookmarkArgs struct {
 
 // The set of arguments for constructing a Bookmark resource.
 type BookmarkArgs struct {
+	// Bookmark ID
+	BookmarkId pulumi.StringInput
 	// The time the bookmark was created
 	Created pulumi.StringPtrInput
 	// Describes a user that created the bookmark
@@ -191,8 +193,6 @@ type BookmarkArgs struct {
 	IncidentInfo IncidentInfoPtrInput
 	// List of labels relevant to this bookmark
 	Labels pulumi.StringArrayInput
-	// Bookmark ID
-	Name pulumi.StringInput
 	// The notes of the bookmark
 	Notes pulumi.StringPtrInput
 	// The query of the bookmark.

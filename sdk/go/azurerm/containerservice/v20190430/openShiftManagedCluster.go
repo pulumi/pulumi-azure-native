@@ -52,14 +52,14 @@ func NewOpenShiftManagedCluster(ctx *pulumi.Context,
 	if args == nil || args.Location == nil {
 		return nil, errors.New("missing required argument 'Location'")
 	}
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
-	}
 	if args == nil || args.OpenShiftVersion == nil {
 		return nil, errors.New("missing required argument 'OpenShiftVersion'")
 	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
+	}
+	if args == nil || args.ResourceName == nil {
+		return nil, errors.New("missing required argument 'ResourceName'")
 	}
 	if args == nil {
 		args = &OpenShiftManagedClusterArgs{}
@@ -164,8 +164,6 @@ type openShiftManagedClusterArgs struct {
 	Location string `pulumi:"location"`
 	// Configuration for OpenShift master VMs.
 	MasterPoolProfile *OpenShiftManagedClusterMasterPoolProfile `pulumi:"masterPoolProfile"`
-	// The name of the OpenShift managed cluster resource.
-	Name string `pulumi:"name"`
 	// Configuration for OpenShift networking.
 	NetworkProfile *NetworkProfile `pulumi:"networkProfile"`
 	// Version of OpenShift specified when creating the cluster.
@@ -174,6 +172,8 @@ type openShiftManagedClusterArgs struct {
 	Plan *PurchasePlan `pulumi:"plan"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// The name of the OpenShift managed cluster resource.
+	ResourceName string `pulumi:"resourceName"`
 	// Configuration for OpenShift router(s).
 	RouterProfiles []OpenShiftRouterProfile `pulumi:"routerProfiles"`
 	// Resource tags
@@ -190,8 +190,6 @@ type OpenShiftManagedClusterArgs struct {
 	Location pulumi.StringInput
 	// Configuration for OpenShift master VMs.
 	MasterPoolProfile OpenShiftManagedClusterMasterPoolProfilePtrInput
-	// The name of the OpenShift managed cluster resource.
-	Name pulumi.StringInput
 	// Configuration for OpenShift networking.
 	NetworkProfile NetworkProfilePtrInput
 	// Version of OpenShift specified when creating the cluster.
@@ -200,6 +198,8 @@ type OpenShiftManagedClusterArgs struct {
 	Plan PurchasePlanPtrInput
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
+	// The name of the OpenShift managed cluster resource.
+	ResourceName pulumi.StringInput
 	// Configuration for OpenShift router(s).
 	RouterProfiles OpenShiftRouterProfileArrayInput
 	// Resource tags

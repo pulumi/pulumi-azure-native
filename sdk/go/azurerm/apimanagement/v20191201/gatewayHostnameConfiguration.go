@@ -32,8 +32,8 @@ func NewGatewayHostnameConfiguration(ctx *pulumi.Context,
 	if args == nil || args.GatewayId == nil {
 		return nil, errors.New("missing required argument 'GatewayId'")
 	}
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
+	if args == nil || args.HcId == nil {
+		return nil, errors.New("missing required argument 'HcId'")
 	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
@@ -100,10 +100,10 @@ type gatewayHostnameConfigurationArgs struct {
 	CertificateId *string `pulumi:"certificateId"`
 	// Gateway entity identifier. Must be unique in the current API Management service instance. Must not have value 'managed'
 	GatewayId string `pulumi:"gatewayId"`
+	// Gateway hostname configuration identifier. Must be unique in the scope of parent Gateway entity.
+	HcId string `pulumi:"hcId"`
 	// Hostname value. Supports valid domain name, partial or full wildcard
 	Hostname *string `pulumi:"hostname"`
-	// Gateway hostname configuration identifier. Must be unique in the scope of parent Gateway entity.
-	Name string `pulumi:"name"`
 	// Determines whether gateway requests client certificate
 	NegotiateClientCertificate *bool `pulumi:"negotiateClientCertificate"`
 	// The name of the resource group.
@@ -118,10 +118,10 @@ type GatewayHostnameConfigurationArgs struct {
 	CertificateId pulumi.StringPtrInput
 	// Gateway entity identifier. Must be unique in the current API Management service instance. Must not have value 'managed'
 	GatewayId pulumi.StringInput
+	// Gateway hostname configuration identifier. Must be unique in the scope of parent Gateway entity.
+	HcId pulumi.StringInput
 	// Hostname value. Supports valid domain name, partial or full wildcard
 	Hostname pulumi.StringPtrInput
-	// Gateway hostname configuration identifier. Must be unique in the scope of parent Gateway entity.
-	Name pulumi.StringInput
 	// Determines whether gateway requests client certificate
 	NegotiateClientCertificate pulumi.BoolPtrInput
 	// The name of the resource group.

@@ -19,10 +19,10 @@ func LookupManagedPrivateEndpoint(ctx *pulumi.Context, args *LookupManagedPrivat
 type LookupManagedPrivateEndpointArgs struct {
 	// The factory name.
 	FactoryName string `pulumi:"factoryName"`
+	// Managed private endpoint name
+	ManagedPrivateEndpointName string `pulumi:"managedPrivateEndpointName"`
 	// Managed virtual network name
 	ManagedVirtualNetworkName string `pulumi:"managedVirtualNetworkName"`
-	// Managed private endpoint name
-	Name string `pulumi:"name"`
 	// The resource group name.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }

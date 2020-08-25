@@ -43,11 +43,11 @@ type P2sVpnGateway struct {
 // NewP2sVpnGateway registers a new resource with the given unique name, arguments, and options.
 func NewP2sVpnGateway(ctx *pulumi.Context,
 	name string, args *P2sVpnGatewayArgs, opts ...pulumi.ResourceOption) (*P2sVpnGateway, error) {
+	if args == nil || args.GatewayName == nil {
+		return nil, errors.New("missing required argument 'GatewayName'")
+	}
 	if args == nil || args.Location == nil {
 		return nil, errors.New("missing required argument 'Location'")
-	}
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
 	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
@@ -185,12 +185,12 @@ func (P2sVpnGatewayState) ElementType() reflect.Type {
 type p2sVpnGatewayArgs struct {
 	// List of all customer specified DNS servers IP addresses.
 	CustomDnsServers []string `pulumi:"customDnsServers"`
+	// The name of the gateway.
+	GatewayName string `pulumi:"gatewayName"`
 	// Resource ID.
 	Id *string `pulumi:"id"`
 	// Resource location.
 	Location string `pulumi:"location"`
-	// The name of the gateway.
-	Name string `pulumi:"name"`
 	// List of all p2s connection configurations of the gateway.
 	P2SConnectionConfigurations []P2SConnectionConfiguration `pulumi:"p2SConnectionConfigurations"`
 	// The resource group name of the P2SVpnGateway.
@@ -209,12 +209,12 @@ type p2sVpnGatewayArgs struct {
 type P2sVpnGatewayArgs struct {
 	// List of all customer specified DNS servers IP addresses.
 	CustomDnsServers pulumi.StringArrayInput
+	// The name of the gateway.
+	GatewayName pulumi.StringInput
 	// Resource ID.
 	Id pulumi.StringPtrInput
 	// Resource location.
 	Location pulumi.StringInput
-	// The name of the gateway.
-	Name pulumi.StringInput
 	// List of all p2s connection configurations of the gateway.
 	P2SConnectionConfigurations P2SConnectionConfigurationArrayInput
 	// The resource group name of the P2SVpnGateway.

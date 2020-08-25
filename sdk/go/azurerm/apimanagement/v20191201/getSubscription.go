@@ -17,12 +17,12 @@ func LookupSubscription(ctx *pulumi.Context, args *LookupSubscriptionArgs, opts 
 }
 
 type LookupSubscriptionArgs struct {
-	// Subscription entity Identifier. The entity represents the association between a user and a product in API Management.
-	Name string `pulumi:"name"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The name of the API Management service.
 	ServiceName string `pulumi:"serviceName"`
+	// Subscription entity Identifier. The entity represents the association between a user and a product in API Management.
+	Sid string `pulumi:"sid"`
 }
 
 // Subscription details.

@@ -18,7 +18,7 @@ func LookupHcxEnterpriseSite(ctx *pulumi.Context, args *LookupHcxEnterpriseSiteA
 
 type LookupHcxEnterpriseSiteArgs struct {
 	// Name of the HCX Enterprise Site in the private cloud
-	Name string `pulumi:"name"`
+	HcxEnterpriseSiteName string `pulumi:"hcxEnterpriseSiteName"`
 	// Name of the private cloud
 	PrivateCloudName string `pulumi:"privateCloudName"`
 	// The name of the resource group. The name is case insensitive.

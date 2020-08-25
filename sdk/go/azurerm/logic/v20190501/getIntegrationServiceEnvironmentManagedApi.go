@@ -17,10 +17,10 @@ func LookupIntegrationServiceEnvironmentManagedApi(ctx *pulumi.Context, args *Lo
 }
 
 type LookupIntegrationServiceEnvironmentManagedApiArgs struct {
+	// The api name.
+	ApiName string `pulumi:"apiName"`
 	// The integration service environment name.
 	IntegrationServiceEnvironmentName string `pulumi:"integrationServiceEnvironmentName"`
-	// The api name.
-	Name string `pulumi:"name"`
 	// The resource group name.
 	ResourceGroup string `pulumi:"resourceGroup"`
 }

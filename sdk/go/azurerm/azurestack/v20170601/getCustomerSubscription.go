@@ -18,7 +18,7 @@ func LookupCustomerSubscription(ctx *pulumi.Context, args *LookupCustomerSubscri
 
 type LookupCustomerSubscriptionArgs struct {
 	// Name of the product.
-	Name string `pulumi:"name"`
+	CustomerSubscriptionName string `pulumi:"customerSubscriptionName"`
 	// Name of the Azure Stack registration.
 	RegistrationName string `pulumi:"registrationName"`
 	// Name of the resource group.

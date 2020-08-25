@@ -18,7 +18,7 @@ func LookupProtectionPolicy(ctx *pulumi.Context, args *LookupProtectionPolicyArg
 
 type LookupProtectionPolicyArgs struct {
 	// The backup policy name used in this GET operation.
-	Name string `pulumi:"name"`
+	PolicyName string `pulumi:"policyName"`
 	// The name of the resource group associated with the Recovery Services vault.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The name of the Recovery Services vault.

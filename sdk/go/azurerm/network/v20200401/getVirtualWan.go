@@ -17,10 +17,10 @@ func LookupVirtualWan(ctx *pulumi.Context, args *LookupVirtualWanArgs, opts ...p
 }
 
 type LookupVirtualWanArgs struct {
-	// The name of the VirtualWAN being retrieved.
-	Name string `pulumi:"name"`
 	// The resource group name of the VirtualWan.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// The name of the VirtualWAN being retrieved.
+	VirtualWANName string `pulumi:"virtualWANName"`
 }
 
 // VirtualWAN Resource.

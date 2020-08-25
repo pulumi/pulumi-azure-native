@@ -70,8 +70,8 @@ func NewPool(ctx *pulumi.Context,
 	if args == nil || args.AccountName == nil {
 		return nil, errors.New("missing required argument 'AccountName'")
 	}
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
+	if args == nil || args.PoolName == nil {
+		return nil, errors.New("missing required argument 'PoolName'")
 	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
@@ -245,10 +245,10 @@ type poolArgs struct {
 	Metadata []MetadataItem `pulumi:"metadata"`
 	// This supports Azure Files, NFS, CIFS/SMB, and Blobfuse.
 	MountConfiguration []MountConfiguration `pulumi:"mountConfiguration"`
-	// The pool name. This must be unique within the account.
-	Name string `pulumi:"name"`
 	// The network configuration for a pool.
 	NetworkConfiguration *NetworkConfiguration `pulumi:"networkConfiguration"`
+	// The pool name. This must be unique within the account.
+	PoolName string `pulumi:"poolName"`
 	// The name of the resource group that contains the Batch account.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Defines the desired size of the pool. This can either be 'fixedScale' where the requested targetDedicatedNodes is specified, or 'autoScale' which defines a formula which is periodically reevaluated. If this property is not specified, the pool will have a fixed scale with 0 targetDedicatedNodes.
@@ -284,10 +284,10 @@ type PoolArgs struct {
 	Metadata MetadataItemArrayInput
 	// This supports Azure Files, NFS, CIFS/SMB, and Blobfuse.
 	MountConfiguration MountConfigurationArrayInput
-	// The pool name. This must be unique within the account.
-	Name pulumi.StringInput
 	// The network configuration for a pool.
 	NetworkConfiguration NetworkConfigurationPtrInput
+	// The pool name. This must be unique within the account.
+	PoolName pulumi.StringInput
 	// The name of the resource group that contains the Batch account.
 	ResourceGroupName pulumi.StringInput
 	// Defines the desired size of the pool. This can either be 'fixedScale' where the requested targetDedicatedNodes is specified, or 'autoScale' which defines a formula which is periodically reevaluated. If this property is not specified, the pool will have a fixed scale with 0 targetDedicatedNodes.

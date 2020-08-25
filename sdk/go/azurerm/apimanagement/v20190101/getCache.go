@@ -18,7 +18,7 @@ func LookupCache(ctx *pulumi.Context, args *LookupCacheArgs, opts ...pulumi.Invo
 
 type LookupCacheArgs struct {
 	// Identifier of the Cache entity. Cache identifier (should be either 'default' or valid Azure region identifier).
-	Name string `pulumi:"name"`
+	CacheId string `pulumi:"cacheId"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The name of the API Management service.

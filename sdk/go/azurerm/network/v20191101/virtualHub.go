@@ -56,11 +56,11 @@ func NewVirtualHub(ctx *pulumi.Context,
 	if args == nil || args.Location == nil {
 		return nil, errors.New("missing required argument 'Location'")
 	}
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
-	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
+	}
+	if args == nil || args.VirtualHubName == nil {
+		return nil, errors.New("missing required argument 'VirtualHubName'")
 	}
 	if args == nil {
 		args = &VirtualHubArgs{}
@@ -232,8 +232,6 @@ type virtualHubArgs struct {
 	Id *string `pulumi:"id"`
 	// Resource location.
 	Location string `pulumi:"location"`
-	// The name of the VirtualHub.
-	Name string `pulumi:"name"`
 	// The P2SVpnGateway associated with this VirtualHub.
 	P2SVpnGateway *SubResource `pulumi:"p2SVpnGateway"`
 	// The resource group name of the VirtualHub.
@@ -246,6 +244,8 @@ type virtualHubArgs struct {
 	Sku *string `pulumi:"sku"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
+	// The name of the VirtualHub.
+	VirtualHubName string `pulumi:"virtualHubName"`
 	// List of all virtual hub route table v2s associated with this VirtualHub.
 	VirtualHubRouteTableV2s []VirtualHubRouteTableV2Type `pulumi:"virtualHubRouteTableV2s"`
 	// List of all vnet connections with this VirtualHub.
@@ -268,8 +268,6 @@ type VirtualHubArgs struct {
 	Id pulumi.StringPtrInput
 	// Resource location.
 	Location pulumi.StringInput
-	// The name of the VirtualHub.
-	Name pulumi.StringInput
 	// The P2SVpnGateway associated with this VirtualHub.
 	P2SVpnGateway SubResourcePtrInput
 	// The resource group name of the VirtualHub.
@@ -282,6 +280,8 @@ type VirtualHubArgs struct {
 	Sku pulumi.StringPtrInput
 	// Resource tags.
 	Tags pulumi.StringMapInput
+	// The name of the VirtualHub.
+	VirtualHubName pulumi.StringInput
 	// List of all virtual hub route table v2s associated with this VirtualHub.
 	VirtualHubRouteTableV2s VirtualHubRouteTableV2TypeArrayInput
 	// List of all vnet connections with this VirtualHub.

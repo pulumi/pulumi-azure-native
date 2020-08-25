@@ -25,11 +25,11 @@ type HybridConnectionAuthorizationRule struct {
 // NewHybridConnectionAuthorizationRule registers a new resource with the given unique name, arguments, and options.
 func NewHybridConnectionAuthorizationRule(ctx *pulumi.Context,
 	name string, args *HybridConnectionAuthorizationRuleArgs, opts ...pulumi.ResourceOption) (*HybridConnectionAuthorizationRule, error) {
+	if args == nil || args.AuthorizationRuleName == nil {
+		return nil, errors.New("missing required argument 'AuthorizationRuleName'")
+	}
 	if args == nil || args.HybridConnectionName == nil {
 		return nil, errors.New("missing required argument 'HybridConnectionName'")
-	}
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
 	}
 	if args == nil || args.NamespaceName == nil {
 		return nil, errors.New("missing required argument 'NamespaceName'")
@@ -87,10 +87,10 @@ func (HybridConnectionAuthorizationRuleState) ElementType() reflect.Type {
 }
 
 type hybridConnectionAuthorizationRuleArgs struct {
+	// The authorizationRule name.
+	AuthorizationRuleName string `pulumi:"authorizationRuleName"`
 	// The hybrid connection name.
 	HybridConnectionName string `pulumi:"hybridConnectionName"`
-	// The authorizationRule name.
-	Name string `pulumi:"name"`
 	// The Namespace Name
 	NamespaceName string `pulumi:"namespaceName"`
 	// Name of the Resource group within the Azure subscription.
@@ -101,10 +101,10 @@ type hybridConnectionAuthorizationRuleArgs struct {
 
 // The set of arguments for constructing a HybridConnectionAuthorizationRule resource.
 type HybridConnectionAuthorizationRuleArgs struct {
+	// The authorizationRule name.
+	AuthorizationRuleName pulumi.StringInput
 	// The hybrid connection name.
 	HybridConnectionName pulumi.StringInput
-	// The authorizationRule name.
-	Name pulumi.StringInput
 	// The Namespace Name
 	NamespaceName pulumi.StringInput
 	// Name of the Resource group within the Azure subscription.

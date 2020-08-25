@@ -50,14 +50,14 @@ func NewRelationship(ctx *pulumi.Context,
 	if args == nil || args.HubName == nil {
 		return nil, errors.New("missing required argument 'HubName'")
 	}
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
-	}
 	if args == nil || args.ProfileType == nil {
 		return nil, errors.New("missing required argument 'ProfileType'")
 	}
 	if args == nil || args.RelatedProfileType == nil {
 		return nil, errors.New("missing required argument 'RelatedProfileType'")
+	}
+	if args == nil || args.RelationshipName == nil {
+		return nil, errors.New("missing required argument 'RelationshipName'")
 	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
@@ -173,12 +173,12 @@ type relationshipArgs struct {
 	HubName string `pulumi:"hubName"`
 	// Optional property to be used to map fields in profile to their strong ids in related profile.
 	LookupMappings []RelationshipTypeMapping `pulumi:"lookupMappings"`
-	// The name of the Relationship.
-	Name string `pulumi:"name"`
 	// Profile type.
 	ProfileType string `pulumi:"profileType"`
 	// Related profile being referenced.
 	RelatedProfileType string `pulumi:"relatedProfileType"`
+	// The name of the Relationship.
+	RelationshipName string `pulumi:"relationshipName"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
@@ -199,12 +199,12 @@ type RelationshipArgs struct {
 	HubName pulumi.StringInput
 	// Optional property to be used to map fields in profile to their strong ids in related profile.
 	LookupMappings RelationshipTypeMappingArrayInput
-	// The name of the Relationship.
-	Name pulumi.StringInput
 	// Profile type.
 	ProfileType pulumi.StringInput
 	// Related profile being referenced.
 	RelatedProfileType pulumi.StringInput
+	// The name of the Relationship.
+	RelationshipName pulumi.StringInput
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
 }

@@ -17,10 +17,10 @@ func LookupExpressRouteConnection(ctx *pulumi.Context, args *LookupExpressRouteC
 }
 
 type LookupExpressRouteConnectionArgs struct {
+	// The name of the ExpressRoute connection.
+	ConnectionName string `pulumi:"connectionName"`
 	// The name of the ExpressRoute gateway.
 	ExpressRouteGatewayName string `pulumi:"expressRouteGatewayName"`
-	// The name of the ExpressRoute connection.
-	Name string `pulumi:"name"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }

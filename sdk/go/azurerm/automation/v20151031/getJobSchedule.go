@@ -20,7 +20,7 @@ type LookupJobScheduleArgs struct {
 	// The name of the automation account.
 	AutomationAccountName string `pulumi:"automationAccountName"`
 	// The job schedule name.
-	Name string `pulumi:"name"`
+	JobScheduleId string `pulumi:"jobScheduleId"`
 	// Name of an Azure Resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }

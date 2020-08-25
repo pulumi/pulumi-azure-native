@@ -18,7 +18,7 @@ func LookupGateway(ctx *pulumi.Context, args *LookupGatewayArgs, opts ...pulumi.
 
 type LookupGatewayArgs struct {
 	// Gateway entity identifier. Must be unique in the current API Management service instance. Must not have value 'managed'
-	Name string `pulumi:"name"`
+	GatewayId string `pulumi:"gatewayId"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The name of the API Management service.

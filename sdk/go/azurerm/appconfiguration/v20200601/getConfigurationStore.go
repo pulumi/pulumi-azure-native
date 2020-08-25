@@ -18,7 +18,7 @@ func LookupConfigurationStore(ctx *pulumi.Context, args *LookupConfigurationStor
 
 type LookupConfigurationStoreArgs struct {
 	// The name of the configuration store.
-	Name string `pulumi:"name"`
+	ConfigStoreName string `pulumi:"configStoreName"`
 	// The name of the resource group to which the container registry belongs.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }

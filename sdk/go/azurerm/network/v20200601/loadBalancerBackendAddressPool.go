@@ -37,11 +37,11 @@ type LoadBalancerBackendAddressPool struct {
 // NewLoadBalancerBackendAddressPool registers a new resource with the given unique name, arguments, and options.
 func NewLoadBalancerBackendAddressPool(ctx *pulumi.Context,
 	name string, args *LoadBalancerBackendAddressPoolArgs, opts ...pulumi.ResourceOption) (*LoadBalancerBackendAddressPool, error) {
+	if args == nil || args.BackendAddressPoolName == nil {
+		return nil, errors.New("missing required argument 'BackendAddressPoolName'")
+	}
 	if args == nil || args.LoadBalancerName == nil {
 		return nil, errors.New("missing required argument 'LoadBalancerName'")
-	}
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
 	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
@@ -195,28 +195,32 @@ func (LoadBalancerBackendAddressPoolState) ElementType() reflect.Type {
 }
 
 type loadBalancerBackendAddressPoolArgs struct {
+	// The name of the backend address pool.
+	BackendAddressPoolName string `pulumi:"backendAddressPoolName"`
 	// Resource ID.
 	Id *string `pulumi:"id"`
 	// An array of backend addresses.
 	LoadBalancerBackendAddresses []LoadBalancerBackendAddress `pulumi:"loadBalancerBackendAddresses"`
 	// The name of the load balancer.
 	LoadBalancerName string `pulumi:"loadBalancerName"`
-	// The name of the backend address pool.
-	Name string `pulumi:"name"`
+	// The name of the resource that is unique within the set of backend address pools used by the load balancer. This name can be used to access the resource.
+	Name *string `pulumi:"name"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
 // The set of arguments for constructing a LoadBalancerBackendAddressPool resource.
 type LoadBalancerBackendAddressPoolArgs struct {
+	// The name of the backend address pool.
+	BackendAddressPoolName pulumi.StringInput
 	// Resource ID.
 	Id pulumi.StringPtrInput
 	// An array of backend addresses.
 	LoadBalancerBackendAddresses LoadBalancerBackendAddressArrayInput
 	// The name of the load balancer.
 	LoadBalancerName pulumi.StringInput
-	// The name of the backend address pool.
-	Name pulumi.StringInput
+	// The name of the resource that is unique within the set of backend address pools used by the load balancer. This name can be used to access the resource.
+	Name pulumi.StringPtrInput
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
 }

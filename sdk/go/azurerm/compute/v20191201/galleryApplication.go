@@ -39,14 +39,14 @@ type GalleryApplication struct {
 // NewGalleryApplication registers a new resource with the given unique name, arguments, and options.
 func NewGalleryApplication(ctx *pulumi.Context,
 	name string, args *GalleryApplicationArgs, opts ...pulumi.ResourceOption) (*GalleryApplication, error) {
+	if args == nil || args.GalleryApplicationName == nil {
+		return nil, errors.New("missing required argument 'GalleryApplicationName'")
+	}
 	if args == nil || args.GalleryName == nil {
 		return nil, errors.New("missing required argument 'GalleryName'")
 	}
 	if args == nil || args.Location == nil {
 		return nil, errors.New("missing required argument 'Location'")
-	}
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
 	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
@@ -144,12 +144,12 @@ type galleryApplicationArgs struct {
 	EndOfLifeDate *string `pulumi:"endOfLifeDate"`
 	// The Eula agreement for the gallery Application Definition.
 	Eula *string `pulumi:"eula"`
+	// The name of the gallery Application Definition to be created or updated. The allowed characters are alphabets and numbers with dots, dashes, and periods allowed in the middle. The maximum length is 80 characters.
+	GalleryApplicationName string `pulumi:"galleryApplicationName"`
 	// The name of the Shared Application Gallery in which the Application Definition is to be created.
 	GalleryName string `pulumi:"galleryName"`
 	// Resource location
 	Location string `pulumi:"location"`
-	// The name of the gallery Application Definition to be created or updated. The allowed characters are alphabets and numbers with dots, dashes, and periods allowed in the middle. The maximum length is 80 characters.
-	Name string `pulumi:"name"`
 	// The privacy statement uri.
 	PrivacyStatementUri *string `pulumi:"privacyStatementUri"`
 	// The release note uri.
@@ -170,12 +170,12 @@ type GalleryApplicationArgs struct {
 	EndOfLifeDate pulumi.StringPtrInput
 	// The Eula agreement for the gallery Application Definition.
 	Eula pulumi.StringPtrInput
+	// The name of the gallery Application Definition to be created or updated. The allowed characters are alphabets and numbers with dots, dashes, and periods allowed in the middle. The maximum length is 80 characters.
+	GalleryApplicationName pulumi.StringInput
 	// The name of the Shared Application Gallery in which the Application Definition is to be created.
 	GalleryName pulumi.StringInput
 	// Resource location
 	Location pulumi.StringInput
-	// The name of the gallery Application Definition to be created or updated. The allowed characters are alphabets and numbers with dots, dashes, and periods allowed in the middle. The maximum length is 80 characters.
-	Name pulumi.StringInput
 	// The privacy statement uri.
 	PrivacyStatementUri pulumi.StringPtrInput
 	// The release note uri.

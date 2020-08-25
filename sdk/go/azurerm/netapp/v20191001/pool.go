@@ -41,8 +41,8 @@ func NewPool(ctx *pulumi.Context,
 	if args == nil || args.Location == nil {
 		return nil, errors.New("missing required argument 'Location'")
 	}
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
+	if args == nil || args.PoolName == nil {
+		return nil, errors.New("missing required argument 'PoolName'")
 	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
@@ -149,7 +149,7 @@ type poolArgs struct {
 	// Resource location
 	Location string `pulumi:"location"`
 	// The name of the capacity pool
-	Name string `pulumi:"name"`
+	PoolName string `pulumi:"poolName"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The service level of the file system
@@ -167,7 +167,7 @@ type PoolArgs struct {
 	// Resource location
 	Location pulumi.StringInput
 	// The name of the capacity pool
-	Name pulumi.StringInput
+	PoolName pulumi.StringInput
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
 	// The service level of the file system

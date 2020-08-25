@@ -18,7 +18,7 @@ func LookupNamespaceAuthorizationRule(ctx *pulumi.Context, args *LookupNamespace
 
 type LookupNamespaceAuthorizationRuleArgs struct {
 	// Authorization rule name.
-	Name string `pulumi:"name"`
+	AuthorizationRuleName string `pulumi:"authorizationRuleName"`
 	// The namespace name
 	NamespaceName string `pulumi:"namespaceName"`
 	// The name of the resource group.

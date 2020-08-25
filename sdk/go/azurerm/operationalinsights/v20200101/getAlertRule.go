@@ -17,10 +17,10 @@ func LookupAlertRule(ctx *pulumi.Context, args *LookupAlertRuleArgs, opts ...pul
 }
 
 type LookupAlertRuleArgs struct {
-	// Alert rule ID
-	Name string `pulumi:"name"`
 	// The name of the resource group within the user's subscription. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// Alert rule ID
+	RuleId string `pulumi:"ruleId"`
 	// The name of the workspace.
 	WorkspaceName string `pulumi:"workspaceName"`
 }

@@ -19,12 +19,12 @@ func LookupReplicationvCenter(ctx *pulumi.Context, args *LookupReplicationvCente
 type LookupReplicationvCenterArgs struct {
 	// Fabric name.
 	FabricName string `pulumi:"fabricName"`
-	// vCenter name.
-	Name string `pulumi:"name"`
 	// The name of the resource group where the recovery services vault is present.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The name of the recovery services vault.
 	ResourceName string `pulumi:"resourceName"`
+	// vCenter name.
+	VCenterName string `pulumi:"vCenterName"`
 }
 
 // vCenter definition.

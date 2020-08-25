@@ -34,8 +34,8 @@ func NewApiRelease(ctx *pulumi.Context,
 	if args == nil || args.ApiId == nil {
 		return nil, errors.New("missing required argument 'ApiId'")
 	}
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
+	if args == nil || args.ReleaseId == nil {
+		return nil, errors.New("missing required argument 'ReleaseId'")
 	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
@@ -116,10 +116,10 @@ func (ApiReleaseState) ElementType() reflect.Type {
 type apiReleaseArgs struct {
 	// Identifier of the API the release belongs to.
 	ApiId string `pulumi:"apiId"`
-	// Release identifier within an API. Must be unique in the current API Management service instance.
-	Name string `pulumi:"name"`
 	// Release Notes
 	Notes *string `pulumi:"notes"`
+	// Release identifier within an API. Must be unique in the current API Management service instance.
+	ReleaseId string `pulumi:"releaseId"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The name of the API Management service.
@@ -130,10 +130,10 @@ type apiReleaseArgs struct {
 type ApiReleaseArgs struct {
 	// Identifier of the API the release belongs to.
 	ApiId pulumi.StringInput
-	// Release identifier within an API. Must be unique in the current API Management service instance.
-	Name pulumi.StringInput
 	// Release Notes
 	Notes pulumi.StringPtrInput
+	// Release identifier within an API. Must be unique in the current API Management service instance.
+	ReleaseId pulumi.StringInput
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
 	// The name of the API Management service.

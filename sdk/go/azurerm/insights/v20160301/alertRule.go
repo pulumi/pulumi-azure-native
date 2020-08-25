@@ -52,6 +52,9 @@ func NewAlertRule(ctx *pulumi.Context,
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
 	}
+	if args == nil || args.RuleName == nil {
+		return nil, errors.New("missing required argument 'RuleName'")
+	}
 	if args == nil {
 		args = &AlertRuleArgs{}
 	}
@@ -133,10 +136,12 @@ type alertRuleArgs struct {
 	IsEnabled bool `pulumi:"isEnabled"`
 	// Resource location
 	Location string `pulumi:"location"`
-	// The name of the rule.
+	// the name of the alert rule.
 	Name string `pulumi:"name"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// The name of the rule.
+	RuleName string `pulumi:"ruleName"`
 	// Resource tags
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -153,10 +158,12 @@ type AlertRuleArgs struct {
 	IsEnabled pulumi.BoolInput
 	// Resource location
 	Location pulumi.StringInput
-	// The name of the rule.
+	// the name of the alert rule.
 	Name pulumi.StringInput
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
+	// The name of the rule.
+	RuleName pulumi.StringInput
 	// Resource tags
 	Tags pulumi.StringMapInput
 }

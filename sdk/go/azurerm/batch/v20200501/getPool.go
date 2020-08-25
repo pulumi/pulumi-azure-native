@@ -20,7 +20,7 @@ type LookupPoolArgs struct {
 	// The name of the Batch account.
 	AccountName string `pulumi:"accountName"`
 	// The pool name. This must be unique within the account.
-	Name string `pulumi:"name"`
+	PoolName string `pulumi:"poolName"`
 	// The name of the resource group that contains the Batch account.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }

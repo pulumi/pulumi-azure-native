@@ -37,9 +37,6 @@ func NewSqlResourceSqlStoredProcedure(ctx *pulumi.Context,
 	if args == nil || args.DatabaseName == nil {
 		return nil, errors.New("missing required argument 'DatabaseName'")
 	}
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
-	}
 	if args == nil || args.Options == nil {
 		return nil, errors.New("missing required argument 'Options'")
 	}
@@ -48,6 +45,9 @@ func NewSqlResourceSqlStoredProcedure(ctx *pulumi.Context,
 	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
+	}
+	if args == nil || args.StoredProcedureName == nil {
+		return nil, errors.New("missing required argument 'StoredProcedureName'")
 	}
 	if args == nil {
 		args = &SqlResourceSqlStoredProcedureArgs{}
@@ -122,14 +122,14 @@ type sqlResourceSqlStoredProcedureArgs struct {
 	DatabaseName string `pulumi:"databaseName"`
 	// The location of the resource group to which the resource belongs.
 	Location *string `pulumi:"location"`
-	// Cosmos DB storedProcedure name.
-	Name string `pulumi:"name"`
 	// A key-value pair of options to be applied for the request. This corresponds to the headers sent with the request.
 	Options map[string]string `pulumi:"options"`
 	// The standard JSON format of a storedProcedure
 	Resource SqlStoredProcedureResource `pulumi:"resource"`
 	// Name of an Azure resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// Cosmos DB storedProcedure name.
+	StoredProcedureName string `pulumi:"storedProcedureName"`
 	// Tags are a list of key-value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters. For example, the default experience for a template type is set with "defaultExperience": "Cassandra". Current "defaultExperience" values also include "Table", "Graph", "DocumentDB", and "MongoDB".
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -144,14 +144,14 @@ type SqlResourceSqlStoredProcedureArgs struct {
 	DatabaseName pulumi.StringInput
 	// The location of the resource group to which the resource belongs.
 	Location pulumi.StringPtrInput
-	// Cosmos DB storedProcedure name.
-	Name pulumi.StringInput
 	// A key-value pair of options to be applied for the request. This corresponds to the headers sent with the request.
 	Options pulumi.StringMapInput
 	// The standard JSON format of a storedProcedure
 	Resource SqlStoredProcedureResourceInput
 	// Name of an Azure resource group.
 	ResourceGroupName pulumi.StringInput
+	// Cosmos DB storedProcedure name.
+	StoredProcedureName pulumi.StringInput
 	// Tags are a list of key-value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters. For example, the default experience for a template type is set with "defaultExperience": "Cassandra". Current "defaultExperience" values also include "Table", "Graph", "DocumentDB", and "MongoDB".
 	Tags pulumi.StringMapInput
 }

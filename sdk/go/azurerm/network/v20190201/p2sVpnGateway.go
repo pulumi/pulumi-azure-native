@@ -43,11 +43,11 @@ type P2sVpnGateway struct {
 // NewP2sVpnGateway registers a new resource with the given unique name, arguments, and options.
 func NewP2sVpnGateway(ctx *pulumi.Context,
 	name string, args *P2sVpnGatewayArgs, opts ...pulumi.ResourceOption) (*P2sVpnGateway, error) {
+	if args == nil || args.GatewayName == nil {
+		return nil, errors.New("missing required argument 'GatewayName'")
+	}
 	if args == nil || args.Location == nil {
 		return nil, errors.New("missing required argument 'Location'")
-	}
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
 	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
@@ -185,12 +185,12 @@ func (P2sVpnGatewayState) ElementType() reflect.Type {
 type p2sVpnGatewayArgs struct {
 	// The reference of the address space resource which represents the custom routes specified by the customer for P2SVpnGateway and P2S VpnClient.
 	CustomRoutes *AddressSpace `pulumi:"customRoutes"`
+	// The name of the gateway.
+	GatewayName string `pulumi:"gatewayName"`
 	// Resource ID.
 	Id *string `pulumi:"id"`
 	// Resource location.
 	Location string `pulumi:"location"`
-	// The name of the gateway.
-	Name string `pulumi:"name"`
 	// The P2SVpnServerConfiguration to which the p2sVpnGateway is attached to.
 	P2SVpnServerConfiguration *SubResource `pulumi:"p2SVpnServerConfiguration"`
 	// The provisioning state of the resource.
@@ -211,12 +211,12 @@ type p2sVpnGatewayArgs struct {
 type P2sVpnGatewayArgs struct {
 	// The reference of the address space resource which represents the custom routes specified by the customer for P2SVpnGateway and P2S VpnClient.
 	CustomRoutes AddressSpacePtrInput
+	// The name of the gateway.
+	GatewayName pulumi.StringInput
 	// Resource ID.
 	Id pulumi.StringPtrInput
 	// Resource location.
 	Location pulumi.StringInput
-	// The name of the gateway.
-	Name pulumi.StringInput
 	// The P2SVpnServerConfiguration to which the p2sVpnGateway is attached to.
 	P2SVpnServerConfiguration SubResourcePtrInput
 	// The provisioning state of the resource.

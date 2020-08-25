@@ -27,8 +27,8 @@ type TopicAuthorizationRule struct {
 // NewTopicAuthorizationRule registers a new resource with the given unique name, arguments, and options.
 func NewTopicAuthorizationRule(ctx *pulumi.Context,
 	name string, args *TopicAuthorizationRuleArgs, opts ...pulumi.ResourceOption) (*TopicAuthorizationRule, error) {
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
+	if args == nil || args.AuthorizationRuleName == nil {
+		return nil, errors.New("missing required argument 'AuthorizationRuleName'")
 	}
 	if args == nil || args.NamespaceName == nil {
 		return nil, errors.New("missing required argument 'NamespaceName'")
@@ -102,10 +102,12 @@ func (TopicAuthorizationRuleState) ElementType() reflect.Type {
 }
 
 type topicAuthorizationRuleArgs struct {
+	// The authorization rule name.
+	AuthorizationRuleName string `pulumi:"authorizationRuleName"`
 	// data center location.
 	Location *string `pulumi:"location"`
-	// The authorization rule name.
-	Name string `pulumi:"name"`
+	// Name of the authorization rule.
+	Name *string `pulumi:"name"`
 	// The namespace name
 	NamespaceName string `pulumi:"namespaceName"`
 	// Name of the Resource group within the Azure subscription.
@@ -118,10 +120,12 @@ type topicAuthorizationRuleArgs struct {
 
 // The set of arguments for constructing a TopicAuthorizationRule resource.
 type TopicAuthorizationRuleArgs struct {
+	// The authorization rule name.
+	AuthorizationRuleName pulumi.StringInput
 	// data center location.
 	Location pulumi.StringPtrInput
-	// The authorization rule name.
-	Name pulumi.StringInput
+	// Name of the authorization rule.
+	Name pulumi.StringPtrInput
 	// The namespace name
 	NamespaceName pulumi.StringInput
 	// Name of the Resource group within the Azure subscription.

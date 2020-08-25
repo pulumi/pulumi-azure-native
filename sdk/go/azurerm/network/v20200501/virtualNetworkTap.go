@@ -41,11 +41,11 @@ type VirtualNetworkTap struct {
 // NewVirtualNetworkTap registers a new resource with the given unique name, arguments, and options.
 func NewVirtualNetworkTap(ctx *pulumi.Context,
 	name string, args *VirtualNetworkTapArgs, opts ...pulumi.ResourceOption) (*VirtualNetworkTap, error) {
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
-	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
+	}
+	if args == nil || args.TapName == nil {
+		return nil, errors.New("missing required argument 'TapName'")
 	}
 	if args == nil {
 		args = &VirtualNetworkTapArgs{}
@@ -184,12 +184,12 @@ type virtualNetworkTapArgs struct {
 	Id *string `pulumi:"id"`
 	// Resource location.
 	Location *string `pulumi:"location"`
-	// The name of the virtual network tap.
-	Name string `pulumi:"name"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
+	// The name of the virtual network tap.
+	TapName string `pulumi:"tapName"`
 }
 
 // The set of arguments for constructing a VirtualNetworkTap resource.
@@ -204,12 +204,12 @@ type VirtualNetworkTapArgs struct {
 	Id pulumi.StringPtrInput
 	// Resource location.
 	Location pulumi.StringPtrInput
-	// The name of the virtual network tap.
-	Name pulumi.StringInput
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
 	// Resource tags.
 	Tags pulumi.StringMapInput
+	// The name of the virtual network tap.
+	TapName pulumi.StringInput
 }
 
 func (VirtualNetworkTapArgs) ElementType() reflect.Type {

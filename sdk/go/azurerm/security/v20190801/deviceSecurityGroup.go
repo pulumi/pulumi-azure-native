@@ -31,8 +31,8 @@ type DeviceSecurityGroup struct {
 // NewDeviceSecurityGroup registers a new resource with the given unique name, arguments, and options.
 func NewDeviceSecurityGroup(ctx *pulumi.Context,
 	name string, args *DeviceSecurityGroupArgs, opts ...pulumi.ResourceOption) (*DeviceSecurityGroup, error) {
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
+	if args == nil || args.DeviceSecurityGroupName == nil {
+		return nil, errors.New("missing required argument 'DeviceSecurityGroupName'")
 	}
 	if args == nil || args.ResourceId == nil {
 		return nil, errors.New("missing required argument 'ResourceId'")
@@ -101,7 +101,7 @@ type deviceSecurityGroupArgs struct {
 	// The deny-list custom alert rules.
 	DenylistRules []DenylistCustomAlertRule `pulumi:"denylistRules"`
 	// The name of the device security group. Note that the name of the device security group is case insensitive.
-	Name string `pulumi:"name"`
+	DeviceSecurityGroupName string `pulumi:"deviceSecurityGroupName"`
 	// The identifier of the resource.
 	ResourceId string `pulumi:"resourceId"`
 	// The list of custom alert threshold rules.
@@ -117,7 +117,7 @@ type DeviceSecurityGroupArgs struct {
 	// The deny-list custom alert rules.
 	DenylistRules DenylistCustomAlertRuleArrayInput
 	// The name of the device security group. Note that the name of the device security group is case insensitive.
-	Name pulumi.StringInput
+	DeviceSecurityGroupName pulumi.StringInput
 	// The identifier of the resource.
 	ResourceId pulumi.StringInput
 	// The list of custom alert threshold rules.

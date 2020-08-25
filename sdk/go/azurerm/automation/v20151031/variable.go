@@ -42,6 +42,9 @@ func NewVariable(ctx *pulumi.Context,
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
 	}
+	if args == nil || args.VariableName == nil {
+		return nil, errors.New("missing required argument 'VariableName'")
+	}
 	if args == nil {
 		args = &VariableArgs{}
 	}
@@ -111,12 +114,14 @@ type variableArgs struct {
 	Description *string `pulumi:"description"`
 	// Gets or sets the encrypted flag of the variable.
 	IsEncrypted *bool `pulumi:"isEncrypted"`
-	// The variable name.
+	// Gets or sets the name of the variable.
 	Name string `pulumi:"name"`
 	// Name of an Azure Resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Gets or sets the value of the variable.
 	Value *string `pulumi:"value"`
+	// The variable name.
+	VariableName string `pulumi:"variableName"`
 }
 
 // The set of arguments for constructing a Variable resource.
@@ -127,12 +132,14 @@ type VariableArgs struct {
 	Description pulumi.StringPtrInput
 	// Gets or sets the encrypted flag of the variable.
 	IsEncrypted pulumi.BoolPtrInput
-	// The variable name.
+	// Gets or sets the name of the variable.
 	Name pulumi.StringInput
 	// Name of an Azure Resource group.
 	ResourceGroupName pulumi.StringInput
 	// Gets or sets the value of the variable.
 	Value pulumi.StringPtrInput
+	// The variable name.
+	VariableName pulumi.StringInput
 }
 
 func (VariableArgs) ElementType() reflect.Type {

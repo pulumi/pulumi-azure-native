@@ -18,7 +18,7 @@ func LookupDdosProtectionPlan(ctx *pulumi.Context, args *LookupDdosProtectionPla
 
 type LookupDdosProtectionPlanArgs struct {
 	// The name of the DDoS protection plan.
-	Name string `pulumi:"name"`
+	DdosProtectionPlanName string `pulumi:"ddosProtectionPlanName"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }

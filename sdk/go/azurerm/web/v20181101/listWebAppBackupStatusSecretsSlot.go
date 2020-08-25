@@ -17,6 +17,8 @@ func ListWebAppBackupStatusSecretsSlot(ctx *pulumi.Context, args *ListWebAppBack
 }
 
 type ListWebAppBackupStatusSecretsSlotArgs struct {
+	// ID of backup.
+	BackupId string `pulumi:"backupId"`
 	// Name of the backup.
 	BackupName *string `pulumi:"backupName"`
 	// Schedule for the backup if it is executed periodically.
@@ -27,7 +29,7 @@ type ListWebAppBackupStatusSecretsSlotArgs struct {
 	Enabled *bool `pulumi:"enabled"`
 	// Kind of resource.
 	Kind *string `pulumi:"kind"`
-	// ID of backup.
+	// Name of web app.
 	Name string `pulumi:"name"`
 	// Name of the resource group to which the resource belongs.
 	ResourceGroupName string `pulumi:"resourceGroupName"`

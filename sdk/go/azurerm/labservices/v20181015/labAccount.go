@@ -37,8 +37,8 @@ type LabAccount struct {
 // NewLabAccount registers a new resource with the given unique name, arguments, and options.
 func NewLabAccount(ctx *pulumi.Context,
 	name string, args *LabAccountArgs, opts ...pulumi.ResourceOption) (*LabAccount, error) {
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
+	if args == nil || args.LabAccountName == nil {
+		return nil, errors.New("missing required argument 'LabAccountName'")
 	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
@@ -116,10 +116,10 @@ func (LabAccountState) ElementType() reflect.Type {
 type labAccountArgs struct {
 	// Represents if region selection is enabled
 	EnabledRegionSelection *bool `pulumi:"enabledRegionSelection"`
+	// The name of the lab Account.
+	LabAccountName string `pulumi:"labAccountName"`
 	// The location of the resource.
 	Location *string `pulumi:"location"`
-	// The name of the lab Account.
-	Name string `pulumi:"name"`
 	// The provisioning status of the resource.
 	ProvisioningState *string `pulumi:"provisioningState"`
 	// The name of the resource group.
@@ -134,10 +134,10 @@ type labAccountArgs struct {
 type LabAccountArgs struct {
 	// Represents if region selection is enabled
 	EnabledRegionSelection pulumi.BoolPtrInput
+	// The name of the lab Account.
+	LabAccountName pulumi.StringInput
 	// The location of the resource.
 	Location pulumi.StringPtrInput
-	// The name of the lab Account.
-	Name pulumi.StringInput
 	// The provisioning status of the resource.
 	ProvisioningState pulumi.StringPtrInput
 	// The name of the resource group.

@@ -29,8 +29,8 @@ type PrivateEndpointConnection struct {
 // NewPrivateEndpointConnection registers a new resource with the given unique name, arguments, and options.
 func NewPrivateEndpointConnection(ctx *pulumi.Context,
 	name string, args *PrivateEndpointConnectionArgs, opts ...pulumi.ResourceOption) (*PrivateEndpointConnection, error) {
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
+	if args == nil || args.PrivateEndpointConnectionName == nil {
+		return nil, errors.New("missing required argument 'PrivateEndpointConnectionName'")
 	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
@@ -93,9 +93,9 @@ func (PrivateEndpointConnectionState) ElementType() reflect.Type {
 }
 
 type privateEndpointConnectionArgs struct {
-	Name string `pulumi:"name"`
 	// Private endpoint which the connection belongs to.
-	PrivateEndpoint *PrivateEndpointProperty `pulumi:"privateEndpoint"`
+	PrivateEndpoint               *PrivateEndpointProperty `pulumi:"privateEndpoint"`
+	PrivateEndpointConnectionName string                   `pulumi:"privateEndpointConnectionName"`
 	// Connection state of the private endpoint connection.
 	PrivateLinkServiceConnectionState *PrivateLinkServiceConnectionStateProperty `pulumi:"privateLinkServiceConnectionState"`
 	// The name of the resource group. The name is case insensitive.
@@ -106,9 +106,9 @@ type privateEndpointConnectionArgs struct {
 
 // The set of arguments for constructing a PrivateEndpointConnection resource.
 type PrivateEndpointConnectionArgs struct {
-	Name pulumi.StringInput
 	// Private endpoint which the connection belongs to.
-	PrivateEndpoint PrivateEndpointPropertyPtrInput
+	PrivateEndpoint               PrivateEndpointPropertyPtrInput
+	PrivateEndpointConnectionName pulumi.StringInput
 	// Connection state of the private endpoint connection.
 	PrivateLinkServiceConnectionState PrivateLinkServiceConnectionStatePropertyPtrInput
 	// The name of the resource group. The name is case insensitive.

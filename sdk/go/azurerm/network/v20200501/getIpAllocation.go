@@ -20,7 +20,7 @@ type LookupIpAllocationArgs struct {
 	// Expands referenced resources.
 	Expand *string `pulumi:"expand"`
 	// The name of the IpAllocation.
-	Name string `pulumi:"name"`
+	IpAllocationName string `pulumi:"ipAllocationName"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }

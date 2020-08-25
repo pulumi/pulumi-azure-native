@@ -18,7 +18,7 @@ func LookupPrivateEndpointConnection(ctx *pulumi.Context, args *LookupPrivateEnd
 
 type LookupPrivateEndpointConnectionArgs struct {
 	// Name of the private endpoint connection associated with the key vault.
-	Name string `pulumi:"name"`
+	PrivateEndpointConnectionName string `pulumi:"privateEndpointConnectionName"`
 	// Name of the resource group that contains the key vault.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The name of the key vault.

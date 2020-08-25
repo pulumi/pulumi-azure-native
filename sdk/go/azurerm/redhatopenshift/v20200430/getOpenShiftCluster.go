@@ -17,10 +17,10 @@ func LookupOpenShiftCluster(ctx *pulumi.Context, args *LookupOpenShiftClusterArg
 }
 
 type LookupOpenShiftClusterArgs struct {
-	// The name of the OpenShift cluster resource.
-	Name string `pulumi:"name"`
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// The name of the OpenShift cluster resource.
+	ResourceName string `pulumi:"resourceName"`
 }
 
 // OpenShiftCluster represents an Azure Red Hat OpenShift cluster.

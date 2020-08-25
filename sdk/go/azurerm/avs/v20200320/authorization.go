@@ -29,8 +29,8 @@ type Authorization struct {
 // NewAuthorization registers a new resource with the given unique name, arguments, and options.
 func NewAuthorization(ctx *pulumi.Context,
 	name string, args *AuthorizationArgs, opts ...pulumi.ResourceOption) (*Authorization, error) {
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
+	if args == nil || args.AuthorizationName == nil {
+		return nil, errors.New("missing required argument 'AuthorizationName'")
 	}
 	if args == nil || args.PrivateCloudName == nil {
 		return nil, errors.New("missing required argument 'PrivateCloudName'")
@@ -94,7 +94,7 @@ func (AuthorizationState) ElementType() reflect.Type {
 
 type authorizationArgs struct {
 	// Name of the ExpressRoute Circuit Authorization in the private cloud
-	Name string `pulumi:"name"`
+	AuthorizationName string `pulumi:"authorizationName"`
 	// The name of the private cloud.
 	PrivateCloudName string `pulumi:"privateCloudName"`
 	// The name of the resource group. The name is case insensitive.
@@ -104,7 +104,7 @@ type authorizationArgs struct {
 // The set of arguments for constructing a Authorization resource.
 type AuthorizationArgs struct {
 	// Name of the ExpressRoute Circuit Authorization in the private cloud
-	Name pulumi.StringInput
+	AuthorizationName pulumi.StringInput
 	// The name of the private cloud.
 	PrivateCloudName pulumi.StringInput
 	// The name of the resource group. The name is case insensitive.

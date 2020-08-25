@@ -43,6 +43,9 @@ type WebAppDeployment struct {
 // NewWebAppDeployment registers a new resource with the given unique name, arguments, and options.
 func NewWebAppDeployment(ctx *pulumi.Context,
 	name string, args *WebAppDeploymentArgs, opts ...pulumi.ResourceOption) (*WebAppDeployment, error) {
+	if args == nil || args.Id == nil {
+		return nil, errors.New("missing required argument 'Id'")
+	}
 	if args == nil || args.Name == nil {
 		return nil, errors.New("missing required argument 'Name'")
 	}
@@ -162,11 +165,13 @@ type webAppDeploymentArgs struct {
 	Details *string `pulumi:"details"`
 	// End time.
 	EndTime *string `pulumi:"endTime"`
+	// Identifier for deployment.
+	Id string `pulumi:"id"`
 	// Kind of resource.
 	Kind *string `pulumi:"kind"`
 	// Details about deployment status.
 	Message *string `pulumi:"message"`
-	// Identifier for deployment.
+	// Name of the app.
 	Name string `pulumi:"name"`
 	// Name of the resource group to which the resource belongs.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
@@ -190,11 +195,13 @@ type WebAppDeploymentArgs struct {
 	Details pulumi.StringPtrInput
 	// End time.
 	EndTime pulumi.StringPtrInput
+	// Identifier for deployment.
+	Id pulumi.StringInput
 	// Kind of resource.
 	Kind pulumi.StringPtrInput
 	// Details about deployment status.
 	Message pulumi.StringPtrInput
-	// Identifier for deployment.
+	// Name of the app.
 	Name pulumi.StringInput
 	// Name of the resource group to which the resource belongs.
 	ResourceGroupName pulumi.StringInput

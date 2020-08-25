@@ -34,8 +34,8 @@ func NewNamedValue(ctx *pulumi.Context,
 	if args == nil || args.DisplayName == nil {
 		return nil, errors.New("missing required argument 'DisplayName'")
 	}
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
+	if args == nil || args.NamedValueId == nil {
+		return nil, errors.New("missing required argument 'NamedValueId'")
 	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
@@ -108,7 +108,7 @@ type namedValueArgs struct {
 	// Unique name of NamedValue. It may contain only letters, digits, period, dash, and underscore characters.
 	DisplayName string `pulumi:"displayName"`
 	// Identifier of the NamedValue.
-	Name string `pulumi:"name"`
+	NamedValueId string `pulumi:"namedValueId"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Determines whether the value is a secret and should be encrypted or not. Default value is false.
@@ -126,7 +126,7 @@ type NamedValueArgs struct {
 	// Unique name of NamedValue. It may contain only letters, digits, period, dash, and underscore characters.
 	DisplayName pulumi.StringInput
 	// Identifier of the NamedValue.
-	Name pulumi.StringInput
+	NamedValueId pulumi.StringInput
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
 	// Determines whether the value is a secret and should be encrypted or not. Default value is false.

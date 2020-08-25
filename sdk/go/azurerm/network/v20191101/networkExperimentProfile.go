@@ -33,8 +33,8 @@ type NetworkExperimentProfile struct {
 // NewNetworkExperimentProfile registers a new resource with the given unique name, arguments, and options.
 func NewNetworkExperimentProfile(ctx *pulumi.Context,
 	name string, args *NetworkExperimentProfileArgs, opts ...pulumi.ResourceOption) (*NetworkExperimentProfile, error) {
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
+	if args == nil || args.ProfileName == nil {
+		return nil, errors.New("missing required argument 'ProfileName'")
 	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
@@ -108,8 +108,10 @@ type networkExperimentProfileArgs struct {
 	Etag *string `pulumi:"etag"`
 	// Resource location.
 	Location *string `pulumi:"location"`
+	// The name of the Profile
+	Name *string `pulumi:"name"`
 	// The Profile identifier associated with the Tenant and Partner
-	Name string `pulumi:"name"`
+	ProfileName string `pulumi:"profileName"`
 	// Name of the Resource group within the Azure subscription.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Resource status.
@@ -126,8 +128,10 @@ type NetworkExperimentProfileArgs struct {
 	Etag pulumi.StringPtrInput
 	// Resource location.
 	Location pulumi.StringPtrInput
+	// The name of the Profile
+	Name pulumi.StringPtrInput
 	// The Profile identifier associated with the Tenant and Partner
-	Name pulumi.StringInput
+	ProfileName pulumi.StringInput
 	// Name of the Resource group within the Azure subscription.
 	ResourceGroupName pulumi.StringInput
 	// Resource status.

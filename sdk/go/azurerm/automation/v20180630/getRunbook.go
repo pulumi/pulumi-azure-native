@@ -19,10 +19,10 @@ func LookupRunbook(ctx *pulumi.Context, args *LookupRunbookArgs, opts ...pulumi.
 type LookupRunbookArgs struct {
 	// The name of the automation account.
 	AutomationAccountName string `pulumi:"automationAccountName"`
-	// The runbook name.
-	Name string `pulumi:"name"`
 	// Name of an Azure Resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// The runbook name.
+	RunbookName string `pulumi:"runbookName"`
 }
 
 // Definition of the runbook type.

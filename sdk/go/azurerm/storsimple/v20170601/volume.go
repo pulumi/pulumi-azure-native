@@ -55,9 +55,6 @@ func NewVolume(ctx *pulumi.Context,
 	if args == nil || args.MonitoringStatus == nil {
 		return nil, errors.New("missing required argument 'MonitoringStatus'")
 	}
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
-	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
 	}
@@ -66,6 +63,9 @@ func NewVolume(ctx *pulumi.Context,
 	}
 	if args == nil || args.VolumeContainerName == nil {
 		return nil, errors.New("missing required argument 'VolumeContainerName'")
+	}
+	if args == nil || args.VolumeName == nil {
+		return nil, errors.New("missing required argument 'VolumeName'")
 	}
 	if args == nil || args.VolumeStatus == nil {
 		return nil, errors.New("missing required argument 'VolumeStatus'")
@@ -166,14 +166,14 @@ type volumeArgs struct {
 	ManagerName string `pulumi:"managerName"`
 	// The monitoring status of the volume.
 	MonitoringStatus string `pulumi:"monitoringStatus"`
-	// The volume name.
-	Name string `pulumi:"name"`
 	// The resource group name
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The size of the volume in bytes.
 	SizeInBytes int `pulumi:"sizeInBytes"`
 	// The volume container name.
 	VolumeContainerName string `pulumi:"volumeContainerName"`
+	// The volume name.
+	VolumeName string `pulumi:"volumeName"`
 	// The volume status.
 	VolumeStatus string `pulumi:"volumeStatus"`
 	// The type of the volume.
@@ -192,14 +192,14 @@ type VolumeArgs struct {
 	ManagerName pulumi.StringInput
 	// The monitoring status of the volume.
 	MonitoringStatus pulumi.StringInput
-	// The volume name.
-	Name pulumi.StringInput
 	// The resource group name
 	ResourceGroupName pulumi.StringInput
 	// The size of the volume in bytes.
 	SizeInBytes pulumi.IntInput
 	// The volume container name.
 	VolumeContainerName pulumi.StringInput
+	// The volume name.
+	VolumeName pulumi.StringInput
 	// The volume status.
 	VolumeStatus pulumi.StringInput
 	// The type of the volume.

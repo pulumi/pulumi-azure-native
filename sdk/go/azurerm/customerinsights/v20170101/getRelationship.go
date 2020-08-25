@@ -20,7 +20,7 @@ type LookupRelationshipArgs struct {
 	// The name of the hub.
 	HubName string `pulumi:"hubName"`
 	// The name of the relationship.
-	Name string `pulumi:"name"`
+	RelationshipName string `pulumi:"relationshipName"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }

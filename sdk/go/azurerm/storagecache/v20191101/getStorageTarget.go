@@ -19,10 +19,10 @@ func LookupStorageTarget(ctx *pulumi.Context, args *LookupStorageTargetArgs, opt
 type LookupStorageTargetArgs struct {
 	// Name of Cache.
 	CacheName string `pulumi:"cacheName"`
-	// Name of the Storage Target.
-	Name string `pulumi:"name"`
 	// Target resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// Name of the Storage Target.
+	StorageTargetName string `pulumi:"storageTargetName"`
 }
 
 // A storage system being cached by a Cache.

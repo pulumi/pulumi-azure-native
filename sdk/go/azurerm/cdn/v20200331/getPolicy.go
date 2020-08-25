@@ -18,7 +18,7 @@ func LookupPolicy(ctx *pulumi.Context, args *LookupPolicyArgs, opts ...pulumi.In
 
 type LookupPolicyArgs struct {
 	// The name of the CdnWebApplicationFirewallPolicy.
-	Name string `pulumi:"name"`
+	PolicyName string `pulumi:"policyName"`
 	// Name of the Resource group within the Azure subscription.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }

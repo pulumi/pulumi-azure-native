@@ -18,7 +18,7 @@ func LookupDomainService(ctx *pulumi.Context, args *LookupDomainServiceArgs, opt
 
 type LookupDomainServiceArgs struct {
 	// The name of the domain service.
-	Name string `pulumi:"name"`
+	DomainServiceName string `pulumi:"domainServiceName"`
 	// The name of the resource group within the user's subscription. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }

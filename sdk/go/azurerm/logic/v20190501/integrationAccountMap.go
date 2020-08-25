@@ -46,11 +46,11 @@ func NewIntegrationAccountMap(ctx *pulumi.Context,
 	if args == nil || args.IntegrationAccountName == nil {
 		return nil, errors.New("missing required argument 'IntegrationAccountName'")
 	}
+	if args == nil || args.MapName == nil {
+		return nil, errors.New("missing required argument 'MapName'")
+	}
 	if args == nil || args.MapType == nil {
 		return nil, errors.New("missing required argument 'MapType'")
-	}
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
 	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
@@ -152,12 +152,12 @@ type integrationAccountMapArgs struct {
 	IntegrationAccountName string `pulumi:"integrationAccountName"`
 	// The resource location.
 	Location *string `pulumi:"location"`
+	// The integration account map name.
+	MapName string `pulumi:"mapName"`
 	// The map type.
 	MapType string `pulumi:"mapType"`
 	// The metadata.
 	Metadata map[string]interface{} `pulumi:"metadata"`
-	// The integration account map name.
-	Name string `pulumi:"name"`
 	// The parameters schema of integration account map.
 	ParametersSchema *IntegrationAccountMapPropertiesParametersSchema `pulumi:"parametersSchema"`
 	// The resource group name.
@@ -176,12 +176,12 @@ type IntegrationAccountMapArgs struct {
 	IntegrationAccountName pulumi.StringInput
 	// The resource location.
 	Location pulumi.StringPtrInput
+	// The integration account map name.
+	MapName pulumi.StringInput
 	// The map type.
 	MapType pulumi.StringInput
 	// The metadata.
 	Metadata pulumi.MapInput
-	// The integration account map name.
-	Name pulumi.StringInput
 	// The parameters schema of integration account map.
 	ParametersSchema IntegrationAccountMapPropertiesParametersSchemaPtrInput
 	// The resource group name.

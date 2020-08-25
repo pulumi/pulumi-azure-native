@@ -37,6 +37,9 @@ func NewRedisLinkedServer(ctx *pulumi.Context,
 	if args == nil || args.LinkedRedisCacheLocation == nil {
 		return nil, errors.New("missing required argument 'LinkedRedisCacheLocation'")
 	}
+	if args == nil || args.LinkedServerName == nil {
+		return nil, errors.New("missing required argument 'LinkedServerName'")
+	}
 	if args == nil || args.Name == nil {
 		return nil, errors.New("missing required argument 'Name'")
 	}
@@ -119,6 +122,8 @@ type redisLinkedServerArgs struct {
 	// Location of the linked redis cache.
 	LinkedRedisCacheLocation string `pulumi:"linkedRedisCacheLocation"`
 	// The name of the linked server that is being added to the Redis cache.
+	LinkedServerName string `pulumi:"linkedServerName"`
+	// The name of the Redis cache.
 	Name string `pulumi:"name"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
@@ -133,6 +138,8 @@ type RedisLinkedServerArgs struct {
 	// Location of the linked redis cache.
 	LinkedRedisCacheLocation pulumi.StringInput
 	// The name of the linked server that is being added to the Redis cache.
+	LinkedServerName pulumi.StringInput
+	// The name of the Redis cache.
 	Name pulumi.StringInput
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput

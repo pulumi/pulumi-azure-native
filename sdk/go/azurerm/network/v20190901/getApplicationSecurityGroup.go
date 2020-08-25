@@ -18,7 +18,7 @@ func LookupApplicationSecurityGroup(ctx *pulumi.Context, args *LookupApplication
 
 type LookupApplicationSecurityGroupArgs struct {
 	// The name of the application security group.
-	Name string `pulumi:"name"`
+	ApplicationSecurityGroupName string `pulumi:"applicationSecurityGroupName"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }

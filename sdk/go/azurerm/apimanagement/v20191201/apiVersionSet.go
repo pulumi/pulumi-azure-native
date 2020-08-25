@@ -36,14 +36,14 @@ func NewApiVersionSet(ctx *pulumi.Context,
 	if args == nil || args.DisplayName == nil {
 		return nil, errors.New("missing required argument 'DisplayName'")
 	}
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
-	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
 	}
 	if args == nil || args.ServiceName == nil {
 		return nil, errors.New("missing required argument 'ServiceName'")
+	}
+	if args == nil || args.VersionSetId == nil {
+		return nil, errors.New("missing required argument 'VersionSetId'")
 	}
 	if args == nil || args.VersioningScheme == nil {
 		return nil, errors.New("missing required argument 'VersioningScheme'")
@@ -121,8 +121,6 @@ type apiVersionSetArgs struct {
 	Description *string `pulumi:"description"`
 	// Name of API Version Set
 	DisplayName string `pulumi:"displayName"`
-	// Api Version Set identifier. Must be unique in the current API Management service instance.
-	Name string `pulumi:"name"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The name of the API Management service.
@@ -131,6 +129,8 @@ type apiVersionSetArgs struct {
 	VersionHeaderName *string `pulumi:"versionHeaderName"`
 	// Name of query parameter that indicates the API Version if versioningScheme is set to `query`.
 	VersionQueryName *string `pulumi:"versionQueryName"`
+	// Api Version Set identifier. Must be unique in the current API Management service instance.
+	VersionSetId string `pulumi:"versionSetId"`
 	// An value that determines where the API Version identifer will be located in a HTTP request.
 	VersioningScheme string `pulumi:"versioningScheme"`
 }
@@ -141,8 +141,6 @@ type ApiVersionSetArgs struct {
 	Description pulumi.StringPtrInput
 	// Name of API Version Set
 	DisplayName pulumi.StringInput
-	// Api Version Set identifier. Must be unique in the current API Management service instance.
-	Name pulumi.StringInput
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
 	// The name of the API Management service.
@@ -151,6 +149,8 @@ type ApiVersionSetArgs struct {
 	VersionHeaderName pulumi.StringPtrInput
 	// Name of query parameter that indicates the API Version if versioningScheme is set to `query`.
 	VersionQueryName pulumi.StringPtrInput
+	// Api Version Set identifier. Must be unique in the current API Management service instance.
+	VersionSetId pulumi.StringInput
 	// An value that determines where the API Version identifer will be located in a HTTP request.
 	VersioningScheme pulumi.StringInput
 }

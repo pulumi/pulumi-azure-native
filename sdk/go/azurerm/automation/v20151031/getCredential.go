@@ -20,7 +20,7 @@ type LookupCredentialArgs struct {
 	// The name of the automation account.
 	AutomationAccountName string `pulumi:"automationAccountName"`
 	// The name of credential.
-	Name string `pulumi:"name"`
+	CredentialName string `pulumi:"credentialName"`
 	// Name of an Azure Resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }

@@ -18,6 +18,8 @@ func LookupSiteDeployment(ctx *pulumi.Context, args *LookupSiteDeploymentArgs, o
 
 type LookupSiteDeploymentArgs struct {
 	// Id of the deployment
+	Id string `pulumi:"id"`
+	// Name of web app
 	Name string `pulumi:"name"`
 	// Name of resource group
 	ResourceGroupName string `pulumi:"resourceGroupName"`

@@ -17,8 +17,10 @@ func ListStaticSiteBuildFunctionAppSettings(ctx *pulumi.Context, args *ListStati
 }
 
 type ListStaticSiteBuildFunctionAppSettingsArgs struct {
-	// The stage site identifier.
+	// Name of the static site.
 	Name string `pulumi:"name"`
+	// The stage site identifier.
+	PrId string `pulumi:"prId"`
 	// Name of the resource group to which the resource belongs.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }

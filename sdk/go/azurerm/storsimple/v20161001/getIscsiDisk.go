@@ -19,12 +19,12 @@ func LookupIscsiDisk(ctx *pulumi.Context, args *LookupIscsiDiskArgs, opts ...pul
 type LookupIscsiDiskArgs struct {
 	// The device name.
 	DeviceName string `pulumi:"deviceName"`
+	// The disk name.
+	DiskName string `pulumi:"diskName"`
 	// The iSCSI server name.
 	IscsiServerName string `pulumi:"iscsiServerName"`
 	// The manager name
 	ManagerName string `pulumi:"managerName"`
-	// The disk name.
-	Name string `pulumi:"name"`
 	// The resource group name
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }

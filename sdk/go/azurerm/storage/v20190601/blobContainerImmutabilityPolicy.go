@@ -37,8 +37,8 @@ func NewBlobContainerImmutabilityPolicy(ctx *pulumi.Context,
 	if args == nil || args.ContainerName == nil {
 		return nil, errors.New("missing required argument 'ContainerName'")
 	}
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
+	if args == nil || args.ImmutabilityPolicyName == nil {
+		return nil, errors.New("missing required argument 'ImmutabilityPolicyName'")
 	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
@@ -126,7 +126,7 @@ type blobContainerImmutabilityPolicyArgs struct {
 	// The immutability period for the blobs in the container since the policy creation, in days.
 	ImmutabilityPeriodSinceCreationInDays *int `pulumi:"immutabilityPeriodSinceCreationInDays"`
 	// The name of the blob container immutabilityPolicy within the specified storage account. ImmutabilityPolicy Name must be 'default'
-	Name string `pulumi:"name"`
+	ImmutabilityPolicyName string `pulumi:"immutabilityPolicyName"`
 	// The name of the resource group within the user's subscription. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
@@ -142,7 +142,7 @@ type BlobContainerImmutabilityPolicyArgs struct {
 	// The immutability period for the blobs in the container since the policy creation, in days.
 	ImmutabilityPeriodSinceCreationInDays pulumi.IntPtrInput
 	// The name of the blob container immutabilityPolicy within the specified storage account. ImmutabilityPolicy Name must be 'default'
-	Name pulumi.StringInput
+	ImmutabilityPolicyName pulumi.StringInput
 	// The name of the resource group within the user's subscription. The name is case insensitive.
 	ResourceGroupName pulumi.StringInput
 }

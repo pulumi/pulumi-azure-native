@@ -43,11 +43,11 @@ func NewView(ctx *pulumi.Context,
 	if args == nil || args.HubName == nil {
 		return nil, errors.New("missing required argument 'HubName'")
 	}
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
-	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
+	}
+	if args == nil || args.ViewName == nil {
+		return nil, errors.New("missing required argument 'ViewName'")
 	}
 	if args == nil {
 		args = &ViewArgs{}
@@ -132,12 +132,12 @@ type viewArgs struct {
 	DisplayName map[string]string `pulumi:"displayName"`
 	// The name of the hub.
 	HubName string `pulumi:"hubName"`
-	// The name of the view.
-	Name string `pulumi:"name"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// the user ID.
 	UserId *string `pulumi:"userId"`
+	// The name of the view.
+	ViewName string `pulumi:"viewName"`
 }
 
 // The set of arguments for constructing a View resource.
@@ -148,12 +148,12 @@ type ViewArgs struct {
 	DisplayName pulumi.StringMapInput
 	// The name of the hub.
 	HubName pulumi.StringInput
-	// The name of the view.
-	Name pulumi.StringInput
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
 	// the user ID.
 	UserId pulumi.StringPtrInput
+	// The name of the view.
+	ViewName pulumi.StringInput
 }
 
 func (ViewArgs) ElementType() reflect.Type {

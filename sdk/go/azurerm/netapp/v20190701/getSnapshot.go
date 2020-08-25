@@ -19,12 +19,12 @@ func LookupSnapshot(ctx *pulumi.Context, args *LookupSnapshotArgs, opts ...pulum
 type LookupSnapshotArgs struct {
 	// The name of the NetApp account
 	AccountName string `pulumi:"accountName"`
-	// The name of the mount target
-	Name string `pulumi:"name"`
 	// The name of the capacity pool
 	PoolName string `pulumi:"poolName"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// The name of the mount target
+	SnapshotName string `pulumi:"snapshotName"`
 	// The name of the volume
 	VolumeName string `pulumi:"volumeName"`
 }

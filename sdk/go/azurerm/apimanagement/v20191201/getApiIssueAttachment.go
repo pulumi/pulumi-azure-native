@@ -19,10 +19,10 @@ func LookupApiIssueAttachment(ctx *pulumi.Context, args *LookupApiIssueAttachmen
 type LookupApiIssueAttachmentArgs struct {
 	// API identifier. Must be unique in the current API Management service instance.
 	ApiId string `pulumi:"apiId"`
+	// Attachment identifier within an Issue. Must be unique in the current Issue.
+	AttachmentId string `pulumi:"attachmentId"`
 	// Issue identifier. Must be unique in the current API Management service instance.
 	IssueId string `pulumi:"issueId"`
-	// Attachment identifier within an Issue. Must be unique in the current Issue.
-	Name string `pulumi:"name"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The name of the API Management service.

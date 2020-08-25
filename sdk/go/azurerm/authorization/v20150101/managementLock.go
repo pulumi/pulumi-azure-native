@@ -27,8 +27,8 @@ type ManagementLock struct {
 // NewManagementLock registers a new resource with the given unique name, arguments, and options.
 func NewManagementLock(ctx *pulumi.Context,
 	name string, args *ManagementLockArgs, opts ...pulumi.ResourceOption) (*ManagementLock, error) {
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
+	if args == nil || args.LockName == nil {
+		return nil, errors.New("missing required argument 'LockName'")
 	}
 	if args == nil {
 		args = &ManagementLockArgs{}
@@ -90,7 +90,9 @@ type managementLockArgs struct {
 	// The lock level of the management lock.
 	Level *string `pulumi:"level"`
 	// The name of lock.
-	Name string `pulumi:"name"`
+	LockName string `pulumi:"lockName"`
+	// The name of the lock.
+	Name *string `pulumi:"name"`
 	// The notes of the management lock.
 	Notes *string `pulumi:"notes"`
 }
@@ -100,7 +102,9 @@ type ManagementLockArgs struct {
 	// The lock level of the management lock.
 	Level pulumi.StringPtrInput
 	// The name of lock.
-	Name pulumi.StringInput
+	LockName pulumi.StringInput
+	// The name of the lock.
+	Name pulumi.StringPtrInput
 	// The notes of the management lock.
 	Notes pulumi.StringPtrInput
 }

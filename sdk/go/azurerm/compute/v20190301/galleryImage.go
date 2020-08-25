@@ -51,6 +51,9 @@ type GalleryImage struct {
 // NewGalleryImage registers a new resource with the given unique name, arguments, and options.
 func NewGalleryImage(ctx *pulumi.Context,
 	name string, args *GalleryImageArgs, opts ...pulumi.ResourceOption) (*GalleryImage, error) {
+	if args == nil || args.GalleryImageName == nil {
+		return nil, errors.New("missing required argument 'GalleryImageName'")
+	}
 	if args == nil || args.GalleryName == nil {
 		return nil, errors.New("missing required argument 'GalleryName'")
 	}
@@ -59,9 +62,6 @@ func NewGalleryImage(ctx *pulumi.Context,
 	}
 	if args == nil || args.Location == nil {
 		return nil, errors.New("missing required argument 'Location'")
-	}
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
 	}
 	if args == nil || args.OsState == nil {
 		return nil, errors.New("missing required argument 'OsState'")
@@ -191,14 +191,14 @@ type galleryImageArgs struct {
 	EndOfLifeDate *string `pulumi:"endOfLifeDate"`
 	// The Eula agreement for the gallery Image Definition.
 	Eula *string `pulumi:"eula"`
+	// The name of the gallery Image Definition to be created or updated. The allowed characters are alphabets and numbers with dots, dashes, and periods allowed in the middle. The maximum length is 80 characters.
+	GalleryImageName string `pulumi:"galleryImageName"`
 	// The name of the Shared Image Gallery in which the Image Definition is to be created.
 	GalleryName string `pulumi:"galleryName"`
 	// This is the gallery Image Definition identifier.
 	Identifier GalleryImageIdentifier `pulumi:"identifier"`
 	// Resource location
 	Location string `pulumi:"location"`
-	// The name of the gallery Image Definition to be created or updated. The allowed characters are alphabets and numbers with dots, dashes, and periods allowed in the middle. The maximum length is 80 characters.
-	Name string `pulumi:"name"`
 	// This property allows the user to specify whether the virtual machines created under this image are 'Generalized' or 'Specialized'.
 	OsState string `pulumi:"osState"`
 	// This property allows you to specify the type of the OS that is included in the disk when creating a VM from a managed image. <br><br> Possible values are: <br><br> **Windows** <br><br> **Linux**
@@ -227,14 +227,14 @@ type GalleryImageArgs struct {
 	EndOfLifeDate pulumi.StringPtrInput
 	// The Eula agreement for the gallery Image Definition.
 	Eula pulumi.StringPtrInput
+	// The name of the gallery Image Definition to be created or updated. The allowed characters are alphabets and numbers with dots, dashes, and periods allowed in the middle. The maximum length is 80 characters.
+	GalleryImageName pulumi.StringInput
 	// The name of the Shared Image Gallery in which the Image Definition is to be created.
 	GalleryName pulumi.StringInput
 	// This is the gallery Image Definition identifier.
 	Identifier GalleryImageIdentifierInput
 	// Resource location
 	Location pulumi.StringInput
-	// The name of the gallery Image Definition to be created or updated. The allowed characters are alphabets and numbers with dots, dashes, and periods allowed in the middle. The maximum length is 80 characters.
-	Name pulumi.StringInput
 	// This property allows the user to specify whether the virtual machines created under this image are 'Generalized' or 'Specialized'.
 	OsState pulumi.StringInput
 	// This property allows you to specify the type of the OS that is included in the disk when creating a VM from a managed image. <br><br> Possible values are: <br><br> **Windows** <br><br> **Linux**

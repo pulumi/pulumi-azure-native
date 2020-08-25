@@ -17,10 +17,10 @@ func LookupServerAdministrator(ctx *pulumi.Context, args *LookupServerAdministra
 }
 
 type LookupServerAdministratorArgs struct {
-	// The name of the server.
-	Name string `pulumi:"name"`
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// The name of the server.
+	ServerName string `pulumi:"serverName"`
 }
 
 // Represents a and external administrator to be created.

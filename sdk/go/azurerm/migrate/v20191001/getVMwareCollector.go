@@ -17,12 +17,12 @@ func LookupVMwareCollector(ctx *pulumi.Context, args *LookupVMwareCollectorArgs,
 }
 
 type LookupVMwareCollectorArgs struct {
-	// Unique name of a VMware collector within a project.
-	Name string `pulumi:"name"`
 	// Name of the Azure Migrate project.
 	ProjectName string `pulumi:"projectName"`
 	// Name of the Azure Resource Group that project is part of.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// Unique name of a VMware collector within a project.
+	VmWareCollectorName string `pulumi:"vmWareCollectorName"`
 }
 
 type LookupVMwareCollectorResult struct {

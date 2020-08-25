@@ -45,11 +45,11 @@ type Endpoint struct {
 // NewEndpoint registers a new resource with the given unique name, arguments, and options.
 func NewEndpoint(ctx *pulumi.Context,
 	name string, args *EndpointArgs, opts ...pulumi.ResourceOption) (*Endpoint, error) {
+	if args == nil || args.EndpointName == nil {
+		return nil, errors.New("missing required argument 'EndpointName'")
+	}
 	if args == nil || args.EndpointType == nil {
 		return nil, errors.New("missing required argument 'EndpointType'")
-	}
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
 	}
 	if args == nil || args.ProfileName == nil {
 		return nil, errors.New("missing required argument 'ProfileName'")
@@ -168,6 +168,8 @@ type endpointArgs struct {
 	EndpointLocation *string `pulumi:"endpointLocation"`
 	// The monitoring status of the endpoint.
 	EndpointMonitorStatus *string `pulumi:"endpointMonitorStatus"`
+	// The name of the Traffic Manager endpoint to be created or updated.
+	EndpointName string `pulumi:"endpointName"`
 	// The status of the endpoint. If the endpoint is Enabled, it is probed for endpoint health and is included in the traffic routing method.
 	EndpointStatus *string `pulumi:"endpointStatus"`
 	// The type of the Traffic Manager endpoint to be created or updated.
@@ -178,8 +180,8 @@ type endpointArgs struct {
 	Id *string `pulumi:"id"`
 	// The minimum number of endpoints that must be available in the child profile in order for the parent profile to be considered available. Only applicable to endpoint of type 'NestedEndpoints'.
 	MinChildEndpoints *int `pulumi:"minChildEndpoints"`
-	// The name of the Traffic Manager endpoint to be created or updated.
-	Name string `pulumi:"name"`
+	// The name of the resource
+	Name *string `pulumi:"name"`
 	// The priority of this endpoint when using the 'Priority' traffic routing method. Possible values are from 1 to 1000, lower values represent higher priority. This is an optional parameter.  If specified, it must be specified on all endpoints, and no two endpoints can share the same priority value.
 	Priority *int `pulumi:"priority"`
 	// The name of the Traffic Manager profile.
@@ -206,6 +208,8 @@ type EndpointArgs struct {
 	EndpointLocation pulumi.StringPtrInput
 	// The monitoring status of the endpoint.
 	EndpointMonitorStatus pulumi.StringPtrInput
+	// The name of the Traffic Manager endpoint to be created or updated.
+	EndpointName pulumi.StringInput
 	// The status of the endpoint. If the endpoint is Enabled, it is probed for endpoint health and is included in the traffic routing method.
 	EndpointStatus pulumi.StringPtrInput
 	// The type of the Traffic Manager endpoint to be created or updated.
@@ -216,8 +220,8 @@ type EndpointArgs struct {
 	Id pulumi.StringPtrInput
 	// The minimum number of endpoints that must be available in the child profile in order for the parent profile to be considered available. Only applicable to endpoint of type 'NestedEndpoints'.
 	MinChildEndpoints pulumi.IntPtrInput
-	// The name of the Traffic Manager endpoint to be created or updated.
-	Name pulumi.StringInput
+	// The name of the resource
+	Name pulumi.StringPtrInput
 	// The priority of this endpoint when using the 'Priority' traffic routing method. Possible values are from 1 to 1000, lower values represent higher priority. This is an optional parameter.  If specified, it must be specified on all endpoints, and no two endpoints can share the same priority value.
 	Priority pulumi.IntPtrInput
 	// The name of the Traffic Manager profile.

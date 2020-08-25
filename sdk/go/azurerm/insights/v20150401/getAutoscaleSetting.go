@@ -18,7 +18,7 @@ func LookupAutoscaleSetting(ctx *pulumi.Context, args *LookupAutoscaleSettingArg
 
 type LookupAutoscaleSettingArgs struct {
 	// The autoscale setting name.
-	Name string `pulumi:"name"`
+	AutoscaleSettingName string `pulumi:"autoscaleSettingName"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }

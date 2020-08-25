@@ -24,7 +24,7 @@ type LookupProtectedItemArgs struct {
 	// OData filter options.
 	Filter *string `pulumi:"filter"`
 	// Backed up item name whose details are to be fetched.
-	Name string `pulumi:"name"`
+	ProtectedItemName string `pulumi:"protectedItemName"`
 	// The name of the resource group where the recovery services vault is present.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The name of the recovery services vault.

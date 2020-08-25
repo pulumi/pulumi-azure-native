@@ -21,10 +21,10 @@ type LookupCassandraResourceCassandraTableArgs struct {
 	AccountName string `pulumi:"accountName"`
 	// Cosmos DB keyspace name.
 	KeyspaceName string `pulumi:"keyspaceName"`
-	// Cosmos DB table name.
-	Name string `pulumi:"name"`
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// Cosmos DB table name.
+	TableName string `pulumi:"tableName"`
 }
 
 // An Azure Cosmos DB Cassandra table.

@@ -18,7 +18,7 @@ func LookupFirewallRule(ctx *pulumi.Context, args *LookupFirewallRuleArgs, opts 
 
 type LookupFirewallRuleArgs struct {
 	// The name of the firewall rule.
-	Name string `pulumi:"name"`
+	FirewallRuleName string `pulumi:"firewallRuleName"`
 	// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The name of the server.

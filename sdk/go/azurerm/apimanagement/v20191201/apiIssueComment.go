@@ -32,11 +32,11 @@ func NewApiIssueComment(ctx *pulumi.Context,
 	if args == nil || args.ApiId == nil {
 		return nil, errors.New("missing required argument 'ApiId'")
 	}
+	if args == nil || args.CommentId == nil {
+		return nil, errors.New("missing required argument 'CommentId'")
+	}
 	if args == nil || args.IssueId == nil {
 		return nil, errors.New("missing required argument 'IssueId'")
-	}
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
 	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
@@ -119,12 +119,12 @@ func (ApiIssueCommentState) ElementType() reflect.Type {
 type apiIssueCommentArgs struct {
 	// API identifier. Must be unique in the current API Management service instance.
 	ApiId string `pulumi:"apiId"`
+	// Comment identifier within an Issue. Must be unique in the current Issue.
+	CommentId string `pulumi:"commentId"`
 	// Date and time when the comment was created.
 	CreatedDate *string `pulumi:"createdDate"`
 	// Issue identifier. Must be unique in the current API Management service instance.
 	IssueId string `pulumi:"issueId"`
-	// Comment identifier within an Issue. Must be unique in the current Issue.
-	Name string `pulumi:"name"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The name of the API Management service.
@@ -139,12 +139,12 @@ type apiIssueCommentArgs struct {
 type ApiIssueCommentArgs struct {
 	// API identifier. Must be unique in the current API Management service instance.
 	ApiId pulumi.StringInput
+	// Comment identifier within an Issue. Must be unique in the current Issue.
+	CommentId pulumi.StringInput
 	// Date and time when the comment was created.
 	CreatedDate pulumi.StringPtrInput
 	// Issue identifier. Must be unique in the current API Management service instance.
 	IssueId pulumi.StringInput
-	// Comment identifier within an Issue. Must be unique in the current Issue.
-	Name pulumi.StringInput
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
 	// The name of the API Management service.

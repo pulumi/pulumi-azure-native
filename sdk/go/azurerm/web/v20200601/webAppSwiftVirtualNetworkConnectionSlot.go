@@ -35,6 +35,9 @@ func NewWebAppSwiftVirtualNetworkConnectionSlot(ctx *pulumi.Context,
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
 	}
+	if args == nil || args.Slot == nil {
+		return nil, errors.New("missing required argument 'Slot'")
+	}
 	if args == nil {
 		args = &WebAppSwiftVirtualNetworkConnectionSlotArgs{}
 	}
@@ -104,10 +107,12 @@ func (WebAppSwiftVirtualNetworkConnectionSlotState) ElementType() reflect.Type {
 type webAppSwiftVirtualNetworkConnectionSlotArgs struct {
 	// Kind of resource.
 	Kind *string `pulumi:"kind"`
-	// Name of the deployment slot. If a slot is not specified, the API will add or update connections for the production slot.
+	// Name of the app.
 	Name string `pulumi:"name"`
 	// Name of the resource group to which the resource belongs.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// Name of the deployment slot. If a slot is not specified, the API will add or update connections for the production slot.
+	Slot string `pulumi:"slot"`
 	// The Virtual Network subnet's resource ID. This is the subnet that this Web App will join. This subnet must have a delegation to Microsoft.Web/serverFarms defined first.
 	SubnetResourceId *string `pulumi:"subnetResourceId"`
 	// A flag that specifies if the scale unit this Web App is on supports Swift integration.
@@ -118,10 +123,12 @@ type webAppSwiftVirtualNetworkConnectionSlotArgs struct {
 type WebAppSwiftVirtualNetworkConnectionSlotArgs struct {
 	// Kind of resource.
 	Kind pulumi.StringPtrInput
-	// Name of the deployment slot. If a slot is not specified, the API will add or update connections for the production slot.
+	// Name of the app.
 	Name pulumi.StringInput
 	// Name of the resource group to which the resource belongs.
 	ResourceGroupName pulumi.StringInput
+	// Name of the deployment slot. If a slot is not specified, the API will add or update connections for the production slot.
+	Slot pulumi.StringInput
 	// The Virtual Network subnet's resource ID. This is the subnet that this Web App will join. This subnet must have a delegation to Microsoft.Web/serverFarms defined first.
 	SubnetResourceId pulumi.StringPtrInput
 	// A flag that specifies if the scale unit this Web App is on supports Swift integration.

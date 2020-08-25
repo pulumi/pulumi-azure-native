@@ -27,8 +27,8 @@ type Certificate struct {
 // NewCertificate registers a new resource with the given unique name, arguments, and options.
 func NewCertificate(ctx *pulumi.Context,
 	name string, args *CertificateArgs, opts ...pulumi.ResourceOption) (*Certificate, error) {
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
+	if args == nil || args.CertificateName == nil {
+		return nil, errors.New("missing required argument 'CertificateName'")
 	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
@@ -114,7 +114,7 @@ type certificateArgs struct {
 	// base-64 representation of the X509 leaf certificate .cer file or just .pem file content.
 	Certificate *string `pulumi:"certificate"`
 	// The name of the certificate
-	Name string `pulumi:"name"`
+	CertificateName string `pulumi:"certificateName"`
 	// The name of the resource group that contains the IoT hub.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The name of the IoT hub.
@@ -126,7 +126,7 @@ type CertificateArgs struct {
 	// base-64 representation of the X509 leaf certificate .cer file or just .pem file content.
 	Certificate pulumi.StringPtrInput
 	// The name of the certificate
-	Name pulumi.StringInput
+	CertificateName pulumi.StringInput
 	// The name of the resource group that contains the IoT hub.
 	ResourceGroupName pulumi.StringInput
 	// The name of the IoT hub.

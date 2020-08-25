@@ -34,11 +34,11 @@ func NewDatabaseAccountMongoDBCollection(ctx *pulumi.Context,
 	if args == nil || args.AccountName == nil {
 		return nil, errors.New("missing required argument 'AccountName'")
 	}
+	if args == nil || args.CollectionName == nil {
+		return nil, errors.New("missing required argument 'CollectionName'")
+	}
 	if args == nil || args.DatabaseName == nil {
 		return nil, errors.New("missing required argument 'DatabaseName'")
-	}
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
 	}
 	if args == nil || args.Options == nil {
 		return nil, errors.New("missing required argument 'Options'")
@@ -125,10 +125,10 @@ func (DatabaseAccountMongoDBCollectionState) ElementType() reflect.Type {
 type databaseAccountMongoDBCollectionArgs struct {
 	// Cosmos DB database account name.
 	AccountName string `pulumi:"accountName"`
+	// Cosmos DB collection name.
+	CollectionName string `pulumi:"collectionName"`
 	// Cosmos DB database name.
 	DatabaseName string `pulumi:"databaseName"`
-	// Cosmos DB collection name.
-	Name string `pulumi:"name"`
 	// A key-value pair of options to be applied for the request. This corresponds to the headers sent with the request.
 	Options map[string]string `pulumi:"options"`
 	// The standard JSON format of a MongoDB collection
@@ -141,10 +141,10 @@ type databaseAccountMongoDBCollectionArgs struct {
 type DatabaseAccountMongoDBCollectionArgs struct {
 	// Cosmos DB database account name.
 	AccountName pulumi.StringInput
+	// Cosmos DB collection name.
+	CollectionName pulumi.StringInput
 	// Cosmos DB database name.
 	DatabaseName pulumi.StringInput
-	// Cosmos DB collection name.
-	Name pulumi.StringInput
 	// A key-value pair of options to be applied for the request. This corresponds to the headers sent with the request.
 	Options pulumi.StringMapInput
 	// The standard JSON format of a MongoDB collection

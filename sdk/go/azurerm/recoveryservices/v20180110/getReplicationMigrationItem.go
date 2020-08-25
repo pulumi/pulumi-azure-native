@@ -20,7 +20,7 @@ type LookupReplicationMigrationItemArgs struct {
 	// Fabric unique name.
 	FabricName string `pulumi:"fabricName"`
 	// Migration item name.
-	Name string `pulumi:"name"`
+	MigrationItemName string `pulumi:"migrationItemName"`
 	// Protection container name.
 	ProtectionContainerName string `pulumi:"protectionContainerName"`
 	// The name of the resource group where the recovery services vault is present.

@@ -29,11 +29,11 @@ type ExpressRouteCircuitAuthorization struct {
 // NewExpressRouteCircuitAuthorization registers a new resource with the given unique name, arguments, and options.
 func NewExpressRouteCircuitAuthorization(ctx *pulumi.Context,
 	name string, args *ExpressRouteCircuitAuthorizationArgs, opts ...pulumi.ResourceOption) (*ExpressRouteCircuitAuthorization, error) {
+	if args == nil || args.AuthorizationName == nil {
+		return nil, errors.New("missing required argument 'AuthorizationName'")
+	}
 	if args == nil || args.CircuitName == nil {
 		return nil, errors.New("missing required argument 'CircuitName'")
-	}
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
 	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
@@ -191,6 +191,8 @@ func (ExpressRouteCircuitAuthorizationState) ElementType() reflect.Type {
 type expressRouteCircuitAuthorizationArgs struct {
 	// Gets or sets the authorization key
 	AuthorizationKey *string `pulumi:"authorizationKey"`
+	// The name of the authorization.
+	AuthorizationName string `pulumi:"authorizationName"`
 	// Gets or sets AuthorizationUseStatus
 	AuthorizationUseStatus *string `pulumi:"authorizationUseStatus"`
 	// The name of the express route circuit.
@@ -199,8 +201,8 @@ type expressRouteCircuitAuthorizationArgs struct {
 	Etag *string `pulumi:"etag"`
 	// Resource Id
 	Id *string `pulumi:"id"`
-	// The name of the authorization.
-	Name string `pulumi:"name"`
+	// Gets name of the resource that is unique within a resource group. This name can be used to access the resource
+	Name *string `pulumi:"name"`
 	// Gets or sets Provisioning state of the PublicIP resource Updating/Deleting/Failed
 	ProvisioningState *string `pulumi:"provisioningState"`
 	// The name of the resource group.
@@ -211,6 +213,8 @@ type expressRouteCircuitAuthorizationArgs struct {
 type ExpressRouteCircuitAuthorizationArgs struct {
 	// Gets or sets the authorization key
 	AuthorizationKey pulumi.StringPtrInput
+	// The name of the authorization.
+	AuthorizationName pulumi.StringInput
 	// Gets or sets AuthorizationUseStatus
 	AuthorizationUseStatus pulumi.StringPtrInput
 	// The name of the express route circuit.
@@ -219,8 +223,8 @@ type ExpressRouteCircuitAuthorizationArgs struct {
 	Etag pulumi.StringPtrInput
 	// Resource Id
 	Id pulumi.StringPtrInput
-	// The name of the authorization.
-	Name pulumi.StringInput
+	// Gets name of the resource that is unique within a resource group. This name can be used to access the resource
+	Name pulumi.StringPtrInput
 	// Gets or sets Provisioning state of the PublicIP resource Updating/Deleting/Failed
 	ProvisioningState pulumi.StringPtrInput
 	// The name of the resource group.

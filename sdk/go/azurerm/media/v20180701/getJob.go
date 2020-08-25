@@ -20,7 +20,7 @@ type LookupJobArgs struct {
 	// The Media Services account name.
 	AccountName string `pulumi:"accountName"`
 	// The Job name.
-	Name string `pulumi:"name"`
+	JobName string `pulumi:"jobName"`
 	// The name of the resource group within the Azure subscription.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The Transform name.

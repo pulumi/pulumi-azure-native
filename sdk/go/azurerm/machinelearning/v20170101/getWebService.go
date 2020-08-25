@@ -17,12 +17,12 @@ func LookupWebService(ctx *pulumi.Context, args *LookupWebServiceArgs, opts ...p
 }
 
 type LookupWebServiceArgs struct {
-	// The name of the web service.
-	Name string `pulumi:"name"`
 	// The region for which encrypted credential parameters are valid.
 	Region *string `pulumi:"region"`
 	// Name of the resource group in which the web service is located.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// The name of the web service.
+	WebServiceName string `pulumi:"webServiceName"`
 }
 
 // Instance of an Azure ML web service resource.

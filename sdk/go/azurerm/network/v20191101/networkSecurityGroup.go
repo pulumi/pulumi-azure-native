@@ -41,8 +41,8 @@ type NetworkSecurityGroup struct {
 // NewNetworkSecurityGroup registers a new resource with the given unique name, arguments, and options.
 func NewNetworkSecurityGroup(ctx *pulumi.Context,
 	name string, args *NetworkSecurityGroupArgs, opts ...pulumi.ResourceOption) (*NetworkSecurityGroup, error) {
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
+	if args == nil || args.NetworkSecurityGroupName == nil {
+		return nil, errors.New("missing required argument 'NetworkSecurityGroupName'")
 	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
@@ -227,7 +227,7 @@ type networkSecurityGroupArgs struct {
 	// Resource location.
 	Location *string `pulumi:"location"`
 	// The name of the network security group.
-	Name string `pulumi:"name"`
+	NetworkSecurityGroupName string `pulumi:"networkSecurityGroupName"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// A collection of security rules of the network security group.
@@ -243,7 +243,7 @@ type NetworkSecurityGroupArgs struct {
 	// Resource location.
 	Location pulumi.StringPtrInput
 	// The name of the network security group.
-	Name pulumi.StringInput
+	NetworkSecurityGroupName pulumi.StringInput
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
 	// A collection of security rules of the network security group.

@@ -20,7 +20,7 @@ type LookupPartnerArgs struct {
 	// The integration account name.
 	IntegrationAccountName string `pulumi:"integrationAccountName"`
 	// The integration account partner name.
-	Name string `pulumi:"name"`
+	PartnerName string `pulumi:"partnerName"`
 	// The resource group name.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }

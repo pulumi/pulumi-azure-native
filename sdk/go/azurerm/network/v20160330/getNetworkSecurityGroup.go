@@ -20,7 +20,7 @@ type LookupNetworkSecurityGroupArgs struct {
 	// expand references resources.
 	Expand *string `pulumi:"expand"`
 	// The name of the network security group.
-	Name string `pulumi:"name"`
+	NetworkSecurityGroupName string `pulumi:"networkSecurityGroupName"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }

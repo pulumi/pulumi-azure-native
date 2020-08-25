@@ -17,10 +17,10 @@ func LookupAccessControlRecord(ctx *pulumi.Context, args *LookupAccessControlRec
 }
 
 type LookupAccessControlRecordArgs struct {
+	// Name of access control record to be fetched.
+	AccessControlRecordName string `pulumi:"accessControlRecordName"`
 	// The manager name
 	ManagerName string `pulumi:"managerName"`
-	// Name of access control record to be fetched.
-	Name string `pulumi:"name"`
 	// The resource group name
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }

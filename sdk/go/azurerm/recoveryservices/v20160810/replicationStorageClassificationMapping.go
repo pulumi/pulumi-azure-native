@@ -30,14 +30,14 @@ func NewReplicationStorageClassificationMapping(ctx *pulumi.Context,
 	if args == nil || args.FabricName == nil {
 		return nil, errors.New("missing required argument 'FabricName'")
 	}
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
-	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
 	}
 	if args == nil || args.ResourceName == nil {
 		return nil, errors.New("missing required argument 'ResourceName'")
+	}
+	if args == nil || args.StorageClassificationMappingName == nil {
+		return nil, errors.New("missing required argument 'StorageClassificationMappingName'")
 	}
 	if args == nil || args.StorageClassificationName == nil {
 		return nil, errors.New("missing required argument 'StorageClassificationName'")
@@ -104,14 +104,14 @@ func (ReplicationStorageClassificationMappingState) ElementType() reflect.Type {
 type replicationStorageClassificationMappingArgs struct {
 	// Fabric name.
 	FabricName string `pulumi:"fabricName"`
-	// Storage classification mapping name.
-	Name string `pulumi:"name"`
 	// Storage mapping input properties.
 	Properties *StorageMappingInputProperties `pulumi:"properties"`
 	// The name of the resource group where the recovery services vault is present.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The name of the recovery services vault.
 	ResourceName string `pulumi:"resourceName"`
+	// Storage classification mapping name.
+	StorageClassificationMappingName string `pulumi:"storageClassificationMappingName"`
 	// Storage classification name.
 	StorageClassificationName string `pulumi:"storageClassificationName"`
 }
@@ -120,14 +120,14 @@ type replicationStorageClassificationMappingArgs struct {
 type ReplicationStorageClassificationMappingArgs struct {
 	// Fabric name.
 	FabricName pulumi.StringInput
-	// Storage classification mapping name.
-	Name pulumi.StringInput
 	// Storage mapping input properties.
 	Properties StorageMappingInputPropertiesPtrInput
 	// The name of the resource group where the recovery services vault is present.
 	ResourceGroupName pulumi.StringInput
 	// The name of the recovery services vault.
 	ResourceName pulumi.StringInput
+	// Storage classification mapping name.
+	StorageClassificationMappingName pulumi.StringInput
 	// Storage classification name.
 	StorageClassificationName pulumi.StringInput
 }

@@ -29,11 +29,11 @@ type ConsumerGroup struct {
 // NewConsumerGroup registers a new resource with the given unique name, arguments, and options.
 func NewConsumerGroup(ctx *pulumi.Context,
 	name string, args *ConsumerGroupArgs, opts ...pulumi.ResourceOption) (*ConsumerGroup, error) {
+	if args == nil || args.ConsumerGroupName == nil {
+		return nil, errors.New("missing required argument 'ConsumerGroupName'")
+	}
 	if args == nil || args.EventHubName == nil {
 		return nil, errors.New("missing required argument 'EventHubName'")
-	}
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
 	}
 	if args == nil || args.NamespaceName == nil {
 		return nil, errors.New("missing required argument 'NamespaceName'")
@@ -105,10 +105,10 @@ func (ConsumerGroupState) ElementType() reflect.Type {
 }
 
 type consumerGroupArgs struct {
+	// The consumer group name
+	ConsumerGroupName string `pulumi:"consumerGroupName"`
 	// The Event Hub name
 	EventHubName string `pulumi:"eventHubName"`
-	// The consumer group name
-	Name string `pulumi:"name"`
 	// The Namespace name
 	NamespaceName string `pulumi:"namespaceName"`
 	// Name of the resource group within the azure subscription.
@@ -119,10 +119,10 @@ type consumerGroupArgs struct {
 
 // The set of arguments for constructing a ConsumerGroup resource.
 type ConsumerGroupArgs struct {
+	// The consumer group name
+	ConsumerGroupName pulumi.StringInput
 	// The Event Hub name
 	EventHubName pulumi.StringInput
-	// The consumer group name
-	Name pulumi.StringInput
 	// The Namespace name
 	NamespaceName pulumi.StringInput
 	// Name of the resource group within the azure subscription.

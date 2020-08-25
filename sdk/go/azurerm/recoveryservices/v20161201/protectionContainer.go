@@ -31,11 +31,11 @@ type ProtectionContainer struct {
 // NewProtectionContainer registers a new resource with the given unique name, arguments, and options.
 func NewProtectionContainer(ctx *pulumi.Context,
 	name string, args *ProtectionContainerArgs, opts ...pulumi.ResourceOption) (*ProtectionContainer, error) {
+	if args == nil || args.ContainerName == nil {
+		return nil, errors.New("missing required argument 'ContainerName'")
+	}
 	if args == nil || args.FabricName == nil {
 		return nil, errors.New("missing required argument 'FabricName'")
-	}
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
 	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
@@ -108,14 +108,14 @@ func (ProtectionContainerState) ElementType() reflect.Type {
 }
 
 type protectionContainerArgs struct {
+	// Name of the container to be registered.
+	ContainerName string `pulumi:"containerName"`
 	// Optional ETag.
 	ETag *string `pulumi:"eTag"`
 	// Fabric name associated with the container.
 	FabricName string `pulumi:"fabricName"`
 	// Resource location.
 	Location *string `pulumi:"location"`
-	// Name of the container to be registered.
-	Name string `pulumi:"name"`
 	// ProtectionContainerResource properties
 	Properties *ProtectionContainerType `pulumi:"properties"`
 	// The name of the resource group where the recovery services vault is present.
@@ -128,14 +128,14 @@ type protectionContainerArgs struct {
 
 // The set of arguments for constructing a ProtectionContainer resource.
 type ProtectionContainerArgs struct {
+	// Name of the container to be registered.
+	ContainerName pulumi.StringInput
 	// Optional ETag.
 	ETag pulumi.StringPtrInput
 	// Fabric name associated with the container.
 	FabricName pulumi.StringInput
 	// Resource location.
 	Location pulumi.StringPtrInput
-	// Name of the container to be registered.
-	Name pulumi.StringInput
 	// ProtectionContainerResource properties
 	Properties ProtectionContainerTypePtrInput
 	// The name of the resource group where the recovery services vault is present.

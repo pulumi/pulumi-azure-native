@@ -17,10 +17,10 @@ func LookupApplicationType(ctx *pulumi.Context, args *LookupApplicationTypeArgs,
 }
 
 type LookupApplicationTypeArgs struct {
+	// The name of the application type name resource.
+	ApplicationTypeName string `pulumi:"applicationTypeName"`
 	// The name of the cluster resource.
 	ClusterName string `pulumi:"clusterName"`
-	// The name of the application type name resource.
-	Name string `pulumi:"name"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }

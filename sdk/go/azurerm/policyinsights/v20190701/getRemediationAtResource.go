@@ -18,7 +18,7 @@ func LookupRemediationAtResource(ctx *pulumi.Context, args *LookupRemediationAtR
 
 type LookupRemediationAtResourceArgs struct {
 	// The name of the remediation.
-	Name string `pulumi:"name"`
+	RemediationName string `pulumi:"remediationName"`
 	// Resource ID.
 	ResourceId string `pulumi:"resourceId"`
 }

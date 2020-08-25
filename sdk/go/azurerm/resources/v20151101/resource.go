@@ -34,14 +34,14 @@ func NewResource(ctx *pulumi.Context,
 	if args == nil || args.Location == nil {
 		return nil, errors.New("missing required argument 'Location'")
 	}
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
-	}
 	if args == nil || args.ParentResourcePath == nil {
 		return nil, errors.New("missing required argument 'ParentResourcePath'")
 	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
+	}
+	if args == nil || args.ResourceName == nil {
+		return nil, errors.New("missing required argument 'ResourceName'")
 	}
 	if args == nil || args.ResourceProviderNamespace == nil {
 		return nil, errors.New("missing required argument 'ResourceProviderNamespace'")
@@ -153,8 +153,6 @@ type resourceArgs struct {
 	// Resource location
 	Location string `pulumi:"location"`
 	// Resource identity.
-	Name string `pulumi:"name"`
-	// Resource identity.
 	ParentResourcePath string `pulumi:"parentResourcePath"`
 	// Gets or sets the plan of the resource.
 	Plan *Plan `pulumi:"plan"`
@@ -162,6 +160,8 @@ type resourceArgs struct {
 	Properties map[string]interface{} `pulumi:"properties"`
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// Resource identity.
+	ResourceName string `pulumi:"resourceName"`
 	// Resource identity.
 	ResourceProviderNamespace string `pulumi:"resourceProviderNamespace"`
 	// Resource identity.
@@ -175,8 +175,6 @@ type ResourceArgs struct {
 	// Resource location
 	Location pulumi.StringInput
 	// Resource identity.
-	Name pulumi.StringInput
-	// Resource identity.
 	ParentResourcePath pulumi.StringInput
 	// Gets or sets the plan of the resource.
 	Plan PlanPtrInput
@@ -184,6 +182,8 @@ type ResourceArgs struct {
 	Properties pulumi.MapInput
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName pulumi.StringInput
+	// Resource identity.
+	ResourceName pulumi.StringInput
 	// Resource identity.
 	ResourceProviderNamespace pulumi.StringInput
 	// Resource identity.

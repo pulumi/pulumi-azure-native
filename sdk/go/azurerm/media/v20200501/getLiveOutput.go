@@ -22,7 +22,7 @@ type LookupLiveOutputArgs struct {
 	// The name of the Live Event.
 	LiveEventName string `pulumi:"liveEventName"`
 	// The name of the Live Output.
-	Name string `pulumi:"name"`
+	LiveOutputName string `pulumi:"liveOutputName"`
 	// The name of the resource group within the Azure subscription.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }

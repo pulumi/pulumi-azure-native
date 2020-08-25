@@ -42,8 +42,8 @@ type Policy struct {
 // NewPolicy registers a new resource with the given unique name, arguments, and options.
 func NewPolicy(ctx *pulumi.Context,
 	name string, args *PolicyArgs, opts ...pulumi.ResourceOption) (*Policy, error) {
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
+	if args == nil || args.PolicyName == nil {
+		return nil, errors.New("missing required argument 'PolicyName'")
 	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
@@ -147,7 +147,7 @@ type policyArgs struct {
 	// Describes managed rules inside the policy.
 	ManagedRules *ManagedRuleSetList `pulumi:"managedRules"`
 	// The name of the Web Application Firewall Policy.
-	Name string `pulumi:"name"`
+	PolicyName string `pulumi:"policyName"`
 	// Describes settings for the policy.
 	PolicySettings *PolicySettings `pulumi:"policySettings"`
 	// Name of the Resource group within the Azure subscription.
@@ -167,7 +167,7 @@ type PolicyArgs struct {
 	// Describes managed rules inside the policy.
 	ManagedRules ManagedRuleSetListPtrInput
 	// The name of the Web Application Firewall Policy.
-	Name pulumi.StringInput
+	PolicyName pulumi.StringInput
 	// Describes settings for the policy.
 	PolicySettings PolicySettingsPtrInput
 	// Name of the Resource group within the Azure subscription.

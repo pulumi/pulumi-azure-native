@@ -33,8 +33,8 @@ type Cluster struct {
 // NewCluster registers a new resource with the given unique name, arguments, and options.
 func NewCluster(ctx *pulumi.Context,
 	name string, args *ClusterArgs, opts ...pulumi.ResourceOption) (*Cluster, error) {
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
+	if args == nil || args.ClusterName == nil {
+		return nil, errors.New("missing required argument 'ClusterName'")
 	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
@@ -102,12 +102,12 @@ func (ClusterState) ElementType() reflect.Type {
 }
 
 type clusterArgs struct {
+	// The name of the cluster.
+	ClusterName string `pulumi:"clusterName"`
 	// The identity of the cluster, if configured.
 	Identity *ClusterIdentity `pulumi:"identity"`
 	// The location of the cluster.
 	Location *string `pulumi:"location"`
-	// The name of the cluster.
-	Name string `pulumi:"name"`
 	// The cluster create parameters.
 	Properties *ClusterCreateProperties `pulumi:"properties"`
 	// The name of the resource group.
@@ -118,12 +118,12 @@ type clusterArgs struct {
 
 // The set of arguments for constructing a Cluster resource.
 type ClusterArgs struct {
+	// The name of the cluster.
+	ClusterName pulumi.StringInput
 	// The identity of the cluster, if configured.
 	Identity ClusterIdentityPtrInput
 	// The location of the cluster.
 	Location pulumi.StringPtrInput
-	// The name of the cluster.
-	Name pulumi.StringInput
 	// The cluster create parameters.
 	Properties ClusterCreatePropertiesPtrInput
 	// The name of the resource group.

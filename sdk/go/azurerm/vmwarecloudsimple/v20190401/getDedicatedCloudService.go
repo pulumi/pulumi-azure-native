@@ -18,7 +18,7 @@ func LookupDedicatedCloudService(ctx *pulumi.Context, args *LookupDedicatedCloud
 
 type LookupDedicatedCloudServiceArgs struct {
 	// dedicated cloud Service name
-	Name string `pulumi:"name"`
+	DedicatedCloudServiceName string `pulumi:"dedicatedCloudServiceName"`
 	// The name of the resource group
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }

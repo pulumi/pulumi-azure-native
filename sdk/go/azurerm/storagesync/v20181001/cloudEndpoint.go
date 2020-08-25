@@ -41,8 +41,8 @@ type CloudEndpoint struct {
 // NewCloudEndpoint registers a new resource with the given unique name, arguments, and options.
 func NewCloudEndpoint(ctx *pulumi.Context,
 	name string, args *CloudEndpointArgs, opts ...pulumi.ResourceOption) (*CloudEndpoint, error) {
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
+	if args == nil || args.CloudEndpointName == nil {
+		return nil, errors.New("missing required argument 'CloudEndpointName'")
 	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
@@ -157,7 +157,7 @@ func (CloudEndpointState) ElementType() reflect.Type {
 
 type cloudEndpointArgs struct {
 	// Name of Cloud Endpoint object.
-	Name string `pulumi:"name"`
+	CloudEndpointName string `pulumi:"cloudEndpointName"`
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Storage Account Resource Id
@@ -175,7 +175,7 @@ type cloudEndpointArgs struct {
 // The set of arguments for constructing a CloudEndpoint resource.
 type CloudEndpointArgs struct {
 	// Name of Cloud Endpoint object.
-	Name pulumi.StringInput
+	CloudEndpointName pulumi.StringInput
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName pulumi.StringInput
 	// Storage Account Resource Id

@@ -37,8 +37,8 @@ func NewProtectedItem(ctx *pulumi.Context,
 	if args == nil || args.FabricName == nil {
 		return nil, errors.New("missing required argument 'FabricName'")
 	}
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
+	if args == nil || args.ProtectedItemName == nil {
+		return nil, errors.New("missing required argument 'ProtectedItemName'")
 	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
@@ -122,10 +122,10 @@ type protectedItemArgs struct {
 	FabricName string `pulumi:"fabricName"`
 	// Resource location.
 	Location *string `pulumi:"location"`
-	// Item name to be backed up.
-	Name string `pulumi:"name"`
 	// ProtectedItemResource properties
 	Properties *ProtectedItemType `pulumi:"properties"`
+	// Item name to be backed up.
+	ProtectedItemName string `pulumi:"protectedItemName"`
 	// The name of the resource group where the recovery services vault is present.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Resource tags.
@@ -144,10 +144,10 @@ type ProtectedItemArgs struct {
 	FabricName pulumi.StringInput
 	// Resource location.
 	Location pulumi.StringPtrInput
-	// Item name to be backed up.
-	Name pulumi.StringInput
 	// ProtectedItemResource properties
 	Properties ProtectedItemTypePtrInput
+	// Item name to be backed up.
+	ProtectedItemName pulumi.StringInput
 	// The name of the resource group where the recovery services vault is present.
 	ResourceGroupName pulumi.StringInput
 	// Resource tags.

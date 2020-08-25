@@ -20,7 +20,7 @@ type LookupClusterPrincipalAssignmentArgs struct {
 	// The name of the Kusto cluster.
 	ClusterName string `pulumi:"clusterName"`
 	// The name of the Kusto principalAssignment.
-	Name string `pulumi:"name"`
+	PrincipalAssignmentName string `pulumi:"principalAssignmentName"`
 	// The name of the resource group containing the Kusto cluster.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }

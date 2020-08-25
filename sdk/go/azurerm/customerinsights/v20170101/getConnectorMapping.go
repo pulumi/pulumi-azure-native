@@ -22,7 +22,7 @@ type LookupConnectorMappingArgs struct {
 	// The name of the hub.
 	HubName string `pulumi:"hubName"`
 	// The name of the connector mapping.
-	Name string `pulumi:"name"`
+	MappingName string `pulumi:"mappingName"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }

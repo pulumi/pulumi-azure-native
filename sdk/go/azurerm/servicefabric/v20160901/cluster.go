@@ -65,14 +65,14 @@ type Cluster struct {
 // NewCluster registers a new resource with the given unique name, arguments, and options.
 func NewCluster(ctx *pulumi.Context,
 	name string, args *ClusterArgs, opts ...pulumi.ResourceOption) (*Cluster, error) {
+	if args == nil || args.ClusterName == nil {
+		return nil, errors.New("missing required argument 'ClusterName'")
+	}
 	if args == nil || args.Location == nil {
 		return nil, errors.New("missing required argument 'Location'")
 	}
 	if args == nil || args.ManagementEndpoint == nil {
 		return nil, errors.New("missing required argument 'ManagementEndpoint'")
-	}
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
 	}
 	if args == nil || args.NodeTypes == nil {
 		return nil, errors.New("missing required argument 'NodeTypes'")
@@ -229,6 +229,8 @@ type clusterArgs struct {
 	ClientCertificateThumbprints []ClientCertificateThumbprint `pulumi:"clientCertificateThumbprints"`
 	// The ServiceFabric code version running in your cluster
 	ClusterCodeVersion *string `pulumi:"clusterCodeVersion"`
+	// The name of the cluster resource
+	ClusterName string `pulumi:"clusterName"`
 	// The storage diagnostics account configuration details
 	DiagnosticsStorageAccountConfig *DiagnosticsStorageAccountConfig `pulumi:"diagnosticsStorageAccountConfig"`
 	// List of custom fabric settings to configure the cluster.
@@ -237,8 +239,6 @@ type clusterArgs struct {
 	Location string `pulumi:"location"`
 	// The http management endpoint of the cluster
 	ManagementEndpoint string `pulumi:"managementEndpoint"`
-	// The name of the cluster resource
-	Name string `pulumi:"name"`
 	// The list of node types that make up the cluster
 	NodeTypes []NodeTypeDescription `pulumi:"nodeTypes"`
 	// Cluster reliability level indicates replica set size of system service
@@ -269,6 +269,8 @@ type ClusterArgs struct {
 	ClientCertificateThumbprints ClientCertificateThumbprintArrayInput
 	// The ServiceFabric code version running in your cluster
 	ClusterCodeVersion pulumi.StringPtrInput
+	// The name of the cluster resource
+	ClusterName pulumi.StringInput
 	// The storage diagnostics account configuration details
 	DiagnosticsStorageAccountConfig DiagnosticsStorageAccountConfigPtrInput
 	// List of custom fabric settings to configure the cluster.
@@ -277,8 +279,6 @@ type ClusterArgs struct {
 	Location pulumi.StringInput
 	// The http management endpoint of the cluster
 	ManagementEndpoint pulumi.StringInput
-	// The name of the cluster resource
-	Name pulumi.StringInput
 	// The list of node types that make up the cluster
 	NodeTypes NodeTypeDescriptionArrayInput
 	// Cluster reliability level indicates replica set size of system service

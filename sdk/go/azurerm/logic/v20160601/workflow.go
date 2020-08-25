@@ -47,11 +47,11 @@ type Workflow struct {
 // NewWorkflow registers a new resource with the given unique name, arguments, and options.
 func NewWorkflow(ctx *pulumi.Context,
 	name string, args *WorkflowArgs, opts ...pulumi.ResourceOption) (*Workflow, error) {
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
-	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
+	}
+	if args == nil || args.WorkflowName == nil {
+		return nil, errors.New("missing required argument 'WorkflowName'")
 	}
 	if args == nil {
 		args = &WorkflowArgs{}
@@ -154,8 +154,6 @@ type workflowArgs struct {
 	Definition map[string]interface{} `pulumi:"definition"`
 	// The resource location.
 	Location *string `pulumi:"location"`
-	// The workflow name.
-	Name string `pulumi:"name"`
 	// The parameters.
 	Parameters map[string]WorkflowParameter `pulumi:"parameters"`
 	// The resource group name.
@@ -166,6 +164,8 @@ type workflowArgs struct {
 	State *string `pulumi:"state"`
 	// The resource tags.
 	Tags map[string]string `pulumi:"tags"`
+	// The workflow name.
+	WorkflowName string `pulumi:"workflowName"`
 }
 
 // The set of arguments for constructing a Workflow resource.
@@ -174,8 +174,6 @@ type WorkflowArgs struct {
 	Definition pulumi.MapInput
 	// The resource location.
 	Location pulumi.StringPtrInput
-	// The workflow name.
-	Name pulumi.StringInput
 	// The parameters.
 	Parameters WorkflowParameterMapInput
 	// The resource group name.
@@ -186,6 +184,8 @@ type WorkflowArgs struct {
 	State pulumi.StringPtrInput
 	// The resource tags.
 	Tags pulumi.StringMapInput
+	// The workflow name.
+	WorkflowName pulumi.StringInput
 }
 
 func (WorkflowArgs) ElementType() reflect.Type {

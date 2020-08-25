@@ -38,11 +38,11 @@ func NewRouteFilter(ctx *pulumi.Context,
 	if args == nil || args.Location == nil {
 		return nil, errors.New("missing required argument 'Location'")
 	}
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
-	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
+	}
+	if args == nil || args.RouteFilterName == nil {
+		return nil, errors.New("missing required argument 'RouteFilterName'")
 	}
 	if args == nil {
 		args = &RouteFilterArgs{}
@@ -199,10 +199,10 @@ type routeFilterArgs struct {
 	Id *string `pulumi:"id"`
 	// Resource location.
 	Location string `pulumi:"location"`
-	// The name of the route filter.
-	Name string `pulumi:"name"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// The name of the route filter.
+	RouteFilterName string `pulumi:"routeFilterName"`
 	// Collection of RouteFilterRules contained within a route filter.
 	Rules []RouteFilterRuleType `pulumi:"rules"`
 	// Resource tags.
@@ -215,10 +215,10 @@ type RouteFilterArgs struct {
 	Id pulumi.StringPtrInput
 	// Resource location.
 	Location pulumi.StringInput
-	// The name of the route filter.
-	Name pulumi.StringInput
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
+	// The name of the route filter.
+	RouteFilterName pulumi.StringInput
 	// Collection of RouteFilterRules contained within a route filter.
 	Rules RouteFilterRuleTypeArrayInput
 	// Resource tags.

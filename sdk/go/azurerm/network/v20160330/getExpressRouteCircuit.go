@@ -18,7 +18,7 @@ func LookupExpressRouteCircuit(ctx *pulumi.Context, args *LookupExpressRouteCirc
 
 type LookupExpressRouteCircuitArgs struct {
 	// The name of the circuit.
-	Name string `pulumi:"name"`
+	CircuitName string `pulumi:"circuitName"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }

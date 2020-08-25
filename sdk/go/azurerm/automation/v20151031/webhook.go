@@ -54,6 +54,9 @@ func NewWebhook(ctx *pulumi.Context,
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
 	}
+	if args == nil || args.WebhookName == nil {
+		return nil, errors.New("missing required argument 'WebhookName'")
+	}
 	if args == nil {
 		args = &WebhookArgs{}
 	}
@@ -147,7 +150,7 @@ type webhookArgs struct {
 	ExpiryTime *string `pulumi:"expiryTime"`
 	// Gets or sets the value of the enabled flag of webhook.
 	IsEnabled *bool `pulumi:"isEnabled"`
-	// The webhook name.
+	// Gets or sets the name of the webhook.
 	Name string `pulumi:"name"`
 	// Gets or sets the parameters of the job.
 	Parameters map[string]string `pulumi:"parameters"`
@@ -159,6 +162,8 @@ type webhookArgs struct {
 	Runbook *RunbookAssociationProperty `pulumi:"runbook"`
 	// Gets or sets the uri.
 	Uri *string `pulumi:"uri"`
+	// The webhook name.
+	WebhookName string `pulumi:"webhookName"`
 }
 
 // The set of arguments for constructing a Webhook resource.
@@ -169,7 +174,7 @@ type WebhookArgs struct {
 	ExpiryTime pulumi.StringPtrInput
 	// Gets or sets the value of the enabled flag of webhook.
 	IsEnabled pulumi.BoolPtrInput
-	// The webhook name.
+	// Gets or sets the name of the webhook.
 	Name pulumi.StringInput
 	// Gets or sets the parameters of the job.
 	Parameters pulumi.StringMapInput
@@ -181,6 +186,8 @@ type WebhookArgs struct {
 	Runbook RunbookAssociationPropertyPtrInput
 	// Gets or sets the uri.
 	Uri pulumi.StringPtrInput
+	// The webhook name.
+	WebhookName pulumi.StringInput
 }
 
 func (WebhookArgs) ElementType() reflect.Type {

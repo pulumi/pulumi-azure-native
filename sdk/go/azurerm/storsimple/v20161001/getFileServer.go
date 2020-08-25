@@ -19,10 +19,10 @@ func LookupFileServer(ctx *pulumi.Context, args *LookupFileServerArgs, opts ...p
 type LookupFileServerArgs struct {
 	// The device name.
 	DeviceName string `pulumi:"deviceName"`
+	// The file server name.
+	FileServerName string `pulumi:"fileServerName"`
 	// The manager name
 	ManagerName string `pulumi:"managerName"`
-	// The file server name.
-	Name string `pulumi:"name"`
 	// The resource group name
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }

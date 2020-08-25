@@ -37,14 +37,14 @@ type VirtualNetworkLink struct {
 // NewVirtualNetworkLink registers a new resource with the given unique name, arguments, and options.
 func NewVirtualNetworkLink(ctx *pulumi.Context,
 	name string, args *VirtualNetworkLinkArgs, opts ...pulumi.ResourceOption) (*VirtualNetworkLink, error) {
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
-	}
 	if args == nil || args.PrivateZoneName == nil {
 		return nil, errors.New("missing required argument 'PrivateZoneName'")
 	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
+	}
+	if args == nil || args.VirtualNetworkLinkName == nil {
+		return nil, errors.New("missing required argument 'VirtualNetworkLinkName'")
 	}
 	if args == nil {
 		args = &VirtualNetworkLinkArgs{}
@@ -121,8 +121,6 @@ type virtualNetworkLinkArgs struct {
 	Etag *string `pulumi:"etag"`
 	// The Azure Region where the resource lives
 	Location *string `pulumi:"location"`
-	// The name of the virtual network link.
-	Name string `pulumi:"name"`
 	// The name of the Private DNS zone (without a terminating dot).
 	PrivateZoneName string `pulumi:"privateZoneName"`
 	// Is auto-registration of virtual machine records in the virtual network in the Private DNS zone enabled?
@@ -133,6 +131,8 @@ type virtualNetworkLinkArgs struct {
 	Tags map[string]string `pulumi:"tags"`
 	// The reference of the virtual network.
 	VirtualNetwork *SubResource `pulumi:"virtualNetwork"`
+	// The name of the virtual network link.
+	VirtualNetworkLinkName string `pulumi:"virtualNetworkLinkName"`
 }
 
 // The set of arguments for constructing a VirtualNetworkLink resource.
@@ -141,8 +141,6 @@ type VirtualNetworkLinkArgs struct {
 	Etag pulumi.StringPtrInput
 	// The Azure Region where the resource lives
 	Location pulumi.StringPtrInput
-	// The name of the virtual network link.
-	Name pulumi.StringInput
 	// The name of the Private DNS zone (without a terminating dot).
 	PrivateZoneName pulumi.StringInput
 	// Is auto-registration of virtual machine records in the virtual network in the Private DNS zone enabled?
@@ -153,6 +151,8 @@ type VirtualNetworkLinkArgs struct {
 	Tags pulumi.StringMapInput
 	// The reference of the virtual network.
 	VirtualNetwork SubResourcePtrInput
+	// The name of the virtual network link.
+	VirtualNetworkLinkName pulumi.StringInput
 }
 
 func (VirtualNetworkLinkArgs) ElementType() reflect.Type {

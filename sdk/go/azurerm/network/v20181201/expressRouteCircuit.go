@@ -61,8 +61,8 @@ type ExpressRouteCircuit struct {
 // NewExpressRouteCircuit registers a new resource with the given unique name, arguments, and options.
 func NewExpressRouteCircuit(ctx *pulumi.Context,
 	name string, args *ExpressRouteCircuitArgs, opts ...pulumi.ResourceOption) (*ExpressRouteCircuit, error) {
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
+	if args == nil || args.CircuitName == nil {
+		return nil, errors.New("missing required argument 'CircuitName'")
 	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
@@ -290,6 +290,8 @@ type expressRouteCircuitArgs struct {
 	Authorizations []ExpressRouteCircuitAuthorizationType `pulumi:"authorizations"`
 	// The bandwidth of the circuit when the circuit is provisioned on an ExpressRoutePort resource.
 	BandwidthInGbps *float64 `pulumi:"bandwidthInGbps"`
+	// The name of the circuit.
+	CircuitName string `pulumi:"circuitName"`
 	// The CircuitProvisioningState state of the resource.
 	CircuitProvisioningState *string `pulumi:"circuitProvisioningState"`
 	// The reference to the ExpressRoutePort resource when the circuit is provisioned on an ExpressRoutePort resource.
@@ -302,8 +304,6 @@ type expressRouteCircuitArgs struct {
 	Id *string `pulumi:"id"`
 	// Resource location.
 	Location *string `pulumi:"location"`
-	// The name of the circuit.
-	Name string `pulumi:"name"`
 	// The list of peerings.
 	Peerings []ExpressRouteCircuitPeeringType `pulumi:"peerings"`
 	// Gets the provisioning state of the public IP resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
@@ -334,6 +334,8 @@ type ExpressRouteCircuitArgs struct {
 	Authorizations ExpressRouteCircuitAuthorizationTypeArrayInput
 	// The bandwidth of the circuit when the circuit is provisioned on an ExpressRoutePort resource.
 	BandwidthInGbps pulumi.Float64PtrInput
+	// The name of the circuit.
+	CircuitName pulumi.StringInput
 	// The CircuitProvisioningState state of the resource.
 	CircuitProvisioningState pulumi.StringPtrInput
 	// The reference to the ExpressRoutePort resource when the circuit is provisioned on an ExpressRoutePort resource.
@@ -346,8 +348,6 @@ type ExpressRouteCircuitArgs struct {
 	Id pulumi.StringPtrInput
 	// Resource location.
 	Location pulumi.StringPtrInput
-	// The name of the circuit.
-	Name pulumi.StringInput
 	// The list of peerings.
 	Peerings ExpressRouteCircuitPeeringTypeArrayInput
 	// Gets the provisioning state of the public IP resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.

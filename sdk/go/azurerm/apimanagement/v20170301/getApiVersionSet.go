@@ -17,12 +17,12 @@ func LookupApiVersionSet(ctx *pulumi.Context, args *LookupApiVersionSetArgs, opt
 }
 
 type LookupApiVersionSetArgs struct {
-	// Api Version Set identifier. Must be unique in the current API Management service instance.
-	Name string `pulumi:"name"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The name of the API Management service.
 	ServiceName string `pulumi:"serviceName"`
+	// Api Version Set identifier. Must be unique in the current API Management service instance.
+	VersionSetId string `pulumi:"versionSetId"`
 }
 
 // Api Version Set Contract details.

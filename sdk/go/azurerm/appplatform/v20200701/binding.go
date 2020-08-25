@@ -28,8 +28,8 @@ func NewBinding(ctx *pulumi.Context,
 	if args == nil || args.AppName == nil {
 		return nil, errors.New("missing required argument 'AppName'")
 	}
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
+	if args == nil || args.BindingName == nil {
+		return nil, errors.New("missing required argument 'BindingName'")
 	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
@@ -87,7 +87,7 @@ type bindingArgs struct {
 	// The name of the App resource.
 	AppName string `pulumi:"appName"`
 	// The name of the Binding resource.
-	Name string `pulumi:"name"`
+	BindingName string `pulumi:"bindingName"`
 	// Properties of the Binding resource
 	Properties *BindingResourceProperties `pulumi:"properties"`
 	// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
@@ -101,7 +101,7 @@ type BindingArgs struct {
 	// The name of the App resource.
 	AppName pulumi.StringInput
 	// The name of the Binding resource.
-	Name pulumi.StringInput
+	BindingName pulumi.StringInput
 	// Properties of the Binding resource
 	Properties BindingResourcePropertiesPtrInput
 	// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.

@@ -51,11 +51,11 @@ type Service struct {
 // NewService registers a new resource with the given unique name, arguments, and options.
 func NewService(ctx *pulumi.Context,
 	name string, args *ServiceArgs, opts ...pulumi.ResourceOption) (*Service, error) {
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
-	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
+	}
+	if args == nil || args.SearchServiceName == nil {
+		return nil, errors.New("missing required argument 'SearchServiceName'")
 	}
 	if args == nil {
 		args = &ServiceArgs{}
@@ -168,8 +168,6 @@ type serviceArgs struct {
 	Identity *Identity `pulumi:"identity"`
 	// The geographic location of the resource. This must be one of the supported and registered Azure Geo Regions (for example, West US, East US, Southeast Asia, and so forth). This property is required when creating a new resource.
 	Location *string `pulumi:"location"`
-	// The name of the Azure Cognitive Search service to create or update. Search service names must only contain lowercase letters, digits or dashes, cannot use dash as the first two or last one characters, cannot contain consecutive dashes, and must be between 2 and 60 characters in length. Search service names must be globally unique since they are part of the service URI (https://<name>.search.windows.net). You cannot change the service name after the service is created.
-	Name string `pulumi:"name"`
 	// Network specific rules that determine how the Azure Cognitive Search service may be reached.
 	NetworkRuleSet *NetworkRuleSet `pulumi:"networkRuleSet"`
 	// The number of partitions in the Search service; if specified, it can be 1, 2, 3, 4, 6, or 12. Values greater than 1 are only valid for standard SKUs. For 'standard3' services with hostingMode set to 'highDensity', the allowed values are between 1 and 3.
@@ -180,6 +178,8 @@ type serviceArgs struct {
 	ReplicaCount *int `pulumi:"replicaCount"`
 	// The name of the resource group within the current subscription. You can obtain this value from the Azure Resource Manager API or the portal.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// The name of the Azure Cognitive Search service to create or update. Search service names must only contain lowercase letters, digits or dashes, cannot use dash as the first two or last one characters, cannot contain consecutive dashes, and must be between 2 and 60 characters in length. Search service names must be globally unique since they are part of the service URI (https://<name>.search.windows.net). You cannot change the service name after the service is created.
+	SearchServiceName string `pulumi:"searchServiceName"`
 	// The SKU of the Search Service, which determines price tier and capacity limits. This property is required when creating a new Search Service.
 	Sku *Sku `pulumi:"sku"`
 	// Tags to help categorize the resource in the Azure portal.
@@ -194,8 +194,6 @@ type ServiceArgs struct {
 	Identity IdentityPtrInput
 	// The geographic location of the resource. This must be one of the supported and registered Azure Geo Regions (for example, West US, East US, Southeast Asia, and so forth). This property is required when creating a new resource.
 	Location pulumi.StringPtrInput
-	// The name of the Azure Cognitive Search service to create or update. Search service names must only contain lowercase letters, digits or dashes, cannot use dash as the first two or last one characters, cannot contain consecutive dashes, and must be between 2 and 60 characters in length. Search service names must be globally unique since they are part of the service URI (https://<name>.search.windows.net). You cannot change the service name after the service is created.
-	Name pulumi.StringInput
 	// Network specific rules that determine how the Azure Cognitive Search service may be reached.
 	NetworkRuleSet NetworkRuleSetPtrInput
 	// The number of partitions in the Search service; if specified, it can be 1, 2, 3, 4, 6, or 12. Values greater than 1 are only valid for standard SKUs. For 'standard3' services with hostingMode set to 'highDensity', the allowed values are between 1 and 3.
@@ -206,6 +204,8 @@ type ServiceArgs struct {
 	ReplicaCount pulumi.IntPtrInput
 	// The name of the resource group within the current subscription. You can obtain this value from the Azure Resource Manager API or the portal.
 	ResourceGroupName pulumi.StringInput
+	// The name of the Azure Cognitive Search service to create or update. Search service names must only contain lowercase letters, digits or dashes, cannot use dash as the first two or last one characters, cannot contain consecutive dashes, and must be between 2 and 60 characters in length. Search service names must be globally unique since they are part of the service URI (https://<name>.search.windows.net). You cannot change the service name after the service is created.
+	SearchServiceName pulumi.StringInput
 	// The SKU of the Search Service, which determines price tier and capacity limits. This property is required when creating a new Search Service.
 	Sku SkuPtrInput
 	// Tags to help categorize the resource in the Azure portal.

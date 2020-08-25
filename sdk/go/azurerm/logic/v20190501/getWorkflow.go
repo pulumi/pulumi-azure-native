@@ -17,10 +17,10 @@ func LookupWorkflow(ctx *pulumi.Context, args *LookupWorkflowArgs, opts ...pulum
 }
 
 type LookupWorkflowArgs struct {
-	// The workflow name.
-	Name string `pulumi:"name"`
 	// The resource group name.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// The workflow name.
+	WorkflowName string `pulumi:"workflowName"`
 }
 
 // The workflow type.

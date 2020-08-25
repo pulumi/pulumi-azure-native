@@ -18,7 +18,7 @@ func LookupManagementLockAtResourceGroupLevel(ctx *pulumi.Context, args *LookupM
 
 type LookupManagementLockAtResourceGroupLevelArgs struct {
 	// The lock name.
-	Name string `pulumi:"name"`
+	LockName string `pulumi:"lockName"`
 	// The resource group name.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }

@@ -17,10 +17,12 @@ func ListWebAppConnectionStringsSlot(ctx *pulumi.Context, args *ListWebAppConnec
 }
 
 type ListWebAppConnectionStringsSlotArgs struct {
-	// Name of the deployment slot. If a slot is not specified, the API will get the connection settings for the production slot.
+	// Name of the app.
 	Name string `pulumi:"name"`
 	// Name of the resource group to which the resource belongs.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// Name of the deployment slot. If a slot is not specified, the API will get the connection settings for the production slot.
+	Slot string `pulumi:"slot"`
 }
 
 // String dictionary resource.

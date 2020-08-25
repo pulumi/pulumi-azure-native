@@ -84,11 +84,11 @@ func NewDomain(ctx *pulumi.Context,
 	if args == nil || args.ContactTech == nil {
 		return nil, errors.New("missing required argument 'ContactTech'")
 	}
+	if args == nil || args.DomainName == nil {
+		return nil, errors.New("missing required argument 'DomainName'")
+	}
 	if args == nil || args.Location == nil {
 		return nil, errors.New("missing required argument 'Location'")
-	}
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
 	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
@@ -260,12 +260,12 @@ type domainArgs struct {
 	DnsType *string `pulumi:"dnsType"`
 	// Azure DNS Zone to use
 	DnsZoneId *string `pulumi:"dnsZoneId"`
+	// Name of the domain.
+	DomainName string `pulumi:"domainName"`
 	// Kind of resource.
 	Kind *string `pulumi:"kind"`
 	// Resource Location.
 	Location string `pulumi:"location"`
-	// Name of the domain.
-	Name string `pulumi:"name"`
 	// <code>true</code> if domain privacy is enabled for this domain; otherwise, <code>false</code>.
 	Privacy *bool `pulumi:"privacy"`
 	// Name of the resource group to which the resource belongs.
@@ -295,12 +295,12 @@ type DomainArgs struct {
 	DnsType pulumi.StringPtrInput
 	// Azure DNS Zone to use
 	DnsZoneId pulumi.StringPtrInput
+	// Name of the domain.
+	DomainName pulumi.StringInput
 	// Kind of resource.
 	Kind pulumi.StringPtrInput
 	// Resource Location.
 	Location pulumi.StringInput
-	// Name of the domain.
-	Name pulumi.StringInput
 	// <code>true</code> if domain privacy is enabled for this domain; otherwise, <code>false</code>.
 	Privacy pulumi.BoolPtrInput
 	// Name of the resource group to which the resource belongs.

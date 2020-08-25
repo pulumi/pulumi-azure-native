@@ -17,12 +17,12 @@ func LookupTopic(ctx *pulumi.Context, args *LookupTopicArgs, opts ...pulumi.Invo
 }
 
 type LookupTopicArgs struct {
-	// The topic name.
-	Name string `pulumi:"name"`
 	// The namespace name
 	NamespaceName string `pulumi:"namespaceName"`
 	// Name of the Resource group within the Azure subscription.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// The topic name.
+	TopicName string `pulumi:"topicName"`
 }
 
 // Description of topic resource.

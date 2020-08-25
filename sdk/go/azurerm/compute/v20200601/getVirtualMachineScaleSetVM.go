@@ -20,7 +20,7 @@ type LookupVirtualMachineScaleSetVMArgs struct {
 	// The expand expression to apply on the operation.
 	Expand *string `pulumi:"expand"`
 	// The instance ID of the virtual machine.
-	Name string `pulumi:"name"`
+	InstanceId string `pulumi:"instanceId"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The name of the VM scale set.

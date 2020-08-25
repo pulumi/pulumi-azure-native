@@ -27,8 +27,8 @@ type DpsCertificate struct {
 // NewDpsCertificate registers a new resource with the given unique name, arguments, and options.
 func NewDpsCertificate(ctx *pulumi.Context,
 	name string, args *DpsCertificateArgs, opts ...pulumi.ResourceOption) (*DpsCertificate, error) {
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
+	if args == nil || args.CertificateName == nil {
+		return nil, errors.New("missing required argument 'CertificateName'")
 	}
 	if args == nil || args.ProvisioningServiceName == nil {
 		return nil, errors.New("missing required argument 'ProvisioningServiceName'")
@@ -99,7 +99,7 @@ type dpsCertificateArgs struct {
 	// Base-64 representation of the X509 leaf certificate .cer file or just .pem file content.
 	Certificate *string `pulumi:"certificate"`
 	// The name of the certificate create or update.
-	Name string `pulumi:"name"`
+	CertificateName string `pulumi:"certificateName"`
 	// The name of the provisioning service.
 	ProvisioningServiceName string `pulumi:"provisioningServiceName"`
 	// Resource group identifier.
@@ -111,7 +111,7 @@ type DpsCertificateArgs struct {
 	// Base-64 representation of the X509 leaf certificate .cer file or just .pem file content.
 	Certificate pulumi.StringPtrInput
 	// The name of the certificate create or update.
-	Name pulumi.StringInput
+	CertificateName pulumi.StringInput
 	// The name of the provisioning service.
 	ProvisioningServiceName pulumi.StringInput
 	// Resource group identifier.

@@ -57,11 +57,11 @@ type Workspace struct {
 // NewWorkspace registers a new resource with the given unique name, arguments, and options.
 func NewWorkspace(ctx *pulumi.Context,
 	name string, args *WorkspaceArgs, opts ...pulumi.ResourceOption) (*Workspace, error) {
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
-	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
+	}
+	if args == nil || args.WorkspaceName == nil {
+		return nil, errors.New("missing required argument 'WorkspaceName'")
 	}
 	if args == nil {
 		args = &WorkspaceArgs{}
@@ -218,8 +218,6 @@ type workspaceArgs struct {
 	KeyVault *string `pulumi:"keyVault"`
 	// Specifies the location of the resource.
 	Location *string `pulumi:"location"`
-	// Name of Azure Machine Learning workspace.
-	Name string `pulumi:"name"`
 	// Name of the resource group in which workspace is located.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The sku of the workspace.
@@ -228,6 +226,8 @@ type workspaceArgs struct {
 	StorageAccount *string `pulumi:"storageAccount"`
 	// Contains resource tags defined as key/value pairs.
 	Tags map[string]string `pulumi:"tags"`
+	// Name of Azure Machine Learning workspace.
+	WorkspaceName string `pulumi:"workspaceName"`
 }
 
 // The set of arguments for constructing a Workspace resource.
@@ -252,8 +252,6 @@ type WorkspaceArgs struct {
 	KeyVault pulumi.StringPtrInput
 	// Specifies the location of the resource.
 	Location pulumi.StringPtrInput
-	// Name of Azure Machine Learning workspace.
-	Name pulumi.StringInput
 	// Name of the resource group in which workspace is located.
 	ResourceGroupName pulumi.StringInput
 	// The sku of the workspace.
@@ -262,6 +260,8 @@ type WorkspaceArgs struct {
 	StorageAccount pulumi.StringPtrInput
 	// Contains resource tags defined as key/value pairs.
 	Tags pulumi.StringMapInput
+	// Name of Azure Machine Learning workspace.
+	WorkspaceName pulumi.StringInput
 }
 
 func (WorkspaceArgs) ElementType() reflect.Type {

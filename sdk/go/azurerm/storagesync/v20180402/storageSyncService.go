@@ -31,11 +31,11 @@ type StorageSyncService struct {
 // NewStorageSyncService registers a new resource with the given unique name, arguments, and options.
 func NewStorageSyncService(ctx *pulumi.Context,
 	name string, args *StorageSyncServiceArgs, opts ...pulumi.ResourceOption) (*StorageSyncService, error) {
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
-	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
+	}
+	if args == nil || args.StorageSyncServiceName == nil {
+		return nil, errors.New("missing required argument 'StorageSyncServiceName'")
 	}
 	if args == nil {
 		args = &StorageSyncServiceArgs{}
@@ -122,10 +122,10 @@ func (StorageSyncServiceState) ElementType() reflect.Type {
 type storageSyncServiceArgs struct {
 	// Required. Gets or sets the location of the resource. This will be one of the supported and registered Azure Geo Regions (e.g. West US, East US, Southeast Asia, etc.). The geo region of a resource cannot be changed once it is created, but if an identical geo region is specified on update, the request will succeed.
 	Location *string `pulumi:"location"`
-	// Name of Storage Sync Service resource.
-	Name string `pulumi:"name"`
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// Name of Storage Sync Service resource.
+	StorageSyncServiceName string `pulumi:"storageSyncServiceName"`
 	// Gets or sets a list of key value pairs that describe the resource. These tags can be used for viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key with a length no greater than 128 characters and a value with a length no greater than 256 characters.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -134,10 +134,10 @@ type storageSyncServiceArgs struct {
 type StorageSyncServiceArgs struct {
 	// Required. Gets or sets the location of the resource. This will be one of the supported and registered Azure Geo Regions (e.g. West US, East US, Southeast Asia, etc.). The geo region of a resource cannot be changed once it is created, but if an identical geo region is specified on update, the request will succeed.
 	Location pulumi.StringPtrInput
-	// Name of Storage Sync Service resource.
-	Name pulumi.StringInput
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName pulumi.StringInput
+	// Name of Storage Sync Service resource.
+	StorageSyncServiceName pulumi.StringInput
 	// Gets or sets a list of key value pairs that describe the resource. These tags can be used for viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key with a length no greater than 128 characters and a value with a length no greater than 256 characters.
 	Tags pulumi.StringMapInput
 }

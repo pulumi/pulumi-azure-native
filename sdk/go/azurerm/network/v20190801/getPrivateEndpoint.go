@@ -20,7 +20,7 @@ type LookupPrivateEndpointArgs struct {
 	// Expands referenced resources.
 	Expand *string `pulumi:"expand"`
 	// The name of the private endpoint.
-	Name string `pulumi:"name"`
+	PrivateEndpointName string `pulumi:"privateEndpointName"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }

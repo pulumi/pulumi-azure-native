@@ -20,7 +20,7 @@ type LookupDedicatedHostGroupArgs struct {
 	// The expand expression to apply on the operation. The response shows the list of instance view of the dedicated hosts under the dedicated host group.
 	Expand *string `pulumi:"expand"`
 	// The name of the dedicated host group.
-	Name string `pulumi:"name"`
+	HostGroupName string `pulumi:"hostGroupName"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }

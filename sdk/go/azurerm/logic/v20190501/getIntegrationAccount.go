@@ -18,7 +18,7 @@ func LookupIntegrationAccount(ctx *pulumi.Context, args *LookupIntegrationAccoun
 
 type LookupIntegrationAccountArgs struct {
 	// The integration account name.
-	Name string `pulumi:"name"`
+	IntegrationAccountName string `pulumi:"integrationAccountName"`
 	// The resource group name.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }

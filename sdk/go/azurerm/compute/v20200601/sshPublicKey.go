@@ -32,11 +32,11 @@ func NewSshPublicKey(ctx *pulumi.Context,
 	if args == nil || args.Location == nil {
 		return nil, errors.New("missing required argument 'Location'")
 	}
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
-	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
+	}
+	if args == nil || args.SshPublicKeyName == nil {
+		return nil, errors.New("missing required argument 'SshPublicKeyName'")
 	}
 	if args == nil {
 		args = &SshPublicKeyArgs{}
@@ -101,12 +101,12 @@ func (SshPublicKeyState) ElementType() reflect.Type {
 type sshPublicKeyArgs struct {
 	// Resource location
 	Location string `pulumi:"location"`
-	// The name of the SSH public key.
-	Name string `pulumi:"name"`
 	// SSH public key used to authenticate to a virtual machine through ssh. If this property is not initially provided when the resource is created, the publicKey property will be populated when generateKeyPair is called. If the public key is provided upon resource creation, the provided public key needs to be at least 2048-bit and in ssh-rsa format.
 	PublicKey *string `pulumi:"publicKey"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// The name of the SSH public key.
+	SshPublicKeyName string `pulumi:"sshPublicKeyName"`
 	// Resource tags
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -115,12 +115,12 @@ type sshPublicKeyArgs struct {
 type SshPublicKeyArgs struct {
 	// Resource location
 	Location pulumi.StringInput
-	// The name of the SSH public key.
-	Name pulumi.StringInput
 	// SSH public key used to authenticate to a virtual machine through ssh. If this property is not initially provided when the resource is created, the publicKey property will be populated when generateKeyPair is called. If the public key is provided upon resource creation, the provided public key needs to be at least 2048-bit and in ssh-rsa format.
 	PublicKey pulumi.StringPtrInput
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
+	// The name of the SSH public key.
+	SshPublicKeyName pulumi.StringInput
 	// Resource tags
 	Tags pulumi.StringMapInput
 }

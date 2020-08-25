@@ -53,11 +53,11 @@ type VpnServerConfiguration struct {
 // NewVpnServerConfiguration registers a new resource with the given unique name, arguments, and options.
 func NewVpnServerConfiguration(ctx *pulumi.Context,
 	name string, args *VpnServerConfigurationArgs, opts ...pulumi.ResourceOption) (*VpnServerConfiguration, error) {
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
-	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
+	}
+	if args == nil || args.VpnServerConfigurationName == nil {
+		return nil, errors.New("missing required argument 'VpnServerConfigurationName'")
 	}
 	if args == nil {
 		args = &VpnServerConfigurationArgs{}
@@ -194,8 +194,8 @@ type vpnServerConfigurationArgs struct {
 	Id *string `pulumi:"id"`
 	// Resource location.
 	Location *string `pulumi:"location"`
-	// The name of the VpnServerConfiguration being created or updated.
-	Name string `pulumi:"name"`
+	// The name of the VpnServerConfiguration that is unique within a resource group.
+	Name *string `pulumi:"name"`
 	// Radius client root certificate of VpnServerConfiguration.
 	RadiusClientRootCertificates []VpnServerConfigRadiusClientRootCertificate `pulumi:"radiusClientRootCertificates"`
 	// The radius server address property of the VpnServerConfiguration resource for point to site client connection.
@@ -218,6 +218,8 @@ type vpnServerConfigurationArgs struct {
 	VpnClientRootCertificates []VpnServerConfigVpnClientRootCertificate `pulumi:"vpnClientRootCertificates"`
 	// VPN protocols for the VpnServerConfiguration.
 	VpnProtocols []string `pulumi:"vpnProtocols"`
+	// The name of the VpnServerConfiguration being created or updated.
+	VpnServerConfigurationName string `pulumi:"vpnServerConfigurationName"`
 }
 
 // The set of arguments for constructing a VpnServerConfiguration resource.
@@ -230,8 +232,8 @@ type VpnServerConfigurationArgs struct {
 	Id pulumi.StringPtrInput
 	// Resource location.
 	Location pulumi.StringPtrInput
-	// The name of the VpnServerConfiguration being created or updated.
-	Name pulumi.StringInput
+	// The name of the VpnServerConfiguration that is unique within a resource group.
+	Name pulumi.StringPtrInput
 	// Radius client root certificate of VpnServerConfiguration.
 	RadiusClientRootCertificates VpnServerConfigRadiusClientRootCertificateArrayInput
 	// The radius server address property of the VpnServerConfiguration resource for point to site client connection.
@@ -254,6 +256,8 @@ type VpnServerConfigurationArgs struct {
 	VpnClientRootCertificates VpnServerConfigVpnClientRootCertificateArrayInput
 	// VPN protocols for the VpnServerConfiguration.
 	VpnProtocols pulumi.StringArrayInput
+	// The name of the VpnServerConfiguration being created or updated.
+	VpnServerConfigurationName pulumi.StringInput
 }
 
 func (VpnServerConfigurationArgs) ElementType() reflect.Type {

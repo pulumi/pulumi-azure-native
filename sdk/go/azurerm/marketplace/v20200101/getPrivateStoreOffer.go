@@ -18,7 +18,7 @@ func LookupPrivateStoreOffer(ctx *pulumi.Context, args *LookupPrivateStoreOfferA
 
 type LookupPrivateStoreOfferArgs struct {
 	// The offer ID to update or delete
-	Name string `pulumi:"name"`
+	OfferId string `pulumi:"offerId"`
 	// The store ID - must use the tenant ID
 	PrivateStoreId string `pulumi:"privateStoreId"`
 }

@@ -18,6 +18,8 @@ func LookupWebAppDomainOwnershipIdentifier(ctx *pulumi.Context, args *LookupWebA
 
 type LookupWebAppDomainOwnershipIdentifierArgs struct {
 	// Name of domain ownership identifier.
+	DomainOwnershipIdentifierName string `pulumi:"domainOwnershipIdentifierName"`
+	// Name of the app.
 	Name string `pulumi:"name"`
 	// Name of the resource group to which the resource belongs.
 	ResourceGroupName string `pulumi:"resourceGroupName"`

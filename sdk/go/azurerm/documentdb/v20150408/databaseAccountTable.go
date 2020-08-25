@@ -30,9 +30,6 @@ func NewDatabaseAccountTable(ctx *pulumi.Context,
 	if args == nil || args.AccountName == nil {
 		return nil, errors.New("missing required argument 'AccountName'")
 	}
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
-	}
 	if args == nil || args.Options == nil {
 		return nil, errors.New("missing required argument 'Options'")
 	}
@@ -41,6 +38,9 @@ func NewDatabaseAccountTable(ctx *pulumi.Context,
 	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
+	}
+	if args == nil || args.TableName == nil {
+		return nil, errors.New("missing required argument 'TableName'")
 	}
 	if args == nil {
 		args = &DatabaseAccountTableArgs{}
@@ -110,28 +110,28 @@ func (DatabaseAccountTableState) ElementType() reflect.Type {
 type databaseAccountTableArgs struct {
 	// Cosmos DB database account name.
 	AccountName string `pulumi:"accountName"`
-	// Cosmos DB table name.
-	Name string `pulumi:"name"`
 	// A key-value pair of options to be applied for the request. This corresponds to the headers sent with the request.
 	Options map[string]string `pulumi:"options"`
 	// The standard JSON format of a Table
 	Resource TableResource `pulumi:"resource"`
 	// Name of an Azure resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// Cosmos DB table name.
+	TableName string `pulumi:"tableName"`
 }
 
 // The set of arguments for constructing a DatabaseAccountTable resource.
 type DatabaseAccountTableArgs struct {
 	// Cosmos DB database account name.
 	AccountName pulumi.StringInput
-	// Cosmos DB table name.
-	Name pulumi.StringInput
 	// A key-value pair of options to be applied for the request. This corresponds to the headers sent with the request.
 	Options pulumi.StringMapInput
 	// The standard JSON format of a Table
 	Resource TableResourceInput
 	// Name of an Azure resource group.
 	ResourceGroupName pulumi.StringInput
+	// Cosmos DB table name.
+	TableName pulumi.StringInput
 }
 
 func (DatabaseAccountTableArgs) ElementType() reflect.Type {

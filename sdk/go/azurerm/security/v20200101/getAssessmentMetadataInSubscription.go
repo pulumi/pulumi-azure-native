@@ -18,7 +18,7 @@ func LookupAssessmentMetadataInSubscription(ctx *pulumi.Context, args *LookupAss
 
 type LookupAssessmentMetadataInSubscriptionArgs struct {
 	// The Assessment Key - Unique key for the assessment type
-	Name string `pulumi:"name"`
+	AssessmentMetadataName string `pulumi:"assessmentMetadataName"`
 }
 
 // Security assessment metadata

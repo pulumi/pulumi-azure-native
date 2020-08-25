@@ -35,8 +35,8 @@ type ManagementGroup struct {
 // NewManagementGroup registers a new resource with the given unique name, arguments, and options.
 func NewManagementGroup(ctx *pulumi.Context,
 	name string, args *ManagementGroupArgs, opts ...pulumi.ResourceOption) (*ManagementGroup, error) {
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
+	if args == nil || args.GroupId == nil {
+		return nil, errors.New("missing required argument 'GroupId'")
 	}
 	if args == nil {
 		args = &ManagementGroupArgs{}
@@ -119,7 +119,9 @@ type managementGroupArgs struct {
 	// The friendly name of the management group. If no value is passed then this  field will be set to the groupId.
 	DisplayName *string `pulumi:"displayName"`
 	// Management Group ID.
-	Name string `pulumi:"name"`
+	GroupId string `pulumi:"groupId"`
+	// The name of the management group. For example, 00000000-0000-0000-0000-000000000000
+	Name *string `pulumi:"name"`
 }
 
 // The set of arguments for constructing a ManagementGroup resource.
@@ -129,7 +131,9 @@ type ManagementGroupArgs struct {
 	// The friendly name of the management group. If no value is passed then this  field will be set to the groupId.
 	DisplayName pulumi.StringPtrInput
 	// Management Group ID.
-	Name pulumi.StringInput
+	GroupId pulumi.StringInput
+	// The name of the management group. For example, 00000000-0000-0000-0000-000000000000
+	Name pulumi.StringPtrInput
 }
 
 func (ManagementGroupArgs) ElementType() reflect.Type {

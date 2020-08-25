@@ -18,7 +18,7 @@ func LookupDpsCertificate(ctx *pulumi.Context, args *LookupDpsCertificateArgs, o
 
 type LookupDpsCertificateArgs struct {
 	// Name of the certificate to retrieve.
-	Name string `pulumi:"name"`
+	CertificateName string `pulumi:"certificateName"`
 	// Name of the provisioning service the certificate is associated with.
 	ProvisioningServiceName string `pulumi:"provisioningServiceName"`
 	// Resource group identifier.

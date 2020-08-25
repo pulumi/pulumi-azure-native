@@ -18,7 +18,7 @@ func LookupFlowLog(ctx *pulumi.Context, args *LookupFlowLogArgs, opts ...pulumi.
 
 type LookupFlowLogArgs struct {
 	// The name of the flow log resource.
-	Name string `pulumi:"name"`
+	FlowLogName string `pulumi:"flowLogName"`
 	// The name of the network watcher.
 	NetworkWatcherName string `pulumi:"networkWatcherName"`
 	// The name of the resource group.

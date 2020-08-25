@@ -48,6 +48,9 @@ func NewIscsiDisk(ctx *pulumi.Context,
 	if args == nil || args.DeviceName == nil {
 		return nil, errors.New("missing required argument 'DeviceName'")
 	}
+	if args == nil || args.DiskName == nil {
+		return nil, errors.New("missing required argument 'DiskName'")
+	}
 	if args == nil || args.DiskStatus == nil {
 		return nil, errors.New("missing required argument 'DiskStatus'")
 	}
@@ -59,9 +62,6 @@ func NewIscsiDisk(ctx *pulumi.Context,
 	}
 	if args == nil || args.MonitoringStatus == nil {
 		return nil, errors.New("missing required argument 'MonitoringStatus'")
-	}
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
 	}
 	if args == nil || args.ProvisionedCapacityInBytes == nil {
 		return nil, errors.New("missing required argument 'ProvisionedCapacityInBytes'")
@@ -152,6 +152,8 @@ type iscsiDiskArgs struct {
 	Description *string `pulumi:"description"`
 	// The device name.
 	DeviceName string `pulumi:"deviceName"`
+	// The disk name.
+	DiskName string `pulumi:"diskName"`
 	// The disk status.
 	DiskStatus string `pulumi:"diskStatus"`
 	// The iSCSI server name.
@@ -160,8 +162,6 @@ type iscsiDiskArgs struct {
 	ManagerName string `pulumi:"managerName"`
 	// The monitoring.
 	MonitoringStatus string `pulumi:"monitoringStatus"`
-	// The disk name.
-	Name string `pulumi:"name"`
 	// The provisioned capacity in bytes.
 	ProvisionedCapacityInBytes int `pulumi:"provisionedCapacityInBytes"`
 	// The resource group name
@@ -178,6 +178,8 @@ type IscsiDiskArgs struct {
 	Description pulumi.StringPtrInput
 	// The device name.
 	DeviceName pulumi.StringInput
+	// The disk name.
+	DiskName pulumi.StringInput
 	// The disk status.
 	DiskStatus pulumi.StringInput
 	// The iSCSI server name.
@@ -186,8 +188,6 @@ type IscsiDiskArgs struct {
 	ManagerName pulumi.StringInput
 	// The monitoring.
 	MonitoringStatus pulumi.StringInput
-	// The disk name.
-	Name pulumi.StringInput
 	// The provisioned capacity in bytes.
 	ProvisionedCapacityInBytes pulumi.IntInput
 	// The resource group name

@@ -18,7 +18,7 @@ func LookupNotificationHubAuthorizationRule(ctx *pulumi.Context, args *LookupNot
 
 type LookupNotificationHubAuthorizationRuleArgs struct {
 	// authorization rule name.
-	Name string `pulumi:"name"`
+	AuthorizationRuleName string `pulumi:"authorizationRuleName"`
 	// The namespace name
 	NamespaceName string `pulumi:"namespaceName"`
 	// The notification hub name.

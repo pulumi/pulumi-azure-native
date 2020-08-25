@@ -30,8 +30,8 @@ func NewReplicationProtectionContainerMapping(ctx *pulumi.Context,
 	if args == nil || args.FabricName == nil {
 		return nil, errors.New("missing required argument 'FabricName'")
 	}
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
+	if args == nil || args.MappingName == nil {
+		return nil, errors.New("missing required argument 'MappingName'")
 	}
 	if args == nil || args.ProtectionContainerName == nil {
 		return nil, errors.New("missing required argument 'ProtectionContainerName'")
@@ -105,7 +105,7 @@ type replicationProtectionContainerMappingArgs struct {
 	// Fabric name.
 	FabricName string `pulumi:"fabricName"`
 	// Protection container mapping name.
-	Name string `pulumi:"name"`
+	MappingName string `pulumi:"mappingName"`
 	// Configure protection input properties.
 	Properties *CreateProtectionContainerMappingInputProperties `pulumi:"properties"`
 	// Protection container name.
@@ -121,7 +121,7 @@ type ReplicationProtectionContainerMappingArgs struct {
 	// Fabric name.
 	FabricName pulumi.StringInput
 	// Protection container mapping name.
-	Name pulumi.StringInput
+	MappingName pulumi.StringInput
 	// Configure protection input properties.
 	Properties CreateProtectionContainerMappingInputPropertiesPtrInput
 	// Protection container name.

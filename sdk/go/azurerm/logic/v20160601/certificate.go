@@ -37,11 +37,11 @@ type Certificate struct {
 // NewCertificate registers a new resource with the given unique name, arguments, and options.
 func NewCertificate(ctx *pulumi.Context,
 	name string, args *CertificateArgs, opts ...pulumi.ResourceOption) (*Certificate, error) {
+	if args == nil || args.CertificateName == nil {
+		return nil, errors.New("missing required argument 'CertificateName'")
+	}
 	if args == nil || args.IntegrationAccountName == nil {
 		return nil, errors.New("missing required argument 'IntegrationAccountName'")
-	}
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
 	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
@@ -123,6 +123,8 @@ func (CertificateState) ElementType() reflect.Type {
 }
 
 type certificateArgs struct {
+	// The integration account certificate name.
+	CertificateName string `pulumi:"certificateName"`
 	// The integration account name.
 	IntegrationAccountName string `pulumi:"integrationAccountName"`
 	// The key details in the key vault.
@@ -131,8 +133,6 @@ type certificateArgs struct {
 	Location *string `pulumi:"location"`
 	// The metadata.
 	Metadata map[string]interface{} `pulumi:"metadata"`
-	// The integration account certificate name.
-	Name string `pulumi:"name"`
 	// The public certificate.
 	PublicCertificate *string `pulumi:"publicCertificate"`
 	// The resource group name.
@@ -143,6 +143,8 @@ type certificateArgs struct {
 
 // The set of arguments for constructing a Certificate resource.
 type CertificateArgs struct {
+	// The integration account certificate name.
+	CertificateName pulumi.StringInput
 	// The integration account name.
 	IntegrationAccountName pulumi.StringInput
 	// The key details in the key vault.
@@ -151,8 +153,6 @@ type CertificateArgs struct {
 	Location pulumi.StringPtrInput
 	// The metadata.
 	Metadata pulumi.MapInput
-	// The integration account certificate name.
-	Name pulumi.StringInput
 	// The public certificate.
 	PublicCertificate pulumi.StringPtrInput
 	// The resource group name.

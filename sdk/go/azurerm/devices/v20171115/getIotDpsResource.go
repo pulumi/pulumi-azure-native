@@ -18,7 +18,7 @@ func LookupIotDpsResource(ctx *pulumi.Context, args *LookupIotDpsResourceArgs, o
 
 type LookupIotDpsResourceArgs struct {
 	// Name of the provisioning service to retrieve.
-	Name string `pulumi:"name"`
+	ProvisioningServiceName string `pulumi:"provisioningServiceName"`
 	// Resource group name.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }

@@ -57,14 +57,14 @@ func NewService(ctx *pulumi.Context,
 	if args == nil || args.ClusterName == nil {
 		return nil, errors.New("missing required argument 'ClusterName'")
 	}
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
-	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
 	}
 	if args == nil || args.ServiceKind == nil {
 		return nil, errors.New("missing required argument 'ServiceKind'")
+	}
+	if args == nil || args.ServiceName == nil {
+		return nil, errors.New("missing required argument 'ServiceName'")
 	}
 	if args == nil {
 		args = &ServiceArgs{}
@@ -181,8 +181,6 @@ type serviceArgs struct {
 	DefaultMoveCost *string `pulumi:"defaultMoveCost"`
 	// It will be deprecated in New API, resource location depends on the parent resource.
 	Location *string `pulumi:"location"`
-	// The name of the service resource in the format of {applicationName}~{serviceName}.
-	Name string `pulumi:"name"`
 	// Describes how the service is partitioned.
 	PartitionDescription *PartitionSchemeDescription `pulumi:"partitionDescription"`
 	// The placement constraints as a string. Placement constraints are boolean expressions on node properties and allow for restricting a service to particular nodes based on the service requirements. For example, to place a service on nodes where NodeType is blue specify the following: "NodeColor == blue)".
@@ -195,6 +193,8 @@ type serviceArgs struct {
 	ServiceKind string `pulumi:"serviceKind"`
 	// The service load metrics is given as an array of ServiceLoadMetricDescription objects.
 	ServiceLoadMetrics []ServiceLoadMetricDescription `pulumi:"serviceLoadMetrics"`
+	// The name of the service resource in the format of {applicationName}~{serviceName}.
+	ServiceName string `pulumi:"serviceName"`
 	// The activation Mode of the service package
 	ServicePackageActivationMode *string `pulumi:"servicePackageActivationMode"`
 	// A list that describes the correlation of the service with other services.
@@ -217,8 +217,6 @@ type ServiceArgs struct {
 	DefaultMoveCost pulumi.StringPtrInput
 	// It will be deprecated in New API, resource location depends on the parent resource.
 	Location pulumi.StringPtrInput
-	// The name of the service resource in the format of {applicationName}~{serviceName}.
-	Name pulumi.StringInput
 	// Describes how the service is partitioned.
 	PartitionDescription PartitionSchemeDescriptionPtrInput
 	// The placement constraints as a string. Placement constraints are boolean expressions on node properties and allow for restricting a service to particular nodes based on the service requirements. For example, to place a service on nodes where NodeType is blue specify the following: "NodeColor == blue)".
@@ -231,6 +229,8 @@ type ServiceArgs struct {
 	ServiceKind pulumi.StringInput
 	// The service load metrics is given as an array of ServiceLoadMetricDescription objects.
 	ServiceLoadMetrics ServiceLoadMetricDescriptionArrayInput
+	// The name of the service resource in the format of {applicationName}~{serviceName}.
+	ServiceName pulumi.StringInput
 	// The activation Mode of the service package
 	ServicePackageActivationMode pulumi.StringPtrInput
 	// A list that describes the correlation of the service with other services.

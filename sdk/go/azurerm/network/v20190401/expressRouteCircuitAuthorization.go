@@ -31,11 +31,11 @@ type ExpressRouteCircuitAuthorization struct {
 // NewExpressRouteCircuitAuthorization registers a new resource with the given unique name, arguments, and options.
 func NewExpressRouteCircuitAuthorization(ctx *pulumi.Context,
 	name string, args *ExpressRouteCircuitAuthorizationArgs, opts ...pulumi.ResourceOption) (*ExpressRouteCircuitAuthorization, error) {
+	if args == nil || args.AuthorizationName == nil {
+		return nil, errors.New("missing required argument 'AuthorizationName'")
+	}
 	if args == nil || args.CircuitName == nil {
 		return nil, errors.New("missing required argument 'CircuitName'")
-	}
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
 	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
@@ -197,14 +197,16 @@ func (ExpressRouteCircuitAuthorizationState) ElementType() reflect.Type {
 type expressRouteCircuitAuthorizationArgs struct {
 	// The authorization key.
 	AuthorizationKey *string `pulumi:"authorizationKey"`
+	// The name of the authorization.
+	AuthorizationName string `pulumi:"authorizationName"`
 	// The authorization use status.
 	AuthorizationUseStatus *string `pulumi:"authorizationUseStatus"`
 	// The name of the express route circuit.
 	CircuitName string `pulumi:"circuitName"`
 	// Resource ID.
 	Id *string `pulumi:"id"`
-	// The name of the authorization.
-	Name string `pulumi:"name"`
+	// Gets name of the resource that is unique within a resource group. This name can be used to access the resource.
+	Name *string `pulumi:"name"`
 	// Gets the provisioning state of the public IP resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
 	ProvisioningState *string `pulumi:"provisioningState"`
 	// The name of the resource group.
@@ -215,14 +217,16 @@ type expressRouteCircuitAuthorizationArgs struct {
 type ExpressRouteCircuitAuthorizationArgs struct {
 	// The authorization key.
 	AuthorizationKey pulumi.StringPtrInput
+	// The name of the authorization.
+	AuthorizationName pulumi.StringInput
 	// The authorization use status.
 	AuthorizationUseStatus pulumi.StringPtrInput
 	// The name of the express route circuit.
 	CircuitName pulumi.StringInput
 	// Resource ID.
 	Id pulumi.StringPtrInput
-	// The name of the authorization.
-	Name pulumi.StringInput
+	// Gets name of the resource that is unique within a resource group. This name can be used to access the resource.
+	Name pulumi.StringPtrInput
 	// Gets the provisioning state of the public IP resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
 	ProvisioningState pulumi.StringPtrInput
 	// The name of the resource group.

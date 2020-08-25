@@ -71,6 +71,9 @@ type Account struct {
 // NewAccount registers a new resource with the given unique name, arguments, and options.
 func NewAccount(ctx *pulumi.Context,
 	name string, args *AccountArgs, opts ...pulumi.ResourceOption) (*Account, error) {
+	if args == nil || args.AccountName == nil {
+		return nil, errors.New("missing required argument 'AccountName'")
+	}
 	if args == nil || args.DataLakeStoreAccounts == nil {
 		return nil, errors.New("missing required argument 'DataLakeStoreAccounts'")
 	}
@@ -79,9 +82,6 @@ func NewAccount(ctx *pulumi.Context,
 	}
 	if args == nil || args.Location == nil {
 		return nil, errors.New("missing required argument 'Location'")
-	}
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
 	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
@@ -225,6 +225,8 @@ func (AccountState) ElementType() reflect.Type {
 }
 
 type accountArgs struct {
+	// The name of the Data Lake Analytics account.
+	AccountName string `pulumi:"accountName"`
 	// The list of compute policies associated with this account.
 	ComputePolicies []CreateComputePolicyWithAccountParameters `pulumi:"computePolicies"`
 	// The list of Data Lake Store accounts associated with this account.
@@ -247,8 +249,6 @@ type accountArgs struct {
 	MaxJobCount *int `pulumi:"maxJobCount"`
 	// The minimum supported priority per job for this account.
 	MinPriorityPerJob *int `pulumi:"minPriorityPerJob"`
-	// The name of the Data Lake Analytics account.
-	Name string `pulumi:"name"`
 	// The commitment tier for the next month.
 	NewTier *string `pulumi:"newTier"`
 	// The number of days that job metadata is retained.
@@ -263,6 +263,8 @@ type accountArgs struct {
 
 // The set of arguments for constructing a Account resource.
 type AccountArgs struct {
+	// The name of the Data Lake Analytics account.
+	AccountName pulumi.StringInput
 	// The list of compute policies associated with this account.
 	ComputePolicies CreateComputePolicyWithAccountParametersArrayInput
 	// The list of Data Lake Store accounts associated with this account.
@@ -285,8 +287,6 @@ type AccountArgs struct {
 	MaxJobCount pulumi.IntPtrInput
 	// The minimum supported priority per job for this account.
 	MinPriorityPerJob pulumi.IntPtrInput
-	// The name of the Data Lake Analytics account.
-	Name pulumi.StringInput
 	// The commitment tier for the next month.
 	NewTier pulumi.StringPtrInput
 	// The number of days that job metadata is retained.

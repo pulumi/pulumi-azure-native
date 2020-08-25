@@ -19,10 +19,10 @@ func LookupTrustedIdProvider(ctx *pulumi.Context, args *LookupTrustedIdProviderA
 type LookupTrustedIdProviderArgs struct {
 	// The name of the Data Lake Store account.
 	AccountName string `pulumi:"accountName"`
-	// The name of the trusted identity provider to retrieve.
-	Name string `pulumi:"name"`
 	// The name of the Azure resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// The name of the trusted identity provider to retrieve.
+	TrustedIdProviderName string `pulumi:"trustedIdProviderName"`
 }
 
 // Data Lake Store trusted identity provider information.

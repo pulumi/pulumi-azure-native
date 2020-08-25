@@ -50,9 +50,6 @@ func NewSubscription(ctx *pulumi.Context,
 	if args == nil || args.DisplayName == nil {
 		return nil, errors.New("missing required argument 'DisplayName'")
 	}
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
-	}
 	if args == nil || args.ProductId == nil {
 		return nil, errors.New("missing required argument 'ProductId'")
 	}
@@ -61,6 +58,9 @@ func NewSubscription(ctx *pulumi.Context,
 	}
 	if args == nil || args.ServiceName == nil {
 		return nil, errors.New("missing required argument 'ServiceName'")
+	}
+	if args == nil || args.Sid == nil {
+		return nil, errors.New("missing required argument 'Sid'")
 	}
 	if args == nil || args.UserId == nil {
 		return nil, errors.New("missing required argument 'UserId'")
@@ -176,8 +176,6 @@ func (SubscriptionState) ElementType() reflect.Type {
 type subscriptionArgs struct {
 	// Subscription name.
 	DisplayName string `pulumi:"displayName"`
-	// Subscription entity Identifier. The entity represents the association between a user and a product in API Management.
-	Name string `pulumi:"name"`
 	// Notify change in Subscription State.
 	//  - If false, do not send any email notification for change of state of subscription
 	//  - If true, send email notification of change of state of subscription
@@ -192,6 +190,8 @@ type subscriptionArgs struct {
 	SecondaryKey *string `pulumi:"secondaryKey"`
 	// The name of the API Management service.
 	ServiceName string `pulumi:"serviceName"`
+	// Subscription entity Identifier. The entity represents the association between a user and a product in API Management.
+	Sid string `pulumi:"sid"`
 	// Initial subscription state. If no value is specified, subscription is created with Submitted state. Possible states are * active – the subscription is active, * suspended – the subscription is blocked, and the subscriber cannot call any APIs of the product, * submitted – the subscription request has been made by the developer, but has not yet been approved or rejected, * rejected – the subscription request has been denied by an administrator, * cancelled – the subscription has been cancelled by the developer or administrator, * expired – the subscription reached its expiration date and was deactivated.
 	State *string `pulumi:"state"`
 	// User (user id path) for whom subscription is being created in form /users/{uid}
@@ -202,8 +202,6 @@ type subscriptionArgs struct {
 type SubscriptionArgs struct {
 	// Subscription name.
 	DisplayName pulumi.StringInput
-	// Subscription entity Identifier. The entity represents the association between a user and a product in API Management.
-	Name pulumi.StringInput
 	// Notify change in Subscription State.
 	//  - If false, do not send any email notification for change of state of subscription
 	//  - If true, send email notification of change of state of subscription
@@ -218,6 +216,8 @@ type SubscriptionArgs struct {
 	SecondaryKey pulumi.StringPtrInput
 	// The name of the API Management service.
 	ServiceName pulumi.StringInput
+	// Subscription entity Identifier. The entity represents the association between a user and a product in API Management.
+	Sid pulumi.StringInput
 	// Initial subscription state. If no value is specified, subscription is created with Submitted state. Possible states are * active – the subscription is active, * suspended – the subscription is blocked, and the subscriber cannot call any APIs of the product, * submitted – the subscription request has been made by the developer, but has not yet been approved or rejected, * rejected – the subscription request has been denied by an administrator, * cancelled – the subscription has been cancelled by the developer or administrator, * expired – the subscription reached its expiration date and was deactivated.
 	State pulumi.StringPtrInput
 	// User (user id path) for whom subscription is being created in form /users/{uid}

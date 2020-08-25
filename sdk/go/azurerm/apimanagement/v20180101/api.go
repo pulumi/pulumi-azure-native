@@ -55,8 +55,8 @@ type Api struct {
 // NewApi registers a new resource with the given unique name, arguments, and options.
 func NewApi(ctx *pulumi.Context,
 	name string, args *ApiArgs, opts ...pulumi.ResourceOption) (*Api, error) {
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
+	if args == nil || args.ApiId == nil {
+		return nil, errors.New("missing required argument 'ApiId'")
 	}
 	if args == nil || args.Path == nil {
 		return nil, errors.New("missing required argument 'Path'")
@@ -192,6 +192,8 @@ func (ApiState) ElementType() reflect.Type {
 }
 
 type apiArgs struct {
+	// API revision identifier. Must be unique in the current API Management service instance. Non-current revision has ;rev=n as a suffix where n is the revision number.
+	ApiId string `pulumi:"apiId"`
 	// Describes the Revision of the Api. If no value is provided, default revision 1 is created
 	ApiRevision *string `pulumi:"apiRevision"`
 	// Description of the Api Revision.
@@ -216,8 +218,6 @@ type apiArgs struct {
 	Description *string `pulumi:"description"`
 	// API name.
 	DisplayName *string `pulumi:"displayName"`
-	// API revision identifier. Must be unique in the current API Management service instance. Non-current revision has ;rev=n as a suffix where n is the revision number.
-	Name string `pulumi:"name"`
 	// Relative URL uniquely identifying this API and all of its resource paths within the API Management service instance. It is appended to the API endpoint base URL specified during the service instance creation to form a public URL for this API.
 	Path string `pulumi:"path"`
 	// Describes on which protocols the operations in this API can be invoked.
@@ -240,6 +240,8 @@ type apiArgs struct {
 
 // The set of arguments for constructing a Api resource.
 type ApiArgs struct {
+	// API revision identifier. Must be unique in the current API Management service instance. Non-current revision has ;rev=n as a suffix where n is the revision number.
+	ApiId pulumi.StringInput
 	// Describes the Revision of the Api. If no value is provided, default revision 1 is created
 	ApiRevision pulumi.StringPtrInput
 	// Description of the Api Revision.
@@ -264,8 +266,6 @@ type ApiArgs struct {
 	Description pulumi.StringPtrInput
 	// API name.
 	DisplayName pulumi.StringPtrInput
-	// API revision identifier. Must be unique in the current API Management service instance. Non-current revision has ;rev=n as a suffix where n is the revision number.
-	Name pulumi.StringInput
 	// Relative URL uniquely identifying this API and all of its resource paths within the API Management service instance. It is appended to the API endpoint base URL specified during the service instance creation to form a public URL for this API.
 	Path pulumi.StringInput
 	// Describes on which protocols the operations in this API can be invoked.

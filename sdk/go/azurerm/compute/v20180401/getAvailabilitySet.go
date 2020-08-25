@@ -18,7 +18,7 @@ func LookupAvailabilitySet(ctx *pulumi.Context, args *LookupAvailabilitySetArgs,
 
 type LookupAvailabilitySetArgs struct {
 	// The name of the availability set.
-	Name string `pulumi:"name"`
+	AvailabilitySetName string `pulumi:"availabilitySetName"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }

@@ -20,7 +20,7 @@ type LookupApplicationGatewayPrivateEndpointConnectionArgs struct {
 	// The name of the application gateway.
 	ApplicationGatewayName string `pulumi:"applicationGatewayName"`
 	// The name of the application gateway private endpoint connection.
-	Name string `pulumi:"name"`
+	ConnectionName string `pulumi:"connectionName"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }

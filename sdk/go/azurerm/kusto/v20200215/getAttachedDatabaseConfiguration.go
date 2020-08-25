@@ -17,10 +17,10 @@ func LookupAttachedDatabaseConfiguration(ctx *pulumi.Context, args *LookupAttach
 }
 
 type LookupAttachedDatabaseConfigurationArgs struct {
+	// The name of the attached database configuration.
+	AttachedDatabaseConfigurationName string `pulumi:"attachedDatabaseConfigurationName"`
 	// The name of the Kusto cluster.
 	ClusterName string `pulumi:"clusterName"`
-	// The name of the attached database configuration.
-	Name string `pulumi:"name"`
 	// The name of the resource group containing the Kusto cluster.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }

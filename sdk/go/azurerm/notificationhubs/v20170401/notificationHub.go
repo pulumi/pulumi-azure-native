@@ -45,11 +45,11 @@ type NotificationHub struct {
 // NewNotificationHub registers a new resource with the given unique name, arguments, and options.
 func NewNotificationHub(ctx *pulumi.Context,
 	name string, args *NotificationHubArgs, opts ...pulumi.ResourceOption) (*NotificationHub, error) {
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
-	}
 	if args == nil || args.NamespaceName == nil {
 		return nil, errors.New("missing required argument 'NamespaceName'")
+	}
+	if args == nil || args.NotificationHubName == nil {
+		return nil, errors.New("missing required argument 'NotificationHubName'")
 	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
@@ -164,10 +164,12 @@ type notificationHubArgs struct {
 	Location *string `pulumi:"location"`
 	// The MpnsCredential of the created NotificationHub
 	MpnsCredential *MpnsCredential `pulumi:"mpnsCredential"`
-	// The notification hub name.
-	Name string `pulumi:"name"`
+	// The NotificationHub name.
+	Name *string `pulumi:"name"`
 	// The namespace name.
 	NamespaceName string `pulumi:"namespaceName"`
+	// The notification hub name.
+	NotificationHubName string `pulumi:"notificationHubName"`
 	// The RegistrationTtl of the created NotificationHub
 	RegistrationTtl *string `pulumi:"registrationTtl"`
 	// The name of the resource group.
@@ -196,10 +198,12 @@ type NotificationHubArgs struct {
 	Location pulumi.StringPtrInput
 	// The MpnsCredential of the created NotificationHub
 	MpnsCredential MpnsCredentialPtrInput
-	// The notification hub name.
-	Name pulumi.StringInput
+	// The NotificationHub name.
+	Name pulumi.StringPtrInput
 	// The namespace name.
 	NamespaceName pulumi.StringInput
+	// The notification hub name.
+	NotificationHubName pulumi.StringInput
 	// The RegistrationTtl of the created NotificationHub
 	RegistrationTtl pulumi.StringPtrInput
 	// The name of the resource group.

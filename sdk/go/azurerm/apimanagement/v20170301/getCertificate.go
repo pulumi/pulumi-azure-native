@@ -18,7 +18,7 @@ func LookupCertificate(ctx *pulumi.Context, args *LookupCertificateArgs, opts ..
 
 type LookupCertificateArgs struct {
 	// Identifier of the certificate entity. Must be unique in the current API Management service instance.
-	Name string `pulumi:"name"`
+	CertificateId string `pulumi:"certificateId"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The name of the API Management service.

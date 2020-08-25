@@ -31,8 +31,8 @@ type Job struct {
 // NewJob registers a new resource with the given unique name, arguments, and options.
 func NewJob(ctx *pulumi.Context,
 	name string, args *JobArgs, opts ...pulumi.ResourceOption) (*Job, error) {
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
+	if args == nil || args.JobName == nil {
+		return nil, errors.New("missing required argument 'JobName'")
 	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
@@ -102,10 +102,10 @@ func (JobState) ElementType() reflect.Type {
 }
 
 type jobArgs struct {
+	// The name of the import/export job.
+	JobName string `pulumi:"jobName"`
 	// Specifies the supported Azure location where the job should be created
 	Location *string `pulumi:"location"`
-	// The name of the import/export job.
-	Name string `pulumi:"name"`
 	// Specifies the job properties
 	Properties *JobDetails `pulumi:"properties"`
 	// The resource group name uniquely identifies the resource group within the user subscription.
@@ -116,10 +116,10 @@ type jobArgs struct {
 
 // The set of arguments for constructing a Job resource.
 type JobArgs struct {
+	// The name of the import/export job.
+	JobName pulumi.StringInput
 	// Specifies the supported Azure location where the job should be created
 	Location pulumi.StringPtrInput
-	// The name of the import/export job.
-	Name pulumi.StringInput
 	// Specifies the job properties
 	Properties JobDetailsPtrInput
 	// The resource group name uniquely identifies the resource group within the user subscription.

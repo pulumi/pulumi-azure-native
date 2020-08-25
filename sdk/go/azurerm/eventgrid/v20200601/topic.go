@@ -46,11 +46,11 @@ func NewTopic(ctx *pulumi.Context,
 	if args == nil || args.Location == nil {
 		return nil, errors.New("missing required argument 'Location'")
 	}
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
-	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
+	}
+	if args == nil || args.TopicName == nil {
+		return nil, errors.New("missing required argument 'TopicName'")
 	}
 	if args == nil {
 		args = &TopicArgs{}
@@ -154,9 +154,7 @@ type topicArgs struct {
 	// This enables publishing using custom event schemas. An InputSchemaMapping can be specified to map various properties of a source schema to various required properties of the EventGridEvent schema.
 	InputSchemaMapping *InputSchemaMapping `pulumi:"inputSchemaMapping"`
 	// Location of the resource.
-	Location string `pulumi:"location"`
-	// Name of the topic.
-	Name                       string                          `pulumi:"name"`
+	Location                   string                          `pulumi:"location"`
 	PrivateEndpointConnections []PrivateEndpointConnectionType `pulumi:"privateEndpointConnections"`
 	// This determines if traffic is allowed over public network. By default it is enabled.
 	// You can further restrict to specific IPs by configuring <seealso cref="P:Microsoft.Azure.Events.ResourceProvider.Common.Contracts.TopicProperties.InboundIpRules" />
@@ -165,6 +163,8 @@ type topicArgs struct {
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Tags of the resource.
 	Tags map[string]string `pulumi:"tags"`
+	// Name of the topic.
+	TopicName string `pulumi:"topicName"`
 }
 
 // The set of arguments for constructing a Topic resource.
@@ -176,9 +176,7 @@ type TopicArgs struct {
 	// This enables publishing using custom event schemas. An InputSchemaMapping can be specified to map various properties of a source schema to various required properties of the EventGridEvent schema.
 	InputSchemaMapping InputSchemaMappingPtrInput
 	// Location of the resource.
-	Location pulumi.StringInput
-	// Name of the topic.
-	Name                       pulumi.StringInput
+	Location                   pulumi.StringInput
 	PrivateEndpointConnections PrivateEndpointConnectionTypeArrayInput
 	// This determines if traffic is allowed over public network. By default it is enabled.
 	// You can further restrict to specific IPs by configuring <seealso cref="P:Microsoft.Azure.Events.ResourceProvider.Common.Contracts.TopicProperties.InboundIpRules" />
@@ -187,6 +185,8 @@ type TopicArgs struct {
 	ResourceGroupName pulumi.StringInput
 	// Tags of the resource.
 	Tags pulumi.StringMapInput
+	// Name of the topic.
+	TopicName pulumi.StringInput
 }
 
 func (TopicArgs) ElementType() reflect.Type {

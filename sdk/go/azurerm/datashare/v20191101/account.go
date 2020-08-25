@@ -37,11 +37,11 @@ type Account struct {
 // NewAccount registers a new resource with the given unique name, arguments, and options.
 func NewAccount(ctx *pulumi.Context,
 	name string, args *AccountArgs, opts ...pulumi.ResourceOption) (*Account, error) {
+	if args == nil || args.AccountName == nil {
+		return nil, errors.New("missing required argument 'AccountName'")
+	}
 	if args == nil || args.Identity == nil {
 		return nil, errors.New("missing required argument 'Identity'")
-	}
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
 	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
@@ -117,12 +117,12 @@ func (AccountState) ElementType() reflect.Type {
 }
 
 type accountArgs struct {
+	// The name of the share account.
+	AccountName string `pulumi:"accountName"`
 	// Identity Info on the Account
 	Identity Identity `pulumi:"identity"`
 	// Location of the azure resource.
 	Location *string `pulumi:"location"`
-	// The name of the share account.
-	Name string `pulumi:"name"`
 	// The resource group name.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Tags on the azure resource.
@@ -131,12 +131,12 @@ type accountArgs struct {
 
 // The set of arguments for constructing a Account resource.
 type AccountArgs struct {
+	// The name of the share account.
+	AccountName pulumi.StringInput
 	// Identity Info on the Account
 	Identity IdentityInput
 	// Location of the azure resource.
 	Location pulumi.StringPtrInput
-	// The name of the share account.
-	Name pulumi.StringInput
 	// The resource group name.
 	ResourceGroupName pulumi.StringInput
 	// Tags on the azure resource.

@@ -103,11 +103,11 @@ type Database struct {
 // NewDatabase registers a new resource with the given unique name, arguments, and options.
 func NewDatabase(ctx *pulumi.Context,
 	name string, args *DatabaseArgs, opts ...pulumi.ResourceOption) (*Database, error) {
+	if args == nil || args.DatabaseName == nil {
+		return nil, errors.New("missing required argument 'DatabaseName'")
+	}
 	if args == nil || args.Location == nil {
 		return nil, errors.New("missing required argument 'Location'")
-	}
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
 	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
@@ -338,6 +338,8 @@ type databaseArgs struct {
 	//
 	// Copy, NonReadableSecondary, OnlineSecondary and RestoreLongTermRetentionBackup are not supported for DataWarehouse edition.
 	CreateMode *string `pulumi:"createMode"`
+	// The name of the database to be operated on (updated or created).
+	DatabaseName string `pulumi:"databaseName"`
 	// The edition of the database. The DatabaseEditions enumeration contains all the valid editions. If createMode is NonReadableSecondary or OnlineSecondary, this value is ignored.
 	//
 	// The list of SKUs may vary by region and support offer. To determine the SKUs (including the SKU name, tier/edition, family, and capacity) that are available to your subscription in an Azure region, use the `Capabilities_ListByLocation` REST API or one of the following commands:
@@ -348,8 +350,6 @@ type databaseArgs struct {
 	Location string `pulumi:"location"`
 	// The max size of the database expressed in bytes. If createMode is not Default, this value is ignored. To see possible values, query the capabilities API (/subscriptions/{subscriptionId}/providers/Microsoft.Sql/locations/{locationID}/capabilities) referred to by operationId: "Capabilities_ListByLocation."
 	MaxSizeBytes *string `pulumi:"maxSizeBytes"`
-	// The name of the database to be operated on (updated or created).
-	Name string `pulumi:"name"`
 	// Conditional. If the database is a geo-secondary, readScale indicates whether read-only connections are allowed to this database or not. Not supported for DataWarehouse edition.
 	ReadScale *string `pulumi:"readScale"`
 	// Conditional. If createMode is RestoreLongTermRetentionBackup, then this value is required. Specifies the resource ID of the recovery point to restore from.
@@ -402,6 +402,8 @@ type DatabaseArgs struct {
 	//
 	// Copy, NonReadableSecondary, OnlineSecondary and RestoreLongTermRetentionBackup are not supported for DataWarehouse edition.
 	CreateMode pulumi.StringPtrInput
+	// The name of the database to be operated on (updated or created).
+	DatabaseName pulumi.StringInput
 	// The edition of the database. The DatabaseEditions enumeration contains all the valid editions. If createMode is NonReadableSecondary or OnlineSecondary, this value is ignored.
 	//
 	// The list of SKUs may vary by region and support offer. To determine the SKUs (including the SKU name, tier/edition, family, and capacity) that are available to your subscription in an Azure region, use the `Capabilities_ListByLocation` REST API or one of the following commands:
@@ -412,8 +414,6 @@ type DatabaseArgs struct {
 	Location pulumi.StringInput
 	// The max size of the database expressed in bytes. If createMode is not Default, this value is ignored. To see possible values, query the capabilities API (/subscriptions/{subscriptionId}/providers/Microsoft.Sql/locations/{locationID}/capabilities) referred to by operationId: "Capabilities_ListByLocation."
 	MaxSizeBytes pulumi.StringPtrInput
-	// The name of the database to be operated on (updated or created).
-	Name pulumi.StringInput
 	// Conditional. If the database is a geo-secondary, readScale indicates whether read-only connections are allowed to this database or not. Not supported for DataWarehouse edition.
 	ReadScale pulumi.StringPtrInput
 	// Conditional. If createMode is RestoreLongTermRetentionBackup, then this value is required. Specifies the resource ID of the recovery point to restore from.

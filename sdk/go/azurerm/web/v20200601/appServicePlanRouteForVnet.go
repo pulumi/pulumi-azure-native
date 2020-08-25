@@ -42,6 +42,9 @@ func NewAppServicePlanRouteForVnet(ctx *pulumi.Context,
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
 	}
+	if args == nil || args.RouteName == nil {
+		return nil, errors.New("missing required argument 'RouteName'")
+	}
 	if args == nil || args.VnetName == nil {
 		return nil, errors.New("missing required argument 'VnetName'")
 	}
@@ -133,10 +136,12 @@ type appServicePlanRouteForVnetArgs struct {
 	EndAddress *string `pulumi:"endAddress"`
 	// Kind of resource.
 	Kind *string `pulumi:"kind"`
-	// Name of the Virtual Network route.
+	// Name of the App Service plan.
 	Name string `pulumi:"name"`
 	// Name of the resource group to which the resource belongs.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// Name of the Virtual Network route.
+	RouteName string `pulumi:"routeName"`
 	// The type of route this is:
 	// DEFAULT - By default, every app has routes to the local address ranges specified by RFC1918
 	// INHERITED - Routes inherited from the real Virtual Network routes
@@ -156,10 +161,12 @@ type AppServicePlanRouteForVnetArgs struct {
 	EndAddress pulumi.StringPtrInput
 	// Kind of resource.
 	Kind pulumi.StringPtrInput
-	// Name of the Virtual Network route.
+	// Name of the App Service plan.
 	Name pulumi.StringInput
 	// Name of the resource group to which the resource belongs.
 	ResourceGroupName pulumi.StringInput
+	// Name of the Virtual Network route.
+	RouteName pulumi.StringInput
 	// The type of route this is:
 	// DEFAULT - By default, every app has routes to the local address ranges specified by RFC1918
 	// INHERITED - Routes inherited from the real Virtual Network routes

@@ -45,6 +45,9 @@ type Agreement struct {
 // NewAgreement registers a new resource with the given unique name, arguments, and options.
 func NewAgreement(ctx *pulumi.Context,
 	name string, args *AgreementArgs, opts ...pulumi.ResourceOption) (*Agreement, error) {
+	if args == nil || args.AgreementName == nil {
+		return nil, errors.New("missing required argument 'AgreementName'")
+	}
 	if args == nil || args.AgreementType == nil {
 		return nil, errors.New("missing required argument 'AgreementType'")
 	}
@@ -65,9 +68,6 @@ func NewAgreement(ctx *pulumi.Context,
 	}
 	if args == nil || args.IntegrationAccountName == nil {
 		return nil, errors.New("missing required argument 'IntegrationAccountName'")
-	}
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
 	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
@@ -165,6 +165,8 @@ func (AgreementState) ElementType() reflect.Type {
 }
 
 type agreementArgs struct {
+	// The integration account agreement name.
+	AgreementName string `pulumi:"agreementName"`
 	// The agreement type.
 	AgreementType string `pulumi:"agreementType"`
 	// The agreement content.
@@ -183,8 +185,6 @@ type agreementArgs struct {
 	Location *string `pulumi:"location"`
 	// The metadata.
 	Metadata map[string]interface{} `pulumi:"metadata"`
-	// The integration account agreement name.
-	Name string `pulumi:"name"`
 	// The resource group name.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The resource tags.
@@ -193,6 +193,8 @@ type agreementArgs struct {
 
 // The set of arguments for constructing a Agreement resource.
 type AgreementArgs struct {
+	// The integration account agreement name.
+	AgreementName pulumi.StringInput
 	// The agreement type.
 	AgreementType pulumi.StringInput
 	// The agreement content.
@@ -211,8 +213,6 @@ type AgreementArgs struct {
 	Location pulumi.StringPtrInput
 	// The metadata.
 	Metadata pulumi.MapInput
-	// The integration account agreement name.
-	Name pulumi.StringInput
 	// The resource group name.
 	ResourceGroupName pulumi.StringInput
 	// The resource tags.

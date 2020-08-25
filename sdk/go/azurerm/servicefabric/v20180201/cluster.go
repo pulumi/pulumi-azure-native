@@ -91,14 +91,14 @@ type Cluster struct {
 // NewCluster registers a new resource with the given unique name, arguments, and options.
 func NewCluster(ctx *pulumi.Context,
 	name string, args *ClusterArgs, opts ...pulumi.ResourceOption) (*Cluster, error) {
+	if args == nil || args.ClusterName == nil {
+		return nil, errors.New("missing required argument 'ClusterName'")
+	}
 	if args == nil || args.Location == nil {
 		return nil, errors.New("missing required argument 'Location'")
 	}
 	if args == nil || args.ManagementEndpoint == nil {
 		return nil, errors.New("missing required argument 'ManagementEndpoint'")
-	}
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
 	}
 	if args == nil || args.NodeTypes == nil {
 		return nil, errors.New("missing required argument 'NodeTypes'")
@@ -311,6 +311,8 @@ type clusterArgs struct {
 	ClientCertificateThumbprints []ClientCertificateThumbprint `pulumi:"clientCertificateThumbprints"`
 	// The Service Fabric runtime version of the cluster. This property can only by set the user when **upgradeMode** is set to 'Manual'. To get list of available Service Fabric versions for new clusters use [ClusterVersion API](./ClusterVersion.md). To get the list of available version for existing clusters use **availableClusterVersions**.
 	ClusterCodeVersion *string `pulumi:"clusterCodeVersion"`
+	// The name of the cluster resource.
+	ClusterName string `pulumi:"clusterName"`
 	// The storage account information for storing Service Fabric diagnostic logs.
 	DiagnosticsStorageAccountConfig *DiagnosticsStorageAccountConfig `pulumi:"diagnosticsStorageAccountConfig"`
 	// The list of custom fabric settings to configure the cluster.
@@ -319,8 +321,6 @@ type clusterArgs struct {
 	Location string `pulumi:"location"`
 	// The http management endpoint of the cluster.
 	ManagementEndpoint string `pulumi:"managementEndpoint"`
-	// The name of the cluster resource.
-	Name string `pulumi:"name"`
 	// The list of node types in the cluster.
 	NodeTypes []NodeTypeDescription `pulumi:"nodeTypes"`
 	// The reliability level sets the replica set size of system services. Learn about [ReliabilityLevel](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity).
@@ -366,6 +366,8 @@ type ClusterArgs struct {
 	ClientCertificateThumbprints ClientCertificateThumbprintArrayInput
 	// The Service Fabric runtime version of the cluster. This property can only by set the user when **upgradeMode** is set to 'Manual'. To get list of available Service Fabric versions for new clusters use [ClusterVersion API](./ClusterVersion.md). To get the list of available version for existing clusters use **availableClusterVersions**.
 	ClusterCodeVersion pulumi.StringPtrInput
+	// The name of the cluster resource.
+	ClusterName pulumi.StringInput
 	// The storage account information for storing Service Fabric diagnostic logs.
 	DiagnosticsStorageAccountConfig DiagnosticsStorageAccountConfigPtrInput
 	// The list of custom fabric settings to configure the cluster.
@@ -374,8 +376,6 @@ type ClusterArgs struct {
 	Location pulumi.StringInput
 	// The http management endpoint of the cluster.
 	ManagementEndpoint pulumi.StringInput
-	// The name of the cluster resource.
-	Name pulumi.StringInput
 	// The list of node types in the cluster.
 	NodeTypes NodeTypeDescriptionArrayInput
 	// The reliability level sets the replica set size of system services. Learn about [ReliabilityLevel](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity).

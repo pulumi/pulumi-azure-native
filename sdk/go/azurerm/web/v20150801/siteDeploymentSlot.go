@@ -47,6 +47,9 @@ type SiteDeploymentSlot struct {
 // NewSiteDeploymentSlot registers a new resource with the given unique name, arguments, and options.
 func NewSiteDeploymentSlot(ctx *pulumi.Context,
 	name string, args *SiteDeploymentSlotArgs, opts ...pulumi.ResourceOption) (*SiteDeploymentSlot, error) {
+	if args == nil || args.Id == nil {
+		return nil, errors.New("missing required argument 'Id'")
+	}
 	if args == nil || args.Location == nil {
 		return nil, errors.New("missing required argument 'Location'")
 	}
@@ -180,13 +183,15 @@ type siteDeploymentSlotArgs struct {
 	Details *string `pulumi:"details"`
 	// EndTime
 	EndTime *string `pulumi:"endTime"`
+	// Resource Id
+	Id string `pulumi:"id"`
 	// Kind of resource
 	Kind *string `pulumi:"kind"`
 	// Resource Location
 	Location string `pulumi:"location"`
 	// Message
 	Message *string `pulumi:"message"`
-	// Resource Id
+	// Resource Name
 	Name string `pulumi:"name"`
 	// Name of resource group
 	ResourceGroupName string `pulumi:"resourceGroupName"`
@@ -216,13 +221,15 @@ type SiteDeploymentSlotArgs struct {
 	Details pulumi.StringPtrInput
 	// EndTime
 	EndTime pulumi.StringPtrInput
+	// Resource Id
+	Id pulumi.StringInput
 	// Kind of resource
 	Kind pulumi.StringPtrInput
 	// Resource Location
 	Location pulumi.StringInput
 	// Message
 	Message pulumi.StringPtrInput
-	// Resource Id
+	// Resource Name
 	Name pulumi.StringInput
 	// Name of resource group
 	ResourceGroupName pulumi.StringInput

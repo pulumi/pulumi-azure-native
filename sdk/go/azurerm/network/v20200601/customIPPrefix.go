@@ -41,8 +41,8 @@ type CustomIPPrefix struct {
 // NewCustomIPPrefix registers a new resource with the given unique name, arguments, and options.
 func NewCustomIPPrefix(ctx *pulumi.Context,
 	name string, args *CustomIPPrefixArgs, opts ...pulumi.ResourceOption) (*CustomIPPrefix, error) {
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
+	if args == nil || args.CustomIpPrefixName == nil {
+		return nil, errors.New("missing required argument 'CustomIpPrefixName'")
 	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
@@ -130,12 +130,12 @@ type customIPPrefixArgs struct {
 	Cidr *string `pulumi:"cidr"`
 	// The commissioned state of the Custom IP Prefix.
 	CommissionedState *string `pulumi:"commissionedState"`
+	// The name of the custom IP prefix.
+	CustomIpPrefixName string `pulumi:"customIpPrefixName"`
 	// Resource ID.
 	Id *string `pulumi:"id"`
 	// Resource location.
 	Location *string `pulumi:"location"`
-	// The name of the custom IP prefix.
-	Name string `pulumi:"name"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Resource tags.
@@ -150,12 +150,12 @@ type CustomIPPrefixArgs struct {
 	Cidr pulumi.StringPtrInput
 	// The commissioned state of the Custom IP Prefix.
 	CommissionedState pulumi.StringPtrInput
+	// The name of the custom IP prefix.
+	CustomIpPrefixName pulumi.StringInput
 	// Resource ID.
 	Id pulumi.StringPtrInput
 	// Resource location.
 	Location pulumi.StringPtrInput
-	// The name of the custom IP prefix.
-	Name pulumi.StringInput
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
 	// Resource tags.

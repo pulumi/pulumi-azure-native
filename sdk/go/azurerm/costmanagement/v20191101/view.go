@@ -49,14 +49,14 @@ type View struct {
 // NewView registers a new resource with the given unique name, arguments, and options.
 func NewView(ctx *pulumi.Context,
 	name string, args *ViewArgs, opts ...pulumi.ResourceOption) (*View, error) {
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
-	}
 	if args == nil || args.Timeframe == nil {
 		return nil, errors.New("missing required argument 'Timeframe'")
 	}
 	if args == nil || args.Type == nil {
 		return nil, errors.New("missing required argument 'Type'")
+	}
+	if args == nil || args.ViewName == nil {
+		return nil, errors.New("missing required argument 'ViewName'")
 	}
 	if args == nil {
 		args = &ViewArgs{}
@@ -173,8 +173,6 @@ type viewArgs struct {
 	Kpis []KpiProperties `pulumi:"kpis"`
 	// Metric to use when displaying costs.
 	Metric *string `pulumi:"metric"`
-	// View name
-	Name string `pulumi:"name"`
 	// Configuration of 3 sub-views in the Cost Analysis UI.
 	Pivots []PivotProperties `pulumi:"pivots"`
 	// Cost Management scope to save the view on. This includes 'subscriptions/{subscriptionId}' for subscription scope, 'subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}' for resourceGroup scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}' for Billing Account scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/departments/{departmentId}' for Department scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/enrollmentAccounts/{enrollmentAccountId}' for EnrollmentAccount scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/billingProfiles/{billingProfileId}' for BillingProfile scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/invoiceSections/{invoiceSectionId}' for InvoiceSection scope, 'providers/Microsoft.Management/managementGroups/{managementGroupId}' for Management Group scope, '/providers/Microsoft.CostManagement/externalBillingAccounts/{externalBillingAccountName}' for ExternalBillingAccount scope, and '/providers/Microsoft.CostManagement/externalSubscriptions/{externalSubscriptionName}' for ExternalSubscription scope.
@@ -185,6 +183,8 @@ type viewArgs struct {
 	Timeframe string `pulumi:"timeframe"`
 	// The type of the report. Usage represents actual usage, forecast represents forecasted data and UsageAndForecast represents both usage and forecasted data. Actual usage and forecasted data can be differentiated based on dates.
 	Type string `pulumi:"type"`
+	// View name
+	ViewName string `pulumi:"viewName"`
 }
 
 // The set of arguments for constructing a View resource.
@@ -203,8 +203,6 @@ type ViewArgs struct {
 	Kpis KpiPropertiesArrayInput
 	// Metric to use when displaying costs.
 	Metric pulumi.StringPtrInput
-	// View name
-	Name pulumi.StringInput
 	// Configuration of 3 sub-views in the Cost Analysis UI.
 	Pivots PivotPropertiesArrayInput
 	// Cost Management scope to save the view on. This includes 'subscriptions/{subscriptionId}' for subscription scope, 'subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}' for resourceGroup scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}' for Billing Account scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/departments/{departmentId}' for Department scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/enrollmentAccounts/{enrollmentAccountId}' for EnrollmentAccount scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/billingProfiles/{billingProfileId}' for BillingProfile scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/invoiceSections/{invoiceSectionId}' for InvoiceSection scope, 'providers/Microsoft.Management/managementGroups/{managementGroupId}' for Management Group scope, '/providers/Microsoft.CostManagement/externalBillingAccounts/{externalBillingAccountName}' for ExternalBillingAccount scope, and '/providers/Microsoft.CostManagement/externalSubscriptions/{externalSubscriptionName}' for ExternalSubscription scope.
@@ -215,6 +213,8 @@ type ViewArgs struct {
 	Timeframe pulumi.StringInput
 	// The type of the report. Usage represents actual usage, forecast represents forecasted data and UsageAndForecast represents both usage and forecasted data. Actual usage and forecasted data can be differentiated based on dates.
 	Type pulumi.StringInput
+	// View name
+	ViewName pulumi.StringInput
 }
 
 func (ViewArgs) ElementType() reflect.Type {

@@ -18,7 +18,7 @@ func LookupActionGroup(ctx *pulumi.Context, args *LookupActionGroupArgs, opts ..
 
 type LookupActionGroupArgs struct {
 	// The name of the action group.
-	Name string `pulumi:"name"`
+	ActionGroupName string `pulumi:"actionGroupName"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }

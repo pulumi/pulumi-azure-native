@@ -20,7 +20,7 @@ type LookupInvitationArgs struct {
 	// The name of the share account.
 	AccountName string `pulumi:"accountName"`
 	// The name of the invitation.
-	Name string `pulumi:"name"`
+	InvitationName string `pulumi:"invitationName"`
 	// The resource group name.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The name of the share.

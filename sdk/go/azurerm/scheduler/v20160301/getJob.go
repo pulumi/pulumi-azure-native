@@ -20,7 +20,7 @@ type LookupJobArgs struct {
 	// The job collection name.
 	JobCollectionName string `pulumi:"jobCollectionName"`
 	// The job name.
-	Name string `pulumi:"name"`
+	JobName string `pulumi:"jobName"`
 	// The resource group name.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }

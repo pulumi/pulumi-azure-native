@@ -18,7 +18,7 @@ func LookupProductPolicy(ctx *pulumi.Context, args *LookupProductPolicyArgs, opt
 
 type LookupProductPolicyArgs struct {
 	// The identifier of the Policy.
-	Name string `pulumi:"name"`
+	PolicyId string `pulumi:"policyId"`
 	// Product identifier. Must be unique in the current API Management service instance.
 	ProductId string `pulumi:"productId"`
 	// The name of the resource group.

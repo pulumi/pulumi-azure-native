@@ -40,11 +40,11 @@ func NewShare(ctx *pulumi.Context,
 	if args == nil || args.AccountName == nil {
 		return nil, errors.New("missing required argument 'AccountName'")
 	}
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
-	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
+	}
+	if args == nil || args.ShareName == nil {
+		return nil, errors.New("missing required argument 'ShareName'")
 	}
 	if args == nil {
 		args = &ShareArgs{}
@@ -121,12 +121,12 @@ type shareArgs struct {
 	AccountName string `pulumi:"accountName"`
 	// Share description.
 	Description *string `pulumi:"description"`
-	// The name of the share.
-	Name string `pulumi:"name"`
 	// The resource group name.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Share kind.
 	ShareKind *string `pulumi:"shareKind"`
+	// The name of the share.
+	ShareName string `pulumi:"shareName"`
 	// Share terms.
 	Terms *string `pulumi:"terms"`
 }
@@ -137,12 +137,12 @@ type ShareArgs struct {
 	AccountName pulumi.StringInput
 	// Share description.
 	Description pulumi.StringPtrInput
-	// The name of the share.
-	Name pulumi.StringInput
 	// The resource group name.
 	ResourceGroupName pulumi.StringInput
 	// Share kind.
 	ShareKind pulumi.StringPtrInput
+	// The name of the share.
+	ShareName pulumi.StringInput
 	// Share terms.
 	Terms pulumi.StringPtrInput
 }

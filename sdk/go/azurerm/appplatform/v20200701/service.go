@@ -31,11 +31,11 @@ type Service struct {
 // NewService registers a new resource with the given unique name, arguments, and options.
 func NewService(ctx *pulumi.Context,
 	name string, args *ServiceArgs, opts ...pulumi.ResourceOption) (*Service, error) {
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
-	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
+	}
+	if args == nil || args.ServiceName == nil {
+		return nil, errors.New("missing required argument 'ServiceName'")
 	}
 	if args == nil {
 		args = &ServiceArgs{}
@@ -98,12 +98,12 @@ func (ServiceState) ElementType() reflect.Type {
 type serviceArgs struct {
 	// The GEO location of the resource.
 	Location *string `pulumi:"location"`
-	// The name of the Service resource.
-	Name string `pulumi:"name"`
 	// Properties of the Service resource
 	Properties *ClusterResourceProperties `pulumi:"properties"`
 	// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// The name of the Service resource.
+	ServiceName string `pulumi:"serviceName"`
 	// Sku of the Service resource
 	Sku *Sku `pulumi:"sku"`
 	// Tags of the service which is a list of key value pairs that describe the resource.
@@ -114,12 +114,12 @@ type serviceArgs struct {
 type ServiceArgs struct {
 	// The GEO location of the resource.
 	Location pulumi.StringPtrInput
-	// The name of the Service resource.
-	Name pulumi.StringInput
 	// Properties of the Service resource
 	Properties ClusterResourcePropertiesPtrInput
 	// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
 	ResourceGroupName pulumi.StringInput
+	// The name of the Service resource.
+	ServiceName pulumi.StringInput
 	// Sku of the Service resource
 	Sku SkuPtrInput
 	// Tags of the service which is a list of key value pairs that describe the resource.

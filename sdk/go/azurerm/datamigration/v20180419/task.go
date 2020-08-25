@@ -30,14 +30,14 @@ func NewTask(ctx *pulumi.Context,
 	if args == nil || args.GroupName == nil {
 		return nil, errors.New("missing required argument 'GroupName'")
 	}
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
-	}
 	if args == nil || args.ProjectName == nil {
 		return nil, errors.New("missing required argument 'ProjectName'")
 	}
 	if args == nil || args.ServiceName == nil {
 		return nil, errors.New("missing required argument 'ServiceName'")
+	}
+	if args == nil || args.TaskName == nil {
+		return nil, errors.New("missing required argument 'TaskName'")
 	}
 	if args == nil {
 		args = &TaskArgs{}
@@ -94,14 +94,14 @@ type taskArgs struct {
 	Etag *string `pulumi:"etag"`
 	// Name of the resource group
 	GroupName string `pulumi:"groupName"`
-	// Name of the Task
-	Name string `pulumi:"name"`
 	// Name of the project
 	ProjectName string `pulumi:"projectName"`
 	// Custom task properties
 	Properties *ProjectTaskProperties `pulumi:"properties"`
 	// Name of the service
 	ServiceName string `pulumi:"serviceName"`
+	// Name of the Task
+	TaskName string `pulumi:"taskName"`
 }
 
 // The set of arguments for constructing a Task resource.
@@ -110,14 +110,14 @@ type TaskArgs struct {
 	Etag pulumi.StringPtrInput
 	// Name of the resource group
 	GroupName pulumi.StringInput
-	// Name of the Task
-	Name pulumi.StringInput
 	// Name of the project
 	ProjectName pulumi.StringInput
 	// Custom task properties
 	Properties ProjectTaskPropertiesPtrInput
 	// Name of the service
 	ServiceName pulumi.StringInput
+	// Name of the Task
+	TaskName pulumi.StringInput
 }
 
 func (TaskArgs) ElementType() reflect.Type {

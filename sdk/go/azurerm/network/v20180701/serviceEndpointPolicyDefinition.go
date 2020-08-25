@@ -31,11 +31,11 @@ type ServiceEndpointPolicyDefinition struct {
 // NewServiceEndpointPolicyDefinition registers a new resource with the given unique name, arguments, and options.
 func NewServiceEndpointPolicyDefinition(ctx *pulumi.Context,
 	name string, args *ServiceEndpointPolicyDefinitionArgs, opts ...pulumi.ResourceOption) (*ServiceEndpointPolicyDefinition, error) {
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
-	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
+	}
+	if args == nil || args.ServiceEndpointPolicyDefinitionName == nil {
+		return nil, errors.New("missing required argument 'ServiceEndpointPolicyDefinitionName'")
 	}
 	if args == nil || args.ServiceEndpointPolicyName == nil {
 		return nil, errors.New("missing required argument 'ServiceEndpointPolicyName'")
@@ -156,14 +156,16 @@ type serviceEndpointPolicyDefinitionArgs struct {
 	Etag *string `pulumi:"etag"`
 	// Resource ID.
 	Id *string `pulumi:"id"`
-	// The name of the service endpoint policy definition name.
-	Name string `pulumi:"name"`
+	// The name of the resource that is unique within a resource group. This name can be used to access the resource.
+	Name *string `pulumi:"name"`
 	// The provisioning state of the service end point policy definition. Possible values are: 'Updating', 'Deleting', and 'Failed'.
 	ProvisioningState *string `pulumi:"provisioningState"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// service endpoint name.
 	Service *string `pulumi:"service"`
+	// The name of the service endpoint policy definition name.
+	ServiceEndpointPolicyDefinitionName string `pulumi:"serviceEndpointPolicyDefinitionName"`
 	// The name of the service endpoint policy.
 	ServiceEndpointPolicyName string `pulumi:"serviceEndpointPolicyName"`
 	// A list of service resources.
@@ -178,14 +180,16 @@ type ServiceEndpointPolicyDefinitionArgs struct {
 	Etag pulumi.StringPtrInput
 	// Resource ID.
 	Id pulumi.StringPtrInput
-	// The name of the service endpoint policy definition name.
-	Name pulumi.StringInput
+	// The name of the resource that is unique within a resource group. This name can be used to access the resource.
+	Name pulumi.StringPtrInput
 	// The provisioning state of the service end point policy definition. Possible values are: 'Updating', 'Deleting', and 'Failed'.
 	ProvisioningState pulumi.StringPtrInput
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
 	// service endpoint name.
 	Service pulumi.StringPtrInput
+	// The name of the service endpoint policy definition name.
+	ServiceEndpointPolicyDefinitionName pulumi.StringInput
 	// The name of the service endpoint policy.
 	ServiceEndpointPolicyName pulumi.StringInput
 	// A list of service resources.

@@ -17,10 +17,10 @@ func LookupService(ctx *pulumi.Context, args *LookupServiceArgs, opts ...pulumi.
 }
 
 type LookupServiceArgs struct {
-	// The name of the service instance.
-	Name string `pulumi:"name"`
 	// The name of the resource group that contains the service instance.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// The name of the service instance.
+	ResourceName string `pulumi:"resourceName"`
 }
 
 // The description of the service.

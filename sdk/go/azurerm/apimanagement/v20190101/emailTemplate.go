@@ -35,14 +35,14 @@ type EmailTemplate struct {
 // NewEmailTemplate registers a new resource with the given unique name, arguments, and options.
 func NewEmailTemplate(ctx *pulumi.Context,
 	name string, args *EmailTemplateArgs, opts ...pulumi.ResourceOption) (*EmailTemplate, error) {
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
-	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
 	}
 	if args == nil || args.ServiceName == nil {
 		return nil, errors.New("missing required argument 'ServiceName'")
+	}
+	if args == nil || args.TemplateName == nil {
+		return nil, errors.New("missing required argument 'TemplateName'")
 	}
 	if args == nil {
 		args = &EmailTemplateArgs{}
@@ -127,8 +127,6 @@ type emailTemplateArgs struct {
 	Body *string `pulumi:"body"`
 	// Description of the Email Template.
 	Description *string `pulumi:"description"`
-	// Email Template Name Identifier.
-	Name string `pulumi:"name"`
 	// Email Template Parameter values.
 	Parameters []EmailTemplateParametersContractProperties `pulumi:"parameters"`
 	// The name of the resource group.
@@ -137,6 +135,8 @@ type emailTemplateArgs struct {
 	ServiceName string `pulumi:"serviceName"`
 	// Subject of the Template.
 	Subject *string `pulumi:"subject"`
+	// Email Template Name Identifier.
+	TemplateName string `pulumi:"templateName"`
 	// Title of the Template.
 	Title *string `pulumi:"title"`
 }
@@ -147,8 +147,6 @@ type EmailTemplateArgs struct {
 	Body pulumi.StringPtrInput
 	// Description of the Email Template.
 	Description pulumi.StringPtrInput
-	// Email Template Name Identifier.
-	Name pulumi.StringInput
 	// Email Template Parameter values.
 	Parameters EmailTemplateParametersContractPropertiesArrayInput
 	// The name of the resource group.
@@ -157,6 +155,8 @@ type EmailTemplateArgs struct {
 	ServiceName pulumi.StringInput
 	// Subject of the Template.
 	Subject pulumi.StringPtrInput
+	// Email Template Name Identifier.
+	TemplateName pulumi.StringInput
 	// Title of the Template.
 	Title pulumi.StringPtrInput
 }

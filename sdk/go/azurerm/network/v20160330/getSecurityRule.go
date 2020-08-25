@@ -17,12 +17,12 @@ func LookupSecurityRule(ctx *pulumi.Context, args *LookupSecurityRuleArgs, opts 
 }
 
 type LookupSecurityRuleArgs struct {
-	// The name of the security rule.
-	Name string `pulumi:"name"`
 	// The name of the network security group.
 	NetworkSecurityGroupName string `pulumi:"networkSecurityGroupName"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// The name of the security rule.
+	SecurityRuleName string `pulumi:"securityRuleName"`
 }
 
 // Network security rule

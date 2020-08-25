@@ -20,7 +20,7 @@ type LookupExpressRouteCircuitConnectionArgs struct {
 	// The name of the express route circuit.
 	CircuitName string `pulumi:"circuitName"`
 	// The name of the express route circuit connection.
-	Name string `pulumi:"name"`
+	ConnectionName string `pulumi:"connectionName"`
 	// The name of the peering.
 	PeeringName string `pulumi:"peeringName"`
 	// The name of the resource group.

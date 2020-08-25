@@ -17,10 +17,10 @@ func LookupManagedCluster(ctx *pulumi.Context, args *LookupManagedClusterArgs, o
 }
 
 type LookupManagedClusterArgs struct {
-	// The name of the managed cluster resource.
-	Name string `pulumi:"name"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// The name of the managed cluster resource.
+	ResourceName string `pulumi:"resourceName"`
 }
 
 // Managed cluster.

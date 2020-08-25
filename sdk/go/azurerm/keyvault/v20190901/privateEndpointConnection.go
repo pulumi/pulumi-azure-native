@@ -33,8 +33,8 @@ type PrivateEndpointConnection struct {
 // NewPrivateEndpointConnection registers a new resource with the given unique name, arguments, and options.
 func NewPrivateEndpointConnection(ctx *pulumi.Context,
 	name string, args *PrivateEndpointConnectionArgs, opts ...pulumi.ResourceOption) (*PrivateEndpointConnection, error) {
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
+	if args == nil || args.PrivateEndpointConnectionName == nil {
+		return nil, errors.New("missing required argument 'PrivateEndpointConnectionName'")
 	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
@@ -112,7 +112,7 @@ func (PrivateEndpointConnectionState) ElementType() reflect.Type {
 
 type privateEndpointConnectionArgs struct {
 	// Name of the private endpoint connection associated with the key vault.
-	Name string `pulumi:"name"`
+	PrivateEndpointConnectionName string `pulumi:"privateEndpointConnectionName"`
 	// Approval state of the private link connection.
 	PrivateLinkServiceConnectionState *PrivateLinkServiceConnectionState `pulumi:"privateLinkServiceConnectionState"`
 	// Provisioning state of the private endpoint connection.
@@ -126,7 +126,7 @@ type privateEndpointConnectionArgs struct {
 // The set of arguments for constructing a PrivateEndpointConnection resource.
 type PrivateEndpointConnectionArgs struct {
 	// Name of the private endpoint connection associated with the key vault.
-	Name pulumi.StringInput
+	PrivateEndpointConnectionName pulumi.StringInput
 	// Approval state of the private link connection.
 	PrivateLinkServiceConnectionState PrivateLinkServiceConnectionStatePtrInput
 	// Provisioning state of the private endpoint connection.

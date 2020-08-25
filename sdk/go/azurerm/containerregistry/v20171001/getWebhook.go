@@ -17,12 +17,12 @@ func LookupWebhook(ctx *pulumi.Context, args *LookupWebhookArgs, opts ...pulumi.
 }
 
 type LookupWebhookArgs struct {
-	// The name of the webhook.
-	Name string `pulumi:"name"`
 	// The name of the container registry.
 	RegistryName string `pulumi:"registryName"`
 	// The name of the resource group to which the container registry belongs.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// The name of the webhook.
+	WebhookName string `pulumi:"webhookName"`
 }
 
 // An object that represents a webhook for a container registry.

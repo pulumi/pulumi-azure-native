@@ -20,7 +20,7 @@ type LookupOriginArgs struct {
 	// Name of the endpoint under the profile which is unique globally.
 	EndpointName string `pulumi:"endpointName"`
 	// Name of the origin which is unique within the endpoint.
-	Name string `pulumi:"name"`
+	OriginName string `pulumi:"originName"`
 	// Name of the CDN profile which is unique within the resource group.
 	ProfileName string `pulumi:"profileName"`
 	// Name of the Resource group within the Azure subscription.

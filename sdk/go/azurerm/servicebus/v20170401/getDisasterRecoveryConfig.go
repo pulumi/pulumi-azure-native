@@ -18,7 +18,7 @@ func LookupDisasterRecoveryConfig(ctx *pulumi.Context, args *LookupDisasterRecov
 
 type LookupDisasterRecoveryConfigArgs struct {
 	// The Disaster Recovery configuration name
-	Name string `pulumi:"name"`
+	Alias string `pulumi:"alias"`
 	// The namespace name
 	NamespaceName string `pulumi:"namespaceName"`
 	// Name of the Resource group within the Azure subscription.

@@ -18,7 +18,7 @@ func LookupCloudEndpoint(ctx *pulumi.Context, args *LookupCloudEndpointArgs, opt
 
 type LookupCloudEndpointArgs struct {
 	// Name of Cloud Endpoint object.
-	Name string `pulumi:"name"`
+	CloudEndpointName string `pulumi:"cloudEndpointName"`
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Name of Storage Sync Service resource.

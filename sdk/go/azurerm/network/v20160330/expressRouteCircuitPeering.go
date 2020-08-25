@@ -52,8 +52,8 @@ func NewExpressRouteCircuitPeering(ctx *pulumi.Context,
 	if args == nil || args.CircuitName == nil {
 		return nil, errors.New("missing required argument 'CircuitName'")
 	}
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
+	if args == nil || args.PeeringName == nil {
+		return nil, errors.New("missing required argument 'PeeringName'")
 	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
@@ -259,10 +259,12 @@ type expressRouteCircuitPeeringArgs struct {
 	Id *string `pulumi:"id"`
 	// Gets or sets the Microsoft peering config
 	MicrosoftPeeringConfig *ExpressRouteCircuitPeeringConfig `pulumi:"microsoftPeeringConfig"`
-	// The name of the peering.
-	Name string `pulumi:"name"`
+	// Gets name of the resource that is unique within a resource group. This name can be used to access the resource
+	Name *string `pulumi:"name"`
 	// Gets or sets the peer ASN
 	PeerASN *int `pulumi:"peerASN"`
+	// The name of the peering.
+	PeeringName string `pulumi:"peeringName"`
 	// Gets or sets PeeringType
 	PeeringType *string `pulumi:"peeringType"`
 	// Gets or sets the primary port
@@ -299,10 +301,12 @@ type ExpressRouteCircuitPeeringArgs struct {
 	Id pulumi.StringPtrInput
 	// Gets or sets the Microsoft peering config
 	MicrosoftPeeringConfig ExpressRouteCircuitPeeringConfigPtrInput
-	// The name of the peering.
-	Name pulumi.StringInput
+	// Gets name of the resource that is unique within a resource group. This name can be used to access the resource
+	Name pulumi.StringPtrInput
 	// Gets or sets the peer ASN
 	PeerASN pulumi.IntPtrInput
+	// The name of the peering.
+	PeeringName pulumi.StringInput
 	// Gets or sets PeeringType
 	PeeringType pulumi.StringPtrInput
 	// Gets or sets the primary port

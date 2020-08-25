@@ -59,11 +59,11 @@ type VirtualMachineScaleSetVM struct {
 // NewVirtualMachineScaleSetVM registers a new resource with the given unique name, arguments, and options.
 func NewVirtualMachineScaleSetVM(ctx *pulumi.Context,
 	name string, args *VirtualMachineScaleSetVMArgs, opts ...pulumi.ResourceOption) (*VirtualMachineScaleSetVM, error) {
+	if args == nil || args.InstanceId == nil {
+		return nil, errors.New("missing required argument 'InstanceId'")
+	}
 	if args == nil || args.Location == nil {
 		return nil, errors.New("missing required argument 'Location'")
-	}
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
 	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
@@ -225,12 +225,12 @@ type virtualMachineScaleSetVMArgs struct {
 	DiagnosticsProfile *DiagnosticsProfile `pulumi:"diagnosticsProfile"`
 	// Specifies the hardware settings for the virtual machine.
 	HardwareProfile *HardwareProfile `pulumi:"hardwareProfile"`
+	// The instance ID of the virtual machine.
+	InstanceId string `pulumi:"instanceId"`
 	// Specifies that the image or disk that is being used was licensed on-premises. This element is only used for images that contain the Windows Server operating system. <br><br> Possible values are: <br><br> Windows_Client <br><br> Windows_Server <br><br> If this element is included in a request for an update, the value must match the initial value. This value cannot be updated. <br><br> For more information, see [Azure Hybrid Use Benefit for Windows Server](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-hybrid-use-benefit-licensing?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) <br><br> Minimum api-version: 2015-06-15
 	LicenseType *string `pulumi:"licenseType"`
 	// Resource location
 	Location string `pulumi:"location"`
-	// The instance ID of the virtual machine.
-	Name string `pulumi:"name"`
 	// Specifies the network interfaces of the virtual machine.
 	NetworkProfile *NetworkProfile `pulumi:"networkProfile"`
 	// Specifies the operating system settings for the virtual machine.
@@ -255,12 +255,12 @@ type VirtualMachineScaleSetVMArgs struct {
 	DiagnosticsProfile DiagnosticsProfilePtrInput
 	// Specifies the hardware settings for the virtual machine.
 	HardwareProfile HardwareProfilePtrInput
+	// The instance ID of the virtual machine.
+	InstanceId pulumi.StringInput
 	// Specifies that the image or disk that is being used was licensed on-premises. This element is only used for images that contain the Windows Server operating system. <br><br> Possible values are: <br><br> Windows_Client <br><br> Windows_Server <br><br> If this element is included in a request for an update, the value must match the initial value. This value cannot be updated. <br><br> For more information, see [Azure Hybrid Use Benefit for Windows Server](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-hybrid-use-benefit-licensing?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) <br><br> Minimum api-version: 2015-06-15
 	LicenseType pulumi.StringPtrInput
 	// Resource location
 	Location pulumi.StringInput
-	// The instance ID of the virtual machine.
-	Name pulumi.StringInput
 	// Specifies the network interfaces of the virtual machine.
 	NetworkProfile NetworkProfilePtrInput
 	// Specifies the operating system settings for the virtual machine.

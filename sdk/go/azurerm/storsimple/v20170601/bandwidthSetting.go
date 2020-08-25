@@ -29,11 +29,11 @@ type BandwidthSetting struct {
 // NewBandwidthSetting registers a new resource with the given unique name, arguments, and options.
 func NewBandwidthSetting(ctx *pulumi.Context,
 	name string, args *BandwidthSettingArgs, opts ...pulumi.ResourceOption) (*BandwidthSetting, error) {
+	if args == nil || args.BandwidthSettingName == nil {
+		return nil, errors.New("missing required argument 'BandwidthSettingName'")
+	}
 	if args == nil || args.ManagerName == nil {
 		return nil, errors.New("missing required argument 'ManagerName'")
-	}
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
 	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
@@ -96,12 +96,12 @@ func (BandwidthSettingState) ElementType() reflect.Type {
 }
 
 type bandwidthSettingArgs struct {
+	// The bandwidth setting name.
+	BandwidthSettingName string `pulumi:"bandwidthSettingName"`
 	// The Kind of the object. Currently only Series8000 is supported
 	Kind *string `pulumi:"kind"`
 	// The manager name
 	ManagerName string `pulumi:"managerName"`
-	// The bandwidth setting name.
-	Name string `pulumi:"name"`
 	// The resource group name
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The schedules.
@@ -110,12 +110,12 @@ type bandwidthSettingArgs struct {
 
 // The set of arguments for constructing a BandwidthSetting resource.
 type BandwidthSettingArgs struct {
+	// The bandwidth setting name.
+	BandwidthSettingName pulumi.StringInput
 	// The Kind of the object. Currently only Series8000 is supported
 	Kind pulumi.StringPtrInput
 	// The manager name
 	ManagerName pulumi.StringInput
-	// The bandwidth setting name.
-	Name pulumi.StringInput
 	// The resource group name
 	ResourceGroupName pulumi.StringInput
 	// The schedules.

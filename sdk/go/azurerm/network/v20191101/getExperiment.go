@@ -18,7 +18,7 @@ func LookupExperiment(ctx *pulumi.Context, args *LookupExperimentArgs, opts ...p
 
 type LookupExperimentArgs struct {
 	// The Experiment identifier associated with the Experiment
-	Name string `pulumi:"name"`
+	ExperimentName string `pulumi:"experimentName"`
 	// The Profile identifier associated with the Tenant and Partner
 	ProfileName string `pulumi:"profileName"`
 	// Name of the Resource group within the Azure subscription.

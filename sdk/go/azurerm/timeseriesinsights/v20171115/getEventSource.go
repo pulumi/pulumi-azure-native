@@ -20,7 +20,7 @@ type LookupEventSourceArgs struct {
 	// The name of the Time Series Insights environment associated with the specified resource group.
 	EnvironmentName string `pulumi:"environmentName"`
 	// The name of the Time Series Insights event source associated with the specified environment.
-	Name string `pulumi:"name"`
+	EventSourceName string `pulumi:"eventSourceName"`
 	// Name of an Azure Resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }

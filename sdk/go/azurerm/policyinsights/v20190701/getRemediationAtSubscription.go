@@ -18,7 +18,7 @@ func LookupRemediationAtSubscription(ctx *pulumi.Context, args *LookupRemediatio
 
 type LookupRemediationAtSubscriptionArgs struct {
 	// The name of the remediation.
-	Name string `pulumi:"name"`
+	RemediationName string `pulumi:"remediationName"`
 }
 
 // The remediation definition.

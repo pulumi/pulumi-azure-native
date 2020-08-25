@@ -17,10 +17,10 @@ func LookupAssessment(ctx *pulumi.Context, args *LookupAssessmentArgs, opts ...p
 }
 
 type LookupAssessmentArgs struct {
+	// Unique name of an assessment within a project.
+	AssessmentName string `pulumi:"assessmentName"`
 	// Unique name of a group within a project.
 	GroupName string `pulumi:"groupName"`
-	// Unique name of an assessment within a project.
-	Name string `pulumi:"name"`
 	// Name of the Azure Migrate project.
 	ProjectName string `pulumi:"projectName"`
 	// Name of the Azure Resource Group that project is part of.

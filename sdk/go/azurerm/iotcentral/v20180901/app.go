@@ -40,11 +40,11 @@ func NewApp(ctx *pulumi.Context,
 	if args == nil || args.Location == nil {
 		return nil, errors.New("missing required argument 'Location'")
 	}
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
-	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
+	}
+	if args == nil || args.ResourceName == nil {
+		return nil, errors.New("missing required argument 'ResourceName'")
 	}
 	if args == nil || args.Sku == nil {
 		return nil, errors.New("missing required argument 'Sku'")
@@ -124,10 +124,10 @@ type appArgs struct {
 	DisplayName *string `pulumi:"displayName"`
 	// The resource location.
 	Location string `pulumi:"location"`
-	// The ARM resource name of the IoT Central application.
-	Name string `pulumi:"name"`
 	// The name of the resource group that contains the IoT Central application.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// The ARM resource name of the IoT Central application.
+	ResourceName string `pulumi:"resourceName"`
 	// A valid instance SKU.
 	Sku AppSkuInfo `pulumi:"sku"`
 	// The subdomain of the application.
@@ -144,10 +144,10 @@ type AppArgs struct {
 	DisplayName pulumi.StringPtrInput
 	// The resource location.
 	Location pulumi.StringInput
-	// The ARM resource name of the IoT Central application.
-	Name pulumi.StringInput
 	// The name of the resource group that contains the IoT Central application.
 	ResourceGroupName pulumi.StringInput
+	// The ARM resource name of the IoT Central application.
+	ResourceName pulumi.StringInput
 	// A valid instance SKU.
 	Sku AppSkuInfoInput
 	// The subdomain of the application.

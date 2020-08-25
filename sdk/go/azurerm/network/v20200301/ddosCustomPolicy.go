@@ -37,8 +37,8 @@ type DdosCustomPolicy struct {
 // NewDdosCustomPolicy registers a new resource with the given unique name, arguments, and options.
 func NewDdosCustomPolicy(ctx *pulumi.Context,
 	name string, args *DdosCustomPolicyArgs, opts ...pulumi.ResourceOption) (*DdosCustomPolicy, error) {
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
+	if args == nil || args.DdosCustomPolicyName == nil {
+		return nil, errors.New("missing required argument 'DdosCustomPolicyName'")
 	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
@@ -156,12 +156,12 @@ func (DdosCustomPolicyState) ElementType() reflect.Type {
 }
 
 type ddosCustomPolicyArgs struct {
+	// The name of the DDoS custom policy.
+	DdosCustomPolicyName string `pulumi:"ddosCustomPolicyName"`
 	// Resource ID.
 	Id *string `pulumi:"id"`
 	// Resource location.
 	Location *string `pulumi:"location"`
-	// The name of the DDoS custom policy.
-	Name string `pulumi:"name"`
 	// The protocol-specific DDoS policy customization parameters.
 	ProtocolCustomSettings []ProtocolCustomSettingsFormat `pulumi:"protocolCustomSettings"`
 	// The name of the resource group.
@@ -172,12 +172,12 @@ type ddosCustomPolicyArgs struct {
 
 // The set of arguments for constructing a DdosCustomPolicy resource.
 type DdosCustomPolicyArgs struct {
+	// The name of the DDoS custom policy.
+	DdosCustomPolicyName pulumi.StringInput
 	// Resource ID.
 	Id pulumi.StringPtrInput
 	// Resource location.
 	Location pulumi.StringPtrInput
-	// The name of the DDoS custom policy.
-	Name pulumi.StringInput
 	// The protocol-specific DDoS policy customization parameters.
 	ProtocolCustomSettings ProtocolCustomSettingsFormatArrayInput
 	// The name of the resource group.

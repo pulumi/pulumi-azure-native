@@ -34,8 +34,8 @@ func NewGroup(ctx *pulumi.Context,
 	if args == nil || args.DisplayName == nil {
 		return nil, errors.New("missing required argument 'DisplayName'")
 	}
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
+	if args == nil || args.GroupId == nil {
+		return nil, errors.New("missing required argument 'GroupId'")
 	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
@@ -127,7 +127,7 @@ type groupArgs struct {
 	// Identifier of the external groups, this property contains the id of the group from the external identity provider, e.g. for Azure Active Directory `aad://<tenant>.onmicrosoft.com/groups/<group object id>`; otherwise the value is null.
 	ExternalId *string `pulumi:"externalId"`
 	// Group identifier. Must be unique in the current API Management service instance.
-	Name string `pulumi:"name"`
+	GroupId string `pulumi:"groupId"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The name of the API Management service.
@@ -145,7 +145,7 @@ type GroupArgs struct {
 	// Identifier of the external groups, this property contains the id of the group from the external identity provider, e.g. for Azure Active Directory `aad://<tenant>.onmicrosoft.com/groups/<group object id>`; otherwise the value is null.
 	ExternalId pulumi.StringPtrInput
 	// Group identifier. Must be unique in the current API Management service instance.
-	Name pulumi.StringInput
+	GroupId pulumi.StringInput
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
 	// The name of the API Management service.

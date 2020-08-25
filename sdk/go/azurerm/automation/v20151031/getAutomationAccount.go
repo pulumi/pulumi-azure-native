@@ -18,7 +18,7 @@ func LookupAutomationAccount(ctx *pulumi.Context, args *LookupAutomationAccountA
 
 type LookupAutomationAccountArgs struct {
 	// The name of the automation account.
-	Name string `pulumi:"name"`
+	AutomationAccountName string `pulumi:"automationAccountName"`
 	// Name of an Azure Resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }

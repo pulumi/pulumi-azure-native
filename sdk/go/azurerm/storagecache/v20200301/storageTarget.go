@@ -38,11 +38,11 @@ func NewStorageTarget(ctx *pulumi.Context,
 	if args == nil || args.CacheName == nil {
 		return nil, errors.New("missing required argument 'CacheName'")
 	}
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
-	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
+	}
+	if args == nil || args.StorageTargetName == nil {
+		return nil, errors.New("missing required argument 'StorageTargetName'")
 	}
 	if args == nil || args.TargetType == nil {
 		return nil, errors.New("missing required argument 'TargetType'")
@@ -126,14 +126,14 @@ type storageTargetArgs struct {
 	Clfs *ClfsTarget `pulumi:"clfs"`
 	// List of Cache namespace junctions to target for namespace associations.
 	Junctions []NamespaceJunction `pulumi:"junctions"`
-	// Name of the Storage Target. Length of name must be not greater than 80 and chars must be in list of [-0-9a-zA-Z_] char class.
-	Name string `pulumi:"name"`
 	// Properties when targetType is nfs3.
 	Nfs3 *Nfs3Target `pulumi:"nfs3"`
 	// ARM provisioning state, see https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/Addendum.md#provisioningstate-property
 	ProvisioningState *string `pulumi:"provisioningState"`
 	// Target resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// Name of the Storage Target. Length of name must be not greater than 80 and chars must be in list of [-0-9a-zA-Z_] char class.
+	StorageTargetName string `pulumi:"storageTargetName"`
 	// Type of the Storage Target.
 	TargetType string `pulumi:"targetType"`
 	// Properties when targetType is unknown.
@@ -148,14 +148,14 @@ type StorageTargetArgs struct {
 	Clfs ClfsTargetPtrInput
 	// List of Cache namespace junctions to target for namespace associations.
 	Junctions NamespaceJunctionArrayInput
-	// Name of the Storage Target. Length of name must be not greater than 80 and chars must be in list of [-0-9a-zA-Z_] char class.
-	Name pulumi.StringInput
 	// Properties when targetType is nfs3.
 	Nfs3 Nfs3TargetPtrInput
 	// ARM provisioning state, see https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/Addendum.md#provisioningstate-property
 	ProvisioningState pulumi.StringPtrInput
 	// Target resource group.
 	ResourceGroupName pulumi.StringInput
+	// Name of the Storage Target. Length of name must be not greater than 80 and chars must be in list of [-0-9a-zA-Z_] char class.
+	StorageTargetName pulumi.StringInput
 	// Type of the Storage Target.
 	TargetType pulumi.StringInput
 	// Properties when targetType is unknown.

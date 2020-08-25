@@ -21,10 +21,10 @@ type LookupApplicationTypeVersionArgs struct {
 	ApplicationTypeName string `pulumi:"applicationTypeName"`
 	// The name of the cluster resource.
 	ClusterName string `pulumi:"clusterName"`
-	// The application type version.
-	Name string `pulumi:"name"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// The application type version.
+	Version string `pulumi:"version"`
 }
 
 // An application type version resource for the specified application type name resource.

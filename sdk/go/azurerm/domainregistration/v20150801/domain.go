@@ -61,11 +61,11 @@ type Domain struct {
 // NewDomain registers a new resource with the given unique name, arguments, and options.
 func NewDomain(ctx *pulumi.Context,
 	name string, args *DomainArgs, opts ...pulumi.ResourceOption) (*Domain, error) {
+	if args == nil || args.DomainName == nil {
+		return nil, errors.New("missing required argument 'DomainName'")
+	}
 	if args == nil || args.Location == nil {
 		return nil, errors.New("missing required argument 'Location'")
-	}
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
 	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
@@ -218,6 +218,8 @@ type domainArgs struct {
 	ContactTech *Contact `pulumi:"contactTech"`
 	// Domain creation timestamp
 	CreatedTime *string `pulumi:"createdTime"`
+	// Name of the domain
+	DomainName string `pulumi:"domainName"`
 	// Reasons why domain is not renewable
 	DomainNotRenewableReasons []string `pulumi:"domainNotRenewableReasons"`
 	// Domain expiration timestamp
@@ -232,8 +234,8 @@ type domainArgs struct {
 	Location string `pulumi:"location"`
 	// All hostnames derived from the domain and assigned to Azure resources
 	ManagedHostNames []HostName `pulumi:"managedHostNames"`
-	// Name of the domain
-	Name string `pulumi:"name"`
+	// Resource Name
+	Name *string `pulumi:"name"`
 	// Name servers
 	NameServers []string `pulumi:"nameServers"`
 	// If true then domain privacy is enabled for this domain
@@ -268,6 +270,8 @@ type DomainArgs struct {
 	ContactTech ContactPtrInput
 	// Domain creation timestamp
 	CreatedTime pulumi.StringPtrInput
+	// Name of the domain
+	DomainName pulumi.StringInput
 	// Reasons why domain is not renewable
 	DomainNotRenewableReasons pulumi.StringArrayInput
 	// Domain expiration timestamp
@@ -282,8 +286,8 @@ type DomainArgs struct {
 	Location pulumi.StringInput
 	// All hostnames derived from the domain and assigned to Azure resources
 	ManagedHostNames HostNameArrayInput
-	// Name of the domain
-	Name pulumi.StringInput
+	// Resource Name
+	Name pulumi.StringPtrInput
 	// Name servers
 	NameServers pulumi.StringArrayInput
 	// If true then domain privacy is enabled for this domain

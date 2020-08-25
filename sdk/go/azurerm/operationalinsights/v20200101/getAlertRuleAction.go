@@ -18,7 +18,7 @@ func LookupAlertRuleAction(ctx *pulumi.Context, args *LookupAlertRuleActionArgs,
 
 type LookupAlertRuleActionArgs struct {
 	// Action ID
-	Name string `pulumi:"name"`
+	ActionId string `pulumi:"actionId"`
 	// The name of the resource group within the user's subscription. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Alert rule ID

@@ -31,11 +31,11 @@ type SpatialAnchorsAccount struct {
 // NewSpatialAnchorsAccount registers a new resource with the given unique name, arguments, and options.
 func NewSpatialAnchorsAccount(ctx *pulumi.Context,
 	name string, args *SpatialAnchorsAccountArgs, opts ...pulumi.ResourceOption) (*SpatialAnchorsAccount, error) {
+	if args == nil || args.AccountName == nil {
+		return nil, errors.New("missing required argument 'AccountName'")
+	}
 	if args == nil || args.Location == nil {
 		return nil, errors.New("missing required argument 'Location'")
-	}
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
 	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
@@ -99,10 +99,10 @@ func (SpatialAnchorsAccountState) ElementType() reflect.Type {
 }
 
 type spatialAnchorsAccountArgs struct {
+	// Name of an Mixed Reality Account.
+	AccountName string `pulumi:"accountName"`
 	// The geo-location where the resource lives
 	Location string `pulumi:"location"`
-	// Name of an Mixed Reality Account.
-	Name string `pulumi:"name"`
 	// Name of an Azure resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Resource tags.
@@ -111,10 +111,10 @@ type spatialAnchorsAccountArgs struct {
 
 // The set of arguments for constructing a SpatialAnchorsAccount resource.
 type SpatialAnchorsAccountArgs struct {
+	// Name of an Mixed Reality Account.
+	AccountName pulumi.StringInput
 	// The geo-location where the resource lives
 	Location pulumi.StringInput
-	// Name of an Mixed Reality Account.
-	Name pulumi.StringInput
 	// Name of an Azure resource group.
 	ResourceGroupName pulumi.StringInput
 	// Resource tags.

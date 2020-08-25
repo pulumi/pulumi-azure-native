@@ -18,7 +18,7 @@ func LookupDisasterRecoveryConfiguration(ctx *pulumi.Context, args *LookupDisast
 
 type LookupDisasterRecoveryConfigurationArgs struct {
 	// The name of the disaster recovery configuration.
-	Name string `pulumi:"name"`
+	DisasterRecoveryConfigurationName string `pulumi:"disasterRecoveryConfigurationName"`
 	// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The name of the server.

@@ -39,8 +39,8 @@ type LocalNetworkGateway struct {
 // NewLocalNetworkGateway registers a new resource with the given unique name, arguments, and options.
 func NewLocalNetworkGateway(ctx *pulumi.Context,
 	name string, args *LocalNetworkGatewayArgs, opts ...pulumi.ResourceOption) (*LocalNetworkGateway, error) {
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
+	if args == nil || args.LocalNetworkGatewayName == nil {
+		return nil, errors.New("missing required argument 'LocalNetworkGatewayName'")
 	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
@@ -226,10 +226,10 @@ type localNetworkGatewayArgs struct {
 	Id *string `pulumi:"id"`
 	// Local network site Address space
 	LocalNetworkAddressSpace *AddressSpace `pulumi:"localNetworkAddressSpace"`
+	// The name of the local network gateway.
+	LocalNetworkGatewayName string `pulumi:"localNetworkGatewayName"`
 	// Resource location
 	Location *string `pulumi:"location"`
-	// The name of the local network gateway.
-	Name string `pulumi:"name"`
 	// Gets provisioning state of the LocalNetworkGateway resource Updating/Deleting/Failed
 	ProvisioningState *string `pulumi:"provisioningState"`
 	// The name of the resource group.
@@ -252,10 +252,10 @@ type LocalNetworkGatewayArgs struct {
 	Id pulumi.StringPtrInput
 	// Local network site Address space
 	LocalNetworkAddressSpace AddressSpacePtrInput
+	// The name of the local network gateway.
+	LocalNetworkGatewayName pulumi.StringInput
 	// Resource location
 	Location pulumi.StringPtrInput
-	// The name of the local network gateway.
-	Name pulumi.StringInput
 	// Gets provisioning state of the LocalNetworkGateway resource Updating/Deleting/Failed
 	ProvisioningState pulumi.StringPtrInput
 	// The name of the resource group.

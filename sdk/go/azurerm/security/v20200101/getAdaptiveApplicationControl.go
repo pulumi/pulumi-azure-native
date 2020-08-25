@@ -20,7 +20,7 @@ type LookupAdaptiveApplicationControlArgs struct {
 	// The location where ASC stores the data of the subscription. can be retrieved from Get locations
 	AscLocation string `pulumi:"ascLocation"`
 	// Name of an application control machine group
-	Name string `pulumi:"name"`
+	GroupName string `pulumi:"groupName"`
 }
 
 type LookupAdaptiveApplicationControlResult struct {

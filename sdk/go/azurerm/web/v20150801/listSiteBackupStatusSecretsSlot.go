@@ -17,6 +17,8 @@ func ListSiteBackupStatusSecretsSlot(ctx *pulumi.Context, args *ListSiteBackupSt
 }
 
 type ListSiteBackupStatusSecretsSlotArgs struct {
+	// Id of backup
+	BackupId string `pulumi:"backupId"`
 	// Schedule for the backup if it is executed periodically
 	BackupSchedule *BackupSchedule `pulumi:"backupSchedule"`
 	// Databases included in the backup
@@ -29,7 +31,7 @@ type ListSiteBackupStatusSecretsSlotArgs struct {
 	Kind *string `pulumi:"kind"`
 	// Resource Location
 	Location string `pulumi:"location"`
-	// Id of backup
+	// Resource Name
 	Name string `pulumi:"name"`
 	// Name of resource group
 	ResourceGroupName string `pulumi:"resourceGroupName"`

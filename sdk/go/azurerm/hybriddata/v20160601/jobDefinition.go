@@ -53,8 +53,8 @@ func NewJobDefinition(ctx *pulumi.Context,
 	if args == nil || args.DataSourceId == nil {
 		return nil, errors.New("missing required argument 'DataSourceId'")
 	}
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
+	if args == nil || args.JobDefinitionName == nil {
+		return nil, errors.New("missing required argument 'JobDefinitionName'")
 	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
@@ -159,10 +159,10 @@ type jobDefinitionArgs struct {
 	DataSinkId string `pulumi:"dataSinkId"`
 	// Data Source Id associated to the job definition.
 	DataSourceId string `pulumi:"dataSourceId"`
+	// The job definition name to be created or updated.
+	JobDefinitionName string `pulumi:"jobDefinitionName"`
 	// Last modified time of the job definition.
 	LastModifiedTime *string `pulumi:"lastModifiedTime"`
-	// The job definition name to be created or updated.
-	Name string `pulumi:"name"`
 	// The Resource Group Name
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// This is the preferred geo location for the job to run.
@@ -189,10 +189,10 @@ type JobDefinitionArgs struct {
 	DataSinkId pulumi.StringInput
 	// Data Source Id associated to the job definition.
 	DataSourceId pulumi.StringInput
+	// The job definition name to be created or updated.
+	JobDefinitionName pulumi.StringInput
 	// Last modified time of the job definition.
 	LastModifiedTime pulumi.StringPtrInput
-	// The job definition name to be created or updated.
-	Name pulumi.StringInput
 	// The Resource Group Name
 	ResourceGroupName pulumi.StringInput
 	// This is the preferred geo location for the job to run.

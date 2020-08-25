@@ -79,8 +79,8 @@ func NewKpi(ctx *pulumi.Context,
 	if args == nil || args.HubName == nil {
 		return nil, errors.New("missing required argument 'HubName'")
 	}
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
+	if args == nil || args.KpiName == nil {
+		return nil, errors.New("missing required argument 'KpiName'")
 	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
@@ -237,7 +237,7 @@ type kpiArgs struct {
 	// The name of the hub.
 	HubName string `pulumi:"hubName"`
 	// The name of the KPI.
-	Name string `pulumi:"name"`
+	KpiName string `pulumi:"kpiName"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The KPI thresholds.
@@ -275,7 +275,7 @@ type KpiArgs struct {
 	// The name of the hub.
 	HubName pulumi.StringInput
 	// The name of the KPI.
-	Name pulumi.StringInput
+	KpiName pulumi.StringInput
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
 	// The KPI thresholds.

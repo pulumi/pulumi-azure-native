@@ -313,6 +313,47 @@ func (i DescendantParentGroupInfoResponseArgs) ToDescendantParentGroupInfoRespon
 	return pulumi.ToOutputWithContext(ctx, i).(DescendantParentGroupInfoResponseOutput)
 }
 
+func (i DescendantParentGroupInfoResponseArgs) ToDescendantParentGroupInfoResponsePtrOutput() DescendantParentGroupInfoResponsePtrOutput {
+	return i.ToDescendantParentGroupInfoResponsePtrOutputWithContext(context.Background())
+}
+
+func (i DescendantParentGroupInfoResponseArgs) ToDescendantParentGroupInfoResponsePtrOutputWithContext(ctx context.Context) DescendantParentGroupInfoResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DescendantParentGroupInfoResponseOutput).ToDescendantParentGroupInfoResponsePtrOutputWithContext(ctx)
+}
+
+// DescendantParentGroupInfoResponsePtrInput is an input type that accepts DescendantParentGroupInfoResponseArgs, DescendantParentGroupInfoResponsePtr and DescendantParentGroupInfoResponsePtrOutput values.
+// You can construct a concrete instance of `DescendantParentGroupInfoResponsePtrInput` via:
+//
+//          DescendantParentGroupInfoResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type DescendantParentGroupInfoResponsePtrInput interface {
+	pulumi.Input
+
+	ToDescendantParentGroupInfoResponsePtrOutput() DescendantParentGroupInfoResponsePtrOutput
+	ToDescendantParentGroupInfoResponsePtrOutputWithContext(context.Context) DescendantParentGroupInfoResponsePtrOutput
+}
+
+type descendantParentGroupInfoResponsePtrType DescendantParentGroupInfoResponseArgs
+
+func DescendantParentGroupInfoResponsePtr(v *DescendantParentGroupInfoResponseArgs) DescendantParentGroupInfoResponsePtrInput {
+	return (*descendantParentGroupInfoResponsePtrType)(v)
+}
+
+func (*descendantParentGroupInfoResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DescendantParentGroupInfoResponse)(nil)).Elem()
+}
+
+func (i *descendantParentGroupInfoResponsePtrType) ToDescendantParentGroupInfoResponsePtrOutput() DescendantParentGroupInfoResponsePtrOutput {
+	return i.ToDescendantParentGroupInfoResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *descendantParentGroupInfoResponsePtrType) ToDescendantParentGroupInfoResponsePtrOutputWithContext(ctx context.Context) DescendantParentGroupInfoResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DescendantParentGroupInfoResponsePtrOutput)
+}
+
 // The ID of the parent management group.
 type DescendantParentGroupInfoResponseOutput struct{ *pulumi.OutputState }
 
@@ -328,9 +369,47 @@ func (o DescendantParentGroupInfoResponseOutput) ToDescendantParentGroupInfoResp
 	return o
 }
 
+func (o DescendantParentGroupInfoResponseOutput) ToDescendantParentGroupInfoResponsePtrOutput() DescendantParentGroupInfoResponsePtrOutput {
+	return o.ToDescendantParentGroupInfoResponsePtrOutputWithContext(context.Background())
+}
+
+func (o DescendantParentGroupInfoResponseOutput) ToDescendantParentGroupInfoResponsePtrOutputWithContext(ctx context.Context) DescendantParentGroupInfoResponsePtrOutput {
+	return o.ApplyT(func(v DescendantParentGroupInfoResponse) *DescendantParentGroupInfoResponse {
+		return &v
+	}).(DescendantParentGroupInfoResponsePtrOutput)
+}
+
 // The fully qualified ID for the parent management group.  For example, /providers/Microsoft.Management/managementGroups/0000000-0000-0000-0000-000000000000
 func (o DescendantParentGroupInfoResponseOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DescendantParentGroupInfoResponse) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
+type DescendantParentGroupInfoResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (DescendantParentGroupInfoResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DescendantParentGroupInfoResponse)(nil)).Elem()
+}
+
+func (o DescendantParentGroupInfoResponsePtrOutput) ToDescendantParentGroupInfoResponsePtrOutput() DescendantParentGroupInfoResponsePtrOutput {
+	return o
+}
+
+func (o DescendantParentGroupInfoResponsePtrOutput) ToDescendantParentGroupInfoResponsePtrOutputWithContext(ctx context.Context) DescendantParentGroupInfoResponsePtrOutput {
+	return o
+}
+
+func (o DescendantParentGroupInfoResponsePtrOutput) Elem() DescendantParentGroupInfoResponseOutput {
+	return o.ApplyT(func(v *DescendantParentGroupInfoResponse) DescendantParentGroupInfoResponse { return *v }).(DescendantParentGroupInfoResponseOutput)
+}
+
+// The fully qualified ID for the parent management group.  For example, /providers/Microsoft.Management/managementGroups/0000000-0000-0000-0000-000000000000
+func (o DescendantParentGroupInfoResponsePtrOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DescendantParentGroupInfoResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Id
+	}).(pulumi.StringPtrOutput)
 }
 
 // The child information of a management group.
@@ -947,6 +1026,7 @@ func init() {
 	pulumi.RegisterOutputType(CreateParentGroupInfoOutput{})
 	pulumi.RegisterOutputType(CreateParentGroupInfoPtrOutput{})
 	pulumi.RegisterOutputType(DescendantParentGroupInfoResponseOutput{})
+	pulumi.RegisterOutputType(DescendantParentGroupInfoResponsePtrOutput{})
 	pulumi.RegisterOutputType(ManagementGroupChildInfoResponseOutput{})
 	pulumi.RegisterOutputType(ManagementGroupChildInfoResponseArrayOutput{})
 	pulumi.RegisterOutputType(ManagementGroupDetailsResponseOutput{})

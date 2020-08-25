@@ -37,11 +37,11 @@ type PolicySetDefinition struct {
 // NewPolicySetDefinition registers a new resource with the given unique name, arguments, and options.
 func NewPolicySetDefinition(ctx *pulumi.Context,
 	name string, args *PolicySetDefinitionArgs, opts ...pulumi.ResourceOption) (*PolicySetDefinition, error) {
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
-	}
 	if args == nil || args.PolicyDefinitions == nil {
 		return nil, errors.New("missing required argument 'PolicyDefinitions'")
+	}
+	if args == nil || args.PolicySetDefinitionName == nil {
+		return nil, errors.New("missing required argument 'PolicySetDefinitionName'")
 	}
 	if args == nil {
 		args = &PolicySetDefinitionArgs{}
@@ -135,14 +135,14 @@ type policySetDefinitionArgs struct {
 	DisplayName *string `pulumi:"displayName"`
 	// The policy set definition metadata.  Metadata is an open ended object and is typically a collection of key value pairs.
 	Metadata map[string]interface{} `pulumi:"metadata"`
-	// The name of the policy set definition to create.
-	Name string `pulumi:"name"`
 	// The policy set definition parameters that can be used in policy definition references.
 	Parameters map[string]ParameterDefinitionsValue `pulumi:"parameters"`
 	// The metadata describing groups of policy definition references within the policy set definition.
 	PolicyDefinitionGroups []PolicyDefinitionGroup `pulumi:"policyDefinitionGroups"`
 	// An array of policy definition references.
 	PolicyDefinitions []PolicyDefinitionReference `pulumi:"policyDefinitions"`
+	// The name of the policy set definition to create.
+	PolicySetDefinitionName string `pulumi:"policySetDefinitionName"`
 	// The type of policy definition. Possible values are NotSpecified, BuiltIn, Custom, and Static.
 	PolicyType *string `pulumi:"policyType"`
 }
@@ -155,14 +155,14 @@ type PolicySetDefinitionArgs struct {
 	DisplayName pulumi.StringPtrInput
 	// The policy set definition metadata.  Metadata is an open ended object and is typically a collection of key value pairs.
 	Metadata pulumi.MapInput
-	// The name of the policy set definition to create.
-	Name pulumi.StringInput
 	// The policy set definition parameters that can be used in policy definition references.
 	Parameters ParameterDefinitionsValueMapInput
 	// The metadata describing groups of policy definition references within the policy set definition.
 	PolicyDefinitionGroups PolicyDefinitionGroupArrayInput
 	// An array of policy definition references.
 	PolicyDefinitions PolicyDefinitionReferenceArrayInput
+	// The name of the policy set definition to create.
+	PolicySetDefinitionName pulumi.StringInput
 	// The type of policy definition. Possible values are NotSpecified, BuiltIn, Custom, and Static.
 	PolicyType pulumi.StringPtrInput
 }

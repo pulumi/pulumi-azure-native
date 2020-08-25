@@ -53,11 +53,11 @@ func NewIotSecuritySolution(ctx *pulumi.Context,
 	if args == nil || args.IotHubs == nil {
 		return nil, errors.New("missing required argument 'IotHubs'")
 	}
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
-	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
+	}
+	if args == nil || args.SolutionName == nil {
+		return nil, errors.New("missing required argument 'SolutionName'")
 	}
 	if args == nil {
 		args = &IotSecuritySolutionArgs{}
@@ -160,12 +160,12 @@ type iotSecuritySolutionArgs struct {
 	IotHubs []string `pulumi:"iotHubs"`
 	// The resource location.
 	Location *string `pulumi:"location"`
-	// The name of the IoT Security solution.
-	Name string `pulumi:"name"`
 	// List of the configuration status for each recommendation type.
 	RecommendationsConfiguration []RecommendationConfigurationProperties `pulumi:"recommendationsConfiguration"`
 	// The name of the resource group within the user's subscription. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// The name of the IoT Security solution.
+	SolutionName string `pulumi:"solutionName"`
 	// Status of the IoT Security solution.
 	Status *string `pulumi:"status"`
 	// Resource tags
@@ -190,12 +190,12 @@ type IotSecuritySolutionArgs struct {
 	IotHubs pulumi.StringArrayInput
 	// The resource location.
 	Location pulumi.StringPtrInput
-	// The name of the IoT Security solution.
-	Name pulumi.StringInput
 	// List of the configuration status for each recommendation type.
 	RecommendationsConfiguration RecommendationConfigurationPropertiesArrayInput
 	// The name of the resource group within the user's subscription. The name is case insensitive.
 	ResourceGroupName pulumi.StringInput
+	// The name of the IoT Security solution.
+	SolutionName pulumi.StringInput
 	// Status of the IoT Security solution.
 	Status pulumi.StringPtrInput
 	// Resource tags

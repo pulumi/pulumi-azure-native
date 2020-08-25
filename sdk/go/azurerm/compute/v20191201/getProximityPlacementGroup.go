@@ -20,7 +20,7 @@ type LookupProximityPlacementGroupArgs struct {
 	// includeColocationStatus=true enables fetching the colocation status of all the resources in the proximity placement group.
 	IncludeColocationStatus *string `pulumi:"includeColocationStatus"`
 	// The name of the proximity placement group.
-	Name string `pulumi:"name"`
+	ProximityPlacementGroupName string `pulumi:"proximityPlacementGroupName"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }

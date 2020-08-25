@@ -17,10 +17,10 @@ func LookupMaintenanceConfiguration(ctx *pulumi.Context, args *LookupMaintenance
 }
 
 type LookupMaintenanceConfigurationArgs struct {
-	// Resource Identifier
-	Name string `pulumi:"name"`
 	// Resource Group Name
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// Resource Identifier
+	ResourceName string `pulumi:"resourceName"`
 }
 
 // Maintenance configuration record type

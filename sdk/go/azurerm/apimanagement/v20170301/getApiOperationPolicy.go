@@ -19,10 +19,10 @@ func LookupApiOperationPolicy(ctx *pulumi.Context, args *LookupApiOperationPolic
 type LookupApiOperationPolicyArgs struct {
 	// API revision identifier. Must be unique in the current API Management service instance. Non-current revision has ;rev=n as a suffix where n is the revision number.
 	ApiId string `pulumi:"apiId"`
-	// The identifier of the Policy.
-	Name string `pulumi:"name"`
 	// Operation identifier within an API. Must be unique in the current API Management service instance.
 	OperationId string `pulumi:"operationId"`
+	// The identifier of the Policy.
+	PolicyId string `pulumi:"policyId"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The name of the API Management service.

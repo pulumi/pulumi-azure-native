@@ -51,11 +51,11 @@ type Job struct {
 // NewJob registers a new resource with the given unique name, arguments, and options.
 func NewJob(ctx *pulumi.Context,
 	name string, args *JobArgs, opts ...pulumi.ResourceOption) (*Job, error) {
+	if args == nil || args.JobName == nil {
+		return nil, errors.New("missing required argument 'JobName'")
+	}
 	if args == nil || args.Location == nil {
 		return nil, errors.New("missing required argument 'Location'")
-	}
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
 	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
@@ -174,10 +174,10 @@ type jobArgs struct {
 	DeliveryType *string `pulumi:"deliveryType"`
 	// Details of a job run. This field will only be sent for expand details filter.
 	Details *JobDetails `pulumi:"details"`
+	// The name of the job Resource within the specified resource group. job names must be between 3 and 24 characters in length and use any alphanumeric and underscore only
+	JobName string `pulumi:"jobName"`
 	// The location of the resource. This will be one of the supported and registered Azure Regions (e.g. West US, East US, Southeast Asia, etc.). The region of a resource cannot be changed once it is created, but if an identical region is specified on update the request will succeed.
 	Location string `pulumi:"location"`
-	// The name of the job Resource within the specified resource group. job names must be between 3 and 24 characters in length and use any alphanumeric and underscore only
-	Name string `pulumi:"name"`
 	// The Resource Group Name
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The sku type.
@@ -194,10 +194,10 @@ type JobArgs struct {
 	DeliveryType pulumi.StringPtrInput
 	// Details of a job run. This field will only be sent for expand details filter.
 	Details JobDetailsPtrInput
+	// The name of the job Resource within the specified resource group. job names must be between 3 and 24 characters in length and use any alphanumeric and underscore only
+	JobName pulumi.StringInput
 	// The location of the resource. This will be one of the supported and registered Azure Regions (e.g. West US, East US, Southeast Asia, etc.). The region of a resource cannot be changed once it is created, but if an identical region is specified on update the request will succeed.
 	Location pulumi.StringInput
-	// The name of the job Resource within the specified resource group. job names must be between 3 and 24 characters in length and use any alphanumeric and underscore only
-	Name pulumi.StringInput
 	// The Resource Group Name
 	ResourceGroupName pulumi.StringInput
 	// The sku type.

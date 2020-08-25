@@ -20,7 +20,7 @@ type LookupDomainTopicArgs struct {
 	// Name of the domain.
 	DomainName string `pulumi:"domainName"`
 	// Name of the topic.
-	Name string `pulumi:"name"`
+	DomainTopicName string `pulumi:"domainTopicName"`
 	// The name of the resource group within the user's subscription.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }

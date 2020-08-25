@@ -39,8 +39,8 @@ type Service struct {
 // NewService registers a new resource with the given unique name, arguments, and options.
 func NewService(ctx *pulumi.Context,
 	name string, args *ServiceArgs, opts ...pulumi.ResourceOption) (*Service, error) {
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
+	if args == nil || args.DeviceName == nil {
+		return nil, errors.New("missing required argument 'DeviceName'")
 	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
@@ -125,7 +125,7 @@ type serviceArgs struct {
 	// Windows IoT Device Service ODM AAD domain
 	BillingDomainName *string `pulumi:"billingDomainName"`
 	// The name of the Windows IoT Device Service.
-	Name string `pulumi:"name"`
+	DeviceName string `pulumi:"deviceName"`
 	// Windows IoT Device Service notes.
 	Notes *string `pulumi:"notes"`
 	// Windows IoT Device Service device allocation,
@@ -141,7 +141,7 @@ type ServiceArgs struct {
 	// Windows IoT Device Service ODM AAD domain
 	BillingDomainName pulumi.StringPtrInput
 	// The name of the Windows IoT Device Service.
-	Name pulumi.StringInput
+	DeviceName pulumi.StringInput
 	// Windows IoT Device Service notes.
 	Notes pulumi.StringPtrInput
 	// Windows IoT Device Service device allocation,

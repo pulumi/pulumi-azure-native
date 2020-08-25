@@ -48,8 +48,8 @@ func NewLink(ctx *pulumi.Context,
 	if args == nil || args.HubName == nil {
 		return nil, errors.New("missing required argument 'HubName'")
 	}
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
+	if args == nil || args.LinkName == nil {
+		return nil, errors.New("missing required argument 'LinkName'")
 	}
 	if args == nil || args.ParticipantPropertyReferences == nil {
 		return nil, errors.New("missing required argument 'ParticipantPropertyReferences'")
@@ -162,10 +162,10 @@ type linkArgs struct {
 	DisplayName map[string]string `pulumi:"displayName"`
 	// The name of the hub.
 	HubName string `pulumi:"hubName"`
+	// The name of the link.
+	LinkName string `pulumi:"linkName"`
 	// The set of properties mappings between the source and target Types.
 	Mappings []TypePropertiesMapping `pulumi:"mappings"`
-	// The name of the link.
-	Name string `pulumi:"name"`
 	// Determines whether this link is supposed to create or delete instances if Link is NOT Reference Only.
 	OperationType *string `pulumi:"operationType"`
 	// The properties that represent the participating profile.
@@ -188,10 +188,10 @@ type LinkArgs struct {
 	DisplayName pulumi.StringMapInput
 	// The name of the hub.
 	HubName pulumi.StringInput
+	// The name of the link.
+	LinkName pulumi.StringInput
 	// The set of properties mappings between the source and target Types.
 	Mappings TypePropertiesMappingArrayInput
-	// The name of the link.
-	Name pulumi.StringInput
 	// Determines whether this link is supposed to create or delete instances if Link is NOT Reference Only.
 	OperationType pulumi.StringPtrInput
 	// The properties that represent the participating profile.

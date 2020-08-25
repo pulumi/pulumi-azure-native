@@ -17,12 +17,12 @@ func LookupChapSetting(ctx *pulumi.Context, args *LookupChapSettingArgs, opts ..
 }
 
 type LookupChapSettingArgs struct {
+	// The user name of chap to be fetched.
+	ChapUserName string `pulumi:"chapUserName"`
 	// The device name.
 	DeviceName string `pulumi:"deviceName"`
 	// The manager name
 	ManagerName string `pulumi:"managerName"`
-	// The user name of chap to be fetched.
-	Name string `pulumi:"name"`
 	// The resource group name
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }

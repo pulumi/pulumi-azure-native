@@ -19,10 +19,10 @@ func LookupTransform(ctx *pulumi.Context, args *LookupTransformArgs, opts ...pul
 type LookupTransformArgs struct {
 	// The Media Services account name.
 	AccountName string `pulumi:"accountName"`
-	// The Transform name.
-	Name string `pulumi:"name"`
 	// The name of the resource group within the Azure subscription.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// The Transform name.
+	TransformName string `pulumi:"transformName"`
 }
 
 // A Transform encapsulates the rules or instructions for generating desired outputs from input media, such as by transcoding or by extracting insights. After the Transform is created, it can be applied to input media by creating Jobs.

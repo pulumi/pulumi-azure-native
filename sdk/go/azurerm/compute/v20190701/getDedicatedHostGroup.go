@@ -18,7 +18,7 @@ func LookupDedicatedHostGroup(ctx *pulumi.Context, args *LookupDedicatedHostGrou
 
 type LookupDedicatedHostGroupArgs struct {
 	// The name of the dedicated host group.
-	Name string `pulumi:"name"`
+	HostGroupName string `pulumi:"hostGroupName"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }

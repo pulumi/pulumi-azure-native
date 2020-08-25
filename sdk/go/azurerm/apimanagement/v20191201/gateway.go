@@ -27,8 +27,8 @@ type Gateway struct {
 // NewGateway registers a new resource with the given unique name, arguments, and options.
 func NewGateway(ctx *pulumi.Context,
 	name string, args *GatewayArgs, opts ...pulumi.ResourceOption) (*Gateway, error) {
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
+	if args == nil || args.GatewayId == nil {
+		return nil, errors.New("missing required argument 'GatewayId'")
 	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
@@ -89,10 +89,10 @@ func (GatewayState) ElementType() reflect.Type {
 type gatewayArgs struct {
 	// Gateway description
 	Description *string `pulumi:"description"`
+	// Gateway entity identifier. Must be unique in the current API Management service instance. Must not have value 'managed'
+	GatewayId string `pulumi:"gatewayId"`
 	// Gateway location.
 	LocationData *ResourceLocationDataContract `pulumi:"locationData"`
-	// Gateway entity identifier. Must be unique in the current API Management service instance. Must not have value 'managed'
-	Name string `pulumi:"name"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The name of the API Management service.
@@ -103,10 +103,10 @@ type gatewayArgs struct {
 type GatewayArgs struct {
 	// Gateway description
 	Description pulumi.StringPtrInput
+	// Gateway entity identifier. Must be unique in the current API Management service instance. Must not have value 'managed'
+	GatewayId pulumi.StringInput
 	// Gateway location.
 	LocationData ResourceLocationDataContractPtrInput
-	// Gateway entity identifier. Must be unique in the current API Management service instance. Must not have value 'managed'
-	Name pulumi.StringInput
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
 	// The name of the API Management service.

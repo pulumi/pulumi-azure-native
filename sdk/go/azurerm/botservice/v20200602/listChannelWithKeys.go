@@ -18,7 +18,7 @@ func ListChannelWithKeys(ctx *pulumi.Context, args *ListChannelWithKeysArgs, opt
 
 type ListChannelWithKeysArgs struct {
 	// The name of the Channel resource.
-	Name string `pulumi:"name"`
+	ChannelName string `pulumi:"channelName"`
 	// The name of the Bot resource group in the user subscription.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The name of the Bot resource.

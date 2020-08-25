@@ -65,14 +65,14 @@ func NewStreamingEndpoint(ctx *pulumi.Context,
 	if args == nil || args.Location == nil {
 		return nil, errors.New("missing required argument 'Location'")
 	}
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
-	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
 	}
 	if args == nil || args.ScaleUnits == nil {
 		return nil, errors.New("missing required argument 'ScaleUnits'")
+	}
+	if args == nil || args.StreamingEndpointName == nil {
+		return nil, errors.New("missing required argument 'StreamingEndpointName'")
 	}
 	if args == nil {
 		args = &StreamingEndpointArgs{}
@@ -219,12 +219,12 @@ type streamingEndpointArgs struct {
 	Location string `pulumi:"location"`
 	// Max cache age
 	MaxCacheAge *int `pulumi:"maxCacheAge"`
-	// The name of the StreamingEndpoint.
-	Name string `pulumi:"name"`
 	// The name of the resource group within the Azure subscription.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The number of scale units.  Use the Scale operation to adjust this value.
 	ScaleUnits int `pulumi:"scaleUnits"`
+	// The name of the StreamingEndpoint.
+	StreamingEndpointName string `pulumi:"streamingEndpointName"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -255,12 +255,12 @@ type StreamingEndpointArgs struct {
 	Location pulumi.StringInput
 	// Max cache age
 	MaxCacheAge pulumi.IntPtrInput
-	// The name of the StreamingEndpoint.
-	Name pulumi.StringInput
 	// The name of the resource group within the Azure subscription.
 	ResourceGroupName pulumi.StringInput
 	// The number of scale units.  Use the Scale operation to adjust this value.
 	ScaleUnits pulumi.IntInput
+	// The name of the StreamingEndpoint.
+	StreamingEndpointName pulumi.StringInput
 	// Resource tags.
 	Tags pulumi.StringMapInput
 }

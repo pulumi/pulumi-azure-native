@@ -29,11 +29,11 @@ type RegisteredAsn struct {
 // NewRegisteredAsn registers a new resource with the given unique name, arguments, and options.
 func NewRegisteredAsn(ctx *pulumi.Context,
 	name string, args *RegisteredAsnArgs, opts ...pulumi.ResourceOption) (*RegisteredAsn, error) {
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
-	}
 	if args == nil || args.PeeringName == nil {
 		return nil, errors.New("missing required argument 'PeeringName'")
+	}
+	if args == nil || args.RegisteredAsnName == nil {
+		return nil, errors.New("missing required argument 'RegisteredAsnName'")
 	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
@@ -95,10 +95,10 @@ func (RegisteredAsnState) ElementType() reflect.Type {
 type registeredAsnArgs struct {
 	// The customer's ASN from which traffic originates.
 	Asn *int `pulumi:"asn"`
-	// The name of the ASN.
-	Name string `pulumi:"name"`
 	// The name of the peering.
 	PeeringName string `pulumi:"peeringName"`
+	// The name of the ASN.
+	RegisteredAsnName string `pulumi:"registeredAsnName"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
@@ -107,10 +107,10 @@ type registeredAsnArgs struct {
 type RegisteredAsnArgs struct {
 	// The customer's ASN from which traffic originates.
 	Asn pulumi.IntPtrInput
-	// The name of the ASN.
-	Name pulumi.StringInput
 	// The name of the peering.
 	PeeringName pulumi.StringInput
+	// The name of the ASN.
+	RegisteredAsnName pulumi.StringInput
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
 }

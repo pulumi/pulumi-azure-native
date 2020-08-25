@@ -20,7 +20,7 @@ type LookupGatewayHostnameConfigurationArgs struct {
 	// Gateway entity identifier. Must be unique in the current API Management service instance. Must not have value 'managed'
 	GatewayId string `pulumi:"gatewayId"`
 	// Gateway hostname configuration identifier. Must be unique in the scope of parent Gateway entity.
-	Name string `pulumi:"name"`
+	HcId string `pulumi:"hcId"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The name of the API Management service.

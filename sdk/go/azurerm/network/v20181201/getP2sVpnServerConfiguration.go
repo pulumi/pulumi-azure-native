@@ -18,7 +18,7 @@ func LookupP2sVpnServerConfiguration(ctx *pulumi.Context, args *LookupP2sVpnServ
 
 type LookupP2sVpnServerConfigurationArgs struct {
 	// The name of the P2SVpnServerConfiguration.
-	Name string `pulumi:"name"`
+	P2SVpnServerConfigurationName string `pulumi:"p2SVpnServerConfigurationName"`
 	// The resource group name of the P2SVpnServerConfiguration.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The name of the VirtualWan.

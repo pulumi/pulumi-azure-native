@@ -18,7 +18,7 @@ func LookupHierarchySetting(ctx *pulumi.Context, args *LookupHierarchySettingArg
 
 type LookupHierarchySettingArgs struct {
 	// Management Group ID.
-	Name string `pulumi:"name"`
+	GroupId string `pulumi:"groupId"`
 }
 
 // Settings defined at the Management Group scope.

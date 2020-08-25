@@ -35,8 +35,8 @@ type Channel struct {
 // NewChannel registers a new resource with the given unique name, arguments, and options.
 func NewChannel(ctx *pulumi.Context,
 	name string, args *ChannelArgs, opts ...pulumi.ResourceOption) (*Channel, error) {
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
+	if args == nil || args.ChannelName == nil {
+		return nil, errors.New("missing required argument 'ChannelName'")
 	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
@@ -111,14 +111,14 @@ func (ChannelState) ElementType() reflect.Type {
 }
 
 type channelArgs struct {
+	// The name of the Channel resource.
+	ChannelName string `pulumi:"channelName"`
 	// Entity Tag
 	Etag *string `pulumi:"etag"`
 	// Required. Gets or sets the Kind of the resource.
 	Kind *string `pulumi:"kind"`
 	// Specifies the location of the resource.
 	Location *string `pulumi:"location"`
-	// The name of the Channel resource.
-	Name string `pulumi:"name"`
 	// The set of properties specific to bot channel resource
 	Properties *ChannelType `pulumi:"properties"`
 	// The name of the Bot resource group in the user subscription.
@@ -133,14 +133,14 @@ type channelArgs struct {
 
 // The set of arguments for constructing a Channel resource.
 type ChannelArgs struct {
+	// The name of the Channel resource.
+	ChannelName pulumi.StringInput
 	// Entity Tag
 	Etag pulumi.StringPtrInput
 	// Required. Gets or sets the Kind of the resource.
 	Kind pulumi.StringPtrInput
 	// Specifies the location of the resource.
 	Location pulumi.StringPtrInput
-	// The name of the Channel resource.
-	Name pulumi.StringInput
 	// The set of properties specific to bot channel resource
 	Properties ChannelTypePtrInput
 	// The name of the Bot resource group in the user subscription.

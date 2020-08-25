@@ -39,8 +39,8 @@ func NewExport(ctx *pulumi.Context,
 	if args == nil || args.DeliveryInfo == nil {
 		return nil, errors.New("missing required argument 'DeliveryInfo'")
 	}
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
+	if args == nil || args.ExportName == nil {
+		return nil, errors.New("missing required argument 'ExportName'")
 	}
 	if args == nil || args.Scope == nil {
 		return nil, errors.New("missing required argument 'Scope'")
@@ -127,10 +127,10 @@ type exportArgs struct {
 	Definition QueryDefinition `pulumi:"definition"`
 	// Has delivery information for the export.
 	DeliveryInfo ExportDeliveryInfo `pulumi:"deliveryInfo"`
+	// Export Name.
+	ExportName string `pulumi:"exportName"`
 	// The format of the export being delivered.
 	Format *string `pulumi:"format"`
-	// Export Name.
-	Name string `pulumi:"name"`
 	// Has schedule information for the export.
 	Schedule *ExportSchedule `pulumi:"schedule"`
 	// The scope associated with query and export operations. This includes '/subscriptions/{subscriptionId}/' for subscription scope, '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}' for resourceGroup scope, '/providers/Microsoft.Billing/billingAccounts/{billingAccountId}' for Billing Account scope and '/providers/Microsoft.Billing/billingAccounts/{billingAccountId}/departments/{departmentId}' for Department scope, '/providers/Microsoft.Billing/billingAccounts/{billingAccountId}/enrollmentAccounts/{enrollmentAccountId}' for EnrollmentAccount scope and '/providers/Microsoft.Management/managementGroups/{managementGroupId} for Management Group scope..
@@ -143,10 +143,10 @@ type ExportArgs struct {
 	Definition QueryDefinitionInput
 	// Has delivery information for the export.
 	DeliveryInfo ExportDeliveryInfoInput
+	// Export Name.
+	ExportName pulumi.StringInput
 	// The format of the export being delivered.
 	Format pulumi.StringPtrInput
-	// Export Name.
-	Name pulumi.StringInput
 	// Has schedule information for the export.
 	Schedule ExportSchedulePtrInput
 	// The scope associated with query and export operations. This includes '/subscriptions/{subscriptionId}/' for subscription scope, '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}' for resourceGroup scope, '/providers/Microsoft.Billing/billingAccounts/{billingAccountId}' for Billing Account scope and '/providers/Microsoft.Billing/billingAccounts/{billingAccountId}/departments/{departmentId}' for Department scope, '/providers/Microsoft.Billing/billingAccounts/{billingAccountId}/enrollmentAccounts/{enrollmentAccountId}' for EnrollmentAccount scope and '/providers/Microsoft.Management/managementGroups/{managementGroupId} for Management Group scope..

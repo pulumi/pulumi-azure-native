@@ -17,10 +17,10 @@ func LookupServerEndpoint(ctx *pulumi.Context, args *LookupServerEndpointArgs, o
 }
 
 type LookupServerEndpointArgs struct {
-	// Name of Server Endpoint object.
-	Name string `pulumi:"name"`
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// Name of Server Endpoint object.
+	ServerEndpointName string `pulumi:"serverEndpointName"`
 	// Name of Storage Sync Service resource.
 	StorageSyncServiceName string `pulumi:"storageSyncServiceName"`
 	// Name of Sync Group resource.

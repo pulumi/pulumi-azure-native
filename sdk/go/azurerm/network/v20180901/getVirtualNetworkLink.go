@@ -17,12 +17,12 @@ func LookupVirtualNetworkLink(ctx *pulumi.Context, args *LookupVirtualNetworkLin
 }
 
 type LookupVirtualNetworkLinkArgs struct {
-	// The name of the virtual network link.
-	Name string `pulumi:"name"`
 	// The name of the Private DNS zone (without a terminating dot).
 	PrivateZoneName string `pulumi:"privateZoneName"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// The name of the virtual network link.
+	VirtualNetworkLinkName string `pulumi:"virtualNetworkLinkName"`
 }
 
 // Describes a link to virtual network for a Private DNS zone.

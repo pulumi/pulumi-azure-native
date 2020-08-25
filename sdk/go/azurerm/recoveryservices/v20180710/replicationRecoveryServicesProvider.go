@@ -30,11 +30,11 @@ func NewReplicationRecoveryServicesProvider(ctx *pulumi.Context,
 	if args == nil || args.FabricName == nil {
 		return nil, errors.New("missing required argument 'FabricName'")
 	}
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
-	}
 	if args == nil || args.Properties == nil {
 		return nil, errors.New("missing required argument 'Properties'")
+	}
+	if args == nil || args.ProviderName == nil {
+		return nil, errors.New("missing required argument 'ProviderName'")
 	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
@@ -104,10 +104,10 @@ func (ReplicationRecoveryServicesProviderState) ElementType() reflect.Type {
 type replicationRecoveryServicesProviderArgs struct {
 	// Fabric name.
 	FabricName string `pulumi:"fabricName"`
-	// Recovery services provider name.
-	Name string `pulumi:"name"`
 	// The properties of an add provider request.
 	Properties AddRecoveryServicesProviderInputProperties `pulumi:"properties"`
+	// Recovery services provider name.
+	ProviderName string `pulumi:"providerName"`
 	// The name of the resource group where the recovery services vault is present.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The name of the recovery services vault.
@@ -118,10 +118,10 @@ type replicationRecoveryServicesProviderArgs struct {
 type ReplicationRecoveryServicesProviderArgs struct {
 	// Fabric name.
 	FabricName pulumi.StringInput
-	// Recovery services provider name.
-	Name pulumi.StringInput
 	// The properties of an add provider request.
 	Properties AddRecoveryServicesProviderInputPropertiesInput
+	// Recovery services provider name.
+	ProviderName pulumi.StringInput
 	// The name of the resource group where the recovery services vault is present.
 	ResourceGroupName pulumi.StringInput
 	// The name of the recovery services vault.

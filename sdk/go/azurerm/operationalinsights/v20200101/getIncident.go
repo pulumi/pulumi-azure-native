@@ -18,7 +18,7 @@ func LookupIncident(ctx *pulumi.Context, args *LookupIncidentArgs, opts ...pulum
 
 type LookupIncidentArgs struct {
 	// Incident ID
-	Name string `pulumi:"name"`
+	IncidentId string `pulumi:"incidentId"`
 	// The name of the resource group within the user's subscription. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The name of the workspace.

@@ -17,12 +17,14 @@ func LookupSiteSlot(ctx *pulumi.Context, args *LookupSiteSlotArgs, opts ...pulum
 }
 
 type LookupSiteSlotArgs struct {
-	// Name of web app slot. If not specified then will default to production slot.
+	// Name of web app
 	Name string `pulumi:"name"`
 	// Additional web app properties included in the response
 	PropertiesToInclude *string `pulumi:"propertiesToInclude"`
 	// Name of resource group
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// Name of web app slot. If not specified then will default to production slot.
+	Slot string `pulumi:"slot"`
 }
 
 // Represents a web app

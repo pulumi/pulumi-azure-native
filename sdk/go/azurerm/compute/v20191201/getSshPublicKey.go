@@ -17,10 +17,10 @@ func LookupSshPublicKey(ctx *pulumi.Context, args *LookupSshPublicKeyArgs, opts 
 }
 
 type LookupSshPublicKeyArgs struct {
-	// The name of the SSH public key.
-	Name string `pulumi:"name"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// The name of the SSH public key.
+	SshPublicKeyName string `pulumi:"sshPublicKeyName"`
 }
 
 // Specifies information about the SSH public key.

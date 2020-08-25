@@ -36,6 +36,9 @@ type SiteRelayServiceConnectionSlot struct {
 // NewSiteRelayServiceConnectionSlot registers a new resource with the given unique name, arguments, and options.
 func NewSiteRelayServiceConnectionSlot(ctx *pulumi.Context,
 	name string, args *SiteRelayServiceConnectionSlotArgs, opts ...pulumi.ResourceOption) (*SiteRelayServiceConnectionSlot, error) {
+	if args == nil || args.EntityName == nil {
+		return nil, errors.New("missing required argument 'EntityName'")
+	}
 	if args == nil || args.Location == nil {
 		return nil, errors.New("missing required argument 'Location'")
 	}
@@ -137,13 +140,15 @@ func (SiteRelayServiceConnectionSlotState) ElementType() reflect.Type {
 type siteRelayServiceConnectionSlotArgs struct {
 	BiztalkUri             *string `pulumi:"biztalkUri"`
 	EntityConnectionString *string `pulumi:"entityConnectionString"`
+	EntityName             string  `pulumi:"entityName"`
 	Hostname               *string `pulumi:"hostname"`
 	// Resource Id
 	Id *string `pulumi:"id"`
 	// Kind of resource
 	Kind *string `pulumi:"kind"`
 	// Resource Location
-	Location                 string  `pulumi:"location"`
+	Location string `pulumi:"location"`
+	// Resource Name
 	Name                     string  `pulumi:"name"`
 	Port                     *int    `pulumi:"port"`
 	ResourceConnectionString *string `pulumi:"resourceConnectionString"`
@@ -162,13 +167,15 @@ type siteRelayServiceConnectionSlotArgs struct {
 type SiteRelayServiceConnectionSlotArgs struct {
 	BiztalkUri             pulumi.StringPtrInput
 	EntityConnectionString pulumi.StringPtrInput
+	EntityName             pulumi.StringInput
 	Hostname               pulumi.StringPtrInput
 	// Resource Id
 	Id pulumi.StringPtrInput
 	// Kind of resource
 	Kind pulumi.StringPtrInput
 	// Resource Location
-	Location                 pulumi.StringInput
+	Location pulumi.StringInput
+	// Resource Name
 	Name                     pulumi.StringInput
 	Port                     pulumi.IntPtrInput
 	ResourceConnectionString pulumi.StringPtrInput

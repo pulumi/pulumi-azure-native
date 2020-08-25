@@ -42,8 +42,8 @@ func NewAsset(ctx *pulumi.Context,
 	if args == nil || args.AccountName == nil {
 		return nil, errors.New("missing required argument 'AccountName'")
 	}
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
+	if args == nil || args.AssetName == nil {
+		return nil, errors.New("missing required argument 'AssetName'")
 	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
@@ -133,12 +133,12 @@ type assetArgs struct {
 	AccountName string `pulumi:"accountName"`
 	// The alternate ID of the Asset.
 	AlternateId *string `pulumi:"alternateId"`
+	// The Asset name.
+	AssetName string `pulumi:"assetName"`
 	// The name of the asset blob container.
 	Container *string `pulumi:"container"`
 	// The Asset description.
 	Description *string `pulumi:"description"`
-	// The Asset name.
-	Name string `pulumi:"name"`
 	// The name of the resource group within the Azure subscription.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The name of the storage account.
@@ -151,12 +151,12 @@ type AssetArgs struct {
 	AccountName pulumi.StringInput
 	// The alternate ID of the Asset.
 	AlternateId pulumi.StringPtrInput
+	// The Asset name.
+	AssetName pulumi.StringInput
 	// The name of the asset blob container.
 	Container pulumi.StringPtrInput
 	// The Asset description.
 	Description pulumi.StringPtrInput
-	// The Asset name.
-	Name pulumi.StringInput
 	// The name of the resource group within the Azure subscription.
 	ResourceGroupName pulumi.StringInput
 	// The name of the storage account.

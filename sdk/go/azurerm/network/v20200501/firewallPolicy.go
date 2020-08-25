@@ -45,8 +45,8 @@ type FirewallPolicy struct {
 // NewFirewallPolicy registers a new resource with the given unique name, arguments, and options.
 func NewFirewallPolicy(ctx *pulumi.Context,
 	name string, args *FirewallPolicyArgs, opts ...pulumi.ResourceOption) (*FirewallPolicy, error) {
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
+	if args == nil || args.FirewallPolicyName == nil {
+		return nil, errors.New("missing required argument 'FirewallPolicyName'")
 	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
@@ -172,12 +172,12 @@ type firewallPolicyArgs struct {
 	BasePolicy *SubResource `pulumi:"basePolicy"`
 	// DNS Proxy Settings definition.
 	DnsSettings *DnsSettings `pulumi:"dnsSettings"`
+	// The name of the Firewall Policy.
+	FirewallPolicyName string `pulumi:"firewallPolicyName"`
 	// Resource ID.
 	Id *string `pulumi:"id"`
 	// Resource location.
 	Location *string `pulumi:"location"`
-	// The name of the Firewall Policy.
-	Name string `pulumi:"name"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Resource tags.
@@ -194,12 +194,12 @@ type FirewallPolicyArgs struct {
 	BasePolicy SubResourcePtrInput
 	// DNS Proxy Settings definition.
 	DnsSettings DnsSettingsPtrInput
+	// The name of the Firewall Policy.
+	FirewallPolicyName pulumi.StringInput
 	// Resource ID.
 	Id pulumi.StringPtrInput
 	// Resource location.
 	Location pulumi.StringPtrInput
-	// The name of the Firewall Policy.
-	Name pulumi.StringInput
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
 	// Resource tags.

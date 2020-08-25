@@ -31,8 +31,8 @@ type CustomApi struct {
 // NewCustomApi registers a new resource with the given unique name, arguments, and options.
 func NewCustomApi(ctx *pulumi.Context,
 	name string, args *CustomApiArgs, opts ...pulumi.ResourceOption) (*CustomApi, error) {
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
+	if args == nil || args.ApiName == nil {
+		return nil, errors.New("missing required argument 'ApiName'")
 	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
@@ -96,12 +96,12 @@ func (CustomApiState) ElementType() reflect.Type {
 }
 
 type customApiArgs struct {
+	// API name
+	ApiName string `pulumi:"apiName"`
 	// Resource ETag
 	Etag *string `pulumi:"etag"`
 	// Resource location
 	Location *string `pulumi:"location"`
-	// API name
-	Name string `pulumi:"name"`
 	// Custom API properties
 	Properties *CustomApiPropertiesDefinition `pulumi:"properties"`
 	// The resource group
@@ -112,12 +112,12 @@ type customApiArgs struct {
 
 // The set of arguments for constructing a CustomApi resource.
 type CustomApiArgs struct {
+	// API name
+	ApiName pulumi.StringInput
 	// Resource ETag
 	Etag pulumi.StringPtrInput
 	// Resource location
 	Location pulumi.StringPtrInput
-	// API name
-	Name pulumi.StringInput
 	// Custom API properties
 	Properties CustomApiPropertiesDefinitionPtrInput
 	// The resource group

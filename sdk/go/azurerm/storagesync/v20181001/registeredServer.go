@@ -61,11 +61,11 @@ type RegisteredServer struct {
 // NewRegisteredServer registers a new resource with the given unique name, arguments, and options.
 func NewRegisteredServer(ctx *pulumi.Context,
 	name string, args *RegisteredServerArgs, opts ...pulumi.ResourceOption) (*RegisteredServer, error) {
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
-	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
+	}
+	if args == nil || args.ServerId == nil {
+		return nil, errors.New("missing required argument 'ServerId'")
 	}
 	if args == nil || args.StorageSyncServiceName == nil {
 		return nil, errors.New("missing required argument 'StorageSyncServiceName'")
@@ -223,12 +223,12 @@ type registeredServerArgs struct {
 	FriendlyName *string `pulumi:"friendlyName"`
 	// Registered Server last heart beat
 	LastHeartBeat *string `pulumi:"lastHeartBeat"`
-	// Registered Server serverId
-	Name string `pulumi:"name"`
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Registered Server Certificate
 	ServerCertificate *string `pulumi:"serverCertificate"`
+	// Registered Server serverId
+	ServerId string `pulumi:"serverId"`
 	// Registered Server OS Version
 	ServerOSVersion *string `pulumi:"serverOSVersion"`
 	// Registered Server serverRole
@@ -249,12 +249,12 @@ type RegisteredServerArgs struct {
 	FriendlyName pulumi.StringPtrInput
 	// Registered Server last heart beat
 	LastHeartBeat pulumi.StringPtrInput
-	// Registered Server serverId
-	Name pulumi.StringInput
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName pulumi.StringInput
 	// Registered Server Certificate
 	ServerCertificate pulumi.StringPtrInput
+	// Registered Server serverId
+	ServerId pulumi.StringInput
 	// Registered Server OS Version
 	ServerOSVersion pulumi.StringPtrInput
 	// Registered Server serverRole

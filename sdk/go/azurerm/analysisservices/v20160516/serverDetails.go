@@ -42,11 +42,11 @@ func NewServerDetails(ctx *pulumi.Context,
 	if args == nil || args.Location == nil {
 		return nil, errors.New("missing required argument 'Location'")
 	}
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
-	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
+	}
+	if args == nil || args.ServerName == nil {
+		return nil, errors.New("missing required argument 'ServerName'")
 	}
 	if args == nil || args.Sku == nil {
 		return nil, errors.New("missing required argument 'Sku'")
@@ -141,10 +141,10 @@ type serverDetailsArgs struct {
 	BackupBlobContainerUri *string `pulumi:"backupBlobContainerUri"`
 	// Location of the Analysis Services resource.
 	Location string `pulumi:"location"`
-	// The name of the Analysis Services server. It must be a minimum of 3 characters, and a maximum of 63.
-	Name string `pulumi:"name"`
 	// The name of the Azure Resource group of which a given Analysis Services server is part. This name must be at least 1 character in length, and no more than 90.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// The name of the Analysis Services server. It must be a minimum of 3 characters, and a maximum of 63.
+	ServerName string `pulumi:"serverName"`
 	// The SKU of the Analysis Services resource.
 	Sku ResourceSku `pulumi:"sku"`
 	// Key-value pairs of additional resource provisioning properties.
@@ -159,10 +159,10 @@ type ServerDetailsArgs struct {
 	BackupBlobContainerUri pulumi.StringPtrInput
 	// Location of the Analysis Services resource.
 	Location pulumi.StringInput
-	// The name of the Analysis Services server. It must be a minimum of 3 characters, and a maximum of 63.
-	Name pulumi.StringInput
 	// The name of the Azure Resource group of which a given Analysis Services server is part. This name must be at least 1 character in length, and no more than 90.
 	ResourceGroupName pulumi.StringInput
+	// The name of the Analysis Services server. It must be a minimum of 3 characters, and a maximum of 63.
+	ServerName pulumi.StringInput
 	// The SKU of the Analysis Services resource.
 	Sku ResourceSkuInput
 	// Key-value pairs of additional resource provisioning properties.

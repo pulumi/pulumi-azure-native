@@ -25,8 +25,8 @@ type PrivateEndpointConnection struct {
 // NewPrivateEndpointConnection registers a new resource with the given unique name, arguments, and options.
 func NewPrivateEndpointConnection(ctx *pulumi.Context,
 	name string, args *PrivateEndpointConnectionArgs, opts ...pulumi.ResourceOption) (*PrivateEndpointConnection, error) {
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
+	if args == nil || args.PrivateEndpointConnectionName == nil {
+		return nil, errors.New("missing required argument 'PrivateEndpointConnectionName'")
 	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
@@ -82,7 +82,7 @@ func (PrivateEndpointConnectionState) ElementType() reflect.Type {
 
 type privateEndpointConnectionArgs struct {
 	// The name of the private endpoint connection to the Azure Cognitive Search service with the specified resource group.
-	Name string `pulumi:"name"`
+	PrivateEndpointConnectionName string `pulumi:"privateEndpointConnectionName"`
 	// Describes the properties of an existing Private Endpoint connection to the Azure Cognitive Search service.
 	Properties *PrivateEndpointConnectionProperties `pulumi:"properties"`
 	// The name of the resource group within the current subscription. You can obtain this value from the Azure Resource Manager API or the portal.
@@ -94,7 +94,7 @@ type privateEndpointConnectionArgs struct {
 // The set of arguments for constructing a PrivateEndpointConnection resource.
 type PrivateEndpointConnectionArgs struct {
 	// The name of the private endpoint connection to the Azure Cognitive Search service with the specified resource group.
-	Name pulumi.StringInput
+	PrivateEndpointConnectionName pulumi.StringInput
 	// Describes the properties of an existing Private Endpoint connection to the Azure Cognitive Search service.
 	Properties PrivateEndpointConnectionPropertiesPtrInput
 	// The name of the resource group within the current subscription. You can obtain this value from the Azure Resource Manager API or the portal.

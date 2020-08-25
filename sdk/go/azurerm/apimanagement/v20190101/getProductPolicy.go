@@ -20,7 +20,7 @@ type LookupProductPolicyArgs struct {
 	// Policy Export Format.
 	Format *string `pulumi:"format"`
 	// The identifier of the Policy.
-	Name string `pulumi:"name"`
+	PolicyId string `pulumi:"policyId"`
 	// Product identifier. Must be unique in the current API Management service instance.
 	ProductId string `pulumi:"productId"`
 	// The name of the resource group.

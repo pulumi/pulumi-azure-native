@@ -27,8 +27,8 @@ func NewJob(ctx *pulumi.Context,
 	if args == nil || args.JobCollectionName == nil {
 		return nil, errors.New("missing required argument 'JobCollectionName'")
 	}
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
+	if args == nil || args.JobName == nil {
+		return nil, errors.New("missing required argument 'JobName'")
 	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
@@ -89,7 +89,7 @@ type jobArgs struct {
 	// The job collection name.
 	JobCollectionName string `pulumi:"jobCollectionName"`
 	// The job name.
-	Name string `pulumi:"name"`
+	JobName string `pulumi:"jobName"`
 	// Gets or sets the job properties.
 	Properties *JobProperties `pulumi:"properties"`
 	// The resource group name.
@@ -101,7 +101,7 @@ type JobArgs struct {
 	// The job collection name.
 	JobCollectionName pulumi.StringInput
 	// The job name.
-	Name pulumi.StringInput
+	JobName pulumi.StringInput
 	// Gets or sets the job properties.
 	Properties JobPropertiesPtrInput
 	// The resource group name.

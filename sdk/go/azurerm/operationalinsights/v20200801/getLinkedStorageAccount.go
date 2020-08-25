@@ -18,7 +18,7 @@ func LookupLinkedStorageAccount(ctx *pulumi.Context, args *LookupLinkedStorageAc
 
 type LookupLinkedStorageAccountArgs struct {
 	// Linked storage accounts type.
-	Name string `pulumi:"name"`
+	DataSourceType string `pulumi:"dataSourceType"`
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The name of the workspace.

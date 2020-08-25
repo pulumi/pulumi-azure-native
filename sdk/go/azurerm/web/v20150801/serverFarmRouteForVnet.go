@@ -50,6 +50,9 @@ func NewServerFarmRouteForVnet(ctx *pulumi.Context,
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
 	}
+	if args == nil || args.RouteName == nil {
+		return nil, errors.New("missing required argument 'RouteName'")
+	}
 	if args == nil || args.VnetName == nil {
 		return nil, errors.New("missing required argument 'VnetName'")
 	}
@@ -155,10 +158,12 @@ type serverFarmRouteForVnetArgs struct {
 	Kind *string `pulumi:"kind"`
 	// Resource Location
 	Location string `pulumi:"location"`
-	// Name of the virtual network route
+	// Resource Name
 	Name string `pulumi:"name"`
 	// Name of resource group
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// Name of the virtual network route
+	RouteName string `pulumi:"routeName"`
 	// The type of route this is:
 	//             DEFAULT - By default, every web app has routes to the local address ranges specified by RFC1918
 	//             INHERITED - Routes inherited from the real Virtual Network routes
@@ -187,10 +192,12 @@ type ServerFarmRouteForVnetArgs struct {
 	Kind pulumi.StringPtrInput
 	// Resource Location
 	Location pulumi.StringInput
-	// Name of the virtual network route
+	// Resource Name
 	Name pulumi.StringInput
 	// Name of resource group
 	ResourceGroupName pulumi.StringInput
+	// Name of the virtual network route
+	RouteName pulumi.StringInput
 	// The type of route this is:
 	//             DEFAULT - By default, every web app has routes to the local address ranges specified by RFC1918
 	//             INHERITED - Routes inherited from the real Virtual Network routes

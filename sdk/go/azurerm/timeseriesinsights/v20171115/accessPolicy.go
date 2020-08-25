@@ -29,11 +29,11 @@ type AccessPolicy struct {
 // NewAccessPolicy registers a new resource with the given unique name, arguments, and options.
 func NewAccessPolicy(ctx *pulumi.Context,
 	name string, args *AccessPolicyArgs, opts ...pulumi.ResourceOption) (*AccessPolicy, error) {
+	if args == nil || args.AccessPolicyName == nil {
+		return nil, errors.New("missing required argument 'AccessPolicyName'")
+	}
 	if args == nil || args.EnvironmentName == nil {
 		return nil, errors.New("missing required argument 'EnvironmentName'")
-	}
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
 	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
@@ -99,12 +99,12 @@ func (AccessPolicyState) ElementType() reflect.Type {
 }
 
 type accessPolicyArgs struct {
+	// Name of the access policy.
+	AccessPolicyName string `pulumi:"accessPolicyName"`
 	// An description of the access policy.
 	Description *string `pulumi:"description"`
 	// The name of the Time Series Insights environment associated with the specified resource group.
 	EnvironmentName string `pulumi:"environmentName"`
-	// Name of the access policy.
-	Name string `pulumi:"name"`
 	// The objectId of the principal in Azure Active Directory.
 	PrincipalObjectId *string `pulumi:"principalObjectId"`
 	// Name of an Azure Resource group.
@@ -115,12 +115,12 @@ type accessPolicyArgs struct {
 
 // The set of arguments for constructing a AccessPolicy resource.
 type AccessPolicyArgs struct {
+	// Name of the access policy.
+	AccessPolicyName pulumi.StringInput
 	// An description of the access policy.
 	Description pulumi.StringPtrInput
 	// The name of the Time Series Insights environment associated with the specified resource group.
 	EnvironmentName pulumi.StringInput
-	// Name of the access policy.
-	Name pulumi.StringInput
 	// The objectId of the principal in Azure Active Directory.
 	PrincipalObjectId pulumi.StringPtrInput
 	// Name of an Azure Resource group.

@@ -47,11 +47,11 @@ type PrivateLinkService struct {
 // NewPrivateLinkService registers a new resource with the given unique name, arguments, and options.
 func NewPrivateLinkService(ctx *pulumi.Context,
 	name string, args *PrivateLinkServiceArgs, opts ...pulumi.ResourceOption) (*PrivateLinkService, error) {
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
-	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
+	}
+	if args == nil || args.ServiceName == nil {
+		return nil, errors.New("missing required argument 'ServiceName'")
 	}
 	if args == nil {
 		args = &PrivateLinkServiceArgs{}
@@ -191,14 +191,14 @@ type privateLinkServiceArgs struct {
 	LoadBalancerFrontendIpConfigurations []FrontendIPConfiguration `pulumi:"loadBalancerFrontendIpConfigurations"`
 	// Resource location.
 	Location *string `pulumi:"location"`
-	// The name of the private link service.
-	Name string `pulumi:"name"`
 	// An array of list about connections to the private endpoint.
 	PrivateEndpointConnections []PrivateEndpointConnection `pulumi:"privateEndpointConnections"`
 	// The provisioning state of the private link service resource.
 	ProvisioningState *string `pulumi:"provisioningState"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// The name of the private link service.
+	ServiceName string `pulumi:"serviceName"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// The visibility list of the private link service.
@@ -221,14 +221,14 @@ type PrivateLinkServiceArgs struct {
 	LoadBalancerFrontendIpConfigurations FrontendIPConfigurationArrayInput
 	// Resource location.
 	Location pulumi.StringPtrInput
-	// The name of the private link service.
-	Name pulumi.StringInput
 	// An array of list about connections to the private endpoint.
 	PrivateEndpointConnections PrivateEndpointConnectionArrayInput
 	// The provisioning state of the private link service resource.
 	ProvisioningState pulumi.StringPtrInput
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
+	// The name of the private link service.
+	ServiceName pulumi.StringInput
 	// Resource tags.
 	Tags pulumi.StringMapInput
 	// The visibility list of the private link service.

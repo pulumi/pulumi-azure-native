@@ -39,11 +39,11 @@ type WCFRelay struct {
 // NewWCFRelay registers a new resource with the given unique name, arguments, and options.
 func NewWCFRelay(ctx *pulumi.Context,
 	name string, args *WCFRelayArgs, opts ...pulumi.ResourceOption) (*WCFRelay, error) {
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
-	}
 	if args == nil || args.NamespaceName == nil {
 		return nil, errors.New("missing required argument 'NamespaceName'")
+	}
+	if args == nil || args.RelayName == nil {
+		return nil, errors.New("missing required argument 'RelayName'")
 	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
@@ -123,10 +123,10 @@ func (WCFRelayState) ElementType() reflect.Type {
 }
 
 type wcfrelayArgs struct {
-	// The relay name
-	Name string `pulumi:"name"`
 	// The Namespace Name
 	NamespaceName string `pulumi:"namespaceName"`
+	// The relay name
+	RelayName string `pulumi:"relayName"`
 	// WCFRelay Type.
 	RelayType *string `pulumi:"relayType"`
 	// true if client authorization is needed for this relay; otherwise, false.
@@ -141,10 +141,10 @@ type wcfrelayArgs struct {
 
 // The set of arguments for constructing a WCFRelay resource.
 type WCFRelayArgs struct {
-	// The relay name
-	Name pulumi.StringInput
 	// The Namespace Name
 	NamespaceName pulumi.StringInput
+	// The relay name
+	RelayName pulumi.StringInput
 	// WCFRelay Type.
 	RelayType pulumi.StringPtrInput
 	// true if client authorization is needed for this relay; otherwise, false.

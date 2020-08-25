@@ -18,7 +18,7 @@ func LookupRegistry(ctx *pulumi.Context, args *LookupRegistryArgs, opts ...pulum
 
 type LookupRegistryArgs struct {
 	// The name of the container registry.
-	Name string `pulumi:"name"`
+	RegistryName string `pulumi:"registryName"`
 	// The name of the resource group to which the container registry belongs.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }

@@ -29,11 +29,11 @@ type IntegrationAccountBatchConfiguration struct {
 // NewIntegrationAccountBatchConfiguration registers a new resource with the given unique name, arguments, and options.
 func NewIntegrationAccountBatchConfiguration(ctx *pulumi.Context,
 	name string, args *IntegrationAccountBatchConfigurationArgs, opts ...pulumi.ResourceOption) (*IntegrationAccountBatchConfiguration, error) {
+	if args == nil || args.BatchConfigurationName == nil {
+		return nil, errors.New("missing required argument 'BatchConfigurationName'")
+	}
 	if args == nil || args.IntegrationAccountName == nil {
 		return nil, errors.New("missing required argument 'IntegrationAccountName'")
-	}
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
 	}
 	if args == nil || args.Properties == nil {
 		return nil, errors.New("missing required argument 'Properties'")
@@ -102,12 +102,12 @@ func (IntegrationAccountBatchConfigurationState) ElementType() reflect.Type {
 }
 
 type integrationAccountBatchConfigurationArgs struct {
+	// The batch configuration name.
+	BatchConfigurationName string `pulumi:"batchConfigurationName"`
 	// The integration account name.
 	IntegrationAccountName string `pulumi:"integrationAccountName"`
 	// The resource location.
 	Location *string `pulumi:"location"`
-	// The batch configuration name.
-	Name string `pulumi:"name"`
 	// The batch configuration properties.
 	Properties BatchConfigurationProperties `pulumi:"properties"`
 	// The resource group name.
@@ -118,12 +118,12 @@ type integrationAccountBatchConfigurationArgs struct {
 
 // The set of arguments for constructing a IntegrationAccountBatchConfiguration resource.
 type IntegrationAccountBatchConfigurationArgs struct {
+	// The batch configuration name.
+	BatchConfigurationName pulumi.StringInput
 	// The integration account name.
 	IntegrationAccountName pulumi.StringInput
 	// The resource location.
 	Location pulumi.StringPtrInput
-	// The batch configuration name.
-	Name pulumi.StringInput
 	// The batch configuration properties.
 	Properties BatchConfigurationPropertiesInput
 	// The resource group name.

@@ -17,10 +17,10 @@ func LookupIotSecuritySolution(ctx *pulumi.Context, args *LookupIotSecuritySolut
 }
 
 type LookupIotSecuritySolutionArgs struct {
-	// The name of the IoT Security solution.
-	Name string `pulumi:"name"`
 	// The name of the resource group within the user's subscription. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// The name of the IoT Security solution.
+	SolutionName string `pulumi:"solutionName"`
 }
 
 // IoT Security solution configuration and resource information.

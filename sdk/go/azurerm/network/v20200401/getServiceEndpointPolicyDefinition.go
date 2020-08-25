@@ -17,10 +17,10 @@ func LookupServiceEndpointPolicyDefinition(ctx *pulumi.Context, args *LookupServ
 }
 
 type LookupServiceEndpointPolicyDefinitionArgs struct {
-	// The name of the service endpoint policy definition name.
-	Name string `pulumi:"name"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// The name of the service endpoint policy definition name.
+	ServiceEndpointPolicyDefinitionName string `pulumi:"serviceEndpointPolicyDefinitionName"`
 	// The name of the service endpoint policy name.
 	ServiceEndpointPolicyName string `pulumi:"serviceEndpointPolicyName"`
 }

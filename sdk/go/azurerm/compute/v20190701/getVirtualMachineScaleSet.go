@@ -17,10 +17,10 @@ func LookupVirtualMachineScaleSet(ctx *pulumi.Context, args *LookupVirtualMachin
 }
 
 type LookupVirtualMachineScaleSetArgs struct {
-	// The name of the VM scale set.
-	Name string `pulumi:"name"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// The name of the VM scale set.
+	VmScaleSetName string `pulumi:"vmScaleSetName"`
 }
 
 // Describes a Virtual Machine Scale Set.

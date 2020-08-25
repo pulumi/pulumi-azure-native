@@ -30,11 +30,11 @@ func NewApiOperationPolicy(ctx *pulumi.Context,
 	if args == nil || args.ApiId == nil {
 		return nil, errors.New("missing required argument 'ApiId'")
 	}
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
-	}
 	if args == nil || args.OperationId == nil {
 		return nil, errors.New("missing required argument 'OperationId'")
+	}
+	if args == nil || args.PolicyId == nil {
+		return nil, errors.New("missing required argument 'PolicyId'")
 	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
@@ -112,10 +112,10 @@ type apiOperationPolicyArgs struct {
 	ApiId string `pulumi:"apiId"`
 	// Format of the policyContent.
 	Format *string `pulumi:"format"`
-	// The identifier of the Policy.
-	Name string `pulumi:"name"`
 	// Operation identifier within an API. Must be unique in the current API Management service instance.
 	OperationId string `pulumi:"operationId"`
+	// The identifier of the Policy.
+	PolicyId string `pulumi:"policyId"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The name of the API Management service.
@@ -130,10 +130,10 @@ type ApiOperationPolicyArgs struct {
 	ApiId pulumi.StringInput
 	// Format of the policyContent.
 	Format pulumi.StringPtrInput
-	// The identifier of the Policy.
-	Name pulumi.StringInput
 	// Operation identifier within an API. Must be unique in the current API Management service instance.
 	OperationId pulumi.StringInput
+	// The identifier of the Policy.
+	PolicyId pulumi.StringInput
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
 	// The name of the API Management service.

@@ -22,7 +22,7 @@ type LookupManagementGroupArgs struct {
 	// A filter which allows the exclusion of subscriptions from results (i.e. '$filter=children.childType ne Subscription')
 	Filter *string `pulumi:"filter"`
 	// Management Group ID.
-	Name string `pulumi:"name"`
+	GroupId string `pulumi:"groupId"`
 	// The $recurse=true query string parameter allows clients to request inclusion of entire hierarchy in the response payload. Note that  $expand=children must be passed up if $recurse is set to true.
 	Recurse *bool `pulumi:"recurse"`
 }

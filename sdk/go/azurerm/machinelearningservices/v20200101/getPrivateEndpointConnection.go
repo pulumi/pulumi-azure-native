@@ -18,7 +18,7 @@ func LookupPrivateEndpointConnection(ctx *pulumi.Context, args *LookupPrivateEnd
 
 type LookupPrivateEndpointConnectionArgs struct {
 	// The name of the private endpoint connection associated with the workspace
-	Name string `pulumi:"name"`
+	PrivateEndpointConnectionName string `pulumi:"privateEndpointConnectionName"`
 	// Name of the resource group in which workspace is located.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Name of Azure Machine Learning workspace.

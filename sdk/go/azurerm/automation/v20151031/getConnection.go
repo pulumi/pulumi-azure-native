@@ -20,7 +20,7 @@ type LookupConnectionArgs struct {
 	// The name of the automation account.
 	AutomationAccountName string `pulumi:"automationAccountName"`
 	// The name of connection.
-	Name string `pulumi:"name"`
+	ConnectionName string `pulumi:"connectionName"`
 	// Name of an Azure Resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }

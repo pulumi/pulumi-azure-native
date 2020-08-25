@@ -18,6 +18,8 @@ func LookupSiteHostNameBindingSlot(ctx *pulumi.Context, args *LookupSiteHostName
 
 type LookupSiteHostNameBindingSlotArgs struct {
 	// Name of host
+	HostName string `pulumi:"hostName"`
+	// Name of web app
 	Name string `pulumi:"name"`
 	// Name of resource group
 	ResourceGroupName string `pulumi:"resourceGroupName"`

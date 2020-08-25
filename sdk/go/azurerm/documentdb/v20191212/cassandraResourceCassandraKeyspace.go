@@ -31,8 +31,8 @@ func NewCassandraResourceCassandraKeyspace(ctx *pulumi.Context,
 	if args == nil || args.AccountName == nil {
 		return nil, errors.New("missing required argument 'AccountName'")
 	}
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
+	if args == nil || args.KeyspaceName == nil {
+		return nil, errors.New("missing required argument 'KeyspaceName'")
 	}
 	if args == nil || args.Options == nil {
 		return nil, errors.New("missing required argument 'Options'")
@@ -110,10 +110,10 @@ func (CassandraResourceCassandraKeyspaceState) ElementType() reflect.Type {
 type cassandraResourceCassandraKeyspaceArgs struct {
 	// Cosmos DB database account name.
 	AccountName string `pulumi:"accountName"`
+	// Cosmos DB keyspace name.
+	KeyspaceName string `pulumi:"keyspaceName"`
 	// The location of the resource group to which the resource belongs.
 	Location *string `pulumi:"location"`
-	// Cosmos DB keyspace name.
-	Name string `pulumi:"name"`
 	// A key-value pair of options to be applied for the request. This corresponds to the headers sent with the request.
 	Options CreateUpdateOptions `pulumi:"options"`
 	// The standard JSON format of a Cassandra keyspace
@@ -128,10 +128,10 @@ type cassandraResourceCassandraKeyspaceArgs struct {
 type CassandraResourceCassandraKeyspaceArgs struct {
 	// Cosmos DB database account name.
 	AccountName pulumi.StringInput
+	// Cosmos DB keyspace name.
+	KeyspaceName pulumi.StringInput
 	// The location of the resource group to which the resource belongs.
 	Location pulumi.StringPtrInput
-	// Cosmos DB keyspace name.
-	Name pulumi.StringInput
 	// A key-value pair of options to be applied for the request. This corresponds to the headers sent with the request.
 	Options CreateUpdateOptionsInput
 	// The standard JSON format of a Cassandra keyspace

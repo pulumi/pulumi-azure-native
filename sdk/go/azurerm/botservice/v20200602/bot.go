@@ -35,11 +35,11 @@ type Bot struct {
 // NewBot registers a new resource with the given unique name, arguments, and options.
 func NewBot(ctx *pulumi.Context,
 	name string, args *BotArgs, opts ...pulumi.ResourceOption) (*Bot, error) {
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
-	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
+	}
+	if args == nil || args.ResourceName == nil {
+		return nil, errors.New("missing required argument 'ResourceName'")
 	}
 	if args == nil {
 		args = &BotArgs{}
@@ -114,12 +114,12 @@ type botArgs struct {
 	Kind *string `pulumi:"kind"`
 	// Specifies the location of the resource.
 	Location *string `pulumi:"location"`
-	// The name of the Bot resource.
-	Name string `pulumi:"name"`
 	// The set of properties specific to bot resource
 	Properties *BotProperties `pulumi:"properties"`
 	// The name of the Bot resource group in the user subscription.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// The name of the Bot resource.
+	ResourceName string `pulumi:"resourceName"`
 	// Gets or sets the SKU of the resource.
 	Sku *Sku `pulumi:"sku"`
 	// Contains resource tags defined as key/value pairs.
@@ -134,12 +134,12 @@ type BotArgs struct {
 	Kind pulumi.StringPtrInput
 	// Specifies the location of the resource.
 	Location pulumi.StringPtrInput
-	// The name of the Bot resource.
-	Name pulumi.StringInput
 	// The set of properties specific to bot resource
 	Properties BotPropertiesPtrInput
 	// The name of the Bot resource group in the user subscription.
 	ResourceGroupName pulumi.StringInput
+	// The name of the Bot resource.
+	ResourceName pulumi.StringInput
 	// Gets or sets the SKU of the resource.
 	Sku SkuPtrInput
 	// Contains resource tags defined as key/value pairs.

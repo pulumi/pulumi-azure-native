@@ -46,11 +46,11 @@ func NewVirtualMachineExtension(ctx *pulumi.Context,
 	if args == nil || args.Location == nil {
 		return nil, errors.New("missing required argument 'Location'")
 	}
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
-	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
+	}
+	if args == nil || args.VmExtensionName == nil {
+		return nil, errors.New("missing required argument 'VmExtensionName'")
 	}
 	if args == nil || args.VmName == nil {
 		return nil, errors.New("missing required argument 'VmName'")
@@ -179,8 +179,6 @@ type virtualMachineExtensionArgs struct {
 	InstanceView *VirtualMachineExtensionInstanceView `pulumi:"instanceView"`
 	// Resource location
 	Location string `pulumi:"location"`
-	// The name of the virtual machine extension.
-	Name string `pulumi:"name"`
 	// The extension can contain either protectedSettings or protectedSettingsFromKeyVault or no protected settings at all.
 	ProtectedSettings map[string]interface{} `pulumi:"protectedSettings"`
 	// The name of the extension handler publisher.
@@ -195,6 +193,8 @@ type virtualMachineExtensionArgs struct {
 	Type *string `pulumi:"type"`
 	// Specifies the version of the script handler.
 	TypeHandlerVersion *string `pulumi:"typeHandlerVersion"`
+	// The name of the virtual machine extension.
+	VmExtensionName string `pulumi:"vmExtensionName"`
 	// The name of the virtual machine where the extension should be created or updated.
 	VmName string `pulumi:"vmName"`
 }
@@ -209,8 +209,6 @@ type VirtualMachineExtensionArgs struct {
 	InstanceView VirtualMachineExtensionInstanceViewPtrInput
 	// Resource location
 	Location pulumi.StringInput
-	// The name of the virtual machine extension.
-	Name pulumi.StringInput
 	// The extension can contain either protectedSettings or protectedSettingsFromKeyVault or no protected settings at all.
 	ProtectedSettings pulumi.MapInput
 	// The name of the extension handler publisher.
@@ -225,6 +223,8 @@ type VirtualMachineExtensionArgs struct {
 	Type pulumi.StringPtrInput
 	// Specifies the version of the script handler.
 	TypeHandlerVersion pulumi.StringPtrInput
+	// The name of the virtual machine extension.
+	VmExtensionName pulumi.StringInput
 	// The name of the virtual machine where the extension should be created or updated.
 	VmName pulumi.StringInput
 }

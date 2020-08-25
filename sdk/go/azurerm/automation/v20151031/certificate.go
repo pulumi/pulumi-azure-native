@@ -41,6 +41,9 @@ func NewCertificate(ctx *pulumi.Context,
 	if args == nil || args.Base64Value == nil {
 		return nil, errors.New("missing required argument 'Base64Value'")
 	}
+	if args == nil || args.CertificateName == nil {
+		return nil, errors.New("missing required argument 'CertificateName'")
+	}
 	if args == nil || args.Name == nil {
 		return nil, errors.New("missing required argument 'Name'")
 	}
@@ -118,11 +121,13 @@ type certificateArgs struct {
 	AutomationAccountName string `pulumi:"automationAccountName"`
 	// Gets or sets the base64 encoded value of the certificate.
 	Base64Value string `pulumi:"base64Value"`
+	// The parameters supplied to the create or update certificate operation.
+	CertificateName string `pulumi:"certificateName"`
 	// Gets or sets the description of the certificate.
 	Description *string `pulumi:"description"`
 	// Gets or sets the is exportable flag of the certificate.
 	IsExportable *bool `pulumi:"isExportable"`
-	// The parameters supplied to the create or update certificate operation.
+	// Gets or sets the name of the certificate.
 	Name string `pulumi:"name"`
 	// Name of an Azure Resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
@@ -136,11 +141,13 @@ type CertificateArgs struct {
 	AutomationAccountName pulumi.StringInput
 	// Gets or sets the base64 encoded value of the certificate.
 	Base64Value pulumi.StringInput
+	// The parameters supplied to the create or update certificate operation.
+	CertificateName pulumi.StringInput
 	// Gets or sets the description of the certificate.
 	Description pulumi.StringPtrInput
 	// Gets or sets the is exportable flag of the certificate.
 	IsExportable pulumi.BoolPtrInput
-	// The parameters supplied to the create or update certificate operation.
+	// Gets or sets the name of the certificate.
 	Name pulumi.StringInput
 	// Name of an Azure Resource group.
 	ResourceGroupName pulumi.StringInput

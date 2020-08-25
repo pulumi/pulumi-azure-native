@@ -49,9 +49,6 @@ func NewTask(ctx *pulumi.Context,
 	if args == nil || args.Location == nil {
 		return nil, errors.New("missing required argument 'Location'")
 	}
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
-	}
 	if args == nil || args.Platform == nil {
 		return nil, errors.New("missing required argument 'Platform'")
 	}
@@ -63,6 +60,9 @@ func NewTask(ctx *pulumi.Context,
 	}
 	if args == nil || args.Step == nil {
 		return nil, errors.New("missing required argument 'Step'")
+	}
+	if args == nil || args.TaskName == nil {
+		return nil, errors.New("missing required argument 'TaskName'")
 	}
 	if args == nil {
 		args = &TaskArgs{}
@@ -163,8 +163,6 @@ type taskArgs struct {
 	Credentials *Credentials `pulumi:"credentials"`
 	// The location of the resource. This cannot be changed after the resource is created.
 	Location string `pulumi:"location"`
-	// The name of the container registry task.
-	Name string `pulumi:"name"`
 	// The platform properties against which the run has to happen.
 	Platform PlatformProperties `pulumi:"platform"`
 	// The name of the container registry.
@@ -177,6 +175,8 @@ type taskArgs struct {
 	Step TaskStepProperties `pulumi:"step"`
 	// The tags of the resource.
 	Tags map[string]string `pulumi:"tags"`
+	// The name of the container registry task.
+	TaskName string `pulumi:"taskName"`
 	// Run timeout in seconds.
 	Timeout *int `pulumi:"timeout"`
 	// The properties that describe all triggers for the task.
@@ -191,8 +191,6 @@ type TaskArgs struct {
 	Credentials CredentialsPtrInput
 	// The location of the resource. This cannot be changed after the resource is created.
 	Location pulumi.StringInput
-	// The name of the container registry task.
-	Name pulumi.StringInput
 	// The platform properties against which the run has to happen.
 	Platform PlatformPropertiesInput
 	// The name of the container registry.
@@ -205,6 +203,8 @@ type TaskArgs struct {
 	Step TaskStepPropertiesInput
 	// The tags of the resource.
 	Tags pulumi.StringMapInput
+	// The name of the container registry task.
+	TaskName pulumi.StringInput
 	// Run timeout in seconds.
 	Timeout pulumi.IntPtrInput
 	// The properties that describe all triggers for the task.

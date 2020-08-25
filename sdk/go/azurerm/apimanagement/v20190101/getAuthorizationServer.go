@@ -18,7 +18,7 @@ func LookupAuthorizationServer(ctx *pulumi.Context, args *LookupAuthorizationSer
 
 type LookupAuthorizationServerArgs struct {
 	// Identifier of the authorization server.
-	Name string `pulumi:"name"`
+	Authsid string `pulumi:"authsid"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The name of the API Management service.

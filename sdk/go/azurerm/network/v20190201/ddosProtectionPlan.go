@@ -35,8 +35,8 @@ type DdosProtectionPlan struct {
 // NewDdosProtectionPlan registers a new resource with the given unique name, arguments, and options.
 func NewDdosProtectionPlan(ctx *pulumi.Context,
 	name string, args *DdosProtectionPlanArgs, opts ...pulumi.ResourceOption) (*DdosProtectionPlan, error) {
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
+	if args == nil || args.DdosProtectionPlanName == nil {
+		return nil, errors.New("missing required argument 'DdosProtectionPlanName'")
 	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
@@ -168,10 +168,10 @@ func (DdosProtectionPlanState) ElementType() reflect.Type {
 }
 
 type ddosProtectionPlanArgs struct {
+	// The name of the DDoS protection plan.
+	DdosProtectionPlanName string `pulumi:"ddosProtectionPlanName"`
 	// Resource location.
 	Location *string `pulumi:"location"`
-	// The name of the DDoS protection plan.
-	Name string `pulumi:"name"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Resource tags.
@@ -180,10 +180,10 @@ type ddosProtectionPlanArgs struct {
 
 // The set of arguments for constructing a DdosProtectionPlan resource.
 type DdosProtectionPlanArgs struct {
+	// The name of the DDoS protection plan.
+	DdosProtectionPlanName pulumi.StringInput
 	// Resource location.
 	Location pulumi.StringPtrInput
-	// The name of the DDoS protection plan.
-	Name pulumi.StringInput
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
 	// Resource tags.

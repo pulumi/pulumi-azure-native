@@ -20,7 +20,7 @@ type LookupImageArgs struct {
 	// The expand expression to apply on the operation.
 	Expand *string `pulumi:"expand"`
 	// The name of the image.
-	Name string `pulumi:"name"`
+	ImageName string `pulumi:"imageName"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }

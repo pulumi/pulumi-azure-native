@@ -18,7 +18,7 @@ func LookupLogProfile(ctx *pulumi.Context, args *LookupLogProfileArgs, opts ...p
 
 type LookupLogProfileArgs struct {
 	// The name of the log profile.
-	Name string `pulumi:"name"`
+	LogProfileName string `pulumi:"logProfileName"`
 }
 
 // The log profile resource.

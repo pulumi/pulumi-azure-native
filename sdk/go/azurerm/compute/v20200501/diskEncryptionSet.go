@@ -37,11 +37,11 @@ type DiskEncryptionSet struct {
 // NewDiskEncryptionSet registers a new resource with the given unique name, arguments, and options.
 func NewDiskEncryptionSet(ctx *pulumi.Context,
 	name string, args *DiskEncryptionSetArgs, opts ...pulumi.ResourceOption) (*DiskEncryptionSet, error) {
+	if args == nil || args.DiskEncryptionSetName == nil {
+		return nil, errors.New("missing required argument 'DiskEncryptionSetName'")
+	}
 	if args == nil || args.Location == nil {
 		return nil, errors.New("missing required argument 'Location'")
-	}
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
 	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
@@ -131,14 +131,14 @@ func (DiskEncryptionSetState) ElementType() reflect.Type {
 type diskEncryptionSetArgs struct {
 	// The key vault key which is currently used by this disk encryption set.
 	ActiveKey *KeyVaultAndKeyReference `pulumi:"activeKey"`
+	// The name of the disk encryption set that is being created. The name can't be changed after the disk encryption set is created. Supported characters for the name are a-z, A-Z, 0-9 and _. The maximum name length is 80 characters.
+	DiskEncryptionSetName string `pulumi:"diskEncryptionSetName"`
 	// The type of key used to encrypt the data of the disk.
 	EncryptionType *string `pulumi:"encryptionType"`
 	// The managed identity for the disk encryption set. It should be given permission on the key vault before it can be used to encrypt disks.
 	Identity *EncryptionSetIdentity `pulumi:"identity"`
 	// Resource location
 	Location string `pulumi:"location"`
-	// The name of the disk encryption set that is being created. The name can't be changed after the disk encryption set is created. Supported characters for the name are a-z, A-Z, 0-9 and _. The maximum name length is 80 characters.
-	Name string `pulumi:"name"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Resource tags
@@ -149,14 +149,14 @@ type diskEncryptionSetArgs struct {
 type DiskEncryptionSetArgs struct {
 	// The key vault key which is currently used by this disk encryption set.
 	ActiveKey KeyVaultAndKeyReferencePtrInput
+	// The name of the disk encryption set that is being created. The name can't be changed after the disk encryption set is created. Supported characters for the name are a-z, A-Z, 0-9 and _. The maximum name length is 80 characters.
+	DiskEncryptionSetName pulumi.StringInput
 	// The type of key used to encrypt the data of the disk.
 	EncryptionType pulumi.StringPtrInput
 	// The managed identity for the disk encryption set. It should be given permission on the key vault before it can be used to encrypt disks.
 	Identity EncryptionSetIdentityPtrInput
 	// Resource location
 	Location pulumi.StringInput
-	// The name of the disk encryption set that is being created. The name can't be changed after the disk encryption set is created. Supported characters for the name are a-z, A-Z, 0-9 and _. The maximum name length is 80 characters.
-	Name pulumi.StringInput
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
 	// Resource tags

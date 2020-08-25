@@ -33,8 +33,8 @@ type DisasterRecoveryConfig struct {
 // NewDisasterRecoveryConfig registers a new resource with the given unique name, arguments, and options.
 func NewDisasterRecoveryConfig(ctx *pulumi.Context,
 	name string, args *DisasterRecoveryConfigArgs, opts ...pulumi.ResourceOption) (*DisasterRecoveryConfig, error) {
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
+	if args == nil || args.Alias == nil {
+		return nil, errors.New("missing required argument 'Alias'")
 	}
 	if args == nil || args.NamespaceName == nil {
 		return nil, errors.New("missing required argument 'NamespaceName'")
@@ -105,10 +105,10 @@ func (DisasterRecoveryConfigState) ElementType() reflect.Type {
 }
 
 type disasterRecoveryConfigArgs struct {
+	// The Disaster Recovery configuration name
+	Alias string `pulumi:"alias"`
 	// Alternate name specified when alias and namespace names are same.
 	AlternateName *string `pulumi:"alternateName"`
-	// The Disaster Recovery configuration name
-	Name string `pulumi:"name"`
 	// The Namespace name
 	NamespaceName string `pulumi:"namespaceName"`
 	// ARM Id of the Primary/Secondary eventhub namespace name, which is part of GEO DR pairing
@@ -119,10 +119,10 @@ type disasterRecoveryConfigArgs struct {
 
 // The set of arguments for constructing a DisasterRecoveryConfig resource.
 type DisasterRecoveryConfigArgs struct {
+	// The Disaster Recovery configuration name
+	Alias pulumi.StringInput
 	// Alternate name specified when alias and namespace names are same.
 	AlternateName pulumi.StringPtrInput
-	// The Disaster Recovery configuration name
-	Name pulumi.StringInput
 	// The Namespace name
 	NamespaceName pulumi.StringInput
 	// ARM Id of the Primary/Secondary eventhub namespace name, which is part of GEO DR pairing

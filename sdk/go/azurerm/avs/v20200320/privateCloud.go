@@ -63,11 +63,11 @@ func NewPrivateCloud(ctx *pulumi.Context,
 	if args == nil || args.ManagementCluster == nil {
 		return nil, errors.New("missing required argument 'ManagementCluster'")
 	}
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
-	}
 	if args == nil || args.NetworkBlock == nil {
 		return nil, errors.New("missing required argument 'NetworkBlock'")
+	}
+	if args == nil || args.PrivateCloudName == nil {
+		return nil, errors.New("missing required argument 'PrivateCloudName'")
 	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
@@ -194,12 +194,12 @@ type privateCloudArgs struct {
 	Location string `pulumi:"location"`
 	// The default cluster used for management
 	ManagementCluster ManagementCluster `pulumi:"managementCluster"`
-	// Name of the private cloud
-	Name string `pulumi:"name"`
 	// The block of addresses should be unique across VNet in your subscription as well as on-premise. Make sure the CIDR format is conformed to (A.B.C.D/X) where A,B,C,D are between 0 and 255, and X is between 0 and 22
 	NetworkBlock string `pulumi:"networkBlock"`
 	// Optionally, set the NSX-T Manager password when the private cloud is created
 	NsxtPassword *string `pulumi:"nsxtPassword"`
+	// Name of the private cloud
+	PrivateCloudName string `pulumi:"privateCloudName"`
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The private cloud SKU
@@ -220,12 +220,12 @@ type PrivateCloudArgs struct {
 	Location pulumi.StringInput
 	// The default cluster used for management
 	ManagementCluster ManagementClusterInput
-	// Name of the private cloud
-	Name pulumi.StringInput
 	// The block of addresses should be unique across VNet in your subscription as well as on-premise. Make sure the CIDR format is conformed to (A.B.C.D/X) where A,B,C,D are between 0 and 255, and X is between 0 and 22
 	NetworkBlock pulumi.StringInput
 	// Optionally, set the NSX-T Manager password when the private cloud is created
 	NsxtPassword pulumi.StringPtrInput
+	// Name of the private cloud
+	PrivateCloudName pulumi.StringInput
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName pulumi.StringInput
 	// The private cloud SKU

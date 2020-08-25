@@ -17,10 +17,10 @@ func LookupAccessPolicy(ctx *pulumi.Context, args *LookupAccessPolicyArgs, opts 
 }
 
 type LookupAccessPolicyArgs struct {
+	// The name of the Time Series Insights access policy associated with the specified environment.
+	AccessPolicyName string `pulumi:"accessPolicyName"`
 	// The name of the Time Series Insights environment associated with the specified resource group.
 	EnvironmentName string `pulumi:"environmentName"`
-	// The name of the Time Series Insights access policy associated with the specified environment.
-	Name string `pulumi:"name"`
 	// Name of an Azure Resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }

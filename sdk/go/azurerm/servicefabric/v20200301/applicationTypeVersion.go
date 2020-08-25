@@ -44,11 +44,11 @@ func NewApplicationTypeVersion(ctx *pulumi.Context,
 	if args == nil || args.ClusterName == nil {
 		return nil, errors.New("missing required argument 'ClusterName'")
 	}
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
-	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
+	}
+	if args == nil || args.Version == nil {
+		return nil, errors.New("missing required argument 'Version'")
 	}
 	if args == nil {
 		args = &ApplicationTypeVersionArgs{}
@@ -131,12 +131,12 @@ type applicationTypeVersionArgs struct {
 	ClusterName string `pulumi:"clusterName"`
 	// It will be deprecated in New API, resource location depends on the parent resource.
 	Location *string `pulumi:"location"`
-	// The application type version.
-	Name string `pulumi:"name"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Azure resource tags.
 	Tags map[string]string `pulumi:"tags"`
+	// The application type version.
+	Version string `pulumi:"version"`
 }
 
 // The set of arguments for constructing a ApplicationTypeVersion resource.
@@ -149,12 +149,12 @@ type ApplicationTypeVersionArgs struct {
 	ClusterName pulumi.StringInput
 	// It will be deprecated in New API, resource location depends on the parent resource.
 	Location pulumi.StringPtrInput
-	// The application type version.
-	Name pulumi.StringInput
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
 	// Azure resource tags.
 	Tags pulumi.StringMapInput
+	// The application type version.
+	Version pulumi.StringInput
 }
 
 func (ApplicationTypeVersionArgs) ElementType() reflect.Type {

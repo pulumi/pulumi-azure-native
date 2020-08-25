@@ -20,7 +20,7 @@ type LookupPolicySetDefinitionAtManagementGroupArgs struct {
 	// The ID of the management group.
 	ManagementGroupId string `pulumi:"managementGroupId"`
 	// The name of the policy set definition to get.
-	Name string `pulumi:"name"`
+	PolicySetDefinitionName string `pulumi:"policySetDefinitionName"`
 }
 
 // The policy set definition.

@@ -32,8 +32,8 @@ func NewPrivateEndpointConnection(ctx *pulumi.Context,
 	if args == nil || args.ConfigStoreName == nil {
 		return nil, errors.New("missing required argument 'ConfigStoreName'")
 	}
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
+	if args == nil || args.PrivateEndpointConnectionName == nil {
+		return nil, errors.New("missing required argument 'PrivateEndpointConnectionName'")
 	}
 	if args == nil || args.PrivateLinkServiceConnectionState == nil {
 		return nil, errors.New("missing required argument 'PrivateLinkServiceConnectionState'")
@@ -98,10 +98,10 @@ func (PrivateEndpointConnectionState) ElementType() reflect.Type {
 type privateEndpointConnectionArgs struct {
 	// The name of the configuration store.
 	ConfigStoreName string `pulumi:"configStoreName"`
-	// Private endpoint connection name
-	Name string `pulumi:"name"`
 	// The resource of private endpoint.
 	PrivateEndpoint *PrivateEndpoint `pulumi:"privateEndpoint"`
+	// Private endpoint connection name
+	PrivateEndpointConnectionName string `pulumi:"privateEndpointConnectionName"`
 	// A collection of information about the state of the connection between service consumer and provider.
 	PrivateLinkServiceConnectionState PrivateLinkServiceConnectionState `pulumi:"privateLinkServiceConnectionState"`
 	// The name of the resource group to which the container registry belongs.
@@ -112,10 +112,10 @@ type privateEndpointConnectionArgs struct {
 type PrivateEndpointConnectionArgs struct {
 	// The name of the configuration store.
 	ConfigStoreName pulumi.StringInput
-	// Private endpoint connection name
-	Name pulumi.StringInput
 	// The resource of private endpoint.
 	PrivateEndpoint PrivateEndpointPtrInput
+	// Private endpoint connection name
+	PrivateEndpointConnectionName pulumi.StringInput
 	// A collection of information about the state of the connection between service consumer and provider.
 	PrivateLinkServiceConnectionState PrivateLinkServiceConnectionStateInput
 	// The name of the resource group to which the container registry belongs.

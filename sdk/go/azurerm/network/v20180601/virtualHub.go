@@ -40,11 +40,11 @@ func NewVirtualHub(ctx *pulumi.Context,
 	if args == nil || args.Location == nil {
 		return nil, errors.New("missing required argument 'Location'")
 	}
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
-	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
+	}
+	if args == nil || args.VirtualHubName == nil {
+		return nil, errors.New("missing required argument 'VirtualHubName'")
 	}
 	if args == nil {
 		args = &VirtualHubArgs{}
@@ -182,14 +182,14 @@ type virtualHubArgs struct {
 	Id *string `pulumi:"id"`
 	// Resource location.
 	Location string `pulumi:"location"`
-	// The name of the VirtualHub.
-	Name string `pulumi:"name"`
 	// The provisioning state of the resource.
 	ProvisioningState *string `pulumi:"provisioningState"`
 	// The resource group name of the VirtualHub.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
+	// The name of the VirtualHub.
+	VirtualHubName string `pulumi:"virtualHubName"`
 	// The VirtualWAN to which the VirtualHub belongs
 	VirtualWan *SubResource `pulumi:"virtualWan"`
 }
@@ -204,14 +204,14 @@ type VirtualHubArgs struct {
 	Id pulumi.StringPtrInput
 	// Resource location.
 	Location pulumi.StringInput
-	// The name of the VirtualHub.
-	Name pulumi.StringInput
 	// The provisioning state of the resource.
 	ProvisioningState pulumi.StringPtrInput
 	// The resource group name of the VirtualHub.
 	ResourceGroupName pulumi.StringInput
 	// Resource tags.
 	Tags pulumi.StringMapInput
+	// The name of the VirtualHub.
+	VirtualHubName pulumi.StringInput
 	// The VirtualWAN to which the VirtualHub belongs
 	VirtualWan SubResourcePtrInput
 }

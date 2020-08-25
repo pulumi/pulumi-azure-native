@@ -17,10 +17,10 @@ func LookupBot(ctx *pulumi.Context, args *LookupBotArgs, opts ...pulumi.InvokeOp
 }
 
 type LookupBotArgs struct {
-	// The name of the Bot resource.
-	Name string `pulumi:"name"`
 	// The name of the Bot resource group in the user subscription.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// The name of the Bot resource.
+	ResourceName string `pulumi:"resourceName"`
 }
 
 // Bot resource definition

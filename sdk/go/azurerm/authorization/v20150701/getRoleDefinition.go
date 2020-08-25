@@ -18,7 +18,7 @@ func LookupRoleDefinition(ctx *pulumi.Context, args *LookupRoleDefinitionArgs, o
 
 type LookupRoleDefinitionArgs struct {
 	// The ID of the role definition.
-	Name string `pulumi:"name"`
+	RoleDefinitionId string `pulumi:"roleDefinitionId"`
 	// The scope of the role definition.
 	Scope string `pulumi:"scope"`
 }

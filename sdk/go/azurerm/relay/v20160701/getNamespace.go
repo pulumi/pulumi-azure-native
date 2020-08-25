@@ -18,7 +18,7 @@ func LookupNamespace(ctx *pulumi.Context, args *LookupNamespaceArgs, opts ...pul
 
 type LookupNamespaceArgs struct {
 	// The Namespace Name
-	Name string `pulumi:"name"`
+	NamespaceName string `pulumi:"namespaceName"`
 	// Name of the Resource group within the Azure subscription.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }

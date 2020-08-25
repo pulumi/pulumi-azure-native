@@ -20,7 +20,7 @@ type LookupInterfaceEndpointArgs struct {
 	// Expands referenced resources.
 	Expand *string `pulumi:"expand"`
 	// The name of the interface endpoint.
-	Name string `pulumi:"name"`
+	InterfaceEndpointName string `pulumi:"interfaceEndpointName"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }

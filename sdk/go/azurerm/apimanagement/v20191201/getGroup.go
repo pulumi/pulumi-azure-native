@@ -18,7 +18,7 @@ func LookupGroup(ctx *pulumi.Context, args *LookupGroupArgs, opts ...pulumi.Invo
 
 type LookupGroupArgs struct {
 	// Group identifier. Must be unique in the current API Management service instance.
-	Name string `pulumi:"name"`
+	GroupId string `pulumi:"groupId"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The name of the API Management service.

@@ -57,8 +57,8 @@ type AzureFirewall struct {
 // NewAzureFirewall registers a new resource with the given unique name, arguments, and options.
 func NewAzureFirewall(ctx *pulumi.Context,
 	name string, args *AzureFirewallArgs, opts ...pulumi.ResourceOption) (*AzureFirewall, error) {
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
+	if args == nil || args.AzureFirewallName == nil {
+		return nil, errors.New("missing required argument 'AzureFirewallName'")
 	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
@@ -235,6 +235,8 @@ type azureFirewallArgs struct {
 	AdditionalProperties map[string]string `pulumi:"additionalProperties"`
 	// Collection of application rule collections used by Azure Firewall.
 	ApplicationRuleCollections []AzureFirewallApplicationRuleCollection `pulumi:"applicationRuleCollections"`
+	// The name of the Azure Firewall.
+	AzureFirewallName string `pulumi:"azureFirewallName"`
 	// The firewallPolicy associated with this azure firewall.
 	FirewallPolicy *SubResource `pulumi:"firewallPolicy"`
 	// IP addresses associated with AzureFirewall.
@@ -247,8 +249,6 @@ type azureFirewallArgs struct {
 	Location *string `pulumi:"location"`
 	// IP configuration of the Azure Firewall used for management traffic.
 	ManagementIpConfiguration *AzureFirewallIPConfiguration `pulumi:"managementIpConfiguration"`
-	// The name of the Azure Firewall.
-	Name string `pulumi:"name"`
 	// Collection of NAT rule collections used by Azure Firewall.
 	NatRuleCollections []AzureFirewallNatRuleCollection `pulumi:"natRuleCollections"`
 	// Collection of network rule collections used by Azure Firewall.
@@ -273,6 +273,8 @@ type AzureFirewallArgs struct {
 	AdditionalProperties pulumi.StringMapInput
 	// Collection of application rule collections used by Azure Firewall.
 	ApplicationRuleCollections AzureFirewallApplicationRuleCollectionArrayInput
+	// The name of the Azure Firewall.
+	AzureFirewallName pulumi.StringInput
 	// The firewallPolicy associated with this azure firewall.
 	FirewallPolicy SubResourcePtrInput
 	// IP addresses associated with AzureFirewall.
@@ -285,8 +287,6 @@ type AzureFirewallArgs struct {
 	Location pulumi.StringPtrInput
 	// IP configuration of the Azure Firewall used for management traffic.
 	ManagementIpConfiguration AzureFirewallIPConfigurationPtrInput
-	// The name of the Azure Firewall.
-	Name pulumi.StringInput
 	// Collection of NAT rule collections used by Azure Firewall.
 	NatRuleCollections AzureFirewallNatRuleCollectionArrayInput
 	// Collection of network rule collections used by Azure Firewall.

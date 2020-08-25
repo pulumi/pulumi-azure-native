@@ -40,14 +40,14 @@ func NewActivityLogAlert(ctx *pulumi.Context,
 	if args == nil || args.Actions == nil {
 		return nil, errors.New("missing required argument 'Actions'")
 	}
+	if args == nil || args.ActivityLogAlertName == nil {
+		return nil, errors.New("missing required argument 'ActivityLogAlertName'")
+	}
 	if args == nil || args.Condition == nil {
 		return nil, errors.New("missing required argument 'Condition'")
 	}
 	if args == nil || args.Location == nil {
 		return nil, errors.New("missing required argument 'Location'")
-	}
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
 	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
@@ -128,6 +128,8 @@ func (ActivityLogAlertState) ElementType() reflect.Type {
 type activityLogAlertArgs struct {
 	// The actions that will activate when the condition is met.
 	Actions ActivityLogAlertActionList `pulumi:"actions"`
+	// The name of the activity log alert.
+	ActivityLogAlertName string `pulumi:"activityLogAlertName"`
 	// The condition that will cause this alert to activate.
 	Condition ActivityLogAlertAllOfCondition `pulumi:"condition"`
 	// A description of this activity log alert.
@@ -136,8 +138,6 @@ type activityLogAlertArgs struct {
 	Enabled *bool `pulumi:"enabled"`
 	// Resource location
 	Location string `pulumi:"location"`
-	// The name of the activity log alert.
-	Name string `pulumi:"name"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// A list of resourceIds that will be used as prefixes. The alert will only apply to activityLogs with resourceIds that fall under one of these prefixes. This list must include at least one item.
@@ -150,6 +150,8 @@ type activityLogAlertArgs struct {
 type ActivityLogAlertArgs struct {
 	// The actions that will activate when the condition is met.
 	Actions ActivityLogAlertActionListInput
+	// The name of the activity log alert.
+	ActivityLogAlertName pulumi.StringInput
 	// The condition that will cause this alert to activate.
 	Condition ActivityLogAlertAllOfConditionInput
 	// A description of this activity log alert.
@@ -158,8 +160,6 @@ type ActivityLogAlertArgs struct {
 	Enabled pulumi.BoolPtrInput
 	// Resource location
 	Location pulumi.StringInput
-	// The name of the activity log alert.
-	Name pulumi.StringInput
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
 	// A list of resourceIds that will be used as prefixes. The alert will only apply to activityLogs with resourceIds that fall under one of these prefixes. This list must include at least one item.

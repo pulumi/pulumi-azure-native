@@ -17,10 +17,10 @@ func LookupOpenShiftManagedCluster(ctx *pulumi.Context, args *LookupOpenShiftMan
 }
 
 type LookupOpenShiftManagedClusterArgs struct {
-	// The name of the OpenShift managed cluster resource.
-	Name string `pulumi:"name"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// The name of the OpenShift managed cluster resource.
+	ResourceName string `pulumi:"resourceName"`
 }
 
 // OpenShift Managed cluster.

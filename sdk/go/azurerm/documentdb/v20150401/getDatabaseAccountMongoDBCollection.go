@@ -19,10 +19,10 @@ func LookupDatabaseAccountMongoDBCollection(ctx *pulumi.Context, args *LookupDat
 type LookupDatabaseAccountMongoDBCollectionArgs struct {
 	// Cosmos DB database account name.
 	AccountName string `pulumi:"accountName"`
+	// Cosmos DB collection name.
+	CollectionName string `pulumi:"collectionName"`
 	// Cosmos DB database name.
 	DatabaseName string `pulumi:"databaseName"`
-	// Cosmos DB collection name.
-	Name string `pulumi:"name"`
 	// Name of an Azure resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }

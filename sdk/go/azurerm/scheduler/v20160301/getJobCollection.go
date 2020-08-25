@@ -18,7 +18,7 @@ func LookupJobCollection(ctx *pulumi.Context, args *LookupJobCollectionArgs, opt
 
 type LookupJobCollectionArgs struct {
 	// The job collection name.
-	Name string `pulumi:"name"`
+	JobCollectionName string `pulumi:"jobCollectionName"`
 	// The resource group name.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }

@@ -32,14 +32,14 @@ func NewEventSource(ctx *pulumi.Context,
 	if args == nil || args.EnvironmentName == nil {
 		return nil, errors.New("missing required argument 'EnvironmentName'")
 	}
+	if args == nil || args.EventSourceName == nil {
+		return nil, errors.New("missing required argument 'EventSourceName'")
+	}
 	if args == nil || args.Kind == nil {
 		return nil, errors.New("missing required argument 'Kind'")
 	}
 	if args == nil || args.Location == nil {
 		return nil, errors.New("missing required argument 'Location'")
-	}
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
 	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
@@ -107,12 +107,12 @@ func (EventSourceState) ElementType() reflect.Type {
 type eventSourceArgs struct {
 	// The name of the Time Series Insights environment associated with the specified resource group.
 	EnvironmentName string `pulumi:"environmentName"`
+	// Name of the event source.
+	EventSourceName string `pulumi:"eventSourceName"`
 	// The kind of the event source.
 	Kind string `pulumi:"kind"`
 	// The location of the resource.
 	Location string `pulumi:"location"`
-	// Name of the event source.
-	Name string `pulumi:"name"`
 	// Name of an Azure Resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Key-value pairs of additional properties for the resource.
@@ -123,12 +123,12 @@ type eventSourceArgs struct {
 type EventSourceArgs struct {
 	// The name of the Time Series Insights environment associated with the specified resource group.
 	EnvironmentName pulumi.StringInput
+	// Name of the event source.
+	EventSourceName pulumi.StringInput
 	// The kind of the event source.
 	Kind pulumi.StringInput
 	// The location of the resource.
 	Location pulumi.StringInput
-	// Name of the event source.
-	Name pulumi.StringInput
 	// Name of an Azure Resource group.
 	ResourceGroupName pulumi.StringInput
 	// Key-value pairs of additional properties for the resource.

@@ -18,7 +18,7 @@ func LookupFavorite(ctx *pulumi.Context, args *LookupFavoriteArgs, opts ...pulum
 
 type LookupFavoriteArgs struct {
 	// The Id of a specific favorite defined in the Application Insights component
-	Name string `pulumi:"name"`
+	FavoriteId string `pulumi:"favoriteId"`
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The name of the Application Insights component resource.

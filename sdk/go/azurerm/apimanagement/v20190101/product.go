@@ -40,8 +40,8 @@ func NewProduct(ctx *pulumi.Context,
 	if args == nil || args.DisplayName == nil {
 		return nil, errors.New("missing required argument 'DisplayName'")
 	}
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
+	if args == nil || args.ProductId == nil {
+		return nil, errors.New("missing required argument 'ProductId'")
 	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
@@ -145,7 +145,7 @@ type productArgs struct {
 	// Product name.
 	DisplayName string `pulumi:"displayName"`
 	// Product identifier. Must be unique in the current API Management service instance.
-	Name string `pulumi:"name"`
+	ProductId string `pulumi:"productId"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The name of the API Management service.
@@ -169,7 +169,7 @@ type ProductArgs struct {
 	// Product name.
 	DisplayName pulumi.StringInput
 	// Product identifier. Must be unique in the current API Management service instance.
-	Name pulumi.StringInput
+	ProductId pulumi.StringInput
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
 	// The name of the API Management service.

@@ -18,7 +18,7 @@ func LookupPrivateDnsZoneGroup(ctx *pulumi.Context, args *LookupPrivateDnsZoneGr
 
 type LookupPrivateDnsZoneGroupArgs struct {
 	// The name of the private dns zone group.
-	Name string `pulumi:"name"`
+	PrivateDnsZoneGroupName string `pulumi:"privateDnsZoneGroupName"`
 	// The name of the private endpoint.
 	PrivateEndpointName string `pulumi:"privateEndpointName"`
 	// The name of the resource group.

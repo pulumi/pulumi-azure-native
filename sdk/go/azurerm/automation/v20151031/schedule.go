@@ -63,6 +63,9 @@ func NewSchedule(ctx *pulumi.Context,
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
 	}
+	if args == nil || args.ScheduleName == nil {
+		return nil, errors.New("missing required argument 'ScheduleName'")
+	}
 	if args == nil || args.StartTime == nil {
 		return nil, errors.New("missing required argument 'StartTime'")
 	}
@@ -177,10 +180,12 @@ type scheduleArgs struct {
 	Frequency string `pulumi:"frequency"`
 	// Gets or sets the interval of the schedule.
 	Interval map[string]interface{} `pulumi:"interval"`
-	// The schedule name.
+	// Gets or sets the name of the Schedule.
 	Name string `pulumi:"name"`
 	// Name of an Azure Resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// The schedule name.
+	ScheduleName string `pulumi:"scheduleName"`
 	// Gets or sets the start time of the schedule.
 	StartTime string `pulumi:"startTime"`
 	// Gets or sets the time zone of the schedule.
@@ -201,10 +206,12 @@ type ScheduleArgs struct {
 	Frequency pulumi.StringInput
 	// Gets or sets the interval of the schedule.
 	Interval pulumi.MapInput
-	// The schedule name.
+	// Gets or sets the name of the Schedule.
 	Name pulumi.StringInput
 	// Name of an Azure Resource group.
 	ResourceGroupName pulumi.StringInput
+	// The schedule name.
+	ScheduleName pulumi.StringInput
 	// Gets or sets the start time of the schedule.
 	StartTime pulumi.StringInput
 	// Gets or sets the time zone of the schedule.

@@ -48,6 +48,9 @@ func NewWebAppHybridConnectionSlot(ctx *pulumi.Context,
 	if args == nil || args.NamespaceName == nil {
 		return nil, errors.New("missing required argument 'NamespaceName'")
 	}
+	if args == nil || args.RelayName == nil {
+		return nil, errors.New("missing required argument 'RelayName'")
+	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
 	}
@@ -154,7 +157,7 @@ type webAppHybridConnectionSlotArgs struct {
 	Hostname *string `pulumi:"hostname"`
 	// Kind of resource.
 	Kind *string `pulumi:"kind"`
-	// The name of the Service Bus relay.
+	// The name of the web app.
 	Name string `pulumi:"name"`
 	// The namespace for this hybrid connection.
 	NamespaceName string `pulumi:"namespaceName"`
@@ -162,6 +165,8 @@ type webAppHybridConnectionSlotArgs struct {
 	Port *int `pulumi:"port"`
 	// The ARM URI to the Service Bus relay.
 	RelayArmUri *string `pulumi:"relayArmUri"`
+	// The name of the Service Bus relay.
+	RelayName string `pulumi:"relayName"`
 	// Name of the resource group to which the resource belongs.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The name of the Service Bus key which has Send permissions. This is used to authenticate to Service Bus.
@@ -183,7 +188,7 @@ type WebAppHybridConnectionSlotArgs struct {
 	Hostname pulumi.StringPtrInput
 	// Kind of resource.
 	Kind pulumi.StringPtrInput
-	// The name of the Service Bus relay.
+	// The name of the web app.
 	Name pulumi.StringInput
 	// The namespace for this hybrid connection.
 	NamespaceName pulumi.StringInput
@@ -191,6 +196,8 @@ type WebAppHybridConnectionSlotArgs struct {
 	Port pulumi.IntPtrInput
 	// The ARM URI to the Service Bus relay.
 	RelayArmUri pulumi.StringPtrInput
+	// The name of the Service Bus relay.
+	RelayName pulumi.StringInput
 	// Name of the resource group to which the resource belongs.
 	ResourceGroupName pulumi.StringInput
 	// The name of the Service Bus key which has Send permissions. This is used to authenticate to Service Bus.

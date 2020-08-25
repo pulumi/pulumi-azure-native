@@ -19,10 +19,10 @@ func LookupApiIssueComment(ctx *pulumi.Context, args *LookupApiIssueCommentArgs,
 type LookupApiIssueCommentArgs struct {
 	// API identifier. Must be unique in the current API Management service instance.
 	ApiId string `pulumi:"apiId"`
+	// Comment identifier within an Issue. Must be unique in the current Issue.
+	CommentId string `pulumi:"commentId"`
 	// Issue identifier. Must be unique in the current API Management service instance.
 	IssueId string `pulumi:"issueId"`
-	// Comment identifier within an Issue. Must be unique in the current Issue.
-	Name string `pulumi:"name"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The name of the API Management service.

@@ -52,8 +52,8 @@ func NewDscConfiguration(ctx *pulumi.Context,
 	if args == nil || args.AutomationAccountName == nil {
 		return nil, errors.New("missing required argument 'AutomationAccountName'")
 	}
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
+	if args == nil || args.ConfigurationName == nil {
+		return nil, errors.New("missing required argument 'ConfigurationName'")
 	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
@@ -158,6 +158,8 @@ func (DscConfigurationState) ElementType() reflect.Type {
 type dscConfigurationArgs struct {
 	// The name of the automation account.
 	AutomationAccountName string `pulumi:"automationAccountName"`
+	// The create or update parameters for configuration.
+	ConfigurationName string `pulumi:"configurationName"`
 	// Gets or sets the description of the configuration.
 	Description *string `pulumi:"description"`
 	// Gets or sets the location of the resource.
@@ -166,8 +168,8 @@ type dscConfigurationArgs struct {
 	LogProgress *bool `pulumi:"logProgress"`
 	// Gets or sets verbose log option.
 	LogVerbose *bool `pulumi:"logVerbose"`
-	// The create or update parameters for configuration.
-	Name string `pulumi:"name"`
+	// Gets or sets name of the resource.
+	Name *string `pulumi:"name"`
 	// Gets or sets the configuration parameters.
 	Parameters map[string]DscConfigurationParameter `pulumi:"parameters"`
 	// Name of an Azure Resource group.
@@ -182,6 +184,8 @@ type dscConfigurationArgs struct {
 type DscConfigurationArgs struct {
 	// The name of the automation account.
 	AutomationAccountName pulumi.StringInput
+	// The create or update parameters for configuration.
+	ConfigurationName pulumi.StringInput
 	// Gets or sets the description of the configuration.
 	Description pulumi.StringPtrInput
 	// Gets or sets the location of the resource.
@@ -190,8 +194,8 @@ type DscConfigurationArgs struct {
 	LogProgress pulumi.BoolPtrInput
 	// Gets or sets verbose log option.
 	LogVerbose pulumi.BoolPtrInput
-	// The create or update parameters for configuration.
-	Name pulumi.StringInput
+	// Gets or sets name of the resource.
+	Name pulumi.StringPtrInput
 	// Gets or sets the configuration parameters.
 	Parameters DscConfigurationParameterMapInput
 	// Name of an Azure Resource group.

@@ -17,10 +17,10 @@ func LookupIotHubResource(ctx *pulumi.Context, args *LookupIotHubResourceArgs, o
 }
 
 type LookupIotHubResourceArgs struct {
-	// The name of the IoT hub.
-	Name string `pulumi:"name"`
 	// The name of the resource group that contains the IoT hub.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// The name of the IoT hub.
+	ResourceName string `pulumi:"resourceName"`
 }
 
 // The description of the IoT hub.

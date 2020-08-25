@@ -18,7 +18,7 @@ func LookupReportConfig(ctx *pulumi.Context, args *LookupReportConfigArgs, opts 
 
 type LookupReportConfigArgs struct {
 	// Report Config Name.
-	Name string `pulumi:"name"`
+	ReportConfigName string `pulumi:"reportConfigName"`
 }
 
 // A report config resource.

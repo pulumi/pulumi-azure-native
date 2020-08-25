@@ -21,12 +21,12 @@ type LookupVolumeArgs struct {
 	DeviceName string `pulumi:"deviceName"`
 	// The manager name
 	ManagerName string `pulumi:"managerName"`
-	// The volume name.
-	Name string `pulumi:"name"`
 	// The resource group name
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The volume container name.
 	VolumeContainerName string `pulumi:"volumeContainerName"`
+	// The volume name.
+	VolumeName string `pulumi:"volumeName"`
 }
 
 // The volume.

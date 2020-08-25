@@ -23,11 +23,11 @@ type ContentItem struct {
 // NewContentItem registers a new resource with the given unique name, arguments, and options.
 func NewContentItem(ctx *pulumi.Context,
 	name string, args *ContentItemArgs, opts ...pulumi.ResourceOption) (*ContentItem, error) {
+	if args == nil || args.ContentItemId == nil {
+		return nil, errors.New("missing required argument 'ContentItemId'")
+	}
 	if args == nil || args.ContentTypeId == nil {
 		return nil, errors.New("missing required argument 'ContentTypeId'")
-	}
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
 	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
@@ -78,10 +78,10 @@ func (ContentItemState) ElementType() reflect.Type {
 }
 
 type contentItemArgs struct {
+	// Content item identifier.
+	ContentItemId string `pulumi:"contentItemId"`
 	// Content type identifier.
 	ContentTypeId string `pulumi:"contentTypeId"`
-	// Content item identifier.
-	Name string `pulumi:"name"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The name of the API Management service.
@@ -90,10 +90,10 @@ type contentItemArgs struct {
 
 // The set of arguments for constructing a ContentItem resource.
 type ContentItemArgs struct {
+	// Content item identifier.
+	ContentItemId pulumi.StringInput
 	// Content type identifier.
 	ContentTypeId pulumi.StringInput
-	// Content item identifier.
-	Name pulumi.StringInput
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
 	// The name of the API Management service.

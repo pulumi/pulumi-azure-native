@@ -43,8 +43,8 @@ type P2sVpnServerConfiguration struct {
 // NewP2sVpnServerConfiguration registers a new resource with the given unique name, arguments, and options.
 func NewP2sVpnServerConfiguration(ctx *pulumi.Context,
 	name string, args *P2sVpnServerConfigurationArgs, opts ...pulumi.ResourceOption) (*P2sVpnServerConfiguration, error) {
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
+	if args == nil || args.P2SVpnServerConfigurationName == nil {
+		return nil, errors.New("missing required argument 'P2SVpnServerConfigurationName'")
 	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
@@ -163,8 +163,8 @@ type p2sVpnServerConfigurationArgs struct {
 	Etag *string `pulumi:"etag"`
 	// Resource ID.
 	Id *string `pulumi:"id"`
-	// The name of the P2SVpnServerConfiguration.
-	Name string `pulumi:"name"`
+	// The name of the P2SVpnServerConfiguration that is unique within a VirtualWan in a resource group. This name can be used to access the resource along with Paren VirtualWan resource name.
+	Name *string `pulumi:"name"`
 	// Radius client root certificate of P2SVpnServerConfiguration.
 	P2SVpnServerConfigRadiusClientRootCertificates []P2SVpnServerConfigRadiusClientRootCertificate `pulumi:"p2SVpnServerConfigRadiusClientRootCertificates"`
 	// Radius Server root certificate of P2SVpnServerConfiguration.
@@ -173,6 +173,8 @@ type p2sVpnServerConfigurationArgs struct {
 	P2SVpnServerConfigVpnClientRevokedCertificates []P2SVpnServerConfigVpnClientRevokedCertificate `pulumi:"p2SVpnServerConfigVpnClientRevokedCertificates"`
 	// VPN client root certificate of P2SVpnServerConfiguration.
 	P2SVpnServerConfigVpnClientRootCertificates []P2SVpnServerConfigVpnClientRootCertificate `pulumi:"p2SVpnServerConfigVpnClientRootCertificates"`
+	// The name of the P2SVpnServerConfiguration.
+	P2SVpnServerConfigurationName string `pulumi:"p2SVpnServerConfigurationName"`
 	// The radius server address property of the P2SVpnServerConfiguration resource for point to site client connection.
 	RadiusServerAddress *string `pulumi:"radiusServerAddress"`
 	// The radius secret property of the P2SVpnServerConfiguration resource for point to site client connection.
@@ -193,8 +195,8 @@ type P2sVpnServerConfigurationArgs struct {
 	Etag pulumi.StringPtrInput
 	// Resource ID.
 	Id pulumi.StringPtrInput
-	// The name of the P2SVpnServerConfiguration.
-	Name pulumi.StringInput
+	// The name of the P2SVpnServerConfiguration that is unique within a VirtualWan in a resource group. This name can be used to access the resource along with Paren VirtualWan resource name.
+	Name pulumi.StringPtrInput
 	// Radius client root certificate of P2SVpnServerConfiguration.
 	P2SVpnServerConfigRadiusClientRootCertificates P2SVpnServerConfigRadiusClientRootCertificateArrayInput
 	// Radius Server root certificate of P2SVpnServerConfiguration.
@@ -203,6 +205,8 @@ type P2sVpnServerConfigurationArgs struct {
 	P2SVpnServerConfigVpnClientRevokedCertificates P2SVpnServerConfigVpnClientRevokedCertificateArrayInput
 	// VPN client root certificate of P2SVpnServerConfiguration.
 	P2SVpnServerConfigVpnClientRootCertificates P2SVpnServerConfigVpnClientRootCertificateArrayInput
+	// The name of the P2SVpnServerConfiguration.
+	P2SVpnServerConfigurationName pulumi.StringInput
 	// The radius server address property of the P2SVpnServerConfiguration resource for point to site client connection.
 	RadiusServerAddress pulumi.StringPtrInput
 	// The radius secret property of the P2SVpnServerConfiguration resource for point to site client connection.

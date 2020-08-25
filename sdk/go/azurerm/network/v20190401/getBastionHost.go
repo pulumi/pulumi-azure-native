@@ -18,7 +18,7 @@ func LookupBastionHost(ctx *pulumi.Context, args *LookupBastionHostArgs, opts ..
 
 type LookupBastionHostArgs struct {
 	// The name of the Bastion Host.
-	Name string `pulumi:"name"`
+	BastionHostName string `pulumi:"bastionHostName"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }

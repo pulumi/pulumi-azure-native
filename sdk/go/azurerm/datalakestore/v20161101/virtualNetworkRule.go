@@ -28,14 +28,14 @@ func NewVirtualNetworkRule(ctx *pulumi.Context,
 	if args == nil || args.AccountName == nil {
 		return nil, errors.New("missing required argument 'AccountName'")
 	}
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
-	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
 	}
 	if args == nil || args.SubnetId == nil {
 		return nil, errors.New("missing required argument 'SubnetId'")
+	}
+	if args == nil || args.VirtualNetworkRuleName == nil {
+		return nil, errors.New("missing required argument 'VirtualNetworkRuleName'")
 	}
 	if args == nil {
 		args = &VirtualNetworkRuleArgs{}
@@ -86,24 +86,24 @@ func (VirtualNetworkRuleState) ElementType() reflect.Type {
 type virtualNetworkRuleArgs struct {
 	// The name of the Data Lake Store account.
 	AccountName string `pulumi:"accountName"`
-	// The name of the virtual network rule to create or update.
-	Name string `pulumi:"name"`
 	// The name of the Azure resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The resource identifier for the subnet.
 	SubnetId string `pulumi:"subnetId"`
+	// The name of the virtual network rule to create or update.
+	VirtualNetworkRuleName string `pulumi:"virtualNetworkRuleName"`
 }
 
 // The set of arguments for constructing a VirtualNetworkRule resource.
 type VirtualNetworkRuleArgs struct {
 	// The name of the Data Lake Store account.
 	AccountName pulumi.StringInput
-	// The name of the virtual network rule to create or update.
-	Name pulumi.StringInput
 	// The name of the Azure resource group.
 	ResourceGroupName pulumi.StringInput
 	// The resource identifier for the subnet.
 	SubnetId pulumi.StringInput
+	// The name of the virtual network rule to create or update.
+	VirtualNetworkRuleName pulumi.StringInput
 }
 
 func (VirtualNetworkRuleArgs) ElementType() reflect.Type {

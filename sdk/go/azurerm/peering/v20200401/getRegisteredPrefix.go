@@ -17,10 +17,10 @@ func LookupRegisteredPrefix(ctx *pulumi.Context, args *LookupRegisteredPrefixArg
 }
 
 type LookupRegisteredPrefixArgs struct {
-	// The name of the registered prefix.
-	Name string `pulumi:"name"`
 	// The name of the peering.
 	PeeringName string `pulumi:"peeringName"`
+	// The name of the registered prefix.
+	RegisteredPrefixName string `pulumi:"registeredPrefixName"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }

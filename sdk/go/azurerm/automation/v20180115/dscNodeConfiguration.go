@@ -41,8 +41,8 @@ func NewDscNodeConfiguration(ctx *pulumi.Context,
 	if args == nil || args.Configuration == nil {
 		return nil, errors.New("missing required argument 'Configuration'")
 	}
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
+	if args == nil || args.NodeConfigurationName == nil {
+		return nil, errors.New("missing required argument 'NodeConfigurationName'")
 	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
@@ -129,8 +129,10 @@ type dscNodeConfigurationArgs struct {
 	Configuration DscConfigurationAssociationProperty `pulumi:"configuration"`
 	// If a new build version of NodeConfiguration is required.
 	IncrementNodeConfigurationBuild *bool `pulumi:"incrementNodeConfigurationBuild"`
+	// Name of the node configuration.
+	Name *string `pulumi:"name"`
 	// The Dsc node configuration name.
-	Name string `pulumi:"name"`
+	NodeConfigurationName string `pulumi:"nodeConfigurationName"`
 	// Name of an Azure Resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Gets or sets the source.
@@ -147,8 +149,10 @@ type DscNodeConfigurationArgs struct {
 	Configuration DscConfigurationAssociationPropertyInput
 	// If a new build version of NodeConfiguration is required.
 	IncrementNodeConfigurationBuild pulumi.BoolPtrInput
+	// Name of the node configuration.
+	Name pulumi.StringPtrInput
 	// The Dsc node configuration name.
-	Name pulumi.StringInput
+	NodeConfigurationName pulumi.StringInput
 	// Name of an Azure Resource group.
 	ResourceGroupName pulumi.StringInput
 	// Gets or sets the source.

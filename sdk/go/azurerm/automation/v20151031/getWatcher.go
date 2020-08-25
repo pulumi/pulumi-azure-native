@@ -19,10 +19,10 @@ func LookupWatcher(ctx *pulumi.Context, args *LookupWatcherArgs, opts ...pulumi.
 type LookupWatcherArgs struct {
 	// The name of the automation account.
 	AutomationAccountName string `pulumi:"automationAccountName"`
-	// The watcher name.
-	Name string `pulumi:"name"`
 	// Name of an Azure Resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// The watcher name.
+	WatcherName string `pulumi:"watcherName"`
 }
 
 // Definition of the watcher type.

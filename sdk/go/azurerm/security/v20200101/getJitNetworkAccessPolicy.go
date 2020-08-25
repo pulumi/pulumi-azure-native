@@ -20,7 +20,7 @@ type LookupJitNetworkAccessPolicyArgs struct {
 	// The location where ASC stores the data of the subscription. can be retrieved from Get locations
 	AscLocation string `pulumi:"ascLocation"`
 	// Name of a Just-in-Time access configuration policy.
-	Name string `pulumi:"name"`
+	JitNetworkAccessPolicyName string `pulumi:"jitNetworkAccessPolicyName"`
 	// The name of the resource group within the user's subscription. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }

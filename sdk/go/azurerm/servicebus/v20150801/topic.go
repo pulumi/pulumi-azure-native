@@ -67,14 +67,14 @@ func NewTopic(ctx *pulumi.Context,
 	if args == nil || args.Location == nil {
 		return nil, errors.New("missing required argument 'Location'")
 	}
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
-	}
 	if args == nil || args.NamespaceName == nil {
 		return nil, errors.New("missing required argument 'NamespaceName'")
 	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
+	}
+	if args == nil || args.TopicName == nil {
+		return nil, errors.New("missing required argument 'TopicName'")
 	}
 	if args == nil {
 		args = &TopicArgs{}
@@ -233,8 +233,8 @@ type topicArgs struct {
 	Location string `pulumi:"location"`
 	// Maximum size of the topic in megabytes, which is the size of the memory allocated for the topic.
 	MaxSizeInMegabytes *int `pulumi:"maxSizeInMegabytes"`
-	// The topic name.
-	Name string `pulumi:"name"`
+	// Topic name.
+	Name *string `pulumi:"name"`
 	// The namespace name
 	NamespaceName string `pulumi:"namespaceName"`
 	// Value indicating if this topic requires duplicate detection.
@@ -245,6 +245,8 @@ type topicArgs struct {
 	Status *string `pulumi:"status"`
 	// Value that indicates whether the topic supports ordering.
 	SupportOrdering *bool `pulumi:"supportOrdering"`
+	// The topic name.
+	TopicName string `pulumi:"topicName"`
 }
 
 // The set of arguments for constructing a Topic resource.
@@ -272,8 +274,8 @@ type TopicArgs struct {
 	Location pulumi.StringInput
 	// Maximum size of the topic in megabytes, which is the size of the memory allocated for the topic.
 	MaxSizeInMegabytes pulumi.IntPtrInput
-	// The topic name.
-	Name pulumi.StringInput
+	// Topic name.
+	Name pulumi.StringPtrInput
 	// The namespace name
 	NamespaceName pulumi.StringInput
 	// Value indicating if this topic requires duplicate detection.
@@ -284,6 +286,8 @@ type TopicArgs struct {
 	Status pulumi.StringPtrInput
 	// Value that indicates whether the topic supports ordering.
 	SupportOrdering pulumi.BoolPtrInput
+	// The topic name.
+	TopicName pulumi.StringInput
 }
 
 func (TopicArgs) ElementType() reflect.Type {

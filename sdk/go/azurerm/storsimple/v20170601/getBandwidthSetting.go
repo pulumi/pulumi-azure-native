@@ -17,10 +17,10 @@ func LookupBandwidthSetting(ctx *pulumi.Context, args *LookupBandwidthSettingArg
 }
 
 type LookupBandwidthSettingArgs struct {
+	// The name of bandwidth setting to be fetched.
+	BandwidthSettingName string `pulumi:"bandwidthSettingName"`
 	// The manager name
 	ManagerName string `pulumi:"managerName"`
-	// The name of bandwidth setting to be fetched.
-	Name string `pulumi:"name"`
 	// The resource group name
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }

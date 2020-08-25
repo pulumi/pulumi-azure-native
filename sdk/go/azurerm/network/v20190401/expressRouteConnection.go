@@ -29,6 +29,9 @@ type ExpressRouteConnection struct {
 // NewExpressRouteConnection registers a new resource with the given unique name, arguments, and options.
 func NewExpressRouteConnection(ctx *pulumi.Context,
 	name string, args *ExpressRouteConnectionArgs, opts ...pulumi.ResourceOption) (*ExpressRouteConnection, error) {
+	if args == nil || args.ConnectionName == nil {
+		return nil, errors.New("missing required argument 'ConnectionName'")
+	}
 	if args == nil || args.ExpressRouteCircuitPeering == nil {
 		return nil, errors.New("missing required argument 'ExpressRouteCircuitPeering'")
 	}
@@ -146,13 +149,15 @@ func (ExpressRouteConnectionState) ElementType() reflect.Type {
 type expressRouteConnectionArgs struct {
 	// Authorization key to establish the connection.
 	AuthorizationKey *string `pulumi:"authorizationKey"`
+	// The name of the connection subresource.
+	ConnectionName string `pulumi:"connectionName"`
 	// The ExpressRoute circuit peering.
 	ExpressRouteCircuitPeering ExpressRouteCircuitPeeringId `pulumi:"expressRouteCircuitPeering"`
 	// The name of the ExpressRoute gateway.
 	ExpressRouteGatewayName string `pulumi:"expressRouteGatewayName"`
 	// Resource ID.
 	Id *string `pulumi:"id"`
-	// The name of the connection subresource.
+	// The name of the resource.
 	Name string `pulumi:"name"`
 	// The provisioning state of the resource.
 	ProvisioningState *string `pulumi:"provisioningState"`
@@ -166,13 +171,15 @@ type expressRouteConnectionArgs struct {
 type ExpressRouteConnectionArgs struct {
 	// Authorization key to establish the connection.
 	AuthorizationKey pulumi.StringPtrInput
+	// The name of the connection subresource.
+	ConnectionName pulumi.StringInput
 	// The ExpressRoute circuit peering.
 	ExpressRouteCircuitPeering ExpressRouteCircuitPeeringIdInput
 	// The name of the ExpressRoute gateway.
 	ExpressRouteGatewayName pulumi.StringInput
 	// Resource ID.
 	Id pulumi.StringPtrInput
-	// The name of the connection subresource.
+	// The name of the resource.
 	Name pulumi.StringInput
 	// The provisioning state of the resource.
 	ProvisioningState pulumi.StringPtrInput

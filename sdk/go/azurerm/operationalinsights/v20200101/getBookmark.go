@@ -18,7 +18,7 @@ func LookupBookmark(ctx *pulumi.Context, args *LookupBookmarkArgs, opts ...pulum
 
 type LookupBookmarkArgs struct {
 	// Bookmark ID
-	Name string `pulumi:"name"`
+	BookmarkId string `pulumi:"bookmarkId"`
 	// The name of the resource group within the user's subscription. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The name of the workspace.

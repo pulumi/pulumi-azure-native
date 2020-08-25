@@ -49,11 +49,11 @@ type Endpoint struct {
 // NewEndpoint registers a new resource with the given unique name, arguments, and options.
 func NewEndpoint(ctx *pulumi.Context,
 	name string, args *EndpointArgs, opts ...pulumi.ResourceOption) (*Endpoint, error) {
+	if args == nil || args.EndpointName == nil {
+		return nil, errors.New("missing required argument 'EndpointName'")
+	}
 	if args == nil || args.Location == nil {
 		return nil, errors.New("missing required argument 'Location'")
-	}
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
 	}
 	if args == nil || args.Origins == nil {
 		return nil, errors.New("missing required argument 'Origins'")
@@ -191,6 +191,8 @@ func (EndpointState) ElementType() reflect.Type {
 type endpointArgs struct {
 	// List of content types on which compression will be applied. The value for the elements should be a valid MIME type.
 	ContentTypesToCompress []string `pulumi:"contentTypesToCompress"`
+	// Name of the endpoint within the CDN profile.
+	EndpointName string `pulumi:"endpointName"`
 	// Indicates whether content compression is enabled. Default value is false. If compression is enabled, the content transferred from the CDN endpoint to the end user will be compressed. The requested content must be larger than 1 byte and smaller than 1 MB.
 	IsCompressionEnabled *bool `pulumi:"isCompressionEnabled"`
 	// Indicates whether HTTP traffic is allowed on the endpoint. Default value is true. At least one protocol (HTTP or HTTPS) must be allowed.
@@ -199,8 +201,6 @@ type endpointArgs struct {
 	IsHttpsAllowed *bool `pulumi:"isHttpsAllowed"`
 	// Endpoint location
 	Location string `pulumi:"location"`
-	// Name of the endpoint within the CDN profile.
-	Name string `pulumi:"name"`
 	// The host header CDN provider will send along with content requests to origins. The default value is the host name of the origin.
 	OriginHostHeader *string `pulumi:"originHostHeader"`
 	// The path used for origin requests.
@@ -221,6 +221,8 @@ type endpointArgs struct {
 type EndpointArgs struct {
 	// List of content types on which compression will be applied. The value for the elements should be a valid MIME type.
 	ContentTypesToCompress pulumi.StringArrayInput
+	// Name of the endpoint within the CDN profile.
+	EndpointName pulumi.StringInput
 	// Indicates whether content compression is enabled. Default value is false. If compression is enabled, the content transferred from the CDN endpoint to the end user will be compressed. The requested content must be larger than 1 byte and smaller than 1 MB.
 	IsCompressionEnabled pulumi.BoolPtrInput
 	// Indicates whether HTTP traffic is allowed on the endpoint. Default value is true. At least one protocol (HTTP or HTTPS) must be allowed.
@@ -229,8 +231,6 @@ type EndpointArgs struct {
 	IsHttpsAllowed pulumi.BoolPtrInput
 	// Endpoint location
 	Location pulumi.StringInput
-	// Name of the endpoint within the CDN profile.
-	Name pulumi.StringInput
 	// The host header CDN provider will send along with content requests to origins. The default value is the host name of the origin.
 	OriginHostHeader pulumi.StringPtrInput
 	// The path used for origin requests.

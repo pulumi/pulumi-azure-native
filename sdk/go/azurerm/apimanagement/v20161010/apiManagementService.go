@@ -66,9 +66,6 @@ func NewApiManagementService(ctx *pulumi.Context,
 	if args == nil || args.Location == nil {
 		return nil, errors.New("missing required argument 'Location'")
 	}
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
-	}
 	if args == nil || args.PublisherEmail == nil {
 		return nil, errors.New("missing required argument 'PublisherEmail'")
 	}
@@ -77,6 +74,9 @@ func NewApiManagementService(ctx *pulumi.Context,
 	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
+	}
+	if args == nil || args.ServiceName == nil {
+		return nil, errors.New("missing required argument 'ServiceName'")
 	}
 	if args == nil || args.Sku == nil {
 		return nil, errors.New("missing required argument 'Sku'")
@@ -232,14 +232,16 @@ type apiManagementServiceArgs struct {
 	HostnameConfigurations []HostnameConfiguration `pulumi:"hostnameConfigurations"`
 	// Resource location.
 	Location string `pulumi:"location"`
-	// The name of the API Management service.
-	Name string `pulumi:"name"`
+	// Resource name.
+	Name *string `pulumi:"name"`
 	// Publisher email.
 	PublisherEmail string `pulumi:"publisherEmail"`
 	// Publisher name.
 	PublisherName string `pulumi:"publisherName"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// The name of the API Management service.
+	ServiceName string `pulumi:"serviceName"`
 	// SKU properties of the API Management service.
 	Sku ApiManagementServiceSkuProperties `pulumi:"sku"`
 	// Resource tags.
@@ -262,14 +264,16 @@ type ApiManagementServiceArgs struct {
 	HostnameConfigurations HostnameConfigurationArrayInput
 	// Resource location.
 	Location pulumi.StringInput
-	// The name of the API Management service.
-	Name pulumi.StringInput
+	// Resource name.
+	Name pulumi.StringPtrInput
 	// Publisher email.
 	PublisherEmail pulumi.StringInput
 	// Publisher name.
 	PublisherName pulumi.StringInput
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
+	// The name of the API Management service.
+	ServiceName pulumi.StringInput
 	// SKU properties of the API Management service.
 	Sku ApiManagementServiceSkuPropertiesInput
 	// Resource tags.

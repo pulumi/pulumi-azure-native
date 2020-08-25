@@ -18,7 +18,7 @@ func LookupApi(ctx *pulumi.Context, args *LookupApiArgs, opts ...pulumi.InvokeOp
 
 type LookupApiArgs struct {
 	// API revision identifier. Must be unique in the current API Management service instance. Non-current revision has ;rev=n as a suffix where n is the revision number.
-	Name string `pulumi:"name"`
+	ApiId string `pulumi:"apiId"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The name of the API Management service.

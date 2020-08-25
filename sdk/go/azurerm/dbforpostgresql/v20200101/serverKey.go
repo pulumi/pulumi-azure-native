@@ -31,8 +31,8 @@ type ServerKey struct {
 // NewServerKey registers a new resource with the given unique name, arguments, and options.
 func NewServerKey(ctx *pulumi.Context,
 	name string, args *ServerKeyArgs, opts ...pulumi.ResourceOption) (*ServerKey, error) {
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
+	if args == nil || args.KeyName == nil {
+		return nil, errors.New("missing required argument 'KeyName'")
 	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
@@ -103,7 +103,7 @@ func (ServerKeyState) ElementType() reflect.Type {
 
 type serverKeyArgs struct {
 	// The name of the PostgreSQL Server key to be operated on (updated or created).
-	Name string `pulumi:"name"`
+	KeyName string `pulumi:"keyName"`
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The key type like 'AzureKeyVault'.
@@ -117,7 +117,7 @@ type serverKeyArgs struct {
 // The set of arguments for constructing a ServerKey resource.
 type ServerKeyArgs struct {
 	// The name of the PostgreSQL Server key to be operated on (updated or created).
-	Name pulumi.StringInput
+	KeyName pulumi.StringInput
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName pulumi.StringInput
 	// The key type like 'AzureKeyVault'.

@@ -32,6 +32,9 @@ type WebAppRelayServiceConnectionSlot struct {
 // NewWebAppRelayServiceConnectionSlot registers a new resource with the given unique name, arguments, and options.
 func NewWebAppRelayServiceConnectionSlot(ctx *pulumi.Context,
 	name string, args *WebAppRelayServiceConnectionSlotArgs, opts ...pulumi.ResourceOption) (*WebAppRelayServiceConnectionSlot, error) {
+	if args == nil || args.EntityName == nil {
+		return nil, errors.New("missing required argument 'EntityName'")
+	}
 	if args == nil || args.Name == nil {
 		return nil, errors.New("missing required argument 'Name'")
 	}
@@ -122,9 +125,11 @@ func (WebAppRelayServiceConnectionSlotState) ElementType() reflect.Type {
 type webAppRelayServiceConnectionSlotArgs struct {
 	BiztalkUri             *string `pulumi:"biztalkUri"`
 	EntityConnectionString *string `pulumi:"entityConnectionString"`
+	EntityName             string  `pulumi:"entityName"`
 	Hostname               *string `pulumi:"hostname"`
 	// Kind of resource.
-	Kind                     *string `pulumi:"kind"`
+	Kind *string `pulumi:"kind"`
+	// Name of the app.
 	Name                     string  `pulumi:"name"`
 	Port                     *int    `pulumi:"port"`
 	ResourceConnectionString *string `pulumi:"resourceConnectionString"`
@@ -139,9 +144,11 @@ type webAppRelayServiceConnectionSlotArgs struct {
 type WebAppRelayServiceConnectionSlotArgs struct {
 	BiztalkUri             pulumi.StringPtrInput
 	EntityConnectionString pulumi.StringPtrInput
+	EntityName             pulumi.StringInput
 	Hostname               pulumi.StringPtrInput
 	// Kind of resource.
-	Kind                     pulumi.StringPtrInput
+	Kind pulumi.StringPtrInput
+	// Name of the app.
 	Name                     pulumi.StringInput
 	Port                     pulumi.IntPtrInput
 	ResourceConnectionString pulumi.StringPtrInput

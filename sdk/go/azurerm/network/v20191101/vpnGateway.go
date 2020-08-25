@@ -39,11 +39,11 @@ type VpnGateway struct {
 // NewVpnGateway registers a new resource with the given unique name, arguments, and options.
 func NewVpnGateway(ctx *pulumi.Context,
 	name string, args *VpnGatewayArgs, opts ...pulumi.ResourceOption) (*VpnGateway, error) {
+	if args == nil || args.GatewayName == nil {
+		return nil, errors.New("missing required argument 'GatewayName'")
+	}
 	if args == nil || args.Location == nil {
 		return nil, errors.New("missing required argument 'Location'")
-	}
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
 	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
@@ -184,12 +184,12 @@ type vpnGatewayArgs struct {
 	BgpSettings *BgpSettings `pulumi:"bgpSettings"`
 	// List of all vpn connections to the gateway.
 	Connections []VpnConnectionType `pulumi:"connections"`
+	// The name of the gateway.
+	GatewayName string `pulumi:"gatewayName"`
 	// Resource ID.
 	Id *string `pulumi:"id"`
 	// Resource location.
 	Location string `pulumi:"location"`
-	// The name of the gateway.
-	Name string `pulumi:"name"`
 	// The resource group name of the VpnGateway.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Resource tags.
@@ -206,12 +206,12 @@ type VpnGatewayArgs struct {
 	BgpSettings BgpSettingsPtrInput
 	// List of all vpn connections to the gateway.
 	Connections VpnConnectionTypeArrayInput
+	// The name of the gateway.
+	GatewayName pulumi.StringInput
 	// Resource ID.
 	Id pulumi.StringPtrInput
 	// Resource location.
 	Location pulumi.StringInput
-	// The name of the gateway.
-	Name pulumi.StringInput
 	// The resource group name of the VpnGateway.
 	ResourceGroupName pulumi.StringInput
 	// Resource tags.

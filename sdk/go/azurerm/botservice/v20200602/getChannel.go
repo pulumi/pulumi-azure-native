@@ -18,7 +18,7 @@ func LookupChannel(ctx *pulumi.Context, args *LookupChannelArgs, opts ...pulumi.
 
 type LookupChannelArgs struct {
 	// The name of the Bot resource.
-	Name string `pulumi:"name"`
+	ChannelName string `pulumi:"channelName"`
 	// The name of the Bot resource group in the user subscription.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The name of the Bot resource.

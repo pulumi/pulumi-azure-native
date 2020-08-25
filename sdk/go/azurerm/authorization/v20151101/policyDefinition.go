@@ -23,8 +23,8 @@ type PolicyDefinition struct {
 // NewPolicyDefinition registers a new resource with the given unique name, arguments, and options.
 func NewPolicyDefinition(ctx *pulumi.Context,
 	name string, args *PolicyDefinitionArgs, opts ...pulumi.ResourceOption) (*PolicyDefinition, error) {
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
+	if args == nil || args.PolicyDefinitionName == nil {
+		return nil, errors.New("missing required argument 'PolicyDefinitionName'")
 	}
 	if args == nil {
 		args = &PolicyDefinitionArgs{}
@@ -75,16 +75,20 @@ func (PolicyDefinitionState) ElementType() reflect.Type {
 }
 
 type policyDefinitionArgs struct {
+	// Gets or sets the policy definition name.
+	Name *string `pulumi:"name"`
 	// The policy definition name.
-	Name string `pulumi:"name"`
+	PolicyDefinitionName string `pulumi:"policyDefinitionName"`
 	// Gets or sets the policy definition properties.
 	Properties *PolicyDefinitionProperties `pulumi:"properties"`
 }
 
 // The set of arguments for constructing a PolicyDefinition resource.
 type PolicyDefinitionArgs struct {
+	// Gets or sets the policy definition name.
+	Name pulumi.StringPtrInput
 	// The policy definition name.
-	Name pulumi.StringInput
+	PolicyDefinitionName pulumi.StringInput
 	// Gets or sets the policy definition properties.
 	Properties PolicyDefinitionPropertiesPtrInput
 }

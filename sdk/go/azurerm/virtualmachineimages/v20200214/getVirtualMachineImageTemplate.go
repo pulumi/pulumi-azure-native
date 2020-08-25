@@ -18,7 +18,7 @@ func LookupVirtualMachineImageTemplate(ctx *pulumi.Context, args *LookupVirtualM
 
 type LookupVirtualMachineImageTemplateArgs struct {
 	// The name of the image Template
-	Name string `pulumi:"name"`
+	ImageTemplateName string `pulumi:"imageTemplateName"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }

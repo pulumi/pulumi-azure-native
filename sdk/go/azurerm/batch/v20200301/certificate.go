@@ -43,11 +43,11 @@ func NewCertificate(ctx *pulumi.Context,
 	if args == nil || args.AccountName == nil {
 		return nil, errors.New("missing required argument 'AccountName'")
 	}
+	if args == nil || args.CertificateName == nil {
+		return nil, errors.New("missing required argument 'CertificateName'")
+	}
 	if args == nil || args.Data == nil {
 		return nil, errors.New("missing required argument 'Data'")
-	}
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
 	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
@@ -149,12 +149,12 @@ func (CertificateState) ElementType() reflect.Type {
 type certificateArgs struct {
 	// The name of the Batch account.
 	AccountName string `pulumi:"accountName"`
+	// The identifier for the certificate. This must be made up of algorithm and thumbprint separated by a dash, and must match the certificate data in the request. For example SHA1-a3d1c5.
+	CertificateName string `pulumi:"certificateName"`
 	// The maximum size is 10KB.
 	Data string `pulumi:"data"`
 	// The format of the certificate - either Pfx or Cer. If omitted, the default is Pfx.
 	Format *string `pulumi:"format"`
-	// The identifier for the certificate. This must be made up of algorithm and thumbprint separated by a dash, and must match the certificate data in the request. For example SHA1-a3d1c5.
-	Name string `pulumi:"name"`
 	// This must not be specified if the certificate format is Cer.
 	Password *string `pulumi:"password"`
 	// The name of the resource group that contains the Batch account.
@@ -169,12 +169,12 @@ type certificateArgs struct {
 type CertificateArgs struct {
 	// The name of the Batch account.
 	AccountName pulumi.StringInput
+	// The identifier for the certificate. This must be made up of algorithm and thumbprint separated by a dash, and must match the certificate data in the request. For example SHA1-a3d1c5.
+	CertificateName pulumi.StringInput
 	// The maximum size is 10KB.
 	Data pulumi.StringInput
 	// The format of the certificate - either Pfx or Cer. If omitted, the default is Pfx.
 	Format pulumi.StringPtrInput
-	// The identifier for the certificate. This must be made up of algorithm and thumbprint separated by a dash, and must match the certificate data in the request. For example SHA1-a3d1c5.
-	Name pulumi.StringInput
 	// This must not be specified if the certificate format is Cer.
 	Password pulumi.StringPtrInput
 	// The name of the resource group that contains the Batch account.

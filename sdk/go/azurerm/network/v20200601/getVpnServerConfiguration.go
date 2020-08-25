@@ -17,10 +17,10 @@ func LookupVpnServerConfiguration(ctx *pulumi.Context, args *LookupVpnServerConf
 }
 
 type LookupVpnServerConfigurationArgs struct {
-	// The name of the VpnServerConfiguration being retrieved.
-	Name string `pulumi:"name"`
 	// The resource group name of the VpnServerConfiguration.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// The name of the VpnServerConfiguration being retrieved.
+	VpnServerConfigurationName string `pulumi:"vpnServerConfigurationName"`
 }
 
 // VpnServerConfiguration Resource.

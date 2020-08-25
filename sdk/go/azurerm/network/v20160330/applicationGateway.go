@@ -57,8 +57,8 @@ type ApplicationGateway struct {
 // NewApplicationGateway registers a new resource with the given unique name, arguments, and options.
 func NewApplicationGateway(ctx *pulumi.Context,
 	name string, args *ApplicationGatewayArgs, opts ...pulumi.ResourceOption) (*ApplicationGateway, error) {
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
+	if args == nil || args.ApplicationGatewayName == nil {
+		return nil, errors.New("missing required argument 'ApplicationGatewayName'")
 	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
@@ -270,6 +270,8 @@ func (ApplicationGatewayState) ElementType() reflect.Type {
 }
 
 type applicationGatewayArgs struct {
+	// The name of the ApplicationGateway.
+	ApplicationGatewayName string `pulumi:"applicationGatewayName"`
 	// Gets or sets backend address pool of application gateway resource
 	BackendAddressPools []ApplicationGatewayBackendAddressPool `pulumi:"backendAddressPools"`
 	// Gets or sets backend http settings of application gateway resource
@@ -288,8 +290,6 @@ type applicationGatewayArgs struct {
 	Id *string `pulumi:"id"`
 	// Resource location
 	Location *string `pulumi:"location"`
-	// The name of the ApplicationGateway.
-	Name string `pulumi:"name"`
 	// Gets or sets probes of application gateway resource
 	Probes []ApplicationGatewayProbe `pulumi:"probes"`
 	// Gets or sets Provisioning state of the ApplicationGateway resource Updating/Deleting/Failed
@@ -312,6 +312,8 @@ type applicationGatewayArgs struct {
 
 // The set of arguments for constructing a ApplicationGateway resource.
 type ApplicationGatewayArgs struct {
+	// The name of the ApplicationGateway.
+	ApplicationGatewayName pulumi.StringInput
 	// Gets or sets backend address pool of application gateway resource
 	BackendAddressPools ApplicationGatewayBackendAddressPoolArrayInput
 	// Gets or sets backend http settings of application gateway resource
@@ -330,8 +332,6 @@ type ApplicationGatewayArgs struct {
 	Id pulumi.StringPtrInput
 	// Resource location
 	Location pulumi.StringPtrInput
-	// The name of the ApplicationGateway.
-	Name pulumi.StringInput
 	// Gets or sets probes of application gateway resource
 	Probes ApplicationGatewayProbeArrayInput
 	// Gets or sets Provisioning state of the ApplicationGateway resource Updating/Deleting/Failed

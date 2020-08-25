@@ -27,11 +27,11 @@ type Assessment struct {
 // NewAssessment registers a new resource with the given unique name, arguments, and options.
 func NewAssessment(ctx *pulumi.Context,
 	name string, args *AssessmentArgs, opts ...pulumi.ResourceOption) (*Assessment, error) {
+	if args == nil || args.AssessmentName == nil {
+		return nil, errors.New("missing required argument 'AssessmentName'")
+	}
 	if args == nil || args.GroupName == nil {
 		return nil, errors.New("missing required argument 'GroupName'")
-	}
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
 	}
 	if args == nil || args.ProjectName == nil {
 		return nil, errors.New("missing required argument 'ProjectName'")
@@ -93,12 +93,12 @@ func (AssessmentState) ElementType() reflect.Type {
 }
 
 type assessmentArgs struct {
+	// Unique name of an assessment within a project.
+	AssessmentName string `pulumi:"assessmentName"`
 	// For optimistic concurrency control.
 	ETag *string `pulumi:"eTag"`
 	// Unique name of a group within a project.
 	GroupName string `pulumi:"groupName"`
-	// Unique name of an assessment within a project.
-	Name string `pulumi:"name"`
 	// Name of the Azure Migrate project.
 	ProjectName string `pulumi:"projectName"`
 	// Properties of the assessment.
@@ -109,12 +109,12 @@ type assessmentArgs struct {
 
 // The set of arguments for constructing a Assessment resource.
 type AssessmentArgs struct {
+	// Unique name of an assessment within a project.
+	AssessmentName pulumi.StringInput
 	// For optimistic concurrency control.
 	ETag pulumi.StringPtrInput
 	// Unique name of a group within a project.
 	GroupName pulumi.StringInput
-	// Unique name of an assessment within a project.
-	Name pulumi.StringInput
 	// Name of the Azure Migrate project.
 	ProjectName pulumi.StringInput
 	// Properties of the assessment.

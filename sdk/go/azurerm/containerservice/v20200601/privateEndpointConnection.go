@@ -29,8 +29,8 @@ type PrivateEndpointConnection struct {
 // NewPrivateEndpointConnection registers a new resource with the given unique name, arguments, and options.
 func NewPrivateEndpointConnection(ctx *pulumi.Context,
 	name string, args *PrivateEndpointConnectionArgs, opts ...pulumi.ResourceOption) (*PrivateEndpointConnection, error) {
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
+	if args == nil || args.PrivateEndpointConnectionName == nil {
+		return nil, errors.New("missing required argument 'PrivateEndpointConnectionName'")
 	}
 	if args == nil || args.PrivateLinkServiceConnectionState == nil {
 		return nil, errors.New("missing required argument 'PrivateLinkServiceConnectionState'")
@@ -102,10 +102,10 @@ func (PrivateEndpointConnectionState) ElementType() reflect.Type {
 }
 
 type privateEndpointConnectionArgs struct {
-	// The name of the private endpoint connection.
-	Name string `pulumi:"name"`
 	// The resource of private endpoint.
 	PrivateEndpoint *PrivateEndpoint `pulumi:"privateEndpoint"`
+	// The name of the private endpoint connection.
+	PrivateEndpointConnectionName string `pulumi:"privateEndpointConnectionName"`
 	// A collection of information about the state of the connection between service consumer and provider.
 	PrivateLinkServiceConnectionState PrivateLinkServiceConnectionState `pulumi:"privateLinkServiceConnectionState"`
 	// The name of the resource group.
@@ -116,10 +116,10 @@ type privateEndpointConnectionArgs struct {
 
 // The set of arguments for constructing a PrivateEndpointConnection resource.
 type PrivateEndpointConnectionArgs struct {
-	// The name of the private endpoint connection.
-	Name pulumi.StringInput
 	// The resource of private endpoint.
 	PrivateEndpoint PrivateEndpointPtrInput
+	// The name of the private endpoint connection.
+	PrivateEndpointConnectionName pulumi.StringInput
 	// A collection of information about the state of the connection between service consumer and provider.
 	PrivateLinkServiceConnectionState PrivateLinkServiceConnectionStateInput
 	// The name of the resource group.

@@ -41,11 +41,11 @@ func NewApplicationPackage(ctx *pulumi.Context,
 	if args == nil || args.ApplicationName == nil {
 		return nil, errors.New("missing required argument 'ApplicationName'")
 	}
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
-	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
+	}
+	if args == nil || args.VersionName == nil {
+		return nil, errors.New("missing required argument 'VersionName'")
 	}
 	if args == nil {
 		args = &ApplicationPackageArgs{}
@@ -133,10 +133,10 @@ type applicationPackageArgs struct {
 	AccountName string `pulumi:"accountName"`
 	// The name of the application. This must be unique within the account.
 	ApplicationName string `pulumi:"applicationName"`
-	// The version of the application.
-	Name string `pulumi:"name"`
 	// The name of the resource group that contains the Batch account.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// The version of the application.
+	VersionName string `pulumi:"versionName"`
 }
 
 // The set of arguments for constructing a ApplicationPackage resource.
@@ -145,10 +145,10 @@ type ApplicationPackageArgs struct {
 	AccountName pulumi.StringInput
 	// The name of the application. This must be unique within the account.
 	ApplicationName pulumi.StringInput
-	// The version of the application.
-	Name pulumi.StringInput
 	// The name of the resource group that contains the Batch account.
 	ResourceGroupName pulumi.StringInput
+	// The version of the application.
+	VersionName pulumi.StringInput
 }
 
 func (ApplicationPackageArgs) ElementType() reflect.Type {

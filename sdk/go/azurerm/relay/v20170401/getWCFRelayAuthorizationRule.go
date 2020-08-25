@@ -18,7 +18,7 @@ func LookupWCFRelayAuthorizationRule(ctx *pulumi.Context, args *LookupWCFRelayAu
 
 type LookupWCFRelayAuthorizationRuleArgs struct {
 	// The authorization rule name.
-	Name string `pulumi:"name"`
+	AuthorizationRuleName string `pulumi:"authorizationRuleName"`
 	// The namespace name
 	NamespaceName string `pulumi:"namespaceName"`
 	// The relay name.

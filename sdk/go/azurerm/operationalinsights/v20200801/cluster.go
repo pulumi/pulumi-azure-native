@@ -39,11 +39,11 @@ type Cluster struct {
 // NewCluster registers a new resource with the given unique name, arguments, and options.
 func NewCluster(ctx *pulumi.Context,
 	name string, args *ClusterArgs, opts ...pulumi.ResourceOption) (*Cluster, error) {
+	if args == nil || args.ClusterName == nil {
+		return nil, errors.New("missing required argument 'ClusterName'")
+	}
 	if args == nil || args.Location == nil {
 		return nil, errors.New("missing required argument 'Location'")
-	}
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
 	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
@@ -123,14 +123,14 @@ func (ClusterState) ElementType() reflect.Type {
 }
 
 type clusterArgs struct {
+	// The name of the Log Analytics cluster.
+	ClusterName string `pulumi:"clusterName"`
 	// The identity of the resource.
 	Identity *Identity `pulumi:"identity"`
 	// The associated key properties.
 	KeyVaultProperties *KeyVaultProperties `pulumi:"keyVaultProperties"`
 	// The geo-location where the resource lives
 	Location string `pulumi:"location"`
-	// The name of the Log Analytics cluster.
-	Name string `pulumi:"name"`
 	// The link used to get the next page of recommendations.
 	NextLink *string `pulumi:"nextLink"`
 	// The name of the resource group. The name is case insensitive.
@@ -143,14 +143,14 @@ type clusterArgs struct {
 
 // The set of arguments for constructing a Cluster resource.
 type ClusterArgs struct {
+	// The name of the Log Analytics cluster.
+	ClusterName pulumi.StringInput
 	// The identity of the resource.
 	Identity IdentityPtrInput
 	// The associated key properties.
 	KeyVaultProperties KeyVaultPropertiesPtrInput
 	// The geo-location where the resource lives
 	Location pulumi.StringInput
-	// The name of the Log Analytics cluster.
-	Name pulumi.StringInput
 	// The link used to get the next page of recommendations.
 	NextLink pulumi.StringPtrInput
 	// The name of the resource group. The name is case insensitive.

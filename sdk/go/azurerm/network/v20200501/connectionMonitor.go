@@ -55,8 +55,8 @@ type ConnectionMonitor struct {
 // NewConnectionMonitor registers a new resource with the given unique name, arguments, and options.
 func NewConnectionMonitor(ctx *pulumi.Context,
 	name string, args *ConnectionMonitorArgs, opts ...pulumi.ResourceOption) (*ConnectionMonitor, error) {
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
+	if args == nil || args.ConnectionMonitorName == nil {
+		return nil, errors.New("missing required argument 'ConnectionMonitorName'")
 	}
 	if args == nil || args.NetworkWatcherName == nil {
 		return nil, errors.New("missing required argument 'NetworkWatcherName'")
@@ -242,6 +242,8 @@ func (ConnectionMonitorState) ElementType() reflect.Type {
 type connectionMonitorArgs struct {
 	// Determines if the connection monitor will start automatically once created.
 	AutoStart *bool `pulumi:"autoStart"`
+	// The name of the connection monitor.
+	ConnectionMonitorName string `pulumi:"connectionMonitorName"`
 	// Describes the destination of connection monitor.
 	Destination *ConnectionMonitorDestination `pulumi:"destination"`
 	// List of connection monitor endpoints.
@@ -250,8 +252,6 @@ type connectionMonitorArgs struct {
 	Location *string `pulumi:"location"`
 	// Monitoring interval in seconds.
 	MonitoringIntervalInSeconds *int `pulumi:"monitoringIntervalInSeconds"`
-	// The name of the connection monitor.
-	Name string `pulumi:"name"`
 	// The name of the Network Watcher resource.
 	NetworkWatcherName string `pulumi:"networkWatcherName"`
 	// Optional notes to be associated with the connection monitor.
@@ -274,6 +274,8 @@ type connectionMonitorArgs struct {
 type ConnectionMonitorArgs struct {
 	// Determines if the connection monitor will start automatically once created.
 	AutoStart pulumi.BoolPtrInput
+	// The name of the connection monitor.
+	ConnectionMonitorName pulumi.StringInput
 	// Describes the destination of connection monitor.
 	Destination ConnectionMonitorDestinationPtrInput
 	// List of connection monitor endpoints.
@@ -282,8 +284,6 @@ type ConnectionMonitorArgs struct {
 	Location pulumi.StringPtrInput
 	// Monitoring interval in seconds.
 	MonitoringIntervalInSeconds pulumi.IntPtrInput
-	// The name of the connection monitor.
-	Name pulumi.StringInput
 	// The name of the Network Watcher resource.
 	NetworkWatcherName pulumi.StringInput
 	// Optional notes to be associated with the connection monitor.

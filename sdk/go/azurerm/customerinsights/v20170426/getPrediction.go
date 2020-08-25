@@ -20,7 +20,7 @@ type LookupPredictionArgs struct {
 	// The name of the hub.
 	HubName string `pulumi:"hubName"`
 	// The name of the Prediction.
-	Name string `pulumi:"name"`
+	PredictionName string `pulumi:"predictionName"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }

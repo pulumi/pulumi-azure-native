@@ -20,7 +20,7 @@ type LookupPrivateEndpointConnectionArgs struct {
 	// The name of the configuration store.
 	ConfigStoreName string `pulumi:"configStoreName"`
 	// Private endpoint connection name
-	Name string `pulumi:"name"`
+	PrivateEndpointConnectionName string `pulumi:"privateEndpointConnectionName"`
 	// The name of the resource group to which the container registry belongs.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }

@@ -19,12 +19,12 @@ func LookupVolume(ctx *pulumi.Context, args *LookupVolumeArgs, opts ...pulumi.In
 type LookupVolumeArgs struct {
 	// The name of the NetApp account
 	AccountName string `pulumi:"accountName"`
-	// The name of the volume
-	Name string `pulumi:"name"`
 	// The name of the capacity pool
 	PoolName string `pulumi:"poolName"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// The name of the volume
+	VolumeName string `pulumi:"volumeName"`
 }
 
 // Volume resource

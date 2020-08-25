@@ -18,7 +18,7 @@ func LookupProximityPlacementGroup(ctx *pulumi.Context, args *LookupProximityPla
 
 type LookupProximityPlacementGroupArgs struct {
 	// The name of the proximity placement group.
-	Name string `pulumi:"name"`
+	ProximityPlacementGroupName string `pulumi:"proximityPlacementGroupName"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }

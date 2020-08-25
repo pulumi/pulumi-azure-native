@@ -45,8 +45,8 @@ func NewRemediationAtManagementGroup(ctx *pulumi.Context,
 	if args == nil || args.ManagementGroupsNamespace == nil {
 		return nil, errors.New("missing required argument 'ManagementGroupsNamespace'")
 	}
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
+	if args == nil || args.RemediationName == nil {
+		return nil, errors.New("missing required argument 'RemediationName'")
 	}
 	if args == nil {
 		args = &RemediationAtManagementGroupArgs{}
@@ -129,12 +129,12 @@ type remediationAtManagementGroupArgs struct {
 	ManagementGroupId string `pulumi:"managementGroupId"`
 	// The namespace for Microsoft Management RP; only "Microsoft.Management" is allowed.
 	ManagementGroupsNamespace string `pulumi:"managementGroupsNamespace"`
-	// The name of the remediation.
-	Name string `pulumi:"name"`
 	// The resource ID of the policy assignment that should be remediated.
 	PolicyAssignmentId *string `pulumi:"policyAssignmentId"`
 	// The policy definition reference ID of the individual definition that should be remediated. Required when the policy assignment being remediated assigns a policy set definition.
 	PolicyDefinitionReferenceId *string `pulumi:"policyDefinitionReferenceId"`
+	// The name of the remediation.
+	RemediationName string `pulumi:"remediationName"`
 	// The way resources to remediate are discovered. Defaults to ExistingNonCompliant if not specified.
 	ResourceDiscoveryMode *string `pulumi:"resourceDiscoveryMode"`
 }
@@ -147,12 +147,12 @@ type RemediationAtManagementGroupArgs struct {
 	ManagementGroupId pulumi.StringInput
 	// The namespace for Microsoft Management RP; only "Microsoft.Management" is allowed.
 	ManagementGroupsNamespace pulumi.StringInput
-	// The name of the remediation.
-	Name pulumi.StringInput
 	// The resource ID of the policy assignment that should be remediated.
 	PolicyAssignmentId pulumi.StringPtrInput
 	// The policy definition reference ID of the individual definition that should be remediated. Required when the policy assignment being remediated assigns a policy set definition.
 	PolicyDefinitionReferenceId pulumi.StringPtrInput
+	// The name of the remediation.
+	RemediationName pulumi.StringInput
 	// The way resources to remediate are discovered. Defaults to ExistingNonCompliant if not specified.
 	ResourceDiscoveryMode pulumi.StringPtrInput
 }

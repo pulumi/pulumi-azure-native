@@ -17,12 +17,14 @@ func LookupSiteVNETConnectionSlot(ctx *pulumi.Context, args *LookupSiteVNETConne
 }
 
 type LookupSiteVNETConnectionSlotArgs struct {
-	// The name of the Virtual Network
+	// The name of the web app
 	Name string `pulumi:"name"`
 	// The resource group name
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The name of the slot for this web app.
 	Slot string `pulumi:"slot"`
+	// The name of the Virtual Network
+	VnetName string `pulumi:"vnetName"`
 }
 
 // VNETInfo contract. This contract is public and is a stripped down version of VNETInfoInternal

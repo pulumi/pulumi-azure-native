@@ -17,10 +17,10 @@ func LookupCustomDomain(ctx *pulumi.Context, args *LookupCustomDomainArgs, opts 
 }
 
 type LookupCustomDomainArgs struct {
+	// Name of the custom domain within an endpoint.
+	CustomDomainName string `pulumi:"customDomainName"`
 	// Name of the endpoint within the CDN profile.
 	EndpointName string `pulumi:"endpointName"`
-	// Name of the custom domain within an endpoint.
-	Name string `pulumi:"name"`
 	// Name of the CDN profile within the resource group.
 	ProfileName string `pulumi:"profileName"`
 	// Name of the resource group within the Azure subscription.

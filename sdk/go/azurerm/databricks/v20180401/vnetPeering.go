@@ -43,8 +43,8 @@ type VNetPeering struct {
 // NewVNetPeering registers a new resource with the given unique name, arguments, and options.
 func NewVNetPeering(ctx *pulumi.Context,
 	name string, args *VNetPeeringArgs, opts ...pulumi.ResourceOption) (*VNetPeering, error) {
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
+	if args == nil || args.PeeringName == nil {
+		return nil, errors.New("missing required argument 'PeeringName'")
 	}
 	if args == nil || args.RemoteVirtualNetwork == nil {
 		return nil, errors.New("missing required argument 'RemoteVirtualNetwork'")
@@ -149,7 +149,7 @@ type vnetPeeringArgs struct {
 	//  The remote virtual network should be in the same region. See here to learn more (https://docs.microsoft.com/en-us/azure/databricks/administration-guide/cloud-configurations/azure/vnet-peering).
 	DatabricksVirtualNetwork *VirtualNetworkPeeringPropertiesFormatDatabricksVirtualNetwork `pulumi:"databricksVirtualNetwork"`
 	// The name of the workspace vNet peering.
-	Name string `pulumi:"name"`
+	PeeringName string `pulumi:"peeringName"`
 	// The reference to the remote virtual network address space.
 	RemoteAddressSpace *AddressSpace `pulumi:"remoteAddressSpace"`
 	//  The remote virtual network should be in the same region. See here to learn more (https://docs.microsoft.com/en-us/azure/databricks/administration-guide/cloud-configurations/azure/vnet-peering).
@@ -175,7 +175,7 @@ type VNetPeeringArgs struct {
 	//  The remote virtual network should be in the same region. See here to learn more (https://docs.microsoft.com/en-us/azure/databricks/administration-guide/cloud-configurations/azure/vnet-peering).
 	DatabricksVirtualNetwork VirtualNetworkPeeringPropertiesFormatDatabricksVirtualNetworkPtrInput
 	// The name of the workspace vNet peering.
-	Name pulumi.StringInput
+	PeeringName pulumi.StringInput
 	// The reference to the remote virtual network address space.
 	RemoteAddressSpace AddressSpacePtrInput
 	//  The remote virtual network should be in the same region. See here to learn more (https://docs.microsoft.com/en-us/azure/databricks/administration-guide/cloud-configurations/azure/vnet-peering).

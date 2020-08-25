@@ -20,7 +20,7 @@ type LookupFirewallPolicyArgs struct {
 	// Expands referenced resources.
 	Expand *string `pulumi:"expand"`
 	// The name of the Firewall Policy.
-	Name string `pulumi:"name"`
+	FirewallPolicyName string `pulumi:"firewallPolicyName"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }

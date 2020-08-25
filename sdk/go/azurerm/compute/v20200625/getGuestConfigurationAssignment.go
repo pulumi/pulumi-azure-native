@@ -18,7 +18,7 @@ func LookupGuestConfigurationAssignment(ctx *pulumi.Context, args *LookupGuestCo
 
 type LookupGuestConfigurationAssignmentArgs struct {
 	// The guest configuration assignment name.
-	Name string `pulumi:"name"`
+	GuestConfigurationAssignmentName string `pulumi:"guestConfigurationAssignmentName"`
 	// The resource group name.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The name of the virtual machine.

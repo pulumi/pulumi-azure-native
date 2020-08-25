@@ -19,12 +19,12 @@ func LookupReplicationStorageClassificationMapping(ctx *pulumi.Context, args *Lo
 type LookupReplicationStorageClassificationMappingArgs struct {
 	// Fabric name.
 	FabricName string `pulumi:"fabricName"`
-	// Storage classification mapping name.
-	Name string `pulumi:"name"`
 	// The name of the resource group where the recovery services vault is present.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The name of the recovery services vault.
 	ResourceName string `pulumi:"resourceName"`
+	// Storage classification mapping name.
+	StorageClassificationMappingName string `pulumi:"storageClassificationMappingName"`
 	// Storage classification name.
 	StorageClassificationName string `pulumi:"storageClassificationName"`
 }

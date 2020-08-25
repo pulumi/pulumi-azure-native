@@ -19,10 +19,10 @@ func LookupReplicationProtectedItem(ctx *pulumi.Context, args *LookupReplication
 type LookupReplicationProtectedItemArgs struct {
 	// Fabric unique name.
 	FabricName string `pulumi:"fabricName"`
-	// Replication protected item name.
-	Name string `pulumi:"name"`
 	// Protection container name.
 	ProtectionContainerName string `pulumi:"protectionContainerName"`
+	// Replication protected item name.
+	ReplicatedProtectedItemName string `pulumi:"replicatedProtectedItemName"`
 	// The name of the resource group where the recovery services vault is present.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The name of the recovery services vault.

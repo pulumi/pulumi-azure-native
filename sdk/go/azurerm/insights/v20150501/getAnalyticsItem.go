@@ -19,12 +19,14 @@ func LookupAnalyticsItem(ctx *pulumi.Context, args *LookupAnalyticsItemArgs, opt
 type LookupAnalyticsItemArgs struct {
 	// The Id of a specific item defined in the Application Insights component
 	Id *string `pulumi:"id"`
-	// Enum indicating if this item definition is owned by a specific user or is shared between all users with access to the Application Insights component.
-	Name string `pulumi:"name"`
+	// The name of a specific item defined in the Application Insights component
+	Name *string `pulumi:"name"`
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The name of the Application Insights component resource.
 	ResourceName string `pulumi:"resourceName"`
+	// Enum indicating if this item definition is owned by a specific user or is shared between all users with access to the Application Insights component.
+	ScopePath string `pulumi:"scopePath"`
 }
 
 // Properties that define an Analytics item that is associated to an Application Insights component.

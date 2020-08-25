@@ -23,10 +23,10 @@ type LookupUserArgs struct {
 	LabAccountName string `pulumi:"labAccountName"`
 	// The name of the lab.
 	LabName string `pulumi:"labName"`
-	// The name of the user.
-	Name string `pulumi:"name"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// The name of the user.
+	UserName string `pulumi:"userName"`
 }
 
 // The User registered to a lab

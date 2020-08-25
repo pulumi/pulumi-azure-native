@@ -41,8 +41,8 @@ type InterfaceEndpoint struct {
 // NewInterfaceEndpoint registers a new resource with the given unique name, arguments, and options.
 func NewInterfaceEndpoint(ctx *pulumi.Context,
 	name string, args *InterfaceEndpointArgs, opts ...pulumi.ResourceOption) (*InterfaceEndpoint, error) {
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
+	if args == nil || args.InterfaceEndpointName == nil {
+		return nil, errors.New("missing required argument 'InterfaceEndpointName'")
 	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
@@ -149,10 +149,10 @@ type interfaceEndpointArgs struct {
 	Fqdn *string `pulumi:"fqdn"`
 	// Resource ID.
 	Id *string `pulumi:"id"`
+	// The name of the interface endpoint.
+	InterfaceEndpointName string `pulumi:"interfaceEndpointName"`
 	// Resource location.
 	Location *string `pulumi:"location"`
-	// The name of the interface endpoint.
-	Name string `pulumi:"name"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The ID of the subnet from which the private IP will be allocated.
@@ -171,10 +171,10 @@ type InterfaceEndpointArgs struct {
 	Fqdn pulumi.StringPtrInput
 	// Resource ID.
 	Id pulumi.StringPtrInput
+	// The name of the interface endpoint.
+	InterfaceEndpointName pulumi.StringInput
 	// Resource location.
 	Location pulumi.StringPtrInput
-	// The name of the interface endpoint.
-	Name pulumi.StringInput
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
 	// The ID of the subnet from which the private IP will be allocated.

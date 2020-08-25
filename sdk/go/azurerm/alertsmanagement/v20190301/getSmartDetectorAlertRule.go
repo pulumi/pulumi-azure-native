@@ -17,10 +17,10 @@ func LookupSmartDetectorAlertRule(ctx *pulumi.Context, args *LookupSmartDetector
 }
 
 type LookupSmartDetectorAlertRuleArgs struct {
+	// The name of the alert rule.
+	AlertRuleName string `pulumi:"alertRuleName"`
 	// Indicates if Smart Detector should be expanded.
 	ExpandDetector *bool `pulumi:"expandDetector"`
-	// The name of the alert rule.
-	Name string `pulumi:"name"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }

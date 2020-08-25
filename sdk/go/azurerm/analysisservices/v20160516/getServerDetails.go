@@ -17,10 +17,10 @@ func LookupServerDetails(ctx *pulumi.Context, args *LookupServerDetailsArgs, opt
 }
 
 type LookupServerDetailsArgs struct {
-	// The name of the Analysis Services server. It must be a minimum of 3 characters, and a maximum of 63.
-	Name string `pulumi:"name"`
 	// The name of the Azure Resource group of which a given Analysis Services server is part. This name must be at least 1 character in length, and no more than 90.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// The name of the Analysis Services server. It must be a minimum of 3 characters, and a maximum of 63.
+	ServerName string `pulumi:"serverName"`
 }
 
 // Represents an instance of an Analysis Services resource.

@@ -20,7 +20,7 @@ type LookupContentKeyPolicyArgs struct {
 	// The Media Services account name.
 	AccountName string `pulumi:"accountName"`
 	// The Content Key Policy name.
-	Name string `pulumi:"name"`
+	ContentKeyPolicyName string `pulumi:"contentKeyPolicyName"`
 	// The name of the resource group within the Azure subscription.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }

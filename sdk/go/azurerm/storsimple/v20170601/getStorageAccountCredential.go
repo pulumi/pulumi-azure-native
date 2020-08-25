@@ -19,10 +19,10 @@ func LookupStorageAccountCredential(ctx *pulumi.Context, args *LookupStorageAcco
 type LookupStorageAccountCredentialArgs struct {
 	// The manager name
 	ManagerName string `pulumi:"managerName"`
-	// The name of storage account credential to be fetched.
-	Name string `pulumi:"name"`
 	// The resource group name
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// The name of storage account credential to be fetched.
+	StorageAccountCredentialName string `pulumi:"storageAccountCredentialName"`
 }
 
 // The storage account credential.

@@ -29,8 +29,8 @@ type DeploymentAtScope struct {
 // NewDeploymentAtScope registers a new resource with the given unique name, arguments, and options.
 func NewDeploymentAtScope(ctx *pulumi.Context,
 	name string, args *DeploymentAtScopeArgs, opts ...pulumi.ResourceOption) (*DeploymentAtScope, error) {
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
+	if args == nil || args.DeploymentName == nil {
+		return nil, errors.New("missing required argument 'DeploymentName'")
 	}
 	if args == nil || args.Properties == nil {
 		return nil, errors.New("missing required argument 'Properties'")
@@ -105,10 +105,10 @@ func (DeploymentAtScopeState) ElementType() reflect.Type {
 }
 
 type deploymentAtScopeArgs struct {
+	// The name of the deployment.
+	DeploymentName string `pulumi:"deploymentName"`
 	// The location to store the deployment data.
 	Location *string `pulumi:"location"`
-	// The name of the deployment.
-	Name string `pulumi:"name"`
 	// The deployment properties.
 	Properties DeploymentProperties `pulumi:"properties"`
 	// The resource scope.
@@ -119,10 +119,10 @@ type deploymentAtScopeArgs struct {
 
 // The set of arguments for constructing a DeploymentAtScope resource.
 type DeploymentAtScopeArgs struct {
+	// The name of the deployment.
+	DeploymentName pulumi.StringInput
 	// The location to store the deployment data.
 	Location pulumi.StringPtrInput
-	// The name of the deployment.
-	Name pulumi.StringInput
 	// The deployment properties.
 	Properties DeploymentPropertiesInput
 	// The resource scope.

@@ -18,7 +18,7 @@ func LookupCluster(ctx *pulumi.Context, args *LookupClusterArgs, opts ...pulumi.
 
 type LookupClusterArgs struct {
 	// Name of the Log Analytics Cluster.
-	Name string `pulumi:"name"`
+	ClusterName string `pulumi:"clusterName"`
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }

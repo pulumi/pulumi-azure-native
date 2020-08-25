@@ -39,14 +39,14 @@ func NewSnapshot(ctx *pulumi.Context,
 	if args == nil || args.Location == nil {
 		return nil, errors.New("missing required argument 'Location'")
 	}
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
-	}
 	if args == nil || args.PoolName == nil {
 		return nil, errors.New("missing required argument 'PoolName'")
 	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
+	}
+	if args == nil || args.SnapshotName == nil {
+		return nil, errors.New("missing required argument 'SnapshotName'")
 	}
 	if args == nil || args.VolumeName == nil {
 		return nil, errors.New("missing required argument 'VolumeName'")
@@ -144,12 +144,12 @@ type snapshotArgs struct {
 	FileSystemId *string `pulumi:"fileSystemId"`
 	// Resource location
 	Location string `pulumi:"location"`
-	// The name of the mount target
-	Name string `pulumi:"name"`
 	// The name of the capacity pool
 	PoolName string `pulumi:"poolName"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// The name of the mount target
+	SnapshotName string `pulumi:"snapshotName"`
 	// The name of the volume
 	VolumeName string `pulumi:"volumeName"`
 }
@@ -162,12 +162,12 @@ type SnapshotArgs struct {
 	FileSystemId pulumi.StringPtrInput
 	// Resource location
 	Location pulumi.StringInput
-	// The name of the mount target
-	Name pulumi.StringInput
 	// The name of the capacity pool
 	PoolName pulumi.StringInput
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
+	// The name of the mount target
+	SnapshotName pulumi.StringInput
 	// The name of the volume
 	VolumeName pulumi.StringInput
 }

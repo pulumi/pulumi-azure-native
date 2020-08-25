@@ -17,12 +17,12 @@ func LookupVirtualNetworkRule(ctx *pulumi.Context, args *LookupVirtualNetworkRul
 }
 
 type LookupVirtualNetworkRuleArgs struct {
-	// The name of the virtual network rule.
-	Name string `pulumi:"name"`
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The name of the server.
 	ServerName string `pulumi:"serverName"`
+	// The name of the virtual network rule.
+	VirtualNetworkRuleName string `pulumi:"virtualNetworkRuleName"`
 }
 
 // A virtual network rule.

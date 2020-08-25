@@ -33,11 +33,11 @@ type Gallery struct {
 // NewGallery registers a new resource with the given unique name, arguments, and options.
 func NewGallery(ctx *pulumi.Context,
 	name string, args *GalleryArgs, opts ...pulumi.ResourceOption) (*Gallery, error) {
+	if args == nil || args.GalleryName == nil {
+		return nil, errors.New("missing required argument 'GalleryName'")
+	}
 	if args == nil || args.Location == nil {
 		return nil, errors.New("missing required argument 'Location'")
-	}
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
 	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
@@ -119,10 +119,10 @@ func (GalleryState) ElementType() reflect.Type {
 type galleryArgs struct {
 	// The description of this Shared Image Gallery resource. This property is updatable.
 	Description *string `pulumi:"description"`
+	// The name of the Shared Image Gallery. The allowed characters are alphabets and numbers with dots and periods allowed in the middle. The maximum length is 80 characters.
+	GalleryName string `pulumi:"galleryName"`
 	// Resource location
 	Location string `pulumi:"location"`
-	// The name of the Shared Image Gallery. The allowed characters are alphabets and numbers with dots and periods allowed in the middle. The maximum length is 80 characters.
-	Name string `pulumi:"name"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Resource tags
@@ -133,10 +133,10 @@ type galleryArgs struct {
 type GalleryArgs struct {
 	// The description of this Shared Image Gallery resource. This property is updatable.
 	Description pulumi.StringPtrInput
+	// The name of the Shared Image Gallery. The allowed characters are alphabets and numbers with dots and periods allowed in the middle. The maximum length is 80 characters.
+	GalleryName pulumi.StringInput
 	// Resource location
 	Location pulumi.StringInput
-	// The name of the Shared Image Gallery. The allowed characters are alphabets and numbers with dots and periods allowed in the middle. The maximum length is 80 characters.
-	Name pulumi.StringInput
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
 	// Resource tags

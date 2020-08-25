@@ -37,8 +37,8 @@ type ExpressRouteGateway struct {
 // NewExpressRouteGateway registers a new resource with the given unique name, arguments, and options.
 func NewExpressRouteGateway(ctx *pulumi.Context,
 	name string, args *ExpressRouteGatewayArgs, opts ...pulumi.ResourceOption) (*ExpressRouteGateway, error) {
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
+	if args == nil || args.ExpressRouteGatewayName == nil {
+		return nil, errors.New("missing required argument 'ExpressRouteGatewayName'")
 	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
@@ -167,12 +167,12 @@ func (ExpressRouteGatewayState) ElementType() reflect.Type {
 type expressRouteGatewayArgs struct {
 	// Configuration for auto scaling.
 	AutoScaleConfiguration *ExpressRouteGatewayPropertiesAutoScaleConfiguration `pulumi:"autoScaleConfiguration"`
+	// The name of the ExpressRoute gateway.
+	ExpressRouteGatewayName string `pulumi:"expressRouteGatewayName"`
 	// Resource ID.
 	Id *string `pulumi:"id"`
 	// Resource location.
 	Location *string `pulumi:"location"`
-	// The name of the ExpressRoute gateway.
-	Name string `pulumi:"name"`
 	// The provisioning state of the express route gateway resource.
 	ProvisioningState *string `pulumi:"provisioningState"`
 	// The name of the resource group.
@@ -187,12 +187,12 @@ type expressRouteGatewayArgs struct {
 type ExpressRouteGatewayArgs struct {
 	// Configuration for auto scaling.
 	AutoScaleConfiguration ExpressRouteGatewayPropertiesAutoScaleConfigurationPtrInput
+	// The name of the ExpressRoute gateway.
+	ExpressRouteGatewayName pulumi.StringInput
 	// Resource ID.
 	Id pulumi.StringPtrInput
 	// Resource location.
 	Location pulumi.StringPtrInput
-	// The name of the ExpressRoute gateway.
-	Name pulumi.StringInput
 	// The provisioning state of the express route gateway resource.
 	ProvisioningState pulumi.StringPtrInput
 	// The name of the resource group.

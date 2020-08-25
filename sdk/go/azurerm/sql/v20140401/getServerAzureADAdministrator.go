@@ -18,7 +18,7 @@ func LookupServerAzureADAdministrator(ctx *pulumi.Context, args *LookupServerAzu
 
 type LookupServerAzureADAdministratorArgs struct {
 	// Name of the server administrator resource.
-	Name string `pulumi:"name"`
+	AdministratorName string `pulumi:"administratorName"`
 	// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The name of the server.

@@ -30,8 +30,8 @@ type Connection struct {
 // NewConnection registers a new resource with the given unique name, arguments, and options.
 func NewConnection(ctx *pulumi.Context,
 	name string, args *ConnectionArgs, opts ...pulumi.ResourceOption) (*Connection, error) {
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
+	if args == nil || args.ConnectionName == nil {
+		return nil, errors.New("missing required argument 'ConnectionName'")
 	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
@@ -93,12 +93,12 @@ func (ConnectionState) ElementType() reflect.Type {
 }
 
 type connectionArgs struct {
+	// Connection name
+	ConnectionName string `pulumi:"connectionName"`
 	// Resource ETag
 	Etag *string `pulumi:"etag"`
 	// Resource location
-	Location *string `pulumi:"location"`
-	// Connection name
-	Name       string                             `pulumi:"name"`
+	Location   *string                            `pulumi:"location"`
 	Properties *ApiConnectionDefinitionProperties `pulumi:"properties"`
 	// The resource group
 	ResourceGroupName string `pulumi:"resourceGroupName"`
@@ -108,12 +108,12 @@ type connectionArgs struct {
 
 // The set of arguments for constructing a Connection resource.
 type ConnectionArgs struct {
+	// Connection name
+	ConnectionName pulumi.StringInput
 	// Resource ETag
 	Etag pulumi.StringPtrInput
 	// Resource location
-	Location pulumi.StringPtrInput
-	// Connection name
-	Name       pulumi.StringInput
+	Location   pulumi.StringPtrInput
 	Properties ApiConnectionDefinitionPropertiesPtrInput
 	// The resource group
 	ResourceGroupName pulumi.StringInput

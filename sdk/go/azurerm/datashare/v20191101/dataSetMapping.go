@@ -28,11 +28,11 @@ func NewDataSetMapping(ctx *pulumi.Context,
 	if args == nil || args.AccountName == nil {
 		return nil, errors.New("missing required argument 'AccountName'")
 	}
+	if args == nil || args.DataSetMappingName == nil {
+		return nil, errors.New("missing required argument 'DataSetMappingName'")
+	}
 	if args == nil || args.Kind == nil {
 		return nil, errors.New("missing required argument 'Kind'")
-	}
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
 	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
@@ -89,10 +89,10 @@ func (DataSetMappingState) ElementType() reflect.Type {
 type dataSetMappingArgs struct {
 	// The name of the share account.
 	AccountName string `pulumi:"accountName"`
+	// The name of the data set mapping to be created.
+	DataSetMappingName string `pulumi:"dataSetMappingName"`
 	// Kind of data set mapping.
 	Kind string `pulumi:"kind"`
-	// The name of the data set mapping to be created.
-	Name string `pulumi:"name"`
 	// The resource group name.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The name of the share subscription which will hold the data set sink.
@@ -103,10 +103,10 @@ type dataSetMappingArgs struct {
 type DataSetMappingArgs struct {
 	// The name of the share account.
 	AccountName pulumi.StringInput
+	// The name of the data set mapping to be created.
+	DataSetMappingName pulumi.StringInput
 	// Kind of data set mapping.
 	Kind pulumi.StringInput
-	// The name of the data set mapping to be created.
-	Name pulumi.StringInput
 	// The resource group name.
 	ResourceGroupName pulumi.StringInput
 	// The name of the share subscription which will hold the data set sink.

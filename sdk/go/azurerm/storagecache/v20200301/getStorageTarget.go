@@ -19,10 +19,10 @@ func LookupStorageTarget(ctx *pulumi.Context, args *LookupStorageTargetArgs, opt
 type LookupStorageTargetArgs struct {
 	// Name of Cache. Length of name must be not greater than 80 and chars must be in list of [-0-9a-zA-Z_] char class.
 	CacheName string `pulumi:"cacheName"`
-	// Name of the Storage Target. Length of name must be not greater than 80 and chars must be in list of [-0-9a-zA-Z_] char class.
-	Name string `pulumi:"name"`
 	// Target resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// Name of the Storage Target. Length of name must be not greater than 80 and chars must be in list of [-0-9a-zA-Z_] char class.
+	StorageTargetName string `pulumi:"storageTargetName"`
 }
 
 // Type of the Storage Target.

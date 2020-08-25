@@ -17,10 +17,10 @@ func LookupIntegrationAccountBatchConfiguration(ctx *pulumi.Context, args *Looku
 }
 
 type LookupIntegrationAccountBatchConfigurationArgs struct {
+	// The batch configuration name.
+	BatchConfigurationName string `pulumi:"batchConfigurationName"`
 	// The integration account name.
 	IntegrationAccountName string `pulumi:"integrationAccountName"`
-	// The batch configuration name.
-	Name string `pulumi:"name"`
 	// The resource group name.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }

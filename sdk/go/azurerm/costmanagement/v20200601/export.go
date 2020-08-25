@@ -43,8 +43,8 @@ func NewExport(ctx *pulumi.Context,
 	if args == nil || args.DeliveryInfo == nil {
 		return nil, errors.New("missing required argument 'DeliveryInfo'")
 	}
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
+	if args == nil || args.ExportName == nil {
+		return nil, errors.New("missing required argument 'ExportName'")
 	}
 	if args == nil || args.Scope == nil {
 		return nil, errors.New("missing required argument 'Scope'")
@@ -141,10 +141,10 @@ type exportArgs struct {
 	DeliveryInfo ExportDeliveryInfo `pulumi:"deliveryInfo"`
 	// eTag of the resource. To handle concurrent update scenario, this field will be used to determine whether the user is updating the latest version or not.
 	ETag *string `pulumi:"eTag"`
+	// Export Name.
+	ExportName string `pulumi:"exportName"`
 	// The format of the export being delivered. Currently only 'Csv' is supported.
 	Format *string `pulumi:"format"`
-	// Export Name.
-	Name string `pulumi:"name"`
 	// Has schedule information for the export.
 	Schedule *ExportSchedule `pulumi:"schedule"`
 	// The scope associated with query and export operations. This includes '/subscriptions/{subscriptionId}/' for subscription scope, '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}' for resourceGroup scope, '/providers/Microsoft.Billing/billingAccounts/{billingAccountId}' for Billing Account scope and '/providers/Microsoft.Billing/billingAccounts/{billingAccountId}/departments/{departmentId}' for Department scope, '/providers/Microsoft.Billing/billingAccounts/{billingAccountId}/enrollmentAccounts/{enrollmentAccountId}' for EnrollmentAccount scope, '/providers/Microsoft.Management/managementGroups/{managementGroupId} for Management Group scope, '/providers/Microsoft.Billing/billingAccounts/{billingAccountId}/billingProfiles/{billingProfileId}' for billingProfile scope, '/providers/Microsoft.Billing/billingAccounts/{billingAccountId}/billingProfiles/{billingProfileId}/invoiceSections/{invoiceSectionId}' for invoiceSection scope, and '/providers/Microsoft.Billing/billingAccounts/{billingAccountId}/customers/{customerId}' specific for partners.
@@ -159,10 +159,10 @@ type ExportArgs struct {
 	DeliveryInfo ExportDeliveryInfoInput
 	// eTag of the resource. To handle concurrent update scenario, this field will be used to determine whether the user is updating the latest version or not.
 	ETag pulumi.StringPtrInput
+	// Export Name.
+	ExportName pulumi.StringInput
 	// The format of the export being delivered. Currently only 'Csv' is supported.
 	Format pulumi.StringPtrInput
-	// Export Name.
-	Name pulumi.StringInput
 	// Has schedule information for the export.
 	Schedule ExportSchedulePtrInput
 	// The scope associated with query and export operations. This includes '/subscriptions/{subscriptionId}/' for subscription scope, '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}' for resourceGroup scope, '/providers/Microsoft.Billing/billingAccounts/{billingAccountId}' for Billing Account scope and '/providers/Microsoft.Billing/billingAccounts/{billingAccountId}/departments/{departmentId}' for Department scope, '/providers/Microsoft.Billing/billingAccounts/{billingAccountId}/enrollmentAccounts/{enrollmentAccountId}' for EnrollmentAccount scope, '/providers/Microsoft.Management/managementGroups/{managementGroupId} for Management Group scope, '/providers/Microsoft.Billing/billingAccounts/{billingAccountId}/billingProfiles/{billingProfileId}' for billingProfile scope, '/providers/Microsoft.Billing/billingAccounts/{billingAccountId}/billingProfiles/{billingProfileId}/invoiceSections/{invoiceSectionId}' for invoiceSection scope, and '/providers/Microsoft.Billing/billingAccounts/{billingAccountId}/customers/{customerId}' specific for partners.

@@ -18,7 +18,7 @@ func GetvNetPeering(ctx *pulumi.Context, args *GetvNetPeeringArgs, opts ...pulum
 
 type GetvNetPeeringArgs struct {
 	// The name of the workspace vNet peering.
-	Name string `pulumi:"name"`
+	PeeringName string `pulumi:"peeringName"`
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The name of the workspace.

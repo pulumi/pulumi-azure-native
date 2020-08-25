@@ -18,7 +18,7 @@ func LookupFrontDoor(ctx *pulumi.Context, args *LookupFrontDoorArgs, opts ...pul
 
 type LookupFrontDoorArgs struct {
 	// Name of the Front Door which is globally unique.
-	Name string `pulumi:"name"`
+	FrontDoorName string `pulumi:"frontDoorName"`
 	// Name of the Resource group within the Azure subscription.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }

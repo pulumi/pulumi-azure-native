@@ -19,10 +19,10 @@ func LookupStorageAccount(ctx *pulumi.Context, args *LookupStorageAccountArgs, o
 type LookupStorageAccountArgs struct {
 	// The device name.
 	DeviceName string `pulumi:"deviceName"`
-	// The storage account name.
-	Name string `pulumi:"name"`
 	// The resource group name.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// The storage account name.
+	StorageAccountName string `pulumi:"storageAccountName"`
 }
 
 // Represents a Storage Account on the  Data Box Edge/Gateway device.

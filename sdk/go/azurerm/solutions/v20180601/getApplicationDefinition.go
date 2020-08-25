@@ -18,7 +18,7 @@ func LookupApplicationDefinition(ctx *pulumi.Context, args *LookupApplicationDef
 
 type LookupApplicationDefinitionArgs struct {
 	// The name of the managed application definition.
-	Name string `pulumi:"name"`
+	ApplicationDefinitionName string `pulumi:"applicationDefinitionName"`
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }

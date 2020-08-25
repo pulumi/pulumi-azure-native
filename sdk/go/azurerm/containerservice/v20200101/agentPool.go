@@ -59,8 +59,8 @@ type AgentPool struct {
 // NewAgentPool registers a new resource with the given unique name, arguments, and options.
 func NewAgentPool(ctx *pulumi.Context,
 	name string, args *AgentPoolArgs, opts ...pulumi.ResourceOption) (*AgentPool, error) {
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
+	if args == nil || args.AgentPoolName == nil {
+		return nil, errors.New("missing required argument 'AgentPoolName'")
 	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
@@ -216,6 +216,8 @@ func (AgentPoolState) ElementType() reflect.Type {
 }
 
 type agentPoolArgs struct {
+	// The name of the agent pool.
+	AgentPoolName string `pulumi:"agentPoolName"`
 	// Availability zones for nodes. Must use VirtualMachineScaleSets AgentPoolType.
 	AvailabilityZones []string `pulumi:"availabilityZones"`
 	// Number of agents (VMs) to host docker containers. Allowed values must be in the range of 1 to 100 (inclusive). The default value is 1.
@@ -230,8 +232,6 @@ type agentPoolArgs struct {
 	MaxPods *int `pulumi:"maxPods"`
 	// Minimum number of nodes for auto-scaling
 	MinCount *int `pulumi:"minCount"`
-	// The name of the agent pool.
-	Name string `pulumi:"name"`
 	// Agent pool node labels to be persisted across all nodes in agent pool.
 	NodeLabels map[string]string `pulumi:"nodeLabels"`
 	// Taints added to new nodes during node pool create and scale. For example, key=value:NoSchedule.
@@ -262,6 +262,8 @@ type agentPoolArgs struct {
 
 // The set of arguments for constructing a AgentPool resource.
 type AgentPoolArgs struct {
+	// The name of the agent pool.
+	AgentPoolName pulumi.StringInput
 	// Availability zones for nodes. Must use VirtualMachineScaleSets AgentPoolType.
 	AvailabilityZones pulumi.StringArrayInput
 	// Number of agents (VMs) to host docker containers. Allowed values must be in the range of 1 to 100 (inclusive). The default value is 1.
@@ -276,8 +278,6 @@ type AgentPoolArgs struct {
 	MaxPods pulumi.IntPtrInput
 	// Minimum number of nodes for auto-scaling
 	MinCount pulumi.IntPtrInput
-	// The name of the agent pool.
-	Name pulumi.StringInput
 	// Agent pool node labels to be persisted across all nodes in agent pool.
 	NodeLabels pulumi.StringMapInput
 	// Taints added to new nodes during node pool create and scale. For example, key=value:NoSchedule.

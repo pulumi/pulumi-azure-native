@@ -17,10 +17,10 @@ func LookupComponent(ctx *pulumi.Context, args *LookupComponentArgs, opts ...pul
 }
 
 type LookupComponentArgs struct {
-	// The name of the Application Insights component resource.
-	Name string `pulumi:"name"`
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// The name of the Application Insights component resource.
+	ResourceName string `pulumi:"resourceName"`
 }
 
 // An Application Insights component definition.

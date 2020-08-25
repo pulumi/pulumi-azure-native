@@ -29,11 +29,11 @@ type MasterSiteSite struct {
 // NewMasterSiteSite registers a new resource with the given unique name, arguments, and options.
 func NewMasterSiteSite(ctx *pulumi.Context,
 	name string, args *MasterSiteSiteArgs, opts ...pulumi.ResourceOption) (*MasterSiteSite, error) {
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
-	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
+	}
+	if args == nil || args.SiteName == nil {
+		return nil, errors.New("missing required argument 'SiteName'")
 	}
 	if args == nil {
 		args = &MasterSiteSiteArgs{}
@@ -94,12 +94,14 @@ type masterSiteSiteArgs struct {
 	ETag *string `pulumi:"eTag"`
 	// Azure location in which Sites is created.
 	Location *string `pulumi:"location"`
-	// Site name.
-	Name string `pulumi:"name"`
+	// Name of the Master site.
+	Name *string `pulumi:"name"`
 	// Nested properties of Master site.
 	Properties *MasterSiteProperties `pulumi:"properties"`
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// Site name.
+	SiteName string `pulumi:"siteName"`
 }
 
 // The set of arguments for constructing a MasterSiteSite resource.
@@ -108,12 +110,14 @@ type MasterSiteSiteArgs struct {
 	ETag pulumi.StringPtrInput
 	// Azure location in which Sites is created.
 	Location pulumi.StringPtrInput
-	// Site name.
-	Name pulumi.StringInput
+	// Name of the Master site.
+	Name pulumi.StringPtrInput
 	// Nested properties of Master site.
 	Properties MasterSitePropertiesPtrInput
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName pulumi.StringInput
+	// Site name.
+	SiteName pulumi.StringInput
 }
 
 func (MasterSiteSiteArgs) ElementType() reflect.Type {

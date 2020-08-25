@@ -20,7 +20,7 @@ type LookupDscNodeConfigurationArgs struct {
 	// The name of the automation account.
 	AutomationAccountName string `pulumi:"automationAccountName"`
 	// The Dsc node configuration name.
-	Name string `pulumi:"name"`
+	NodeConfigurationName string `pulumi:"nodeConfigurationName"`
 	// Name of an Azure Resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }

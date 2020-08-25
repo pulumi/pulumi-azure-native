@@ -17,12 +17,12 @@ func LookupVirtualNetworkPeering(ctx *pulumi.Context, args *LookupVirtualNetwork
 }
 
 type LookupVirtualNetworkPeeringArgs struct {
-	// The name of the virtual network peering.
-	Name string `pulumi:"name"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The name of the virtual network.
 	VirtualNetworkName string `pulumi:"virtualNetworkName"`
+	// The name of the virtual network peering.
+	VirtualNetworkPeeringName string `pulumi:"virtualNetworkPeeringName"`
 }
 
 // Peerings in a VirtualNetwork resource

@@ -20,7 +20,7 @@ type LookupBackupArgs struct {
 	// The name of the NetApp account
 	AccountName string `pulumi:"accountName"`
 	// The name of the backup
-	Name string `pulumi:"name"`
+	BackupName string `pulumi:"backupName"`
 	// The name of the capacity pool
 	PoolName string `pulumi:"poolName"`
 	// The name of the resource group.

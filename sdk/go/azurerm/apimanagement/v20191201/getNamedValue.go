@@ -18,7 +18,7 @@ func LookupNamedValue(ctx *pulumi.Context, args *LookupNamedValueArgs, opts ...p
 
 type LookupNamedValueArgs struct {
 	// Identifier of the NamedValue.
-	Name string `pulumi:"name"`
+	NamedValueId string `pulumi:"namedValueId"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The name of the API Management service.

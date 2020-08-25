@@ -17,10 +17,12 @@ func ListSiteConnectionStringsSlot(ctx *pulumi.Context, args *ListSiteConnection
 }
 
 type ListSiteConnectionStringsSlotArgs struct {
-	// Name of web app slot. If not specified then will default to production slot.
+	// Name of web app
 	Name string `pulumi:"name"`
 	// Name of resource group
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// Name of web app slot. If not specified then will default to production slot.
+	Slot string `pulumi:"slot"`
 }
 
 // String dictionary resource

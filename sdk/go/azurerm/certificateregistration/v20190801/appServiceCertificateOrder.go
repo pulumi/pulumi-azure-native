@@ -67,11 +67,11 @@ type AppServiceCertificateOrder struct {
 // NewAppServiceCertificateOrder registers a new resource with the given unique name, arguments, and options.
 func NewAppServiceCertificateOrder(ctx *pulumi.Context,
 	name string, args *AppServiceCertificateOrderArgs, opts ...pulumi.ResourceOption) (*AppServiceCertificateOrder, error) {
+	if args == nil || args.CertificateOrderName == nil {
+		return nil, errors.New("missing required argument 'CertificateOrderName'")
+	}
 	if args == nil || args.Location == nil {
 		return nil, errors.New("missing required argument 'Location'")
-	}
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
 	}
 	if args == nil || args.ProductType == nil {
 		return nil, errors.New("missing required argument 'ProductType'")
@@ -224,6 +224,8 @@ func (AppServiceCertificateOrderState) ElementType() reflect.Type {
 type appServiceCertificateOrderArgs struct {
 	// <code>true</code> if the certificate should be automatically renewed when it expires; otherwise, <code>false</code>.
 	AutoRenew *bool `pulumi:"autoRenew"`
+	// Name of the certificate order.
+	CertificateOrderName string `pulumi:"certificateOrderName"`
 	// State of the Key Vault secret.
 	Certificates map[string]AppServiceCertificate `pulumi:"certificates"`
 	// Last CSR that was created for this order.
@@ -236,8 +238,6 @@ type appServiceCertificateOrderArgs struct {
 	Kind *string `pulumi:"kind"`
 	// Resource Location.
 	Location string `pulumi:"location"`
-	// Name of the certificate order.
-	Name string `pulumi:"name"`
 	// Certificate product type.
 	ProductType string `pulumi:"productType"`
 	// Name of the resource group to which the resource belongs.
@@ -252,6 +252,8 @@ type appServiceCertificateOrderArgs struct {
 type AppServiceCertificateOrderArgs struct {
 	// <code>true</code> if the certificate should be automatically renewed when it expires; otherwise, <code>false</code>.
 	AutoRenew pulumi.BoolPtrInput
+	// Name of the certificate order.
+	CertificateOrderName pulumi.StringInput
 	// State of the Key Vault secret.
 	Certificates AppServiceCertificateMapInput
 	// Last CSR that was created for this order.
@@ -264,8 +266,6 @@ type AppServiceCertificateOrderArgs struct {
 	Kind pulumi.StringPtrInput
 	// Resource Location.
 	Location pulumi.StringInput
-	// Name of the certificate order.
-	Name pulumi.StringInput
 	// Certificate product type.
 	ProductType pulumi.StringInput
 	// Name of the resource group to which the resource belongs.

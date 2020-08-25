@@ -20,7 +20,7 @@ type LookupStreamingJobArgs struct {
 	// The $expand OData query parameter. This is a comma-separated list of additional streaming job properties to include in the response, beyond the default set returned when this parameter is absent. The default set is all streaming job properties other than 'inputs', 'transformation', 'outputs', and 'functions'.
 	Expand *string `pulumi:"expand"`
 	// The name of the streaming job.
-	Name string `pulumi:"name"`
+	JobName string `pulumi:"jobName"`
 	// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }

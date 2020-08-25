@@ -18,7 +18,7 @@ func LookupProduct(ctx *pulumi.Context, args *LookupProductArgs, opts ...pulumi.
 
 type LookupProductArgs struct {
 	// Product identifier. Must be unique in the current API Management service instance.
-	Name string `pulumi:"name"`
+	ProductId string `pulumi:"productId"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The name of the API Management service.

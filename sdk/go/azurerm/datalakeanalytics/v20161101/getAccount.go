@@ -18,7 +18,7 @@ func LookupAccount(ctx *pulumi.Context, args *LookupAccountArgs, opts ...pulumi.
 
 type LookupAccountArgs struct {
 	// The name of the Data Lake Analytics account.
-	Name string `pulumi:"name"`
+	AccountName string `pulumi:"accountName"`
 	// The name of the Azure resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }

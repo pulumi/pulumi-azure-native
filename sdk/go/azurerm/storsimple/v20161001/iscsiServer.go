@@ -39,11 +39,11 @@ func NewIscsiServer(ctx *pulumi.Context,
 	if args == nil || args.DeviceName == nil {
 		return nil, errors.New("missing required argument 'DeviceName'")
 	}
+	if args == nil || args.IscsiServerName == nil {
+		return nil, errors.New("missing required argument 'IscsiServerName'")
+	}
 	if args == nil || args.ManagerName == nil {
 		return nil, errors.New("missing required argument 'ManagerName'")
-	}
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
 	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
@@ -122,10 +122,10 @@ type iscsiServerArgs struct {
 	Description *string `pulumi:"description"`
 	// The device name.
 	DeviceName string `pulumi:"deviceName"`
+	// The iSCSI server name.
+	IscsiServerName string `pulumi:"iscsiServerName"`
 	// The manager name
 	ManagerName string `pulumi:"managerName"`
-	// The iSCSI server name.
-	Name string `pulumi:"name"`
 	// The resource group name
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The reverse chap id.
@@ -144,10 +144,10 @@ type IscsiServerArgs struct {
 	Description pulumi.StringPtrInput
 	// The device name.
 	DeviceName pulumi.StringInput
+	// The iSCSI server name.
+	IscsiServerName pulumi.StringInput
 	// The manager name
 	ManagerName pulumi.StringInput
-	// The iSCSI server name.
-	Name pulumi.StringInput
 	// The resource group name
 	ResourceGroupName pulumi.StringInput
 	// The reverse chap id.

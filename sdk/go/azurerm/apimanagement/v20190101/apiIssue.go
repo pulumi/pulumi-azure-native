@@ -41,8 +41,8 @@ func NewApiIssue(ctx *pulumi.Context,
 	if args == nil || args.Description == nil {
 		return nil, errors.New("missing required argument 'Description'")
 	}
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
+	if args == nil || args.IssueId == nil {
+		return nil, errors.New("missing required argument 'IssueId'")
 	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
@@ -142,7 +142,7 @@ type apiIssueArgs struct {
 	// Text describing the issue.
 	Description string `pulumi:"description"`
 	// Issue identifier. Must be unique in the current API Management service instance.
-	Name string `pulumi:"name"`
+	IssueId string `pulumi:"issueId"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The name of the API Management service.
@@ -164,7 +164,7 @@ type ApiIssueArgs struct {
 	// Text describing the issue.
 	Description pulumi.StringInput
 	// Issue identifier. Must be unique in the current API Management service instance.
-	Name pulumi.StringInput
+	IssueId pulumi.StringInput
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
 	// The name of the API Management service.

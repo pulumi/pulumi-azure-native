@@ -34,11 +34,11 @@ type DataManager struct {
 // NewDataManager registers a new resource with the given unique name, arguments, and options.
 func NewDataManager(ctx *pulumi.Context,
 	name string, args *DataManagerArgs, opts ...pulumi.ResourceOption) (*DataManager, error) {
+	if args == nil || args.DataManagerName == nil {
+		return nil, errors.New("missing required argument 'DataManagerName'")
+	}
 	if args == nil || args.Location == nil {
 		return nil, errors.New("missing required argument 'Location'")
-	}
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
 	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
@@ -114,14 +114,14 @@ func (DataManagerState) ElementType() reflect.Type {
 }
 
 type dataManagerArgs struct {
+	// The name of the DataManager Resource within the specified resource group. DataManager names must be between 3 and 24 characters in length and use any alphanumeric and underscore only
+	DataManagerName string `pulumi:"dataManagerName"`
 	// Etag of the Resource.
 	Etag *string `pulumi:"etag"`
 	// The location of the resource. This will be one of the supported and registered Azure Geo Regions (e.g. West US, East
 	// US, Southeast Asia, etc.). The geo region of a resource cannot be changed once it is created, but if an identical geo
 	// region is specified on update the request will succeed.
 	Location string `pulumi:"location"`
-	// The name of the DataManager Resource within the specified resource group. DataManager names must be between 3 and 24 characters in length and use any alphanumeric and underscore only
-	Name string `pulumi:"name"`
 	// The Resource Group Name
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The sku type.
@@ -133,14 +133,14 @@ type dataManagerArgs struct {
 
 // The set of arguments for constructing a DataManager resource.
 type DataManagerArgs struct {
+	// The name of the DataManager Resource within the specified resource group. DataManager names must be between 3 and 24 characters in length and use any alphanumeric and underscore only
+	DataManagerName pulumi.StringInput
 	// Etag of the Resource.
 	Etag pulumi.StringPtrInput
 	// The location of the resource. This will be one of the supported and registered Azure Geo Regions (e.g. West US, East
 	// US, Southeast Asia, etc.). The geo region of a resource cannot be changed once it is created, but if an identical geo
 	// region is specified on update the request will succeed.
 	Location pulumi.StringInput
-	// The name of the DataManager Resource within the specified resource group. DataManager names must be between 3 and 24 characters in length and use any alphanumeric and underscore only
-	Name pulumi.StringInput
 	// The Resource Group Name
 	ResourceGroupName pulumi.StringInput
 	// The sku type.

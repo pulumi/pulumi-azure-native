@@ -29,8 +29,8 @@ type SignalRPrivateEndpointConnection struct {
 // NewSignalRPrivateEndpointConnection registers a new resource with the given unique name, arguments, and options.
 func NewSignalRPrivateEndpointConnection(ctx *pulumi.Context,
 	name string, args *SignalRPrivateEndpointConnectionArgs, opts ...pulumi.ResourceOption) (*SignalRPrivateEndpointConnection, error) {
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
+	if args == nil || args.PrivateEndpointConnectionName == nil {
+		return nil, errors.New("missing required argument 'PrivateEndpointConnectionName'")
 	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
@@ -93,10 +93,10 @@ func (SignalRPrivateEndpointConnectionState) ElementType() reflect.Type {
 }
 
 type signalRPrivateEndpointConnectionArgs struct {
-	// The name of the private endpoint connection associated with the SignalR resource.
-	Name string `pulumi:"name"`
 	// Private endpoint associated with the private endpoint connection
 	PrivateEndpoint *PrivateEndpoint `pulumi:"privateEndpoint"`
+	// The name of the private endpoint connection associated with the SignalR resource.
+	PrivateEndpointConnectionName string `pulumi:"privateEndpointConnectionName"`
 	// Connection state
 	PrivateLinkServiceConnectionState *PrivateLinkServiceConnectionState `pulumi:"privateLinkServiceConnectionState"`
 	// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
@@ -107,10 +107,10 @@ type signalRPrivateEndpointConnectionArgs struct {
 
 // The set of arguments for constructing a SignalRPrivateEndpointConnection resource.
 type SignalRPrivateEndpointConnectionArgs struct {
-	// The name of the private endpoint connection associated with the SignalR resource.
-	Name pulumi.StringInput
 	// Private endpoint associated with the private endpoint connection
 	PrivateEndpoint PrivateEndpointPtrInput
+	// The name of the private endpoint connection associated with the SignalR resource.
+	PrivateEndpointConnectionName pulumi.StringInput
 	// Connection state
 	PrivateLinkServiceConnectionState PrivateLinkServiceConnectionStatePtrInput
 	// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.

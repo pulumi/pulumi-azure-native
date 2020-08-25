@@ -20,7 +20,7 @@ type LookupOutputArgs struct {
 	// The name of the streaming job.
 	JobName string `pulumi:"jobName"`
 	// The name of the output.
-	Name string `pulumi:"name"`
+	OutputName string `pulumi:"outputName"`
 	// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }

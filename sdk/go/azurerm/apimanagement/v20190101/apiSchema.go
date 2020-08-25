@@ -33,11 +33,11 @@ func NewApiSchema(ctx *pulumi.Context,
 	if args == nil || args.ContentType == nil {
 		return nil, errors.New("missing required argument 'ContentType'")
 	}
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
-	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
+	}
+	if args == nil || args.SchemaId == nil {
+		return nil, errors.New("missing required argument 'SchemaId'")
 	}
 	if args == nil || args.ServiceName == nil {
 		return nil, errors.New("missing required argument 'ServiceName'")
@@ -109,10 +109,10 @@ type apiSchemaArgs struct {
 	ApiId string `pulumi:"apiId"`
 	// Must be a valid a media type used in a Content-Type header as defined in the RFC 2616. Media type of the schema document (e.g. application/json, application/xml). </br> - `Swagger` Schema use `application/vnd.ms-azure-apim.swagger.definitions+json` </br> - `WSDL` Schema use `application/vnd.ms-azure-apim.xsd+xml` </br> - `OpenApi` Schema use `application/vnd.oai.openapi.components+json` </br> - `WADL Schema` use `application/vnd.ms-azure-apim.wadl.grammars+xml`.
 	ContentType string `pulumi:"contentType"`
-	// Schema identifier within an API. Must be unique in the current API Management service instance.
-	Name string `pulumi:"name"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// Schema identifier within an API. Must be unique in the current API Management service instance.
+	SchemaId string `pulumi:"schemaId"`
 	// The name of the API Management service.
 	ServiceName string `pulumi:"serviceName"`
 	// Json escaped string defining the document representing the Schema.
@@ -125,10 +125,10 @@ type ApiSchemaArgs struct {
 	ApiId pulumi.StringInput
 	// Must be a valid a media type used in a Content-Type header as defined in the RFC 2616. Media type of the schema document (e.g. application/json, application/xml). </br> - `Swagger` Schema use `application/vnd.ms-azure-apim.swagger.definitions+json` </br> - `WSDL` Schema use `application/vnd.ms-azure-apim.xsd+xml` </br> - `OpenApi` Schema use `application/vnd.oai.openapi.components+json` </br> - `WADL Schema` use `application/vnd.ms-azure-apim.wadl.grammars+xml`.
 	ContentType pulumi.StringInput
-	// Schema identifier within an API. Must be unique in the current API Management service instance.
-	Name pulumi.StringInput
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
+	// Schema identifier within an API. Must be unique in the current API Management service instance.
+	SchemaId pulumi.StringInput
 	// The name of the API Management service.
 	ServiceName pulumi.StringInput
 	// Json escaped string defining the document representing the Schema.

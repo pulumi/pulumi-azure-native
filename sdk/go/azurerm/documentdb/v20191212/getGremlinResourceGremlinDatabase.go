@@ -20,7 +20,7 @@ type LookupGremlinResourceGremlinDatabaseArgs struct {
 	// Cosmos DB database account name.
 	AccountName string `pulumi:"accountName"`
 	// Cosmos DB database name.
-	Name string `pulumi:"name"`
+	DatabaseName string `pulumi:"databaseName"`
 	// Name of an Azure resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }

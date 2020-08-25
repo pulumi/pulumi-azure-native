@@ -27,11 +27,11 @@ type Dataset struct {
 // NewDataset registers a new resource with the given unique name, arguments, and options.
 func NewDataset(ctx *pulumi.Context,
 	name string, args *DatasetArgs, opts ...pulumi.ResourceOption) (*Dataset, error) {
+	if args == nil || args.DatasetName == nil {
+		return nil, errors.New("missing required argument 'DatasetName'")
+	}
 	if args == nil || args.FactoryName == nil {
 		return nil, errors.New("missing required argument 'FactoryName'")
-	}
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
 	}
 	if args == nil || args.Properties == nil {
 		return nil, errors.New("missing required argument 'Properties'")
@@ -90,10 +90,10 @@ func (DatasetState) ElementType() reflect.Type {
 }
 
 type datasetArgs struct {
+	// The dataset name.
+	DatasetName string `pulumi:"datasetName"`
 	// The factory name.
 	FactoryName string `pulumi:"factoryName"`
-	// The dataset name.
-	Name string `pulumi:"name"`
 	// Dataset properties.
 	Properties DatasetType `pulumi:"properties"`
 	// The resource group name.
@@ -102,10 +102,10 @@ type datasetArgs struct {
 
 // The set of arguments for constructing a Dataset resource.
 type DatasetArgs struct {
+	// The dataset name.
+	DatasetName pulumi.StringInput
 	// The factory name.
 	FactoryName pulumi.StringInput
-	// The dataset name.
-	Name pulumi.StringInput
 	// Dataset properties.
 	Properties DatasetTypeInput
 	// The resource group name.

@@ -19,10 +19,10 @@ func LookupSession(ctx *pulumi.Context, args *LookupSessionArgs, opts ...pulumi.
 type LookupSessionArgs struct {
 	// The integration account name.
 	IntegrationAccountName string `pulumi:"integrationAccountName"`
-	// The integration account session name.
-	Name string `pulumi:"name"`
 	// The resource group name.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// The integration account session name.
+	SessionName string `pulumi:"sessionName"`
 }
 
 // The integration account session.

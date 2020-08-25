@@ -41,11 +41,11 @@ type ServerEndpoint struct {
 // NewServerEndpoint registers a new resource with the given unique name, arguments, and options.
 func NewServerEndpoint(ctx *pulumi.Context,
 	name string, args *ServerEndpointArgs, opts ...pulumi.ResourceOption) (*ServerEndpoint, error) {
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
-	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
+	}
+	if args == nil || args.ServerEndpointName == nil {
+		return nil, errors.New("missing required argument 'ServerEndpointName'")
 	}
 	if args == nil || args.StorageSyncServiceName == nil {
 		return nil, errors.New("missing required argument 'StorageSyncServiceName'")
@@ -162,10 +162,10 @@ type serverEndpointArgs struct {
 	FriendlyName *string `pulumi:"friendlyName"`
 	// Required. Gets or sets the location of the resource. This will be one of the supported and registered Azure Geo Regions (e.g. West US, East US, Southeast Asia, etc.). The geo region of a resource cannot be changed once it is created, but if an identical geo region is specified on update, the request will succeed.
 	Location *string `pulumi:"location"`
-	// Name of Server Endpoint object.
-	Name string `pulumi:"name"`
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// Name of Server Endpoint object.
+	ServerEndpointName string `pulumi:"serverEndpointName"`
 	// Server Local path.
 	ServerLocalPath *string `pulumi:"serverLocalPath"`
 	// Server Resource Id.
@@ -188,10 +188,10 @@ type ServerEndpointArgs struct {
 	FriendlyName pulumi.StringPtrInput
 	// Required. Gets or sets the location of the resource. This will be one of the supported and registered Azure Geo Regions (e.g. West US, East US, Southeast Asia, etc.). The geo region of a resource cannot be changed once it is created, but if an identical geo region is specified on update, the request will succeed.
 	Location pulumi.StringPtrInput
-	// Name of Server Endpoint object.
-	Name pulumi.StringInput
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName pulumi.StringInput
+	// Name of Server Endpoint object.
+	ServerEndpointName pulumi.StringInput
 	// Server Local path.
 	ServerLocalPath pulumi.StringPtrInput
 	// Server Resource Id.

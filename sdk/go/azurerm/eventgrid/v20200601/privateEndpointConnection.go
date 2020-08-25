@@ -30,14 +30,14 @@ type PrivateEndpointConnection struct {
 // NewPrivateEndpointConnection registers a new resource with the given unique name, arguments, and options.
 func NewPrivateEndpointConnection(ctx *pulumi.Context,
 	name string, args *PrivateEndpointConnectionArgs, opts ...pulumi.ResourceOption) (*PrivateEndpointConnection, error) {
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
-	}
 	if args == nil || args.ParentName == nil {
 		return nil, errors.New("missing required argument 'ParentName'")
 	}
 	if args == nil || args.ParentType == nil {
 		return nil, errors.New("missing required argument 'ParentType'")
+	}
+	if args == nil || args.PrivateEndpointConnectionName == nil {
+		return nil, errors.New("missing required argument 'PrivateEndpointConnectionName'")
 	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
@@ -103,14 +103,14 @@ func (PrivateEndpointConnectionState) ElementType() reflect.Type {
 type privateEndpointConnectionArgs struct {
 	// GroupIds from the private link service resource.
 	GroupIds []string `pulumi:"groupIds"`
-	// The name of the private endpoint connection connection.
-	Name string `pulumi:"name"`
 	// The name of the parent resource (namely, either, the topic name or domain name).
 	ParentName string `pulumi:"parentName"`
 	// The type of the parent resource. This can be either \'topics\' or \'domains\'.
 	ParentType string `pulumi:"parentType"`
 	// The Private Endpoint resource for this Connection.
 	PrivateEndpoint *PrivateEndpoint `pulumi:"privateEndpoint"`
+	// The name of the private endpoint connection connection.
+	PrivateEndpointConnectionName string `pulumi:"privateEndpointConnectionName"`
 	// Details about the state of the connection.
 	PrivateLinkServiceConnectionState *ConnectionState `pulumi:"privateLinkServiceConnectionState"`
 	// Provisioning state of the Private Endpoint Connection.
@@ -123,14 +123,14 @@ type privateEndpointConnectionArgs struct {
 type PrivateEndpointConnectionArgs struct {
 	// GroupIds from the private link service resource.
 	GroupIds pulumi.StringArrayInput
-	// The name of the private endpoint connection connection.
-	Name pulumi.StringInput
 	// The name of the parent resource (namely, either, the topic name or domain name).
 	ParentName pulumi.StringInput
 	// The type of the parent resource. This can be either \'topics\' or \'domains\'.
 	ParentType pulumi.StringInput
 	// The Private Endpoint resource for this Connection.
 	PrivateEndpoint PrivateEndpointPtrInput
+	// The name of the private endpoint connection connection.
+	PrivateEndpointConnectionName pulumi.StringInput
 	// Details about the state of the connection.
 	PrivateLinkServiceConnectionState ConnectionStatePtrInput
 	// Provisioning state of the Private Endpoint Connection.

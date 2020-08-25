@@ -34,14 +34,14 @@ func NewTransform(ctx *pulumi.Context,
 	if args == nil || args.AccountName == nil {
 		return nil, errors.New("missing required argument 'AccountName'")
 	}
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
-	}
 	if args == nil || args.Outputs == nil {
 		return nil, errors.New("missing required argument 'Outputs'")
 	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
+	}
+	if args == nil || args.TransformName == nil {
+		return nil, errors.New("missing required argument 'TransformName'")
 	}
 	if args == nil {
 		args = &TransformArgs{}
@@ -112,12 +112,12 @@ type transformArgs struct {
 	AccountName string `pulumi:"accountName"`
 	// An optional verbose description of the Transform.
 	Description *string `pulumi:"description"`
-	// The Transform name.
-	Name string `pulumi:"name"`
 	// An array of one or more TransformOutputs that the Transform should generate.
 	Outputs []TransformOutput `pulumi:"outputs"`
 	// The name of the resource group within the Azure subscription.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// The Transform name.
+	TransformName string `pulumi:"transformName"`
 }
 
 // The set of arguments for constructing a Transform resource.
@@ -126,12 +126,12 @@ type TransformArgs struct {
 	AccountName pulumi.StringInput
 	// An optional verbose description of the Transform.
 	Description pulumi.StringPtrInput
-	// The Transform name.
-	Name pulumi.StringInput
 	// An array of one or more TransformOutputs that the Transform should generate.
 	Outputs TransformOutputArrayInput
 	// The name of the resource group within the Azure subscription.
 	ResourceGroupName pulumi.StringInput
+	// The Transform name.
+	TransformName pulumi.StringInput
 }
 
 func (TransformArgs) ElementType() reflect.Type {

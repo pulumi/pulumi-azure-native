@@ -27,8 +27,8 @@ type CustomerSubscription struct {
 // NewCustomerSubscription registers a new resource with the given unique name, arguments, and options.
 func NewCustomerSubscription(ctx *pulumi.Context,
 	name string, args *CustomerSubscriptionArgs, opts ...pulumi.ResourceOption) (*CustomerSubscription, error) {
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
+	if args == nil || args.CustomerSubscriptionName == nil {
+		return nil, errors.New("missing required argument 'CustomerSubscriptionName'")
 	}
 	if args == nil || args.RegistrationName == nil {
 		return nil, errors.New("missing required argument 'RegistrationName'")
@@ -87,10 +87,10 @@ func (CustomerSubscriptionState) ElementType() reflect.Type {
 }
 
 type customerSubscriptionArgs struct {
+	// Name of the product.
+	CustomerSubscriptionName string `pulumi:"customerSubscriptionName"`
 	// The entity tag used for optimistic concurrency when modifying the resource.
 	Etag *string `pulumi:"etag"`
-	// Name of the product.
-	Name string `pulumi:"name"`
 	// Name of the Azure Stack registration.
 	RegistrationName string `pulumi:"registrationName"`
 	// Name of the resource group.
@@ -101,10 +101,10 @@ type customerSubscriptionArgs struct {
 
 // The set of arguments for constructing a CustomerSubscription resource.
 type CustomerSubscriptionArgs struct {
+	// Name of the product.
+	CustomerSubscriptionName pulumi.StringInput
 	// The entity tag used for optimistic concurrency when modifying the resource.
 	Etag pulumi.StringPtrInput
-	// Name of the product.
-	Name pulumi.StringInput
 	// Name of the Azure Stack registration.
 	RegistrationName pulumi.StringInput
 	// Name of the resource group.

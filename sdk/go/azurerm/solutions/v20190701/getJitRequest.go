@@ -18,7 +18,7 @@ func LookupJitRequest(ctx *pulumi.Context, args *LookupJitRequestArgs, opts ...p
 
 type LookupJitRequestArgs struct {
 	// The name of the JIT request.
-	Name string `pulumi:"name"`
+	JitRequestName string `pulumi:"jitRequestName"`
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }

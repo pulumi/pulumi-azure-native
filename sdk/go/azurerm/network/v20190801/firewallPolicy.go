@@ -41,8 +41,8 @@ type FirewallPolicy struct {
 // NewFirewallPolicy registers a new resource with the given unique name, arguments, and options.
 func NewFirewallPolicy(ctx *pulumi.Context,
 	name string, args *FirewallPolicyArgs, opts ...pulumi.ResourceOption) (*FirewallPolicy, error) {
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
+	if args == nil || args.FirewallPolicyName == nil {
+		return nil, errors.New("missing required argument 'FirewallPolicyName'")
 	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
@@ -158,12 +158,12 @@ func (FirewallPolicyState) ElementType() reflect.Type {
 type firewallPolicyArgs struct {
 	// The parent firewall policy from which rules are inherited.
 	BasePolicy *SubResource `pulumi:"basePolicy"`
+	// The name of the Firewall Policy.
+	FirewallPolicyName string `pulumi:"firewallPolicyName"`
 	// Resource ID.
 	Id *string `pulumi:"id"`
 	// Resource location.
 	Location *string `pulumi:"location"`
-	// The name of the Firewall Policy.
-	Name string `pulumi:"name"`
 	// The provisioning state of the firewall policy resource.
 	ProvisioningState *string `pulumi:"provisioningState"`
 	// The name of the resource group.
@@ -178,12 +178,12 @@ type firewallPolicyArgs struct {
 type FirewallPolicyArgs struct {
 	// The parent firewall policy from which rules are inherited.
 	BasePolicy SubResourcePtrInput
+	// The name of the Firewall Policy.
+	FirewallPolicyName pulumi.StringInput
 	// Resource ID.
 	Id pulumi.StringPtrInput
 	// Resource location.
 	Location pulumi.StringPtrInput
-	// The name of the Firewall Policy.
-	Name pulumi.StringInput
 	// The provisioning state of the firewall policy resource.
 	ProvisioningState pulumi.StringPtrInput
 	// The name of the resource group.

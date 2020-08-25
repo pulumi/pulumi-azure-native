@@ -18,7 +18,7 @@ func LookupCustomApi(ctx *pulumi.Context, args *LookupCustomApiArgs, opts ...pul
 
 type LookupCustomApiArgs struct {
 	// API name
-	Name string `pulumi:"name"`
+	ApiName string `pulumi:"apiName"`
 	// The resource group
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }

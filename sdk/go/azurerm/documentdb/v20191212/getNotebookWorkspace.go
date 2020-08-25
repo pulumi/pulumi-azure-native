@@ -20,7 +20,7 @@ type LookupNotebookWorkspaceArgs struct {
 	// Cosmos DB database account name.
 	AccountName string `pulumi:"accountName"`
 	// The name of the notebook workspace resource.
-	Name string `pulumi:"name"`
+	NotebookWorkspaceName string `pulumi:"notebookWorkspaceName"`
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }

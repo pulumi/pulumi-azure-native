@@ -39,14 +39,14 @@ type Resource struct {
 // NewResource registers a new resource with the given unique name, arguments, and options.
 func NewResource(ctx *pulumi.Context,
 	name string, args *ResourceArgs, opts ...pulumi.ResourceOption) (*Resource, error) {
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
-	}
 	if args == nil || args.ParentResourcePath == nil {
 		return nil, errors.New("missing required argument 'ParentResourcePath'")
 	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
+	}
+	if args == nil || args.ResourceName == nil {
+		return nil, errors.New("missing required argument 'ResourceName'")
 	}
 	if args == nil || args.ResourceProviderNamespace == nil {
 		return nil, errors.New("missing required argument 'ResourceProviderNamespace'")
@@ -180,8 +180,6 @@ type resourceArgs struct {
 	// Id of the resource that manages this resource.
 	ManagedBy *string `pulumi:"managedBy"`
 	// Resource identity.
-	Name string `pulumi:"name"`
-	// Resource identity.
 	ParentResourcePath string `pulumi:"parentResourcePath"`
 	// The plan of the resource.
 	Plan *Plan `pulumi:"plan"`
@@ -189,6 +187,8 @@ type resourceArgs struct {
 	Properties map[string]interface{} `pulumi:"properties"`
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// Resource identity.
+	ResourceName string `pulumi:"resourceName"`
 	// Resource identity.
 	ResourceProviderNamespace string `pulumi:"resourceProviderNamespace"`
 	// Resource identity.
@@ -210,8 +210,6 @@ type ResourceArgs struct {
 	// Id of the resource that manages this resource.
 	ManagedBy pulumi.StringPtrInput
 	// Resource identity.
-	Name pulumi.StringInput
-	// Resource identity.
 	ParentResourcePath pulumi.StringInput
 	// The plan of the resource.
 	Plan PlanPtrInput
@@ -219,6 +217,8 @@ type ResourceArgs struct {
 	Properties pulumi.MapInput
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName pulumi.StringInput
+	// Resource identity.
+	ResourceName pulumi.StringInput
 	// Resource identity.
 	ResourceProviderNamespace pulumi.StringInput
 	// Resource identity.

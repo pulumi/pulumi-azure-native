@@ -33,6 +33,9 @@ func NewWebAppPrivateEndpointConnection(ctx *pulumi.Context,
 	if args == nil || args.Name == nil {
 		return nil, errors.New("missing required argument 'Name'")
 	}
+	if args == nil || args.PrivateEndpointConnectionName == nil {
+		return nil, errors.New("missing required argument 'PrivateEndpointConnectionName'")
+	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
 	}
@@ -101,7 +104,9 @@ func (WebAppPrivateEndpointConnectionState) ElementType() reflect.Type {
 type webAppPrivateEndpointConnectionArgs struct {
 	// Kind of resource.
 	Kind *string `pulumi:"kind"`
-	Name string  `pulumi:"name"`
+	// Name of the site.
+	Name                          string `pulumi:"name"`
+	PrivateEndpointConnectionName string `pulumi:"privateEndpointConnectionName"`
 	// The state of a private link connection
 	PrivateLinkServiceConnectionState *PrivateLinkConnectionState `pulumi:"privateLinkServiceConnectionState"`
 	// Name of the resource group to which the resource belongs.
@@ -112,7 +117,9 @@ type webAppPrivateEndpointConnectionArgs struct {
 type WebAppPrivateEndpointConnectionArgs struct {
 	// Kind of resource.
 	Kind pulumi.StringPtrInput
-	Name pulumi.StringInput
+	// Name of the site.
+	Name                          pulumi.StringInput
+	PrivateEndpointConnectionName pulumi.StringInput
 	// The state of a private link connection
 	PrivateLinkServiceConnectionState PrivateLinkConnectionStatePtrInput
 	// Name of the resource group to which the resource belongs.

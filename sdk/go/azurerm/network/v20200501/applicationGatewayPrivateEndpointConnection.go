@@ -36,8 +36,8 @@ func NewApplicationGatewayPrivateEndpointConnection(ctx *pulumi.Context,
 	if args == nil || args.ApplicationGatewayName == nil {
 		return nil, errors.New("missing required argument 'ApplicationGatewayName'")
 	}
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
+	if args == nil || args.ConnectionName == nil {
+		return nil, errors.New("missing required argument 'ConnectionName'")
 	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
@@ -113,10 +113,12 @@ func (ApplicationGatewayPrivateEndpointConnectionState) ElementType() reflect.Ty
 type applicationGatewayPrivateEndpointConnectionArgs struct {
 	// The name of the application gateway.
 	ApplicationGatewayName string `pulumi:"applicationGatewayName"`
+	// The name of the application gateway private endpoint connection.
+	ConnectionName string `pulumi:"connectionName"`
 	// Resource ID.
 	Id *string `pulumi:"id"`
-	// The name of the application gateway private endpoint connection.
-	Name string `pulumi:"name"`
+	// Name of the private endpoint connection on an application gateway.
+	Name *string `pulumi:"name"`
 	// A collection of information about the state of the connection between service consumer and provider.
 	PrivateLinkServiceConnectionState *PrivateLinkServiceConnectionState `pulumi:"privateLinkServiceConnectionState"`
 	// The name of the resource group.
@@ -127,10 +129,12 @@ type applicationGatewayPrivateEndpointConnectionArgs struct {
 type ApplicationGatewayPrivateEndpointConnectionArgs struct {
 	// The name of the application gateway.
 	ApplicationGatewayName pulumi.StringInput
+	// The name of the application gateway private endpoint connection.
+	ConnectionName pulumi.StringInput
 	// Resource ID.
 	Id pulumi.StringPtrInput
-	// The name of the application gateway private endpoint connection.
-	Name pulumi.StringInput
+	// Name of the private endpoint connection on an application gateway.
+	Name pulumi.StringPtrInput
 	// A collection of information about the state of the connection between service consumer and provider.
 	PrivateLinkServiceConnectionState PrivateLinkServiceConnectionStatePtrInput
 	// The name of the resource group.

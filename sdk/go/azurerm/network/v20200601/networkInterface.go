@@ -57,8 +57,8 @@ type NetworkInterface struct {
 // NewNetworkInterface registers a new resource with the given unique name, arguments, and options.
 func NewNetworkInterface(ctx *pulumi.Context,
 	name string, args *NetworkInterfaceArgs, opts ...pulumi.ResourceOption) (*NetworkInterface, error) {
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
+	if args == nil || args.NetworkInterfaceName == nil {
+		return nil, errors.New("missing required argument 'NetworkInterfaceName'")
 	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
@@ -283,7 +283,7 @@ type networkInterfaceArgs struct {
 	// Resource location.
 	Location *string `pulumi:"location"`
 	// The name of the network interface.
-	Name string `pulumi:"name"`
+	NetworkInterfaceName string `pulumi:"networkInterfaceName"`
 	// The reference to the NetworkSecurityGroup resource.
 	NetworkSecurityGroup *NetworkSecurityGroupType `pulumi:"networkSecurityGroup"`
 	// The name of the resource group.
@@ -307,7 +307,7 @@ type NetworkInterfaceArgs struct {
 	// Resource location.
 	Location pulumi.StringPtrInput
 	// The name of the network interface.
-	Name pulumi.StringInput
+	NetworkInterfaceName pulumi.StringInput
 	// The reference to the NetworkSecurityGroup resource.
 	NetworkSecurityGroup NetworkSecurityGroupTypePtrInput
 	// The name of the resource group.

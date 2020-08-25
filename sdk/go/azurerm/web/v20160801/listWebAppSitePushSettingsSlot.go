@@ -17,10 +17,12 @@ func ListWebAppSitePushSettingsSlot(ctx *pulumi.Context, args *ListWebAppSitePus
 }
 
 type ListWebAppSitePushSettingsSlotArgs struct {
-	// Name of web app slot. If not specified then will default to production slot.
+	// Name of web app.
 	Name string `pulumi:"name"`
 	// Name of the resource group to which the resource belongs.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// Name of web app slot. If not specified then will default to production slot.
+	Slot string `pulumi:"slot"`
 }
 
 // Push settings for the App.

@@ -45,8 +45,8 @@ func NewService(ctx *pulumi.Context,
 	if args == nil || args.Location == nil {
 		return nil, errors.New("missing required argument 'Location'")
 	}
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
+	if args == nil || args.ServiceName == nil {
+		return nil, errors.New("missing required argument 'ServiceName'")
 	}
 	if args == nil || args.VirtualSubnetId == nil {
 		return nil, errors.New("missing required argument 'VirtualSubnetId'")
@@ -134,10 +134,10 @@ type serviceArgs struct {
 	Kind *string `pulumi:"kind"`
 	// Resource location.
 	Location string `pulumi:"location"`
-	// Name of the service
-	Name string `pulumi:"name"`
 	// The public key of the service, used to encrypt secrets sent to the service
 	PublicKey *string `pulumi:"publicKey"`
+	// Name of the service
+	ServiceName string `pulumi:"serviceName"`
 	// Service SKU
 	Sku *ServiceSku `pulumi:"sku"`
 	// Resource tags.
@@ -156,10 +156,10 @@ type ServiceArgs struct {
 	Kind pulumi.StringPtrInput
 	// Resource location.
 	Location pulumi.StringInput
-	// Name of the service
-	Name pulumi.StringInput
 	// The public key of the service, used to encrypt secrets sent to the service
 	PublicKey pulumi.StringPtrInput
+	// Name of the service
+	ServiceName pulumi.StringInput
 	// Service SKU
 	Sku ServiceSkuPtrInput
 	// Resource tags.

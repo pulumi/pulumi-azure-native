@@ -17,10 +17,12 @@ func ListSitePublishingCredentialsSlot(ctx *pulumi.Context, args *ListSitePublis
 }
 
 type ListSitePublishingCredentialsSlotArgs struct {
-	// Name of web app slot. If not specified then will default to production slot.
+	// Name of web app
 	Name string `pulumi:"name"`
 	// Name of resource group
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// Name of web app slot. If not specified then will default to production slot.
+	Slot string `pulumi:"slot"`
 }
 
 // Represents user credentials used for publishing activity

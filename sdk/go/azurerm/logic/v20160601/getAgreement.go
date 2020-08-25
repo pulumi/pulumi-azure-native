@@ -17,10 +17,10 @@ func LookupAgreement(ctx *pulumi.Context, args *LookupAgreementArgs, opts ...pul
 }
 
 type LookupAgreementArgs struct {
+	// The integration account agreement name.
+	AgreementName string `pulumi:"agreementName"`
 	// The integration account name.
 	IntegrationAccountName string `pulumi:"integrationAccountName"`
-	// The integration account agreement name.
-	Name string `pulumi:"name"`
 	// The resource group name.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }

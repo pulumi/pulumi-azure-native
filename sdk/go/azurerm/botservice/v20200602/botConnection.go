@@ -35,8 +35,8 @@ type BotConnection struct {
 // NewBotConnection registers a new resource with the given unique name, arguments, and options.
 func NewBotConnection(ctx *pulumi.Context,
 	name string, args *BotConnectionArgs, opts ...pulumi.ResourceOption) (*BotConnection, error) {
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
+	if args == nil || args.ConnectionName == nil {
+		return nil, errors.New("missing required argument 'ConnectionName'")
 	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
@@ -111,14 +111,14 @@ func (BotConnectionState) ElementType() reflect.Type {
 }
 
 type botConnectionArgs struct {
+	// The name of the Bot Service Connection Setting resource.
+	ConnectionName string `pulumi:"connectionName"`
 	// Entity Tag
 	Etag *string `pulumi:"etag"`
 	// Required. Gets or sets the Kind of the resource.
 	Kind *string `pulumi:"kind"`
 	// Specifies the location of the resource.
 	Location *string `pulumi:"location"`
-	// The name of the Bot Service Connection Setting resource.
-	Name string `pulumi:"name"`
 	// The set of properties specific to bot channel resource
 	Properties *ConnectionSettingProperties `pulumi:"properties"`
 	// The name of the Bot resource group in the user subscription.
@@ -133,14 +133,14 @@ type botConnectionArgs struct {
 
 // The set of arguments for constructing a BotConnection resource.
 type BotConnectionArgs struct {
+	// The name of the Bot Service Connection Setting resource.
+	ConnectionName pulumi.StringInput
 	// Entity Tag
 	Etag pulumi.StringPtrInput
 	// Required. Gets or sets the Kind of the resource.
 	Kind pulumi.StringPtrInput
 	// Specifies the location of the resource.
 	Location pulumi.StringPtrInput
-	// The name of the Bot Service Connection Setting resource.
-	Name pulumi.StringInput
 	// The set of properties specific to bot channel resource
 	Properties ConnectionSettingPropertiesPtrInput
 	// The name of the Bot resource group in the user subscription.

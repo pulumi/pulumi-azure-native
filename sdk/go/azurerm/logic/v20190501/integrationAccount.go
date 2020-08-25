@@ -33,8 +33,8 @@ type IntegrationAccount struct {
 // NewIntegrationAccount registers a new resource with the given unique name, arguments, and options.
 func NewIntegrationAccount(ctx *pulumi.Context,
 	name string, args *IntegrationAccountArgs, opts ...pulumi.ResourceOption) (*IntegrationAccount, error) {
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
+	if args == nil || args.IntegrationAccountName == nil {
+		return nil, errors.New("missing required argument 'IntegrationAccountName'")
 	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
@@ -108,12 +108,12 @@ func (IntegrationAccountState) ElementType() reflect.Type {
 }
 
 type integrationAccountArgs struct {
+	// The integration account name.
+	IntegrationAccountName string `pulumi:"integrationAccountName"`
 	// The integration service environment.
 	IntegrationServiceEnvironment *IntegrationServiceEnvironmentType `pulumi:"integrationServiceEnvironment"`
 	// The resource location.
 	Location *string `pulumi:"location"`
-	// The integration account name.
-	Name string `pulumi:"name"`
 	// The resource group name.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The sku.
@@ -126,12 +126,12 @@ type integrationAccountArgs struct {
 
 // The set of arguments for constructing a IntegrationAccount resource.
 type IntegrationAccountArgs struct {
+	// The integration account name.
+	IntegrationAccountName pulumi.StringInput
 	// The integration service environment.
 	IntegrationServiceEnvironment IntegrationServiceEnvironmentTypePtrInput
 	// The resource location.
 	Location pulumi.StringPtrInput
-	// The integration account name.
-	Name pulumi.StringInput
 	// The resource group name.
 	ResourceGroupName pulumi.StringInput
 	// The sku.

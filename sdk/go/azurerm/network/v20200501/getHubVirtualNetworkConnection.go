@@ -18,7 +18,7 @@ func LookupHubVirtualNetworkConnection(ctx *pulumi.Context, args *LookupHubVirtu
 
 type LookupHubVirtualNetworkConnectionArgs struct {
 	// The name of the vpn connection.
-	Name string `pulumi:"name"`
+	ConnectionName string `pulumi:"connectionName"`
 	// The resource group name of the VirtualHub.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The name of the VirtualHub.

@@ -20,7 +20,7 @@ type LookupCertificateArgs struct {
 	// The name of the automation account.
 	AutomationAccountName string `pulumi:"automationAccountName"`
 	// The name of certificate.
-	Name string `pulumi:"name"`
+	CertificateName string `pulumi:"certificateName"`
 	// Name of an Azure Resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }

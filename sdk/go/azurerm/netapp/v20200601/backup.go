@@ -38,11 +38,11 @@ func NewBackup(ctx *pulumi.Context,
 	if args == nil || args.AccountName == nil {
 		return nil, errors.New("missing required argument 'AccountName'")
 	}
+	if args == nil || args.BackupName == nil {
+		return nil, errors.New("missing required argument 'BackupName'")
+	}
 	if args == nil || args.Location == nil {
 		return nil, errors.New("missing required argument 'Location'")
-	}
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
 	}
 	if args == nil || args.PoolName == nil {
 		return nil, errors.New("missing required argument 'PoolName'")
@@ -122,12 +122,12 @@ func (BackupState) ElementType() reflect.Type {
 type backupArgs struct {
 	// The name of the NetApp account
 	AccountName string `pulumi:"accountName"`
+	// The name of the backup
+	BackupName string `pulumi:"backupName"`
 	// Label for backup
 	Label *string `pulumi:"label"`
 	// Resource location
 	Location string `pulumi:"location"`
-	// The name of the backup
-	Name string `pulumi:"name"`
 	// The name of the capacity pool
 	PoolName string `pulumi:"poolName"`
 	// The name of the resource group.
@@ -140,12 +140,12 @@ type backupArgs struct {
 type BackupArgs struct {
 	// The name of the NetApp account
 	AccountName pulumi.StringInput
+	// The name of the backup
+	BackupName pulumi.StringInput
 	// Label for backup
 	Label pulumi.StringPtrInput
 	// Resource location
 	Location pulumi.StringInput
-	// The name of the backup
-	Name pulumi.StringInput
 	// The name of the capacity pool
 	PoolName pulumi.StringInput
 	// The name of the resource group.

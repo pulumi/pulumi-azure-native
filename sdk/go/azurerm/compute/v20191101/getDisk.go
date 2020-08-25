@@ -18,7 +18,7 @@ func LookupDisk(ctx *pulumi.Context, args *LookupDiskArgs, opts ...pulumi.Invoke
 
 type LookupDiskArgs struct {
 	// The name of the managed disk that is being created. The name can't be changed after the disk is created. Supported characters for the name are a-z, A-Z, 0-9 and _. The maximum name length is 80 characters.
-	Name string `pulumi:"name"`
+	DiskName string `pulumi:"diskName"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }

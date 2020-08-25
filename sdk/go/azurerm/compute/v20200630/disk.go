@@ -78,11 +78,11 @@ func NewDisk(ctx *pulumi.Context,
 	if args == nil || args.CreationData == nil {
 		return nil, errors.New("missing required argument 'CreationData'")
 	}
+	if args == nil || args.DiskName == nil {
+		return nil, errors.New("missing required argument 'DiskName'")
+	}
 	if args == nil || args.Location == nil {
 		return nil, errors.New("missing required argument 'Location'")
-	}
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
 	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
@@ -273,6 +273,8 @@ type diskArgs struct {
 	DiskMBpsReadOnly *int `pulumi:"diskMBpsReadOnly"`
 	// The bandwidth allowed for this disk; only settable for UltraSSD disks. MBps means millions of bytes per second - MB here uses the ISO notation, of powers of 10.
 	DiskMBpsReadWrite *int `pulumi:"diskMBpsReadWrite"`
+	// The name of the managed disk that is being created. The name can't be changed after the disk is created. Supported characters for the name are a-z, A-Z, 0-9 and _. The maximum name length is 80 characters.
+	DiskName string `pulumi:"diskName"`
 	// If creationData.createOption is Empty, this field is mandatory and it indicates the size of the disk to create. If this field is present for updates or creation with other options, it indicates a resize. Resizes are only allowed if the disk is not attached to a running VM, and can only increase the disk's size.
 	DiskSizeGB *int `pulumi:"diskSizeGB"`
 	// The state of the disk.
@@ -287,8 +289,6 @@ type diskArgs struct {
 	Location string `pulumi:"location"`
 	// The maximum number of VMs that can attach to the disk at the same time. Value greater than one indicates a disk that can be mounted on multiple VMs at the same time.
 	MaxShares *int `pulumi:"maxShares"`
-	// The name of the managed disk that is being created. The name can't be changed after the disk is created. Supported characters for the name are a-z, A-Z, 0-9 and _. The maximum name length is 80 characters.
-	Name string `pulumi:"name"`
 	// Policy for accessing the disk via network.
 	NetworkAccessPolicy *string `pulumi:"networkAccessPolicy"`
 	// The Operating System type.
@@ -319,6 +319,8 @@ type DiskArgs struct {
 	DiskMBpsReadOnly pulumi.IntPtrInput
 	// The bandwidth allowed for this disk; only settable for UltraSSD disks. MBps means millions of bytes per second - MB here uses the ISO notation, of powers of 10.
 	DiskMBpsReadWrite pulumi.IntPtrInput
+	// The name of the managed disk that is being created. The name can't be changed after the disk is created. Supported characters for the name are a-z, A-Z, 0-9 and _. The maximum name length is 80 characters.
+	DiskName pulumi.StringInput
 	// If creationData.createOption is Empty, this field is mandatory and it indicates the size of the disk to create. If this field is present for updates or creation with other options, it indicates a resize. Resizes are only allowed if the disk is not attached to a running VM, and can only increase the disk's size.
 	DiskSizeGB pulumi.IntPtrInput
 	// The state of the disk.
@@ -333,8 +335,6 @@ type DiskArgs struct {
 	Location pulumi.StringInput
 	// The maximum number of VMs that can attach to the disk at the same time. Value greater than one indicates a disk that can be mounted on multiple VMs at the same time.
 	MaxShares pulumi.IntPtrInput
-	// The name of the managed disk that is being created. The name can't be changed after the disk is created. Supported characters for the name are a-z, A-Z, 0-9 and _. The maximum name length is 80 characters.
-	Name pulumi.StringInput
 	// Policy for accessing the disk via network.
 	NetworkAccessPolicy pulumi.StringPtrInput
 	// The Operating System type.

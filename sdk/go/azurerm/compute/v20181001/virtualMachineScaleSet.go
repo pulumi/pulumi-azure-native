@@ -60,11 +60,11 @@ func NewVirtualMachineScaleSet(ctx *pulumi.Context,
 	if args == nil || args.Location == nil {
 		return nil, errors.New("missing required argument 'Location'")
 	}
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
-	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
+	}
+	if args == nil || args.VmScaleSetName == nil {
+		return nil, errors.New("missing required argument 'VmScaleSetName'")
 	}
 	if args == nil {
 		args = &VirtualMachineScaleSetArgs{}
@@ -218,8 +218,6 @@ type virtualMachineScaleSetArgs struct {
 	Identity *VirtualMachineScaleSetIdentity `pulumi:"identity"`
 	// Resource location
 	Location string `pulumi:"location"`
-	// The name of the VM scale set to create or update.
-	Name string `pulumi:"name"`
 	// Specifies whether the Virtual Machine Scale Set should be overprovisioned.
 	Overprovision *bool `pulumi:"overprovision"`
 	// Specifies information about the marketplace image used to create the virtual machine. This element is only used for marketplace images. Before you can use a marketplace image from an API, you must enable the image for programmatic use.  In the Azure portal, find the marketplace image that you want to use and then click **Want to deploy programmatically, Get Started ->**. Enter any required information and then click **Save**.
@@ -240,6 +238,8 @@ type virtualMachineScaleSetArgs struct {
 	UpgradePolicy *UpgradePolicy `pulumi:"upgradePolicy"`
 	// The virtual machine profile.
 	VirtualMachineProfile *VirtualMachineScaleSetVMProfile `pulumi:"virtualMachineProfile"`
+	// The name of the VM scale set to create or update.
+	VmScaleSetName string `pulumi:"vmScaleSetName"`
 	// Whether to force strictly even Virtual Machine distribution cross x-zones in case there is zone outage.
 	ZoneBalance *bool `pulumi:"zoneBalance"`
 	// The virtual machine scale set zones. NOTE: Availability zones can only be set when you create the scale set.
@@ -256,8 +256,6 @@ type VirtualMachineScaleSetArgs struct {
 	Identity VirtualMachineScaleSetIdentityPtrInput
 	// Resource location
 	Location pulumi.StringInput
-	// The name of the VM scale set to create or update.
-	Name pulumi.StringInput
 	// Specifies whether the Virtual Machine Scale Set should be overprovisioned.
 	Overprovision pulumi.BoolPtrInput
 	// Specifies information about the marketplace image used to create the virtual machine. This element is only used for marketplace images. Before you can use a marketplace image from an API, you must enable the image for programmatic use.  In the Azure portal, find the marketplace image that you want to use and then click **Want to deploy programmatically, Get Started ->**. Enter any required information and then click **Save**.
@@ -278,6 +276,8 @@ type VirtualMachineScaleSetArgs struct {
 	UpgradePolicy UpgradePolicyPtrInput
 	// The virtual machine profile.
 	VirtualMachineProfile VirtualMachineScaleSetVMProfilePtrInput
+	// The name of the VM scale set to create or update.
+	VmScaleSetName pulumi.StringInput
 	// Whether to force strictly even Virtual Machine distribution cross x-zones in case there is zone outage.
 	ZoneBalance pulumi.BoolPtrInput
 	// The virtual machine scale set zones. NOTE: Availability zones can only be set when you create the scale set.

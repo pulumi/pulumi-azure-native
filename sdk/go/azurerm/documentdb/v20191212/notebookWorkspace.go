@@ -30,8 +30,8 @@ func NewNotebookWorkspace(ctx *pulumi.Context,
 	if args == nil || args.AccountName == nil {
 		return nil, errors.New("missing required argument 'AccountName'")
 	}
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
+	if args == nil || args.NotebookWorkspaceName == nil {
+		return nil, errors.New("missing required argument 'NotebookWorkspaceName'")
 	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
@@ -102,7 +102,7 @@ type notebookWorkspaceArgs struct {
 	// Cosmos DB database account name.
 	AccountName string `pulumi:"accountName"`
 	// The name of the notebook workspace resource.
-	Name string `pulumi:"name"`
+	NotebookWorkspaceName string `pulumi:"notebookWorkspaceName"`
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
@@ -112,7 +112,7 @@ type NotebookWorkspaceArgs struct {
 	// Cosmos DB database account name.
 	AccountName pulumi.StringInput
 	// The name of the notebook workspace resource.
-	Name pulumi.StringInput
+	NotebookWorkspaceName pulumi.StringInput
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName pulumi.StringInput
 }

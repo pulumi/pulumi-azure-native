@@ -40,8 +40,8 @@ func NewOrder(ctx *pulumi.Context,
 	if args == nil || args.ContactInformation == nil {
 		return nil, errors.New("missing required argument 'ContactInformation'")
 	}
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
+	if args == nil || args.DeviceName == nil {
+		return nil, errors.New("missing required argument 'DeviceName'")
 	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
@@ -134,7 +134,7 @@ type orderArgs struct {
 	// Current status of the order.
 	CurrentStatus *OrderStatus `pulumi:"currentStatus"`
 	// The device name.
-	Name string `pulumi:"name"`
+	DeviceName string `pulumi:"deviceName"`
 	// The resource group name.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The shipping address.
@@ -148,7 +148,7 @@ type OrderArgs struct {
 	// Current status of the order.
 	CurrentStatus OrderStatusPtrInput
 	// The device name.
-	Name pulumi.StringInput
+	DeviceName pulumi.StringInput
 	// The resource group name.
 	ResourceGroupName pulumi.StringInput
 	// The shipping address.

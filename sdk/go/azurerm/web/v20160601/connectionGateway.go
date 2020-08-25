@@ -30,8 +30,8 @@ type ConnectionGateway struct {
 // NewConnectionGateway registers a new resource with the given unique name, arguments, and options.
 func NewConnectionGateway(ctx *pulumi.Context,
 	name string, args *ConnectionGatewayArgs, opts ...pulumi.ResourceOption) (*ConnectionGateway, error) {
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
+	if args == nil || args.ConnectionGatewayName == nil {
+		return nil, errors.New("missing required argument 'ConnectionGatewayName'")
 	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
@@ -93,12 +93,12 @@ func (ConnectionGatewayState) ElementType() reflect.Type {
 }
 
 type connectionGatewayArgs struct {
+	// The connection gateway name
+	ConnectionGatewayName string `pulumi:"connectionGatewayName"`
 	// Resource ETag
 	Etag *string `pulumi:"etag"`
 	// Resource location
-	Location *string `pulumi:"location"`
-	// The connection gateway name
-	Name       string                                 `pulumi:"name"`
+	Location   *string                                `pulumi:"location"`
 	Properties *ConnectionGatewayDefinitionProperties `pulumi:"properties"`
 	// The resource group
 	ResourceGroupName string `pulumi:"resourceGroupName"`
@@ -108,12 +108,12 @@ type connectionGatewayArgs struct {
 
 // The set of arguments for constructing a ConnectionGateway resource.
 type ConnectionGatewayArgs struct {
+	// The connection gateway name
+	ConnectionGatewayName pulumi.StringInput
 	// Resource ETag
 	Etag pulumi.StringPtrInput
 	// Resource location
-	Location pulumi.StringPtrInput
-	// The connection gateway name
-	Name       pulumi.StringInput
+	Location   pulumi.StringPtrInput
 	Properties ConnectionGatewayDefinitionPropertiesPtrInput
 	// The resource group
 	ResourceGroupName pulumi.StringInput

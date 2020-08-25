@@ -18,6 +18,8 @@ func ListWebAppFunctionSecretsSlot(ctx *pulumi.Context, args *ListWebAppFunction
 
 type ListWebAppFunctionSecretsSlotArgs struct {
 	// Function name.
+	FunctionName string `pulumi:"functionName"`
+	// Site name.
 	Name string `pulumi:"name"`
 	// Name of the resource group to which the resource belongs.
 	ResourceGroupName string `pulumi:"resourceGroupName"`

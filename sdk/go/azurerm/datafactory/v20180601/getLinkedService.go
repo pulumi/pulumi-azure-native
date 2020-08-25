@@ -20,7 +20,7 @@ type LookupLinkedServiceArgs struct {
 	// The factory name.
 	FactoryName string `pulumi:"factoryName"`
 	// The linked service name.
-	Name string `pulumi:"name"`
+	LinkedServiceName string `pulumi:"linkedServiceName"`
 	// The resource group name.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }

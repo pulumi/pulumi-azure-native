@@ -18,7 +18,7 @@ func LookupAccount(ctx *pulumi.Context, args *LookupAccountArgs, opts ...pulumi.
 
 type LookupAccountArgs struct {
 	// The name of the share account.
-	Name string `pulumi:"name"`
+	AccountName string `pulumi:"accountName"`
 	// The resource group name.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }

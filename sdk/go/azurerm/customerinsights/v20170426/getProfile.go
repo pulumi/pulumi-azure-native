@@ -22,7 +22,7 @@ type LookupProfileArgs struct {
 	// Locale of profile to retrieve, default is en-us.
 	LocaleCode *string `pulumi:"localeCode"`
 	// The name of the profile.
-	Name string `pulumi:"name"`
+	ProfileName string `pulumi:"profileName"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }

@@ -17,10 +17,10 @@ func LookupStorageInsightConfig(ctx *pulumi.Context, args *LookupStorageInsightC
 }
 
 type LookupStorageInsightConfigArgs struct {
-	// Name of the storageInsightsConfigs resource
-	Name string `pulumi:"name"`
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// Name of the storageInsightsConfigs resource
+	StorageInsightName string `pulumi:"storageInsightName"`
 	// The name of the workspace.
 	WorkspaceName string `pulumi:"workspaceName"`
 }

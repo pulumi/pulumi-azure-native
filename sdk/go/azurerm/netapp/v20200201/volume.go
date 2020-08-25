@@ -66,9 +66,6 @@ func NewVolume(ctx *pulumi.Context,
 	if args == nil || args.Location == nil {
 		return nil, errors.New("missing required argument 'Location'")
 	}
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
-	}
 	if args == nil || args.PoolName == nil {
 		return nil, errors.New("missing required argument 'PoolName'")
 	}
@@ -80,6 +77,9 @@ func NewVolume(ctx *pulumi.Context,
 	}
 	if args == nil || args.UsageThreshold == nil {
 		return nil, errors.New("missing required argument 'UsageThreshold'")
+	}
+	if args == nil || args.VolumeName == nil {
+		return nil, errors.New("missing required argument 'VolumeName'")
 	}
 	if args == nil {
 		args = &VolumeArgs{}
@@ -230,8 +230,6 @@ type volumeArgs struct {
 	Location string `pulumi:"location"`
 	// List of mount targets
 	MountTargets []MountTargetProperties `pulumi:"mountTargets"`
-	// The name of the volume
-	Name string `pulumi:"name"`
 	// The name of the capacity pool
 	PoolName string `pulumi:"poolName"`
 	// Set of protocol types
@@ -250,6 +248,8 @@ type volumeArgs struct {
 	Tags map[string]string `pulumi:"tags"`
 	// Maximum storage quota allowed for a file system in bytes. This is a soft quota used for alerting only. Minimum size is 100 GiB. Upper limit is 100TiB. Specified in bytes.
 	UsageThreshold int `pulumi:"usageThreshold"`
+	// The name of the volume
+	VolumeName string `pulumi:"volumeName"`
 	// What type of volume is this
 	VolumeType *string `pulumi:"volumeType"`
 }
@@ -270,8 +270,6 @@ type VolumeArgs struct {
 	Location pulumi.StringInput
 	// List of mount targets
 	MountTargets MountTargetPropertiesArrayInput
-	// The name of the volume
-	Name pulumi.StringInput
 	// The name of the capacity pool
 	PoolName pulumi.StringInput
 	// Set of protocol types
@@ -290,6 +288,8 @@ type VolumeArgs struct {
 	Tags pulumi.StringMapInput
 	// Maximum storage quota allowed for a file system in bytes. This is a soft quota used for alerting only. Minimum size is 100 GiB. Upper limit is 100TiB. Specified in bytes.
 	UsageThreshold pulumi.IntInput
+	// The name of the volume
+	VolumeName pulumi.StringInput
 	// What type of volume is this
 	VolumeType pulumi.StringPtrInput
 }

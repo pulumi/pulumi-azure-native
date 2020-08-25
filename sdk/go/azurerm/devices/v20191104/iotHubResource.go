@@ -36,11 +36,11 @@ func NewIotHubResource(ctx *pulumi.Context,
 	if args == nil || args.Location == nil {
 		return nil, errors.New("missing required argument 'Location'")
 	}
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
-	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
+	}
+	if args == nil || args.ResourceName == nil {
+		return nil, errors.New("missing required argument 'ResourceName'")
 	}
 	if args == nil || args.Sku == nil {
 		return nil, errors.New("missing required argument 'Sku'")
@@ -142,12 +142,12 @@ type iotHubResourceArgs struct {
 	Etag *string `pulumi:"etag"`
 	// The resource location.
 	Location string `pulumi:"location"`
-	// The name of the IoT hub.
-	Name string `pulumi:"name"`
 	// IotHub properties
 	Properties *IotHubProperties `pulumi:"properties"`
 	// The name of the resource group that contains the IoT hub.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// The name of the IoT hub.
+	ResourceName string `pulumi:"resourceName"`
 	// IotHub SKU info
 	Sku IotHubSkuInfo `pulumi:"sku"`
 	// The resource tags.
@@ -160,12 +160,12 @@ type IotHubResourceArgs struct {
 	Etag pulumi.StringPtrInput
 	// The resource location.
 	Location pulumi.StringInput
-	// The name of the IoT hub.
-	Name pulumi.StringInput
 	// IotHub properties
 	Properties IotHubPropertiesPtrInput
 	// The name of the resource group that contains the IoT hub.
 	ResourceGroupName pulumi.StringInput
+	// The name of the IoT hub.
+	ResourceName pulumi.StringInput
 	// IotHub SKU info
 	Sku IotHubSkuInfoInput
 	// The resource tags.

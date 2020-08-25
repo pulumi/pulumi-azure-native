@@ -53,11 +53,11 @@ type VirtualNetworkGateway struct {
 // NewVirtualNetworkGateway registers a new resource with the given unique name, arguments, and options.
 func NewVirtualNetworkGateway(ctx *pulumi.Context,
 	name string, args *VirtualNetworkGatewayArgs, opts ...pulumi.ResourceOption) (*VirtualNetworkGateway, error) {
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
-	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
+	}
+	if args == nil || args.VirtualNetworkGatewayName == nil {
+		return nil, errors.New("missing required argument 'VirtualNetworkGatewayName'")
 	}
 	if args == nil {
 		args = &VirtualNetworkGatewayArgs{}
@@ -278,8 +278,6 @@ type virtualNetworkGatewayArgs struct {
 	IpConfigurations []VirtualNetworkGatewayIPConfiguration `pulumi:"ipConfigurations"`
 	// Resource location.
 	Location *string `pulumi:"location"`
-	// The name of the virtual network gateway.
-	Name string `pulumi:"name"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The resource GUID property of the VirtualNetworkGateway resource.
@@ -288,6 +286,8 @@ type virtualNetworkGatewayArgs struct {
 	Sku *VirtualNetworkGatewaySku `pulumi:"sku"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
+	// The name of the virtual network gateway.
+	VirtualNetworkGatewayName string `pulumi:"virtualNetworkGatewayName"`
 	// The reference of the VpnClientConfiguration resource which represents the P2S VpnClient configurations.
 	VpnClientConfiguration *VpnClientConfiguration `pulumi:"vpnClientConfiguration"`
 	// The type of this virtual network gateway.
@@ -316,8 +316,6 @@ type VirtualNetworkGatewayArgs struct {
 	IpConfigurations VirtualNetworkGatewayIPConfigurationArrayInput
 	// Resource location.
 	Location pulumi.StringPtrInput
-	// The name of the virtual network gateway.
-	Name pulumi.StringInput
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
 	// The resource GUID property of the VirtualNetworkGateway resource.
@@ -326,6 +324,8 @@ type VirtualNetworkGatewayArgs struct {
 	Sku VirtualNetworkGatewaySkuPtrInput
 	// Resource tags.
 	Tags pulumi.StringMapInput
+	// The name of the virtual network gateway.
+	VirtualNetworkGatewayName pulumi.StringInput
 	// The reference of the VpnClientConfiguration resource which represents the P2S VpnClient configurations.
 	VpnClientConfiguration VpnClientConfigurationPtrInput
 	// The type of this virtual network gateway.

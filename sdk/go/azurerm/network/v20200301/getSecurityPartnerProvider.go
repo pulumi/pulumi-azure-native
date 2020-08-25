@@ -17,10 +17,10 @@ func LookupSecurityPartnerProvider(ctx *pulumi.Context, args *LookupSecurityPart
 }
 
 type LookupSecurityPartnerProviderArgs struct {
-	// The name of the Security Partner Provider.
-	Name string `pulumi:"name"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// The name of the Security Partner Provider.
+	SecurityPartnerProviderName string `pulumi:"securityPartnerProviderName"`
 }
 
 // Security Partner Provider resource.

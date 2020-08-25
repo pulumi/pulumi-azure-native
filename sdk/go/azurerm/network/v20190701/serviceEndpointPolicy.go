@@ -37,11 +37,11 @@ type ServiceEndpointPolicy struct {
 // NewServiceEndpointPolicy registers a new resource with the given unique name, arguments, and options.
 func NewServiceEndpointPolicy(ctx *pulumi.Context,
 	name string, args *ServiceEndpointPolicyArgs, opts ...pulumi.ResourceOption) (*ServiceEndpointPolicy, error) {
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
-	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
+	}
+	if args == nil || args.ServiceEndpointPolicyName == nil {
+		return nil, errors.New("missing required argument 'ServiceEndpointPolicyName'")
 	}
 	if args == nil {
 		args = &ServiceEndpointPolicyArgs{}
@@ -171,12 +171,12 @@ type serviceEndpointPolicyArgs struct {
 	Id *string `pulumi:"id"`
 	// Resource location.
 	Location *string `pulumi:"location"`
-	// The name of the service endpoint policy.
-	Name string `pulumi:"name"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// A collection of service endpoint policy definitions of the service endpoint policy.
 	ServiceEndpointPolicyDefinitions []ServiceEndpointPolicyDefinitionType `pulumi:"serviceEndpointPolicyDefinitions"`
+	// The name of the service endpoint policy.
+	ServiceEndpointPolicyName string `pulumi:"serviceEndpointPolicyName"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -189,12 +189,12 @@ type ServiceEndpointPolicyArgs struct {
 	Id pulumi.StringPtrInput
 	// Resource location.
 	Location pulumi.StringPtrInput
-	// The name of the service endpoint policy.
-	Name pulumi.StringInput
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
 	// A collection of service endpoint policy definitions of the service endpoint policy.
 	ServiceEndpointPolicyDefinitions ServiceEndpointPolicyDefinitionTypeArrayInput
+	// The name of the service endpoint policy.
+	ServiceEndpointPolicyName pulumi.StringInput
 	// Resource tags.
 	Tags pulumi.StringMapInput
 }

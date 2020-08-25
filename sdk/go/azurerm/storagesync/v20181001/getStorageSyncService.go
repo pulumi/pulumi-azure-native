@@ -17,10 +17,10 @@ func LookupStorageSyncService(ctx *pulumi.Context, args *LookupStorageSyncServic
 }
 
 type LookupStorageSyncServiceArgs struct {
-	// Name of Storage Sync Service resource.
-	Name string `pulumi:"name"`
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// Name of Storage Sync Service resource.
+	StorageSyncServiceName string `pulumi:"storageSyncServiceName"`
 }
 
 // Storage Sync Service object.

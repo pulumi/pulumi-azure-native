@@ -30,8 +30,8 @@ func NewDatabase(ctx *pulumi.Context,
 	if args == nil || args.ClusterName == nil {
 		return nil, errors.New("missing required argument 'ClusterName'")
 	}
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
+	if args == nil || args.DatabaseName == nil {
+		return nil, errors.New("missing required argument 'DatabaseName'")
 	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
@@ -107,12 +107,12 @@ func (DatabaseState) ElementType() reflect.Type {
 type databaseArgs struct {
 	// The name of the Kusto cluster.
 	ClusterName string `pulumi:"clusterName"`
+	// The name of the database in the Kusto cluster.
+	DatabaseName string `pulumi:"databaseName"`
 	// Kind of the database
 	Kind *string `pulumi:"kind"`
 	// Resource location.
 	Location *string `pulumi:"location"`
-	// The name of the database in the Kusto cluster.
-	Name string `pulumi:"name"`
 	// The name of the resource group containing the Kusto cluster.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
@@ -121,12 +121,12 @@ type databaseArgs struct {
 type DatabaseArgs struct {
 	// The name of the Kusto cluster.
 	ClusterName pulumi.StringInput
+	// The name of the database in the Kusto cluster.
+	DatabaseName pulumi.StringInput
 	// Kind of the database
 	Kind pulumi.StringPtrInput
 	// Resource location.
 	Location pulumi.StringPtrInput
-	// The name of the database in the Kusto cluster.
-	Name pulumi.StringInput
 	// The name of the resource group containing the Kusto cluster.
 	ResourceGroupName pulumi.StringInput
 }

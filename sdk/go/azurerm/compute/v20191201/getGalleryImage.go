@@ -17,10 +17,10 @@ func LookupGalleryImage(ctx *pulumi.Context, args *LookupGalleryImageArgs, opts 
 }
 
 type LookupGalleryImageArgs struct {
+	// The name of the gallery Image Definition to be retrieved.
+	GalleryImageName string `pulumi:"galleryImageName"`
 	// The name of the Shared Image Gallery from which the Image Definitions are to be retrieved.
 	GalleryName string `pulumi:"galleryName"`
-	// The name of the gallery Image Definition to be retrieved.
-	Name string `pulumi:"name"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }

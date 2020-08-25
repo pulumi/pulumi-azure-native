@@ -39,9 +39,6 @@ func NewRouteFilterRule(ctx *pulumi.Context,
 	if args == nil || args.Communities == nil {
 		return nil, errors.New("missing required argument 'Communities'")
 	}
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
-	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
 	}
@@ -50,6 +47,9 @@ func NewRouteFilterRule(ctx *pulumi.Context,
 	}
 	if args == nil || args.RouteFilterRuleType == nil {
 		return nil, errors.New("missing required argument 'RouteFilterRuleType'")
+	}
+	if args == nil || args.RuleName == nil {
+		return nil, errors.New("missing required argument 'RuleName'")
 	}
 	if args == nil {
 		args = &RouteFilterRuleArgs{}
@@ -206,14 +206,16 @@ type routeFilterRuleArgs struct {
 	Id *string `pulumi:"id"`
 	// Resource location.
 	Location *string `pulumi:"location"`
-	// The name of the route filter rule.
-	Name string `pulumi:"name"`
+	// The name of the resource that is unique within a resource group. This name can be used to access the resource.
+	Name *string `pulumi:"name"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The name of the route filter.
 	RouteFilterName string `pulumi:"routeFilterName"`
 	// The rule type of the rule. Valid value is: 'Community'
 	RouteFilterRuleType string `pulumi:"routeFilterRuleType"`
+	// The name of the route filter rule.
+	RuleName string `pulumi:"ruleName"`
 }
 
 // The set of arguments for constructing a RouteFilterRule resource.
@@ -226,14 +228,16 @@ type RouteFilterRuleArgs struct {
 	Id pulumi.StringPtrInput
 	// Resource location.
 	Location pulumi.StringPtrInput
-	// The name of the route filter rule.
-	Name pulumi.StringInput
+	// The name of the resource that is unique within a resource group. This name can be used to access the resource.
+	Name pulumi.StringPtrInput
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
 	// The name of the route filter.
 	RouteFilterName pulumi.StringInput
 	// The rule type of the rule. Valid value is: 'Community'
 	RouteFilterRuleType pulumi.StringInput
+	// The name of the route filter rule.
+	RuleName pulumi.StringInput
 }
 
 func (RouteFilterRuleArgs) ElementType() reflect.Type {

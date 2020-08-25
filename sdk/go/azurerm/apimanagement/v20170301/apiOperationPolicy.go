@@ -28,14 +28,14 @@ func NewApiOperationPolicy(ctx *pulumi.Context,
 	if args == nil || args.ApiId == nil {
 		return nil, errors.New("missing required argument 'ApiId'")
 	}
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
-	}
 	if args == nil || args.OperationId == nil {
 		return nil, errors.New("missing required argument 'OperationId'")
 	}
 	if args == nil || args.PolicyContent == nil {
 		return nil, errors.New("missing required argument 'PolicyContent'")
+	}
+	if args == nil || args.PolicyId == nil {
+		return nil, errors.New("missing required argument 'PolicyId'")
 	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
@@ -104,12 +104,12 @@ func (ApiOperationPolicyState) ElementType() reflect.Type {
 type apiOperationPolicyArgs struct {
 	// API revision identifier. Must be unique in the current API Management service instance. Non-current revision has ;rev=n as a suffix where n is the revision number.
 	ApiId string `pulumi:"apiId"`
-	// The identifier of the Policy.
-	Name string `pulumi:"name"`
 	// Operation identifier within an API. Must be unique in the current API Management service instance.
 	OperationId string `pulumi:"operationId"`
 	// Json escaped Xml Encoded contents of the Policy.
 	PolicyContent string `pulumi:"policyContent"`
+	// The identifier of the Policy.
+	PolicyId string `pulumi:"policyId"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The name of the API Management service.
@@ -120,12 +120,12 @@ type apiOperationPolicyArgs struct {
 type ApiOperationPolicyArgs struct {
 	// API revision identifier. Must be unique in the current API Management service instance. Non-current revision has ;rev=n as a suffix where n is the revision number.
 	ApiId pulumi.StringInput
-	// The identifier of the Policy.
-	Name pulumi.StringInput
 	// Operation identifier within an API. Must be unique in the current API Management service instance.
 	OperationId pulumi.StringInput
 	// Json escaped Xml Encoded contents of the Policy.
 	PolicyContent pulumi.StringInput
+	// The identifier of the Policy.
+	PolicyId pulumi.StringInput
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
 	// The name of the API Management service.

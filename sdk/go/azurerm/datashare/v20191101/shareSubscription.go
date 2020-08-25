@@ -57,11 +57,11 @@ func NewShareSubscription(ctx *pulumi.Context,
 	if args == nil || args.InvitationId == nil {
 		return nil, errors.New("missing required argument 'InvitationId'")
 	}
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
-	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
+	}
+	if args == nil || args.ShareSubscriptionName == nil {
+		return nil, errors.New("missing required argument 'ShareSubscriptionName'")
 	}
 	if args == nil || args.SourceShareLocation == nil {
 		return nil, errors.New("missing required argument 'SourceShareLocation'")
@@ -169,10 +169,10 @@ type shareSubscriptionArgs struct {
 	AccountName string `pulumi:"accountName"`
 	// The invitation id.
 	InvitationId string `pulumi:"invitationId"`
-	// The name of the shareSubscription.
-	Name string `pulumi:"name"`
 	// The resource group name.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// The name of the shareSubscription.
+	ShareSubscriptionName string `pulumi:"shareSubscriptionName"`
 	// Source share location.
 	SourceShareLocation string `pulumi:"sourceShareLocation"`
 }
@@ -183,10 +183,10 @@ type ShareSubscriptionArgs struct {
 	AccountName pulumi.StringInput
 	// The invitation id.
 	InvitationId pulumi.StringInput
-	// The name of the shareSubscription.
-	Name pulumi.StringInput
 	// The resource group name.
 	ResourceGroupName pulumi.StringInput
+	// The name of the shareSubscription.
+	ShareSubscriptionName pulumi.StringInput
 	// Source share location.
 	SourceShareLocation pulumi.StringInput
 }

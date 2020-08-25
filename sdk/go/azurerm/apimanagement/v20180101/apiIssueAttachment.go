@@ -32,6 +32,9 @@ func NewApiIssueAttachment(ctx *pulumi.Context,
 	if args == nil || args.ApiId == nil {
 		return nil, errors.New("missing required argument 'ApiId'")
 	}
+	if args == nil || args.AttachmentId == nil {
+		return nil, errors.New("missing required argument 'AttachmentId'")
+	}
 	if args == nil || args.Content == nil {
 		return nil, errors.New("missing required argument 'Content'")
 	}
@@ -40,9 +43,6 @@ func NewApiIssueAttachment(ctx *pulumi.Context,
 	}
 	if args == nil || args.IssueId == nil {
 		return nil, errors.New("missing required argument 'IssueId'")
-	}
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
 	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
@@ -122,14 +122,14 @@ func (ApiIssueAttachmentState) ElementType() reflect.Type {
 type apiIssueAttachmentArgs struct {
 	// API identifier. Must be unique in the current API Management service instance.
 	ApiId string `pulumi:"apiId"`
+	// Attachment identifier within an Issue. Must be unique in the current Issue.
+	AttachmentId string `pulumi:"attachmentId"`
 	// An HTTP link or Base64-encoded binary data.
 	Content string `pulumi:"content"`
 	// Either 'link' if content is provided via an HTTP link or the MIME type of the Base64-encoded binary data provided in the 'content' property.
 	ContentFormat string `pulumi:"contentFormat"`
 	// Issue identifier. Must be unique in the current API Management service instance.
 	IssueId string `pulumi:"issueId"`
-	// Attachment identifier within an Issue. Must be unique in the current Issue.
-	Name string `pulumi:"name"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The name of the API Management service.
@@ -142,14 +142,14 @@ type apiIssueAttachmentArgs struct {
 type ApiIssueAttachmentArgs struct {
 	// API identifier. Must be unique in the current API Management service instance.
 	ApiId pulumi.StringInput
+	// Attachment identifier within an Issue. Must be unique in the current Issue.
+	AttachmentId pulumi.StringInput
 	// An HTTP link or Base64-encoded binary data.
 	Content pulumi.StringInput
 	// Either 'link' if content is provided via an HTTP link or the MIME type of the Base64-encoded binary data provided in the 'content' property.
 	ContentFormat pulumi.StringInput
 	// Issue identifier. Must be unique in the current API Management service instance.
 	IssueId pulumi.StringInput
-	// Attachment identifier within an Issue. Must be unique in the current Issue.
-	Name pulumi.StringInput
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
 	// The name of the API Management service.

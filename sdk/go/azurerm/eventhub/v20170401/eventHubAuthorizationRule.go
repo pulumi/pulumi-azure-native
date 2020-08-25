@@ -25,11 +25,11 @@ type EventHubAuthorizationRule struct {
 // NewEventHubAuthorizationRule registers a new resource with the given unique name, arguments, and options.
 func NewEventHubAuthorizationRule(ctx *pulumi.Context,
 	name string, args *EventHubAuthorizationRuleArgs, opts ...pulumi.ResourceOption) (*EventHubAuthorizationRule, error) {
+	if args == nil || args.AuthorizationRuleName == nil {
+		return nil, errors.New("missing required argument 'AuthorizationRuleName'")
+	}
 	if args == nil || args.EventHubName == nil {
 		return nil, errors.New("missing required argument 'EventHubName'")
-	}
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
 	}
 	if args == nil || args.NamespaceName == nil {
 		return nil, errors.New("missing required argument 'NamespaceName'")
@@ -96,10 +96,10 @@ func (EventHubAuthorizationRuleState) ElementType() reflect.Type {
 }
 
 type eventHubAuthorizationRuleArgs struct {
+	// The authorization rule name.
+	AuthorizationRuleName string `pulumi:"authorizationRuleName"`
 	// The Event Hub name
 	EventHubName string `pulumi:"eventHubName"`
-	// The authorization rule name.
-	Name string `pulumi:"name"`
 	// The Namespace name
 	NamespaceName string `pulumi:"namespaceName"`
 	// Name of the resource group within the azure subscription.
@@ -110,10 +110,10 @@ type eventHubAuthorizationRuleArgs struct {
 
 // The set of arguments for constructing a EventHubAuthorizationRule resource.
 type EventHubAuthorizationRuleArgs struct {
+	// The authorization rule name.
+	AuthorizationRuleName pulumi.StringInput
 	// The Event Hub name
 	EventHubName pulumi.StringInput
-	// The authorization rule name.
-	Name pulumi.StringInput
 	// The Namespace name
 	NamespaceName pulumi.StringInput
 	// Name of the resource group within the azure subscription.

@@ -20,7 +20,7 @@ type LookupRegistrationAssignmentArgs struct {
 	// Tells whether to return registration definition details also along with registration assignment details.
 	ExpandRegistrationDefinition *bool `pulumi:"expandRegistrationDefinition"`
 	// Guid of the registration assignment.
-	Name string `pulumi:"name"`
+	RegistrationAssignmentId string `pulumi:"registrationAssignmentId"`
 	// Scope of the resource.
 	Scope string `pulumi:"scope"`
 }

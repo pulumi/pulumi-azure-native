@@ -65,11 +65,11 @@ func NewSnapshot(ctx *pulumi.Context,
 	if args == nil || args.Location == nil {
 		return nil, errors.New("missing required argument 'Location'")
 	}
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
-	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
+	}
+	if args == nil || args.SnapshotName == nil {
+		return nil, errors.New("missing required argument 'SnapshotName'")
 	}
 	if args == nil {
 		args = &SnapshotArgs{}
@@ -231,8 +231,6 @@ type snapshotArgs struct {
 	Incremental *bool `pulumi:"incremental"`
 	// Resource location
 	Location string `pulumi:"location"`
-	// The name of the snapshot that is being created. The name can't be changed after the snapshot is created. Supported characters for the name are a-z, A-Z, 0-9 and _. The max name length is 80 characters.
-	Name string `pulumi:"name"`
 	// Policy for accessing the disk via network.
 	NetworkAccessPolicy *string `pulumi:"networkAccessPolicy"`
 	// The Operating System type.
@@ -241,6 +239,8 @@ type snapshotArgs struct {
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The snapshots sku name. Can be Standard_LRS, Premium_LRS, or Standard_ZRS.
 	Sku *SnapshotSku `pulumi:"sku"`
+	// The name of the snapshot that is being created. The name can't be changed after the snapshot is created. Supported characters for the name are a-z, A-Z, 0-9 and _. The max name length is 80 characters.
+	SnapshotName string `pulumi:"snapshotName"`
 	// Resource tags
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -265,8 +265,6 @@ type SnapshotArgs struct {
 	Incremental pulumi.BoolPtrInput
 	// Resource location
 	Location pulumi.StringInput
-	// The name of the snapshot that is being created. The name can't be changed after the snapshot is created. Supported characters for the name are a-z, A-Z, 0-9 and _. The max name length is 80 characters.
-	Name pulumi.StringInput
 	// Policy for accessing the disk via network.
 	NetworkAccessPolicy pulumi.StringPtrInput
 	// The Operating System type.
@@ -275,6 +273,8 @@ type SnapshotArgs struct {
 	ResourceGroupName pulumi.StringInput
 	// The snapshots sku name. Can be Standard_LRS, Premium_LRS, or Standard_ZRS.
 	Sku SnapshotSkuPtrInput
+	// The name of the snapshot that is being created. The name can't be changed after the snapshot is created. Supported characters for the name are a-z, A-Z, 0-9 and _. The max name length is 80 characters.
+	SnapshotName pulumi.StringInput
 	// Resource tags
 	Tags pulumi.StringMapInput
 }

@@ -21,10 +21,10 @@ type LookupGalleryApplicationVersionArgs struct {
 	Expand *string `pulumi:"expand"`
 	// The name of the gallery Application Definition in which the Application Version resides.
 	GalleryApplicationName string `pulumi:"galleryApplicationName"`
+	// The name of the gallery Application Version to be retrieved.
+	GalleryApplicationVersionName string `pulumi:"galleryApplicationVersionName"`
 	// The name of the Shared Application Gallery in which the Application Definition resides.
 	GalleryName string `pulumi:"galleryName"`
-	// The name of the gallery Application Version to be retrieved.
-	Name string `pulumi:"name"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }

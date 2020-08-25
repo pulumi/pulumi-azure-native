@@ -18,7 +18,7 @@ func LookupIntegrationServiceEnvironment(ctx *pulumi.Context, args *LookupIntegr
 
 type LookupIntegrationServiceEnvironmentArgs struct {
 	// The integration service environment name.
-	Name string `pulumi:"name"`
+	IntegrationServiceEnvironmentName string `pulumi:"integrationServiceEnvironmentName"`
 	// The resource group.
 	ResourceGroup string `pulumi:"resourceGroup"`
 }

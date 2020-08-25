@@ -18,7 +18,7 @@ func LookupDataConnector(ctx *pulumi.Context, args *LookupDataConnectorArgs, opt
 
 type LookupDataConnectorArgs struct {
 	// Connector ID
-	Name string `pulumi:"name"`
+	DataConnectorId string `pulumi:"dataConnectorId"`
 	// The name of the resource group within the user's subscription. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The name of the workspace.

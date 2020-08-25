@@ -53,8 +53,8 @@ type AzureFirewall struct {
 // NewAzureFirewall registers a new resource with the given unique name, arguments, and options.
 func NewAzureFirewall(ctx *pulumi.Context,
 	name string, args *AzureFirewallArgs, opts ...pulumi.ResourceOption) (*AzureFirewall, error) {
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
+	if args == nil || args.AzureFirewallName == nil {
+		return nil, errors.New("missing required argument 'AzureFirewallName'")
 	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
@@ -223,6 +223,8 @@ type azureFirewallArgs struct {
 	AdditionalProperties map[string]string `pulumi:"additionalProperties"`
 	// Collection of application rule collections used by Azure Firewall.
 	ApplicationRuleCollections []AzureFirewallApplicationRuleCollection `pulumi:"applicationRuleCollections"`
+	// The name of the Azure Firewall.
+	AzureFirewallName string `pulumi:"azureFirewallName"`
 	// The firewallPolicy associated with this azure firewall.
 	FirewallPolicy *SubResource `pulumi:"firewallPolicy"`
 	// Resource ID.
@@ -231,8 +233,6 @@ type azureFirewallArgs struct {
 	IpConfigurations []AzureFirewallIPConfiguration `pulumi:"ipConfigurations"`
 	// Resource location.
 	Location *string `pulumi:"location"`
-	// The name of the Azure Firewall.
-	Name string `pulumi:"name"`
 	// Collection of NAT rule collections used by Azure Firewall.
 	NatRuleCollections []AzureFirewallNatRuleCollection `pulumi:"natRuleCollections"`
 	// Collection of network rule collections used by Azure Firewall.
@@ -257,6 +257,8 @@ type AzureFirewallArgs struct {
 	AdditionalProperties pulumi.StringMapInput
 	// Collection of application rule collections used by Azure Firewall.
 	ApplicationRuleCollections AzureFirewallApplicationRuleCollectionArrayInput
+	// The name of the Azure Firewall.
+	AzureFirewallName pulumi.StringInput
 	// The firewallPolicy associated with this azure firewall.
 	FirewallPolicy SubResourcePtrInput
 	// Resource ID.
@@ -265,8 +267,6 @@ type AzureFirewallArgs struct {
 	IpConfigurations AzureFirewallIPConfigurationArrayInput
 	// Resource location.
 	Location pulumi.StringPtrInput
-	// The name of the Azure Firewall.
-	Name pulumi.StringInput
 	// Collection of NAT rule collections used by Azure Firewall.
 	NatRuleCollections AzureFirewallNatRuleCollectionArrayInput
 	// Collection of network rule collections used by Azure Firewall.

@@ -30,11 +30,11 @@ type HyperVSiteSite struct {
 // NewHyperVSiteSite registers a new resource with the given unique name, arguments, and options.
 func NewHyperVSiteSite(ctx *pulumi.Context,
 	name string, args *HyperVSiteSiteArgs, opts ...pulumi.ResourceOption) (*HyperVSiteSite, error) {
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
-	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
+	}
+	if args == nil || args.SiteName == nil {
+		return nil, errors.New("missing required argument 'SiteName'")
 	}
 	if args == nil {
 		args = &HyperVSiteSiteArgs{}
@@ -103,13 +103,15 @@ type hyperVSiteSiteArgs struct {
 	ETag *string `pulumi:"eTag"`
 	// Azure location in which Sites is created.
 	Location *string `pulumi:"location"`
-	// Site name.
-	Name string `pulumi:"name"`
+	// Name of the Hyper-V site.
+	Name *string `pulumi:"name"`
 	// Nested properties of Hyper-V site.
 	Properties *SiteProperties `pulumi:"properties"`
 	// The name of the resource group. The name is case insensitive.
-	ResourceGroupName string            `pulumi:"resourceGroupName"`
-	Tags              map[string]string `pulumi:"tags"`
+	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// Site name.
+	SiteName string            `pulumi:"siteName"`
+	Tags     map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a HyperVSiteSite resource.
@@ -118,13 +120,15 @@ type HyperVSiteSiteArgs struct {
 	ETag pulumi.StringPtrInput
 	// Azure location in which Sites is created.
 	Location pulumi.StringPtrInput
-	// Site name.
-	Name pulumi.StringInput
+	// Name of the Hyper-V site.
+	Name pulumi.StringPtrInput
 	// Nested properties of Hyper-V site.
 	Properties SitePropertiesPtrInput
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName pulumi.StringInput
-	Tags              pulumi.StringMapInput
+	// Site name.
+	SiteName pulumi.StringInput
+	Tags     pulumi.StringMapInput
 }
 
 func (HyperVSiteSiteArgs) ElementType() reflect.Type {

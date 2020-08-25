@@ -18,7 +18,7 @@ func LookupDataManager(ctx *pulumi.Context, args *LookupDataManagerArgs, opts ..
 
 type LookupDataManagerArgs struct {
 	// The name of the DataManager Resource within the specified resource group. DataManager names must be between 3 and 24 characters in length and use any alphanumeric and underscore only
-	Name string `pulumi:"name"`
+	DataManagerName string `pulumi:"dataManagerName"`
 	// The Resource Group Name
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }

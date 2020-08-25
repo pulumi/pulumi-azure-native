@@ -45,8 +45,8 @@ func NewManagerExtendedInfo(ctx *pulumi.Context,
 	if args == nil || args.IntegrityKey == nil {
 		return nil, errors.New("missing required argument 'IntegrityKey'")
 	}
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
+	if args == nil || args.ManagerName == nil {
+		return nil, errors.New("missing required argument 'ManagerName'")
 	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
@@ -145,7 +145,7 @@ type managerExtendedInfoArgs struct {
 	// The Kind of the object. Currently only Series8000 is supported
 	Kind *string `pulumi:"kind"`
 	// The manager name
-	Name string `pulumi:"name"`
+	ManagerName string `pulumi:"managerName"`
 	// Represents the portal thumbprint which can be used optionally to encrypt the entire data before storing it.
 	PortalCertificateThumbprint *string `pulumi:"portalCertificateThumbprint"`
 	// The resource group name
@@ -169,7 +169,7 @@ type ManagerExtendedInfoArgs struct {
 	// The Kind of the object. Currently only Series8000 is supported
 	Kind pulumi.StringPtrInput
 	// The manager name
-	Name pulumi.StringInput
+	ManagerName pulumi.StringInput
 	// Represents the portal thumbprint which can be used optionally to encrypt the entire data before storing it.
 	PortalCertificateThumbprint pulumi.StringPtrInput
 	// The resource group name

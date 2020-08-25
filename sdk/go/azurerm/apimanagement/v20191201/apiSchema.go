@@ -35,11 +35,11 @@ func NewApiSchema(ctx *pulumi.Context,
 	if args == nil || args.ContentType == nil {
 		return nil, errors.New("missing required argument 'ContentType'")
 	}
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
-	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
+	}
+	if args == nil || args.SchemaId == nil {
+		return nil, errors.New("missing required argument 'SchemaId'")
 	}
 	if args == nil || args.ServiceName == nil {
 		return nil, errors.New("missing required argument 'ServiceName'")
@@ -117,10 +117,10 @@ type apiSchemaArgs struct {
 	ContentType string `pulumi:"contentType"`
 	// Types definitions. Used for Swagger/OpenAPI schemas only, null otherwise.
 	Definitions map[string]interface{} `pulumi:"definitions"`
-	// Schema identifier within an API. Must be unique in the current API Management service instance.
-	Name string `pulumi:"name"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// Schema identifier within an API. Must be unique in the current API Management service instance.
+	SchemaId string `pulumi:"schemaId"`
 	// The name of the API Management service.
 	ServiceName string `pulumi:"serviceName"`
 	// Json escaped string defining the document representing the Schema. Used for schemas other than Swagger/OpenAPI.
@@ -135,10 +135,10 @@ type ApiSchemaArgs struct {
 	ContentType pulumi.StringInput
 	// Types definitions. Used for Swagger/OpenAPI schemas only, null otherwise.
 	Definitions pulumi.MapInput
-	// Schema identifier within an API. Must be unique in the current API Management service instance.
-	Name pulumi.StringInput
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
+	// Schema identifier within an API. Must be unique in the current API Management service instance.
+	SchemaId pulumi.StringInput
 	// The name of the API Management service.
 	ServiceName pulumi.StringInput
 	// Json escaped string defining the document representing the Schema. Used for schemas other than Swagger/OpenAPI.

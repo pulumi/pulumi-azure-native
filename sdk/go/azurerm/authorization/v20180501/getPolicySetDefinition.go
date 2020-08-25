@@ -18,7 +18,7 @@ func LookupPolicySetDefinition(ctx *pulumi.Context, args *LookupPolicySetDefinit
 
 type LookupPolicySetDefinitionArgs struct {
 	// The name of the policy set definition to get.
-	Name string `pulumi:"name"`
+	PolicySetDefinitionName string `pulumi:"policySetDefinitionName"`
 }
 
 // The policy set definition.

@@ -18,7 +18,7 @@ func LookupReplicationRecoveryPlan(ctx *pulumi.Context, args *LookupReplicationR
 
 type LookupReplicationRecoveryPlanArgs struct {
 	// Name of the recovery plan.
-	Name string `pulumi:"name"`
+	RecoveryPlanName string `pulumi:"recoveryPlanName"`
 	// The name of the resource group where the recovery services vault is present.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The name of the recovery services vault.

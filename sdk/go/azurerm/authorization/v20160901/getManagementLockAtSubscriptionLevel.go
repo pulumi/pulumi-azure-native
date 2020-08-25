@@ -18,7 +18,7 @@ func LookupManagementLockAtSubscriptionLevel(ctx *pulumi.Context, args *LookupMa
 
 type LookupManagementLockAtSubscriptionLevelArgs struct {
 	// The name of the lock to get.
-	Name string `pulumi:"name"`
+	LockName string `pulumi:"lockName"`
 }
 
 // The lock information.

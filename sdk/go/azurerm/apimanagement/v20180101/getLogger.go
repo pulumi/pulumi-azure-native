@@ -18,7 +18,7 @@ func LookupLogger(ctx *pulumi.Context, args *LookupLoggerArgs, opts ...pulumi.In
 
 type LookupLoggerArgs struct {
 	// Logger identifier. Must be unique in the API Management service instance.
-	Name string `pulumi:"name"`
+	Loggerid string `pulumi:"loggerid"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The name of the API Management service.

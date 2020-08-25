@@ -19,12 +19,12 @@ func LookupApiTagDescription(ctx *pulumi.Context, args *LookupApiTagDescriptionA
 type LookupApiTagDescriptionArgs struct {
 	// API revision identifier. Must be unique in the current API Management service instance. Non-current revision has ;rev=n as a suffix where n is the revision number.
 	ApiId string `pulumi:"apiId"`
-	// Tag identifier. Must be unique in the current API Management service instance.
-	Name string `pulumi:"name"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The name of the API Management service.
 	ServiceName string `pulumi:"serviceName"`
+	// Tag identifier. Must be unique in the current API Management service instance.
+	TagId string `pulumi:"tagId"`
 }
 
 // Contract details.

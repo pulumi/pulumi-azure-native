@@ -17,12 +17,12 @@ func LookupRecordSet(ctx *pulumi.Context, args *LookupRecordSetArgs, opts ...pul
 }
 
 type LookupRecordSetArgs struct {
-	// The name of the record set, relative to the name of the zone.
-	Name string `pulumi:"name"`
 	// The name of the Private DNS zone (without a terminating dot).
 	PrivateZoneName string `pulumi:"privateZoneName"`
 	// The type of DNS record in this record set.
 	RecordType string `pulumi:"recordType"`
+	// The name of the record set, relative to the name of the zone.
+	RelativeRecordSetName string `pulumi:"relativeRecordSetName"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }

@@ -51,11 +51,11 @@ type Subnet struct {
 // NewSubnet registers a new resource with the given unique name, arguments, and options.
 func NewSubnet(ctx *pulumi.Context,
 	name string, args *SubnetArgs, opts ...pulumi.ResourceOption) (*Subnet, error) {
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
-	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
+	}
+	if args == nil || args.SubnetName == nil {
+		return nil, errors.New("missing required argument 'SubnetName'")
 	}
 	if args == nil || args.VirtualNetworkName == nil {
 		return nil, errors.New("missing required argument 'VirtualNetworkName'")
@@ -262,8 +262,8 @@ type subnetArgs struct {
 	Etag *string `pulumi:"etag"`
 	// Resource ID.
 	Id *string `pulumi:"id"`
-	// The name of the subnet.
-	Name string `pulumi:"name"`
+	// The name of the resource that is unique within a resource group. This name can be used to access the resource.
+	Name *string `pulumi:"name"`
 	// The reference of the NetworkSecurityGroup resource.
 	NetworkSecurityGroup *NetworkSecurityGroupType `pulumi:"networkSecurityGroup"`
 	// The provisioning state of the resource.
@@ -280,6 +280,8 @@ type subnetArgs struct {
 	ServiceEndpointPolicies []ServiceEndpointPolicyType `pulumi:"serviceEndpointPolicies"`
 	// An array of service endpoints.
 	ServiceEndpoints []ServiceEndpointPropertiesFormat `pulumi:"serviceEndpoints"`
+	// The name of the subnet.
+	SubnetName string `pulumi:"subnetName"`
 	// The name of the virtual network.
 	VirtualNetworkName string `pulumi:"virtualNetworkName"`
 }
@@ -296,8 +298,8 @@ type SubnetArgs struct {
 	Etag pulumi.StringPtrInput
 	// Resource ID.
 	Id pulumi.StringPtrInput
-	// The name of the subnet.
-	Name pulumi.StringInput
+	// The name of the resource that is unique within a resource group. This name can be used to access the resource.
+	Name pulumi.StringPtrInput
 	// The reference of the NetworkSecurityGroup resource.
 	NetworkSecurityGroup NetworkSecurityGroupTypePtrInput
 	// The provisioning state of the resource.
@@ -314,6 +316,8 @@ type SubnetArgs struct {
 	ServiceEndpointPolicies ServiceEndpointPolicyTypeArrayInput
 	// An array of service endpoints.
 	ServiceEndpoints ServiceEndpointPropertiesFormatArrayInput
+	// The name of the subnet.
+	SubnetName pulumi.StringInput
 	// The name of the virtual network.
 	VirtualNetworkName pulumi.StringInput
 }

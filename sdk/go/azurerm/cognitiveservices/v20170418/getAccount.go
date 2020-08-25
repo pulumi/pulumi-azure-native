@@ -18,7 +18,7 @@ func LookupAccount(ctx *pulumi.Context, args *LookupAccountArgs, opts ...pulumi.
 
 type LookupAccountArgs struct {
 	// The name of Cognitive Services account.
-	Name string `pulumi:"name"`
+	AccountName string `pulumi:"accountName"`
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }

@@ -38,8 +38,8 @@ func NewLogger(ctx *pulumi.Context,
 	if args == nil || args.LoggerType == nil {
 		return nil, errors.New("missing required argument 'LoggerType'")
 	}
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
+	if args == nil || args.Loggerid == nil {
+		return nil, errors.New("missing required argument 'Loggerid'")
 	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
@@ -130,7 +130,7 @@ type loggerArgs struct {
 	// Logger type.
 	LoggerType string `pulumi:"loggerType"`
 	// Logger identifier. Must be unique in the API Management service instance.
-	Name string `pulumi:"name"`
+	Loggerid string `pulumi:"loggerid"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The name of the API Management service.
@@ -149,7 +149,7 @@ type LoggerArgs struct {
 	// Logger type.
 	LoggerType pulumi.StringInput
 	// Logger identifier. Must be unique in the API Management service instance.
-	Name pulumi.StringInput
+	Loggerid pulumi.StringInput
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
 	// The name of the API Management service.

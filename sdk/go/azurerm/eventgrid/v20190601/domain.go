@@ -31,11 +31,11 @@ type Domain struct {
 // NewDomain registers a new resource with the given unique name, arguments, and options.
 func NewDomain(ctx *pulumi.Context,
 	name string, args *DomainArgs, opts ...pulumi.ResourceOption) (*Domain, error) {
+	if args == nil || args.DomainName == nil {
+		return nil, errors.New("missing required argument 'DomainName'")
+	}
 	if args == nil || args.Location == nil {
 		return nil, errors.New("missing required argument 'Location'")
-	}
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
 	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
@@ -105,10 +105,10 @@ func (DomainState) ElementType() reflect.Type {
 }
 
 type domainArgs struct {
+	// Name of the domain.
+	DomainName string `pulumi:"domainName"`
 	// Location of the resource.
 	Location string `pulumi:"location"`
-	// Name of the domain.
-	Name string `pulumi:"name"`
 	// The name of the resource group within the user's subscription.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Tags of the resource.
@@ -117,10 +117,10 @@ type domainArgs struct {
 
 // The set of arguments for constructing a Domain resource.
 type DomainArgs struct {
+	// Name of the domain.
+	DomainName pulumi.StringInput
 	// Location of the resource.
 	Location pulumi.StringInput
-	// Name of the domain.
-	Name pulumi.StringInput
 	// The name of the resource group within the user's subscription.
 	ResourceGroupName pulumi.StringInput
 	// Tags of the resource.

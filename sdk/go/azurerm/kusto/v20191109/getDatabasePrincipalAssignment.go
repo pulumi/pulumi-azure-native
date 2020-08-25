@@ -22,7 +22,7 @@ type LookupDatabasePrincipalAssignmentArgs struct {
 	// The name of the database in the Kusto cluster.
 	DatabaseName string `pulumi:"databaseName"`
 	// The name of the Kusto principalAssignment.
-	Name string `pulumi:"name"`
+	PrincipalAssignmentName string `pulumi:"principalAssignmentName"`
 	// The name of the resource group containing the Kusto cluster.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }

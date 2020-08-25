@@ -17,10 +17,10 @@ func LookupContentItem(ctx *pulumi.Context, args *LookupContentItemArgs, opts ..
 }
 
 type LookupContentItemArgs struct {
+	// Content item identifier.
+	ContentItemId string `pulumi:"contentItemId"`
 	// Content type identifier.
 	ContentTypeId string `pulumi:"contentTypeId"`
-	// Content item identifier.
-	Name string `pulumi:"name"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The name of the API Management service.

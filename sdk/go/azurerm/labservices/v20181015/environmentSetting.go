@@ -47,14 +47,14 @@ type EnvironmentSetting struct {
 // NewEnvironmentSetting registers a new resource with the given unique name, arguments, and options.
 func NewEnvironmentSetting(ctx *pulumi.Context,
 	name string, args *EnvironmentSettingArgs, opts ...pulumi.ResourceOption) (*EnvironmentSetting, error) {
+	if args == nil || args.EnvironmentSettingName == nil {
+		return nil, errors.New("missing required argument 'EnvironmentSettingName'")
+	}
 	if args == nil || args.LabAccountName == nil {
 		return nil, errors.New("missing required argument 'LabAccountName'")
 	}
 	if args == nil || args.LabName == nil {
 		return nil, errors.New("missing required argument 'LabName'")
-	}
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
 	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
@@ -157,14 +157,14 @@ type environmentSettingArgs struct {
 	ConfigurationState *string `pulumi:"configurationState"`
 	// Describes the environment and its resource settings
 	Description *string `pulumi:"description"`
+	// The name of the environment Setting.
+	EnvironmentSettingName string `pulumi:"environmentSettingName"`
 	// The name of the lab Account.
 	LabAccountName string `pulumi:"labAccountName"`
 	// The name of the lab.
 	LabName string `pulumi:"labName"`
 	// The location of the resource.
 	Location *string `pulumi:"location"`
-	// The name of the environment Setting.
-	Name string `pulumi:"name"`
 	// The provisioning status of the resource.
 	ProvisioningState *string `pulumi:"provisioningState"`
 	// The name of the resource group.
@@ -185,14 +185,14 @@ type EnvironmentSettingArgs struct {
 	ConfigurationState pulumi.StringPtrInput
 	// Describes the environment and its resource settings
 	Description pulumi.StringPtrInput
+	// The name of the environment Setting.
+	EnvironmentSettingName pulumi.StringInput
 	// The name of the lab Account.
 	LabAccountName pulumi.StringInput
 	// The name of the lab.
 	LabName pulumi.StringInput
 	// The location of the resource.
 	Location pulumi.StringPtrInput
-	// The name of the environment Setting.
-	Name pulumi.StringInput
 	// The provisioning status of the resource.
 	ProvisioningState pulumi.StringPtrInput
 	// The name of the resource group.

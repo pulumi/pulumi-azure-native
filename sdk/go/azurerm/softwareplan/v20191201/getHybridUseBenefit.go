@@ -18,7 +18,7 @@ func LookupHybridUseBenefit(ctx *pulumi.Context, args *LookupHybridUseBenefitArg
 
 type LookupHybridUseBenefitArgs struct {
 	// This is a unique identifier for a plan. Should be a guid.
-	Name string `pulumi:"name"`
+	PlanId string `pulumi:"planId"`
 	// The scope at which the operation is performed. This is limited to Microsoft.Compute/virtualMachines and Microsoft.Compute/hostGroups/hosts for now
 	Scope string `pulumi:"scope"`
 }

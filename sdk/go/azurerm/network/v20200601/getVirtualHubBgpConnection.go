@@ -18,7 +18,7 @@ func LookupVirtualHubBgpConnection(ctx *pulumi.Context, args *LookupVirtualHubBg
 
 type LookupVirtualHubBgpConnectionArgs struct {
 	// The name of the connection.
-	Name string `pulumi:"name"`
+	ConnectionName string `pulumi:"connectionName"`
 	// The resource group name of the VirtualHub.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The name of the VirtualHub.

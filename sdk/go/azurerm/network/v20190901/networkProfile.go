@@ -37,8 +37,8 @@ type NetworkProfile struct {
 // NewNetworkProfile registers a new resource with the given unique name, arguments, and options.
 func NewNetworkProfile(ctx *pulumi.Context,
 	name string, args *NetworkProfileArgs, opts ...pulumi.ResourceOption) (*NetworkProfile, error) {
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
+	if args == nil || args.NetworkProfileName == nil {
+		return nil, errors.New("missing required argument 'NetworkProfileName'")
 	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
@@ -169,7 +169,7 @@ type networkProfileArgs struct {
 	// Resource location.
 	Location *string `pulumi:"location"`
 	// The name of the network profile.
-	Name string `pulumi:"name"`
+	NetworkProfileName string `pulumi:"networkProfileName"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Resource tags.
@@ -185,7 +185,7 @@ type NetworkProfileArgs struct {
 	// Resource location.
 	Location pulumi.StringPtrInput
 	// The name of the network profile.
-	Name pulumi.StringInput
+	NetworkProfileName pulumi.StringInput
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
 	// Resource tags.

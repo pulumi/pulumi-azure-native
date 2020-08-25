@@ -17,10 +17,10 @@ func LookupRegisteredServer(ctx *pulumi.Context, args *LookupRegisteredServerArg
 }
 
 type LookupRegisteredServerArgs struct {
-	// GUID identifying the on-premises server.
-	Name string `pulumi:"name"`
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// GUID identifying the on-premises server.
+	ServerId string `pulumi:"serverId"`
 	// Name of Storage Sync Service resource.
 	StorageSyncServiceName string `pulumi:"storageSyncServiceName"`
 }

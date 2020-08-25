@@ -18,7 +18,7 @@ func LookupDataSource(ctx *pulumi.Context, args *LookupDataSourceArgs, opts ...p
 
 type LookupDataSourceArgs struct {
 	// Name of the datasource
-	Name string `pulumi:"name"`
+	DataSourceName string `pulumi:"dataSourceName"`
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The name of the workspace.

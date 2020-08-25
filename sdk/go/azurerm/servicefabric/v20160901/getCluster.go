@@ -18,7 +18,7 @@ func LookupCluster(ctx *pulumi.Context, args *LookupClusterArgs, opts ...pulumi.
 
 type LookupClusterArgs struct {
 	// The name of the cluster resource
-	Name string `pulumi:"name"`
+	ClusterName string `pulumi:"clusterName"`
 	// The name of the resource group to which the resource belongs or get created
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }

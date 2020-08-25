@@ -18,7 +18,7 @@ func LookupDatabaseAccount(ctx *pulumi.Context, args *LookupDatabaseAccountArgs,
 
 type LookupDatabaseAccountArgs struct {
 	// Cosmos DB database account name.
-	Name string `pulumi:"name"`
+	AccountName string `pulumi:"accountName"`
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }

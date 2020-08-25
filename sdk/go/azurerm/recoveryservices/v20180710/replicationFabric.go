@@ -27,8 +27,8 @@ type ReplicationFabric struct {
 // NewReplicationFabric registers a new resource with the given unique name, arguments, and options.
 func NewReplicationFabric(ctx *pulumi.Context,
 	name string, args *ReplicationFabricArgs, opts ...pulumi.ResourceOption) (*ReplicationFabric, error) {
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
+	if args == nil || args.FabricName == nil {
+		return nil, errors.New("missing required argument 'FabricName'")
 	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
@@ -97,7 +97,7 @@ func (ReplicationFabricState) ElementType() reflect.Type {
 
 type replicationFabricArgs struct {
 	// Name of the ASR fabric.
-	Name string `pulumi:"name"`
+	FabricName string `pulumi:"fabricName"`
 	// Fabric creation input.
 	Properties *FabricCreationInputProperties `pulumi:"properties"`
 	// The name of the resource group where the recovery services vault is present.
@@ -109,7 +109,7 @@ type replicationFabricArgs struct {
 // The set of arguments for constructing a ReplicationFabric resource.
 type ReplicationFabricArgs struct {
 	// Name of the ASR fabric.
-	Name pulumi.StringInput
+	FabricName pulumi.StringInput
 	// Fabric creation input.
 	Properties FabricCreationInputPropertiesPtrInput
 	// The name of the resource group where the recovery services vault is present.

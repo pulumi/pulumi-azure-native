@@ -23,10 +23,10 @@ type LookupFileShareArgs struct {
 	FileServerName string `pulumi:"fileServerName"`
 	// The manager name
 	ManagerName string `pulumi:"managerName"`
-	// The file share name.
-	Name string `pulumi:"name"`
 	// The resource group name
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// The file share name.
+	ShareName string `pulumi:"shareName"`
 }
 
 // The File Share.

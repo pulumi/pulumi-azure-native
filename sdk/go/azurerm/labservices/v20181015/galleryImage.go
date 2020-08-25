@@ -51,11 +51,11 @@ type GalleryImage struct {
 // NewGalleryImage registers a new resource with the given unique name, arguments, and options.
 func NewGalleryImage(ctx *pulumi.Context,
 	name string, args *GalleryImageArgs, opts ...pulumi.ResourceOption) (*GalleryImage, error) {
+	if args == nil || args.GalleryImageName == nil {
+		return nil, errors.New("missing required argument 'GalleryImageName'")
+	}
 	if args == nil || args.LabAccountName == nil {
 		return nil, errors.New("missing required argument 'LabAccountName'")
-	}
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
 	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
@@ -159,6 +159,8 @@ func (GalleryImageState) ElementType() reflect.Type {
 }
 
 type galleryImageArgs struct {
+	// The name of the gallery Image.
+	GalleryImageName string `pulumi:"galleryImageName"`
 	// Indicates whether this gallery image is enabled.
 	IsEnabled *bool `pulumi:"isEnabled"`
 	// Indicates whether this gallery has been overridden for this lab account
@@ -169,8 +171,6 @@ type galleryImageArgs struct {
 	LabAccountName string `pulumi:"labAccountName"`
 	// The location of the resource.
 	Location *string `pulumi:"location"`
-	// The name of the gallery Image.
-	Name string `pulumi:"name"`
 	// The provisioning status of the resource.
 	ProvisioningState *string `pulumi:"provisioningState"`
 	// The name of the resource group.
@@ -183,6 +183,8 @@ type galleryImageArgs struct {
 
 // The set of arguments for constructing a GalleryImage resource.
 type GalleryImageArgs struct {
+	// The name of the gallery Image.
+	GalleryImageName pulumi.StringInput
 	// Indicates whether this gallery image is enabled.
 	IsEnabled pulumi.BoolPtrInput
 	// Indicates whether this gallery has been overridden for this lab account
@@ -193,8 +195,6 @@ type GalleryImageArgs struct {
 	LabAccountName pulumi.StringInput
 	// The location of the resource.
 	Location pulumi.StringPtrInput
-	// The name of the gallery Image.
-	Name pulumi.StringInput
 	// The provisioning status of the resource.
 	ProvisioningState pulumi.StringPtrInput
 	// The name of the resource group.

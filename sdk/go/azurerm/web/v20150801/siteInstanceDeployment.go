@@ -47,6 +47,9 @@ type SiteInstanceDeployment struct {
 // NewSiteInstanceDeployment registers a new resource with the given unique name, arguments, and options.
 func NewSiteInstanceDeployment(ctx *pulumi.Context,
 	name string, args *SiteInstanceDeploymentArgs, opts ...pulumi.ResourceOption) (*SiteInstanceDeployment, error) {
+	if args == nil || args.Id == nil {
+		return nil, errors.New("missing required argument 'Id'")
+	}
 	if args == nil || args.InstanceId == nil {
 		return nil, errors.New("missing required argument 'InstanceId'")
 	}
@@ -162,6 +165,8 @@ type siteInstanceDeploymentArgs struct {
 	Details *string `pulumi:"details"`
 	// EndTime
 	EndTime *string `pulumi:"endTime"`
+	// Resource Id
+	Id string `pulumi:"id"`
 	// Id of web app instance
 	InstanceId string `pulumi:"instanceId"`
 	// Kind of resource
@@ -170,7 +175,7 @@ type siteInstanceDeploymentArgs struct {
 	Location string `pulumi:"location"`
 	// Message
 	Message *string `pulumi:"message"`
-	// Resource Id
+	// Resource Name
 	Name string `pulumi:"name"`
 	// Name of resource group
 	ResourceGroupName string `pulumi:"resourceGroupName"`
@@ -198,6 +203,8 @@ type SiteInstanceDeploymentArgs struct {
 	Details pulumi.StringPtrInput
 	// EndTime
 	EndTime pulumi.StringPtrInput
+	// Resource Id
+	Id pulumi.StringInput
 	// Id of web app instance
 	InstanceId pulumi.StringInput
 	// Kind of resource
@@ -206,7 +213,7 @@ type SiteInstanceDeploymentArgs struct {
 	Location pulumi.StringInput
 	// Message
 	Message pulumi.StringPtrInput
-	// Resource Id
+	// Resource Name
 	Name pulumi.StringInput
 	// Name of resource group
 	ResourceGroupName pulumi.StringInput

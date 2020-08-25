@@ -52,9 +52,6 @@ func NewSecurityRule(ctx *pulumi.Context,
 	if args == nil || args.Direction == nil {
 		return nil, errors.New("missing required argument 'Direction'")
 	}
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
-	}
 	if args == nil || args.NetworkSecurityGroupName == nil {
 		return nil, errors.New("missing required argument 'NetworkSecurityGroupName'")
 	}
@@ -63,6 +60,9 @@ func NewSecurityRule(ctx *pulumi.Context,
 	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
+	}
+	if args == nil || args.SecurityRuleName == nil {
+		return nil, errors.New("missing required argument 'SecurityRuleName'")
 	}
 	if args == nil || args.SourceAddressPrefix == nil {
 		return nil, errors.New("missing required argument 'SourceAddressPrefix'")
@@ -260,8 +260,8 @@ type securityRuleArgs struct {
 	Etag *string `pulumi:"etag"`
 	// Resource Identifier.
 	Id *string `pulumi:"id"`
-	// The name of the security rule.
-	Name string `pulumi:"name"`
+	// The name of the resource that is unique within a resource group. This name can be used to access the resource.
+	Name *string `pulumi:"name"`
 	// The name of the network security group.
 	NetworkSecurityGroupName string `pulumi:"networkSecurityGroupName"`
 	// The priority of the rule. The value can be between 100 and 4096. The priority number must be unique for each rule in the collection. The lower the priority number, the higher the priority of the rule.
@@ -272,6 +272,8 @@ type securityRuleArgs struct {
 	ProvisioningState *string `pulumi:"provisioningState"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// The name of the security rule.
+	SecurityRuleName string `pulumi:"securityRuleName"`
 	// The CIDR or source IP range. Asterisk '*' can also be used to match all source IPs. Default tags such as 'VirtualNetwork', 'AzureLoadBalancer' and 'Internet' can also be used. If this is an ingress rule, specifies where network traffic originates from.
 	SourceAddressPrefix string `pulumi:"sourceAddressPrefix"`
 	// The source port or range. Integer or range between 0 and 65535. Asterisk '*' can also be used to match all ports.
@@ -294,8 +296,8 @@ type SecurityRuleArgs struct {
 	Etag pulumi.StringPtrInput
 	// Resource Identifier.
 	Id pulumi.StringPtrInput
-	// The name of the security rule.
-	Name pulumi.StringInput
+	// The name of the resource that is unique within a resource group. This name can be used to access the resource.
+	Name pulumi.StringPtrInput
 	// The name of the network security group.
 	NetworkSecurityGroupName pulumi.StringInput
 	// The priority of the rule. The value can be between 100 and 4096. The priority number must be unique for each rule in the collection. The lower the priority number, the higher the priority of the rule.
@@ -306,6 +308,8 @@ type SecurityRuleArgs struct {
 	ProvisioningState pulumi.StringPtrInput
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
+	// The name of the security rule.
+	SecurityRuleName pulumi.StringInput
 	// The CIDR or source IP range. Asterisk '*' can also be used to match all source IPs. Default tags such as 'VirtualNetwork', 'AzureLoadBalancer' and 'Internet' can also be used. If this is an ingress rule, specifies where network traffic originates from.
 	SourceAddressPrefix pulumi.StringInput
 	// The source port or range. Integer or range between 0 and 65535. Asterisk '*' can also be used to match all ports.

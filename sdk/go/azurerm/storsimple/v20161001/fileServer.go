@@ -40,11 +40,11 @@ func NewFileServer(ctx *pulumi.Context,
 	if args == nil || args.DomainName == nil {
 		return nil, errors.New("missing required argument 'DomainName'")
 	}
+	if args == nil || args.FileServerName == nil {
+		return nil, errors.New("missing required argument 'FileServerName'")
+	}
 	if args == nil || args.ManagerName == nil {
 		return nil, errors.New("missing required argument 'ManagerName'")
-	}
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
 	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
@@ -119,10 +119,10 @@ type fileServerArgs struct {
 	DeviceName string `pulumi:"deviceName"`
 	// Domain of the file server
 	DomainName string `pulumi:"domainName"`
+	// The file server name.
+	FileServerName string `pulumi:"fileServerName"`
 	// The manager name
 	ManagerName string `pulumi:"managerName"`
-	// The file server name.
-	Name string `pulumi:"name"`
 	// The resource group name
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The storage domain id.
@@ -139,10 +139,10 @@ type FileServerArgs struct {
 	DeviceName pulumi.StringInput
 	// Domain of the file server
 	DomainName pulumi.StringInput
+	// The file server name.
+	FileServerName pulumi.StringInput
 	// The manager name
 	ManagerName pulumi.StringInput
-	// The file server name.
-	Name pulumi.StringInput
 	// The resource group name
 	ResourceGroupName pulumi.StringInput
 	// The storage domain id.

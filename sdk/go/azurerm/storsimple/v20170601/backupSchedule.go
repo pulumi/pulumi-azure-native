@@ -40,6 +40,9 @@ func NewBackupSchedule(ctx *pulumi.Context,
 	if args == nil || args.BackupPolicyName == nil {
 		return nil, errors.New("missing required argument 'BackupPolicyName'")
 	}
+	if args == nil || args.BackupScheduleName == nil {
+		return nil, errors.New("missing required argument 'BackupScheduleName'")
+	}
 	if args == nil || args.BackupType == nil {
 		return nil, errors.New("missing required argument 'BackupType'")
 	}
@@ -48,9 +51,6 @@ func NewBackupSchedule(ctx *pulumi.Context,
 	}
 	if args == nil || args.ManagerName == nil {
 		return nil, errors.New("missing required argument 'ManagerName'")
-	}
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
 	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
@@ -140,6 +140,8 @@ func (BackupScheduleState) ElementType() reflect.Type {
 type backupScheduleArgs struct {
 	// The backup policy name.
 	BackupPolicyName string `pulumi:"backupPolicyName"`
+	// The backup schedule name.
+	BackupScheduleName string `pulumi:"backupScheduleName"`
 	// The type of backup which needs to be taken.
 	BackupType string `pulumi:"backupType"`
 	// The device name
@@ -148,8 +150,6 @@ type backupScheduleArgs struct {
 	Kind *string `pulumi:"kind"`
 	// The manager name
 	ManagerName string `pulumi:"managerName"`
-	// The backup schedule name.
-	Name string `pulumi:"name"`
 	// The resource group name
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The number of backups to be retained.
@@ -166,6 +166,8 @@ type backupScheduleArgs struct {
 type BackupScheduleArgs struct {
 	// The backup policy name.
 	BackupPolicyName pulumi.StringInput
+	// The backup schedule name.
+	BackupScheduleName pulumi.StringInput
 	// The type of backup which needs to be taken.
 	BackupType pulumi.StringInput
 	// The device name
@@ -174,8 +176,6 @@ type BackupScheduleArgs struct {
 	Kind pulumi.StringPtrInput
 	// The manager name
 	ManagerName pulumi.StringInput
-	// The backup schedule name.
-	Name pulumi.StringInput
 	// The resource group name
 	ResourceGroupName pulumi.StringInput
 	// The number of backups to be retained.

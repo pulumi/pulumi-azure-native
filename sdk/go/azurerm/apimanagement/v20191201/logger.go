@@ -37,11 +37,11 @@ func NewLogger(ctx *pulumi.Context,
 	if args == nil || args.Credentials == nil {
 		return nil, errors.New("missing required argument 'Credentials'")
 	}
+	if args == nil || args.LoggerId == nil {
+		return nil, errors.New("missing required argument 'LoggerId'")
+	}
 	if args == nil || args.LoggerType == nil {
 		return nil, errors.New("missing required argument 'LoggerType'")
-	}
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
 	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
@@ -127,10 +127,10 @@ type loggerArgs struct {
 	Description *string `pulumi:"description"`
 	// Whether records are buffered in the logger before publishing. Default is assumed to be true.
 	IsBuffered *bool `pulumi:"isBuffered"`
+	// Logger identifier. Must be unique in the API Management service instance.
+	LoggerId string `pulumi:"loggerId"`
 	// Logger type.
 	LoggerType string `pulumi:"loggerType"`
-	// Logger identifier. Must be unique in the API Management service instance.
-	Name string `pulumi:"name"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Azure Resource Id of a log target (either Azure Event Hub resource or Azure Application Insights resource).
@@ -148,10 +148,10 @@ type LoggerArgs struct {
 	Description pulumi.StringPtrInput
 	// Whether records are buffered in the logger before publishing. Default is assumed to be true.
 	IsBuffered pulumi.BoolPtrInput
+	// Logger identifier. Must be unique in the API Management service instance.
+	LoggerId pulumi.StringInput
 	// Logger type.
 	LoggerType pulumi.StringInput
-	// Logger identifier. Must be unique in the API Management service instance.
-	Name pulumi.StringInput
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
 	// Azure Resource Id of a log target (either Azure Event Hub resource or Azure Application Insights resource).

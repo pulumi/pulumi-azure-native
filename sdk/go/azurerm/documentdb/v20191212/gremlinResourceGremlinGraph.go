@@ -34,8 +34,8 @@ func NewGremlinResourceGremlinGraph(ctx *pulumi.Context,
 	if args == nil || args.DatabaseName == nil {
 		return nil, errors.New("missing required argument 'DatabaseName'")
 	}
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
+	if args == nil || args.GraphName == nil {
+		return nil, errors.New("missing required argument 'GraphName'")
 	}
 	if args == nil || args.Options == nil {
 		return nil, errors.New("missing required argument 'Options'")
@@ -115,10 +115,10 @@ type gremlinResourceGremlinGraphArgs struct {
 	AccountName string `pulumi:"accountName"`
 	// Cosmos DB database name.
 	DatabaseName string `pulumi:"databaseName"`
+	// Cosmos DB graph name.
+	GraphName string `pulumi:"graphName"`
 	// The location of the resource group to which the resource belongs.
 	Location *string `pulumi:"location"`
-	// Cosmos DB graph name.
-	Name string `pulumi:"name"`
 	// A key-value pair of options to be applied for the request. This corresponds to the headers sent with the request.
 	Options CreateUpdateOptions `pulumi:"options"`
 	// The standard JSON format of a Gremlin graph
@@ -135,10 +135,10 @@ type GremlinResourceGremlinGraphArgs struct {
 	AccountName pulumi.StringInput
 	// Cosmos DB database name.
 	DatabaseName pulumi.StringInput
+	// Cosmos DB graph name.
+	GraphName pulumi.StringInput
 	// The location of the resource group to which the resource belongs.
 	Location pulumi.StringPtrInput
-	// Cosmos DB graph name.
-	Name pulumi.StringInput
 	// A key-value pair of options to be applied for the request. This corresponds to the headers sent with the request.
 	Options CreateUpdateOptionsInput
 	// The standard JSON format of a Gremlin graph

@@ -19,10 +19,10 @@ func LookupWebhook(ctx *pulumi.Context, args *LookupWebhookArgs, opts ...pulumi.
 type LookupWebhookArgs struct {
 	// The name of the automation account.
 	AutomationAccountName string `pulumi:"automationAccountName"`
-	// The webhook name.
-	Name string `pulumi:"name"`
 	// Name of an Azure Resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// The webhook name.
+	WebhookName string `pulumi:"webhookName"`
 }
 
 // Definition of the webhook type.

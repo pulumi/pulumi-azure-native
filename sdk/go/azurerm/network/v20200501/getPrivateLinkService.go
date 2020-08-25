@@ -19,10 +19,10 @@ func LookupPrivateLinkService(ctx *pulumi.Context, args *LookupPrivateLinkServic
 type LookupPrivateLinkServiceArgs struct {
 	// Expands referenced resources.
 	Expand *string `pulumi:"expand"`
-	// The name of the private link service.
-	Name string `pulumi:"name"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// The name of the private link service.
+	ServiceName string `pulumi:"serviceName"`
 }
 
 // Private link service resource.

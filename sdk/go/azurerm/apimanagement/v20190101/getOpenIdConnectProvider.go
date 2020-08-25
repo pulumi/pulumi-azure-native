@@ -18,7 +18,7 @@ func LookupOpenIdConnectProvider(ctx *pulumi.Context, args *LookupOpenIdConnectP
 
 type LookupOpenIdConnectProviderArgs struct {
 	// Identifier of the OpenID Connect Provider.
-	Name string `pulumi:"name"`
+	Opid string `pulumi:"opid"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The name of the API Management service.

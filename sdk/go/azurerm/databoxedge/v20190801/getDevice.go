@@ -18,7 +18,7 @@ func LookupDevice(ctx *pulumi.Context, args *LookupDeviceArgs, opts ...pulumi.In
 
 type LookupDeviceArgs struct {
 	// The device name.
-	Name string `pulumi:"name"`
+	DeviceName string `pulumi:"deviceName"`
 	// The resource group name.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }

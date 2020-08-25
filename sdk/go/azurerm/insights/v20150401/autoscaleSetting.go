@@ -35,11 +35,11 @@ type AutoscaleSetting struct {
 // NewAutoscaleSetting registers a new resource with the given unique name, arguments, and options.
 func NewAutoscaleSetting(ctx *pulumi.Context,
 	name string, args *AutoscaleSettingArgs, opts ...pulumi.ResourceOption) (*AutoscaleSetting, error) {
+	if args == nil || args.AutoscaleSettingName == nil {
+		return nil, errors.New("missing required argument 'AutoscaleSettingName'")
+	}
 	if args == nil || args.Location == nil {
 		return nil, errors.New("missing required argument 'Location'")
-	}
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
 	}
 	if args == nil || args.Profiles == nil {
 		return nil, errors.New("missing required argument 'Profiles'")
@@ -114,12 +114,14 @@ func (AutoscaleSettingState) ElementType() reflect.Type {
 }
 
 type autoscaleSettingArgs struct {
+	// The autoscale setting name.
+	AutoscaleSettingName string `pulumi:"autoscaleSettingName"`
 	// the enabled flag. Specifies whether automatic scaling is enabled for the resource. The default value is 'true'.
 	Enabled *bool `pulumi:"enabled"`
 	// Resource location
 	Location string `pulumi:"location"`
-	// The autoscale setting name.
-	Name string `pulumi:"name"`
+	// the name of the autoscale setting.
+	Name *string `pulumi:"name"`
 	// the collection of notifications.
 	Notifications []AutoscaleNotification `pulumi:"notifications"`
 	// the collection of automatic scaling profiles that specify different scaling parameters for different time periods. A maximum of 20 profiles can be specified.
@@ -134,12 +136,14 @@ type autoscaleSettingArgs struct {
 
 // The set of arguments for constructing a AutoscaleSetting resource.
 type AutoscaleSettingArgs struct {
+	// The autoscale setting name.
+	AutoscaleSettingName pulumi.StringInput
 	// the enabled flag. Specifies whether automatic scaling is enabled for the resource. The default value is 'true'.
 	Enabled pulumi.BoolPtrInput
 	// Resource location
 	Location pulumi.StringInput
-	// The autoscale setting name.
-	Name pulumi.StringInput
+	// the name of the autoscale setting.
+	Name pulumi.StringPtrInput
 	// the collection of notifications.
 	Notifications AutoscaleNotificationArrayInput
 	// the collection of automatic scaling profiles that specify different scaling parameters for different time periods. A maximum of 20 profiles can be specified.

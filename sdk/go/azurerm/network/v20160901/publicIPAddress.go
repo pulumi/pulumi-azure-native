@@ -44,8 +44,8 @@ type PublicIPAddress struct {
 // NewPublicIPAddress registers a new resource with the given unique name, arguments, and options.
 func NewPublicIPAddress(ctx *pulumi.Context,
 	name string, args *PublicIPAddressArgs, opts ...pulumi.ResourceOption) (*PublicIPAddress, error) {
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
+	if args == nil || args.PublicIpAddressName == nil {
+		return nil, errors.New("missing required argument 'PublicIpAddressName'")
 	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
@@ -242,14 +242,14 @@ type publicIPAddressArgs struct {
 	IpAddress            *string `pulumi:"ipAddress"`
 	// Resource location.
 	Location *string `pulumi:"location"`
-	// The name of the public IP address.
-	Name string `pulumi:"name"`
 	// The provisioning state of the PublicIP resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
 	ProvisioningState *string `pulumi:"provisioningState"`
 	// The public IP address version. Possible values are: 'IPv4' and 'IPv6'.
 	PublicIPAddressVersion *string `pulumi:"publicIPAddressVersion"`
 	// The public IP allocation method. Possible values are: 'Static' and 'Dynamic'.
 	PublicIPAllocationMethod *string `pulumi:"publicIPAllocationMethod"`
+	// The name of the public IP address.
+	PublicIpAddressName string `pulumi:"publicIpAddressName"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The resource GUID property of the public IP resource.
@@ -271,14 +271,14 @@ type PublicIPAddressArgs struct {
 	IpAddress            pulumi.StringPtrInput
 	// Resource location.
 	Location pulumi.StringPtrInput
-	// The name of the public IP address.
-	Name pulumi.StringInput
 	// The provisioning state of the PublicIP resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
 	ProvisioningState pulumi.StringPtrInput
 	// The public IP address version. Possible values are: 'IPv4' and 'IPv6'.
 	PublicIPAddressVersion pulumi.StringPtrInput
 	// The public IP allocation method. Possible values are: 'Static' and 'Dynamic'.
 	PublicIPAllocationMethod pulumi.StringPtrInput
+	// The name of the public IP address.
+	PublicIpAddressName pulumi.StringInput
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
 	// The resource GUID property of the public IP resource.

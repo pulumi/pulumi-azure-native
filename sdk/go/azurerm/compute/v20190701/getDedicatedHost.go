@@ -22,7 +22,7 @@ type LookupDedicatedHostArgs struct {
 	// The name of the dedicated host group.
 	HostGroupName string `pulumi:"hostGroupName"`
 	// The name of the dedicated host.
-	Name string `pulumi:"name"`
+	HostName string `pulumi:"hostName"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }

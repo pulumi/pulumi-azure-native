@@ -18,7 +18,7 @@ func LookupSpatialAnchorsAccount(ctx *pulumi.Context, args *LookupSpatialAnchors
 
 type LookupSpatialAnchorsAccountArgs struct {
 	// Name of an Mixed Reality Account.
-	Name string `pulumi:"name"`
+	AccountName string `pulumi:"accountName"`
 	// Name of an Azure resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }

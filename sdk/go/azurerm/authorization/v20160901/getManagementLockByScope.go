@@ -18,7 +18,7 @@ func LookupManagementLockByScope(ctx *pulumi.Context, args *LookupManagementLock
 
 type LookupManagementLockByScopeArgs struct {
 	// The name of lock.
-	Name string `pulumi:"name"`
+	LockName string `pulumi:"lockName"`
 	// The scope for the lock.
 	Scope string `pulumi:"scope"`
 }

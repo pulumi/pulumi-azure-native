@@ -41,8 +41,8 @@ type Favorite struct {
 // NewFavorite registers a new resource with the given unique name, arguments, and options.
 func NewFavorite(ctx *pulumi.Context,
 	name string, args *FavoriteArgs, opts ...pulumi.ResourceOption) (*Favorite, error) {
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
+	if args == nil || args.FavoriteId == nil {
+		return nil, errors.New("missing required argument 'FavoriteId'")
 	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
@@ -133,12 +133,14 @@ type favoriteArgs struct {
 	Category *string `pulumi:"category"`
 	// Configuration of this particular favorite, which are driven by the Azure portal UX. Configuration data is a string containing valid JSON
 	Config *string `pulumi:"config"`
+	// The Id of a specific favorite defined in the Application Insights component
+	FavoriteId string `pulumi:"favoriteId"`
 	// Enum indicating if this favorite definition is owned by a specific user or is shared between all users with access to the Application Insights component.
 	FavoriteType *string `pulumi:"favoriteType"`
 	// Flag denoting wether or not this favorite was generated from a template.
 	IsGeneratedFromTemplate *bool `pulumi:"isGeneratedFromTemplate"`
-	// The Id of a specific favorite defined in the Application Insights component
-	Name string `pulumi:"name"`
+	// The user-defined name of the favorite.
+	Name *string `pulumi:"name"`
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The name of the Application Insights component resource.
@@ -157,12 +159,14 @@ type FavoriteArgs struct {
 	Category pulumi.StringPtrInput
 	// Configuration of this particular favorite, which are driven by the Azure portal UX. Configuration data is a string containing valid JSON
 	Config pulumi.StringPtrInput
+	// The Id of a specific favorite defined in the Application Insights component
+	FavoriteId pulumi.StringInput
 	// Enum indicating if this favorite definition is owned by a specific user or is shared between all users with access to the Application Insights component.
 	FavoriteType pulumi.StringPtrInput
 	// Flag denoting wether or not this favorite was generated from a template.
 	IsGeneratedFromTemplate pulumi.BoolPtrInput
-	// The Id of a specific favorite defined in the Application Insights component
-	Name pulumi.StringInput
+	// The user-defined name of the favorite.
+	Name pulumi.StringPtrInput
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName pulumi.StringInput
 	// The name of the Application Insights component resource.

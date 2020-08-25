@@ -65,11 +65,11 @@ func NewConnectorMapping(ctx *pulumi.Context,
 	if args == nil || args.HubName == nil {
 		return nil, errors.New("missing required argument 'HubName'")
 	}
+	if args == nil || args.MappingName == nil {
+		return nil, errors.New("missing required argument 'MappingName'")
+	}
 	if args == nil || args.MappingProperties == nil {
 		return nil, errors.New("missing required argument 'MappingProperties'")
-	}
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
 	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
@@ -197,10 +197,10 @@ type connectorMappingArgs struct {
 	EntityTypeName string `pulumi:"entityTypeName"`
 	// The name of the hub.
 	HubName string `pulumi:"hubName"`
+	// The name of the connector mapping.
+	MappingName string `pulumi:"mappingName"`
 	// The properties of the mapping.
 	MappingProperties ConnectorMappingProperties `pulumi:"mappingProperties"`
-	// The name of the connector mapping.
-	Name string `pulumi:"name"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
@@ -221,10 +221,10 @@ type ConnectorMappingArgs struct {
 	EntityTypeName pulumi.StringInput
 	// The name of the hub.
 	HubName pulumi.StringInput
+	// The name of the connector mapping.
+	MappingName pulumi.StringInput
 	// The properties of the mapping.
 	MappingProperties ConnectorMappingPropertiesInput
-	// The name of the connector mapping.
-	Name pulumi.StringInput
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
 }

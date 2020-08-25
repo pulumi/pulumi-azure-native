@@ -30,11 +30,11 @@ func NewReplicationProtectedItem(ctx *pulumi.Context,
 	if args == nil || args.FabricName == nil {
 		return nil, errors.New("missing required argument 'FabricName'")
 	}
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
-	}
 	if args == nil || args.ProtectionContainerName == nil {
 		return nil, errors.New("missing required argument 'ProtectionContainerName'")
+	}
+	if args == nil || args.ReplicatedProtectedItemName == nil {
+		return nil, errors.New("missing required argument 'ReplicatedProtectedItemName'")
 	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
@@ -104,12 +104,12 @@ func (ReplicationProtectedItemState) ElementType() reflect.Type {
 type replicationProtectedItemArgs struct {
 	// Name of the fabric.
 	FabricName string `pulumi:"fabricName"`
-	// A name for the replication protected item.
-	Name string `pulumi:"name"`
 	// Enable protection input properties.
 	Properties *EnableProtectionInputProperties `pulumi:"properties"`
 	// Protection container name.
 	ProtectionContainerName string `pulumi:"protectionContainerName"`
+	// A name for the replication protected item.
+	ReplicatedProtectedItemName string `pulumi:"replicatedProtectedItemName"`
 	// The name of the resource group where the recovery services vault is present.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The name of the recovery services vault.
@@ -120,12 +120,12 @@ type replicationProtectedItemArgs struct {
 type ReplicationProtectedItemArgs struct {
 	// Name of the fabric.
 	FabricName pulumi.StringInput
-	// A name for the replication protected item.
-	Name pulumi.StringInput
 	// Enable protection input properties.
 	Properties EnableProtectionInputPropertiesPtrInput
 	// Protection container name.
 	ProtectionContainerName pulumi.StringInput
+	// A name for the replication protected item.
+	ReplicatedProtectedItemName pulumi.StringInput
 	// The name of the resource group where the recovery services vault is present.
 	ResourceGroupName pulumi.StringInput
 	// The name of the recovery services vault.

@@ -35,8 +35,8 @@ type HubVirtualNetworkConnection struct {
 // NewHubVirtualNetworkConnection registers a new resource with the given unique name, arguments, and options.
 func NewHubVirtualNetworkConnection(ctx *pulumi.Context,
 	name string, args *HubVirtualNetworkConnectionArgs, opts ...pulumi.ResourceOption) (*HubVirtualNetworkConnection, error) {
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
+	if args == nil || args.ConnectionName == nil {
+		return nil, errors.New("missing required argument 'ConnectionName'")
 	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
@@ -172,12 +172,14 @@ type hubVirtualNetworkConnectionArgs struct {
 	AllowHubToRemoteVnetTransit *bool `pulumi:"allowHubToRemoteVnetTransit"`
 	// Deprecated: Allow RemoteVnet to use Virtual Hub's gateways.
 	AllowRemoteVnetToUseHubVnetGateways *bool `pulumi:"allowRemoteVnetToUseHubVnetGateways"`
+	// The name of the HubVirtualNetworkConnection.
+	ConnectionName string `pulumi:"connectionName"`
 	// Enable internet security.
 	EnableInternetSecurity *bool `pulumi:"enableInternetSecurity"`
 	// Resource ID.
 	Id *string `pulumi:"id"`
-	// The name of the HubVirtualNetworkConnection.
-	Name string `pulumi:"name"`
+	// The name of the resource that is unique within a resource group. This name can be used to access the resource.
+	Name *string `pulumi:"name"`
 	// Reference to the remote virtual network.
 	RemoteVirtualNetwork *SubResource `pulumi:"remoteVirtualNetwork"`
 	// The resource group name of the HubVirtualNetworkConnection.
@@ -194,12 +196,14 @@ type HubVirtualNetworkConnectionArgs struct {
 	AllowHubToRemoteVnetTransit pulumi.BoolPtrInput
 	// Deprecated: Allow RemoteVnet to use Virtual Hub's gateways.
 	AllowRemoteVnetToUseHubVnetGateways pulumi.BoolPtrInput
+	// The name of the HubVirtualNetworkConnection.
+	ConnectionName pulumi.StringInput
 	// Enable internet security.
 	EnableInternetSecurity pulumi.BoolPtrInput
 	// Resource ID.
 	Id pulumi.StringPtrInput
-	// The name of the HubVirtualNetworkConnection.
-	Name pulumi.StringInput
+	// The name of the resource that is unique within a resource group. This name can be used to access the resource.
+	Name pulumi.StringPtrInput
 	// Reference to the remote virtual network.
 	RemoteVirtualNetwork SubResourcePtrInput
 	// The resource group name of the HubVirtualNetworkConnection.

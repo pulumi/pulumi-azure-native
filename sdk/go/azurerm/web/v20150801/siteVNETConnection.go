@@ -51,6 +51,9 @@ func NewSiteVNETConnection(ctx *pulumi.Context,
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
 	}
+	if args == nil || args.VnetName == nil {
+		return nil, errors.New("missing required argument 'VnetName'")
+	}
 	if args == nil {
 		args = &SiteVNETConnectionArgs{}
 	}
@@ -163,7 +166,7 @@ type siteVNETConnectionArgs struct {
 	Kind *string `pulumi:"kind"`
 	// Resource Location
 	Location string `pulumi:"location"`
-	// The name of the Virtual Network
+	// Resource Name
 	Name string `pulumi:"name"`
 	// The resource group name
 	ResourceGroupName string `pulumi:"resourceGroupName"`
@@ -175,6 +178,8 @@ type siteVNETConnectionArgs struct {
 	Tags map[string]string `pulumi:"tags"`
 	// Resource type
 	Type *string `pulumi:"type"`
+	// The name of the Virtual Network
+	VnetName string `pulumi:"vnetName"`
 	// The vnet resource id
 	VnetResourceId *string `pulumi:"vnetResourceId"`
 }
@@ -194,7 +199,7 @@ type SiteVNETConnectionArgs struct {
 	Kind pulumi.StringPtrInput
 	// Resource Location
 	Location pulumi.StringInput
-	// The name of the Virtual Network
+	// Resource Name
 	Name pulumi.StringInput
 	// The resource group name
 	ResourceGroupName pulumi.StringInput
@@ -206,6 +211,8 @@ type SiteVNETConnectionArgs struct {
 	Tags pulumi.StringMapInput
 	// Resource type
 	Type pulumi.StringPtrInput
+	// The name of the Virtual Network
+	VnetName pulumi.StringInput
 	// The vnet resource id
 	VnetResourceId pulumi.StringPtrInput
 }

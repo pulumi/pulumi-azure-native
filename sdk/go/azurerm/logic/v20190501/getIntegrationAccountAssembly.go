@@ -17,10 +17,10 @@ func LookupIntegrationAccountAssembly(ctx *pulumi.Context, args *LookupIntegrati
 }
 
 type LookupIntegrationAccountAssemblyArgs struct {
+	// The assembly artifact name.
+	AssemblyArtifactName string `pulumi:"assemblyArtifactName"`
 	// The integration account name.
 	IntegrationAccountName string `pulumi:"integrationAccountName"`
-	// The assembly artifact name.
-	Name string `pulumi:"name"`
 	// The resource group name.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }

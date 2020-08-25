@@ -18,7 +18,7 @@ func LookupHyperVCollector(ctx *pulumi.Context, args *LookupHyperVCollectorArgs,
 
 type LookupHyperVCollectorArgs struct {
 	// Unique name of a Hyper-V collector within a project.
-	Name string `pulumi:"name"`
+	HyperVCollectorName string `pulumi:"hyperVCollectorName"`
 	// Name of the Azure Migrate project.
 	ProjectName string `pulumi:"projectName"`
 	// Name of the Azure Resource Group that project is part of.

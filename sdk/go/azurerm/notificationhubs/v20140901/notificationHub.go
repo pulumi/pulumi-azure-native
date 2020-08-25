@@ -32,11 +32,11 @@ func NewNotificationHub(ctx *pulumi.Context,
 	if args == nil || args.Location == nil {
 		return nil, errors.New("missing required argument 'Location'")
 	}
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
-	}
 	if args == nil || args.NamespaceName == nil {
 		return nil, errors.New("missing required argument 'NamespaceName'")
+	}
+	if args == nil || args.NotificationHubName == nil {
+		return nil, errors.New("missing required argument 'NotificationHubName'")
 	}
 	if args == nil || args.Properties == nil {
 		return nil, errors.New("missing required argument 'Properties'")
@@ -110,10 +110,10 @@ func (NotificationHubState) ElementType() reflect.Type {
 type notificationHubArgs struct {
 	// Gets or sets NotificationHub data center location.
 	Location string `pulumi:"location"`
-	// The notification hub name.
-	Name string `pulumi:"name"`
 	// The namespace name.
 	NamespaceName string `pulumi:"namespaceName"`
+	// The notification hub name.
+	NotificationHubName string `pulumi:"notificationHubName"`
 	// Gets or sets properties of the NotificationHub.
 	Properties NotificationHubProperties `pulumi:"properties"`
 	// The name of the resource group.
@@ -126,10 +126,10 @@ type notificationHubArgs struct {
 type NotificationHubArgs struct {
 	// Gets or sets NotificationHub data center location.
 	Location pulumi.StringInput
-	// The notification hub name.
-	Name pulumi.StringInput
 	// The namespace name.
 	NamespaceName pulumi.StringInput
+	// The notification hub name.
+	NotificationHubName pulumi.StringInput
 	// Gets or sets properties of the NotificationHub.
 	Properties NotificationHubPropertiesInput
 	// The name of the resource group.

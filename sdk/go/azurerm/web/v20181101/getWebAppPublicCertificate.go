@@ -17,8 +17,10 @@ func LookupWebAppPublicCertificate(ctx *pulumi.Context, args *LookupWebAppPublic
 }
 
 type LookupWebAppPublicCertificateArgs struct {
-	// Public certificate name.
+	// Name of the app.
 	Name string `pulumi:"name"`
+	// Public certificate name.
+	PublicCertificateName string `pulumi:"publicCertificateName"`
 	// Name of the resource group to which the resource belongs.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }

@@ -77,9 +77,6 @@ func NewVirtualMachine(ctx *pulumi.Context,
 	if args == nil || args.Location == nil {
 		return nil, errors.New("missing required argument 'Location'")
 	}
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
-	}
 	if args == nil || args.NumberOfCores == nil {
 		return nil, errors.New("missing required argument 'NumberOfCores'")
 	}
@@ -88,6 +85,9 @@ func NewVirtualMachine(ctx *pulumi.Context,
 	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
+	}
+	if args == nil || args.VirtualMachineName == nil {
+		return nil, errors.New("missing required argument 'VirtualMachineName'")
 	}
 	if args == nil {
 		args = &VirtualMachineArgs{}
@@ -238,8 +238,6 @@ type virtualMachineArgs struct {
 	ExposeToGuestVM *bool `pulumi:"exposeToGuestVM"`
 	// Azure region
 	Location string `pulumi:"location"`
-	// virtual machine name
-	Name string `pulumi:"name"`
 	// The list of Virtual NICs
 	Nics []VirtualNic `pulumi:"nics"`
 	// The number of CPU cores
@@ -260,6 +258,8 @@ type virtualMachineArgs struct {
 	Username *string `pulumi:"username"`
 	// The list of Virtual VSphere Networks
 	VSphereNetworks []string `pulumi:"vSphereNetworks"`
+	// virtual machine name
+	VirtualMachineName string `pulumi:"virtualMachineName"`
 }
 
 // The set of arguments for constructing a VirtualMachine resource.
@@ -274,8 +274,6 @@ type VirtualMachineArgs struct {
 	ExposeToGuestVM pulumi.BoolPtrInput
 	// Azure region
 	Location pulumi.StringInput
-	// virtual machine name
-	Name pulumi.StringInput
 	// The list of Virtual NICs
 	Nics VirtualNicArrayInput
 	// The number of CPU cores
@@ -296,6 +294,8 @@ type VirtualMachineArgs struct {
 	Username pulumi.StringPtrInput
 	// The list of Virtual VSphere Networks
 	VSphereNetworks pulumi.StringArrayInput
+	// virtual machine name
+	VirtualMachineName pulumi.StringInput
 }
 
 func (VirtualMachineArgs) ElementType() reflect.Type {

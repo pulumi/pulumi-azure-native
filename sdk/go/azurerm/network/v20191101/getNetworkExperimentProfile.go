@@ -18,7 +18,7 @@ func LookupNetworkExperimentProfile(ctx *pulumi.Context, args *LookupNetworkExpe
 
 type LookupNetworkExperimentProfileArgs struct {
 	// The Profile identifier associated with the Tenant and Partner
-	Name string `pulumi:"name"`
+	ProfileName string `pulumi:"profileName"`
 	// Name of the Resource group within the Azure subscription.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }

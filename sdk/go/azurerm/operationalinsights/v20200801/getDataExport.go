@@ -18,7 +18,7 @@ func LookupDataExport(ctx *pulumi.Context, args *LookupDataExportArgs, opts ...p
 
 type LookupDataExportArgs struct {
 	// The data export rule name.
-	Name string `pulumi:"name"`
+	DataExportName string `pulumi:"dataExportName"`
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The name of the workspace.

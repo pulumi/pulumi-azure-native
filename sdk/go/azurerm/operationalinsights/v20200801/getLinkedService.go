@@ -18,7 +18,7 @@ func LookupLinkedService(ctx *pulumi.Context, args *LookupLinkedServiceArgs, opt
 
 type LookupLinkedServiceArgs struct {
 	// Name of the linked service.
-	Name string `pulumi:"name"`
+	LinkedServiceName string `pulumi:"linkedServiceName"`
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The name of the workspace.

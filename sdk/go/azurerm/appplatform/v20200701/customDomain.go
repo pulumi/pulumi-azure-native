@@ -28,8 +28,8 @@ func NewCustomDomain(ctx *pulumi.Context,
 	if args == nil || args.AppName == nil {
 		return nil, errors.New("missing required argument 'AppName'")
 	}
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
+	if args == nil || args.DomainName == nil {
+		return nil, errors.New("missing required argument 'DomainName'")
 	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
@@ -87,7 +87,7 @@ type customDomainArgs struct {
 	// The name of the App resource.
 	AppName string `pulumi:"appName"`
 	// The name of the custom domain resource.
-	Name string `pulumi:"name"`
+	DomainName string `pulumi:"domainName"`
 	// Properties of the custom domain resource.
 	Properties *CustomDomainProperties `pulumi:"properties"`
 	// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
@@ -101,7 +101,7 @@ type CustomDomainArgs struct {
 	// The name of the App resource.
 	AppName pulumi.StringInput
 	// The name of the custom domain resource.
-	Name pulumi.StringInput
+	DomainName pulumi.StringInput
 	// Properties of the custom domain resource.
 	Properties CustomDomainPropertiesPtrInput
 	// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.

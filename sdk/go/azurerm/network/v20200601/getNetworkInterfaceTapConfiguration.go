@@ -17,12 +17,12 @@ func LookupNetworkInterfaceTapConfiguration(ctx *pulumi.Context, args *LookupNet
 }
 
 type LookupNetworkInterfaceTapConfigurationArgs struct {
-	// The name of the tap configuration.
-	Name string `pulumi:"name"`
 	// The name of the network interface.
 	NetworkInterfaceName string `pulumi:"networkInterfaceName"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// The name of the tap configuration.
+	TapConfigurationName string `pulumi:"tapConfigurationName"`
 }
 
 // Tap configuration in a Network Interface.

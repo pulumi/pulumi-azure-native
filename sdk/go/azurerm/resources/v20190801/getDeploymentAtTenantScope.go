@@ -18,7 +18,7 @@ func LookupDeploymentAtTenantScope(ctx *pulumi.Context, args *LookupDeploymentAt
 
 type LookupDeploymentAtTenantScopeArgs struct {
 	// The name of the deployment.
-	Name string `pulumi:"name"`
+	DeploymentName string `pulumi:"deploymentName"`
 }
 
 // Deployment information.

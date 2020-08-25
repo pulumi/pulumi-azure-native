@@ -20,7 +20,7 @@ type LookupAssetArgs struct {
 	// The Media Services account name.
 	AccountName string `pulumi:"accountName"`
 	// The Asset name.
-	Name string `pulumi:"name"`
+	AssetName string `pulumi:"assetName"`
 	// The name of the resource group within the Azure subscription.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }

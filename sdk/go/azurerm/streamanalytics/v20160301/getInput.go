@@ -17,10 +17,10 @@ func LookupInput(ctx *pulumi.Context, args *LookupInputArgs, opts ...pulumi.Invo
 }
 
 type LookupInputArgs struct {
+	// The name of the input.
+	InputName string `pulumi:"inputName"`
 	// The name of the streaming job.
 	JobName string `pulumi:"jobName"`
-	// The name of the input.
-	Name string `pulumi:"name"`
 	// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }

@@ -22,14 +22,14 @@ type VMwareCollector struct {
 // NewVMwareCollector registers a new resource with the given unique name, arguments, and options.
 func NewVMwareCollector(ctx *pulumi.Context,
 	name string, args *VMwareCollectorArgs, opts ...pulumi.ResourceOption) (*VMwareCollector, error) {
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
-	}
 	if args == nil || args.ProjectName == nil {
 		return nil, errors.New("missing required argument 'ProjectName'")
 	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
+	}
+	if args == nil || args.VmWareCollectorName == nil {
+		return nil, errors.New("missing required argument 'VmWareCollectorName'")
 	}
 	if args == nil {
 		args = &VMwareCollectorArgs{}
@@ -75,25 +75,25 @@ func (VMwareCollectorState) ElementType() reflect.Type {
 
 type vmwareCollectorArgs struct {
 	ETag *string `pulumi:"eTag"`
-	// Unique name of a VMware collector within a project.
-	Name string `pulumi:"name"`
 	// Name of the Azure Migrate project.
 	ProjectName string               `pulumi:"projectName"`
 	Properties  *CollectorProperties `pulumi:"properties"`
 	// Name of the Azure Resource Group that project is part of.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// Unique name of a VMware collector within a project.
+	VmWareCollectorName string `pulumi:"vmWareCollectorName"`
 }
 
 // The set of arguments for constructing a VMwareCollector resource.
 type VMwareCollectorArgs struct {
 	ETag pulumi.StringPtrInput
-	// Unique name of a VMware collector within a project.
-	Name pulumi.StringInput
 	// Name of the Azure Migrate project.
 	ProjectName pulumi.StringInput
 	Properties  CollectorPropertiesPtrInput
 	// Name of the Azure Resource Group that project is part of.
 	ResourceGroupName pulumi.StringInput
+	// Unique name of a VMware collector within a project.
+	VmWareCollectorName pulumi.StringInput
 }
 
 func (VMwareCollectorArgs) ElementType() reflect.Type {

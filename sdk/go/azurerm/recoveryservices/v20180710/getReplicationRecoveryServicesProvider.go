@@ -20,7 +20,7 @@ type LookupReplicationRecoveryServicesProviderArgs struct {
 	// Fabric name.
 	FabricName string `pulumi:"fabricName"`
 	// Recovery services provider name
-	Name string `pulumi:"name"`
+	ProviderName string `pulumi:"providerName"`
 	// The name of the resource group where the recovery services vault is present.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The name of the recovery services vault.

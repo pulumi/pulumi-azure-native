@@ -47,11 +47,11 @@ type VirtualNetwork struct {
 // NewVirtualNetwork registers a new resource with the given unique name, arguments, and options.
 func NewVirtualNetwork(ctx *pulumi.Context,
 	name string, args *VirtualNetworkArgs, opts ...pulumi.ResourceOption) (*VirtualNetwork, error) {
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
-	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
+	}
+	if args == nil || args.VirtualNetworkName == nil {
+		return nil, errors.New("missing required argument 'VirtualNetworkName'")
 	}
 	if args == nil {
 		args = &VirtualNetworkArgs{}
@@ -256,8 +256,6 @@ type virtualNetworkArgs struct {
 	Id *string `pulumi:"id"`
 	// Resource location.
 	Location *string `pulumi:"location"`
-	// The name of the virtual network.
-	Name string `pulumi:"name"`
 	// The provisioning state of the virtual network resource.
 	ProvisioningState *string `pulumi:"provisioningState"`
 	// The name of the resource group.
@@ -268,6 +266,8 @@ type virtualNetworkArgs struct {
 	Subnets []SubnetType `pulumi:"subnets"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
+	// The name of the virtual network.
+	VirtualNetworkName string `pulumi:"virtualNetworkName"`
 	// A list of peerings in a Virtual Network.
 	VirtualNetworkPeerings []VirtualNetworkPeeringType `pulumi:"virtualNetworkPeerings"`
 }
@@ -290,8 +290,6 @@ type VirtualNetworkArgs struct {
 	Id pulumi.StringPtrInput
 	// Resource location.
 	Location pulumi.StringPtrInput
-	// The name of the virtual network.
-	Name pulumi.StringInput
 	// The provisioning state of the virtual network resource.
 	ProvisioningState pulumi.StringPtrInput
 	// The name of the resource group.
@@ -302,6 +300,8 @@ type VirtualNetworkArgs struct {
 	Subnets SubnetTypeArrayInput
 	// Resource tags.
 	Tags pulumi.StringMapInput
+	// The name of the virtual network.
+	VirtualNetworkName pulumi.StringInput
 	// A list of peerings in a Virtual Network.
 	VirtualNetworkPeerings VirtualNetworkPeeringTypeArrayInput
 }

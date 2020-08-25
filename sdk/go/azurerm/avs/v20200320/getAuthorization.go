@@ -18,7 +18,7 @@ func LookupAuthorization(ctx *pulumi.Context, args *LookupAuthorizationArgs, opt
 
 type LookupAuthorizationArgs struct {
 	// Name of the ExpressRoute Circuit Authorization in the private cloud
-	Name string `pulumi:"name"`
+	AuthorizationName string `pulumi:"authorizationName"`
 	// Name of the private cloud
 	PrivateCloudName string `pulumi:"privateCloudName"`
 	// The name of the resource group. The name is case insensitive.

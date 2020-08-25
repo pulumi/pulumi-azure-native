@@ -37,11 +37,11 @@ type EventHub struct {
 // NewEventHub registers a new resource with the given unique name, arguments, and options.
 func NewEventHub(ctx *pulumi.Context,
 	name string, args *EventHubArgs, opts ...pulumi.ResourceOption) (*EventHub, error) {
+	if args == nil || args.EventHubName == nil {
+		return nil, errors.New("missing required argument 'EventHubName'")
+	}
 	if args == nil || args.Location == nil {
 		return nil, errors.New("missing required argument 'Location'")
-	}
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
 	}
 	if args == nil || args.NamespaceName == nil {
 		return nil, errors.New("missing required argument 'NamespaceName'")
@@ -129,12 +129,14 @@ func (EventHubState) ElementType() reflect.Type {
 }
 
 type eventHubArgs struct {
+	// The Event Hub name
+	EventHubName string `pulumi:"eventHubName"`
 	// Location of the resource.
 	Location string `pulumi:"location"`
 	// Number of days to retain the events for this Event Hub.
 	MessageRetentionInDays *int `pulumi:"messageRetentionInDays"`
-	// The Event Hub name
-	Name string `pulumi:"name"`
+	// Name of the Event Hub.
+	Name *string `pulumi:"name"`
 	// The Namespace name
 	NamespaceName string `pulumi:"namespaceName"`
 	// Number of partitions created for the Event Hub.
@@ -149,12 +151,14 @@ type eventHubArgs struct {
 
 // The set of arguments for constructing a EventHub resource.
 type EventHubArgs struct {
+	// The Event Hub name
+	EventHubName pulumi.StringInput
 	// Location of the resource.
 	Location pulumi.StringInput
 	// Number of days to retain the events for this Event Hub.
 	MessageRetentionInDays pulumi.IntPtrInput
-	// The Event Hub name
-	Name pulumi.StringInput
+	// Name of the Event Hub.
+	Name pulumi.StringPtrInput
 	// The Namespace name
 	NamespaceName pulumi.StringInput
 	// Number of partitions created for the Event Hub.

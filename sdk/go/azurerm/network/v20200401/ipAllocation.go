@@ -43,8 +43,8 @@ type IpAllocation struct {
 // NewIpAllocation registers a new resource with the given unique name, arguments, and options.
 func NewIpAllocation(ctx *pulumi.Context,
 	name string, args *IpAllocationArgs, opts ...pulumi.ResourceOption) (*IpAllocation, error) {
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
+	if args == nil || args.IpAllocationName == nil {
+		return nil, errors.New("missing required argument 'IpAllocationName'")
 	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
@@ -148,12 +148,12 @@ type ipAllocationArgs struct {
 	AllocationTags map[string]string `pulumi:"allocationTags"`
 	// Resource ID.
 	Id *string `pulumi:"id"`
+	// The name of the IpAllocation.
+	IpAllocationName string `pulumi:"ipAllocationName"`
 	// The IPAM allocation ID.
 	IpamAllocationId *string `pulumi:"ipamAllocationId"`
 	// Resource location.
 	Location *string `pulumi:"location"`
-	// The name of the IpAllocation.
-	Name string `pulumi:"name"`
 	// The address prefix for the IpAllocation.
 	Prefix *string `pulumi:"prefix"`
 	// The address prefix length for the IpAllocation.
@@ -174,12 +174,12 @@ type IpAllocationArgs struct {
 	AllocationTags pulumi.StringMapInput
 	// Resource ID.
 	Id pulumi.StringPtrInput
+	// The name of the IpAllocation.
+	IpAllocationName pulumi.StringInput
 	// The IPAM allocation ID.
 	IpamAllocationId pulumi.StringPtrInput
 	// Resource location.
 	Location pulumi.StringPtrInput
-	// The name of the IpAllocation.
-	Name pulumi.StringInput
 	// The address prefix for the IpAllocation.
 	Prefix pulumi.StringPtrInput
 	// The address prefix length for the IpAllocation.

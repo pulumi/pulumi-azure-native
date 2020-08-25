@@ -44,6 +44,9 @@ func NewContainerService(ctx *pulumi.Context,
 	if args == nil || args.AgentPoolProfiles == nil {
 		return nil, errors.New("missing required argument 'AgentPoolProfiles'")
 	}
+	if args == nil || args.ContainerServiceName == nil {
+		return nil, errors.New("missing required argument 'ContainerServiceName'")
+	}
 	if args == nil || args.LinuxProfile == nil {
 		return nil, errors.New("missing required argument 'LinuxProfile'")
 	}
@@ -52,9 +55,6 @@ func NewContainerService(ctx *pulumi.Context,
 	}
 	if args == nil || args.MasterProfile == nil {
 		return nil, errors.New("missing required argument 'MasterProfile'")
-	}
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
 	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
@@ -152,6 +152,8 @@ func (ContainerServiceState) ElementType() reflect.Type {
 type containerServiceArgs struct {
 	// Properties of the agent pool.
 	AgentPoolProfiles []ContainerServiceAgentPoolProfile `pulumi:"agentPoolProfiles"`
+	// The name of the container service in the specified subscription and resource group.
+	ContainerServiceName string `pulumi:"containerServiceName"`
 	// Properties of the diagnostic agent.
 	DiagnosticsProfile *ContainerServiceDiagnosticsProfile `pulumi:"diagnosticsProfile"`
 	// Properties of Linux VMs.
@@ -160,8 +162,6 @@ type containerServiceArgs struct {
 	Location string `pulumi:"location"`
 	// Properties of master agents.
 	MasterProfile ContainerServiceMasterProfile `pulumi:"masterProfile"`
-	// The name of the container service in the specified subscription and resource group.
-	Name string `pulumi:"name"`
 	// Properties of the orchestrator.
 	OrchestratorProfile *ContainerServiceOrchestratorProfile `pulumi:"orchestratorProfile"`
 	// The name of the resource group.
@@ -176,6 +176,8 @@ type containerServiceArgs struct {
 type ContainerServiceArgs struct {
 	// Properties of the agent pool.
 	AgentPoolProfiles ContainerServiceAgentPoolProfileArrayInput
+	// The name of the container service in the specified subscription and resource group.
+	ContainerServiceName pulumi.StringInput
 	// Properties of the diagnostic agent.
 	DiagnosticsProfile ContainerServiceDiagnosticsProfilePtrInput
 	// Properties of Linux VMs.
@@ -184,8 +186,6 @@ type ContainerServiceArgs struct {
 	Location pulumi.StringInput
 	// Properties of master agents.
 	MasterProfile ContainerServiceMasterProfileInput
-	// The name of the container service in the specified subscription and resource group.
-	Name pulumi.StringInput
 	// Properties of the orchestrator.
 	OrchestratorProfile ContainerServiceOrchestratorProfilePtrInput
 	// The name of the resource group.

@@ -72,11 +72,11 @@ func NewVirtualMachine(ctx *pulumi.Context,
 	if args == nil || args.Location == nil {
 		return nil, errors.New("missing required argument 'Location'")
 	}
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
-	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
+	}
+	if args == nil || args.VmName == nil {
+		return nil, errors.New("missing required argument 'VmName'")
 	}
 	if args == nil {
 		args = &VirtualMachineArgs{}
@@ -266,8 +266,6 @@ type virtualMachineArgs struct {
 	LicenseType *string `pulumi:"licenseType"`
 	// Resource location
 	Location string `pulumi:"location"`
-	// The name of the virtual machine.
-	Name string `pulumi:"name"`
 	// Specifies the network interfaces of the virtual machine.
 	NetworkProfile *NetworkProfile `pulumi:"networkProfile"`
 	// Specifies the operating system settings used while creating the virtual machine. Some of the settings cannot be changed once VM is provisioned.
@@ -286,6 +284,8 @@ type virtualMachineArgs struct {
 	Tags map[string]string `pulumi:"tags"`
 	// Specifies information about the virtual machine scale set that the virtual machine should be assigned to. Virtual machines specified in the same virtual machine scale set are allocated to different nodes to maximize availability. Currently, a VM can only be added to virtual machine scale set at creation time. An existing VM cannot be added to a virtual machine scale set. <br><br>This property cannot exist along with a non-null properties.availabilitySet reference. <br><br>Minimum api‐version: 2019‐03‐01
 	VirtualMachineScaleSet *SubResource `pulumi:"virtualMachineScaleSet"`
+	// The name of the virtual machine.
+	VmName string `pulumi:"vmName"`
 	// The virtual machine zones.
 	Zones []string `pulumi:"zones"`
 }
@@ -312,8 +312,6 @@ type VirtualMachineArgs struct {
 	LicenseType pulumi.StringPtrInput
 	// Resource location
 	Location pulumi.StringInput
-	// The name of the virtual machine.
-	Name pulumi.StringInput
 	// Specifies the network interfaces of the virtual machine.
 	NetworkProfile NetworkProfilePtrInput
 	// Specifies the operating system settings used while creating the virtual machine. Some of the settings cannot be changed once VM is provisioned.
@@ -332,6 +330,8 @@ type VirtualMachineArgs struct {
 	Tags pulumi.StringMapInput
 	// Specifies information about the virtual machine scale set that the virtual machine should be assigned to. Virtual machines specified in the same virtual machine scale set are allocated to different nodes to maximize availability. Currently, a VM can only be added to virtual machine scale set at creation time. An existing VM cannot be added to a virtual machine scale set. <br><br>This property cannot exist along with a non-null properties.availabilitySet reference. <br><br>Minimum api‐version: 2019‐03‐01
 	VirtualMachineScaleSet SubResourcePtrInput
+	// The name of the virtual machine.
+	VmName pulumi.StringInput
 	// The virtual machine zones.
 	Zones pulumi.StringArrayInput
 }

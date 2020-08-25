@@ -20,7 +20,7 @@ type LookupIntegrationRuntimeArgs struct {
 	// The factory name.
 	FactoryName string `pulumi:"factoryName"`
 	// The integration runtime name.
-	Name string `pulumi:"name"`
+	IntegrationRuntimeName string `pulumi:"integrationRuntimeName"`
 	// The resource group name.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }

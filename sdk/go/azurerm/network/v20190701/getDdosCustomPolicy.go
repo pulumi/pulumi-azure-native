@@ -18,7 +18,7 @@ func LookupDdosCustomPolicy(ctx *pulumi.Context, args *LookupDdosCustomPolicyArg
 
 type LookupDdosCustomPolicyArgs struct {
 	// The name of the DDoS custom policy.
-	Name string `pulumi:"name"`
+	DdosCustomPolicyName string `pulumi:"ddosCustomPolicyName"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }

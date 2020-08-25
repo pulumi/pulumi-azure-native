@@ -32,14 +32,14 @@ func NewWebService(ctx *pulumi.Context,
 	if args == nil || args.Location == nil {
 		return nil, errors.New("missing required argument 'Location'")
 	}
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
-	}
 	if args == nil || args.Properties == nil {
 		return nil, errors.New("missing required argument 'Properties'")
 	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
+	}
+	if args == nil || args.WebServiceName == nil {
+		return nil, errors.New("missing required argument 'WebServiceName'")
 	}
 	if args == nil {
 		args = &WebServiceArgs{}
@@ -98,28 +98,28 @@ func (WebServiceState) ElementType() reflect.Type {
 type webServiceArgs struct {
 	// Specifies the location of the resource.
 	Location string `pulumi:"location"`
-	// The name of the web service.
-	Name string `pulumi:"name"`
 	// Contains the property payload that describes the web service.
 	Properties WebServiceProperties `pulumi:"properties"`
 	// Name of the resource group in which the web service is located.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Contains resource tags defined as key/value pairs.
 	Tags map[string]string `pulumi:"tags"`
+	// The name of the web service.
+	WebServiceName string `pulumi:"webServiceName"`
 }
 
 // The set of arguments for constructing a WebService resource.
 type WebServiceArgs struct {
 	// Specifies the location of the resource.
 	Location pulumi.StringInput
-	// The name of the web service.
-	Name pulumi.StringInput
 	// Contains the property payload that describes the web service.
 	Properties WebServicePropertiesInput
 	// Name of the resource group in which the web service is located.
 	ResourceGroupName pulumi.StringInput
 	// Contains resource tags defined as key/value pairs.
 	Tags pulumi.StringMapInput
+	// The name of the web service.
+	WebServiceName pulumi.StringInput
 }
 
 func (WebServiceArgs) ElementType() reflect.Type {

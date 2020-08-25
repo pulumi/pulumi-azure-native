@@ -30,14 +30,14 @@ func NewReplicationvCenter(ctx *pulumi.Context,
 	if args == nil || args.FabricName == nil {
 		return nil, errors.New("missing required argument 'FabricName'")
 	}
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
-	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
 	}
 	if args == nil || args.ResourceName == nil {
 		return nil, errors.New("missing required argument 'ResourceName'")
+	}
+	if args == nil || args.VCenterName == nil {
+		return nil, errors.New("missing required argument 'VCenterName'")
 	}
 	if args == nil {
 		args = &ReplicationvCenterArgs{}
@@ -101,28 +101,28 @@ func (ReplicationvCenterState) ElementType() reflect.Type {
 type replicationvCenterArgs struct {
 	// Fabric name.
 	FabricName string `pulumi:"fabricName"`
-	// vCenter name.
-	Name string `pulumi:"name"`
 	// The properties of an add vCenter request.
 	Properties *AddVCenterRequestProperties `pulumi:"properties"`
 	// The name of the resource group where the recovery services vault is present.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The name of the recovery services vault.
 	ResourceName string `pulumi:"resourceName"`
+	// vCenter name.
+	VCenterName string `pulumi:"vCenterName"`
 }
 
 // The set of arguments for constructing a ReplicationvCenter resource.
 type ReplicationvCenterArgs struct {
 	// Fabric name.
 	FabricName pulumi.StringInput
-	// vCenter name.
-	Name pulumi.StringInput
 	// The properties of an add vCenter request.
 	Properties AddVCenterRequestPropertiesPtrInput
 	// The name of the resource group where the recovery services vault is present.
 	ResourceGroupName pulumi.StringInput
 	// The name of the recovery services vault.
 	ResourceName pulumi.StringInput
+	// vCenter name.
+	VCenterName pulumi.StringInput
 }
 
 func (ReplicationvCenterArgs) ElementType() reflect.Type {

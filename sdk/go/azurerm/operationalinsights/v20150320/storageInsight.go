@@ -35,14 +35,14 @@ type StorageInsight struct {
 // NewStorageInsight registers a new resource with the given unique name, arguments, and options.
 func NewStorageInsight(ctx *pulumi.Context,
 	name string, args *StorageInsightArgs, opts ...pulumi.ResourceOption) (*StorageInsight, error) {
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
-	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
 	}
 	if args == nil || args.StorageAccount == nil {
 		return nil, errors.New("missing required argument 'StorageAccount'")
+	}
+	if args == nil || args.StorageInsightName == nil {
+		return nil, errors.New("missing required argument 'StorageInsightName'")
 	}
 	if args == nil || args.WorkspaceName == nil {
 		return nil, errors.New("missing required argument 'WorkspaceName'")
@@ -124,12 +124,12 @@ type storageInsightArgs struct {
 	Containers []string `pulumi:"containers"`
 	// The ETag of the storage insight.
 	ETag *string `pulumi:"eTag"`
-	// Name of the storageInsightsConfigs resource
-	Name string `pulumi:"name"`
 	// The Resource Group name.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The storage account connection details
 	StorageAccount StorageAccount `pulumi:"storageAccount"`
+	// Name of the storageInsightsConfigs resource
+	StorageInsightName string `pulumi:"storageInsightName"`
 	// The names of the Azure tables that the workspace should read
 	Tables []string `pulumi:"tables"`
 	// Resource tags
@@ -144,12 +144,12 @@ type StorageInsightArgs struct {
 	Containers pulumi.StringArrayInput
 	// The ETag of the storage insight.
 	ETag pulumi.StringPtrInput
-	// Name of the storageInsightsConfigs resource
-	Name pulumi.StringInput
 	// The Resource Group name.
 	ResourceGroupName pulumi.StringInput
 	// The storage account connection details
 	StorageAccount StorageAccountInput
+	// Name of the storageInsightsConfigs resource
+	StorageInsightName pulumi.StringInput
 	// The names of the Azure tables that the workspace should read
 	Tables pulumi.StringArrayInput
 	// Resource tags

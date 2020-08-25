@@ -35,14 +35,14 @@ func NewStorageDomain(ctx *pulumi.Context,
 	if args == nil || args.ManagerName == nil {
 		return nil, errors.New("missing required argument 'ManagerName'")
 	}
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
-	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
 	}
 	if args == nil || args.StorageAccountCredentialIds == nil {
 		return nil, errors.New("missing required argument 'StorageAccountCredentialIds'")
+	}
+	if args == nil || args.StorageDomainName == nil {
+		return nil, errors.New("missing required argument 'StorageDomainName'")
 	}
 	if args == nil {
 		args = &StorageDomainArgs{}
@@ -105,12 +105,12 @@ type storageDomainArgs struct {
 	EncryptionStatus string `pulumi:"encryptionStatus"`
 	// The manager name
 	ManagerName string `pulumi:"managerName"`
-	// The storage domain name.
-	Name string `pulumi:"name"`
 	// The resource group name
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The storage account credentials.
 	StorageAccountCredentialIds []string `pulumi:"storageAccountCredentialIds"`
+	// The storage domain name.
+	StorageDomainName string `pulumi:"storageDomainName"`
 }
 
 // The set of arguments for constructing a StorageDomain resource.
@@ -121,12 +121,12 @@ type StorageDomainArgs struct {
 	EncryptionStatus pulumi.StringInput
 	// The manager name
 	ManagerName pulumi.StringInput
-	// The storage domain name.
-	Name pulumi.StringInput
 	// The resource group name
 	ResourceGroupName pulumi.StringInput
 	// The storage account credentials.
 	StorageAccountCredentialIds pulumi.StringArrayInput
+	// The storage domain name.
+	StorageDomainName pulumi.StringInput
 }
 
 func (StorageDomainArgs) ElementType() reflect.Type {

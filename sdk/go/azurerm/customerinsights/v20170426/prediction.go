@@ -66,14 +66,14 @@ func NewPrediction(ctx *pulumi.Context,
 	if args == nil || args.Mappings == nil {
 		return nil, errors.New("missing required argument 'Mappings'")
 	}
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
-	}
 	if args == nil || args.NegativeOutcomeExpression == nil {
 		return nil, errors.New("missing required argument 'NegativeOutcomeExpression'")
 	}
 	if args == nil || args.PositiveOutcomeExpression == nil {
 		return nil, errors.New("missing required argument 'PositiveOutcomeExpression'")
+	}
+	if args == nil || args.PredictionName == nil {
+		return nil, errors.New("missing required argument 'PredictionName'")
 	}
 	if args == nil || args.PrimaryProfileType == nil {
 		return nil, errors.New("missing required argument 'PrimaryProfileType'")
@@ -216,12 +216,12 @@ type predictionArgs struct {
 	InvolvedRelationships []string `pulumi:"involvedRelationships"`
 	// Definition of the link mapping of prediction.
 	Mappings PredictionMappings `pulumi:"mappings"`
-	// Name of the prediction.
-	Name string `pulumi:"name"`
 	// Negative outcome expression.
 	NegativeOutcomeExpression string `pulumi:"negativeOutcomeExpression"`
 	// Positive outcome expression.
 	PositiveOutcomeExpression string `pulumi:"positiveOutcomeExpression"`
+	// Name of the prediction.
+	PredictionName string `pulumi:"predictionName"`
 	// Primary profile type.
 	PrimaryProfileType string `pulumi:"primaryProfileType"`
 	// The name of the resource group.
@@ -252,12 +252,12 @@ type PredictionArgs struct {
 	InvolvedRelationships pulumi.StringArrayInput
 	// Definition of the link mapping of prediction.
 	Mappings PredictionMappingsInput
-	// Name of the prediction.
-	Name pulumi.StringInput
 	// Negative outcome expression.
 	NegativeOutcomeExpression pulumi.StringInput
 	// Positive outcome expression.
 	PositiveOutcomeExpression pulumi.StringInput
+	// Name of the prediction.
+	PredictionName pulumi.StringInput
 	// Primary profile type.
 	PrimaryProfileType pulumi.StringInput
 	// The name of the resource group.

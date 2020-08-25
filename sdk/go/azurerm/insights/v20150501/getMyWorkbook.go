@@ -17,10 +17,10 @@ func LookupMyWorkbook(ctx *pulumi.Context, args *LookupMyWorkbookArgs, opts ...p
 }
 
 type LookupMyWorkbookArgs struct {
-	// The name of the Application Insights component resource.
-	Name string `pulumi:"name"`
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// The name of the Application Insights component resource.
+	ResourceName string `pulumi:"resourceName"`
 }
 
 // An Application Insights private workbook definition.

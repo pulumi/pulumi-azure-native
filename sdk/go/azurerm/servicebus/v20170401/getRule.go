@@ -17,12 +17,12 @@ func LookupRule(ctx *pulumi.Context, args *LookupRuleArgs, opts ...pulumi.Invoke
 }
 
 type LookupRuleArgs struct {
-	// The rule name.
-	Name string `pulumi:"name"`
 	// The namespace name
 	NamespaceName string `pulumi:"namespaceName"`
 	// Name of the Resource group within the Azure subscription.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// The rule name.
+	RuleName string `pulumi:"ruleName"`
 	// The subscription name.
 	SubscriptionName string `pulumi:"subscriptionName"`
 	// The topic name.

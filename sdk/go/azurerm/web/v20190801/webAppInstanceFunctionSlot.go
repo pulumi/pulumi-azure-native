@@ -51,6 +51,9 @@ type WebAppInstanceFunctionSlot struct {
 // NewWebAppInstanceFunctionSlot registers a new resource with the given unique name, arguments, and options.
 func NewWebAppInstanceFunctionSlot(ctx *pulumi.Context,
 	name string, args *WebAppInstanceFunctionSlotArgs, opts ...pulumi.ResourceOption) (*WebAppInstanceFunctionSlot, error) {
+	if args == nil || args.FunctionName == nil {
+		return nil, errors.New("missing required argument 'FunctionName'")
+	}
 	if args == nil || args.Name == nil {
 		return nil, errors.New("missing required argument 'Name'")
 	}
@@ -182,6 +185,8 @@ type webAppInstanceFunctionSlotArgs struct {
 	Files map[string]string `pulumi:"files"`
 	// Function App ID.
 	FunctionAppId *string `pulumi:"functionAppId"`
+	// Function name.
+	FunctionName string `pulumi:"functionName"`
 	// Function URI.
 	Href *string `pulumi:"href"`
 	// The invocation URL
@@ -192,7 +197,7 @@ type webAppInstanceFunctionSlotArgs struct {
 	Kind *string `pulumi:"kind"`
 	// The function language
 	Language *string `pulumi:"language"`
-	// Function name.
+	// Site name.
 	Name string `pulumi:"name"`
 	// Name of the resource group to which the resource belongs.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
@@ -220,6 +225,8 @@ type WebAppInstanceFunctionSlotArgs struct {
 	Files pulumi.StringMapInput
 	// Function App ID.
 	FunctionAppId pulumi.StringPtrInput
+	// Function name.
+	FunctionName pulumi.StringInput
 	// Function URI.
 	Href pulumi.StringPtrInput
 	// The invocation URL
@@ -230,7 +237,7 @@ type WebAppInstanceFunctionSlotArgs struct {
 	Kind pulumi.StringPtrInput
 	// The function language
 	Language pulumi.StringPtrInput
-	// Function name.
+	// Site name.
 	Name pulumi.StringInput
 	// Name of the resource group to which the resource belongs.
 	ResourceGroupName pulumi.StringInput

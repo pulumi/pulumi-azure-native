@@ -17,10 +17,10 @@ func LookupPacketCapture(ctx *pulumi.Context, args *LookupPacketCaptureArgs, opt
 }
 
 type LookupPacketCaptureArgs struct {
-	// The name of the packet capture session.
-	Name string `pulumi:"name"`
 	// The name of the network watcher.
 	NetworkWatcherName string `pulumi:"networkWatcherName"`
+	// The name of the packet capture session.
+	PacketCaptureName string `pulumi:"packetCaptureName"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }

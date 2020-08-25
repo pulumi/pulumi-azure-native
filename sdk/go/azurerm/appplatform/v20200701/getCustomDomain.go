@@ -20,7 +20,7 @@ type LookupCustomDomainArgs struct {
 	// The name of the App resource.
 	AppName string `pulumi:"appName"`
 	// The name of the custom domain resource.
-	Name string `pulumi:"name"`
+	DomainName string `pulumi:"domainName"`
 	// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The name of the Service resource.

@@ -18,7 +18,7 @@ func LookupFirewallRule(ctx *pulumi.Context, args *LookupFirewallRuleArgs, opts 
 
 type LookupFirewallRuleArgs struct {
 	// The name of the server firewall rule.
-	Name string `pulumi:"name"`
+	FirewallRuleName string `pulumi:"firewallRuleName"`
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The name of the server.

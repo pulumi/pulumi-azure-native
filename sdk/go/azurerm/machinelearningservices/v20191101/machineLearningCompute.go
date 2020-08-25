@@ -33,8 +33,8 @@ type MachineLearningCompute struct {
 // NewMachineLearningCompute registers a new resource with the given unique name, arguments, and options.
 func NewMachineLearningCompute(ctx *pulumi.Context,
 	name string, args *MachineLearningComputeArgs, opts ...pulumi.ResourceOption) (*MachineLearningCompute, error) {
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
+	if args == nil || args.ComputeName == nil {
+		return nil, errors.New("missing required argument 'ComputeName'")
 	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
@@ -129,12 +129,12 @@ func (MachineLearningComputeState) ElementType() reflect.Type {
 }
 
 type machineLearningComputeArgs struct {
+	// Name of the Azure Machine Learning compute.
+	ComputeName string `pulumi:"computeName"`
 	// The identity of the resource.
 	Identity *Identity `pulumi:"identity"`
 	// Specifies the location of the resource.
 	Location *string `pulumi:"location"`
-	// Name of the Azure Machine Learning compute.
-	Name string `pulumi:"name"`
 	// Compute properties
 	Properties *Compute `pulumi:"properties"`
 	// Name of the resource group in which workspace is located.
@@ -149,12 +149,12 @@ type machineLearningComputeArgs struct {
 
 // The set of arguments for constructing a MachineLearningCompute resource.
 type MachineLearningComputeArgs struct {
+	// Name of the Azure Machine Learning compute.
+	ComputeName pulumi.StringInput
 	// The identity of the resource.
 	Identity IdentityPtrInput
 	// Specifies the location of the resource.
 	Location pulumi.StringPtrInput
-	// Name of the Azure Machine Learning compute.
-	Name pulumi.StringInput
 	// Compute properties
 	Properties ComputePtrInput
 	// Name of the resource group in which workspace is located.

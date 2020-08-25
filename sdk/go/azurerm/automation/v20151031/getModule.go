@@ -20,7 +20,7 @@ type LookupModuleArgs struct {
 	// The name of the automation account.
 	AutomationAccountName string `pulumi:"automationAccountName"`
 	// The module name.
-	Name string `pulumi:"name"`
+	ModuleName string `pulumi:"moduleName"`
 	// Name of an Azure Resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }

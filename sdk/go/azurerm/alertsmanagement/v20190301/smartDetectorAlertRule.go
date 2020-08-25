@@ -42,14 +42,14 @@ func NewSmartDetectorAlertRule(ctx *pulumi.Context,
 	if args == nil || args.ActionGroups == nil {
 		return nil, errors.New("missing required argument 'ActionGroups'")
 	}
+	if args == nil || args.AlertRuleName == nil {
+		return nil, errors.New("missing required argument 'AlertRuleName'")
+	}
 	if args == nil || args.Detector == nil {
 		return nil, errors.New("missing required argument 'Detector'")
 	}
 	if args == nil || args.Frequency == nil {
 		return nil, errors.New("missing required argument 'Frequency'")
-	}
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
 	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
@@ -146,14 +146,14 @@ func (SmartDetectorAlertRuleState) ElementType() reflect.Type {
 type smartDetectorAlertRuleArgs struct {
 	// The alert rule actions.
 	ActionGroups ActionGroupsInformation `pulumi:"actionGroups"`
+	// The name of the alert rule.
+	AlertRuleName string `pulumi:"alertRuleName"`
 	// The alert rule description.
 	Description *string `pulumi:"description"`
 	// The alert rule's detector.
 	Detector Detector `pulumi:"detector"`
 	// The alert rule frequency in ISO8601 format. The time granularity must be in minutes and minimum value is 5 minutes.
 	Frequency string `pulumi:"frequency"`
-	// The name of the alert rule.
-	Name string `pulumi:"name"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The alert rule resources scope.
@@ -170,14 +170,14 @@ type smartDetectorAlertRuleArgs struct {
 type SmartDetectorAlertRuleArgs struct {
 	// The alert rule actions.
 	ActionGroups ActionGroupsInformationInput
+	// The name of the alert rule.
+	AlertRuleName pulumi.StringInput
 	// The alert rule description.
 	Description pulumi.StringPtrInput
 	// The alert rule's detector.
 	Detector DetectorInput
 	// The alert rule frequency in ISO8601 format. The time granularity must be in minutes and minimum value is 5 minutes.
 	Frequency pulumi.StringInput
-	// The name of the alert rule.
-	Name pulumi.StringInput
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
 	// The alert rule resources scope.

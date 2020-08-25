@@ -36,11 +36,11 @@ func NewWorkspace(ctx *pulumi.Context,
 	if args == nil || args.Location == nil {
 		return nil, errors.New("missing required argument 'Location'")
 	}
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
-	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
+	}
+	if args == nil || args.WorkspaceName == nil {
+		return nil, errors.New("missing required argument 'WorkspaceName'")
 	}
 	if args == nil {
 		args = &WorkspaceArgs{}
@@ -107,24 +107,24 @@ func (WorkspaceState) ElementType() reflect.Type {
 type workspaceArgs struct {
 	// The region in which to create the Workspace.
 	Location string `pulumi:"location"`
-	// The name of the workspace. Workspace names can only contain a combination of alphanumeric characters along with dash (-) and underscore (_). The name must be from 1 through 64 characters long.
-	Name string `pulumi:"name"`
 	// Name of the resource group to which the resource belongs.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The user specified tags associated with the Workspace.
 	Tags map[string]string `pulumi:"tags"`
+	// The name of the workspace. Workspace names can only contain a combination of alphanumeric characters along with dash (-) and underscore (_). The name must be from 1 through 64 characters long.
+	WorkspaceName string `pulumi:"workspaceName"`
 }
 
 // The set of arguments for constructing a Workspace resource.
 type WorkspaceArgs struct {
 	// The region in which to create the Workspace.
 	Location pulumi.StringInput
-	// The name of the workspace. Workspace names can only contain a combination of alphanumeric characters along with dash (-) and underscore (_). The name must be from 1 through 64 characters long.
-	Name pulumi.StringInput
 	// Name of the resource group to which the resource belongs.
 	ResourceGroupName pulumi.StringInput
 	// The user specified tags associated with the Workspace.
 	Tags pulumi.StringMapInput
+	// The name of the workspace. Workspace names can only contain a combination of alphanumeric characters along with dash (-) and underscore (_). The name must be from 1 through 64 characters long.
+	WorkspaceName pulumi.StringInput
 }
 
 func (WorkspaceArgs) ElementType() reflect.Type {

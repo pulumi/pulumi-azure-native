@@ -17,10 +17,10 @@ func LookupRegisteredAsn(ctx *pulumi.Context, args *LookupRegisteredAsnArgs, opt
 }
 
 type LookupRegisteredAsnArgs struct {
-	// The name of the registered ASN.
-	Name string `pulumi:"name"`
 	// The name of the peering.
 	PeeringName string `pulumi:"peeringName"`
+	// The name of the registered ASN.
+	RegisteredAsnName string `pulumi:"registeredAsnName"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }

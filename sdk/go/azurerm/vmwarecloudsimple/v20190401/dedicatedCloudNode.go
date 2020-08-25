@@ -58,6 +58,9 @@ func NewDedicatedCloudNode(ctx *pulumi.Context,
 	if args == nil || args.AvailabilityZoneId == nil {
 		return nil, errors.New("missing required argument 'AvailabilityZoneId'")
 	}
+	if args == nil || args.DedicatedCloudNodeName == nil {
+		return nil, errors.New("missing required argument 'DedicatedCloudNodeName'")
+	}
 	if args == nil || args.Id == nil {
 		return nil, errors.New("missing required argument 'Id'")
 	}
@@ -188,11 +191,13 @@ func (DedicatedCloudNodeState) ElementType() reflect.Type {
 type dedicatedCloudNodeArgs struct {
 	// Availability Zone id, e.g. "az1"
 	AvailabilityZoneId string `pulumi:"availabilityZoneId"`
+	// dedicated cloud node name
+	DedicatedCloudNodeName string `pulumi:"dedicatedCloudNodeName"`
 	// SKU's id
 	Id string `pulumi:"id"`
 	// Azure region
 	Location string `pulumi:"location"`
-	// dedicated cloud node name
+	// SKU's name
 	Name string `pulumi:"name"`
 	// count of nodes to create
 	NodesCount int `pulumi:"nodesCount"`
@@ -212,11 +217,13 @@ type dedicatedCloudNodeArgs struct {
 type DedicatedCloudNodeArgs struct {
 	// Availability Zone id, e.g. "az1"
 	AvailabilityZoneId pulumi.StringInput
+	// dedicated cloud node name
+	DedicatedCloudNodeName pulumi.StringInput
 	// SKU's id
 	Id pulumi.StringInput
 	// Azure region
 	Location pulumi.StringInput
-	// dedicated cloud node name
+	// SKU's name
 	Name pulumi.StringInput
 	// count of nodes to create
 	NodesCount pulumi.IntInput

@@ -66,11 +66,11 @@ func NewMetricAlert(ctx *pulumi.Context,
 	if args == nil || args.Location == nil {
 		return nil, errors.New("missing required argument 'Location'")
 	}
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
-	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
+	}
+	if args == nil || args.RuleName == nil {
+		return nil, errors.New("missing required argument 'RuleName'")
 	}
 	if args == nil || args.Severity == nil {
 		return nil, errors.New("missing required argument 'Severity'")
@@ -191,10 +191,10 @@ type metricAlertArgs struct {
 	EvaluationFrequency string `pulumi:"evaluationFrequency"`
 	// Resource location
 	Location string `pulumi:"location"`
-	// The name of the rule.
-	Name string `pulumi:"name"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// The name of the rule.
+	RuleName string `pulumi:"ruleName"`
 	// the list of resource id's that this metric alert is scoped to.
 	Scopes []string `pulumi:"scopes"`
 	// Alert severity {0, 1, 2, 3, 4}
@@ -225,10 +225,10 @@ type MetricAlertArgs struct {
 	EvaluationFrequency pulumi.StringInput
 	// Resource location
 	Location pulumi.StringInput
-	// The name of the rule.
-	Name pulumi.StringInput
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
+	// The name of the rule.
+	RuleName pulumi.StringInput
 	// the list of resource id's that this metric alert is scoped to.
 	Scopes pulumi.StringArrayInput
 	// Alert severity {0, 1, 2, 3, 4}

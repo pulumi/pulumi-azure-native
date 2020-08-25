@@ -69,14 +69,14 @@ type DatabaseAccount struct {
 // NewDatabaseAccount registers a new resource with the given unique name, arguments, and options.
 func NewDatabaseAccount(ctx *pulumi.Context,
 	name string, args *DatabaseAccountArgs, opts ...pulumi.ResourceOption) (*DatabaseAccount, error) {
+	if args == nil || args.AccountName == nil {
+		return nil, errors.New("missing required argument 'AccountName'")
+	}
 	if args == nil || args.DatabaseAccountOfferType == nil {
 		return nil, errors.New("missing required argument 'DatabaseAccountOfferType'")
 	}
 	if args == nil || args.Locations == nil {
 		return nil, errors.New("missing required argument 'Locations'")
-	}
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
 	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
@@ -243,6 +243,8 @@ func (DatabaseAccountState) ElementType() reflect.Type {
 }
 
 type databaseAccountArgs struct {
+	// Cosmos DB database account name.
+	AccountName string `pulumi:"accountName"`
 	// List of Cosmos DB capabilities for the account
 	Capabilities []Capability `pulumi:"capabilities"`
 	// The cassandra connector offer type for the Cosmos DB database C* account.
@@ -271,8 +273,6 @@ type databaseAccountArgs struct {
 	Location *string `pulumi:"location"`
 	// An array that contains the georeplication locations enabled for the Cosmos DB account.
 	Locations []Location `pulumi:"locations"`
-	// Cosmos DB database account name.
-	Name string `pulumi:"name"`
 	// Whether requests from Public Network are allowed
 	PublicNetworkAccess *string `pulumi:"publicNetworkAccess"`
 	// The name of the resource group. The name is case insensitive.
@@ -285,6 +285,8 @@ type databaseAccountArgs struct {
 
 // The set of arguments for constructing a DatabaseAccount resource.
 type DatabaseAccountArgs struct {
+	// Cosmos DB database account name.
+	AccountName pulumi.StringInput
 	// List of Cosmos DB capabilities for the account
 	Capabilities CapabilityArrayInput
 	// The cassandra connector offer type for the Cosmos DB database C* account.
@@ -313,8 +315,6 @@ type DatabaseAccountArgs struct {
 	Location pulumi.StringPtrInput
 	// An array that contains the georeplication locations enabled for the Cosmos DB account.
 	Locations LocationArrayInput
-	// Cosmos DB database account name.
-	Name pulumi.StringInput
 	// Whether requests from Public Network are allowed
 	PublicNetworkAccess pulumi.StringPtrInput
 	// The name of the resource group. The name is case insensitive.

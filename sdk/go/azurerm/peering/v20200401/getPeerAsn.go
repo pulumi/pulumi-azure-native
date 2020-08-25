@@ -18,7 +18,7 @@ func LookupPeerAsn(ctx *pulumi.Context, args *LookupPeerAsnArgs, opts ...pulumi.
 
 type LookupPeerAsnArgs struct {
 	// The peer ASN name.
-	Name string `pulumi:"name"`
+	PeerAsnName string `pulumi:"peerAsnName"`
 }
 
 // The essential information related to the peer's ASN.

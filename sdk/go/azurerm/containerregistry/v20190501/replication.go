@@ -34,11 +34,11 @@ func NewReplication(ctx *pulumi.Context,
 	if args == nil || args.Location == nil {
 		return nil, errors.New("missing required argument 'Location'")
 	}
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
-	}
 	if args == nil || args.RegistryName == nil {
 		return nil, errors.New("missing required argument 'RegistryName'")
+	}
+	if args == nil || args.ReplicationName == nil {
+		return nil, errors.New("missing required argument 'ReplicationName'")
 	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
@@ -110,10 +110,10 @@ func (ReplicationState) ElementType() reflect.Type {
 type replicationArgs struct {
 	// The location of the resource. This cannot be changed after the resource is created.
 	Location string `pulumi:"location"`
-	// The name of the replication.
-	Name string `pulumi:"name"`
 	// The name of the container registry.
 	RegistryName string `pulumi:"registryName"`
+	// The name of the replication.
+	ReplicationName string `pulumi:"replicationName"`
 	// The name of the resource group to which the container registry belongs.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The tags of the resource.
@@ -124,10 +124,10 @@ type replicationArgs struct {
 type ReplicationArgs struct {
 	// The location of the resource. This cannot be changed after the resource is created.
 	Location pulumi.StringInput
-	// The name of the replication.
-	Name pulumi.StringInput
 	// The name of the container registry.
 	RegistryName pulumi.StringInput
+	// The name of the replication.
+	ReplicationName pulumi.StringInput
 	// The name of the resource group to which the container registry belongs.
 	ResourceGroupName pulumi.StringInput
 	// The tags of the resource.
