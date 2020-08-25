@@ -2650,6 +2650,8 @@ type DeploymentSettings struct {
 	JvmOptions *string `pulumi:"jvmOptions"`
 	// Required Memory size in GB, basic tier should be in range (1, 2), standard tier should be in range (1, 8)
 	MemoryInGB *int `pulumi:"memoryInGB"`
+	// The path to the .NET executable relative to zip root
+	NetCoreMainEntryPath *string `pulumi:"netCoreMainEntryPath"`
 	// Runtime version
 	RuntimeVersion *string `pulumi:"runtimeVersion"`
 }
@@ -2675,6 +2677,8 @@ type DeploymentSettingsArgs struct {
 	JvmOptions pulumi.StringPtrInput `pulumi:"jvmOptions"`
 	// Required Memory size in GB, basic tier should be in range (1, 2), standard tier should be in range (1, 8)
 	MemoryInGB pulumi.IntPtrInput `pulumi:"memoryInGB"`
+	// The path to the .NET executable relative to zip root
+	NetCoreMainEntryPath pulumi.StringPtrInput `pulumi:"netCoreMainEntryPath"`
 	// Runtime version
 	RuntimeVersion pulumi.StringPtrInput `pulumi:"runtimeVersion"`
 }
@@ -2777,6 +2781,11 @@ func (o DeploymentSettingsOutput) MemoryInGB() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v DeploymentSettings) *int { return v.MemoryInGB }).(pulumi.IntPtrOutput)
 }
 
+// The path to the .NET executable relative to zip root
+func (o DeploymentSettingsOutput) NetCoreMainEntryPath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DeploymentSettings) *string { return v.NetCoreMainEntryPath }).(pulumi.StringPtrOutput)
+}
+
 // Runtime version
 func (o DeploymentSettingsOutput) RuntimeVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DeploymentSettings) *string { return v.RuntimeVersion }).(pulumi.StringPtrOutput)
@@ -2840,6 +2849,16 @@ func (o DeploymentSettingsPtrOutput) MemoryInGB() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
+// The path to the .NET executable relative to zip root
+func (o DeploymentSettingsPtrOutput) NetCoreMainEntryPath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DeploymentSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.NetCoreMainEntryPath
+	}).(pulumi.StringPtrOutput)
+}
+
 // Runtime version
 func (o DeploymentSettingsPtrOutput) RuntimeVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DeploymentSettings) *string {
@@ -2860,6 +2879,8 @@ type DeploymentSettingsResponse struct {
 	JvmOptions *string `pulumi:"jvmOptions"`
 	// Required Memory size in GB, basic tier should be in range (1, 2), standard tier should be in range (1, 8)
 	MemoryInGB *int `pulumi:"memoryInGB"`
+	// The path to the .NET executable relative to zip root
+	NetCoreMainEntryPath *string `pulumi:"netCoreMainEntryPath"`
 	// Runtime version
 	RuntimeVersion *string `pulumi:"runtimeVersion"`
 }
@@ -2885,6 +2906,8 @@ type DeploymentSettingsResponseArgs struct {
 	JvmOptions pulumi.StringPtrInput `pulumi:"jvmOptions"`
 	// Required Memory size in GB, basic tier should be in range (1, 2), standard tier should be in range (1, 8)
 	MemoryInGB pulumi.IntPtrInput `pulumi:"memoryInGB"`
+	// The path to the .NET executable relative to zip root
+	NetCoreMainEntryPath pulumi.StringPtrInput `pulumi:"netCoreMainEntryPath"`
 	// Runtime version
 	RuntimeVersion pulumi.StringPtrInput `pulumi:"runtimeVersion"`
 }
@@ -2987,6 +3010,11 @@ func (o DeploymentSettingsResponseOutput) MemoryInGB() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v DeploymentSettingsResponse) *int { return v.MemoryInGB }).(pulumi.IntPtrOutput)
 }
 
+// The path to the .NET executable relative to zip root
+func (o DeploymentSettingsResponseOutput) NetCoreMainEntryPath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DeploymentSettingsResponse) *string { return v.NetCoreMainEntryPath }).(pulumi.StringPtrOutput)
+}
+
 // Runtime version
 func (o DeploymentSettingsResponseOutput) RuntimeVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DeploymentSettingsResponse) *string { return v.RuntimeVersion }).(pulumi.StringPtrOutput)
@@ -3048,6 +3076,16 @@ func (o DeploymentSettingsResponsePtrOutput) MemoryInGB() pulumi.IntPtrOutput {
 		}
 		return v.MemoryInGB
 	}).(pulumi.IntPtrOutput)
+}
+
+// The path to the .NET executable relative to zip root
+func (o DeploymentSettingsResponsePtrOutput) NetCoreMainEntryPath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DeploymentSettingsResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.NetCoreMainEntryPath
+	}).(pulumi.StringPtrOutput)
 }
 
 // Runtime version

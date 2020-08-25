@@ -30,6 +30,10 @@ namespace Pulumi.AzureRM.AppPlatform.V20200701.Outputs
         /// </summary>
         public readonly int? MemoryInGB;
         /// <summary>
+        /// The path to the .NET executable relative to zip root
+        /// </summary>
+        public readonly string? NetCoreMainEntryPath;
+        /// <summary>
         /// Runtime version
         /// </summary>
         public readonly string? RuntimeVersion;
@@ -44,12 +48,15 @@ namespace Pulumi.AzureRM.AppPlatform.V20200701.Outputs
 
             int? memoryInGB,
 
+            string? netCoreMainEntryPath,
+
             string? runtimeVersion)
         {
             Cpu = cpu;
             EnvironmentVariables = environmentVariables;
             JvmOptions = jvmOptions;
             MemoryInGB = memoryInGB;
+            NetCoreMainEntryPath = netCoreMainEntryPath;
             RuntimeVersion = runtimeVersion;
         }
     }

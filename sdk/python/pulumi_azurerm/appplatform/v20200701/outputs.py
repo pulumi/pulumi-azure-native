@@ -655,6 +655,7 @@ class DeploymentSettingsResponse(dict):
                  environment_variables: Optional[Mapping[str, str]] = None,
                  jvm_options: Optional[str] = None,
                  memory_in_gb: Optional[float] = None,
+                 net_core_main_entry_path: Optional[str] = None,
                  runtime_version: Optional[str] = None):
         """
         Deployment settings payload
@@ -662,6 +663,7 @@ class DeploymentSettingsResponse(dict):
         :param Mapping[str, str] environment_variables: Collection of environment variables
         :param str jvm_options: JVM parameter
         :param float memory_in_gb: Required Memory size in GB, basic tier should be in range (1, 2), standard tier should be in range (1, 8)
+        :param str net_core_main_entry_path: The path to the .NET executable relative to zip root
         :param str runtime_version: Runtime version
         """
         if cpu is not None:
@@ -672,6 +674,8 @@ class DeploymentSettingsResponse(dict):
             pulumi.set(__self__, "jvm_options", jvm_options)
         if memory_in_gb is not None:
             pulumi.set(__self__, "memory_in_gb", memory_in_gb)
+        if net_core_main_entry_path is not None:
+            pulumi.set(__self__, "net_core_main_entry_path", net_core_main_entry_path)
         if runtime_version is not None:
             pulumi.set(__self__, "runtime_version", runtime_version)
 
@@ -706,6 +710,14 @@ class DeploymentSettingsResponse(dict):
         Required Memory size in GB, basic tier should be in range (1, 2), standard tier should be in range (1, 8)
         """
         return pulumi.get(self, "memory_in_gb")
+
+    @property
+    @pulumi.getter(name="netCoreMainEntryPath")
+    def net_core_main_entry_path(self) -> Optional[str]:
+        """
+        The path to the .NET executable relative to zip root
+        """
+        return pulumi.get(self, "net_core_main_entry_path")
 
     @property
     @pulumi.getter(name="runtimeVersion")
