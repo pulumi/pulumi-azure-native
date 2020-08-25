@@ -6,7 +6,7 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
-export function getSubscriptionAlias(args: GetSubscriptionAliasArgs, opts?: pulumi.InvokeOptions): Promise<GetSubscriptionAliasResult> {
+export function getAlias(args: GetAliasArgs, opts?: pulumi.InvokeOptions): Promise<GetAliasResult> {
     if (!opts) {
         opts = {}
     }
@@ -14,12 +14,12 @@ export function getSubscriptionAlias(args: GetSubscriptionAliasArgs, opts?: pulu
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:subscription/v20200901:getSubscriptionAlias", {
+    return pulumi.runtime.invoke("azurerm:subscription/v20200901:getAlias", {
         "name": args.name,
     }, opts);
 }
 
-export interface GetSubscriptionAliasArgs {
+export interface GetAliasArgs {
     /**
      * Alias Name
      */
@@ -29,7 +29,7 @@ export interface GetSubscriptionAliasArgs {
 /**
  * Subscription Information with the alias.
  */
-export interface GetSubscriptionAliasResult {
+export interface GetAliasResult {
     /**
      * Alias ID.
      */

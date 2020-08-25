@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.AAD.V20200101
+namespace Pulumi.AzureRM.Aad.V20200101
 {
     /// <summary>
     /// Domain service.

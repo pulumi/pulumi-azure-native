@@ -39,6 +39,8 @@ type LookupNetworkVirtualApplianceResult struct {
 	Etag string `pulumi:"etag"`
 	// The service principal that has read access to cloud-init and config blob.
 	Identity *ManagedServiceIdentityResponse `pulumi:"identity"`
+	// List of references to InboundSecurityRules.
+	InboundSecurityRules []SubResourceResponse `pulumi:"inboundSecurityRules"`
 	// Resource location.
 	Location *string `pulumi:"location"`
 	// Resource name.

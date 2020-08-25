@@ -7,22 +7,22 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
-func LookupSubscriptionAlias(ctx *pulumi.Context, args *LookupSubscriptionAliasArgs, opts ...pulumi.InvokeOption) (*LookupSubscriptionAliasResult, error) {
-	var rv LookupSubscriptionAliasResult
-	err := ctx.Invoke("azurerm:subscription/v20200901:getSubscriptionAlias", args, &rv, opts...)
+func LookupAlias(ctx *pulumi.Context, args *LookupAliasArgs, opts ...pulumi.InvokeOption) (*LookupAliasResult, error) {
+	var rv LookupAliasResult
+	err := ctx.Invoke("azurerm:subscription/v20200901:getAlias", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return &rv, nil
 }
 
-type LookupSubscriptionAliasArgs struct {
+type LookupAliasArgs struct {
 	// Alias Name
 	Name string `pulumi:"name"`
 }
 
 // Subscription Information with the alias.
-type LookupSubscriptionAliasResult struct {
+type LookupAliasResult struct {
 	// Alias ID.
 	Name string `pulumi:"name"`
 	// Put Alias response properties.

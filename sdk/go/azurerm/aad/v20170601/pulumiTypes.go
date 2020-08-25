@@ -10,6 +10,124 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// Container Account Description
+type ContainerAccountResponse struct {
+	// The account name
+	AccountName *string `pulumi:"accountName"`
+	// The account password
+	Password *string `pulumi:"password"`
+	// The account spn
+	Spn *string `pulumi:"spn"`
+}
+
+// ContainerAccountResponseInput is an input type that accepts ContainerAccountResponseArgs and ContainerAccountResponseOutput values.
+// You can construct a concrete instance of `ContainerAccountResponseInput` via:
+//
+//          ContainerAccountResponseArgs{...}
+type ContainerAccountResponseInput interface {
+	pulumi.Input
+
+	ToContainerAccountResponseOutput() ContainerAccountResponseOutput
+	ToContainerAccountResponseOutputWithContext(context.Context) ContainerAccountResponseOutput
+}
+
+// Container Account Description
+type ContainerAccountResponseArgs struct {
+	// The account name
+	AccountName pulumi.StringPtrInput `pulumi:"accountName"`
+	// The account password
+	Password pulumi.StringPtrInput `pulumi:"password"`
+	// The account spn
+	Spn pulumi.StringPtrInput `pulumi:"spn"`
+}
+
+func (ContainerAccountResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContainerAccountResponse)(nil)).Elem()
+}
+
+func (i ContainerAccountResponseArgs) ToContainerAccountResponseOutput() ContainerAccountResponseOutput {
+	return i.ToContainerAccountResponseOutputWithContext(context.Background())
+}
+
+func (i ContainerAccountResponseArgs) ToContainerAccountResponseOutputWithContext(ctx context.Context) ContainerAccountResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ContainerAccountResponseOutput)
+}
+
+// ContainerAccountResponseArrayInput is an input type that accepts ContainerAccountResponseArray and ContainerAccountResponseArrayOutput values.
+// You can construct a concrete instance of `ContainerAccountResponseArrayInput` via:
+//
+//          ContainerAccountResponseArray{ ContainerAccountResponseArgs{...} }
+type ContainerAccountResponseArrayInput interface {
+	pulumi.Input
+
+	ToContainerAccountResponseArrayOutput() ContainerAccountResponseArrayOutput
+	ToContainerAccountResponseArrayOutputWithContext(context.Context) ContainerAccountResponseArrayOutput
+}
+
+type ContainerAccountResponseArray []ContainerAccountResponseInput
+
+func (ContainerAccountResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ContainerAccountResponse)(nil)).Elem()
+}
+
+func (i ContainerAccountResponseArray) ToContainerAccountResponseArrayOutput() ContainerAccountResponseArrayOutput {
+	return i.ToContainerAccountResponseArrayOutputWithContext(context.Background())
+}
+
+func (i ContainerAccountResponseArray) ToContainerAccountResponseArrayOutputWithContext(ctx context.Context) ContainerAccountResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ContainerAccountResponseArrayOutput)
+}
+
+// Container Account Description
+type ContainerAccountResponseOutput struct{ *pulumi.OutputState }
+
+func (ContainerAccountResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContainerAccountResponse)(nil)).Elem()
+}
+
+func (o ContainerAccountResponseOutput) ToContainerAccountResponseOutput() ContainerAccountResponseOutput {
+	return o
+}
+
+func (o ContainerAccountResponseOutput) ToContainerAccountResponseOutputWithContext(ctx context.Context) ContainerAccountResponseOutput {
+	return o
+}
+
+// The account name
+func (o ContainerAccountResponseOutput) AccountName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ContainerAccountResponse) *string { return v.AccountName }).(pulumi.StringPtrOutput)
+}
+
+// The account password
+func (o ContainerAccountResponseOutput) Password() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ContainerAccountResponse) *string { return v.Password }).(pulumi.StringPtrOutput)
+}
+
+// The account spn
+func (o ContainerAccountResponseOutput) Spn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ContainerAccountResponse) *string { return v.Spn }).(pulumi.StringPtrOutput)
+}
+
+type ContainerAccountResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (ContainerAccountResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ContainerAccountResponse)(nil)).Elem()
+}
+
+func (o ContainerAccountResponseArrayOutput) ToContainerAccountResponseArrayOutput() ContainerAccountResponseArrayOutput {
+	return o
+}
+
+func (o ContainerAccountResponseArrayOutput) ToContainerAccountResponseArrayOutputWithContext(ctx context.Context) ContainerAccountResponseArrayOutput {
+	return o
+}
+
+func (o ContainerAccountResponseArrayOutput) Index(i pulumi.IntInput) ContainerAccountResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ContainerAccountResponse {
+		return vs[0].([]ContainerAccountResponse)[vs[1].(int)]
+	}).(ContainerAccountResponseOutput)
+}
+
 // Domain Security Settings
 type DomainSecuritySettings struct {
 	// A flag to determine whether or not NtlmV1 is enabled or disabled.
@@ -1429,6 +1547,8 @@ func (o NotificationSettingsResponsePtrOutput) NotifyGlobalAdmins() pulumi.Strin
 }
 
 func init() {
+	pulumi.RegisterOutputType(ContainerAccountResponseOutput{})
+	pulumi.RegisterOutputType(ContainerAccountResponseArrayOutput{})
 	pulumi.RegisterOutputType(DomainSecuritySettingsOutput{})
 	pulumi.RegisterOutputType(DomainSecuritySettingsPtrOutput{})
 	pulumi.RegisterOutputType(DomainSecuritySettingsResponseOutput{})

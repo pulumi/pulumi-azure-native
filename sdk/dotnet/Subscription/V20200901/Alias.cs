@@ -12,7 +12,7 @@ namespace Pulumi.AzureRM.Subscription.V20200901
     /// <summary>
     /// Subscription Information with the alias.
     /// </summary>
-    public partial class SubscriptionAlias : Pulumi.CustomResource
+    public partial class Alias : Pulumi.CustomResource
     {
         /// <summary>
         /// Alias ID.
@@ -34,19 +34,19 @@ namespace Pulumi.AzureRM.Subscription.V20200901
 
 
         /// <summary>
-        /// Create a SubscriptionAlias resource with the given unique name, arguments, and options.
+        /// Create a Alias resource with the given unique name, arguments, and options.
         /// </summary>
         ///
         /// <param name="name">The unique name of the resource</param>
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public SubscriptionAlias(string name, SubscriptionAliasArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:subscription/v20200901:SubscriptionAlias", name, args ?? new SubscriptionAliasArgs(), MakeResourceOptions(options, ""))
+        public Alias(string name, AliasArgs args, CustomResourceOptions? options = null)
+            : base("azurerm:subscription/v20200901:Alias", name, args ?? new AliasArgs(), MakeResourceOptions(options, ""))
         {
         }
 
-        private SubscriptionAlias(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:subscription/v20200901:SubscriptionAlias", name, null, MakeResourceOptions(options, id))
+        private Alias(string name, Input<string> id, CustomResourceOptions? options = null)
+            : base("azurerm:subscription/v20200901:Alias", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -62,20 +62,20 @@ namespace Pulumi.AzureRM.Subscription.V20200901
             return merged;
         }
         /// <summary>
-        /// Get an existing SubscriptionAlias resource's state with the given name, ID, and optional extra
+        /// Get an existing Alias resource's state with the given name, ID, and optional extra
         /// properties used to qualify the lookup.
         /// </summary>
         ///
         /// <param name="name">The unique name of the resulting resource.</param>
         /// <param name="id">The unique provider ID of the resource to lookup.</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public static SubscriptionAlias Get(string name, Input<string> id, CustomResourceOptions? options = null)
+        public static Alias Get(string name, Input<string> id, CustomResourceOptions? options = null)
         {
-            return new SubscriptionAlias(name, id, options);
+            return new Alias(name, id, options);
         }
     }
 
-    public sealed class SubscriptionAliasArgs : Pulumi.ResourceArgs
+    public sealed class AliasArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Alias Name
@@ -86,10 +86,10 @@ namespace Pulumi.AzureRM.Subscription.V20200901
         /// <summary>
         /// Put alias request properties.
         /// </summary>
-        [Input("properties")]
-        public Input<Inputs.PutAliasRequestPropertiesArgs>? Properties { get; set; }
+        [Input("properties", required: true)]
+        public Input<Inputs.PutAliasRequestPropertiesArgs> Properties { get; set; } = null!;
 
-        public SubscriptionAliasArgs()
+        public AliasArgs()
         {
         }
     }

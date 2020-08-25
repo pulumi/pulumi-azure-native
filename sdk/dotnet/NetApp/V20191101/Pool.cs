@@ -93,6 +93,7 @@ namespace Pulumi.AzureRM.NetApp.V20191101
                     new Alias { Type = "azurerm:netapp/v20190801:Pool"},
                     new Alias { Type = "azurerm:netapp/v20191001:Pool"},
                     new Alias { Type = "azurerm:netapp/v20200201:Pool"},
+                    new Alias { Type = "azurerm:netapp/v20200601:Pool"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

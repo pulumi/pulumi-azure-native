@@ -85,6 +85,7 @@ class NetworkVirtualAppliance(pulumi.CustomResource):
             __props__['virtual_hub'] = virtual_hub
             __props__['address_prefix'] = None
             __props__['etag'] = None
+            __props__['inbound_security_rules'] = None
             __props__['provisioning_state'] = None
             __props__['type'] = None
             __props__['virtual_appliance_nics'] = None
@@ -162,6 +163,14 @@ class NetworkVirtualAppliance(pulumi.CustomResource):
         The service principal that has read access to cloud-init and config blob.
         """
         return pulumi.get(self, "identity")
+
+    @property
+    @pulumi.getter(name="inboundSecurityRules")
+    def inbound_security_rules(self) -> List['outputs.SubResourceResponse']:
+        """
+        List of references to InboundSecurityRules.
+        """
+        return pulumi.get(self, "inbound_security_rules")
 
     @property
     @pulumi.getter

@@ -70,6 +70,10 @@ namespace Pulumi.AzureRM.Network.V20200601
         /// </summary>
         public readonly Outputs.ManagedServiceIdentityResponseResult? Identity;
         /// <summary>
+        /// List of references to InboundSecurityRules.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.SubResourceResponseResult> InboundSecurityRules;
+        /// <summary>
         /// Resource location.
         /// </summary>
         public readonly string? Location;
@@ -124,6 +128,8 @@ namespace Pulumi.AzureRM.Network.V20200601
 
             Outputs.ManagedServiceIdentityResponseResult? identity,
 
+            ImmutableArray<Outputs.SubResourceResponseResult> inboundSecurityRules,
+
             string? location,
 
             string name,
@@ -150,6 +156,7 @@ namespace Pulumi.AzureRM.Network.V20200601
             CloudInitConfigurationBlobs = cloudInitConfigurationBlobs;
             Etag = etag;
             Identity = identity;
+            InboundSecurityRules = inboundSecurityRules;
             Location = location;
             Name = name;
             NvaSku = nvaSku;

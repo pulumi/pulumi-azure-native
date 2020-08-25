@@ -65,6 +65,10 @@ export interface GetNetworkVirtualApplianceResult {
      */
     readonly identity?: outputs.network.v20200601.ManagedServiceIdentityResponse;
     /**
+     * List of references to InboundSecurityRules.
+     */
+    readonly inboundSecurityRules: outputs.network.v20200601.SubResourceResponse[];
+    /**
      * Resource location.
      */
     readonly location?: string;

@@ -20,7 +20,7 @@ class GetNetworkVirtualApplianceResult:
     """
     NetworkVirtualAppliance Resource.
     """
-    def __init__(__self__, address_prefix=None, boot_strap_configuration_blobs=None, cloud_init_configuration=None, cloud_init_configuration_blobs=None, etag=None, identity=None, location=None, name=None, nva_sku=None, provisioning_state=None, tags=None, type=None, virtual_appliance_asn=None, virtual_appliance_nics=None, virtual_appliance_sites=None, virtual_hub=None):
+    def __init__(__self__, address_prefix=None, boot_strap_configuration_blobs=None, cloud_init_configuration=None, cloud_init_configuration_blobs=None, etag=None, identity=None, inbound_security_rules=None, location=None, name=None, nva_sku=None, provisioning_state=None, tags=None, type=None, virtual_appliance_asn=None, virtual_appliance_nics=None, virtual_appliance_sites=None, virtual_hub=None):
         if address_prefix and not isinstance(address_prefix, str):
             raise TypeError("Expected argument 'address_prefix' to be a str")
         pulumi.set(__self__, "address_prefix", address_prefix)
@@ -39,6 +39,9 @@ class GetNetworkVirtualApplianceResult:
         if identity and not isinstance(identity, dict):
             raise TypeError("Expected argument 'identity' to be a dict")
         pulumi.set(__self__, "identity", identity)
+        if inbound_security_rules and not isinstance(inbound_security_rules, list):
+            raise TypeError("Expected argument 'inbound_security_rules' to be a list")
+        pulumi.set(__self__, "inbound_security_rules", inbound_security_rules)
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
@@ -117,6 +120,14 @@ class GetNetworkVirtualApplianceResult:
         The service principal that has read access to cloud-init and config blob.
         """
         return pulumi.get(self, "identity")
+
+    @property
+    @pulumi.getter(name="inboundSecurityRules")
+    def inbound_security_rules(self) -> List['outputs.SubResourceResponse']:
+        """
+        List of references to InboundSecurityRules.
+        """
+        return pulumi.get(self, "inbound_security_rules")
 
     @property
     @pulumi.getter
@@ -211,6 +222,7 @@ class AwaitableGetNetworkVirtualApplianceResult(GetNetworkVirtualApplianceResult
             cloud_init_configuration_blobs=self.cloud_init_configuration_blobs,
             etag=self.etag,
             identity=self.identity,
+            inbound_security_rules=self.inbound_security_rules,
             location=self.location,
             name=self.name,
             nva_sku=self.nva_sku,
@@ -251,6 +263,7 @@ def get_network_virtual_appliance(expand: Optional[str] = None,
         cloud_init_configuration_blobs=__ret__.cloud_init_configuration_blobs,
         etag=__ret__.etag,
         identity=__ret__.identity,
+        inbound_security_rules=__ret__.inbound_security_rules,
         location=__ret__.location,
         name=__ret__.name,
         nva_sku=__ret__.nva_sku,

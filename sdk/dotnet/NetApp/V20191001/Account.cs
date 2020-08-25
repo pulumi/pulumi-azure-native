@@ -81,6 +81,7 @@ namespace Pulumi.AzureRM.NetApp.V20191001
                     new Alias { Type = "azurerm:netapp/v20190801:Account"},
                     new Alias { Type = "azurerm:netapp/v20191101:Account"},
                     new Alias { Type = "azurerm:netapp/v20200201:Account"},
+                    new Alias { Type = "azurerm:netapp/v20200601:Account"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

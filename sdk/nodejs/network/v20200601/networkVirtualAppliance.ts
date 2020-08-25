@@ -61,6 +61,10 @@ export class NetworkVirtualAppliance extends pulumi.CustomResource {
      */
     public readonly identity!: pulumi.Output<outputs.network.v20200601.ManagedServiceIdentityResponse | undefined>;
     /**
+     * List of references to InboundSecurityRules.
+     */
+    public /*out*/ readonly inboundSecurityRules!: pulumi.Output<outputs.network.v20200601.SubResourceResponse[]>;
+    /**
      * Resource location.
      */
     public readonly location!: pulumi.Output<string | undefined>;
@@ -134,6 +138,7 @@ export class NetworkVirtualAppliance extends pulumi.CustomResource {
             inputs["virtualHub"] = args ? args.virtualHub : undefined;
             inputs["addressPrefix"] = undefined /*out*/;
             inputs["etag"] = undefined /*out*/;
+            inputs["inboundSecurityRules"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
             inputs["virtualApplianceNics"] = undefined /*out*/;
