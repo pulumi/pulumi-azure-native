@@ -3,7 +3,7 @@ import * as azurerm from "../../sdk/nodejs";
 import * as cosmosdb from "./component";
 
 const resourceGroup = new azurerm.resources.v20200601.ResourceGroup("rg", {
-    name: "azurerm-cosmos",
+    resourceGroupName: "azurerm-cosmos",
     location: "westeurope",
     tags: {
         Owner: "mikhailshilkov",
@@ -24,7 +24,7 @@ export const cosmosdbAccount = new cosmosdb.DatabaseAccount("pulumicosmosdb", {
 
 // const cosmosdbAccount2 = new azurerm.documentdb.v20200401.DatabaseAccount("pulumicosmosdb", {
 //     resourceGroupName: resourceGroup.name,
-//     name: "pulumicosmosdb",
+//     accountName: "pulumicosmosdb",
 //     location: resourceGroup.location,
 //     kind: "GlobalDocumentDB",
 //     consistencyPolicy: {

@@ -95,7 +95,7 @@ export class DatabaseAccount {
 
         const cosmosdbAccount = new azurerm.documentdb.v20200401.DatabaseAccount(name, {
             resourceGroupName: args.resourceGroup.name,
-            name,
+            accountName: name,
             location: locations[0],
             kind,
             consistencyPolicy: args.consisencyPolicy,        

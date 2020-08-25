@@ -15,8 +15,8 @@ func main() {
 	pulumi.Run(func(ctx *pulumi.Context) error {
 		// Create an Azure Resource Group
 		resourceGroup, err := resources.NewResourceGroup(ctx, "resourceGroup", &resources.ResourceGroupArgs{
-			Name:     pulumi.String("azurerm-go"),
-			Location: pulumi.String("WestUS"),
+			ResourceGroupName: pulumi.String("azurerm-go"),
+			Location:          pulumi.String("WestUS"),
 		})
 		if err != nil {
 			return err
@@ -64,7 +64,7 @@ func main() {
 		}
 
 		cluster, err := containerservice.NewManagedCluster(ctx, "cluster", &containerservice.ManagedClusterArgs{
-			Name:              pulumi.String("lukesclustertodaytrtying"),
+			ResourceName:      pulumi.String("lukesclustertodaytrtying"),
 			Location:          pulumi.String("WestUS"),
 			ResourceGroupName: resourceGroup.Name,
 			DnsPrefix: pulumi.String("lukestestofnewazureprovider"),

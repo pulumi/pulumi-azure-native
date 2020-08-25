@@ -2,7 +2,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as azurerm from "../../sdk/nodejs";
 
 const resourceGroup = new azurerm.resources.v20200601.ResourceGroup("rg", {
-    name: "azurerm",
+    resourceGroupName: "azurerm",
     location: "westus2",
     tags: {
         Owner: "mikhailshilkov",
@@ -31,7 +31,7 @@ const staticSite = new azurerm.web.v20190801.StaticSite("staticsite", {
 const containerinstance = new azurerm.containerinstance.v20191201.ContainerGroup("containergroup", {
     resourceGroupName: resourceGroup.name,
     // should be autonamed?
-    name: "abc-1234",
+    containerGroupName: "abc-1234",
     location: "westus2",
     osType: "Linux",
     containers: [{
@@ -48,7 +48,7 @@ const containerinstance = new azurerm.containerinstance.v20191201.ContainerGroup
 
 const vnet = new azurerm.network.v20200501.VirtualNetwork("vnet", {
     resourceGroupName: resourceGroup.name,
-    name: "vnet-1234",
+    virtualNetworkName: "vnet-1234",
     location: "westus2",
     addressSpace: {
         addressPrefixes: ["10.1.0.0/16"],
@@ -61,14 +61,14 @@ const vnet = new azurerm.network.v20200501.VirtualNetwork("vnet", {
 
 const subnet = new azurerm.network.v20200501.Subnet("subnet2", {
     resourceGroupName: resourceGroup.name,
-    name: "subnet2",
+    subnetName: "subnet2",
     virtualNetworkName: vnet.name,
     addressPrefix: "10.1.1.0/24",
 });
 
 const networkInterface = new azurerm.network.v20200501.NetworkInterface("nic", {
     resourceGroupName: resourceGroup.name,
-    name: "nic-1234",
+    networkInterfaceName: "nic-1234",
     location: "westus2",
     ipConfigurations: [{
         name: "ipconfig1",
@@ -81,7 +81,7 @@ const networkInterface = new azurerm.network.v20200501.NetworkInterface("nic", {
 
 const virtualmachine  = new azurerm.compute.v20200601.VirtualMachine("vm", {
     resourceGroupName: resourceGroup.name,
-    name: "abc-1234",
+    vmName: "abc-1234",
     location: "westus2",
     hardwareProfile: {
         vmSize: "Standard_A0",
@@ -126,7 +126,7 @@ const appService = new azurerm.web.v20190801.WebApp("app", {
 
 const storageAccount = new azurerm.storage.v20190601.StorageAccount("sa", {
     resourceGroupName: resourceGroup.name,
-    name: "pulumi14345sa",
+    accountName: "pulumi14345sa",
     location: "westus2",
     sku: {
         name: "Standard_LRS",
@@ -138,7 +138,7 @@ const storageAccount = new azurerm.storage.v20190601.StorageAccount("sa", {
 
 export const staticWebsiteUrl = pulumi.interpolate`https://${staticSite.defaultHostname}`;
 
-export const existingRg = azurerm.resources.v20200601.getResourceGroup({ name: "Azure-Account-Cleanup" });
+export const existingRg = azurerm.resources.v20200601.getResourceGroup({ resourceGroupName: "Azure-Account-Cleanup" });
 
 const storageAccountKeys = pulumi.all([resourceGroup.name, storageAccount.name, storageAccount.id]).apply(([resourceGroupName, accountName]) => 
     azurerm.storage.v20190601.listStorageAccountKeys({ resourceGroupName, accountName }));

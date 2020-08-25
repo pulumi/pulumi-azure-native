@@ -10,7 +10,7 @@ const password = config.require("password");
 
 // Create an Azure Resource Group
 const resourceGroup = new azurerm.resources.v20200601.ResourceGroup("spark-rg", {
-    name: "azurerm",
+    resourceGroupName: "azurerm",
     location: location,
     tags: {
         Owner: "azurerm-test",
@@ -24,13 +24,13 @@ const storageAccount = new azurerm.storage.v20190601.StorageAccount("sparksa", {
         name: "Standard_LRS",
         tier: "Standard",
     },
-    name: "sparksa12345",
+    accountName: "sparksa12345",
     location: location,
     kind: "StorageV2",
 });
 
 const storageContainer = new azurerm.storage.v20190601.BlobContainer("spark", {
-    name: "spark-sc12345",
+    containerName: "spark-sc12345",
     accountName: storageAccount.name,
     resourceGroupName: resourceGroup.name,
 });
@@ -43,7 +43,7 @@ const primaryStorageKey = storageAccountKeys.keys[0].value;
 
 // Create a Spark cluster in HDInsight
 const sparkCluster = new azurerm.hdinsight.v20180601preview.Cluster("myspark", {
-    name: "spark-cluster12345",
+    clusterName: "spark-cluster12345",
     resourceGroupName: resourceGroup.name,
     location: location,
     properties: {
