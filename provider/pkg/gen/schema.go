@@ -37,7 +37,7 @@ func PulumiSchema(swaggers []*openapi.Spec) (*pschema.PackageSpec, *provider.Azu
 		Name:        "azurerm",
 		Version:     "0.1.0", // TODO
 		Description: "A Pulumi package for creating and managing Azure resources.",
-		License:     "Apache-2.0",
+		License:     "TODO",
 		Keywords:    []string{"pulumi", "azure"},
 		Homepage:    "https://pulumi.com",
 		Repository:  "https://github.com/pulumi/pulumi-azurerm",

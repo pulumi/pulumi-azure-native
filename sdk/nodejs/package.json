@@ -7,7 +7,7 @@
     ],
     "homepage": "https://pulumi.com",
     "repository": "https://github.com/pulumi/pulumi-azurerm",
-    "license": "Apache-2.0",
+    "license": "TODO",
     "scripts": {
         "build": "tsc"
     },

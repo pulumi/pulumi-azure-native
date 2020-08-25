@@ -647,7 +647,7 @@ func (k *azurermProvider) azureCreateOrUpdate(
 	if err != nil {
 		return nil, err
 	}
-	// TODO: Some APIs are explicitly marked `x-ms-long-running-operation` and possibly we should only do the
+	// Some APIs are explicitly marked `x-ms-long-running-operation` and possibly we should only do the
 	// Future+WaitForCompletion+GetResult steps in that case. Though in general it appears to be safe to do these
 	// always.
 	future, err := azure.NewFutureFromResponse(resp)

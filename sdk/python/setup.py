@@ -43,7 +43,7 @@ setup(name='pulumi_azurerm',
       project_urls={
           'Repository': 'https://github.com/pulumi/pulumi-azurerm'
       },
-      license='Apache-2.0',
+      license='TODO',
       packages=find_packages(),
       package_data={
           'pulumi_azurerm': [

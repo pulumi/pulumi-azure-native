@@ -132,7 +132,7 @@ func ResourceProvider(path string) string {
 		}
 	}
 
-	// TODO: this may cause some undesired resources in the Resources namespace, but it looks okay for now.
+	// This could cause some undesired resources in the Resources namespace, but it looks okay for now.
 	return "Resources"
 }
 
