@@ -999,7 +999,7 @@ func getUserAgent() (userAgent string) {
 	partnerID := "a90539d8-a7a6-5826-95c4-1fbef22d4b22"
 	userAgent = fmt.Sprintf("%s pid-%s", userAgent, partnerID)
 
-	glog.V(9).Infof("AzureRM User Agent: ", userAgent)
+	glog.V(9).Infof("AzureRM User Agent: %s", userAgent)
 	return
 }
 
