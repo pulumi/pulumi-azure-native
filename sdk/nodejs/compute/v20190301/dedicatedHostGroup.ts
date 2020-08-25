@@ -47,7 +47,7 @@ export class DedicatedHostGroup extends pulumi.CustomResource {
     /**
      * Resource name
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * Number of fault domains that the host group can span.
      */
@@ -78,11 +78,11 @@ export class DedicatedHostGroup extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             const args = argsOrState as DedicatedHostGroupArgs | undefined;
+            if (!args || args.hostGroupName === undefined) {
+                throw new Error("Missing required property 'hostGroupName'");
+            }
             if (!args || args.location === undefined) {
                 throw new Error("Missing required property 'location'");
-            }
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
             }
             if (!args || args.platformFaultDomainCount === undefined) {
                 throw new Error("Missing required property 'platformFaultDomainCount'");
@@ -90,13 +90,14 @@ export class DedicatedHostGroup extends pulumi.CustomResource {
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            inputs["hostGroupName"] = args ? args.hostGroupName : undefined;
             inputs["location"] = args ? args.location : undefined;
-            inputs["name"] = args ? args.name : undefined;
             inputs["platformFaultDomainCount"] = args ? args.platformFaultDomainCount : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["zones"] = args ? args.zones : undefined;
             inputs["hosts"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -117,13 +118,13 @@ export class DedicatedHostGroup extends pulumi.CustomResource {
  */
 export interface DedicatedHostGroupArgs {
     /**
+     * The name of the dedicated host group.
+     */
+    readonly hostGroupName: pulumi.Input<string>;
+    /**
      * Resource location
      */
     readonly location: pulumi.Input<string>;
-    /**
-     * The name of the dedicated host group.
-     */
-    readonly name: pulumi.Input<string>;
     /**
      * Number of fault domains that the host group can span.
      */

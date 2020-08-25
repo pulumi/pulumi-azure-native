@@ -98,15 +98,16 @@ export class VpnConnection extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             const args = argsOrState as VpnConnectionArgs | undefined;
+            if (!args || args.connectionName === undefined) {
+                throw new Error("Missing required property 'connectionName'");
+            }
             if (!args || args.gatewayName === undefined) {
                 throw new Error("Missing required property 'gatewayName'");
-            }
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
             }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            inputs["connectionName"] = args ? args.connectionName : undefined;
             inputs["connectionStatus"] = args ? args.connectionStatus : undefined;
             inputs["enableBgp"] = args ? args.enableBgp : undefined;
             inputs["gatewayName"] = args ? args.gatewayName : undefined;
@@ -141,6 +142,10 @@ export class VpnConnection extends pulumi.CustomResource {
  */
 export interface VpnConnectionArgs {
     /**
+     * The name of the connection.
+     */
+    readonly connectionName: pulumi.Input<string>;
+    /**
      * The connection status.
      */
     readonly connectionStatus?: pulumi.Input<string>;
@@ -161,9 +166,9 @@ export interface VpnConnectionArgs {
      */
     readonly ipsecPolicies?: pulumi.Input<pulumi.Input<inputs.network.v20180401.IpsecPolicy>[]>;
     /**
-     * The name of the connection.
+     * The name of the resource that is unique within a resource group. This name can be used to access the resource.
      */
-    readonly name: pulumi.Input<string>;
+    readonly name?: pulumi.Input<string>;
     /**
      * The provisioning state of the resource.
      */

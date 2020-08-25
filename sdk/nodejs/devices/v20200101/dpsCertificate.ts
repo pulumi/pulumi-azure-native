@@ -43,7 +43,7 @@ export class DpsCertificate extends pulumi.CustomResource {
     /**
      * The name of the certificate.
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * properties of a certificate
      */
@@ -66,8 +66,8 @@ export class DpsCertificate extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             const args = argsOrState as DpsCertificateArgs | undefined;
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
+            if (!args || args.certificateName === undefined) {
+                throw new Error("Missing required property 'certificateName'");
             }
             if (!args || args.provisioningServiceName === undefined) {
                 throw new Error("Missing required property 'provisioningServiceName'");
@@ -76,10 +76,11 @@ export class DpsCertificate extends pulumi.CustomResource {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["certificate"] = args ? args.certificate : undefined;
-            inputs["name"] = args ? args.name : undefined;
+            inputs["certificateName"] = args ? args.certificateName : undefined;
             inputs["provisioningServiceName"] = args ? args.provisioningServiceName : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["etag"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
             inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
@@ -107,7 +108,7 @@ export interface DpsCertificateArgs {
     /**
      * The name of the certificate create or update.
      */
-    readonly name: pulumi.Input<string>;
+    readonly certificateName: pulumi.Input<string>;
     /**
      * The name of the provisioning service.
      */

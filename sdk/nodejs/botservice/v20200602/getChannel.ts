@@ -15,7 +15,7 @@ export function getChannel(args: GetChannelArgs, opts?: pulumi.InvokeOptions): P
         opts.version = utilities.getVersion();
     }
     return pulumi.runtime.invoke("azurerm:botservice/v20200602:getChannel", {
-        "name": args.name,
+        "channelName": args.channelName,
         "resourceGroupName": args.resourceGroupName,
         "resourceName": args.resourceName,
     }, opts);
@@ -25,7 +25,7 @@ export interface GetChannelArgs {
     /**
      * The name of the Bot resource.
      */
-    readonly name: string;
+    readonly channelName: string;
     /**
      * The name of the Bot resource group in the user subscription.
      */

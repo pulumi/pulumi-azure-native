@@ -39,11 +39,11 @@ export class JobSchedule extends pulumi.CustomResource {
     /**
      * Gets or sets the id of job schedule.
      */
-    public /*out*/ readonly jobScheduleId!: pulumi.Output<string | undefined>;
+    public readonly jobScheduleId!: pulumi.Output<string | undefined>;
     /**
      * Gets the name of the variable.
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * Gets or sets the parameters of the job schedule.
      */
@@ -81,8 +81,8 @@ export class JobSchedule extends pulumi.CustomResource {
             if (!args || args.automationAccountName === undefined) {
                 throw new Error("Missing required property 'automationAccountName'");
             }
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
+            if (!args || args.jobScheduleId === undefined) {
+                throw new Error("Missing required property 'jobScheduleId'");
             }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
@@ -94,13 +94,13 @@ export class JobSchedule extends pulumi.CustomResource {
                 throw new Error("Missing required property 'schedule'");
             }
             inputs["automationAccountName"] = args ? args.automationAccountName : undefined;
-            inputs["name"] = args ? args.name : undefined;
+            inputs["jobScheduleId"] = args ? args.jobScheduleId : undefined;
             inputs["parameters"] = args ? args.parameters : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["runOn"] = args ? args.runOn : undefined;
             inputs["runbook"] = args ? args.runbook : undefined;
             inputs["schedule"] = args ? args.schedule : undefined;
-            inputs["jobScheduleId"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -125,7 +125,7 @@ export interface JobScheduleArgs {
     /**
      * The job schedule name.
      */
-    readonly name: pulumi.Input<string>;
+    readonly jobScheduleId: pulumi.Input<string>;
     /**
      * Gets or sets a list of job properties.
      */

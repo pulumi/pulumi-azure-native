@@ -16,7 +16,7 @@ export function getLink(args: GetLinkArgs, opts?: pulumi.InvokeOptions): Promise
     }
     return pulumi.runtime.invoke("azurerm:customerinsights/v20170426:getLink", {
         "hubName": args.hubName,
-        "name": args.name,
+        "linkName": args.linkName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);
 }
@@ -29,7 +29,7 @@ export interface GetLinkArgs {
     /**
      * The name of the link.
      */
-    readonly name: string;
+    readonly linkName: string;
     /**
      * The name of the resource group.
      */

@@ -47,7 +47,7 @@ export class EventSource extends pulumi.CustomResource {
     /**
      * Resource name
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * Resource tags
      */
@@ -73,25 +73,26 @@ export class EventSource extends pulumi.CustomResource {
             if (!args || args.environmentName === undefined) {
                 throw new Error("Missing required property 'environmentName'");
             }
+            if (!args || args.eventSourceName === undefined) {
+                throw new Error("Missing required property 'eventSourceName'");
+            }
             if (!args || args.kind === undefined) {
                 throw new Error("Missing required property 'kind'");
             }
             if (!args || args.location === undefined) {
                 throw new Error("Missing required property 'location'");
             }
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
-            }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["environmentName"] = args ? args.environmentName : undefined;
+            inputs["eventSourceName"] = args ? args.eventSourceName : undefined;
             inputs["kind"] = args ? args.kind : undefined;
             inputs["localTimestamp"] = args ? args.localTimestamp : undefined;
             inputs["location"] = args ? args.location : undefined;
-            inputs["name"] = args ? args.name : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["name"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -116,6 +117,10 @@ export interface EventSourceArgs {
      */
     readonly environmentName: pulumi.Input<string>;
     /**
+     * Name of the event source.
+     */
+    readonly eventSourceName: pulumi.Input<string>;
+    /**
      * The kind of the event source.
      */
     readonly kind: pulumi.Input<string>;
@@ -127,10 +132,6 @@ export interface EventSourceArgs {
      * The location of the resource.
      */
     readonly location: pulumi.Input<string>;
-    /**
-     * Name of the event source.
-     */
-    readonly name: pulumi.Input<string>;
     /**
      * Name of an Azure Resource group.
      */

@@ -15,6 +15,7 @@ export function listWebAppFunctionKeysSlot(args: ListWebAppFunctionKeysSlotArgs,
         opts.version = utilities.getVersion();
     }
     return pulumi.runtime.invoke("azurerm:web/v20190801:listWebAppFunctionKeysSlot", {
+        "functionName": args.functionName,
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,
         "slot": args.slot,
@@ -24,6 +25,10 @@ export function listWebAppFunctionKeysSlot(args: ListWebAppFunctionKeysSlotArgs,
 export interface ListWebAppFunctionKeysSlotArgs {
     /**
      * Function name.
+     */
+    readonly functionName: string;
+    /**
+     * Site name.
      */
     readonly name: string;
     /**

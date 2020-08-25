@@ -43,7 +43,7 @@ export class DataFlow extends pulumi.CustomResource {
     /**
      * The resource name.
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * Data flow properties.
      */
@@ -66,11 +66,11 @@ export class DataFlow extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             const args = argsOrState as DataFlowArgs | undefined;
+            if (!args || args.dataFlowName === undefined) {
+                throw new Error("Missing required property 'dataFlowName'");
+            }
             if (!args || args.factoryName === undefined) {
                 throw new Error("Missing required property 'factoryName'");
-            }
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
             }
             if (!args || args.properties === undefined) {
                 throw new Error("Missing required property 'properties'");
@@ -78,11 +78,12 @@ export class DataFlow extends pulumi.CustomResource {
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            inputs["dataFlowName"] = args ? args.dataFlowName : undefined;
             inputs["factoryName"] = args ? args.factoryName : undefined;
-            inputs["name"] = args ? args.name : undefined;
             inputs["properties"] = args ? args.properties : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["etag"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -101,13 +102,13 @@ export class DataFlow extends pulumi.CustomResource {
  */
 export interface DataFlowArgs {
     /**
+     * The data flow name.
+     */
+    readonly dataFlowName: pulumi.Input<string>;
+    /**
      * The factory name.
      */
     readonly factoryName: pulumi.Input<string>;
-    /**
-     * The data flow name.
-     */
-    readonly name: pulumi.Input<string>;
     /**
      * Data flow properties.
      */

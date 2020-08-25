@@ -41,7 +41,7 @@ export class TagByOperation extends pulumi.CustomResource {
     /**
      * Resource name.
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * Resource type for API Management resource.
      */
@@ -63,9 +63,6 @@ export class TagByOperation extends pulumi.CustomResource {
             if (!args || args.apiId === undefined) {
                 throw new Error("Missing required property 'apiId'");
             }
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
-            }
             if (!args || args.operationId === undefined) {
                 throw new Error("Missing required property 'operationId'");
             }
@@ -75,12 +72,16 @@ export class TagByOperation extends pulumi.CustomResource {
             if (!args || args.serviceName === undefined) {
                 throw new Error("Missing required property 'serviceName'");
             }
+            if (!args || args.tagId === undefined) {
+                throw new Error("Missing required property 'tagId'");
+            }
             inputs["apiId"] = args ? args.apiId : undefined;
-            inputs["name"] = args ? args.name : undefined;
             inputs["operationId"] = args ? args.operationId : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["serviceName"] = args ? args.serviceName : undefined;
+            inputs["tagId"] = args ? args.tagId : undefined;
             inputs["displayName"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -105,10 +106,6 @@ export interface TagByOperationArgs {
      */
     readonly apiId: pulumi.Input<string>;
     /**
-     * Tag identifier. Must be unique in the current API Management service instance.
-     */
-    readonly name: pulumi.Input<string>;
-    /**
      * Operation identifier within an API. Must be unique in the current API Management service instance.
      */
     readonly operationId: pulumi.Input<string>;
@@ -120,4 +117,8 @@ export interface TagByOperationArgs {
      * The name of the API Management service.
      */
     readonly serviceName: pulumi.Input<string>;
+    /**
+     * Tag identifier. Must be unique in the current API Management service instance.
+     */
+    readonly tagId: pulumi.Input<string>;
 }

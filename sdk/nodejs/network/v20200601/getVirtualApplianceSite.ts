@@ -15,17 +15,13 @@ export function getVirtualApplianceSite(args: GetVirtualApplianceSiteArgs, opts?
         opts.version = utilities.getVersion();
     }
     return pulumi.runtime.invoke("azurerm:network/v20200601:getVirtualApplianceSite", {
-        "name": args.name,
         "networkVirtualApplianceName": args.networkVirtualApplianceName,
         "resourceGroupName": args.resourceGroupName,
+        "siteName": args.siteName,
     }, opts);
 }
 
 export interface GetVirtualApplianceSiteArgs {
-    /**
-     * The name of the site.
-     */
-    readonly name: string;
     /**
      * The name of the Network Virtual Appliance.
      */
@@ -34,6 +30,10 @@ export interface GetVirtualApplianceSiteArgs {
      * The name of the resource group.
      */
     readonly resourceGroupName: string;
+    /**
+     * The name of the site.
+     */
+    readonly siteName: string;
 }
 
 /**

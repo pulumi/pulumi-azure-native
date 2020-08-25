@@ -17,19 +17,24 @@ export function listAppServicePlanHybridConnectionKeys(args: ListAppServicePlanH
     return pulumi.runtime.invoke("azurerm:web/v20190801:listAppServicePlanHybridConnectionKeys", {
         "name": args.name,
         "namespaceName": args.namespaceName,
+        "relayName": args.relayName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);
 }
 
 export interface ListAppServicePlanHybridConnectionKeysArgs {
     /**
-     * The name of the Service Bus relay.
+     * Name of the App Service plan.
      */
     readonly name: string;
     /**
      * The name of the Service Bus namespace.
      */
     readonly namespaceName: string;
+    /**
+     * The name of the Service Bus relay.
+     */
+    readonly relayName: string;
     /**
      * Name of the resource group to which the resource belongs.
      */

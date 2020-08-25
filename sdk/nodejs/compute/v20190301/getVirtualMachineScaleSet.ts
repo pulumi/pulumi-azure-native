@@ -15,20 +15,20 @@ export function getVirtualMachineScaleSet(args: GetVirtualMachineScaleSetArgs, o
         opts.version = utilities.getVersion();
     }
     return pulumi.runtime.invoke("azurerm:compute/v20190301:getVirtualMachineScaleSet", {
-        "name": args.name,
         "resourceGroupName": args.resourceGroupName,
+        "vmScaleSetName": args.vmScaleSetName,
     }, opts);
 }
 
 export interface GetVirtualMachineScaleSetArgs {
     /**
-     * The name of the VM scale set.
-     */
-    readonly name: string;
-    /**
      * The name of the resource group.
      */
     readonly resourceGroupName: string;
+    /**
+     * The name of the VM scale set.
+     */
+    readonly vmScaleSetName: string;
 }
 
 /**

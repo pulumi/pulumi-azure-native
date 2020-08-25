@@ -15,20 +15,20 @@ export function getService(args: GetServiceArgs, opts?: pulumi.InvokeOptions): P
         opts.version = utilities.getVersion();
     }
     return pulumi.runtime.invoke("azurerm:search/v20200313:getService", {
-        "name": args.name,
         "resourceGroupName": args.resourceGroupName,
+        "searchServiceName": args.searchServiceName,
     }, opts);
 }
 
 export interface GetServiceArgs {
     /**
-     * The name of the Azure Cognitive Search service associated with the specified resource group.
-     */
-    readonly name: string;
-    /**
      * The name of the resource group within the current subscription. You can obtain this value from the Azure Resource Manager API or the portal.
      */
     readonly resourceGroupName: string;
+    /**
+     * The name of the Azure Cognitive Search service associated with the specified resource group.
+     */
+    readonly searchServiceName: string;
 }
 
 /**

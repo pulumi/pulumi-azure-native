@@ -16,7 +16,7 @@ export function getAccountFilter(args: GetAccountFilterArgs, opts?: pulumi.Invok
     }
     return pulumi.runtime.invoke("azurerm:media/v20180701:getAccountFilter", {
         "accountName": args.accountName,
-        "name": args.name,
+        "filterName": args.filterName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);
 }
@@ -29,7 +29,7 @@ export interface GetAccountFilterArgs {
     /**
      * The Account Filter name
      */
-    readonly name: string;
+    readonly filterName: string;
     /**
      * The name of the resource group within the Azure subscription.
      */

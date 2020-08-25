@@ -51,7 +51,7 @@ export class SavedSearch extends pulumi.CustomResource {
     /**
      * The name of the saved search.
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * The query expression for the saved search. Please see https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-search-reference for reference.
      */
@@ -88,14 +88,14 @@ export class SavedSearch extends pulumi.CustomResource {
             if (!args || args.displayName === undefined) {
                 throw new Error("Missing required property 'displayName'");
             }
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
-            }
             if (!args || args.query === undefined) {
                 throw new Error("Missing required property 'query'");
             }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
+            }
+            if (!args || args.savedSearchId === undefined) {
+                throw new Error("Missing required property 'savedSearchId'");
             }
             if (!args || args.workspaceName === undefined) {
                 throw new Error("Missing required property 'workspaceName'");
@@ -103,12 +103,13 @@ export class SavedSearch extends pulumi.CustomResource {
             inputs["category"] = args ? args.category : undefined;
             inputs["displayName"] = args ? args.displayName : undefined;
             inputs["eTag"] = args ? args.eTag : undefined;
-            inputs["name"] = args ? args.name : undefined;
             inputs["query"] = args ? args.query : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["savedSearchId"] = args ? args.savedSearchId : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["version"] = args ? args.version : undefined;
             inputs["workspaceName"] = args ? args.workspaceName : undefined;
+            inputs["name"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -141,10 +142,6 @@ export interface SavedSearchArgs {
      */
     readonly eTag?: pulumi.Input<string>;
     /**
-     * The id of the saved search.
-     */
-    readonly name: pulumi.Input<string>;
-    /**
      * The query expression for the saved search. Please see https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-search-reference for reference.
      */
     readonly query: pulumi.Input<string>;
@@ -152,6 +149,10 @@ export interface SavedSearchArgs {
      * The Resource Group name.
      */
     readonly resourceGroupName: pulumi.Input<string>;
+    /**
+     * The id of the saved search.
+     */
+    readonly savedSearchId: pulumi.Input<string>;
     /**
      * The tags attached to the saved search.
      */

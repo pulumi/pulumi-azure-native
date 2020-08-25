@@ -55,7 +55,7 @@ export class ConfigurationStore extends pulumi.CustomResource {
     /**
      * The name of the resource.
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * The provisioning state of the configuration store.
      */
@@ -86,11 +86,11 @@ export class ConfigurationStore extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             const args = argsOrState as ConfigurationStoreArgs | undefined;
+            if (!args || args.configStoreName === undefined) {
+                throw new Error("Missing required property 'configStoreName'");
+            }
             if (!args || args.location === undefined) {
                 throw new Error("Missing required property 'location'");
-            }
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
             }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
@@ -98,14 +98,15 @@ export class ConfigurationStore extends pulumi.CustomResource {
             if (!args || args.sku === undefined) {
                 throw new Error("Missing required property 'sku'");
             }
+            inputs["configStoreName"] = args ? args.configStoreName : undefined;
             inputs["identity"] = args ? args.identity : undefined;
             inputs["location"] = args ? args.location : undefined;
-            inputs["name"] = args ? args.name : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["sku"] = args ? args.sku : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["creationDate"] = undefined /*out*/;
             inputs["endpoint"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
@@ -127,6 +128,10 @@ export class ConfigurationStore extends pulumi.CustomResource {
  */
 export interface ConfigurationStoreArgs {
     /**
+     * The name of the configuration store.
+     */
+    readonly configStoreName: pulumi.Input<string>;
+    /**
      * The managed identity information, if configured.
      */
     readonly identity?: pulumi.Input<inputs.appconfiguration.v20191001.ResourceIdentity>;
@@ -134,10 +139,6 @@ export interface ConfigurationStoreArgs {
      * The location of the resource. This cannot be changed after the resource is created.
      */
     readonly location: pulumi.Input<string>;
-    /**
-     * The name of the configuration store.
-     */
-    readonly name: pulumi.Input<string>;
     /**
      * The name of the resource group to which the container registry belongs.
      */

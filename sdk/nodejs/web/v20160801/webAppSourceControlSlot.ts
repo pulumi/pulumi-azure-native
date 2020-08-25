@@ -86,6 +86,9 @@ export class WebAppSourceControlSlot extends pulumi.CustomResource {
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            if (!args || args.slot === undefined) {
+                throw new Error("Missing required property 'slot'");
+            }
             inputs["branch"] = args ? args.branch : undefined;
             inputs["deploymentRollbackEnabled"] = args ? args.deploymentRollbackEnabled : undefined;
             inputs["isManualIntegration"] = args ? args.isManualIntegration : undefined;
@@ -94,6 +97,7 @@ export class WebAppSourceControlSlot extends pulumi.CustomResource {
             inputs["name"] = args ? args.name : undefined;
             inputs["repoUrl"] = args ? args.repoUrl : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["slot"] = args ? args.slot : undefined;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -134,7 +138,7 @@ export interface WebAppSourceControlSlotArgs {
      */
     readonly kind?: pulumi.Input<string>;
     /**
-     * Name of the deployment slot. If a slot is not specified, the API will update the source control configuration for the production slot.
+     * Name of the app.
      */
     readonly name: pulumi.Input<string>;
     /**
@@ -145,4 +149,8 @@ export interface WebAppSourceControlSlotArgs {
      * Name of the resource group to which the resource belongs.
      */
     readonly resourceGroupName: pulumi.Input<string>;
+    /**
+     * Name of the deployment slot. If a slot is not specified, the API will update the source control configuration for the production slot.
+     */
+    readonly slot: pulumi.Input<string>;
 }

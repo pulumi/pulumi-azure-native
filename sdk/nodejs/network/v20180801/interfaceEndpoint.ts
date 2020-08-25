@@ -55,7 +55,7 @@ export class InterfaceEndpoint extends pulumi.CustomResource {
     /**
      * Resource name.
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * Gets an array of references to the network interfaces created for this interface endpoint.
      */
@@ -94,8 +94,8 @@ export class InterfaceEndpoint extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             const args = argsOrState as InterfaceEndpointArgs | undefined;
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
+            if (!args || args.interfaceEndpointName === undefined) {
+                throw new Error("Missing required property 'interfaceEndpointName'");
             }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
@@ -104,11 +104,12 @@ export class InterfaceEndpoint extends pulumi.CustomResource {
             inputs["etag"] = args ? args.etag : undefined;
             inputs["fqdn"] = args ? args.fqdn : undefined;
             inputs["id"] = args ? args.id : undefined;
+            inputs["interfaceEndpointName"] = args ? args.interfaceEndpointName : undefined;
             inputs["location"] = args ? args.location : undefined;
-            inputs["name"] = args ? args.name : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["subnet"] = args ? args.subnet : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["name"] = undefined /*out*/;
             inputs["networkInterfaces"] = undefined /*out*/;
             inputs["owner"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
@@ -148,13 +149,13 @@ export interface InterfaceEndpointArgs {
      */
     readonly id?: pulumi.Input<string>;
     /**
+     * The name of the interface endpoint.
+     */
+    readonly interfaceEndpointName: pulumi.Input<string>;
+    /**
      * Resource location.
      */
     readonly location?: pulumi.Input<string>;
-    /**
-     * The name of the interface endpoint.
-     */
-    readonly name: pulumi.Input<string>;
     /**
      * The name of the resource group.
      */

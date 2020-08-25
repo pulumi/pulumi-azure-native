@@ -43,7 +43,7 @@ export class ReplicationNetworkMapping extends pulumi.CustomResource {
     /**
      * Resource Name
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * The Network Mapping Properties.
      */
@@ -69,8 +69,8 @@ export class ReplicationNetworkMapping extends pulumi.CustomResource {
             if (!args || args.fabricName === undefined) {
                 throw new Error("Missing required property 'fabricName'");
             }
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
+            if (!args || args.networkMappingName === undefined) {
+                throw new Error("Missing required property 'networkMappingName'");
             }
             if (!args || args.networkName === undefined) {
                 throw new Error("Missing required property 'networkName'");
@@ -82,12 +82,13 @@ export class ReplicationNetworkMapping extends pulumi.CustomResource {
                 throw new Error("Missing required property 'resourceName'");
             }
             inputs["fabricName"] = args ? args.fabricName : undefined;
-            inputs["name"] = args ? args.name : undefined;
+            inputs["networkMappingName"] = args ? args.networkMappingName : undefined;
             inputs["networkName"] = args ? args.networkName : undefined;
             inputs["properties"] = args ? args.properties : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["resourceName"] = args ? args.resourceName : undefined;
             inputs["location"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -114,7 +115,7 @@ export interface ReplicationNetworkMappingArgs {
     /**
      * Network mapping name.
      */
-    readonly name: pulumi.Input<string>;
+    readonly networkMappingName: pulumi.Input<string>;
     /**
      * Primary network name.
      */

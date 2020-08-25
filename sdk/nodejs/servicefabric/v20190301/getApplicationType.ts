@@ -15,21 +15,21 @@ export function getApplicationType(args: GetApplicationTypeArgs, opts?: pulumi.I
         opts.version = utilities.getVersion();
     }
     return pulumi.runtime.invoke("azurerm:servicefabric/v20190301:getApplicationType", {
+        "applicationTypeName": args.applicationTypeName,
         "clusterName": args.clusterName,
-        "name": args.name,
         "resourceGroupName": args.resourceGroupName,
     }, opts);
 }
 
 export interface GetApplicationTypeArgs {
     /**
+     * The name of the application type name resource.
+     */
+    readonly applicationTypeName: string;
+    /**
      * The name of the cluster resource.
      */
     readonly clusterName: string;
-    /**
-     * The name of the application type name resource.
-     */
-    readonly name: string;
     /**
      * The name of the resource group.
      */

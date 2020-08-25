@@ -15,20 +15,20 @@ export function getVirtualWAN(args: GetVirtualWANArgs, opts?: pulumi.InvokeOptio
         opts.version = utilities.getVersion();
     }
     return pulumi.runtime.invoke("azurerm:network/v20180401:getVirtualWAN", {
-        "name": args.name,
         "resourceGroupName": args.resourceGroupName,
+        "virtualWANName": args.virtualWANName,
     }, opts);
 }
 
 export interface GetVirtualWANArgs {
     /**
-     * The name of the VirtualWAN being retrieved.
-     */
-    readonly name: string;
-    /**
      * The resource group name of the VirtualWan.
      */
     readonly resourceGroupName: string;
+    /**
+     * The name of the VirtualWAN being retrieved.
+     */
+    readonly virtualWANName: string;
 }
 
 /**

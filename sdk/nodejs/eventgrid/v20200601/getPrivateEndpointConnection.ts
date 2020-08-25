@@ -15,18 +15,14 @@ export function getPrivateEndpointConnection(args: GetPrivateEndpointConnectionA
         opts.version = utilities.getVersion();
     }
     return pulumi.runtime.invoke("azurerm:eventgrid/v20200601:getPrivateEndpointConnection", {
-        "name": args.name,
         "parentName": args.parentName,
         "parentType": args.parentType,
+        "privateEndpointConnectionName": args.privateEndpointConnectionName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);
 }
 
 export interface GetPrivateEndpointConnectionArgs {
-    /**
-     * The name of the private endpoint connection connection.
-     */
-    readonly name: string;
     /**
      * The name of the parent resource (namely, either, the topic name or domain name).
      */
@@ -35,6 +31,10 @@ export interface GetPrivateEndpointConnectionArgs {
      * The type of the parent resource. This can be either \'topics\' or \'domains\'.
      */
     readonly parentType: string;
+    /**
+     * The name of the private endpoint connection connection.
+     */
+    readonly privateEndpointConnectionName: string;
     /**
      * The name of the resource group within the user's subscription.
      */

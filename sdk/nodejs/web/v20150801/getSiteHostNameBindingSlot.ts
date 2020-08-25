@@ -15,6 +15,7 @@ export function getSiteHostNameBindingSlot(args: GetSiteHostNameBindingSlotArgs,
         opts.version = utilities.getVersion();
     }
     return pulumi.runtime.invoke("azurerm:web/v20150801:getSiteHostNameBindingSlot", {
+        "hostName": args.hostName,
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,
         "slot": args.slot,
@@ -24,6 +25,10 @@ export function getSiteHostNameBindingSlot(args: GetSiteHostNameBindingSlotArgs,
 export interface GetSiteHostNameBindingSlotArgs {
     /**
      * Name of host
+     */
+    readonly hostName: string;
+    /**
+     * Name of web app
      */
     readonly name: string;
     /**

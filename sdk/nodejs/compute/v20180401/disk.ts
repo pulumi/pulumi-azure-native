@@ -59,7 +59,7 @@ export class Disk extends pulumi.CustomResource {
     /**
      * Resource name
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * The Operating System type.
      */
@@ -105,26 +105,27 @@ export class Disk extends pulumi.CustomResource {
             if (!args || args.creationData === undefined) {
                 throw new Error("Missing required property 'creationData'");
             }
+            if (!args || args.diskName === undefined) {
+                throw new Error("Missing required property 'diskName'");
+            }
             if (!args || args.location === undefined) {
                 throw new Error("Missing required property 'location'");
-            }
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
             }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["creationData"] = args ? args.creationData : undefined;
+            inputs["diskName"] = args ? args.diskName : undefined;
             inputs["diskSizeGB"] = args ? args.diskSizeGB : undefined;
             inputs["encryptionSettings"] = args ? args.encryptionSettings : undefined;
             inputs["location"] = args ? args.location : undefined;
-            inputs["name"] = args ? args.name : undefined;
             inputs["osType"] = args ? args.osType : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["sku"] = args ? args.sku : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["zones"] = args ? args.zones : undefined;
             inputs["managedBy"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
             inputs["timeCreated"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
@@ -151,6 +152,10 @@ export interface DiskArgs {
      */
     readonly creationData: pulumi.Input<inputs.compute.v20180401.CreationData>;
     /**
+     * The name of the managed disk that is being created. The name can't be changed after the disk is created. Supported characters for the name are a-z, A-Z, 0-9 and _. The maximum name length is 80 characters.
+     */
+    readonly diskName: pulumi.Input<string>;
+    /**
      * If creationData.createOption is Empty, this field is mandatory and it indicates the size of the VHD to create. If this field is present for updates or creation with other options, it indicates a resize. Resizes are only allowed if the disk is not attached to a running VM, and can only increase the disk's size.
      */
     readonly diskSizeGB?: pulumi.Input<number>;
@@ -162,10 +167,6 @@ export interface DiskArgs {
      * Resource location
      */
     readonly location: pulumi.Input<string>;
-    /**
-     * The name of the managed disk that is being created. The name can't be changed after the disk is created. Supported characters for the name are a-z, A-Z, 0-9 and _. The maximum name length is 80 characters.
-     */
-    readonly name: pulumi.Input<string>;
     /**
      * The Operating System type.
      */

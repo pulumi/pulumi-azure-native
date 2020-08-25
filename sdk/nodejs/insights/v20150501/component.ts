@@ -95,7 +95,7 @@ export class Component extends pulumi.CustomResource {
     /**
      * Azure resource name
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * List of linked private link scope resources.
      */
@@ -151,11 +151,11 @@ export class Component extends pulumi.CustomResource {
             if (!args || args.location === undefined) {
                 throw new Error("Missing required property 'location'");
             }
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
-            }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
+            }
+            if (!args || args.resourceName === undefined) {
+                throw new Error("Missing required property 'resourceName'");
             }
             inputs["applicationType"] = args ? args.applicationType : undefined;
             inputs["disableIpMasking"] = args ? args.disableIpMasking : undefined;
@@ -165,9 +165,9 @@ export class Component extends pulumi.CustomResource {
             inputs["ingestionMode"] = args ? args.ingestionMode : undefined;
             inputs["kind"] = args ? args.kind : undefined;
             inputs["location"] = args ? args.location : undefined;
-            inputs["name"] = args ? args.name : undefined;
             inputs["requestSource"] = args ? args.requestSource : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["resourceName"] = args ? args.resourceName : undefined;
             inputs["retentionInDays"] = args ? args.retentionInDays : undefined;
             inputs["samplingPercentage"] = args ? args.samplingPercentage : undefined;
             inputs["tags"] = args ? args.tags : undefined;
@@ -177,6 +177,7 @@ export class Component extends pulumi.CustomResource {
             inputs["creationDate"] = undefined /*out*/;
             inputs["hockeyAppToken"] = undefined /*out*/;
             inputs["instrumentationKey"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
             inputs["privateLinkScopedResources"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
             inputs["tenantId"] = undefined /*out*/;
@@ -230,10 +231,6 @@ export interface ComponentArgs {
      */
     readonly location: pulumi.Input<string>;
     /**
-     * The name of the Application Insights component resource.
-     */
-    readonly name: pulumi.Input<string>;
-    /**
      * Describes what tool created this Application Insights component. Customers using this API should set this to the default 'rest'.
      */
     readonly requestSource?: pulumi.Input<string>;
@@ -241,6 +238,10 @@ export interface ComponentArgs {
      * The name of the resource group. The name is case insensitive.
      */
     readonly resourceGroupName: pulumi.Input<string>;
+    /**
+     * The name of the Application Insights component resource.
+     */
+    readonly resourceName: pulumi.Input<string>;
     /**
      * Retention period in days.
      */

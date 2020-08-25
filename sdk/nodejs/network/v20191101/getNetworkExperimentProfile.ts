@@ -15,7 +15,7 @@ export function getNetworkExperimentProfile(args: GetNetworkExperimentProfileArg
         opts.version = utilities.getVersion();
     }
     return pulumi.runtime.invoke("azurerm:network/v20191101:getNetworkExperimentProfile", {
-        "name": args.name,
+        "profileName": args.profileName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);
 }
@@ -24,7 +24,7 @@ export interface GetNetworkExperimentProfileArgs {
     /**
      * The Profile identifier associated with the Tenant and Partner
      */
-    readonly name: string;
+    readonly profileName: string;
     /**
      * Name of the Resource group within the Azure subscription.
      */

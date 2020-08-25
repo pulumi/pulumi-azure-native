@@ -71,7 +71,7 @@ export class MetricAlert extends pulumi.CustomResource {
     /**
      * Azure resource name
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * the list of resource id's that this metric alert is scoped to.
      */
@@ -129,11 +129,11 @@ export class MetricAlert extends pulumi.CustomResource {
             if (!args || args.location === undefined) {
                 throw new Error("Missing required property 'location'");
             }
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
-            }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
+            }
+            if (!args || args.ruleName === undefined) {
+                throw new Error("Missing required property 'ruleName'");
             }
             if (!args || args.severity === undefined) {
                 throw new Error("Missing required property 'severity'");
@@ -148,8 +148,8 @@ export class MetricAlert extends pulumi.CustomResource {
             inputs["enabled"] = args ? args.enabled : undefined;
             inputs["evaluationFrequency"] = args ? args.evaluationFrequency : undefined;
             inputs["location"] = args ? args.location : undefined;
-            inputs["name"] = args ? args.name : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["ruleName"] = args ? args.ruleName : undefined;
             inputs["scopes"] = args ? args.scopes : undefined;
             inputs["severity"] = args ? args.severity : undefined;
             inputs["tags"] = args ? args.tags : undefined;
@@ -157,6 +157,7 @@ export class MetricAlert extends pulumi.CustomResource {
             inputs["targetResourceType"] = args ? args.targetResourceType : undefined;
             inputs["windowSize"] = args ? args.windowSize : undefined;
             inputs["lastUpdatedTime"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -203,13 +204,13 @@ export interface MetricAlertArgs {
      */
     readonly location: pulumi.Input<string>;
     /**
-     * The name of the rule.
-     */
-    readonly name: pulumi.Input<string>;
-    /**
      * The name of the resource group.
      */
     readonly resourceGroupName: pulumi.Input<string>;
+    /**
+     * The name of the rule.
+     */
+    readonly ruleName: pulumi.Input<string>;
     /**
      * the list of resource id's that this metric alert is scoped to.
      */

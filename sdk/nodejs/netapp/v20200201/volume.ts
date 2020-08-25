@@ -71,7 +71,7 @@ export class Volume extends pulumi.CustomResource {
     /**
      * Resource name
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * Set of protocol types
      */
@@ -135,9 +135,6 @@ export class Volume extends pulumi.CustomResource {
             if (!args || args.location === undefined) {
                 throw new Error("Missing required property 'location'");
             }
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
-            }
             if (!args || args.poolName === undefined) {
                 throw new Error("Missing required property 'poolName'");
             }
@@ -150,6 +147,9 @@ export class Volume extends pulumi.CustomResource {
             if (!args || args.usageThreshold === undefined) {
                 throw new Error("Missing required property 'usageThreshold'");
             }
+            if (!args || args.volumeName === undefined) {
+                throw new Error("Missing required property 'volumeName'");
+            }
             inputs["accountName"] = args ? args.accountName : undefined;
             inputs["creationToken"] = args ? args.creationToken : undefined;
             inputs["dataProtection"] = args ? args.dataProtection : undefined;
@@ -157,7 +157,6 @@ export class Volume extends pulumi.CustomResource {
             inputs["isRestoring"] = args ? args.isRestoring : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["mountTargets"] = args ? args.mountTargets : undefined;
-            inputs["name"] = args ? args.name : undefined;
             inputs["poolName"] = args ? args.poolName : undefined;
             inputs["protocolTypes"] = args ? args.protocolTypes : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
@@ -167,9 +166,11 @@ export class Volume extends pulumi.CustomResource {
             inputs["subnetId"] = args ? args.subnetId : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["usageThreshold"] = args ? args.usageThreshold : undefined;
+            inputs["volumeName"] = args ? args.volumeName : undefined;
             inputs["volumeType"] = args ? args.volumeType : undefined;
             inputs["baremetalTenantId"] = undefined /*out*/;
             inputs["fileSystemId"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
@@ -219,10 +220,6 @@ export interface VolumeArgs {
      */
     readonly mountTargets?: pulumi.Input<pulumi.Input<inputs.netapp.v20200201.MountTargetProperties>[]>;
     /**
-     * The name of the volume
-     */
-    readonly name: pulumi.Input<string>;
-    /**
      * The name of the capacity pool
      */
     readonly poolName: pulumi.Input<string>;
@@ -258,6 +255,10 @@ export interface VolumeArgs {
      * Maximum storage quota allowed for a file system in bytes. This is a soft quota used for alerting only. Minimum size is 100 GiB. Upper limit is 100TiB. Specified in bytes.
      */
     readonly usageThreshold: pulumi.Input<number>;
+    /**
+     * The name of the volume
+     */
+    readonly volumeName: pulumi.Input<string>;
     /**
      * What type of volume is this
      */

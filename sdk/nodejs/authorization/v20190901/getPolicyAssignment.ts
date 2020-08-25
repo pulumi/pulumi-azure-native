@@ -15,7 +15,7 @@ export function getPolicyAssignment(args: GetPolicyAssignmentArgs, opts?: pulumi
         opts.version = utilities.getVersion();
     }
     return pulumi.runtime.invoke("azurerm:authorization/v20190901:getPolicyAssignment", {
-        "name": args.name,
+        "policyAssignmentName": args.policyAssignmentName,
         "scope": args.scope,
     }, opts);
 }
@@ -24,7 +24,7 @@ export interface GetPolicyAssignmentArgs {
     /**
      * The name of the policy assignment to get.
      */
-    readonly name: string;
+    readonly policyAssignmentName: string;
     /**
      * The scope of the policy assignment. Valid scopes are: management group (format: '/providers/Microsoft.Management/managementGroups/{managementGroup}'), subscription (format: '/subscriptions/{subscriptionId}'), resource group (format: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}', or resource (format: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/[{parentResourcePath}/]{resourceType}/{resourceName}'
      */

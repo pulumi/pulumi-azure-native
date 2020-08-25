@@ -51,7 +51,7 @@ export class BackupSchedule extends pulumi.CustomResource {
     /**
      * The name of the object.
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * The number of backups to be retained.
      */
@@ -89,6 +89,9 @@ export class BackupSchedule extends pulumi.CustomResource {
             if (!args || args.backupPolicyName === undefined) {
                 throw new Error("Missing required property 'backupPolicyName'");
             }
+            if (!args || args.backupScheduleName === undefined) {
+                throw new Error("Missing required property 'backupScheduleName'");
+            }
             if (!args || args.backupType === undefined) {
                 throw new Error("Missing required property 'backupType'");
             }
@@ -97,9 +100,6 @@ export class BackupSchedule extends pulumi.CustomResource {
             }
             if (!args || args.managerName === undefined) {
                 throw new Error("Missing required property 'managerName'");
-            }
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
             }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
@@ -117,17 +117,18 @@ export class BackupSchedule extends pulumi.CustomResource {
                 throw new Error("Missing required property 'startTime'");
             }
             inputs["backupPolicyName"] = args ? args.backupPolicyName : undefined;
+            inputs["backupScheduleName"] = args ? args.backupScheduleName : undefined;
             inputs["backupType"] = args ? args.backupType : undefined;
             inputs["deviceName"] = args ? args.deviceName : undefined;
             inputs["kind"] = args ? args.kind : undefined;
             inputs["managerName"] = args ? args.managerName : undefined;
-            inputs["name"] = args ? args.name : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["retentionCount"] = args ? args.retentionCount : undefined;
             inputs["scheduleRecurrence"] = args ? args.scheduleRecurrence : undefined;
             inputs["scheduleStatus"] = args ? args.scheduleStatus : undefined;
             inputs["startTime"] = args ? args.startTime : undefined;
             inputs["lastSuccessfulRun"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -150,6 +151,10 @@ export interface BackupScheduleArgs {
      */
     readonly backupPolicyName: pulumi.Input<string>;
     /**
+     * The backup schedule name.
+     */
+    readonly backupScheduleName: pulumi.Input<string>;
+    /**
      * The type of backup which needs to be taken.
      */
     readonly backupType: pulumi.Input<string>;
@@ -165,10 +170,6 @@ export interface BackupScheduleArgs {
      * The manager name
      */
     readonly managerName: pulumi.Input<string>;
-    /**
-     * The backup schedule name.
-     */
-    readonly name: pulumi.Input<string>;
     /**
      * The resource group name
      */

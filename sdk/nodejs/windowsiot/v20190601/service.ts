@@ -53,7 +53,7 @@ export class Service extends pulumi.CustomResource {
     /**
      * The name of the resource
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * Windows IoT Device Service notes.
      */
@@ -88,20 +88,21 @@ export class Service extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             const args = argsOrState as ServiceArgs | undefined;
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
+            if (!args || args.deviceName === undefined) {
+                throw new Error("Missing required property 'deviceName'");
             }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["adminDomainName"] = args ? args.adminDomainName : undefined;
             inputs["billingDomainName"] = args ? args.billingDomainName : undefined;
-            inputs["name"] = args ? args.name : undefined;
+            inputs["deviceName"] = args ? args.deviceName : undefined;
             inputs["notes"] = args ? args.notes : undefined;
             inputs["quantity"] = args ? args.quantity : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["etag"] = undefined /*out*/;
             inputs["location"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
             inputs["startDate"] = undefined /*out*/;
             inputs["tags"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
@@ -132,7 +133,7 @@ export interface ServiceArgs {
     /**
      * The name of the Windows IoT Device Service.
      */
-    readonly name: pulumi.Input<string>;
+    readonly deviceName: pulumi.Input<string>;
     /**
      * Windows IoT Device Service notes.
      */

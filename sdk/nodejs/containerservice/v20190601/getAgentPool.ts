@@ -15,7 +15,7 @@ export function getAgentPool(args: GetAgentPoolArgs, opts?: pulumi.InvokeOptions
         opts.version = utilities.getVersion();
     }
     return pulumi.runtime.invoke("azurerm:containerservice/v20190601:getAgentPool", {
-        "name": args.name,
+        "agentPoolName": args.agentPoolName,
         "resourceGroupName": args.resourceGroupName,
         "resourceName": args.resourceName,
     }, opts);
@@ -25,7 +25,7 @@ export interface GetAgentPoolArgs {
     /**
      * The name of the agent pool.
      */
-    readonly name: string;
+    readonly agentPoolName: string;
     /**
      * The name of the resource group.
      */

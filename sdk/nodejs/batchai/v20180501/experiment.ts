@@ -41,7 +41,7 @@ export class Experiment extends pulumi.CustomResource {
     /**
      * The name of the resource.
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * The provisioned state of the experiment
      */
@@ -68,8 +68,8 @@ export class Experiment extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             const args = argsOrState as ExperimentArgs | undefined;
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
+            if (!args || args.experimentName === undefined) {
+                throw new Error("Missing required property 'experimentName'");
             }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
@@ -77,10 +77,11 @@ export class Experiment extends pulumi.CustomResource {
             if (!args || args.workspaceName === undefined) {
                 throw new Error("Missing required property 'workspaceName'");
             }
-            inputs["name"] = args ? args.name : undefined;
+            inputs["experimentName"] = args ? args.experimentName : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["workspaceName"] = args ? args.workspaceName : undefined;
             inputs["creationTime"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
             inputs["provisioningStateTransitionTime"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
@@ -103,7 +104,7 @@ export interface ExperimentArgs {
     /**
      * The name of the experiment. Experiment names can only contain a combination of alphanumeric characters along with dash (-) and underscore (_). The name must be from 1 through 64 characters long.
      */
-    readonly name: pulumi.Input<string>;
+    readonly experimentName: pulumi.Input<string>;
     /**
      * Name of the resource group to which the resource belongs.
      */

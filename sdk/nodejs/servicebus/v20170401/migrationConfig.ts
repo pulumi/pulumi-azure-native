@@ -41,7 +41,7 @@ export class MigrationConfig extends pulumi.CustomResource {
     /**
      * Resource name
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * Number of entities pending to be replicated.
      */
@@ -76,8 +76,8 @@ export class MigrationConfig extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             const args = argsOrState as MigrationConfigArgs | undefined;
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
+            if (!args || args.configName === undefined) {
+                throw new Error("Missing required property 'configName'");
             }
             if (!args || args.namespaceName === undefined) {
                 throw new Error("Missing required property 'namespaceName'");
@@ -91,12 +91,13 @@ export class MigrationConfig extends pulumi.CustomResource {
             if (!args || args.targetNamespace === undefined) {
                 throw new Error("Missing required property 'targetNamespace'");
             }
-            inputs["name"] = args ? args.name : undefined;
+            inputs["configName"] = args ? args.configName : undefined;
             inputs["namespaceName"] = args ? args.namespaceName : undefined;
             inputs["postMigrationName"] = args ? args.postMigrationName : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["targetNamespace"] = args ? args.targetNamespace : undefined;
             inputs["migrationState"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
             inputs["pendingReplicationOperationsCount"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
@@ -119,7 +120,7 @@ export interface MigrationConfigArgs {
     /**
      * The configuration name. Should always be "$default".
      */
-    readonly name: pulumi.Input<string>;
+    readonly configName: pulumi.Input<string>;
     /**
      * The namespace name
      */

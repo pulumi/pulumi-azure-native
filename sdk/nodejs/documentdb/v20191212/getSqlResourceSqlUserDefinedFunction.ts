@@ -18,8 +18,8 @@ export function getSqlResourceSqlUserDefinedFunction(args: GetSqlResourceSqlUser
         "accountName": args.accountName,
         "containerName": args.containerName,
         "databaseName": args.databaseName,
-        "name": args.name,
         "resourceGroupName": args.resourceGroupName,
+        "userDefinedFunctionName": args.userDefinedFunctionName,
     }, opts);
 }
 
@@ -37,13 +37,13 @@ export interface GetSqlResourceSqlUserDefinedFunctionArgs {
      */
     readonly databaseName: string;
     /**
-     * Cosmos DB userDefinedFunction name.
-     */
-    readonly name: string;
-    /**
      * Name of an Azure resource group.
      */
     readonly resourceGroupName: string;
+    /**
+     * Cosmos DB userDefinedFunction name.
+     */
+    readonly userDefinedFunctionName: string;
 }
 
 /**

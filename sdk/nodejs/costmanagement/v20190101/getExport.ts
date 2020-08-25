@@ -15,7 +15,7 @@ export function getExport(args: GetExportArgs, opts?: pulumi.InvokeOptions): Pro
         opts.version = utilities.getVersion();
     }
     return pulumi.runtime.invoke("azurerm:costmanagement/v20190101:getExport", {
-        "name": args.name,
+        "exportName": args.exportName,
         "scope": args.scope,
     }, opts);
 }
@@ -24,7 +24,7 @@ export interface GetExportArgs {
     /**
      * Export Name.
      */
-    readonly name: string;
+    readonly exportName: string;
     /**
      * The scope associated with export operations. This includes '/subscriptions/{subscriptionId}' for subscription scope, '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}' for resourceGroup scope, '/providers/Microsoft.Billing/billingAccounts/{billingAccountId}' for Billing Account scope and '/providers/Microsoft.Billing/billingAccounts/{billingAccountId}/departments/{departmentId}' for Department scope, '/providers/Microsoft.Billing/billingAccounts/{billingAccountId}/enrollmentAccounts/{enrollmentAccountId}' for EnrollmentAccount scope.
      */

@@ -16,7 +16,7 @@ export function getPrivateEndpoint(args: GetPrivateEndpointArgs, opts?: pulumi.I
     }
     return pulumi.runtime.invoke("azurerm:network/v20200401:getPrivateEndpoint", {
         "expand": args.expand,
-        "name": args.name,
+        "privateEndpointName": args.privateEndpointName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);
 }
@@ -29,7 +29,7 @@ export interface GetPrivateEndpointArgs {
     /**
      * The name of the private endpoint.
      */
-    readonly name: string;
+    readonly privateEndpointName: string;
     /**
      * The name of the resource group.
      */

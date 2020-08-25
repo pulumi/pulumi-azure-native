@@ -15,7 +15,7 @@ export function getManagementLockAtResourceGroupLevel(args: GetManagementLockAtR
         opts.version = utilities.getVersion();
     }
     return pulumi.runtime.invoke("azurerm:authorization/v20150101:getManagementLockAtResourceGroupLevel", {
-        "name": args.name,
+        "lockName": args.lockName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);
 }
@@ -24,7 +24,7 @@ export interface GetManagementLockAtResourceGroupLevelArgs {
     /**
      * The lock name.
      */
-    readonly name: string;
+    readonly lockName: string;
     /**
      * The resource group name.
      */

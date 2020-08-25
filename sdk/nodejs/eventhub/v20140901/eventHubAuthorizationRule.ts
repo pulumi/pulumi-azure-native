@@ -64,11 +64,11 @@ export class EventHubAuthorizationRule extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             const args = argsOrState as EventHubAuthorizationRuleArgs | undefined;
+            if (!args || args.authorizationRuleName === undefined) {
+                throw new Error("Missing required property 'authorizationRuleName'");
+            }
             if (!args || args.eventHubName === undefined) {
                 throw new Error("Missing required property 'eventHubName'");
-            }
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
             }
             if (!args || args.namespaceName === undefined) {
                 throw new Error("Missing required property 'namespaceName'");
@@ -79,6 +79,7 @@ export class EventHubAuthorizationRule extends pulumi.CustomResource {
             if (!args || args.rights === undefined) {
                 throw new Error("Missing required property 'rights'");
             }
+            inputs["authorizationRuleName"] = args ? args.authorizationRuleName : undefined;
             inputs["eventHubName"] = args ? args.eventHubName : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["name"] = args ? args.name : undefined;
@@ -105,6 +106,10 @@ export class EventHubAuthorizationRule extends pulumi.CustomResource {
  */
 export interface EventHubAuthorizationRuleArgs {
     /**
+     * The authorization rule name.
+     */
+    readonly authorizationRuleName: pulumi.Input<string>;
+    /**
      * The Event Hub name
      */
     readonly eventHubName: pulumi.Input<string>;
@@ -113,9 +118,9 @@ export interface EventHubAuthorizationRuleArgs {
      */
     readonly location?: pulumi.Input<string>;
     /**
-     * The authorization rule name.
+     * Name of the AuthorizationRule.
      */
-    readonly name: pulumi.Input<string>;
+    readonly name?: pulumi.Input<string>;
     /**
      * The Namespace name
      */

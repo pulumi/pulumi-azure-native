@@ -47,7 +47,7 @@ export class Backend extends pulumi.CustomResource {
     /**
      * Resource name.
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * Backend Properties contract
      */
@@ -94,8 +94,8 @@ export class Backend extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             const args = argsOrState as BackendArgs | undefined;
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
+            if (!args || args.backendId === undefined) {
+                throw new Error("Missing required property 'backendId'");
             }
             if (!args || args.protocol === undefined) {
                 throw new Error("Missing required property 'protocol'");
@@ -109,9 +109,9 @@ export class Backend extends pulumi.CustomResource {
             if (!args || args.url === undefined) {
                 throw new Error("Missing required property 'url'");
             }
+            inputs["backendId"] = args ? args.backendId : undefined;
             inputs["credentials"] = args ? args.credentials : undefined;
             inputs["description"] = args ? args.description : undefined;
-            inputs["name"] = args ? args.name : undefined;
             inputs["properties"] = args ? args.properties : undefined;
             inputs["protocol"] = args ? args.protocol : undefined;
             inputs["proxy"] = args ? args.proxy : undefined;
@@ -121,6 +121,7 @@ export class Backend extends pulumi.CustomResource {
             inputs["title"] = args ? args.title : undefined;
             inputs["tls"] = args ? args.tls : undefined;
             inputs["url"] = args ? args.url : undefined;
+            inputs["name"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -141,6 +142,10 @@ export class Backend extends pulumi.CustomResource {
  */
 export interface BackendArgs {
     /**
+     * Identifier of the Backend entity. Must be unique in the current API Management service instance.
+     */
+    readonly backendId: pulumi.Input<string>;
+    /**
      * Backend Credentials Contract Properties
      */
     readonly credentials?: pulumi.Input<inputs.apimanagement.v20191201.BackendCredentialsContract>;
@@ -148,10 +153,6 @@ export interface BackendArgs {
      * Backend Description.
      */
     readonly description?: pulumi.Input<string>;
-    /**
-     * Identifier of the Backend entity. Must be unique in the current API Management service instance.
-     */
-    readonly name: pulumi.Input<string>;
     /**
      * Backend Properties contract
      */

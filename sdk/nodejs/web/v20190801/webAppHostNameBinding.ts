@@ -96,6 +96,9 @@ export class WebAppHostNameBinding extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             const args = argsOrState as WebAppHostNameBindingArgs | undefined;
+            if (!args || args.hostName === undefined) {
+                throw new Error("Missing required property 'hostName'");
+            }
             if (!args || args.name === undefined) {
                 throw new Error("Missing required property 'name'");
             }
@@ -106,6 +109,7 @@ export class WebAppHostNameBinding extends pulumi.CustomResource {
             inputs["azureResourceType"] = args ? args.azureResourceType : undefined;
             inputs["customHostNameDnsRecordType"] = args ? args.customHostNameDnsRecordType : undefined;
             inputs["domainId"] = args ? args.domainId : undefined;
+            inputs["hostName"] = args ? args.hostName : undefined;
             inputs["hostNameType"] = args ? args.hostNameType : undefined;
             inputs["kind"] = args ? args.kind : undefined;
             inputs["name"] = args ? args.name : undefined;
@@ -150,6 +154,10 @@ export interface WebAppHostNameBindingArgs {
      */
     readonly domainId?: pulumi.Input<string>;
     /**
+     * Hostname in the hostname binding.
+     */
+    readonly hostName: pulumi.Input<string>;
+    /**
      * Hostname type.
      */
     readonly hostNameType?: pulumi.Input<string>;
@@ -158,7 +166,7 @@ export interface WebAppHostNameBindingArgs {
      */
     readonly kind?: pulumi.Input<string>;
     /**
-     * Hostname in the hostname binding.
+     * Name of the app.
      */
     readonly name: pulumi.Input<string>;
     /**

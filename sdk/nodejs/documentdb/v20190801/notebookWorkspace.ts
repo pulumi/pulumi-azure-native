@@ -37,7 +37,7 @@ export class NotebookWorkspace extends pulumi.CustomResource {
     /**
      * The name of the database account.
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * Specifies the endpoint of Notebook server.
      */
@@ -67,15 +67,16 @@ export class NotebookWorkspace extends pulumi.CustomResource {
             if (!args || args.accountName === undefined) {
                 throw new Error("Missing required property 'accountName'");
             }
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
+            if (!args || args.notebookWorkspaceName === undefined) {
+                throw new Error("Missing required property 'notebookWorkspaceName'");
             }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["accountName"] = args ? args.accountName : undefined;
-            inputs["name"] = args ? args.name : undefined;
+            inputs["notebookWorkspaceName"] = args ? args.notebookWorkspaceName : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["name"] = undefined /*out*/;
             inputs["notebookServerEndpoint"] = undefined /*out*/;
             inputs["status"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
@@ -104,7 +105,7 @@ export interface NotebookWorkspaceArgs {
     /**
      * The name of the notebook workspace resource.
      */
-    readonly name: pulumi.Input<string>;
+    readonly notebookWorkspaceName: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

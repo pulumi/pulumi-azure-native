@@ -34,7 +34,7 @@ export class HyperVCollector extends pulumi.CustomResource {
     }
 
     public readonly eTag!: pulumi.Output<string | undefined>;
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     public readonly properties!: pulumi.Output<outputs.migrate.v20191001.CollectorPropertiesResponse>;
     public /*out*/ readonly type!: pulumi.Output<string>;
 
@@ -51,8 +51,8 @@ export class HyperVCollector extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             const args = argsOrState as HyperVCollectorArgs | undefined;
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
+            if (!args || args.hyperVCollectorName === undefined) {
+                throw new Error("Missing required property 'hyperVCollectorName'");
             }
             if (!args || args.projectName === undefined) {
                 throw new Error("Missing required property 'projectName'");
@@ -61,10 +61,11 @@ export class HyperVCollector extends pulumi.CustomResource {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["eTag"] = args ? args.eTag : undefined;
-            inputs["name"] = args ? args.name : undefined;
+            inputs["hyperVCollectorName"] = args ? args.hyperVCollectorName : undefined;
             inputs["projectName"] = args ? args.projectName : undefined;
             inputs["properties"] = args ? args.properties : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["name"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -86,7 +87,7 @@ export interface HyperVCollectorArgs {
     /**
      * Unique name of a Hyper-V collector within a project.
      */
-    readonly name: pulumi.Input<string>;
+    readonly hyperVCollectorName: pulumi.Input<string>;
     /**
      * Name of the Azure Migrate project.
      */

@@ -15,21 +15,21 @@ export function getStorageAccount(args: GetStorageAccountArgs, opts?: pulumi.Inv
         opts.version = utilities.getVersion();
     }
     return pulumi.runtime.invoke("azurerm:storage/v20181101:getStorageAccount", {
+        "accountName": args.accountName,
         "expand": args.expand,
-        "name": args.name,
         "resourceGroupName": args.resourceGroupName,
     }, opts);
 }
 
 export interface GetStorageAccountArgs {
     /**
+     * The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.
+     */
+    readonly accountName: string;
+    /**
      * May be used to expand the properties within account's properties. By default, data is not included when fetching properties. Currently we only support geoReplicationStats.
      */
     readonly expand?: string;
-    /**
-     * The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.
-     */
-    readonly name: string;
     /**
      * The name of the resource group within the user's subscription. The name is case insensitive.
      */

@@ -75,7 +75,7 @@ export class IntegrationAccountSchema extends pulumi.CustomResource {
     /**
      * Gets the resource name.
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * The schema type.
      */
@@ -109,11 +109,11 @@ export class IntegrationAccountSchema extends pulumi.CustomResource {
             if (!args || args.integrationAccountName === undefined) {
                 throw new Error("Missing required property 'integrationAccountName'");
             }
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
-            }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
+            }
+            if (!args || args.schemaName === undefined) {
+                throw new Error("Missing required property 'schemaName'");
             }
             if (!args || args.schemaType === undefined) {
                 throw new Error("Missing required property 'schemaType'");
@@ -125,14 +125,15 @@ export class IntegrationAccountSchema extends pulumi.CustomResource {
             inputs["integrationAccountName"] = args ? args.integrationAccountName : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["metadata"] = args ? args.metadata : undefined;
-            inputs["name"] = args ? args.name : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["schemaName"] = args ? args.schemaName : undefined;
             inputs["schemaType"] = args ? args.schemaType : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["targetNamespace"] = args ? args.targetNamespace : undefined;
             inputs["changedTime"] = undefined /*out*/;
             inputs["contentLink"] = undefined /*out*/;
             inputs["createdTime"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -181,13 +182,13 @@ export interface IntegrationAccountSchemaArgs {
      */
     readonly metadata?: pulumi.Input<{[key: string]: any}>;
     /**
-     * The integration account schema name.
-     */
-    readonly name: pulumi.Input<string>;
-    /**
      * The resource group name.
      */
     readonly resourceGroupName: pulumi.Input<string>;
+    /**
+     * The integration account schema name.
+     */
+    readonly schemaName: pulumi.Input<string>;
     /**
      * The schema type.
      */

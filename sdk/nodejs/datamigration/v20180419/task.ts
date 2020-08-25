@@ -43,7 +43,7 @@ export class Task extends pulumi.CustomResource {
     /**
      * Resource name.
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * Custom task properties
      */
@@ -69,21 +69,22 @@ export class Task extends pulumi.CustomResource {
             if (!args || args.groupName === undefined) {
                 throw new Error("Missing required property 'groupName'");
             }
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
-            }
             if (!args || args.projectName === undefined) {
                 throw new Error("Missing required property 'projectName'");
             }
             if (!args || args.serviceName === undefined) {
                 throw new Error("Missing required property 'serviceName'");
             }
+            if (!args || args.taskName === undefined) {
+                throw new Error("Missing required property 'taskName'");
+            }
             inputs["etag"] = args ? args.etag : undefined;
             inputs["groupName"] = args ? args.groupName : undefined;
-            inputs["name"] = args ? args.name : undefined;
             inputs["projectName"] = args ? args.projectName : undefined;
             inputs["properties"] = args ? args.properties : undefined;
             inputs["serviceName"] = args ? args.serviceName : undefined;
+            inputs["taskName"] = args ? args.taskName : undefined;
+            inputs["name"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -110,10 +111,6 @@ export interface TaskArgs {
      */
     readonly groupName: pulumi.Input<string>;
     /**
-     * Name of the Task
-     */
-    readonly name: pulumi.Input<string>;
-    /**
      * Name of the project
      */
     readonly projectName: pulumi.Input<string>;
@@ -125,4 +122,8 @@ export interface TaskArgs {
      * Name of the service
      */
     readonly serviceName: pulumi.Input<string>;
+    /**
+     * Name of the Task
+     */
+    readonly taskName: pulumi.Input<string>;
 }

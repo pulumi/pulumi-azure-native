@@ -92,6 +92,9 @@ export class SiteHostNameBindingSlot extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             const args = argsOrState as SiteHostNameBindingSlotArgs | undefined;
+            if (!args || args.hostName === undefined) {
+                throw new Error("Missing required property 'hostName'");
+            }
             if (!args || args.location === undefined) {
                 throw new Error("Missing required property 'location'");
             }
@@ -108,6 +111,7 @@ export class SiteHostNameBindingSlot extends pulumi.CustomResource {
             inputs["azureResourceType"] = args ? args.azureResourceType : undefined;
             inputs["customHostNameDnsRecordType"] = args ? args.customHostNameDnsRecordType : undefined;
             inputs["domainId"] = args ? args.domainId : undefined;
+            inputs["hostName"] = args ? args.hostName : undefined;
             inputs["hostNameType"] = args ? args.hostNameType : undefined;
             inputs["id"] = args ? args.id : undefined;
             inputs["kind"] = args ? args.kind : undefined;
@@ -153,6 +157,10 @@ export interface SiteHostNameBindingSlotArgs {
      */
     readonly domainId?: pulumi.Input<string>;
     /**
+     * Name of host
+     */
+    readonly hostName: pulumi.Input<string>;
+    /**
      * Host name type
      */
     readonly hostNameType?: pulumi.Input<string>;
@@ -169,7 +177,7 @@ export interface SiteHostNameBindingSlotArgs {
      */
     readonly location: pulumi.Input<string>;
     /**
-     * Name of host
+     * Resource Name
      */
     readonly name: pulumi.Input<string>;
     /**

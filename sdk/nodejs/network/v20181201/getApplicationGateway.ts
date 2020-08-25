@@ -15,7 +15,7 @@ export function getApplicationGateway(args: GetApplicationGatewayArgs, opts?: pu
         opts.version = utilities.getVersion();
     }
     return pulumi.runtime.invoke("azurerm:network/v20181201:getApplicationGateway", {
-        "name": args.name,
+        "applicationGatewayName": args.applicationGatewayName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);
 }
@@ -24,7 +24,7 @@ export interface GetApplicationGatewayArgs {
     /**
      * The name of the application gateway.
      */
-    readonly name: string;
+    readonly applicationGatewayName: string;
     /**
      * The name of the resource group.
      */

@@ -47,7 +47,7 @@ export class ProtectedItem extends pulumi.CustomResource {
     /**
      * Resource name associated with the resource.
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * ProtectedItemResource properties
      */
@@ -80,8 +80,8 @@ export class ProtectedItem extends pulumi.CustomResource {
             if (!args || args.fabricName === undefined) {
                 throw new Error("Missing required property 'fabricName'");
             }
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
+            if (!args || args.protectedItemName === undefined) {
+                throw new Error("Missing required property 'protectedItemName'");
             }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
@@ -93,11 +93,12 @@ export class ProtectedItem extends pulumi.CustomResource {
             inputs["eTag"] = args ? args.eTag : undefined;
             inputs["fabricName"] = args ? args.fabricName : undefined;
             inputs["location"] = args ? args.location : undefined;
-            inputs["name"] = args ? args.name : undefined;
             inputs["properties"] = args ? args.properties : undefined;
+            inputs["protectedItemName"] = args ? args.protectedItemName : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["vaultName"] = args ? args.vaultName : undefined;
+            inputs["name"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -134,13 +135,13 @@ export interface ProtectedItemArgs {
      */
     readonly location?: pulumi.Input<string>;
     /**
-     * Item name to be backed up.
-     */
-    readonly name: pulumi.Input<string>;
-    /**
      * ProtectedItemResource properties
      */
     readonly properties?: pulumi.Input<inputs.recoveryservices.v20190513.ProtectedItem>;
+    /**
+     * Item name to be backed up.
+     */
+    readonly protectedItemName: pulumi.Input<string>;
     /**
      * The name of the resource group where the recovery services vault is present.
      */

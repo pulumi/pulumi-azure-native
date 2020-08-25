@@ -15,21 +15,21 @@ export function getConnector(args: GetConnectorArgs, opts?: pulumi.InvokeOptions
         opts.version = utilities.getVersion();
     }
     return pulumi.runtime.invoke("azurerm:customerinsights/v20170426:getConnector", {
+        "connectorName": args.connectorName,
         "hubName": args.hubName,
-        "name": args.name,
         "resourceGroupName": args.resourceGroupName,
     }, opts);
 }
 
 export interface GetConnectorArgs {
     /**
+     * The name of the connector.
+     */
+    readonly connectorName: string;
+    /**
      * The name of the hub.
      */
     readonly hubName: string;
-    /**
-     * The name of the connector.
-     */
-    readonly name: string;
     /**
      * The name of the resource group.
      */

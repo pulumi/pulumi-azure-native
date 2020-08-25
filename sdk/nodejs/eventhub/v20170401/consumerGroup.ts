@@ -41,7 +41,7 @@ export class ConsumerGroup extends pulumi.CustomResource {
     /**
      * Resource name.
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * Resource type.
      */
@@ -68,11 +68,11 @@ export class ConsumerGroup extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             const args = argsOrState as ConsumerGroupArgs | undefined;
+            if (!args || args.consumerGroupName === undefined) {
+                throw new Error("Missing required property 'consumerGroupName'");
+            }
             if (!args || args.eventHubName === undefined) {
                 throw new Error("Missing required property 'eventHubName'");
-            }
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
             }
             if (!args || args.namespaceName === undefined) {
                 throw new Error("Missing required property 'namespaceName'");
@@ -80,12 +80,13 @@ export class ConsumerGroup extends pulumi.CustomResource {
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            inputs["consumerGroupName"] = args ? args.consumerGroupName : undefined;
             inputs["eventHubName"] = args ? args.eventHubName : undefined;
-            inputs["name"] = args ? args.name : undefined;
             inputs["namespaceName"] = args ? args.namespaceName : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["userMetadata"] = args ? args.userMetadata : undefined;
             inputs["createdAt"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
             inputs["updatedAt"] = undefined /*out*/;
         }
@@ -107,13 +108,13 @@ export class ConsumerGroup extends pulumi.CustomResource {
  */
 export interface ConsumerGroupArgs {
     /**
+     * The consumer group name
+     */
+    readonly consumerGroupName: pulumi.Input<string>;
+    /**
      * The Event Hub name
      */
     readonly eventHubName: pulumi.Input<string>;
-    /**
-     * The consumer group name
-     */
-    readonly name: pulumi.Input<string>;
     /**
      * The Namespace name
      */

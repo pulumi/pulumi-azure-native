@@ -15,7 +15,7 @@ export function getProperty(args: GetPropertyArgs, opts?: pulumi.InvokeOptions):
         opts.version = utilities.getVersion();
     }
     return pulumi.runtime.invoke("azurerm:apimanagement/v20180101:getProperty", {
-        "name": args.name,
+        "propId": args.propId,
         "resourceGroupName": args.resourceGroupName,
         "serviceName": args.serviceName,
     }, opts);
@@ -25,7 +25,7 @@ export interface GetPropertyArgs {
     /**
      * Identifier of the property.
      */
-    readonly name: string;
+    readonly propId: string;
     /**
      * The name of the resource group.
      */

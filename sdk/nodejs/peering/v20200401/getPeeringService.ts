@@ -15,7 +15,7 @@ export function getPeeringService(args: GetPeeringServiceArgs, opts?: pulumi.Inv
         opts.version = utilities.getVersion();
     }
     return pulumi.runtime.invoke("azurerm:peering/v20200401:getPeeringService", {
-        "name": args.name,
+        "peeringServiceName": args.peeringServiceName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);
 }
@@ -24,7 +24,7 @@ export interface GetPeeringServiceArgs {
     /**
      * The name of the peering.
      */
-    readonly name: string;
+    readonly peeringServiceName: string;
     /**
      * The name of the resource group.
      */

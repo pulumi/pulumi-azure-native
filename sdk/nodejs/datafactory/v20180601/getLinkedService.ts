@@ -16,7 +16,7 @@ export function getLinkedService(args: GetLinkedServiceArgs, opts?: pulumi.Invok
     }
     return pulumi.runtime.invoke("azurerm:datafactory/v20180601:getLinkedService", {
         "factoryName": args.factoryName,
-        "name": args.name,
+        "linkedServiceName": args.linkedServiceName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);
 }
@@ -29,7 +29,7 @@ export interface GetLinkedServiceArgs {
     /**
      * The linked service name.
      */
-    readonly name: string;
+    readonly linkedServiceName: string;
     /**
      * The resource group name.
      */

@@ -72,14 +72,14 @@ export class Route extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             const args = argsOrState as RouteArgs | undefined;
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
-            }
             if (!args || args.nextHopType === undefined) {
                 throw new Error("Missing required property 'nextHopType'");
             }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
+            }
+            if (!args || args.routeName === undefined) {
+                throw new Error("Missing required property 'routeName'");
             }
             if (!args || args.routeTableName === undefined) {
                 throw new Error("Missing required property 'routeTableName'");
@@ -92,6 +92,7 @@ export class Route extends pulumi.CustomResource {
             inputs["nextHopType"] = args ? args.nextHopType : undefined;
             inputs["provisioningState"] = args ? args.provisioningState : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["routeName"] = args ? args.routeName : undefined;
             inputs["routeTableName"] = args ? args.routeTableName : undefined;
         }
         if (!opts) {
@@ -124,9 +125,9 @@ export interface RouteArgs {
      */
     readonly id?: pulumi.Input<string>;
     /**
-     * The name of the route.
+     * The name of the resource that is unique within a resource group. This name can be used to access the resource.
      */
-    readonly name: pulumi.Input<string>;
+    readonly name?: pulumi.Input<string>;
     /**
      * The IP address packets should be forwarded to. Next hop values are only allowed in routes where the next hop type is VirtualAppliance.
      */
@@ -143,6 +144,10 @@ export interface RouteArgs {
      * The name of the resource group.
      */
     readonly resourceGroupName: pulumi.Input<string>;
+    /**
+     * The name of the route.
+     */
+    readonly routeName: pulumi.Input<string>;
     /**
      * The name of the route table.
      */

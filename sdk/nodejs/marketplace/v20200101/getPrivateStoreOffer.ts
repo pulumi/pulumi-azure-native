@@ -15,7 +15,7 @@ export function getPrivateStoreOffer(args: GetPrivateStoreOfferArgs, opts?: pulu
         opts.version = utilities.getVersion();
     }
     return pulumi.runtime.invoke("azurerm:marketplace/v20200101:getPrivateStoreOffer", {
-        "name": args.name,
+        "offerId": args.offerId,
         "privateStoreId": args.privateStoreId,
     }, opts);
 }
@@ -24,7 +24,7 @@ export interface GetPrivateStoreOfferArgs {
     /**
      * The offer ID to update or delete
      */
-    readonly name: string;
+    readonly offerId: string;
     /**
      * The store ID - must use the tenant ID
      */

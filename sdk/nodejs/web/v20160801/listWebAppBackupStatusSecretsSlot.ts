@@ -15,6 +15,7 @@ export function listWebAppBackupStatusSecretsSlot(args: ListWebAppBackupStatusSe
         opts.version = utilities.getVersion();
     }
     return pulumi.runtime.invoke("azurerm:web/v20160801:listWebAppBackupStatusSecretsSlot", {
+        "backupId": args.backupId,
         "backupRequestName": args.backupRequestName,
         "backupSchedule": args.backupSchedule,
         "databases": args.databases,
@@ -29,6 +30,10 @@ export function listWebAppBackupStatusSecretsSlot(args: ListWebAppBackupStatusSe
 }
 
 export interface ListWebAppBackupStatusSecretsSlotArgs {
+    /**
+     * ID of backup.
+     */
+    readonly backupId: string;
     /**
      * Name of the backup.
      */
@@ -50,7 +55,7 @@ export interface ListWebAppBackupStatusSecretsSlotArgs {
      */
     readonly kind?: string;
     /**
-     * ID of backup.
+     * Name of web app.
      */
     readonly name: string;
     /**

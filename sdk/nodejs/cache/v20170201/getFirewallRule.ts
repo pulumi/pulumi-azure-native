@@ -16,8 +16,8 @@ export function getFirewallRule(args: GetFirewallRuleArgs, opts?: pulumi.InvokeO
     }
     return pulumi.runtime.invoke("azurerm:cache/v20170201:getFirewallRule", {
         "cacheName": args.cacheName,
-        "name": args.name,
         "resourceGroupName": args.resourceGroupName,
+        "ruleName": args.ruleName,
     }, opts);
 }
 
@@ -27,13 +27,13 @@ export interface GetFirewallRuleArgs {
      */
     readonly cacheName: string;
     /**
-     * The name of the firewall rule.
-     */
-    readonly name: string;
-    /**
      * The name of the resource group.
      */
     readonly resourceGroupName: string;
+    /**
+     * The name of the firewall rule.
+     */
+    readonly ruleName: string;
 }
 
 /**

@@ -16,7 +16,7 @@ export function getAdaptiveApplicationControl(args: GetAdaptiveApplicationContro
     }
     return pulumi.runtime.invoke("azurerm:security/v20200101:getAdaptiveApplicationControl", {
         "ascLocation": args.ascLocation,
-        "name": args.name,
+        "groupName": args.groupName,
     }, opts);
 }
 
@@ -28,7 +28,7 @@ export interface GetAdaptiveApplicationControlArgs {
     /**
      * Name of an application control machine group
      */
-    readonly name: string;
+    readonly groupName: string;
 }
 
 export interface GetAdaptiveApplicationControlResult {

@@ -15,21 +15,21 @@ export function getReplication(args: GetReplicationArgs, opts?: pulumi.InvokeOpt
         opts.version = utilities.getVersion();
     }
     return pulumi.runtime.invoke("azurerm:containerregistry/v20171001:getReplication", {
-        "name": args.name,
         "registryName": args.registryName,
+        "replicationName": args.replicationName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);
 }
 
 export interface GetReplicationArgs {
     /**
-     * The name of the replication.
-     */
-    readonly name: string;
-    /**
      * The name of the container registry.
      */
     readonly registryName: string;
+    /**
+     * The name of the replication.
+     */
+    readonly replicationName: string;
     /**
      * The name of the resource group to which the container registry belongs.
      */

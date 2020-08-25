@@ -104,6 +104,9 @@ export class SiteInstanceDeploymentSlot extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             const args = argsOrState as SiteInstanceDeploymentSlotArgs | undefined;
+            if (!args || args.id === undefined) {
+                throw new Error("Missing required property 'id'");
+            }
             if (!args || args.instanceId === undefined) {
                 throw new Error("Missing required property 'instanceId'");
             }
@@ -125,6 +128,7 @@ export class SiteInstanceDeploymentSlot extends pulumi.CustomResource {
             inputs["deployer"] = args ? args.deployer : undefined;
             inputs["details"] = args ? args.details : undefined;
             inputs["endTime"] = args ? args.endTime : undefined;
+            inputs["id"] = args ? args.id : undefined;
             inputs["instanceId"] = args ? args.instanceId : undefined;
             inputs["kind"] = args ? args.kind : undefined;
             inputs["location"] = args ? args.location : undefined;
@@ -177,6 +181,10 @@ export interface SiteInstanceDeploymentSlotArgs {
      */
     readonly endTime?: pulumi.Input<string>;
     /**
+     * Resource Id
+     */
+    readonly id: pulumi.Input<string>;
+    /**
      * Id of web app instance
      */
     readonly instanceId: pulumi.Input<string>;
@@ -193,7 +201,7 @@ export interface SiteInstanceDeploymentSlotArgs {
      */
     readonly message?: pulumi.Input<string>;
     /**
-     * Resource Id
+     * Resource Name
      */
     readonly name: pulumi.Input<string>;
     /**

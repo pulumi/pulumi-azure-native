@@ -67,7 +67,7 @@ export class ServerEndpoint extends pulumi.CustomResource {
     /**
      * The name of the resource
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * Offline data transfer
      */
@@ -130,11 +130,11 @@ export class ServerEndpoint extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             const args = argsOrState as ServerEndpointArgs | undefined;
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
-            }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
+            }
+            if (!args || args.serverEndpointName === undefined) {
+                throw new Error("Missing required property 'serverEndpointName'");
             }
             if (!args || args.storageSyncServiceName === undefined) {
                 throw new Error("Missing required property 'storageSyncServiceName'");
@@ -146,10 +146,10 @@ export class ServerEndpoint extends pulumi.CustomResource {
             inputs["friendlyName"] = args ? args.friendlyName : undefined;
             inputs["initialDownloadPolicy"] = args ? args.initialDownloadPolicy : undefined;
             inputs["localCacheMode"] = args ? args.localCacheMode : undefined;
-            inputs["name"] = args ? args.name : undefined;
             inputs["offlineDataTransfer"] = args ? args.offlineDataTransfer : undefined;
             inputs["offlineDataTransferShareName"] = args ? args.offlineDataTransferShareName : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["serverEndpointName"] = args ? args.serverEndpointName : undefined;
             inputs["serverLocalPath"] = args ? args.serverLocalPath : undefined;
             inputs["serverResourceId"] = args ? args.serverResourceId : undefined;
             inputs["storageSyncServiceName"] = args ? args.storageSyncServiceName : undefined;
@@ -159,6 +159,7 @@ export class ServerEndpoint extends pulumi.CustomResource {
             inputs["cloudTieringStatus"] = undefined /*out*/;
             inputs["lastOperationName"] = undefined /*out*/;
             inputs["lastWorkflowId"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
             inputs["offlineDataTransferStorageAccountResourceId"] = undefined /*out*/;
             inputs["offlineDataTransferStorageAccountTenantId"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
@@ -200,10 +201,6 @@ export interface ServerEndpointArgs {
      */
     readonly localCacheMode?: pulumi.Input<string>;
     /**
-     * Name of Server Endpoint object.
-     */
-    readonly name: pulumi.Input<string>;
-    /**
      * Offline data transfer
      */
     readonly offlineDataTransfer?: pulumi.Input<string>;
@@ -215,6 +212,10 @@ export interface ServerEndpointArgs {
      * The name of the resource group. The name is case insensitive.
      */
     readonly resourceGroupName: pulumi.Input<string>;
+    /**
+     * Name of Server Endpoint object.
+     */
+    readonly serverEndpointName: pulumi.Input<string>;
     /**
      * Server Local path.
      */

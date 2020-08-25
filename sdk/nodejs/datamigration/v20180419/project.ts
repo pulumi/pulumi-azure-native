@@ -51,7 +51,7 @@ export class Project extends pulumi.CustomResource {
     /**
      * Resource name.
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * The project's provisioning state
      */
@@ -100,8 +100,8 @@ export class Project extends pulumi.CustomResource {
             if (!args || args.location === undefined) {
                 throw new Error("Missing required property 'location'");
             }
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
+            if (!args || args.projectName === undefined) {
+                throw new Error("Missing required property 'projectName'");
             }
             if (!args || args.serviceName === undefined) {
                 throw new Error("Missing required property 'serviceName'");
@@ -115,7 +115,7 @@ export class Project extends pulumi.CustomResource {
             inputs["databasesInfo"] = args ? args.databasesInfo : undefined;
             inputs["groupName"] = args ? args.groupName : undefined;
             inputs["location"] = args ? args.location : undefined;
-            inputs["name"] = args ? args.name : undefined;
+            inputs["projectName"] = args ? args.projectName : undefined;
             inputs["serviceName"] = args ? args.serviceName : undefined;
             inputs["sourceConnectionInfo"] = args ? args.sourceConnectionInfo : undefined;
             inputs["sourcePlatform"] = args ? args.sourcePlatform : undefined;
@@ -123,6 +123,7 @@ export class Project extends pulumi.CustomResource {
             inputs["targetConnectionInfo"] = args ? args.targetConnectionInfo : undefined;
             inputs["targetPlatform"] = args ? args.targetPlatform : undefined;
             inputs["creationTime"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
@@ -156,7 +157,7 @@ export interface ProjectArgs {
     /**
      * Name of the project
      */
-    readonly name: pulumi.Input<string>;
+    readonly projectName: pulumi.Input<string>;
     /**
      * Name of the service
      */

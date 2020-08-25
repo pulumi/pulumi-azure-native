@@ -15,17 +15,13 @@ export function getVMwareCollector(args: GetVMwareCollectorArgs, opts?: pulumi.I
         opts.version = utilities.getVersion();
     }
     return pulumi.runtime.invoke("azurerm:migrate/v20191001:getVMwareCollector", {
-        "name": args.name,
         "projectName": args.projectName,
         "resourceGroupName": args.resourceGroupName,
+        "vmWareCollectorName": args.vmWareCollectorName,
     }, opts);
 }
 
 export interface GetVMwareCollectorArgs {
-    /**
-     * Unique name of a VMware collector within a project.
-     */
-    readonly name: string;
     /**
      * Name of the Azure Migrate project.
      */
@@ -34,6 +30,10 @@ export interface GetVMwareCollectorArgs {
      * Name of the Azure Resource Group that project is part of.
      */
     readonly resourceGroupName: string;
+    /**
+     * Unique name of a VMware collector within a project.
+     */
+    readonly vmWareCollectorName: string;
 }
 
 export interface GetVMwareCollectorResult {

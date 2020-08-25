@@ -67,7 +67,7 @@ export class LiveOutput extends pulumi.CustomResource {
     /**
      * The name of the resource.
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * The output snapshot time.
      */
@@ -110,8 +110,8 @@ export class LiveOutput extends pulumi.CustomResource {
             if (!args || args.liveEventName === undefined) {
                 throw new Error("Missing required property 'liveEventName'");
             }
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
+            if (!args || args.liveOutputName === undefined) {
+                throw new Error("Missing required property 'liveOutputName'");
             }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
@@ -122,12 +122,13 @@ export class LiveOutput extends pulumi.CustomResource {
             inputs["description"] = args ? args.description : undefined;
             inputs["hls"] = args ? args.hls : undefined;
             inputs["liveEventName"] = args ? args.liveEventName : undefined;
+            inputs["liveOutputName"] = args ? args.liveOutputName : undefined;
             inputs["manifestName"] = args ? args.manifestName : undefined;
-            inputs["name"] = args ? args.name : undefined;
             inputs["outputSnapTime"] = args ? args.outputSnapTime : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["created"] = undefined /*out*/;
             inputs["lastModified"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
             inputs["resourceState"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
@@ -174,13 +175,13 @@ export interface LiveOutputArgs {
      */
     readonly liveEventName: pulumi.Input<string>;
     /**
+     * The name of the Live Output.
+     */
+    readonly liveOutputName: pulumi.Input<string>;
+    /**
      * The manifest file name.  If not provided, the service will generate one automatically.
      */
     readonly manifestName?: pulumi.Input<string>;
-    /**
-     * The name of the Live Output.
-     */
-    readonly name: pulumi.Input<string>;
     /**
      * The output snapshot time.
      */

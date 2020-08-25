@@ -17,8 +17,8 @@ export function getDatabaseAccountCassandraTable(args: GetDatabaseAccountCassand
     return pulumi.runtime.invoke("azurerm:documentdb/v20160319:getDatabaseAccountCassandraTable", {
         "accountName": args.accountName,
         "keyspaceName": args.keyspaceName,
-        "name": args.name,
         "resourceGroupName": args.resourceGroupName,
+        "tableName": args.tableName,
     }, opts);
 }
 
@@ -32,13 +32,13 @@ export interface GetDatabaseAccountCassandraTableArgs {
      */
     readonly keyspaceName: string;
     /**
-     * Cosmos DB table name.
-     */
-    readonly name: string;
-    /**
      * Name of an Azure resource group.
      */
     readonly resourceGroupName: string;
+    /**
+     * Cosmos DB table name.
+     */
+    readonly tableName: string;
 }
 
 /**

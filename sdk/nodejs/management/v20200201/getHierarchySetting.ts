@@ -15,7 +15,7 @@ export function getHierarchySetting(args: GetHierarchySettingArgs, opts?: pulumi
         opts.version = utilities.getVersion();
     }
     return pulumi.runtime.invoke("azurerm:management/v20200201:getHierarchySetting", {
-        "name": args.name,
+        "groupId": args.groupId,
     }, opts);
 }
 
@@ -23,7 +23,7 @@ export interface GetHierarchySettingArgs {
     /**
      * Management Group ID.
      */
-    readonly name: string;
+    readonly groupId: string;
 }
 
 /**

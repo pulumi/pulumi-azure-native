@@ -71,7 +71,7 @@ export class RecordSet extends pulumi.CustomResource {
     /**
      * The name of the record set.
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * The list of NS records in the record set.
      */
@@ -122,11 +122,11 @@ export class RecordSet extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             const args = argsOrState as RecordSetArgs | undefined;
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
-            }
             if (!args || args.recordType === undefined) {
                 throw new Error("Missing required property 'recordType'");
+            }
+            if (!args || args.relativeRecordSetName === undefined) {
+                throw new Error("Missing required property 'relativeRecordSetName'");
             }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
@@ -141,10 +141,10 @@ export class RecordSet extends pulumi.CustomResource {
             inputs["etag"] = args ? args.etag : undefined;
             inputs["metadata"] = args ? args.metadata : undefined;
             inputs["mxRecords"] = args ? args.mxRecords : undefined;
-            inputs["name"] = args ? args.name : undefined;
             inputs["nsRecords"] = args ? args.nsRecords : undefined;
             inputs["ptrRecords"] = args ? args.ptrRecords : undefined;
             inputs["recordType"] = args ? args.recordType : undefined;
+            inputs["relativeRecordSetName"] = args ? args.relativeRecordSetName : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["soaRecord"] = args ? args.soaRecord : undefined;
             inputs["srvRecords"] = args ? args.srvRecords : undefined;
@@ -153,6 +153,7 @@ export class RecordSet extends pulumi.CustomResource {
             inputs["txtRecords"] = args ? args.txtRecords : undefined;
             inputs["zoneName"] = args ? args.zoneName : undefined;
             inputs["fqdn"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
@@ -202,10 +203,6 @@ export interface RecordSetArgs {
      */
     readonly mxRecords?: pulumi.Input<pulumi.Input<inputs.network.v20180501.MxRecord>[]>;
     /**
-     * The name of the record set, relative to the name of the zone.
-     */
-    readonly name: pulumi.Input<string>;
-    /**
      * The list of NS records in the record set.
      */
     readonly nsRecords?: pulumi.Input<pulumi.Input<inputs.network.v20180501.NsRecord>[]>;
@@ -217,6 +214,10 @@ export interface RecordSetArgs {
      * The type of DNS record in this record set. Record sets of type SOA can be updated but not created (they are created when the DNS zone is created).
      */
     readonly recordType: pulumi.Input<string>;
+    /**
+     * The name of the record set, relative to the name of the zone.
+     */
+    readonly relativeRecordSetName: pulumi.Input<string>;
     /**
      * The name of the resource group.
      */

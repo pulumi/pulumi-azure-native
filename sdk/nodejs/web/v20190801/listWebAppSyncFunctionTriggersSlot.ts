@@ -17,18 +17,23 @@ export function listWebAppSyncFunctionTriggersSlot(args: ListWebAppSyncFunctionT
     return pulumi.runtime.invoke("azurerm:web/v20190801:listWebAppSyncFunctionTriggersSlot", {
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,
+        "slot": args.slot,
     }, opts);
 }
 
 export interface ListWebAppSyncFunctionTriggersSlotArgs {
     /**
-     * Name of the deployment slot.
+     * Name of the app.
      */
     readonly name: string;
     /**
      * Name of the resource group to which the resource belongs.
      */
     readonly resourceGroupName: string;
+    /**
+     * Name of the deployment slot.
+     */
+    readonly slot: string;
 }
 
 /**

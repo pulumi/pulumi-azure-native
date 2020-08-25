@@ -15,7 +15,7 @@ export function getService(args: GetServiceArgs, opts?: pulumi.InvokeOptions): P
         opts.version = utilities.getVersion();
     }
     return pulumi.runtime.invoke("azurerm:windowsiot/v20190601:getService", {
-        "name": args.name,
+        "deviceName": args.deviceName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);
 }
@@ -24,7 +24,7 @@ export interface GetServiceArgs {
     /**
      * The name of the Windows IoT Device Service.
      */
-    readonly name: string;
+    readonly deviceName: string;
     /**
      * The name of the resource group that contains the Windows IoT Device Service.
      */

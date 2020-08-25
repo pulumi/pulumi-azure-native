@@ -15,17 +15,13 @@ export function getVirtualNetworkRule(args: GetVirtualNetworkRuleArgs, opts?: pu
         opts.version = utilities.getVersion();
     }
     return pulumi.runtime.invoke("azurerm:dbformariadb/v20180601:getVirtualNetworkRule", {
-        "name": args.name,
         "resourceGroupName": args.resourceGroupName,
         "serverName": args.serverName,
+        "virtualNetworkRuleName": args.virtualNetworkRuleName,
     }, opts);
 }
 
 export interface GetVirtualNetworkRuleArgs {
-    /**
-     * The name of the virtual network rule.
-     */
-    readonly name: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -34,6 +30,10 @@ export interface GetVirtualNetworkRuleArgs {
      * The name of the server.
      */
     readonly serverName: string;
+    /**
+     * The name of the virtual network rule.
+     */
+    readonly virtualNetworkRuleName: string;
 }
 
 /**

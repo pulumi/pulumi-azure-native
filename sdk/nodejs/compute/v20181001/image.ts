@@ -43,7 +43,7 @@ export class Image extends pulumi.CustomResource {
     /**
      * Resource name
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * The provisioning state.
      */
@@ -78,21 +78,22 @@ export class Image extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             const args = argsOrState as ImageArgs | undefined;
+            if (!args || args.imageName === undefined) {
+                throw new Error("Missing required property 'imageName'");
+            }
             if (!args || args.location === undefined) {
                 throw new Error("Missing required property 'location'");
-            }
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
             }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            inputs["imageName"] = args ? args.imageName : undefined;
             inputs["location"] = args ? args.location : undefined;
-            inputs["name"] = args ? args.name : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["sourceVirtualMachine"] = args ? args.sourceVirtualMachine : undefined;
             inputs["storageProfile"] = args ? args.storageProfile : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["name"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
@@ -114,13 +115,13 @@ export class Image extends pulumi.CustomResource {
  */
 export interface ImageArgs {
     /**
+     * The name of the image.
+     */
+    readonly imageName: pulumi.Input<string>;
+    /**
      * Resource location
      */
     readonly location: pulumi.Input<string>;
-    /**
-     * The name of the image.
-     */
-    readonly name: pulumi.Input<string>;
     /**
      * The name of the resource group.
      */

@@ -15,7 +15,7 @@ export function getIotDpsResource(args: GetIotDpsResourceArgs, opts?: pulumi.Inv
         opts.version = utilities.getVersion();
     }
     return pulumi.runtime.invoke("azurerm:devices/v20200101:getIotDpsResource", {
-        "name": args.name,
+        "provisioningServiceName": args.provisioningServiceName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);
 }
@@ -24,7 +24,7 @@ export interface GetIotDpsResourceArgs {
     /**
      * Name of the provisioning service to retrieve.
      */
-    readonly name: string;
+    readonly provisioningServiceName: string;
     /**
      * Resource group name.
      */

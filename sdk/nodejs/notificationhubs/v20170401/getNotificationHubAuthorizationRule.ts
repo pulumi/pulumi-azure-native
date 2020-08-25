@@ -15,7 +15,7 @@ export function getNotificationHubAuthorizationRule(args: GetNotificationHubAuth
         opts.version = utilities.getVersion();
     }
     return pulumi.runtime.invoke("azurerm:notificationhubs/v20170401:getNotificationHubAuthorizationRule", {
-        "name": args.name,
+        "authorizationRuleName": args.authorizationRuleName,
         "namespaceName": args.namespaceName,
         "notificationHubName": args.notificationHubName,
         "resourceGroupName": args.resourceGroupName,
@@ -26,7 +26,7 @@ export interface GetNotificationHubAuthorizationRuleArgs {
     /**
      * authorization rule name.
      */
-    readonly name: string;
+    readonly authorizationRuleName: string;
     /**
      * The namespace name
      */

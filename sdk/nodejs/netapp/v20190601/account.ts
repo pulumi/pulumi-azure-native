@@ -47,7 +47,7 @@ export class Account extends pulumi.CustomResource {
     /**
      * Resource name
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * Azure lifecycle management
      */
@@ -74,20 +74,21 @@ export class Account extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             const args = argsOrState as AccountArgs | undefined;
+            if (!args || args.accountName === undefined) {
+                throw new Error("Missing required property 'accountName'");
+            }
             if (!args || args.location === undefined) {
                 throw new Error("Missing required property 'location'");
-            }
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
             }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            inputs["accountName"] = args ? args.accountName : undefined;
             inputs["activeDirectories"] = args ? args.activeDirectories : undefined;
             inputs["location"] = args ? args.location : undefined;
-            inputs["name"] = args ? args.name : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["name"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
@@ -109,6 +110,10 @@ export class Account extends pulumi.CustomResource {
  */
 export interface AccountArgs {
     /**
+     * The name of the NetApp account
+     */
+    readonly accountName: pulumi.Input<string>;
+    /**
      * Active Directories
      */
     readonly activeDirectories?: pulumi.Input<pulumi.Input<inputs.netapp.v20190601.ActiveDirectory>[]>;
@@ -116,10 +121,6 @@ export interface AccountArgs {
      * Resource location
      */
     readonly location: pulumi.Input<string>;
-    /**
-     * The name of the NetApp account
-     */
-    readonly name: pulumi.Input<string>;
     /**
      * The name of the resource group.
      */

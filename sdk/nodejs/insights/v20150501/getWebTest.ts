@@ -15,20 +15,20 @@ export function getWebTest(args: GetWebTestArgs, opts?: pulumi.InvokeOptions): P
         opts.version = utilities.getVersion();
     }
     return pulumi.runtime.invoke("azurerm:insights/v20150501:getWebTest", {
-        "name": args.name,
         "resourceGroupName": args.resourceGroupName,
+        "webTestName": args.webTestName,
     }, opts);
 }
 
 export interface GetWebTestArgs {
     /**
-     * The name of the Application Insights webtest resource.
-     */
-    readonly name: string;
-    /**
      * The name of the resource group. The name is case insensitive.
      */
     readonly resourceGroupName: string;
+    /**
+     * The name of the Application Insights webtest resource.
+     */
+    readonly webTestName: string;
 }
 
 /**

@@ -121,8 +121,8 @@ export class ExpressRouteCrossConnectionPeering extends pulumi.CustomResource {
             if (!args || args.crossConnectionName === undefined) {
                 throw new Error("Missing required property 'crossConnectionName'");
             }
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
+            if (!args || args.peeringName === undefined) {
+                throw new Error("Missing required property 'peeringName'");
             }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
@@ -135,6 +135,7 @@ export class ExpressRouteCrossConnectionPeering extends pulumi.CustomResource {
             inputs["microsoftPeeringConfig"] = args ? args.microsoftPeeringConfig : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["peerASN"] = args ? args.peerASN : undefined;
+            inputs["peeringName"] = args ? args.peeringName : undefined;
             inputs["peeringType"] = args ? args.peeringType : undefined;
             inputs["primaryPeerAddressPrefix"] = args ? args.primaryPeerAddressPrefix : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
@@ -190,13 +191,17 @@ export interface ExpressRouteCrossConnectionPeeringArgs {
      */
     readonly microsoftPeeringConfig?: pulumi.Input<inputs.network.v20190801.ExpressRouteCircuitPeeringConfig>;
     /**
-     * The name of the peering.
+     * The name of the resource that is unique within a resource group. This name can be used to access the resource.
      */
-    readonly name: pulumi.Input<string>;
+    readonly name?: pulumi.Input<string>;
     /**
      * The peer ASN.
      */
     readonly peerASN?: pulumi.Input<number>;
+    /**
+     * The name of the peering.
+     */
+    readonly peeringName: pulumi.Input<string>;
     /**
      * The peering type.
      */

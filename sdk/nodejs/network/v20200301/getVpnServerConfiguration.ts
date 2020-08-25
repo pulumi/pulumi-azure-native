@@ -15,20 +15,20 @@ export function getVpnServerConfiguration(args: GetVpnServerConfigurationArgs, o
         opts.version = utilities.getVersion();
     }
     return pulumi.runtime.invoke("azurerm:network/v20200301:getVpnServerConfiguration", {
-        "name": args.name,
         "resourceGroupName": args.resourceGroupName,
+        "vpnServerConfigurationName": args.vpnServerConfigurationName,
     }, opts);
 }
 
 export interface GetVpnServerConfigurationArgs {
     /**
-     * The name of the VpnServerConfiguration being retrieved.
-     */
-    readonly name: string;
-    /**
      * The resource group name of the VpnServerConfiguration.
      */
     readonly resourceGroupName: string;
+    /**
+     * The name of the VpnServerConfiguration being retrieved.
+     */
+    readonly vpnServerConfigurationName: string;
 }
 
 /**

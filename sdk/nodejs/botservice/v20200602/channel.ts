@@ -51,7 +51,7 @@ export class Channel extends pulumi.CustomResource {
     /**
      * Specifies the name of the resource.
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * The set of properties specific to bot channel resource
      */
@@ -82,8 +82,8 @@ export class Channel extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             const args = argsOrState as ChannelArgs | undefined;
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
+            if (!args || args.channelName === undefined) {
+                throw new Error("Missing required property 'channelName'");
             }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
@@ -91,15 +91,16 @@ export class Channel extends pulumi.CustomResource {
             if (!args || args.resourceName === undefined) {
                 throw new Error("Missing required property 'resourceName'");
             }
+            inputs["channelName"] = args ? args.channelName : undefined;
             inputs["etag"] = args ? args.etag : undefined;
             inputs["kind"] = args ? args.kind : undefined;
             inputs["location"] = args ? args.location : undefined;
-            inputs["name"] = args ? args.name : undefined;
             inputs["properties"] = args ? args.properties : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["resourceName"] = args ? args.resourceName : undefined;
             inputs["sku"] = args ? args.sku : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["name"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -118,6 +119,10 @@ export class Channel extends pulumi.CustomResource {
  */
 export interface ChannelArgs {
     /**
+     * The name of the Channel resource.
+     */
+    readonly channelName: pulumi.Input<string>;
+    /**
      * Entity Tag
      */
     readonly etag?: pulumi.Input<string>;
@@ -129,10 +134,6 @@ export interface ChannelArgs {
      * Specifies the location of the resource.
      */
     readonly location?: pulumi.Input<string>;
-    /**
-     * The name of the Channel resource.
-     */
-    readonly name: pulumi.Input<string>;
     /**
      * The set of properties specific to bot channel resource
      */

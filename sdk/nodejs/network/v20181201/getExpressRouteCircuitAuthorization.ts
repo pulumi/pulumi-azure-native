@@ -15,21 +15,21 @@ export function getExpressRouteCircuitAuthorization(args: GetExpressRouteCircuit
         opts.version = utilities.getVersion();
     }
     return pulumi.runtime.invoke("azurerm:network/v20181201:getExpressRouteCircuitAuthorization", {
+        "authorizationName": args.authorizationName,
         "circuitName": args.circuitName,
-        "name": args.name,
         "resourceGroupName": args.resourceGroupName,
     }, opts);
 }
 
 export interface GetExpressRouteCircuitAuthorizationArgs {
     /**
+     * The name of the authorization.
+     */
+    readonly authorizationName: string;
+    /**
      * The name of the express route circuit.
      */
     readonly circuitName: string;
-    /**
-     * The name of the authorization.
-     */
-    readonly name: string;
     /**
      * The name of the resource group.
      */

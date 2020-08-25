@@ -36,7 +36,7 @@ export class WebAppRelayServiceConnection extends pulumi.CustomResource {
 
     public readonly biztalkUri!: pulumi.Output<string | undefined>;
     public readonly entityConnectionString!: pulumi.Output<string | undefined>;
-    public /*out*/ readonly entityName!: pulumi.Output<string | undefined>;
+    public readonly entityName!: pulumi.Output<string | undefined>;
     public readonly hostname!: pulumi.Output<string | undefined>;
     /**
      * Kind of resource.
@@ -67,6 +67,9 @@ export class WebAppRelayServiceConnection extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             const args = argsOrState as WebAppRelayServiceConnectionArgs | undefined;
+            if (!args || args.entityName === undefined) {
+                throw new Error("Missing required property 'entityName'");
+            }
             if (!args || args.name === undefined) {
                 throw new Error("Missing required property 'name'");
             }
@@ -75,6 +78,7 @@ export class WebAppRelayServiceConnection extends pulumi.CustomResource {
             }
             inputs["biztalkUri"] = args ? args.biztalkUri : undefined;
             inputs["entityConnectionString"] = args ? args.entityConnectionString : undefined;
+            inputs["entityName"] = args ? args.entityName : undefined;
             inputs["hostname"] = args ? args.hostname : undefined;
             inputs["kind"] = args ? args.kind : undefined;
             inputs["name"] = args ? args.name : undefined;
@@ -82,7 +86,6 @@ export class WebAppRelayServiceConnection extends pulumi.CustomResource {
             inputs["resourceConnectionString"] = args ? args.resourceConnectionString : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["resourceType"] = args ? args.resourceType : undefined;
-            inputs["entityName"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -104,11 +107,15 @@ export class WebAppRelayServiceConnection extends pulumi.CustomResource {
 export interface WebAppRelayServiceConnectionArgs {
     readonly biztalkUri?: pulumi.Input<string>;
     readonly entityConnectionString?: pulumi.Input<string>;
+    readonly entityName: pulumi.Input<string>;
     readonly hostname?: pulumi.Input<string>;
     /**
      * Kind of resource.
      */
     readonly kind?: pulumi.Input<string>;
+    /**
+     * Name of the app.
+     */
     readonly name: pulumi.Input<string>;
     readonly port?: pulumi.Input<number>;
     readonly resourceConnectionString?: pulumi.Input<string>;

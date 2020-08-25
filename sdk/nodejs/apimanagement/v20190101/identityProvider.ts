@@ -53,7 +53,7 @@ export class IdentityProvider extends pulumi.CustomResource {
     /**
      * Resource name.
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * Password Reset Policy Name. Only applies to AAD B2C Identity Provider.
      */
@@ -98,8 +98,8 @@ export class IdentityProvider extends pulumi.CustomResource {
             if (!args || args.clientSecret === undefined) {
                 throw new Error("Missing required property 'clientSecret'");
             }
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
+            if (!args || args.identityProviderName === undefined) {
+                throw new Error("Missing required property 'identityProviderName'");
             }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
@@ -111,7 +111,7 @@ export class IdentityProvider extends pulumi.CustomResource {
             inputs["authority"] = args ? args.authority : undefined;
             inputs["clientId"] = args ? args.clientId : undefined;
             inputs["clientSecret"] = args ? args.clientSecret : undefined;
-            inputs["name"] = args ? args.name : undefined;
+            inputs["identityProviderName"] = args ? args.identityProviderName : undefined;
             inputs["passwordResetPolicyName"] = args ? args.passwordResetPolicyName : undefined;
             inputs["profileEditingPolicyName"] = args ? args.profileEditingPolicyName : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
@@ -120,6 +120,7 @@ export class IdentityProvider extends pulumi.CustomResource {
             inputs["signinTenant"] = args ? args.signinTenant : undefined;
             inputs["signupPolicyName"] = args ? args.signupPolicyName : undefined;
             inputs["type"] = args ? args.type : undefined;
+            inputs["name"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -157,7 +158,7 @@ export interface IdentityProviderArgs {
     /**
      * Identity Provider Type identifier.
      */
-    readonly name: pulumi.Input<string>;
+    readonly identityProviderName: pulumi.Input<string>;
     /**
      * Password Reset Policy Name. Only applies to AAD B2C Identity Provider.
      */

@@ -51,7 +51,7 @@ export class Certificate extends pulumi.CustomResource {
     /**
      * The name of the resource.
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * The previous provisioned state of the resource
      */
@@ -99,25 +99,26 @@ export class Certificate extends pulumi.CustomResource {
             if (!args || args.accountName === undefined) {
                 throw new Error("Missing required property 'accountName'");
             }
+            if (!args || args.certificateName === undefined) {
+                throw new Error("Missing required property 'certificateName'");
+            }
             if (!args || args.data === undefined) {
                 throw new Error("Missing required property 'data'");
-            }
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
             }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["accountName"] = args ? args.accountName : undefined;
+            inputs["certificateName"] = args ? args.certificateName : undefined;
             inputs["data"] = args ? args.data : undefined;
             inputs["format"] = args ? args.format : undefined;
-            inputs["name"] = args ? args.name : undefined;
             inputs["password"] = args ? args.password : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["thumbprint"] = args ? args.thumbprint : undefined;
             inputs["thumbprintAlgorithm"] = args ? args.thumbprintAlgorithm : undefined;
             inputs["deleteCertificateError"] = undefined /*out*/;
             inputs["etag"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
             inputs["previousProvisioningState"] = undefined /*out*/;
             inputs["previousProvisioningStateTransitionTime"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
@@ -147,6 +148,10 @@ export interface CertificateArgs {
      */
     readonly accountName: pulumi.Input<string>;
     /**
+     * The identifier for the certificate. This must be made up of algorithm and thumbprint separated by a dash, and must match the certificate data in the request. For example SHA1-a3d1c5.
+     */
+    readonly certificateName: pulumi.Input<string>;
+    /**
      * The maximum size is 10KB.
      */
     readonly data: pulumi.Input<string>;
@@ -154,10 +159,6 @@ export interface CertificateArgs {
      * The format of the certificate - either Pfx or Cer. If omitted, the default is Pfx.
      */
     readonly format?: pulumi.Input<string>;
-    /**
-     * The identifier for the certificate. This must be made up of algorithm and thumbprint separated by a dash, and must match the certificate data in the request. For example SHA1-a3d1c5.
-     */
-    readonly name: pulumi.Input<string>;
     /**
      * This is required if the certificate format is pfx and must be omitted if the certificate format is cer.
      */

@@ -16,7 +16,7 @@ export function getDatabaseAccountCassandraKeyspace(args: GetDatabaseAccountCass
     }
     return pulumi.runtime.invoke("azurerm:documentdb/v20151106:getDatabaseAccountCassandraKeyspace", {
         "accountName": args.accountName,
-        "name": args.name,
+        "keyspaceName": args.keyspaceName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);
 }
@@ -29,7 +29,7 @@ export interface GetDatabaseAccountCassandraKeyspaceArgs {
     /**
      * Cosmos DB keyspace name.
      */
-    readonly name: string;
+    readonly keyspaceName: string;
     /**
      * Name of an Azure resource group.
      */

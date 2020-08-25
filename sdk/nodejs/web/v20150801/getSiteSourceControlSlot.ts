@@ -17,18 +17,23 @@ export function getSiteSourceControlSlot(args: GetSiteSourceControlSlotArgs, opt
     return pulumi.runtime.invoke("azurerm:web/v20150801:getSiteSourceControlSlot", {
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,
+        "slot": args.slot,
     }, opts);
 }
 
 export interface GetSiteSourceControlSlotArgs {
     /**
-     * Name of web app slot. If not specified then will default to production slot.
+     * Name of web app
      */
     readonly name: string;
     /**
      * Name of resource group
      */
     readonly resourceGroupName: string;
+    /**
+     * Name of web app slot. If not specified then will default to production slot.
+     */
+    readonly slot: string;
 }
 
 /**

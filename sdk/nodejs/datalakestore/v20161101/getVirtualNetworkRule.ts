@@ -16,8 +16,8 @@ export function getVirtualNetworkRule(args: GetVirtualNetworkRuleArgs, opts?: pu
     }
     return pulumi.runtime.invoke("azurerm:datalakestore/v20161101:getVirtualNetworkRule", {
         "accountName": args.accountName,
-        "name": args.name,
         "resourceGroupName": args.resourceGroupName,
+        "virtualNetworkRuleName": args.virtualNetworkRuleName,
     }, opts);
 }
 
@@ -27,13 +27,13 @@ export interface GetVirtualNetworkRuleArgs {
      */
     readonly accountName: string;
     /**
-     * The name of the virtual network rule to retrieve.
-     */
-    readonly name: string;
-    /**
      * The name of the Azure resource group.
      */
     readonly resourceGroupName: string;
+    /**
+     * The name of the virtual network rule to retrieve.
+     */
+    readonly virtualNetworkRuleName: string;
 }
 
 /**

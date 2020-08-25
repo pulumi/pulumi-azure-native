@@ -55,7 +55,7 @@ export class BastionHost extends pulumi.CustomResource {
     /**
      * Resource name.
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * The provisioning state of the bastion host resource.
      */
@@ -82,21 +82,22 @@ export class BastionHost extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             const args = argsOrState as BastionHostArgs | undefined;
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
+            if (!args || args.bastionHostName === undefined) {
+                throw new Error("Missing required property 'bastionHostName'");
             }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            inputs["bastionHostName"] = args ? args.bastionHostName : undefined;
             inputs["dnsName"] = args ? args.dnsName : undefined;
             inputs["id"] = args ? args.id : undefined;
             inputs["ipConfigurations"] = args ? args.ipConfigurations : undefined;
             inputs["location"] = args ? args.location : undefined;
-            inputs["name"] = args ? args.name : undefined;
             inputs["provisioningState"] = args ? args.provisioningState : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["etag"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -117,6 +118,10 @@ export class BastionHost extends pulumi.CustomResource {
  */
 export interface BastionHostArgs {
     /**
+     * The name of the Bastion Host.
+     */
+    readonly bastionHostName: pulumi.Input<string>;
+    /**
      * FQDN for the endpoint on which bastion host is accessible.
      */
     readonly dnsName?: pulumi.Input<string>;
@@ -132,10 +137,6 @@ export interface BastionHostArgs {
      * Resource location.
      */
     readonly location?: pulumi.Input<string>;
-    /**
-     * The name of the Bastion Host.
-     */
-    readonly name: pulumi.Input<string>;
     /**
      * The provisioning state of the bastion host resource.
      */

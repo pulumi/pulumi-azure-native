@@ -16,7 +16,7 @@ export function getApiRelease(args: GetApiReleaseArgs, opts?: pulumi.InvokeOptio
     }
     return pulumi.runtime.invoke("azurerm:apimanagement/v20170301:getApiRelease", {
         "apiId": args.apiId,
-        "name": args.name,
+        "releaseId": args.releaseId,
         "resourceGroupName": args.resourceGroupName,
         "serviceName": args.serviceName,
     }, opts);
@@ -30,7 +30,7 @@ export interface GetApiReleaseArgs {
     /**
      * Release identifier within an API. Must be unique in the current API Management service instance.
      */
-    readonly name: string;
+    readonly releaseId: string;
     /**
      * The name of the resource group.
      */

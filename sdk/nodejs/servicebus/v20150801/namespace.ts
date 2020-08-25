@@ -55,7 +55,7 @@ export class Namespace extends pulumi.CustomResource {
     /**
      * Resource name
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * Provisioning state of the namespace.
      */
@@ -101,8 +101,8 @@ export class Namespace extends pulumi.CustomResource {
             if (!args || args.location === undefined) {
                 throw new Error("Missing required property 'location'");
             }
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
+            if (!args || args.namespaceName === undefined) {
+                throw new Error("Missing required property 'namespaceName'");
             }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
@@ -110,12 +110,13 @@ export class Namespace extends pulumi.CustomResource {
             inputs["createACSNamespace"] = args ? args.createACSNamespace : undefined;
             inputs["enabled"] = args ? args.enabled : undefined;
             inputs["location"] = args ? args.location : undefined;
-            inputs["name"] = args ? args.name : undefined;
+            inputs["namespaceName"] = args ? args.namespaceName : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["sku"] = args ? args.sku : undefined;
             inputs["status"] = args ? args.status : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["createdAt"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
             inputs["serviceBusEndpoint"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
@@ -153,7 +154,7 @@ export interface NamespaceArgs {
     /**
      * The namespace name.
      */
-    readonly name: pulumi.Input<string>;
+    readonly namespaceName: pulumi.Input<string>;
     /**
      * Name of the Resource group within the Azure subscription.
      */

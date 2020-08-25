@@ -15,19 +15,15 @@ export function getRule(args: GetRuleArgs, opts?: pulumi.InvokeOptions): Promise
         opts.version = utilities.getVersion();
     }
     return pulumi.runtime.invoke("azurerm:servicebus/v20170401:getRule", {
-        "name": args.name,
         "namespaceName": args.namespaceName,
         "resourceGroupName": args.resourceGroupName,
+        "ruleName": args.ruleName,
         "subscriptionName": args.subscriptionName,
         "topicName": args.topicName,
     }, opts);
 }
 
 export interface GetRuleArgs {
-    /**
-     * The rule name.
-     */
-    readonly name: string;
     /**
      * The namespace name
      */
@@ -36,6 +32,10 @@ export interface GetRuleArgs {
      * Name of the Resource group within the Azure subscription.
      */
     readonly resourceGroupName: string;
+    /**
+     * The rule name.
+     */
+    readonly ruleName: string;
     /**
      * The subscription name.
      */

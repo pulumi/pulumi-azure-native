@@ -18,8 +18,8 @@ export function getUser(args: GetUserArgs, opts?: pulumi.InvokeOptions): Promise
         "expand": args.expand,
         "labAccountName": args.labAccountName,
         "labName": args.labName,
-        "name": args.name,
         "resourceGroupName": args.resourceGroupName,
+        "userName": args.userName,
     }, opts);
 }
 
@@ -37,13 +37,13 @@ export interface GetUserArgs {
      */
     readonly labName: string;
     /**
-     * The name of the user.
-     */
-    readonly name: string;
-    /**
      * The name of the resource group.
      */
     readonly resourceGroupName: string;
+    /**
+     * The name of the user.
+     */
+    readonly userName: string;
 }
 
 /**

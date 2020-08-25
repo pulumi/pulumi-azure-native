@@ -45,7 +45,7 @@ export class ApiRelease extends pulumi.CustomResource {
     /**
      * Resource name.
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * Release Notes
      */
@@ -75,8 +75,8 @@ export class ApiRelease extends pulumi.CustomResource {
             if (!args || args.apiId === undefined) {
                 throw new Error("Missing required property 'apiId'");
             }
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
+            if (!args || args.releaseId === undefined) {
+                throw new Error("Missing required property 'releaseId'");
             }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
@@ -85,11 +85,12 @@ export class ApiRelease extends pulumi.CustomResource {
                 throw new Error("Missing required property 'serviceName'");
             }
             inputs["apiId"] = args ? args.apiId : undefined;
-            inputs["name"] = args ? args.name : undefined;
             inputs["notes"] = args ? args.notes : undefined;
+            inputs["releaseId"] = args ? args.releaseId : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["serviceName"] = args ? args.serviceName : undefined;
             inputs["createdDateTime"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
             inputs["updatedDateTime"] = undefined /*out*/;
         }
@@ -115,13 +116,13 @@ export interface ApiReleaseArgs {
      */
     readonly apiId: pulumi.Input<string>;
     /**
-     * Release identifier within an API. Must be unique in the current API Management service instance.
-     */
-    readonly name: pulumi.Input<string>;
-    /**
      * Release Notes
      */
     readonly notes?: pulumi.Input<string>;
+    /**
+     * Release identifier within an API. Must be unique in the current API Management service instance.
+     */
+    readonly releaseId: pulumi.Input<string>;
     /**
      * The name of the resource group.
      */

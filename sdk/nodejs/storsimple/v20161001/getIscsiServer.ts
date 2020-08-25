@@ -16,8 +16,8 @@ export function getIscsiServer(args: GetIscsiServerArgs, opts?: pulumi.InvokeOpt
     }
     return pulumi.runtime.invoke("azurerm:storsimple/v20161001:getIscsiServer", {
         "deviceName": args.deviceName,
+        "iscsiServerName": args.iscsiServerName,
         "managerName": args.managerName,
-        "name": args.name,
         "resourceGroupName": args.resourceGroupName,
     }, opts);
 }
@@ -28,13 +28,13 @@ export interface GetIscsiServerArgs {
      */
     readonly deviceName: string;
     /**
+     * The iSCSI server name.
+     */
+    readonly iscsiServerName: string;
+    /**
      * The manager name
      */
     readonly managerName: string;
-    /**
-     * The iSCSI server name.
-     */
-    readonly name: string;
     /**
      * The resource group name
      */

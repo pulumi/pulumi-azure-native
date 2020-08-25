@@ -81,7 +81,7 @@ export class RegisteredServer extends pulumi.CustomResource {
     /**
      * The name of the resource
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * Registered Server Provisioning State
      */
@@ -97,7 +97,7 @@ export class RegisteredServer extends pulumi.CustomResource {
     /**
      * Registered Server serverId
      */
-    public /*out*/ readonly serverId!: pulumi.Output<string | undefined>;
+    public readonly serverId!: pulumi.Output<string | undefined>;
     /**
      * Registered Server Management Error Code
      */
@@ -136,11 +136,11 @@ export class RegisteredServer extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             const args = argsOrState as RegisteredServerArgs | undefined;
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
-            }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
+            }
+            if (!args || args.serverId === undefined) {
+                throw new Error("Missing required property 'serverId'");
             }
             if (!args || args.storageSyncServiceName === undefined) {
                 throw new Error("Missing required property 'storageSyncServiceName'");
@@ -150,9 +150,9 @@ export class RegisteredServer extends pulumi.CustomResource {
             inputs["clusterName"] = args ? args.clusterName : undefined;
             inputs["friendlyName"] = args ? args.friendlyName : undefined;
             inputs["lastHeartBeat"] = args ? args.lastHeartBeat : undefined;
-            inputs["name"] = args ? args.name : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["serverCertificate"] = args ? args.serverCertificate : undefined;
+            inputs["serverId"] = args ? args.serverId : undefined;
             inputs["serverOSVersion"] = args ? args.serverOSVersion : undefined;
             inputs["serverRole"] = args ? args.serverRole : undefined;
             inputs["storageSyncServiceName"] = args ? args.storageSyncServiceName : undefined;
@@ -162,9 +162,9 @@ export class RegisteredServer extends pulumi.CustomResource {
             inputs["managementEndpointUri"] = undefined /*out*/;
             inputs["monitoringConfiguration"] = undefined /*out*/;
             inputs["monitoringEndpointUri"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
             inputs["resourceLocation"] = undefined /*out*/;
-            inputs["serverId"] = undefined /*out*/;
             inputs["serverManagementErrorCode"] = undefined /*out*/;
             inputs["serviceLocation"] = undefined /*out*/;
             inputs["storageSyncServiceUid"] = undefined /*out*/;
@@ -208,10 +208,6 @@ export interface RegisteredServerArgs {
      */
     readonly lastHeartBeat?: pulumi.Input<string>;
     /**
-     * Registered Server serverId
-     */
-    readonly name: pulumi.Input<string>;
-    /**
      * The name of the resource group. The name is case insensitive.
      */
     readonly resourceGroupName: pulumi.Input<string>;
@@ -219,6 +215,10 @@ export interface RegisteredServerArgs {
      * Registered Server Certificate
      */
     readonly serverCertificate?: pulumi.Input<string>;
+    /**
+     * Registered Server serverId
+     */
+    readonly serverId: pulumi.Input<string>;
     /**
      * Registered Server OS Version
      */

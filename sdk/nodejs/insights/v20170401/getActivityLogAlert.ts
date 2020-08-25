@@ -15,7 +15,7 @@ export function getActivityLogAlert(args: GetActivityLogAlertArgs, opts?: pulumi
         opts.version = utilities.getVersion();
     }
     return pulumi.runtime.invoke("azurerm:insights/v20170401:getActivityLogAlert", {
-        "name": args.name,
+        "activityLogAlertName": args.activityLogAlertName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);
 }
@@ -24,7 +24,7 @@ export interface GetActivityLogAlertArgs {
     /**
      * The name of the activity log alert.
      */
-    readonly name: string;
+    readonly activityLogAlertName: string;
     /**
      * The name of the resource group.
      */

@@ -15,21 +15,21 @@ export function getLoadBalancerBackendAddressPool(args: GetLoadBalancerBackendAd
         opts.version = utilities.getVersion();
     }
     return pulumi.runtime.invoke("azurerm:network/v20200401:getLoadBalancerBackendAddressPool", {
+        "backendAddressPoolName": args.backendAddressPoolName,
         "loadBalancerName": args.loadBalancerName,
-        "name": args.name,
         "resourceGroupName": args.resourceGroupName,
     }, opts);
 }
 
 export interface GetLoadBalancerBackendAddressPoolArgs {
     /**
+     * The name of the backend address pool.
+     */
+    readonly backendAddressPoolName: string;
+    /**
      * The name of the load balancer.
      */
     readonly loadBalancerName: string;
-    /**
-     * The name of the backend address pool.
-     */
-    readonly name: string;
     /**
      * The name of the resource group.
      */

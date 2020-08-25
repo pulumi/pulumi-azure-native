@@ -49,7 +49,7 @@ export class MaintenanceConfiguration extends pulumi.CustomResource {
     /**
      * Name of the resource
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * Gets or sets namespace of the resource e.g. Microsoft.Maintenance or Microsoft.Sql
      */
@@ -76,19 +76,20 @@ export class MaintenanceConfiguration extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             const args = argsOrState as MaintenanceConfigurationArgs | undefined;
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
-            }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
+            }
+            if (!args || args.resourceName === undefined) {
+                throw new Error("Missing required property 'resourceName'");
             }
             inputs["extensionProperties"] = args ? args.extensionProperties : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["maintenanceScope"] = args ? args.maintenanceScope : undefined;
-            inputs["name"] = args ? args.name : undefined;
             inputs["namespace"] = args ? args.namespace : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["resourceName"] = args ? args.resourceName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["name"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -119,10 +120,6 @@ export interface MaintenanceConfigurationArgs {
      */
     readonly maintenanceScope?: pulumi.Input<string>;
     /**
-     * Resource Identifier
-     */
-    readonly name: pulumi.Input<string>;
-    /**
      * Gets or sets namespace of the resource e.g. Microsoft.Maintenance or Microsoft.Sql
      */
     readonly namespace?: pulumi.Input<string>;
@@ -130,6 +127,10 @@ export interface MaintenanceConfigurationArgs {
      * Resource Group Name
      */
     readonly resourceGroupName: pulumi.Input<string>;
+    /**
+     * Resource Identifier
+     */
+    readonly resourceName: pulumi.Input<string>;
     /**
      * Gets or sets tags of the resource
      */

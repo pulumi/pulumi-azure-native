@@ -47,7 +47,7 @@ export class Environment extends pulumi.CustomResource {
     /**
      * Resource name
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * The sku determines the type of environment, either Gen1 (S1 or S2) or Gen2 (L1). For Gen1 environments the sku determines the capacity of the environment, the ingress rate, and the billing rate.
      */
@@ -74,14 +74,14 @@ export class Environment extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             const args = argsOrState as EnvironmentArgs | undefined;
+            if (!args || args.environmentName === undefined) {
+                throw new Error("Missing required property 'environmentName'");
+            }
             if (!args || args.kind === undefined) {
                 throw new Error("Missing required property 'kind'");
             }
             if (!args || args.location === undefined) {
                 throw new Error("Missing required property 'location'");
-            }
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
             }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
@@ -89,12 +89,13 @@ export class Environment extends pulumi.CustomResource {
             if (!args || args.sku === undefined) {
                 throw new Error("Missing required property 'sku'");
             }
+            inputs["environmentName"] = args ? args.environmentName : undefined;
             inputs["kind"] = args ? args.kind : undefined;
             inputs["location"] = args ? args.location : undefined;
-            inputs["name"] = args ? args.name : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["sku"] = args ? args.sku : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["name"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -115,6 +116,10 @@ export class Environment extends pulumi.CustomResource {
  */
 export interface EnvironmentArgs {
     /**
+     * Name of the environment
+     */
+    readonly environmentName: pulumi.Input<string>;
+    /**
      * The kind of the environment.
      */
     readonly kind: pulumi.Input<string>;
@@ -122,10 +127,6 @@ export interface EnvironmentArgs {
      * The location of the resource.
      */
     readonly location: pulumi.Input<string>;
-    /**
-     * Name of the environment
-     */
-    readonly name: pulumi.Input<string>;
     /**
      * Name of an Azure Resource group.
      */

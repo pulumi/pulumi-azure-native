@@ -16,7 +16,7 @@ export function getPool(args: GetPoolArgs, opts?: pulumi.InvokeOptions): Promise
     }
     return pulumi.runtime.invoke("azurerm:netapp/v20191001:getPool", {
         "accountName": args.accountName,
-        "name": args.name,
+        "poolName": args.poolName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);
 }
@@ -29,7 +29,7 @@ export interface GetPoolArgs {
     /**
      * The name of the capacity pool
      */
-    readonly name: string;
+    readonly poolName: string;
     /**
      * The name of the resource group.
      */

@@ -15,7 +15,7 @@ export function getVirtualHubIpConfiguration(args: GetVirtualHubIpConfigurationA
         opts.version = utilities.getVersion();
     }
     return pulumi.runtime.invoke("azurerm:network/v20200501:getVirtualHubIpConfiguration", {
-        "name": args.name,
+        "ipConfigName": args.ipConfigName,
         "resourceGroupName": args.resourceGroupName,
         "virtualHubName": args.virtualHubName,
     }, opts);
@@ -25,7 +25,7 @@ export interface GetVirtualHubIpConfigurationArgs {
     /**
      * The name of the ipconfig.
      */
-    readonly name: string;
+    readonly ipConfigName: string;
     /**
      * The resource group name of the VirtualHub.
      */

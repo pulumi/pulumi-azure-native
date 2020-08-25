@@ -16,6 +16,7 @@ export function getWebAppPremierAddOnSlot(args: GetWebAppPremierAddOnSlotArgs, o
     }
     return pulumi.runtime.invoke("azurerm:web/v20180201:getWebAppPremierAddOnSlot", {
         "name": args.name,
+        "premierAddOnName": args.premierAddOnName,
         "resourceGroupName": args.resourceGroupName,
         "slot": args.slot,
     }, opts);
@@ -23,9 +24,13 @@ export function getWebAppPremierAddOnSlot(args: GetWebAppPremierAddOnSlotArgs, o
 
 export interface GetWebAppPremierAddOnSlotArgs {
     /**
-     * Add-on name.
+     * Name of the app.
      */
     readonly name: string;
+    /**
+     * Add-on name.
+     */
+    readonly premierAddOnName: string;
     /**
      * Name of the resource group to which the resource belongs.
      */

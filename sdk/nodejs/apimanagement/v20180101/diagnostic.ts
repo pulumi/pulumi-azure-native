@@ -41,7 +41,7 @@ export class Diagnostic extends pulumi.CustomResource {
     /**
      * Resource name.
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * Resource type for API Management resource.
      */
@@ -60,11 +60,11 @@ export class Diagnostic extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             const args = argsOrState as DiagnosticArgs | undefined;
+            if (!args || args.diagnosticId === undefined) {
+                throw new Error("Missing required property 'diagnosticId'");
+            }
             if (!args || args.enabled === undefined) {
                 throw new Error("Missing required property 'enabled'");
-            }
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
             }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
@@ -72,10 +72,11 @@ export class Diagnostic extends pulumi.CustomResource {
             if (!args || args.serviceName === undefined) {
                 throw new Error("Missing required property 'serviceName'");
             }
+            inputs["diagnosticId"] = args ? args.diagnosticId : undefined;
             inputs["enabled"] = args ? args.enabled : undefined;
-            inputs["name"] = args ? args.name : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["serviceName"] = args ? args.serviceName : undefined;
+            inputs["name"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -96,13 +97,13 @@ export class Diagnostic extends pulumi.CustomResource {
  */
 export interface DiagnosticArgs {
     /**
+     * Diagnostic identifier. Must be unique in the current API Management service instance.
+     */
+    readonly diagnosticId: pulumi.Input<string>;
+    /**
      * Indicates whether a diagnostic should receive data or not.
      */
     readonly enabled: pulumi.Input<boolean>;
-    /**
-     * Diagnostic identifier. Must be unique in the current API Management service instance.
-     */
-    readonly name: pulumi.Input<string>;
     /**
      * The name of the resource group.
      */

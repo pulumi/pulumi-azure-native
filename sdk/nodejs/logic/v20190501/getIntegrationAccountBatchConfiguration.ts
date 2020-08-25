@@ -15,21 +15,21 @@ export function getIntegrationAccountBatchConfiguration(args: GetIntegrationAcco
         opts.version = utilities.getVersion();
     }
     return pulumi.runtime.invoke("azurerm:logic/v20190501:getIntegrationAccountBatchConfiguration", {
+        "batchConfigurationName": args.batchConfigurationName,
         "integrationAccountName": args.integrationAccountName,
-        "name": args.name,
         "resourceGroupName": args.resourceGroupName,
     }, opts);
 }
 
 export interface GetIntegrationAccountBatchConfigurationArgs {
     /**
+     * The batch configuration name.
+     */
+    readonly batchConfigurationName: string;
+    /**
      * The integration account name.
      */
     readonly integrationAccountName: string;
-    /**
-     * The batch configuration name.
-     */
-    readonly name: string;
     /**
      * The resource group name.
      */

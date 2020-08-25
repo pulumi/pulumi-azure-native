@@ -43,7 +43,7 @@ export class OriginGroup extends pulumi.CustomResource {
     /**
      * Resource name.
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * The source of the content being delivered via CDN within given origin group.
      */
@@ -85,8 +85,8 @@ export class OriginGroup extends pulumi.CustomResource {
             if (!args || args.endpointName === undefined) {
                 throw new Error("Missing required property 'endpointName'");
             }
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
+            if (!args || args.originGroupName === undefined) {
+                throw new Error("Missing required property 'originGroupName'");
             }
             if (!args || args.origins === undefined) {
                 throw new Error("Missing required property 'origins'");
@@ -99,12 +99,13 @@ export class OriginGroup extends pulumi.CustomResource {
             }
             inputs["endpointName"] = args ? args.endpointName : undefined;
             inputs["healthProbeSettings"] = args ? args.healthProbeSettings : undefined;
-            inputs["name"] = args ? args.name : undefined;
+            inputs["originGroupName"] = args ? args.originGroupName : undefined;
             inputs["origins"] = args ? args.origins : undefined;
             inputs["profileName"] = args ? args.profileName : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["responseBasedOriginErrorDetectionSettings"] = args ? args.responseBasedOriginErrorDetectionSettings : undefined;
             inputs["trafficRestorationTimeToHealedOrNewEndpointsInMinutes"] = args ? args.trafficRestorationTimeToHealedOrNewEndpointsInMinutes : undefined;
+            inputs["name"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
             inputs["resourceState"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
@@ -137,7 +138,7 @@ export interface OriginGroupArgs {
     /**
      * Name of the origin group which is unique within the endpoint.
      */
-    readonly name: pulumi.Input<string>;
+    readonly originGroupName: pulumi.Input<string>;
     /**
      * The source of the content being delivered via CDN within given origin group.
      */

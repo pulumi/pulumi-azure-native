@@ -47,7 +47,7 @@ export class App extends pulumi.CustomResource {
     /**
      * The name of the resource.
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * Properties of the App resource
      */
@@ -70,8 +70,8 @@ export class App extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             const args = argsOrState as AppArgs | undefined;
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
+            if (!args || args.appName === undefined) {
+                throw new Error("Missing required property 'appName'");
             }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
@@ -79,12 +79,13 @@ export class App extends pulumi.CustomResource {
             if (!args || args.serviceName === undefined) {
                 throw new Error("Missing required property 'serviceName'");
             }
+            inputs["appName"] = args ? args.appName : undefined;
             inputs["identity"] = args ? args.identity : undefined;
             inputs["location"] = args ? args.location : undefined;
-            inputs["name"] = args ? args.name : undefined;
             inputs["properties"] = args ? args.properties : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["serviceName"] = args ? args.serviceName : undefined;
+            inputs["name"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -103,6 +104,10 @@ export class App extends pulumi.CustomResource {
  */
 export interface AppArgs {
     /**
+     * The name of the App resource.
+     */
+    readonly appName: pulumi.Input<string>;
+    /**
      * The Managed Identity type of the app resource
      */
     readonly identity?: pulumi.Input<inputs.appplatform.v20200701.ManagedIdentityProperties>;
@@ -110,10 +115,6 @@ export interface AppArgs {
      * The GEO location of the application, always the same with its parent resource
      */
     readonly location?: pulumi.Input<string>;
-    /**
-     * The name of the App resource.
-     */
-    readonly name: pulumi.Input<string>;
     /**
      * Properties of the App resource
      */

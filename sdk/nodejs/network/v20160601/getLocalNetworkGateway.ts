@@ -15,7 +15,7 @@ export function getLocalNetworkGateway(args: GetLocalNetworkGatewayArgs, opts?: 
         opts.version = utilities.getVersion();
     }
     return pulumi.runtime.invoke("azurerm:network/v20160601:getLocalNetworkGateway", {
-        "name": args.name,
+        "localNetworkGatewayName": args.localNetworkGatewayName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);
 }
@@ -24,7 +24,7 @@ export interface GetLocalNetworkGatewayArgs {
     /**
      * The name of the local network gateway.
      */
-    readonly name: string;
+    readonly localNetworkGatewayName: string;
     /**
      * The name of the resource group.
      */

@@ -45,7 +45,7 @@ export class Cache extends pulumi.CustomResource {
     /**
      * Resource name.
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * Original uri of entity in external system cache points to
      */
@@ -68,11 +68,11 @@ export class Cache extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             const args = argsOrState as CacheArgs | undefined;
+            if (!args || args.cacheId === undefined) {
+                throw new Error("Missing required property 'cacheId'");
+            }
             if (!args || args.connectionString === undefined) {
                 throw new Error("Missing required property 'connectionString'");
-            }
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
             }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
@@ -80,12 +80,13 @@ export class Cache extends pulumi.CustomResource {
             if (!args || args.serviceName === undefined) {
                 throw new Error("Missing required property 'serviceName'");
             }
+            inputs["cacheId"] = args ? args.cacheId : undefined;
             inputs["connectionString"] = args ? args.connectionString : undefined;
             inputs["description"] = args ? args.description : undefined;
-            inputs["name"] = args ? args.name : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["resourceId"] = args ? args.resourceId : undefined;
             inputs["serviceName"] = args ? args.serviceName : undefined;
+            inputs["name"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -106,6 +107,10 @@ export class Cache extends pulumi.CustomResource {
  */
 export interface CacheArgs {
     /**
+     * Identifier of the Cache entity. Cache identifier (should be either 'default' or valid Azure region identifier).
+     */
+    readonly cacheId: pulumi.Input<string>;
+    /**
      * Runtime connection string to cache
      */
     readonly connectionString: pulumi.Input<string>;
@@ -113,10 +118,6 @@ export interface CacheArgs {
      * Cache description
      */
     readonly description?: pulumi.Input<string>;
-    /**
-     * Identifier of the Cache entity. Cache identifier (should be either 'default' or valid Azure region identifier).
-     */
-    readonly name: pulumi.Input<string>;
     /**
      * The name of the resource group.
      */

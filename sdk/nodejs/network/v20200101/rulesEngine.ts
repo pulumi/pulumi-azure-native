@@ -39,7 +39,7 @@ export class RulesEngine extends pulumi.CustomResource {
     /**
      * Resource name.
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * Resource status.
      */
@@ -69,17 +69,18 @@ export class RulesEngine extends pulumi.CustomResource {
             if (!args || args.frontDoorName === undefined) {
                 throw new Error("Missing required property 'frontDoorName'");
             }
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
-            }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            if (!args || args.rulesEngineName === undefined) {
+                throw new Error("Missing required property 'rulesEngineName'");
+            }
             inputs["frontDoorName"] = args ? args.frontDoorName : undefined;
-            inputs["name"] = args ? args.name : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["resourceState"] = args ? args.resourceState : undefined;
             inputs["rules"] = args ? args.rules : undefined;
+            inputs["rulesEngineName"] = args ? args.rulesEngineName : undefined;
+            inputs["name"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -104,10 +105,6 @@ export interface RulesEngineArgs {
      */
     readonly frontDoorName: pulumi.Input<string>;
     /**
-     * Name of the Rules Engine which is unique within the Front Door.
-     */
-    readonly name: pulumi.Input<string>;
-    /**
      * Name of the Resource group within the Azure subscription.
      */
     readonly resourceGroupName: pulumi.Input<string>;
@@ -119,4 +116,8 @@ export interface RulesEngineArgs {
      * A list of rules that define a particular Rules Engine Configuration.
      */
     readonly rules?: pulumi.Input<pulumi.Input<inputs.network.v20200101.RulesEngineRule>[]>;
+    /**
+     * Name of the Rules Engine which is unique within the Front Door.
+     */
+    readonly rulesEngineName: pulumi.Input<string>;
 }

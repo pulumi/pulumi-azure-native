@@ -15,20 +15,20 @@ export function getStorageSyncService(args: GetStorageSyncServiceArgs, opts?: pu
         opts.version = utilities.getVersion();
     }
     return pulumi.runtime.invoke("azurerm:storagesync/v20190601:getStorageSyncService", {
-        "name": args.name,
         "resourceGroupName": args.resourceGroupName,
+        "storageSyncServiceName": args.storageSyncServiceName,
     }, opts);
 }
 
 export interface GetStorageSyncServiceArgs {
     /**
-     * Name of Storage Sync Service resource.
-     */
-    readonly name: string;
-    /**
      * The name of the resource group. The name is case insensitive.
      */
     readonly resourceGroupName: string;
+    /**
+     * Name of Storage Sync Service resource.
+     */
+    readonly storageSyncServiceName: string;
 }
 
 /**

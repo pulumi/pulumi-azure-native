@@ -125,6 +125,9 @@ export class DedicatedCloudNode extends pulumi.CustomResource {
             if (!args || args.availabilityZoneId === undefined) {
                 throw new Error("Missing required property 'availabilityZoneId'");
             }
+            if (!args || args.dedicatedCloudNodeName === undefined) {
+                throw new Error("Missing required property 'dedicatedCloudNodeName'");
+            }
             if (!args || args.id === undefined) {
                 throw new Error("Missing required property 'id'");
             }
@@ -147,6 +150,7 @@ export class DedicatedCloudNode extends pulumi.CustomResource {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["availabilityZoneId"] = args ? args.availabilityZoneId : undefined;
+            inputs["dedicatedCloudNodeName"] = args ? args.dedicatedCloudNodeName : undefined;
             inputs["id"] = args ? args.id : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["name"] = args ? args.name : undefined;
@@ -187,6 +191,10 @@ export interface DedicatedCloudNodeArgs {
      */
     readonly availabilityZoneId: pulumi.Input<string>;
     /**
+     * dedicated cloud node name
+     */
+    readonly dedicatedCloudNodeName: pulumi.Input<string>;
+    /**
      * SKU's id
      */
     readonly id: pulumi.Input<string>;
@@ -195,7 +203,7 @@ export interface DedicatedCloudNodeArgs {
      */
     readonly location: pulumi.Input<string>;
     /**
-     * dedicated cloud node name
+     * SKU's name
      */
     readonly name: pulumi.Input<string>;
     /**

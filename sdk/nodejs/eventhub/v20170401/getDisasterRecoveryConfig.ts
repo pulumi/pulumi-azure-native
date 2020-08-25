@@ -15,7 +15,7 @@ export function getDisasterRecoveryConfig(args: GetDisasterRecoveryConfigArgs, o
         opts.version = utilities.getVersion();
     }
     return pulumi.runtime.invoke("azurerm:eventhub/v20170401:getDisasterRecoveryConfig", {
-        "name": args.name,
+        "alias": args.alias,
         "namespaceName": args.namespaceName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);
@@ -25,7 +25,7 @@ export interface GetDisasterRecoveryConfigArgs {
     /**
      * The Disaster Recovery configuration name
      */
-    readonly name: string;
+    readonly alias: string;
     /**
      * The Namespace name
      */

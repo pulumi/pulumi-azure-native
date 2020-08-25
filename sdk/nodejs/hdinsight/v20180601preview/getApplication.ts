@@ -15,21 +15,21 @@ export function getApplication(args: GetApplicationArgs, opts?: pulumi.InvokeOpt
         opts.version = utilities.getVersion();
     }
     return pulumi.runtime.invoke("azurerm:hdinsight/v20180601preview:getApplication", {
+        "applicationName": args.applicationName,
         "clusterName": args.clusterName,
-        "name": args.name,
         "resourceGroupName": args.resourceGroupName,
     }, opts);
 }
 
 export interface GetApplicationArgs {
     /**
+     * The constant value for the application name.
+     */
+    readonly applicationName: string;
+    /**
      * The name of the cluster.
      */
     readonly clusterName: string;
-    /**
-     * The constant value for the application name.
-     */
-    readonly name: string;
     /**
      * The name of the resource group.
      */

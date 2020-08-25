@@ -15,20 +15,20 @@ export function getSignalR(args: GetSignalRArgs, opts?: pulumi.InvokeOptions): P
         opts.version = utilities.getVersion();
     }
     return pulumi.runtime.invoke("azurerm:signalrservice/v20200501:getSignalR", {
-        "name": args.name,
         "resourceGroupName": args.resourceGroupName,
+        "resourceName": args.resourceName,
     }, opts);
 }
 
 export interface GetSignalRArgs {
     /**
-     * The name of the SignalR resource.
-     */
-    readonly name: string;
-    /**
      * The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
      */
     readonly resourceGroupName: string;
+    /**
+     * The name of the SignalR resource.
+     */
+    readonly resourceName: string;
 }
 
 /**

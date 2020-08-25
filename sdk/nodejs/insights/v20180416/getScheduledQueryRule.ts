@@ -15,20 +15,20 @@ export function getScheduledQueryRule(args: GetScheduledQueryRuleArgs, opts?: pu
         opts.version = utilities.getVersion();
     }
     return pulumi.runtime.invoke("azurerm:insights/v20180416:getScheduledQueryRule", {
-        "name": args.name,
         "resourceGroupName": args.resourceGroupName,
+        "ruleName": args.ruleName,
     }, opts);
 }
 
 export interface GetScheduledQueryRuleArgs {
     /**
-     * The name of the rule.
-     */
-    readonly name: string;
-    /**
      * The name of the resource group.
      */
     readonly resourceGroupName: string;
+    /**
+     * The name of the rule.
+     */
+    readonly ruleName: string;
 }
 
 /**

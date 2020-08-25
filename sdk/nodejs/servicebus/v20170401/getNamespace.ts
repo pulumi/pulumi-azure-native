@@ -15,7 +15,7 @@ export function getNamespace(args: GetNamespaceArgs, opts?: pulumi.InvokeOptions
         opts.version = utilities.getVersion();
     }
     return pulumi.runtime.invoke("azurerm:servicebus/v20170401:getNamespace", {
-        "name": args.name,
+        "namespaceName": args.namespaceName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);
 }
@@ -24,7 +24,7 @@ export interface GetNamespaceArgs {
     /**
      * The namespace name
      */
-    readonly name: string;
+    readonly namespaceName: string;
     /**
      * Name of the Resource group within the Azure subscription.
      */

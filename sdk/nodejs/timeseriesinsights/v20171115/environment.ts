@@ -59,7 +59,7 @@ export class Environment extends pulumi.CustomResource {
     /**
      * Resource name
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * The list of partition keys according to which the data in the environment will be ordered.
      */
@@ -105,11 +105,11 @@ export class Environment extends pulumi.CustomResource {
             if (!args || args.dataRetentionTime === undefined) {
                 throw new Error("Missing required property 'dataRetentionTime'");
             }
+            if (!args || args.environmentName === undefined) {
+                throw new Error("Missing required property 'environmentName'");
+            }
             if (!args || args.location === undefined) {
                 throw new Error("Missing required property 'location'");
-            }
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
             }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
@@ -118,8 +118,8 @@ export class Environment extends pulumi.CustomResource {
                 throw new Error("Missing required property 'sku'");
             }
             inputs["dataRetentionTime"] = args ? args.dataRetentionTime : undefined;
+            inputs["environmentName"] = args ? args.environmentName : undefined;
             inputs["location"] = args ? args.location : undefined;
-            inputs["name"] = args ? args.name : undefined;
             inputs["partitionKeyProperties"] = args ? args.partitionKeyProperties : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["sku"] = args ? args.sku : undefined;
@@ -128,6 +128,7 @@ export class Environment extends pulumi.CustomResource {
             inputs["creationTime"] = undefined /*out*/;
             inputs["dataAccessFqdn"] = undefined /*out*/;
             inputs["dataAccessId"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
             inputs["status"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
@@ -154,13 +155,13 @@ export interface EnvironmentArgs {
      */
     readonly dataRetentionTime: pulumi.Input<string>;
     /**
+     * Name of the environment
+     */
+    readonly environmentName: pulumi.Input<string>;
+    /**
      * The location of the resource.
      */
     readonly location: pulumi.Input<string>;
-    /**
-     * Name of the environment
-     */
-    readonly name: pulumi.Input<string>;
     /**
      * The list of partition keys according to which the data in the environment will be ordered.
      */

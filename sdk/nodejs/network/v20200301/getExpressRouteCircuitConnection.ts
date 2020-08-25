@@ -16,7 +16,7 @@ export function getExpressRouteCircuitConnection(args: GetExpressRouteCircuitCon
     }
     return pulumi.runtime.invoke("azurerm:network/v20200301:getExpressRouteCircuitConnection", {
         "circuitName": args.circuitName,
-        "name": args.name,
+        "connectionName": args.connectionName,
         "peeringName": args.peeringName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);
@@ -30,7 +30,7 @@ export interface GetExpressRouteCircuitConnectionArgs {
     /**
      * The name of the express route circuit connection.
      */
-    readonly name: string;
+    readonly connectionName: string;
     /**
      * The name of the peering.
      */

@@ -15,21 +15,21 @@ export function getRegisteredPrefix(args: GetRegisteredPrefixArgs, opts?: pulumi
         opts.version = utilities.getVersion();
     }
     return pulumi.runtime.invoke("azurerm:peering/v20200401:getRegisteredPrefix", {
-        "name": args.name,
         "peeringName": args.peeringName,
+        "registeredPrefixName": args.registeredPrefixName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);
 }
 
 export interface GetRegisteredPrefixArgs {
     /**
-     * The name of the registered prefix.
-     */
-    readonly name: string;
-    /**
      * The name of the peering.
      */
     readonly peeringName: string;
+    /**
+     * The name of the registered prefix.
+     */
+    readonly registeredPrefixName: string;
     /**
      * The name of the resource group.
      */

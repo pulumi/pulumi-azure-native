@@ -15,7 +15,7 @@ export function getHybridConnection(args: GetHybridConnectionArgs, opts?: pulumi
         opts.version = utilities.getVersion();
     }
     return pulumi.runtime.invoke("azurerm:relay/v20170401:getHybridConnection", {
-        "name": args.name,
+        "hybridConnectionName": args.hybridConnectionName,
         "namespaceName": args.namespaceName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);
@@ -25,7 +25,7 @@ export interface GetHybridConnectionArgs {
     /**
      * The hybrid connection name.
      */
-    readonly name: string;
+    readonly hybridConnectionName: string;
     /**
      * The namespace name
      */

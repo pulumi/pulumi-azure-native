@@ -45,7 +45,7 @@ export class Domain extends pulumi.CustomResource {
     /**
      * Name of the resource.
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * Provisioning state of the domain.
      */
@@ -72,20 +72,21 @@ export class Domain extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             const args = argsOrState as DomainArgs | undefined;
+            if (!args || args.domainName === undefined) {
+                throw new Error("Missing required property 'domainName'");
+            }
             if (!args || args.location === undefined) {
                 throw new Error("Missing required property 'location'");
-            }
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
             }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            inputs["domainName"] = args ? args.domainName : undefined;
             inputs["location"] = args ? args.location : undefined;
-            inputs["name"] = args ? args.name : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["endpoint"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
@@ -107,13 +108,13 @@ export class Domain extends pulumi.CustomResource {
  */
 export interface DomainArgs {
     /**
+     * Name of the domain.
+     */
+    readonly domainName: pulumi.Input<string>;
+    /**
      * Location of the resource.
      */
     readonly location: pulumi.Input<string>;
-    /**
-     * Name of the domain.
-     */
-    readonly name: pulumi.Input<string>;
     /**
      * The name of the resource group within the user's subscription.
      */

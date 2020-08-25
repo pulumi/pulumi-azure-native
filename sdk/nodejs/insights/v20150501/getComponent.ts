@@ -15,20 +15,20 @@ export function getComponent(args: GetComponentArgs, opts?: pulumi.InvokeOptions
         opts.version = utilities.getVersion();
     }
     return pulumi.runtime.invoke("azurerm:insights/v20150501:getComponent", {
-        "name": args.name,
         "resourceGroupName": args.resourceGroupName,
+        "resourceName": args.resourceName,
     }, opts);
 }
 
 export interface GetComponentArgs {
     /**
-     * The name of the Application Insights component resource.
-     */
-    readonly name: string;
-    /**
      * The name of the resource group. The name is case insensitive.
      */
     readonly resourceGroupName: string;
+    /**
+     * The name of the Application Insights component resource.
+     */
+    readonly resourceName: string;
 }
 
 /**

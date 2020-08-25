@@ -15,7 +15,7 @@ export function getProduct(args: GetProductArgs, opts?: pulumi.InvokeOptions): P
         opts.version = utilities.getVersion();
     }
     return pulumi.runtime.invoke("azurerm:apimanagement/v20170301:getProduct", {
-        "name": args.name,
+        "productId": args.productId,
         "resourceGroupName": args.resourceGroupName,
         "serviceName": args.serviceName,
     }, opts);
@@ -25,7 +25,7 @@ export interface GetProductArgs {
     /**
      * Product identifier. Must be unique in the current API Management service instance.
      */
-    readonly name: string;
+    readonly productId: string;
     /**
      * The name of the resource group.
      */

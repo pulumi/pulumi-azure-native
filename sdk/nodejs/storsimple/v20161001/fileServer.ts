@@ -49,7 +49,7 @@ export class FileServer extends pulumi.CustomResource {
     /**
      * The name.
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * The storage domain id.
      */
@@ -81,11 +81,11 @@ export class FileServer extends pulumi.CustomResource {
             if (!args || args.domainName === undefined) {
                 throw new Error("Missing required property 'domainName'");
             }
+            if (!args || args.fileServerName === undefined) {
+                throw new Error("Missing required property 'fileServerName'");
+            }
             if (!args || args.managerName === undefined) {
                 throw new Error("Missing required property 'managerName'");
-            }
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
             }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
@@ -97,10 +97,11 @@ export class FileServer extends pulumi.CustomResource {
             inputs["description"] = args ? args.description : undefined;
             inputs["deviceName"] = args ? args.deviceName : undefined;
             inputs["domainName"] = args ? args.domainName : undefined;
+            inputs["fileServerName"] = args ? args.fileServerName : undefined;
             inputs["managerName"] = args ? args.managerName : undefined;
-            inputs["name"] = args ? args.name : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["storageDomainId"] = args ? args.storageDomainId : undefined;
+            inputs["name"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -135,13 +136,13 @@ export interface FileServerArgs {
      */
     readonly domainName: pulumi.Input<string>;
     /**
+     * The file server name.
+     */
+    readonly fileServerName: pulumi.Input<string>;
+    /**
      * The manager name
      */
     readonly managerName: pulumi.Input<string>;
-    /**
-     * The file server name.
-     */
-    readonly name: pulumi.Input<string>;
     /**
      * The resource group name
      */

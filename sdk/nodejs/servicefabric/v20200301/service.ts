@@ -55,7 +55,7 @@ export class Service extends pulumi.CustomResource {
     /**
      * Azure resource name.
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * Describes how the service is partitioned.
      */
@@ -120,32 +120,33 @@ export class Service extends pulumi.CustomResource {
             if (!args || args.clusterName === undefined) {
                 throw new Error("Missing required property 'clusterName'");
             }
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
-            }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             if (!args || args.serviceKind === undefined) {
                 throw new Error("Missing required property 'serviceKind'");
             }
+            if (!args || args.serviceName === undefined) {
+                throw new Error("Missing required property 'serviceName'");
+            }
             inputs["applicationName"] = args ? args.applicationName : undefined;
             inputs["clusterName"] = args ? args.clusterName : undefined;
             inputs["correlationScheme"] = args ? args.correlationScheme : undefined;
             inputs["defaultMoveCost"] = args ? args.defaultMoveCost : undefined;
             inputs["location"] = args ? args.location : undefined;
-            inputs["name"] = args ? args.name : undefined;
             inputs["partitionDescription"] = args ? args.partitionDescription : undefined;
             inputs["placementConstraints"] = args ? args.placementConstraints : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["serviceDnsName"] = args ? args.serviceDnsName : undefined;
             inputs["serviceKind"] = args ? args.serviceKind : undefined;
             inputs["serviceLoadMetrics"] = args ? args.serviceLoadMetrics : undefined;
+            inputs["serviceName"] = args ? args.serviceName : undefined;
             inputs["servicePackageActivationMode"] = args ? args.servicePackageActivationMode : undefined;
             inputs["servicePlacementPolicies"] = args ? args.servicePlacementPolicies : undefined;
             inputs["serviceTypeName"] = args ? args.serviceTypeName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["etag"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
@@ -187,10 +188,6 @@ export interface ServiceArgs {
      */
     readonly location?: pulumi.Input<string>;
     /**
-     * The name of the service resource in the format of {applicationName}~{serviceName}.
-     */
-    readonly name: pulumi.Input<string>;
-    /**
      * Describes how the service is partitioned.
      */
     readonly partitionDescription?: pulumi.Input<inputs.servicefabric.v20200301.PartitionSchemeDescription>;
@@ -214,6 +211,10 @@ export interface ServiceArgs {
      * The service load metrics is given as an array of ServiceLoadMetricDescription objects.
      */
     readonly serviceLoadMetrics?: pulumi.Input<pulumi.Input<inputs.servicefabric.v20200301.ServiceLoadMetricDescription>[]>;
+    /**
+     * The name of the service resource in the format of {applicationName}~{serviceName}.
+     */
+    readonly serviceName: pulumi.Input<string>;
     /**
      * The activation Mode of the service package
      */

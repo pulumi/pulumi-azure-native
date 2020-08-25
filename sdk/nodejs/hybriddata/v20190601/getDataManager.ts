@@ -15,7 +15,7 @@ export function getDataManager(args: GetDataManagerArgs, opts?: pulumi.InvokeOpt
         opts.version = utilities.getVersion();
     }
     return pulumi.runtime.invoke("azurerm:hybriddata/v20190601:getDataManager", {
-        "name": args.name,
+        "dataManagerName": args.dataManagerName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);
 }
@@ -24,7 +24,7 @@ export interface GetDataManagerArgs {
     /**
      * The name of the DataManager Resource within the specified resource group. DataManager names must be between 3 and 24 characters in length and use any alphanumeric and underscore only
      */
-    readonly name: string;
+    readonly dataManagerName: string;
     /**
      * The Resource Group Name
      */

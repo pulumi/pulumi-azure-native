@@ -15,7 +15,7 @@ export function getWCFRelayAuthorizationRule(args: GetWCFRelayAuthorizationRuleA
         opts.version = utilities.getVersion();
     }
     return pulumi.runtime.invoke("azurerm:relay/v20170401:getWCFRelayAuthorizationRule", {
-        "name": args.name,
+        "authorizationRuleName": args.authorizationRuleName,
         "namespaceName": args.namespaceName,
         "relayName": args.relayName,
         "resourceGroupName": args.resourceGroupName,
@@ -26,7 +26,7 @@ export interface GetWCFRelayAuthorizationRuleArgs {
     /**
      * The authorization rule name.
      */
-    readonly name: string;
+    readonly authorizationRuleName: string;
     /**
      * The namespace name
      */

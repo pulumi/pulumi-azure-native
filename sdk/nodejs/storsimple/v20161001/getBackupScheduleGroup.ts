@@ -17,8 +17,8 @@ export function getBackupScheduleGroup(args: GetBackupScheduleGroupArgs, opts?: 
     return pulumi.runtime.invoke("azurerm:storsimple/v20161001:getBackupScheduleGroup", {
         "deviceName": args.deviceName,
         "managerName": args.managerName,
-        "name": args.name,
         "resourceGroupName": args.resourceGroupName,
+        "scheduleGroupName": args.scheduleGroupName,
     }, opts);
 }
 
@@ -32,13 +32,13 @@ export interface GetBackupScheduleGroupArgs {
      */
     readonly managerName: string;
     /**
-     * The name of the schedule group.
-     */
-    readonly name: string;
-    /**
      * The resource group name
      */
     readonly resourceGroupName: string;
+    /**
+     * The name of the schedule group.
+     */
+    readonly scheduleGroupName: string;
 }
 
 /**

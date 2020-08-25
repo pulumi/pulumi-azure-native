@@ -15,7 +15,7 @@ export function getManagementLockAtResourceLevel(args: GetManagementLockAtResour
         opts.version = utilities.getVersion();
     }
     return pulumi.runtime.invoke("azurerm:authorization/v20160901:getManagementLockAtResourceLevel", {
-        "name": args.name,
+        "lockName": args.lockName,
         "parentResourcePath": args.parentResourcePath,
         "resourceGroupName": args.resourceGroupName,
         "resourceName": args.resourceName,
@@ -28,7 +28,7 @@ export interface GetManagementLockAtResourceLevelArgs {
     /**
      * The name of lock.
      */
-    readonly name: string;
+    readonly lockName: string;
     /**
      * An extra path parameter needed in some services, like SQL Databases.
      */

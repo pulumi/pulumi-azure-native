@@ -63,7 +63,7 @@ export class JitRequest extends pulumi.CustomResource {
     /**
      * Resource name
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * The JIT request provisioning state.
      */
@@ -104,24 +104,25 @@ export class JitRequest extends pulumi.CustomResource {
             if (!args || args.jitAuthorizationPolicies === undefined) {
                 throw new Error("Missing required property 'jitAuthorizationPolicies'");
             }
+            if (!args || args.jitRequestName === undefined) {
+                throw new Error("Missing required property 'jitRequestName'");
+            }
             if (!args || args.jitSchedulingPolicy === undefined) {
                 throw new Error("Missing required property 'jitSchedulingPolicy'");
-            }
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
             }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["applicationResourceId"] = args ? args.applicationResourceId : undefined;
             inputs["jitAuthorizationPolicies"] = args ? args.jitAuthorizationPolicies : undefined;
+            inputs["jitRequestName"] = args ? args.jitRequestName : undefined;
             inputs["jitSchedulingPolicy"] = args ? args.jitSchedulingPolicy : undefined;
             inputs["location"] = args ? args.location : undefined;
-            inputs["name"] = args ? args.name : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["createdBy"] = undefined /*out*/;
             inputs["jitRequestState"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
             inputs["publisherTenantId"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
@@ -151,6 +152,10 @@ export interface JitRequestArgs {
      */
     readonly jitAuthorizationPolicies: pulumi.Input<pulumi.Input<inputs.solutions.v20190701.JitAuthorizationPolicies>[]>;
     /**
+     * The name of the JIT request.
+     */
+    readonly jitRequestName: pulumi.Input<string>;
+    /**
      * The JIT request properties.
      */
     readonly jitSchedulingPolicy: pulumi.Input<inputs.solutions.v20190701.JitSchedulingPolicy>;
@@ -158,10 +163,6 @@ export interface JitRequestArgs {
      * Resource location
      */
     readonly location?: pulumi.Input<string>;
-    /**
-     * The name of the JIT request.
-     */
-    readonly name: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

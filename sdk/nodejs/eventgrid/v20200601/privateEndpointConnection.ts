@@ -40,7 +40,7 @@ export class PrivateEndpointConnection extends pulumi.CustomResource {
     /**
      * Name of the resource.
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * The Private Endpoint resource for this Connection.
      */
@@ -71,26 +71,27 @@ export class PrivateEndpointConnection extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             const args = argsOrState as PrivateEndpointConnectionArgs | undefined;
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
-            }
             if (!args || args.parentName === undefined) {
                 throw new Error("Missing required property 'parentName'");
             }
             if (!args || args.parentType === undefined) {
                 throw new Error("Missing required property 'parentType'");
             }
+            if (!args || args.privateEndpointConnectionName === undefined) {
+                throw new Error("Missing required property 'privateEndpointConnectionName'");
+            }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["groupIds"] = args ? args.groupIds : undefined;
-            inputs["name"] = args ? args.name : undefined;
             inputs["parentName"] = args ? args.parentName : undefined;
             inputs["parentType"] = args ? args.parentType : undefined;
             inputs["privateEndpoint"] = args ? args.privateEndpoint : undefined;
+            inputs["privateEndpointConnectionName"] = args ? args.privateEndpointConnectionName : undefined;
             inputs["privateLinkServiceConnectionState"] = args ? args.privateLinkServiceConnectionState : undefined;
             inputs["provisioningState"] = args ? args.provisioningState : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["name"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -113,10 +114,6 @@ export interface PrivateEndpointConnectionArgs {
      */
     readonly groupIds?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * The name of the private endpoint connection connection.
-     */
-    readonly name: pulumi.Input<string>;
-    /**
      * The name of the parent resource (namely, either, the topic name or domain name).
      */
     readonly parentName: pulumi.Input<string>;
@@ -128,6 +125,10 @@ export interface PrivateEndpointConnectionArgs {
      * The Private Endpoint resource for this Connection.
      */
     readonly privateEndpoint?: pulumi.Input<inputs.eventgrid.v20200601.PrivateEndpoint>;
+    /**
+     * The name of the private endpoint connection connection.
+     */
+    readonly privateEndpointConnectionName: pulumi.Input<string>;
     /**
      * Details about the state of the connection.
      */

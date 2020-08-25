@@ -15,7 +15,7 @@ export function getApp(args: GetAppArgs, opts?: pulumi.InvokeOptions): Promise<G
         opts.version = utilities.getVersion();
     }
     return pulumi.runtime.invoke("azurerm:appplatform/v20200701:getApp", {
-        "name": args.name,
+        "appName": args.appName,
         "resourceGroupName": args.resourceGroupName,
         "serviceName": args.serviceName,
         "syncStatus": args.syncStatus,
@@ -26,7 +26,7 @@ export interface GetAppArgs {
     /**
      * The name of the App resource.
      */
-    readonly name: string;
+    readonly appName: string;
     /**
      * The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
      */

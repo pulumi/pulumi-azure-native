@@ -49,7 +49,7 @@ export class PrivateStoreOffer extends pulumi.CustomResource {
     /**
      * The name of the resource.
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * It will be displayed prominently in the marketplace
      */
@@ -88,18 +88,19 @@ export class PrivateStoreOffer extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             const args = argsOrState as PrivateStoreOfferArgs | undefined;
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
+            if (!args || args.offerId === undefined) {
+                throw new Error("Missing required property 'offerId'");
             }
             if (!args || args.privateStoreId === undefined) {
                 throw new Error("Missing required property 'privateStoreId'");
             }
             inputs["eTag"] = args ? args.eTag : undefined;
-            inputs["name"] = args ? args.name : undefined;
+            inputs["offerId"] = args ? args.offerId : undefined;
             inputs["privateStoreId"] = args ? args.privateStoreId : undefined;
             inputs["specificPlanIdsLimitation"] = args ? args.specificPlanIdsLimitation : undefined;
             inputs["createdBy"] = undefined /*out*/;
             inputs["createdDate"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
             inputs["offerDisplayName"] = undefined /*out*/;
             inputs["publisherDisplayName"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
@@ -127,7 +128,7 @@ export interface PrivateStoreOfferArgs {
     /**
      * The offer ID to update or delete
      */
-    readonly name: pulumi.Input<string>;
+    readonly offerId: pulumi.Input<string>;
     /**
      * The store ID - must use the tenant ID
      */

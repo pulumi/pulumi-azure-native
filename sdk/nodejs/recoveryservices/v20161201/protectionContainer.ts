@@ -47,7 +47,7 @@ export class ProtectionContainer extends pulumi.CustomResource {
     /**
      * Resource name associated with the resource.
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * ProtectionContainerResource properties
      */
@@ -74,11 +74,11 @@ export class ProtectionContainer extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             const args = argsOrState as ProtectionContainerArgs | undefined;
+            if (!args || args.containerName === undefined) {
+                throw new Error("Missing required property 'containerName'");
+            }
             if (!args || args.fabricName === undefined) {
                 throw new Error("Missing required property 'fabricName'");
-            }
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
             }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
@@ -86,14 +86,15 @@ export class ProtectionContainer extends pulumi.CustomResource {
             if (!args || args.vaultName === undefined) {
                 throw new Error("Missing required property 'vaultName'");
             }
+            inputs["containerName"] = args ? args.containerName : undefined;
             inputs["eTag"] = args ? args.eTag : undefined;
             inputs["fabricName"] = args ? args.fabricName : undefined;
             inputs["location"] = args ? args.location : undefined;
-            inputs["name"] = args ? args.name : undefined;
             inputs["properties"] = args ? args.properties : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["vaultName"] = args ? args.vaultName : undefined;
+            inputs["name"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -114,6 +115,10 @@ export class ProtectionContainer extends pulumi.CustomResource {
  */
 export interface ProtectionContainerArgs {
     /**
+     * Name of the container to be registered.
+     */
+    readonly containerName: pulumi.Input<string>;
+    /**
      * Optional ETag.
      */
     readonly eTag?: pulumi.Input<string>;
@@ -125,10 +130,6 @@ export interface ProtectionContainerArgs {
      * Resource location.
      */
     readonly location?: pulumi.Input<string>;
-    /**
-     * Name of the container to be registered.
-     */
-    readonly name: pulumi.Input<string>;
     /**
      * ProtectionContainerResource properties
      */

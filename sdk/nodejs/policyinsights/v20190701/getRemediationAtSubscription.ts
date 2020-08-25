@@ -15,7 +15,7 @@ export function getRemediationAtSubscription(args: GetRemediationAtSubscriptionA
         opts.version = utilities.getVersion();
     }
     return pulumi.runtime.invoke("azurerm:policyinsights/v20190701:getRemediationAtSubscription", {
-        "name": args.name,
+        "remediationName": args.remediationName,
     }, opts);
 }
 
@@ -23,7 +23,7 @@ export interface GetRemediationAtSubscriptionArgs {
     /**
      * The name of the remediation.
      */
-    readonly name: string;
+    readonly remediationName: string;
 }
 
 /**

@@ -16,7 +16,7 @@ export function getJob(args: GetJobArgs, opts?: pulumi.InvokeOptions): Promise<G
     }
     return pulumi.runtime.invoke("azurerm:scheduler/v20160301:getJob", {
         "jobCollectionName": args.jobCollectionName,
-        "name": args.name,
+        "jobName": args.jobName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);
 }
@@ -29,7 +29,7 @@ export interface GetJobArgs {
     /**
      * The job name.
      */
-    readonly name: string;
+    readonly jobName: string;
     /**
      * The resource group name.
      */

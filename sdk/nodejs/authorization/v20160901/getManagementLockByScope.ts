@@ -15,7 +15,7 @@ export function getManagementLockByScope(args: GetManagementLockByScopeArgs, opt
         opts.version = utilities.getVersion();
     }
     return pulumi.runtime.invoke("azurerm:authorization/v20160901:getManagementLockByScope", {
-        "name": args.name,
+        "lockName": args.lockName,
         "scope": args.scope,
     }, opts);
 }
@@ -24,7 +24,7 @@ export interface GetManagementLockByScopeArgs {
     /**
      * The name of lock.
      */
-    readonly name: string;
+    readonly lockName: string;
     /**
      * The scope for the lock. 
      */

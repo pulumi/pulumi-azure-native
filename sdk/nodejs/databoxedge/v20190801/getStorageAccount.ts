@@ -16,8 +16,8 @@ export function getStorageAccount(args: GetStorageAccountArgs, opts?: pulumi.Inv
     }
     return pulumi.runtime.invoke("azurerm:databoxedge/v20190801:getStorageAccount", {
         "deviceName": args.deviceName,
-        "name": args.name,
         "resourceGroupName": args.resourceGroupName,
+        "storageAccountName": args.storageAccountName,
     }, opts);
 }
 
@@ -27,13 +27,13 @@ export interface GetStorageAccountArgs {
      */
     readonly deviceName: string;
     /**
-     * The storage account name.
-     */
-    readonly name: string;
-    /**
      * The resource group name.
      */
     readonly resourceGroupName: string;
+    /**
+     * The storage account name.
+     */
+    readonly storageAccountName: string;
 }
 
 /**

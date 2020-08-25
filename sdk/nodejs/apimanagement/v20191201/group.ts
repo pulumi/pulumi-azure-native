@@ -53,7 +53,7 @@ export class Group extends pulumi.CustomResource {
     /**
      * Resource name.
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * Resource type for API Management resource.
      */
@@ -75,8 +75,8 @@ export class Group extends pulumi.CustomResource {
             if (!args || args.displayName === undefined) {
                 throw new Error("Missing required property 'displayName'");
             }
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
+            if (!args || args.groupId === undefined) {
+                throw new Error("Missing required property 'groupId'");
             }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
@@ -87,11 +87,12 @@ export class Group extends pulumi.CustomResource {
             inputs["description"] = args ? args.description : undefined;
             inputs["displayName"] = args ? args.displayName : undefined;
             inputs["externalId"] = args ? args.externalId : undefined;
-            inputs["name"] = args ? args.name : undefined;
+            inputs["groupId"] = args ? args.groupId : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["serviceName"] = args ? args.serviceName : undefined;
             inputs["type"] = args ? args.type : undefined;
             inputs["builtIn"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -125,7 +126,7 @@ export interface GroupArgs {
     /**
      * Group identifier. Must be unique in the current API Management service instance.
      */
-    readonly name: pulumi.Input<string>;
+    readonly groupId: pulumi.Input<string>;
     /**
      * The name of the resource group.
      */

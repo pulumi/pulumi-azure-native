@@ -16,7 +16,7 @@ export function getPolicy(args: GetPolicyArgs, opts?: pulumi.InvokeOptions): Pro
     }
     return pulumi.runtime.invoke("azurerm:apimanagement/v20190101:getPolicy", {
         "format": args.format,
-        "name": args.name,
+        "policyId": args.policyId,
         "resourceGroupName": args.resourceGroupName,
         "serviceName": args.serviceName,
     }, opts);
@@ -30,7 +30,7 @@ export interface GetPolicyArgs {
     /**
      * The identifier of the Policy.
      */
-    readonly name: string;
+    readonly policyId: string;
     /**
      * The name of the resource group.
      */

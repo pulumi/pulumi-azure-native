@@ -43,7 +43,7 @@ export class Dataset extends pulumi.CustomResource {
     /**
      * The resource name.
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * Dataset properties.
      */
@@ -66,11 +66,11 @@ export class Dataset extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             const args = argsOrState as DatasetArgs | undefined;
+            if (!args || args.datasetName === undefined) {
+                throw new Error("Missing required property 'datasetName'");
+            }
             if (!args || args.factoryName === undefined) {
                 throw new Error("Missing required property 'factoryName'");
-            }
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
             }
             if (!args || args.properties === undefined) {
                 throw new Error("Missing required property 'properties'");
@@ -78,11 +78,12 @@ export class Dataset extends pulumi.CustomResource {
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            inputs["datasetName"] = args ? args.datasetName : undefined;
             inputs["factoryName"] = args ? args.factoryName : undefined;
-            inputs["name"] = args ? args.name : undefined;
             inputs["properties"] = args ? args.properties : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["etag"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -101,13 +102,13 @@ export class Dataset extends pulumi.CustomResource {
  */
 export interface DatasetArgs {
     /**
+     * The dataset name.
+     */
+    readonly datasetName: pulumi.Input<string>;
+    /**
      * The factory name.
      */
     readonly factoryName: pulumi.Input<string>;
-    /**
-     * The dataset name.
-     */
-    readonly name: pulumi.Input<string>;
     /**
      * Dataset properties.
      */

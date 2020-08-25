@@ -16,8 +16,8 @@ export function getStorageTarget(args: GetStorageTargetArgs, opts?: pulumi.Invok
     }
     return pulumi.runtime.invoke("azurerm:storagecache/v20200301:getStorageTarget", {
         "cacheName": args.cacheName,
-        "name": args.name,
         "resourceGroupName": args.resourceGroupName,
+        "storageTargetName": args.storageTargetName,
     }, opts);
 }
 
@@ -27,13 +27,13 @@ export interface GetStorageTargetArgs {
      */
     readonly cacheName: string;
     /**
-     * Name of the Storage Target. Length of name must be not greater than 80 and chars must be in list of [-0-9a-zA-Z_] char class.
-     */
-    readonly name: string;
-    /**
      * Target resource group.
      */
     readonly resourceGroupName: string;
+    /**
+     * Name of the Storage Target. Length of name must be not greater than 80 and chars must be in list of [-0-9a-zA-Z_] char class.
+     */
+    readonly storageTargetName: string;
 }
 
 /**

@@ -67,7 +67,7 @@ export class VirtualHub extends pulumi.CustomResource {
     /**
      * Resource name.
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * The P2SVpnGateway associated with this VirtualHub.
      */
@@ -141,18 +141,17 @@ export class VirtualHub extends pulumi.CustomResource {
             if (!args || args.location === undefined) {
                 throw new Error("Missing required property 'location'");
             }
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
-            }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
+            }
+            if (!args || args.virtualHubName === undefined) {
+                throw new Error("Missing required property 'virtualHubName'");
             }
             inputs["addressPrefix"] = args ? args.addressPrefix : undefined;
             inputs["azureFirewall"] = args ? args.azureFirewall : undefined;
             inputs["expressRouteGateway"] = args ? args.expressRouteGateway : undefined;
             inputs["id"] = args ? args.id : undefined;
             inputs["location"] = args ? args.location : undefined;
-            inputs["name"] = args ? args.name : undefined;
             inputs["p2SVpnGateway"] = args ? args.p2SVpnGateway : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["routeTable"] = args ? args.routeTable : undefined;
@@ -161,6 +160,7 @@ export class VirtualHub extends pulumi.CustomResource {
             inputs["securityProviderName"] = args ? args.securityProviderName : undefined;
             inputs["sku"] = args ? args.sku : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["virtualHubName"] = args ? args.virtualHubName : undefined;
             inputs["virtualHubRouteTableV2s"] = args ? args.virtualHubRouteTableV2s : undefined;
             inputs["virtualRouterAsn"] = args ? args.virtualRouterAsn : undefined;
             inputs["virtualRouterIps"] = args ? args.virtualRouterIps : undefined;
@@ -169,6 +169,7 @@ export class VirtualHub extends pulumi.CustomResource {
             inputs["bgpConnections"] = undefined /*out*/;
             inputs["etag"] = undefined /*out*/;
             inputs["ipConfigurations"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
@@ -210,10 +211,6 @@ export interface VirtualHubArgs {
      */
     readonly location: pulumi.Input<string>;
     /**
-     * The name of the VirtualHub.
-     */
-    readonly name: pulumi.Input<string>;
-    /**
      * The P2SVpnGateway associated with this VirtualHub.
      */
     readonly p2SVpnGateway?: pulumi.Input<inputs.network.v20200501.SubResource>;
@@ -245,6 +242,10 @@ export interface VirtualHubArgs {
      * Resource tags.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * The name of the VirtualHub.
+     */
+    readonly virtualHubName: pulumi.Input<string>;
     /**
      * List of all virtual hub route table v2s associated with this VirtualHub.
      */

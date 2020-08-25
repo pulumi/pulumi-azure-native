@@ -37,7 +37,7 @@ export class Policy extends pulumi.CustomResource {
     /**
      * Resource name.
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * Json escaped Xml Encoded contents of the Policy.
      */
@@ -60,11 +60,11 @@ export class Policy extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             const args = argsOrState as PolicyArgs | undefined;
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
-            }
             if (!args || args.policyContent === undefined) {
                 throw new Error("Missing required property 'policyContent'");
+            }
+            if (!args || args.policyId === undefined) {
+                throw new Error("Missing required property 'policyId'");
             }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
@@ -72,10 +72,11 @@ export class Policy extends pulumi.CustomResource {
             if (!args || args.serviceName === undefined) {
                 throw new Error("Missing required property 'serviceName'");
             }
-            inputs["name"] = args ? args.name : undefined;
             inputs["policyContent"] = args ? args.policyContent : undefined;
+            inputs["policyId"] = args ? args.policyId : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["serviceName"] = args ? args.serviceName : undefined;
+            inputs["name"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -96,13 +97,13 @@ export class Policy extends pulumi.CustomResource {
  */
 export interface PolicyArgs {
     /**
-     * The identifier of the Policy.
-     */
-    readonly name: pulumi.Input<string>;
-    /**
      * Json escaped Xml Encoded contents of the Policy.
      */
     readonly policyContent: pulumi.Input<string>;
+    /**
+     * The identifier of the Policy.
+     */
+    readonly policyId: pulumi.Input<string>;
     /**
      * The name of the resource group.
      */

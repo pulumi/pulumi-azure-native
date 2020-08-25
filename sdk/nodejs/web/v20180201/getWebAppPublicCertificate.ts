@@ -16,15 +16,20 @@ export function getWebAppPublicCertificate(args: GetWebAppPublicCertificateArgs,
     }
     return pulumi.runtime.invoke("azurerm:web/v20180201:getWebAppPublicCertificate", {
         "name": args.name,
+        "publicCertificateName": args.publicCertificateName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);
 }
 
 export interface GetWebAppPublicCertificateArgs {
     /**
-     * Public certificate name.
+     * Name of the app.
      */
     readonly name: string;
+    /**
+     * Public certificate name.
+     */
+    readonly publicCertificateName: string;
     /**
      * Name of the resource group to which the resource belongs.
      */

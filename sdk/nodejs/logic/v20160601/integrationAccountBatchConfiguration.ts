@@ -43,7 +43,7 @@ export class IntegrationAccountBatchConfiguration extends pulumi.CustomResource 
     /**
      * Gets the resource name.
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * The batch configuration properties.
      */
@@ -70,11 +70,11 @@ export class IntegrationAccountBatchConfiguration extends pulumi.CustomResource 
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             const args = argsOrState as IntegrationAccountBatchConfigurationArgs | undefined;
+            if (!args || args.batchConfigurationName === undefined) {
+                throw new Error("Missing required property 'batchConfigurationName'");
+            }
             if (!args || args.integrationAccountName === undefined) {
                 throw new Error("Missing required property 'integrationAccountName'");
-            }
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
             }
             if (!args || args.properties === undefined) {
                 throw new Error("Missing required property 'properties'");
@@ -82,12 +82,13 @@ export class IntegrationAccountBatchConfiguration extends pulumi.CustomResource 
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            inputs["batchConfigurationName"] = args ? args.batchConfigurationName : undefined;
             inputs["integrationAccountName"] = args ? args.integrationAccountName : undefined;
             inputs["location"] = args ? args.location : undefined;
-            inputs["name"] = args ? args.name : undefined;
             inputs["properties"] = args ? args.properties : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["name"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -108,6 +109,10 @@ export class IntegrationAccountBatchConfiguration extends pulumi.CustomResource 
  */
 export interface IntegrationAccountBatchConfigurationArgs {
     /**
+     * The batch configuration name.
+     */
+    readonly batchConfigurationName: pulumi.Input<string>;
+    /**
      * The integration account name.
      */
     readonly integrationAccountName: pulumi.Input<string>;
@@ -115,10 +120,6 @@ export interface IntegrationAccountBatchConfigurationArgs {
      * The resource location.
      */
     readonly location?: pulumi.Input<string>;
-    /**
-     * The batch configuration name.
-     */
-    readonly name: pulumi.Input<string>;
     /**
      * The batch configuration properties.
      */

@@ -47,7 +47,7 @@ export class Connection extends pulumi.CustomResource {
     /**
      * Resource name
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     public readonly properties!: pulumi.Output<outputs.web.v20160601.ApiConnectionDefinitionResponseProperties>;
     /**
      * Resource tags
@@ -71,18 +71,19 @@ export class Connection extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             const args = argsOrState as ConnectionArgs | undefined;
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
+            if (!args || args.connectionName === undefined) {
+                throw new Error("Missing required property 'connectionName'");
             }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            inputs["connectionName"] = args ? args.connectionName : undefined;
             inputs["etag"] = args ? args.etag : undefined;
             inputs["location"] = args ? args.location : undefined;
-            inputs["name"] = args ? args.name : undefined;
             inputs["properties"] = args ? args.properties : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["name"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -101,6 +102,10 @@ export class Connection extends pulumi.CustomResource {
  */
 export interface ConnectionArgs {
     /**
+     * Connection name
+     */
+    readonly connectionName: pulumi.Input<string>;
+    /**
      * Resource ETag
      */
     readonly etag?: pulumi.Input<string>;
@@ -108,10 +113,6 @@ export interface ConnectionArgs {
      * Resource location
      */
     readonly location?: pulumi.Input<string>;
-    /**
-     * Connection name
-     */
-    readonly name: pulumi.Input<string>;
     readonly properties?: pulumi.Input<inputs.web.v20160601.ApiConnectionDefinitionProperties>;
     /**
      * The resource group

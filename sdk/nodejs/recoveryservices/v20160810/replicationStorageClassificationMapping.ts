@@ -43,7 +43,7 @@ export class ReplicationStorageClassificationMapping extends pulumi.CustomResour
     /**
      * Resource Name
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * Properties of the storage mapping object.
      */
@@ -69,25 +69,26 @@ export class ReplicationStorageClassificationMapping extends pulumi.CustomResour
             if (!args || args.fabricName === undefined) {
                 throw new Error("Missing required property 'fabricName'");
             }
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
-            }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             if (!args || args.resourceName === undefined) {
                 throw new Error("Missing required property 'resourceName'");
             }
+            if (!args || args.storageClassificationMappingName === undefined) {
+                throw new Error("Missing required property 'storageClassificationMappingName'");
+            }
             if (!args || args.storageClassificationName === undefined) {
                 throw new Error("Missing required property 'storageClassificationName'");
             }
             inputs["fabricName"] = args ? args.fabricName : undefined;
-            inputs["name"] = args ? args.name : undefined;
             inputs["properties"] = args ? args.properties : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["resourceName"] = args ? args.resourceName : undefined;
+            inputs["storageClassificationMappingName"] = args ? args.storageClassificationMappingName : undefined;
             inputs["storageClassificationName"] = args ? args.storageClassificationName : undefined;
             inputs["location"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -112,10 +113,6 @@ export interface ReplicationStorageClassificationMappingArgs {
      */
     readonly fabricName: pulumi.Input<string>;
     /**
-     * Storage classification mapping name.
-     */
-    readonly name: pulumi.Input<string>;
-    /**
      * Storage mapping input properties.
      */
     readonly properties?: pulumi.Input<inputs.recoveryservices.v20160810.StorageMappingInputProperties>;
@@ -127,6 +124,10 @@ export interface ReplicationStorageClassificationMappingArgs {
      * The name of the recovery services vault.
      */
     readonly resourceName: pulumi.Input<string>;
+    /**
+     * Storage classification mapping name.
+     */
+    readonly storageClassificationMappingName: pulumi.Input<string>;
     /**
      * Storage classification name.
      */

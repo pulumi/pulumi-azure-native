@@ -15,7 +15,7 @@ export function getPrivateEndpointConnection(args: GetPrivateEndpointConnectionA
         opts.version = utilities.getVersion();
     }
     return pulumi.runtime.invoke("azurerm:containerservice/v20200701:getPrivateEndpointConnection", {
-        "name": args.name,
+        "privateEndpointConnectionName": args.privateEndpointConnectionName,
         "resourceGroupName": args.resourceGroupName,
         "resourceName": args.resourceName,
     }, opts);
@@ -25,7 +25,7 @@ export interface GetPrivateEndpointConnectionArgs {
     /**
      * The name of the private endpoint connection.
      */
-    readonly name: string;
+    readonly privateEndpointConnectionName: string;
     /**
      * The name of the resource group.
      */

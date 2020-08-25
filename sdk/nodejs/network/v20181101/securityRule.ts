@@ -128,9 +128,6 @@ export class SecurityRule extends pulumi.CustomResource {
             if (!args || args.direction === undefined) {
                 throw new Error("Missing required property 'direction'");
             }
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
-            }
             if (!args || args.networkSecurityGroupName === undefined) {
                 throw new Error("Missing required property 'networkSecurityGroupName'");
             }
@@ -139,6 +136,9 @@ export class SecurityRule extends pulumi.CustomResource {
             }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
+            }
+            if (!args || args.securityRuleName === undefined) {
+                throw new Error("Missing required property 'securityRuleName'");
             }
             inputs["access"] = args ? args.access : undefined;
             inputs["description"] = args ? args.description : undefined;
@@ -156,6 +156,7 @@ export class SecurityRule extends pulumi.CustomResource {
             inputs["protocol"] = args ? args.protocol : undefined;
             inputs["provisioningState"] = args ? args.provisioningState : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["securityRuleName"] = args ? args.securityRuleName : undefined;
             inputs["sourceAddressPrefix"] = args ? args.sourceAddressPrefix : undefined;
             inputs["sourceAddressPrefixes"] = args ? args.sourceAddressPrefixes : undefined;
             inputs["sourceApplicationSecurityGroups"] = args ? args.sourceApplicationSecurityGroups : undefined;
@@ -220,9 +221,9 @@ export interface SecurityRuleArgs {
      */
     readonly id?: pulumi.Input<string>;
     /**
-     * The name of the security rule.
+     * The name of the resource that is unique within a resource group. This name can be used to access the resource.
      */
-    readonly name: pulumi.Input<string>;
+    readonly name?: pulumi.Input<string>;
     /**
      * The name of the network security group.
      */
@@ -243,6 +244,10 @@ export interface SecurityRuleArgs {
      * The name of the resource group.
      */
     readonly resourceGroupName: pulumi.Input<string>;
+    /**
+     * The name of the security rule.
+     */
+    readonly securityRuleName: pulumi.Input<string>;
     /**
      * The CIDR or source IP range. Asterisks '*' can also be used to match all source IPs. Default tags such as 'VirtualNetwork', 'AzureLoadBalancer' and 'Internet' can also be used. If this is an ingress rule, specifies where network traffic originates from. 
      */

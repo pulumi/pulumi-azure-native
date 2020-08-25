@@ -82,11 +82,11 @@ export class AutoscaleSetting extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             const args = argsOrState as AutoscaleSettingArgs | undefined;
+            if (!args || args.autoscaleSettingName === undefined) {
+                throw new Error("Missing required property 'autoscaleSettingName'");
+            }
             if (!args || args.location === undefined) {
                 throw new Error("Missing required property 'location'");
-            }
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
             }
             if (!args || args.profiles === undefined) {
                 throw new Error("Missing required property 'profiles'");
@@ -94,6 +94,7 @@ export class AutoscaleSetting extends pulumi.CustomResource {
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            inputs["autoscaleSettingName"] = args ? args.autoscaleSettingName : undefined;
             inputs["enabled"] = args ? args.enabled : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["name"] = args ? args.name : undefined;
@@ -120,6 +121,10 @@ export class AutoscaleSetting extends pulumi.CustomResource {
  */
 export interface AutoscaleSettingArgs {
     /**
+     * The autoscale setting name.
+     */
+    readonly autoscaleSettingName: pulumi.Input<string>;
+    /**
      * the enabled flag. Specifies whether automatic scaling is enabled for the resource. The default value is 'true'.
      */
     readonly enabled?: pulumi.Input<boolean>;
@@ -128,9 +133,9 @@ export interface AutoscaleSettingArgs {
      */
     readonly location: pulumi.Input<string>;
     /**
-     * The autoscale setting name.
+     * the name of the autoscale setting.
      */
-    readonly name: pulumi.Input<string>;
+    readonly name?: pulumi.Input<string>;
     /**
      * the collection of notifications.
      */

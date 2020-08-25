@@ -63,7 +63,7 @@ export class EventSubscription extends pulumi.CustomResource {
     /**
      * Name of the resource.
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * Provisioning state of the event subscription.
      */
@@ -94,8 +94,8 @@ export class EventSubscription extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             const args = argsOrState as EventSubscriptionArgs | undefined;
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
+            if (!args || args.eventSubscriptionName === undefined) {
+                throw new Error("Missing required property 'eventSubscriptionName'");
             }
             if (!args || args.scope === undefined) {
                 throw new Error("Missing required property 'scope'");
@@ -103,12 +103,13 @@ export class EventSubscription extends pulumi.CustomResource {
             inputs["deadLetterDestination"] = args ? args.deadLetterDestination : undefined;
             inputs["destination"] = args ? args.destination : undefined;
             inputs["eventDeliverySchema"] = args ? args.eventDeliverySchema : undefined;
+            inputs["eventSubscriptionName"] = args ? args.eventSubscriptionName : undefined;
             inputs["expirationTimeUtc"] = args ? args.expirationTimeUtc : undefined;
             inputs["filter"] = args ? args.filter : undefined;
             inputs["labels"] = args ? args.labels : undefined;
-            inputs["name"] = args ? args.name : undefined;
             inputs["retryPolicy"] = args ? args.retryPolicy : undefined;
             inputs["scope"] = args ? args.scope : undefined;
+            inputs["name"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
             inputs["topic"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
@@ -143,6 +144,10 @@ export interface EventSubscriptionArgs {
      */
     readonly eventDeliverySchema?: pulumi.Input<string>;
     /**
+     * Name of the event subscription. Event subscription names must be between 3 and 64 characters in length and should use alphanumeric letters only.
+     */
+    readonly eventSubscriptionName: pulumi.Input<string>;
+    /**
      * Expiration time of the event subscription.
      */
     readonly expirationTimeUtc?: pulumi.Input<string>;
@@ -154,10 +159,6 @@ export interface EventSubscriptionArgs {
      * List of user defined labels.
      */
     readonly labels?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * Name of the event subscription. Event subscription names must be between 3 and 64 characters in length and should use alphanumeric letters only.
-     */
-    readonly name: pulumi.Input<string>;
     /**
      * The retry policy for events. This can be used to configure maximum number of delivery attempts and time to live for events.
      */

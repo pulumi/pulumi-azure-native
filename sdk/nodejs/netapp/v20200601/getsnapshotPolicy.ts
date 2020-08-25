@@ -16,8 +16,8 @@ export function getsnapshotPolicy(args: GetsnapshotPolicyArgs, opts?: pulumi.Inv
     }
     return pulumi.runtime.invoke("azurerm:netapp/v20200601:getsnapshotPolicy", {
         "accountName": args.accountName,
-        "name": args.name,
         "resourceGroupName": args.resourceGroupName,
+        "snapshotPolicyName": args.snapshotPolicyName,
     }, opts);
 }
 
@@ -27,13 +27,13 @@ export interface GetsnapshotPolicyArgs {
      */
     readonly accountName: string;
     /**
-     * The name of the snapshot policy target
-     */
-    readonly name: string;
-    /**
      * The name of the resource group.
      */
     readonly resourceGroupName: string;
+    /**
+     * The name of the snapshot policy target
+     */
+    readonly snapshotPolicyName: string;
 }
 
 /**

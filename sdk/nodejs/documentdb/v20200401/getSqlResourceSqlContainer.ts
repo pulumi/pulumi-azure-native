@@ -16,8 +16,8 @@ export function getSqlResourceSqlContainer(args: GetSqlResourceSqlContainerArgs,
     }
     return pulumi.runtime.invoke("azurerm:documentdb/v20200401:getSqlResourceSqlContainer", {
         "accountName": args.accountName,
+        "containerName": args.containerName,
         "databaseName": args.databaseName,
-        "name": args.name,
         "resourceGroupName": args.resourceGroupName,
     }, opts);
 }
@@ -28,13 +28,13 @@ export interface GetSqlResourceSqlContainerArgs {
      */
     readonly accountName: string;
     /**
+     * Cosmos DB container name.
+     */
+    readonly containerName: string;
+    /**
      * Cosmos DB database name.
      */
     readonly databaseName: string;
-    /**
-     * Cosmos DB container name.
-     */
-    readonly name: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */

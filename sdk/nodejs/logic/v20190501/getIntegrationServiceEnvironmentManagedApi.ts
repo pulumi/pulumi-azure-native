@@ -15,21 +15,21 @@ export function getIntegrationServiceEnvironmentManagedApi(args: GetIntegrationS
         opts.version = utilities.getVersion();
     }
     return pulumi.runtime.invoke("azurerm:logic/v20190501:getIntegrationServiceEnvironmentManagedApi", {
+        "apiName": args.apiName,
         "integrationServiceEnvironmentName": args.integrationServiceEnvironmentName,
-        "name": args.name,
         "resourceGroup": args.resourceGroup,
     }, opts);
 }
 
 export interface GetIntegrationServiceEnvironmentManagedApiArgs {
     /**
+     * The api name.
+     */
+    readonly apiName: string;
+    /**
      * The integration service environment name.
      */
     readonly integrationServiceEnvironmentName: string;
-    /**
-     * The api name.
-     */
-    readonly name: string;
     /**
      * The resource group name.
      */

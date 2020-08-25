@@ -41,7 +41,7 @@ export class DisasterRecoveryConfig extends pulumi.CustomResource {
     /**
      * Resource name.
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * ARM Id of the Primary/Secondary eventhub namespace name, which is part of GEO DR pairing
      */
@@ -76,8 +76,8 @@ export class DisasterRecoveryConfig extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             const args = argsOrState as DisasterRecoveryConfigArgs | undefined;
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
+            if (!args || args.alias === undefined) {
+                throw new Error("Missing required property 'alias'");
             }
             if (!args || args.namespaceName === undefined) {
                 throw new Error("Missing required property 'namespaceName'");
@@ -85,11 +85,12 @@ export class DisasterRecoveryConfig extends pulumi.CustomResource {
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            inputs["alias"] = args ? args.alias : undefined;
             inputs["alternateName"] = args ? args.alternateName : undefined;
-            inputs["name"] = args ? args.name : undefined;
             inputs["namespaceName"] = args ? args.namespaceName : undefined;
             inputs["partnerNamespace"] = args ? args.partnerNamespace : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["name"] = undefined /*out*/;
             inputs["pendingReplicationOperationsCount"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
             inputs["role"] = undefined /*out*/;
@@ -111,13 +112,13 @@ export class DisasterRecoveryConfig extends pulumi.CustomResource {
  */
 export interface DisasterRecoveryConfigArgs {
     /**
+     * The Disaster Recovery configuration name
+     */
+    readonly alias: pulumi.Input<string>;
+    /**
      * Alternate name specified when alias and namespace names are same.
      */
     readonly alternateName?: pulumi.Input<string>;
-    /**
-     * The Disaster Recovery configuration name
-     */
-    readonly name: pulumi.Input<string>;
     /**
      * The Namespace name
      */

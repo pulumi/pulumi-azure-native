@@ -17,8 +17,8 @@ export function getApplicationPackage(args: GetApplicationPackageArgs, opts?: pu
     return pulumi.runtime.invoke("azurerm:batch/v20181201:getApplicationPackage", {
         "accountName": args.accountName,
         "applicationName": args.applicationName,
-        "name": args.name,
         "resourceGroupName": args.resourceGroupName,
+        "versionName": args.versionName,
     }, opts);
 }
 
@@ -32,13 +32,13 @@ export interface GetApplicationPackageArgs {
      */
     readonly applicationName: string;
     /**
-     * The version of the application.
-     */
-    readonly name: string;
-    /**
      * The name of the resource group that contains the Batch account.
      */
     readonly resourceGroupName: string;
+    /**
+     * The version of the application.
+     */
+    readonly versionName: string;
 }
 
 /**

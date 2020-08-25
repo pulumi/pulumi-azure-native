@@ -63,7 +63,7 @@ export class ContainerService extends pulumi.CustomResource {
     /**
      * Resource name
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * Profile for the container service orchestrator.
      */
@@ -102,6 +102,9 @@ export class ContainerService extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             const args = argsOrState as ContainerServiceArgs | undefined;
+            if (!args || args.containerServiceName === undefined) {
+                throw new Error("Missing required property 'containerServiceName'");
+            }
             if (!args || args.linuxProfile === undefined) {
                 throw new Error("Missing required property 'linuxProfile'");
             }
@@ -111,9 +114,6 @@ export class ContainerService extends pulumi.CustomResource {
             if (!args || args.masterProfile === undefined) {
                 throw new Error("Missing required property 'masterProfile'");
             }
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
-            }
             if (!args || args.orchestratorProfile === undefined) {
                 throw new Error("Missing required property 'orchestratorProfile'");
             }
@@ -121,17 +121,18 @@ export class ContainerService extends pulumi.CustomResource {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["agentPoolProfiles"] = args ? args.agentPoolProfiles : undefined;
+            inputs["containerServiceName"] = args ? args.containerServiceName : undefined;
             inputs["customProfile"] = args ? args.customProfile : undefined;
             inputs["diagnosticsProfile"] = args ? args.diagnosticsProfile : undefined;
             inputs["linuxProfile"] = args ? args.linuxProfile : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["masterProfile"] = args ? args.masterProfile : undefined;
-            inputs["name"] = args ? args.name : undefined;
             inputs["orchestratorProfile"] = args ? args.orchestratorProfile : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["servicePrincipalProfile"] = args ? args.servicePrincipalProfile : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["windowsProfile"] = args ? args.windowsProfile : undefined;
+            inputs["name"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
@@ -157,6 +158,10 @@ export interface ContainerServiceArgs {
      */
     readonly agentPoolProfiles?: pulumi.Input<pulumi.Input<inputs.containerservice.v20170701.ContainerServiceAgentPoolProfile>[]>;
     /**
+     * The name of the container service in the specified subscription and resource group.
+     */
+    readonly containerServiceName: pulumi.Input<string>;
+    /**
      * Properties to configure a custom container service cluster.
      */
     readonly customProfile?: pulumi.Input<inputs.containerservice.v20170701.ContainerServiceCustomProfile>;
@@ -176,10 +181,6 @@ export interface ContainerServiceArgs {
      * Profile for the container service master.
      */
     readonly masterProfile: pulumi.Input<inputs.containerservice.v20170701.ContainerServiceMasterProfile>;
-    /**
-     * The name of the container service in the specified subscription and resource group.
-     */
-    readonly name: pulumi.Input<string>;
     /**
      * Profile for the container service orchestrator.
      */

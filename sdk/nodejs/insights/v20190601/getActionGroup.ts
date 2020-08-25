@@ -15,7 +15,7 @@ export function getActionGroup(args: GetActionGroupArgs, opts?: pulumi.InvokeOpt
         opts.version = utilities.getVersion();
     }
     return pulumi.runtime.invoke("azurerm:insights/v20190601:getActionGroup", {
-        "name": args.name,
+        "actionGroupName": args.actionGroupName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);
 }
@@ -24,7 +24,7 @@ export interface GetActionGroupArgs {
     /**
      * The name of the action group.
      */
-    readonly name: string;
+    readonly actionGroupName: string;
     /**
      * The name of the resource group.
      */

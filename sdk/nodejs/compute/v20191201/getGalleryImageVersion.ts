@@ -17,8 +17,8 @@ export function getGalleryImageVersion(args: GetGalleryImageVersionArgs, opts?: 
     return pulumi.runtime.invoke("azurerm:compute/v20191201:getGalleryImageVersion", {
         "expand": args.expand,
         "galleryImageName": args.galleryImageName,
+        "galleryImageVersionName": args.galleryImageVersionName,
         "galleryName": args.galleryName,
-        "name": args.name,
         "resourceGroupName": args.resourceGroupName,
     }, opts);
 }
@@ -33,13 +33,13 @@ export interface GetGalleryImageVersionArgs {
      */
     readonly galleryImageName: string;
     /**
+     * The name of the gallery Image Version to be retrieved.
+     */
+    readonly galleryImageVersionName: string;
+    /**
      * The name of the Shared Image Gallery in which the Image Definition resides.
      */
     readonly galleryName: string;
-    /**
-     * The name of the gallery Image Version to be retrieved.
-     */
-    readonly name: string;
     /**
      * The name of the resource group.
      */

@@ -17,18 +17,23 @@ export function getWebAppSlot(args: GetWebAppSlotArgs, opts?: pulumi.InvokeOptio
     return pulumi.runtime.invoke("azurerm:web/v20181101:getWebAppSlot", {
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,
+        "slot": args.slot,
     }, opts);
 }
 
 export interface GetWebAppSlotArgs {
     /**
-     * Name of the deployment slot. By default, this API returns the production slot.
+     * Name of the app.
      */
     readonly name: string;
     /**
      * Name of the resource group to which the resource belongs.
      */
     readonly resourceGroupName: string;
+    /**
+     * Name of the deployment slot. By default, this API returns the production slot.
+     */
+    readonly slot: string;
 }
 
 /**

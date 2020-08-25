@@ -103,7 +103,7 @@ export class DatabaseAccount extends pulumi.CustomResource {
     /**
      * The name of the ARM resource.
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * The status of the Cosmos DB account at the time the operation was called. The status can be one of following. 'Creating' – the Cosmos DB account is being created. When an account is in Creating state, only properties that are specified as input for the Create Cosmos DB account operation are returned. 'Succeeded' – the Cosmos DB account is active for use. 'Updating' – the Cosmos DB account is being updated. 'Deleting' – the Cosmos DB account is being deleted. 'Failed' – the Cosmos DB account failed creation. 'Offline' - the Cosmos DB account is not active. 'DeletionFailed' – the Cosmos DB account deletion failed.
      */
@@ -142,18 +142,19 @@ export class DatabaseAccount extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             const args = argsOrState as DatabaseAccountArgs | undefined;
+            if (!args || args.accountName === undefined) {
+                throw new Error("Missing required property 'accountName'");
+            }
             if (!args || args.databaseAccountOfferType === undefined) {
                 throw new Error("Missing required property 'databaseAccountOfferType'");
             }
             if (!args || args.locations === undefined) {
                 throw new Error("Missing required property 'locations'");
             }
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
-            }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            inputs["accountName"] = args ? args.accountName : undefined;
             inputs["capabilities"] = args ? args.capabilities : undefined;
             inputs["connectorOffer"] = args ? args.connectorOffer : undefined;
             inputs["consistencyPolicy"] = args ? args.consistencyPolicy : undefined;
@@ -168,12 +169,12 @@ export class DatabaseAccount extends pulumi.CustomResource {
             inputs["kind"] = args ? args.kind : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["locations"] = args ? args.locations : undefined;
-            inputs["name"] = args ? args.name : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["virtualNetworkRules"] = args ? args.virtualNetworkRules : undefined;
             inputs["documentEndpoint"] = undefined /*out*/;
             inputs["failoverPolicies"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
             inputs["readLocations"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
@@ -196,6 +197,10 @@ export class DatabaseAccount extends pulumi.CustomResource {
  * The set of arguments for constructing a DatabaseAccount resource.
  */
 export interface DatabaseAccountArgs {
+    /**
+     * Cosmos DB database account name.
+     */
+    readonly accountName: pulumi.Input<string>;
     /**
      * List of Cosmos DB capabilities for the account
      */
@@ -252,10 +257,6 @@ export interface DatabaseAccountArgs {
      * An array that contains the georeplication locations enabled for the Cosmos DB account.
      */
     readonly locations: pulumi.Input<pulumi.Input<inputs.documentdb.v20191212.Location>[]>;
-    /**
-     * Cosmos DB database account name.
-     */
-    readonly name: pulumi.Input<string>;
     /**
      * Name of an Azure resource group.
      */

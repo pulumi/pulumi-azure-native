@@ -37,7 +37,7 @@ export class LinkedService extends pulumi.CustomResource {
     /**
      * The name of the resource
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * The provisioning state of the linked service.
      */
@@ -72,8 +72,8 @@ export class LinkedService extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             const args = argsOrState as LinkedServiceArgs | undefined;
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
+            if (!args || args.linkedServiceName === undefined) {
+                throw new Error("Missing required property 'linkedServiceName'");
             }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
@@ -81,13 +81,14 @@ export class LinkedService extends pulumi.CustomResource {
             if (!args || args.workspaceName === undefined) {
                 throw new Error("Missing required property 'workspaceName'");
             }
-            inputs["name"] = args ? args.name : undefined;
+            inputs["linkedServiceName"] = args ? args.linkedServiceName : undefined;
             inputs["provisioningState"] = args ? args.provisioningState : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["resourceId"] = args ? args.resourceId : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["workspaceName"] = args ? args.workspaceName : undefined;
             inputs["writeAccessResourceId"] = args ? args.writeAccessResourceId : undefined;
+            inputs["name"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -108,7 +109,7 @@ export interface LinkedServiceArgs {
     /**
      * Name of the linkedServices resource
      */
-    readonly name: pulumi.Input<string>;
+    readonly linkedServiceName: pulumi.Input<string>;
     /**
      * The provisioning state of the linked service.
      */

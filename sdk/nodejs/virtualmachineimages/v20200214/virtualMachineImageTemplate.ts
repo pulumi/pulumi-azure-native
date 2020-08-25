@@ -63,7 +63,7 @@ export class VirtualMachineImageTemplate extends pulumi.CustomResource {
     /**
      * Resource name
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * Provisioning error, if any
      */
@@ -108,11 +108,11 @@ export class VirtualMachineImageTemplate extends pulumi.CustomResource {
             if (!args || args.identity === undefined) {
                 throw new Error("Missing required property 'identity'");
             }
+            if (!args || args.imageTemplateName === undefined) {
+                throw new Error("Missing required property 'imageTemplateName'");
+            }
             if (!args || args.location === undefined) {
                 throw new Error("Missing required property 'location'");
-            }
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
             }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
@@ -124,13 +124,14 @@ export class VirtualMachineImageTemplate extends pulumi.CustomResource {
             inputs["customize"] = args ? args.customize : undefined;
             inputs["distribute"] = args ? args.distribute : undefined;
             inputs["identity"] = args ? args.identity : undefined;
+            inputs["imageTemplateName"] = args ? args.imageTemplateName : undefined;
             inputs["location"] = args ? args.location : undefined;
-            inputs["name"] = args ? args.name : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["source"] = args ? args.source : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["vmProfile"] = args ? args.vmProfile : undefined;
             inputs["lastRunStatus"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
             inputs["provisioningError"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
@@ -167,13 +168,13 @@ export interface VirtualMachineImageTemplateArgs {
      */
     readonly identity: pulumi.Input<inputs.virtualmachineimages.v20200214.ImageTemplateIdentity>;
     /**
+     * The name of the image Template
+     */
+    readonly imageTemplateName: pulumi.Input<string>;
+    /**
      * Resource location
      */
     readonly location: pulumi.Input<string>;
-    /**
-     * The name of the image Template
-     */
-    readonly name: pulumi.Input<string>;
     /**
      * The name of the resource group.
      */

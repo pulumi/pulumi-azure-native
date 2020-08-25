@@ -15,7 +15,7 @@ export function getAccount(args: GetAccountArgs, opts?: pulumi.InvokeOptions): P
         opts.version = utilities.getVersion();
     }
     return pulumi.runtime.invoke("azurerm:maps/v20180501:getAccount", {
-        "name": args.name,
+        "accountName": args.accountName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);
 }
@@ -24,7 +24,7 @@ export interface GetAccountArgs {
     /**
      * The name of the Maps Account.
      */
-    readonly name: string;
+    readonly accountName: string;
     /**
      * The name of the Azure Resource Group.
      */

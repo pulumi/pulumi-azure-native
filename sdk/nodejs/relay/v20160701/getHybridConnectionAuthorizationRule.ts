@@ -15,8 +15,8 @@ export function getHybridConnectionAuthorizationRule(args: GetHybridConnectionAu
         opts.version = utilities.getVersion();
     }
     return pulumi.runtime.invoke("azurerm:relay/v20160701:getHybridConnectionAuthorizationRule", {
+        "authorizationRuleName": args.authorizationRuleName,
         "hybridConnectionName": args.hybridConnectionName,
-        "name": args.name,
         "namespaceName": args.namespaceName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);
@@ -24,13 +24,13 @@ export function getHybridConnectionAuthorizationRule(args: GetHybridConnectionAu
 
 export interface GetHybridConnectionAuthorizationRuleArgs {
     /**
+     * The authorizationRule name.
+     */
+    readonly authorizationRuleName: string;
+    /**
      * The hybrid connection name.
      */
     readonly hybridConnectionName: string;
-    /**
-     * The authorizationRule name.
-     */
-    readonly name: string;
     /**
      * The Namespace Name
      */

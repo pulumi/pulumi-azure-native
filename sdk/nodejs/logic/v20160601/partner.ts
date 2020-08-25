@@ -59,7 +59,7 @@ export class Partner extends pulumi.CustomResource {
     /**
      * Gets the resource name.
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * The partner type.
      */
@@ -92,8 +92,8 @@ export class Partner extends pulumi.CustomResource {
             if (!args || args.integrationAccountName === undefined) {
                 throw new Error("Missing required property 'integrationAccountName'");
             }
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
+            if (!args || args.partnerName === undefined) {
+                throw new Error("Missing required property 'partnerName'");
             }
             if (!args || args.partnerType === undefined) {
                 throw new Error("Missing required property 'partnerType'");
@@ -105,12 +105,13 @@ export class Partner extends pulumi.CustomResource {
             inputs["integrationAccountName"] = args ? args.integrationAccountName : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["metadata"] = args ? args.metadata : undefined;
-            inputs["name"] = args ? args.name : undefined;
+            inputs["partnerName"] = args ? args.partnerName : undefined;
             inputs["partnerType"] = args ? args.partnerType : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["changedTime"] = undefined /*out*/;
             inputs["createdTime"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -149,7 +150,7 @@ export interface PartnerArgs {
     /**
      * The integration account partner name.
      */
-    readonly name: pulumi.Input<string>;
+    readonly partnerName: pulumi.Input<string>;
     /**
      * The partner type.
      */

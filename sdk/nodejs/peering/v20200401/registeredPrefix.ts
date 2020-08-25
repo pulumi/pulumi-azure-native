@@ -41,7 +41,7 @@ export class RegisteredPrefix extends pulumi.CustomResource {
     /**
      * The name of the resource.
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * The peering service prefix key that is to be shared with the customer.
      */
@@ -76,20 +76,21 @@ export class RegisteredPrefix extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             const args = argsOrState as RegisteredPrefixArgs | undefined;
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
-            }
             if (!args || args.peeringName === undefined) {
                 throw new Error("Missing required property 'peeringName'");
+            }
+            if (!args || args.registeredPrefixName === undefined) {
+                throw new Error("Missing required property 'registeredPrefixName'");
             }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["name"] = args ? args.name : undefined;
             inputs["peeringName"] = args ? args.peeringName : undefined;
             inputs["prefix"] = args ? args.prefix : undefined;
+            inputs["registeredPrefixName"] = args ? args.registeredPrefixName : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["errorMessage"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
             inputs["peeringServicePrefixKey"] = undefined /*out*/;
             inputs["prefixValidationState"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
@@ -111,10 +112,6 @@ export class RegisteredPrefix extends pulumi.CustomResource {
  */
 export interface RegisteredPrefixArgs {
     /**
-     * The name of the registered prefix.
-     */
-    readonly name: pulumi.Input<string>;
-    /**
      * The name of the peering.
      */
     readonly peeringName: pulumi.Input<string>;
@@ -122,6 +119,10 @@ export interface RegisteredPrefixArgs {
      * The customer's prefix from which traffic originates.
      */
     readonly prefix?: pulumi.Input<string>;
+    /**
+     * The name of the registered prefix.
+     */
+    readonly registeredPrefixName: pulumi.Input<string>;
     /**
      * The name of the resource group.
      */

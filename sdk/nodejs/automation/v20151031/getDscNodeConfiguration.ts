@@ -16,7 +16,7 @@ export function getDscNodeConfiguration(args: GetDscNodeConfigurationArgs, opts?
     }
     return pulumi.runtime.invoke("azurerm:automation/v20151031:getDscNodeConfiguration", {
         "automationAccountName": args.automationAccountName,
-        "name": args.name,
+        "nodeConfigurationName": args.nodeConfigurationName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);
 }
@@ -29,7 +29,7 @@ export interface GetDscNodeConfigurationArgs {
     /**
      * The Dsc node configuration name.
      */
-    readonly name: string;
+    readonly nodeConfigurationName: string;
     /**
      * Name of an Azure Resource group.
      */

@@ -63,7 +63,7 @@ export class OpenShiftCluster extends pulumi.CustomResource {
     /**
      * The name of the resource
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * The cluster network profile.
      */
@@ -105,11 +105,11 @@ export class OpenShiftCluster extends pulumi.CustomResource {
             if (!args || args.location === undefined) {
                 throw new Error("Missing required property 'location'");
             }
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
-            }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
+            }
+            if (!args || args.resourceName === undefined) {
+                throw new Error("Missing required property 'resourceName'");
             }
             inputs["apiserverProfile"] = args ? args.apiserverProfile : undefined;
             inputs["clusterProfile"] = args ? args.clusterProfile : undefined;
@@ -117,13 +117,14 @@ export class OpenShiftCluster extends pulumi.CustomResource {
             inputs["ingressProfiles"] = args ? args.ingressProfiles : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["masterProfile"] = args ? args.masterProfile : undefined;
-            inputs["name"] = args ? args.name : undefined;
             inputs["networkProfile"] = args ? args.networkProfile : undefined;
             inputs["provisioningState"] = args ? args.provisioningState : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["resourceName"] = args ? args.resourceName : undefined;
             inputs["servicePrincipalProfile"] = args ? args.servicePrincipalProfile : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["workerProfiles"] = args ? args.workerProfiles : undefined;
+            inputs["name"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -166,10 +167,6 @@ export interface OpenShiftClusterArgs {
      */
     readonly masterProfile?: pulumi.Input<inputs.redhatopenshift.v20200430.MasterProfile>;
     /**
-     * The name of the OpenShift cluster resource.
-     */
-    readonly name: pulumi.Input<string>;
-    /**
      * The cluster network profile.
      */
     readonly networkProfile?: pulumi.Input<inputs.redhatopenshift.v20200430.NetworkProfile>;
@@ -181,6 +178,10 @@ export interface OpenShiftClusterArgs {
      * The name of the resource group. The name is case insensitive.
      */
     readonly resourceGroupName: pulumi.Input<string>;
+    /**
+     * The name of the OpenShift cluster resource.
+     */
+    readonly resourceName: pulumi.Input<string>;
     /**
      * The cluster service principal profile.
      */

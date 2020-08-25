@@ -15,7 +15,7 @@ export function getLinkedStorageAccount(args: GetLinkedStorageAccountArgs, opts?
         opts.version = utilities.getVersion();
     }
     return pulumi.runtime.invoke("azurerm:operationalinsights/v20200801:getLinkedStorageAccount", {
-        "name": args.name,
+        "dataSourceType": args.dataSourceType,
         "resourceGroupName": args.resourceGroupName,
         "workspaceName": args.workspaceName,
     }, opts);
@@ -25,7 +25,7 @@ export interface GetLinkedStorageAccountArgs {
     /**
      * Linked storage accounts type.
      */
-    readonly name: string;
+    readonly dataSourceType: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */

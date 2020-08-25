@@ -16,7 +16,7 @@ export function getDatabase(args: GetDatabaseArgs, opts?: pulumi.InvokeOptions):
     }
     return pulumi.runtime.invoke("azurerm:kusto/v20190907:getDatabase", {
         "clusterName": args.clusterName,
-        "name": args.name,
+        "databaseName": args.databaseName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);
 }
@@ -29,7 +29,7 @@ export interface GetDatabaseArgs {
     /**
      * The name of the database in the Kusto cluster.
      */
-    readonly name: string;
+    readonly databaseName: string;
     /**
      * The name of the resource group containing the Kusto cluster.
      */

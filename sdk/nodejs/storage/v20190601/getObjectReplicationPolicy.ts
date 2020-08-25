@@ -16,7 +16,7 @@ export function getObjectReplicationPolicy(args: GetObjectReplicationPolicyArgs,
     }
     return pulumi.runtime.invoke("azurerm:storage/v20190601:getObjectReplicationPolicy", {
         "accountName": args.accountName,
-        "name": args.name,
+        "objectReplicationPolicyId": args.objectReplicationPolicyId,
         "resourceGroupName": args.resourceGroupName,
     }, opts);
 }
@@ -29,7 +29,7 @@ export interface GetObjectReplicationPolicyArgs {
     /**
      * The ID of object replication policy or 'default' if the policy ID is unknown.
      */
-    readonly name: string;
+    readonly objectReplicationPolicyId: string;
     /**
      * The name of the resource group within the user's subscription. The name is case insensitive.
      */

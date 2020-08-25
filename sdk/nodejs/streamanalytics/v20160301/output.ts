@@ -77,8 +77,8 @@ export class Output extends pulumi.CustomResource {
             if (!args || args.jobName === undefined) {
                 throw new Error("Missing required property 'jobName'");
             }
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
+            if (!args || args.outputName === undefined) {
+                throw new Error("Missing required property 'outputName'");
             }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
@@ -86,6 +86,7 @@ export class Output extends pulumi.CustomResource {
             inputs["datasource"] = args ? args.datasource : undefined;
             inputs["jobName"] = args ? args.jobName : undefined;
             inputs["name"] = args ? args.name : undefined;
+            inputs["outputName"] = args ? args.outputName : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["serialization"] = args ? args.serialization : undefined;
             inputs["diagnostics"] = undefined /*out*/;
@@ -116,9 +117,13 @@ export interface OutputArgs {
      */
     readonly jobName: pulumi.Input<string>;
     /**
+     * Resource name
+     */
+    readonly name?: pulumi.Input<string>;
+    /**
      * The name of the output.
      */
-    readonly name: pulumi.Input<string>;
+    readonly outputName: pulumi.Input<string>;
     /**
      * The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
      */

@@ -15,7 +15,7 @@ export function getMachineLearningCompute(args: GetMachineLearningComputeArgs, o
         opts.version = utilities.getVersion();
     }
     return pulumi.runtime.invoke("azurerm:machinelearningservices/v20200101:getMachineLearningCompute", {
-        "name": args.name,
+        "computeName": args.computeName,
         "resourceGroupName": args.resourceGroupName,
         "workspaceName": args.workspaceName,
     }, opts);
@@ -25,7 +25,7 @@ export interface GetMachineLearningComputeArgs {
     /**
      * Name of the Azure Machine Learning compute.
      */
-    readonly name: string;
+    readonly computeName: string;
     /**
      * Name of the resource group in which workspace is located.
      */

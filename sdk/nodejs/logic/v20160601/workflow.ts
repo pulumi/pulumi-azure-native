@@ -63,7 +63,7 @@ export class Workflow extends pulumi.CustomResource {
     /**
      * Gets the resource name.
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * The parameters.
      */
@@ -106,24 +106,25 @@ export class Workflow extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             const args = argsOrState as WorkflowArgs | undefined;
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
-            }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            if (!args || args.workflowName === undefined) {
+                throw new Error("Missing required property 'workflowName'");
+            }
             inputs["definition"] = args ? args.definition : undefined;
             inputs["location"] = args ? args.location : undefined;
-            inputs["name"] = args ? args.name : undefined;
             inputs["parameters"] = args ? args.parameters : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["sku"] = args ? args.sku : undefined;
             inputs["state"] = args ? args.state : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["workflowName"] = args ? args.workflowName : undefined;
             inputs["accessEndpoint"] = undefined /*out*/;
             inputs["changedTime"] = undefined /*out*/;
             inputs["createdTime"] = undefined /*out*/;
             inputs["integrationAccount"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
             inputs["version"] = undefined /*out*/;
@@ -154,10 +155,6 @@ export interface WorkflowArgs {
      */
     readonly location?: pulumi.Input<string>;
     /**
-     * The workflow name.
-     */
-    readonly name: pulumi.Input<string>;
-    /**
      * The parameters.
      */
     readonly parameters?: pulumi.Input<{[key: string]: pulumi.Input<inputs.logic.v20160601.WorkflowParameter>}>;
@@ -177,4 +174,8 @@ export interface WorkflowArgs {
      * The resource tags.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * The workflow name.
+     */
+    readonly workflowName: pulumi.Input<string>;
 }

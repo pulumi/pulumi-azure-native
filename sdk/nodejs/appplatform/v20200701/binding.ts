@@ -39,7 +39,7 @@ export class Binding extends pulumi.CustomResource {
     /**
      * The name of the resource.
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * Properties of the Binding resource
      */
@@ -65,8 +65,8 @@ export class Binding extends pulumi.CustomResource {
             if (!args || args.appName === undefined) {
                 throw new Error("Missing required property 'appName'");
             }
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
+            if (!args || args.bindingName === undefined) {
+                throw new Error("Missing required property 'bindingName'");
             }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
@@ -75,10 +75,11 @@ export class Binding extends pulumi.CustomResource {
                 throw new Error("Missing required property 'serviceName'");
             }
             inputs["appName"] = args ? args.appName : undefined;
-            inputs["name"] = args ? args.name : undefined;
+            inputs["bindingName"] = args ? args.bindingName : undefined;
             inputs["properties"] = args ? args.properties : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["serviceName"] = args ? args.serviceName : undefined;
+            inputs["name"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -103,7 +104,7 @@ export interface BindingArgs {
     /**
      * The name of the Binding resource.
      */
-    readonly name: pulumi.Input<string>;
+    readonly bindingName: pulumi.Input<string>;
     /**
      * Properties of the Binding resource
      */

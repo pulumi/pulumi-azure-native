@@ -16,7 +16,7 @@ export function getQueue(args: GetQueueArgs, opts?: pulumi.InvokeOptions): Promi
     }
     return pulumi.runtime.invoke("azurerm:storage/v20190601:getQueue", {
         "accountName": args.accountName,
-        "name": args.name,
+        "queueName": args.queueName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);
 }
@@ -29,7 +29,7 @@ export interface GetQueueArgs {
     /**
      * A queue name must be unique within a storage account and must be between 3 and 63 characters.The name must comprise of lowercase alphanumeric and dash(-) characters only, it should begin and end with an alphanumeric character and it cannot have two consecutive dash(-) characters.
      */
-    readonly name: string;
+    readonly queueName: string;
     /**
      * The name of the resource group within the user's subscription. The name is case insensitive.
      */

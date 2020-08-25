@@ -15,7 +15,7 @@ export function getOpenIdConnectProvider(args: GetOpenIdConnectProviderArgs, opt
         opts.version = utilities.getVersion();
     }
     return pulumi.runtime.invoke("azurerm:apimanagement/v20191201:getOpenIdConnectProvider", {
-        "name": args.name,
+        "opid": args.opid,
         "resourceGroupName": args.resourceGroupName,
         "serviceName": args.serviceName,
     }, opts);
@@ -25,7 +25,7 @@ export interface GetOpenIdConnectProviderArgs {
     /**
      * Identifier of the OpenID Connect Provider.
      */
-    readonly name: string;
+    readonly opid: string;
     /**
      * The name of the resource group.
      */

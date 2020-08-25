@@ -16,7 +16,7 @@ export function getProtectionIntent(args: GetProtectionIntentArgs, opts?: pulumi
     }
     return pulumi.runtime.invoke("azurerm:recoveryservices/v20170701:getProtectionIntent", {
         "fabricName": args.fabricName,
-        "name": args.name,
+        "intentObjectName": args.intentObjectName,
         "resourceGroupName": args.resourceGroupName,
         "vaultName": args.vaultName,
     }, opts);
@@ -30,7 +30,7 @@ export interface GetProtectionIntentArgs {
     /**
      * Backed up item name whose details are to be fetched.
      */
-    readonly name: string;
+    readonly intentObjectName: string;
     /**
      * The name of the resource group where the recovery services vault is present.
      */

@@ -96,6 +96,9 @@ export class WebAppInstanceFunctionSlot extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             const args = argsOrState as WebAppInstanceFunctionSlotArgs | undefined;
+            if (!args || args.functionName === undefined) {
+                throw new Error("Missing required property 'functionName'");
+            }
             if (!args || args.name === undefined) {
                 throw new Error("Missing required property 'name'");
             }
@@ -109,6 +112,7 @@ export class WebAppInstanceFunctionSlot extends pulumi.CustomResource {
             inputs["configHref"] = args ? args.configHref : undefined;
             inputs["files"] = args ? args.files : undefined;
             inputs["functionAppId"] = args ? args.functionAppId : undefined;
+            inputs["functionName"] = args ? args.functionName : undefined;
             inputs["href"] = args ? args.href : undefined;
             inputs["kind"] = args ? args.kind : undefined;
             inputs["name"] = args ? args.name : undefined;
@@ -154,6 +158,10 @@ export interface WebAppInstanceFunctionSlotArgs {
      */
     readonly functionAppId?: pulumi.Input<string>;
     /**
+     * Function name.
+     */
+    readonly functionName: pulumi.Input<string>;
+    /**
      * Function URI.
      */
     readonly href?: pulumi.Input<string>;
@@ -162,7 +170,7 @@ export interface WebAppInstanceFunctionSlotArgs {
      */
     readonly kind?: pulumi.Input<string>;
     /**
-     * Function name.
+     * Site name.
      */
     readonly name: pulumi.Input<string>;
     /**

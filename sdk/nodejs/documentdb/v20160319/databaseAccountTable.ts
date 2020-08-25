@@ -43,7 +43,7 @@ export class DatabaseAccountTable extends pulumi.CustomResource {
     /**
      * The name of the database account.
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * Tags are a list of key-value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters. For example, the default experience for a template type is set with "defaultExperience": "Cassandra". Current "defaultExperience" values also include "Table", "Graph", "DocumentDB", and "MongoDB".
      */
@@ -69,9 +69,6 @@ export class DatabaseAccountTable extends pulumi.CustomResource {
             if (!args || args.accountName === undefined) {
                 throw new Error("Missing required property 'accountName'");
             }
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
-            }
             if (!args || args.options === undefined) {
                 throw new Error("Missing required property 'options'");
             }
@@ -81,12 +78,16 @@ export class DatabaseAccountTable extends pulumi.CustomResource {
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            if (!args || args.tableName === undefined) {
+                throw new Error("Missing required property 'tableName'");
+            }
             inputs["accountName"] = args ? args.accountName : undefined;
-            inputs["name"] = args ? args.name : undefined;
             inputs["options"] = args ? args.options : undefined;
             inputs["resource"] = args ? args.resource : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["tableName"] = args ? args.tableName : undefined;
             inputs["location"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
             inputs["tags"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
@@ -112,10 +113,6 @@ export interface DatabaseAccountTableArgs {
      */
     readonly accountName: pulumi.Input<string>;
     /**
-     * Cosmos DB table name.
-     */
-    readonly name: pulumi.Input<string>;
-    /**
      * A key-value pair of options to be applied for the request. This corresponds to the headers sent with the request.
      */
     readonly options: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
@@ -127,4 +124,8 @@ export interface DatabaseAccountTableArgs {
      * Name of an Azure resource group.
      */
     readonly resourceGroupName: pulumi.Input<string>;
+    /**
+     * Cosmos DB table name.
+     */
+    readonly tableName: pulumi.Input<string>;
 }

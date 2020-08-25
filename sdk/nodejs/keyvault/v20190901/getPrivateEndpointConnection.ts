@@ -15,7 +15,7 @@ export function getPrivateEndpointConnection(args: GetPrivateEndpointConnectionA
         opts.version = utilities.getVersion();
     }
     return pulumi.runtime.invoke("azurerm:keyvault/v20190901:getPrivateEndpointConnection", {
-        "name": args.name,
+        "privateEndpointConnectionName": args.privateEndpointConnectionName,
         "resourceGroupName": args.resourceGroupName,
         "vaultName": args.vaultName,
     }, opts);
@@ -25,7 +25,7 @@ export interface GetPrivateEndpointConnectionArgs {
     /**
      * Name of the private endpoint connection associated with the key vault.
      */
-    readonly name: string;
+    readonly privateEndpointConnectionName: string;
     /**
      * Name of the resource group that contains the key vault.
      */

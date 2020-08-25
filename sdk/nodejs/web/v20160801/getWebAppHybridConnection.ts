@@ -17,19 +17,24 @@ export function getWebAppHybridConnection(args: GetWebAppHybridConnectionArgs, o
     return pulumi.runtime.invoke("azurerm:web/v20160801:getWebAppHybridConnection", {
         "name": args.name,
         "namespaceName": args.namespaceName,
+        "relayName": args.relayName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);
 }
 
 export interface GetWebAppHybridConnectionArgs {
     /**
-     * The relay name for this hybrid connection.
+     * The name of the web app.
      */
     readonly name: string;
     /**
      * The namespace for this hybrid connection.
      */
     readonly namespaceName: string;
+    /**
+     * The relay name for this hybrid connection.
+     */
+    readonly relayName: string;
     /**
      * Name of the resource group to which the resource belongs.
      */

@@ -15,16 +15,20 @@ export function getEnvironment(args: GetEnvironmentArgs, opts?: pulumi.InvokeOpt
         opts.version = utilities.getVersion();
     }
     return pulumi.runtime.invoke("azurerm:labservices/v20181015:getEnvironment", {
+        "environmentName": args.environmentName,
         "environmentSettingName": args.environmentSettingName,
         "expand": args.expand,
         "labAccountName": args.labAccountName,
         "labName": args.labName,
-        "name": args.name,
         "resourceGroupName": args.resourceGroupName,
     }, opts);
 }
 
 export interface GetEnvironmentArgs {
+    /**
+     * The name of the environment.
+     */
+    readonly environmentName: string;
     /**
      * The name of the environment Setting.
      */
@@ -41,10 +45,6 @@ export interface GetEnvironmentArgs {
      * The name of the lab.
      */
     readonly labName: string;
-    /**
-     * The name of the environment.
-     */
-    readonly name: string;
     /**
      * The name of the resource group.
      */

@@ -15,20 +15,20 @@ export function getMasterSiteSite(args: GetMasterSiteSiteArgs, opts?: pulumi.Inv
         opts.version = utilities.getVersion();
     }
     return pulumi.runtime.invoke("azurerm:offazure/v20200707:getMasterSiteSite", {
-        "name": args.name,
         "resourceGroupName": args.resourceGroupName,
+        "siteName": args.siteName,
     }, opts);
 }
 
 export interface GetMasterSiteSiteArgs {
     /**
-     * Site name.
-     */
-    readonly name: string;
-    /**
      * The name of the resource group. The name is case insensitive.
      */
     readonly resourceGroupName: string;
+    /**
+     * Site name.
+     */
+    readonly siteName: string;
 }
 
 /**

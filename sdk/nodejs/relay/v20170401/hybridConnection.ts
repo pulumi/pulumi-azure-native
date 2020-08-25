@@ -45,7 +45,7 @@ export class HybridConnection extends pulumi.CustomResource {
     /**
      * Resource name.
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * Returns true if client authorization is needed for this hybrid connection; otherwise, false.
      */
@@ -76,8 +76,8 @@ export class HybridConnection extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             const args = argsOrState as HybridConnectionArgs | undefined;
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
+            if (!args || args.hybridConnectionName === undefined) {
+                throw new Error("Missing required property 'hybridConnectionName'");
             }
             if (!args || args.namespaceName === undefined) {
                 throw new Error("Missing required property 'namespaceName'");
@@ -85,13 +85,14 @@ export class HybridConnection extends pulumi.CustomResource {
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["name"] = args ? args.name : undefined;
+            inputs["hybridConnectionName"] = args ? args.hybridConnectionName : undefined;
             inputs["namespaceName"] = args ? args.namespaceName : undefined;
             inputs["requiresClientAuthorization"] = args ? args.requiresClientAuthorization : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["userMetadata"] = args ? args.userMetadata : undefined;
             inputs["createdAt"] = undefined /*out*/;
             inputs["listenerCount"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
             inputs["updatedAt"] = undefined /*out*/;
         }
@@ -113,7 +114,7 @@ export interface HybridConnectionArgs {
     /**
      * The hybrid connection name.
      */
-    readonly name: pulumi.Input<string>;
+    readonly hybridConnectionName: pulumi.Input<string>;
     /**
      * The namespace name
      */

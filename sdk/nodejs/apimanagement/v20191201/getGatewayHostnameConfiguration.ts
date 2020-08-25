@@ -16,7 +16,7 @@ export function getGatewayHostnameConfiguration(args: GetGatewayHostnameConfigur
     }
     return pulumi.runtime.invoke("azurerm:apimanagement/v20191201:getGatewayHostnameConfiguration", {
         "gatewayId": args.gatewayId,
-        "name": args.name,
+        "hcId": args.hcId,
         "resourceGroupName": args.resourceGroupName,
         "serviceName": args.serviceName,
     }, opts);
@@ -30,7 +30,7 @@ export interface GetGatewayHostnameConfigurationArgs {
     /**
      * Gateway hostname configuration identifier. Must be unique in the scope of parent Gateway entity.
      */
-    readonly name: string;
+    readonly hcId: string;
     /**
      * The name of the resource group.
      */

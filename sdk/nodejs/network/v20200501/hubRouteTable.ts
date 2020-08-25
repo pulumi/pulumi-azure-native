@@ -82,11 +82,11 @@ export class HubRouteTable extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             const args = argsOrState as HubRouteTableArgs | undefined;
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
-            }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
+            }
+            if (!args || args.routeTableName === undefined) {
+                throw new Error("Missing required property 'routeTableName'");
             }
             if (!args || args.virtualHubName === undefined) {
                 throw new Error("Missing required property 'virtualHubName'");
@@ -95,6 +95,7 @@ export class HubRouteTable extends pulumi.CustomResource {
             inputs["labels"] = args ? args.labels : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["routeTableName"] = args ? args.routeTableName : undefined;
             inputs["routes"] = args ? args.routes : undefined;
             inputs["virtualHubName"] = args ? args.virtualHubName : undefined;
             inputs["associatedConnections"] = undefined /*out*/;
@@ -129,13 +130,17 @@ export interface HubRouteTableArgs {
      */
     readonly labels?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * The name of the RouteTable.
+     * The name of the resource that is unique within a resource group. This name can be used to access the resource.
      */
-    readonly name: pulumi.Input<string>;
+    readonly name?: pulumi.Input<string>;
     /**
      * The resource group name of the VirtualHub.
      */
     readonly resourceGroupName: pulumi.Input<string>;
+    /**
+     * The name of the RouteTable.
+     */
+    readonly routeTableName: pulumi.Input<string>;
     /**
      * List of all routes.
      */

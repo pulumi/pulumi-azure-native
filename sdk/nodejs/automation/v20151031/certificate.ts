@@ -86,6 +86,9 @@ export class Certificate extends pulumi.CustomResource {
             if (!args || args.base64Value === undefined) {
                 throw new Error("Missing required property 'base64Value'");
             }
+            if (!args || args.certificateName === undefined) {
+                throw new Error("Missing required property 'certificateName'");
+            }
             if (!args || args.name === undefined) {
                 throw new Error("Missing required property 'name'");
             }
@@ -94,6 +97,7 @@ export class Certificate extends pulumi.CustomResource {
             }
             inputs["automationAccountName"] = args ? args.automationAccountName : undefined;
             inputs["base64Value"] = args ? args.base64Value : undefined;
+            inputs["certificateName"] = args ? args.certificateName : undefined;
             inputs["description"] = args ? args.description : undefined;
             inputs["isExportable"] = args ? args.isExportable : undefined;
             inputs["name"] = args ? args.name : undefined;
@@ -128,6 +132,10 @@ export interface CertificateArgs {
      */
     readonly base64Value: pulumi.Input<string>;
     /**
+     * The parameters supplied to the create or update certificate operation.
+     */
+    readonly certificateName: pulumi.Input<string>;
+    /**
      * Gets or sets the description of the certificate.
      */
     readonly description?: pulumi.Input<string>;
@@ -136,7 +144,7 @@ export interface CertificateArgs {
      */
     readonly isExportable?: pulumi.Input<boolean>;
     /**
-     * The parameters supplied to the create or update certificate operation.
+     * Gets or sets the name of the certificate.
      */
     readonly name: pulumi.Input<string>;
     /**

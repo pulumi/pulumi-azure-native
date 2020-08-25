@@ -15,20 +15,20 @@ export function getVirtualNetworkTap(args: GetVirtualNetworkTapArgs, opts?: pulu
         opts.version = utilities.getVersion();
     }
     return pulumi.runtime.invoke("azurerm:network/v20190601:getVirtualNetworkTap", {
-        "name": args.name,
         "resourceGroupName": args.resourceGroupName,
+        "tapName": args.tapName,
     }, opts);
 }
 
 export interface GetVirtualNetworkTapArgs {
     /**
-     * The name of virtual network tap.
-     */
-    readonly name: string;
-    /**
      * The name of the resource group.
      */
     readonly resourceGroupName: string;
+    /**
+     * The name of virtual network tap.
+     */
+    readonly tapName: string;
 }
 
 /**

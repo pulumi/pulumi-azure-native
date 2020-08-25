@@ -16,8 +16,8 @@ export function getInboundNatRule(args: GetInboundNatRuleArgs, opts?: pulumi.Inv
     }
     return pulumi.runtime.invoke("azurerm:network/v20171101:getInboundNatRule", {
         "expand": args.expand,
+        "inboundNatRuleName": args.inboundNatRuleName,
         "loadBalancerName": args.loadBalancerName,
-        "name": args.name,
         "resourceGroupName": args.resourceGroupName,
     }, opts);
 }
@@ -28,13 +28,13 @@ export interface GetInboundNatRuleArgs {
      */
     readonly expand?: string;
     /**
+     * The name of the inbound nat rule.
+     */
+    readonly inboundNatRuleName: string;
+    /**
      * The name of the load balancer.
      */
     readonly loadBalancerName: string;
-    /**
-     * The name of the inbound nat rule.
-     */
-    readonly name: string;
     /**
      * The name of the resource group.
      */

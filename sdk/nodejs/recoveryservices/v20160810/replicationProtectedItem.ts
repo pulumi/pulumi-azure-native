@@ -43,7 +43,7 @@ export class ReplicationProtectedItem extends pulumi.CustomResource {
     /**
      * Resource Name
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * The custom data.
      */
@@ -69,11 +69,11 @@ export class ReplicationProtectedItem extends pulumi.CustomResource {
             if (!args || args.fabricName === undefined) {
                 throw new Error("Missing required property 'fabricName'");
             }
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
-            }
             if (!args || args.protectionContainerName === undefined) {
                 throw new Error("Missing required property 'protectionContainerName'");
+            }
+            if (!args || args.replicatedProtectedItemName === undefined) {
+                throw new Error("Missing required property 'replicatedProtectedItemName'");
             }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
@@ -82,12 +82,13 @@ export class ReplicationProtectedItem extends pulumi.CustomResource {
                 throw new Error("Missing required property 'resourceName'");
             }
             inputs["fabricName"] = args ? args.fabricName : undefined;
-            inputs["name"] = args ? args.name : undefined;
             inputs["properties"] = args ? args.properties : undefined;
             inputs["protectionContainerName"] = args ? args.protectionContainerName : undefined;
+            inputs["replicatedProtectedItemName"] = args ? args.replicatedProtectedItemName : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["resourceName"] = args ? args.resourceName : undefined;
             inputs["location"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -112,10 +113,6 @@ export interface ReplicationProtectedItemArgs {
      */
     readonly fabricName: pulumi.Input<string>;
     /**
-     * A name for the replication protected item.
-     */
-    readonly name: pulumi.Input<string>;
-    /**
      * Enable protection input properties.
      */
     readonly properties?: pulumi.Input<inputs.recoveryservices.v20160810.EnableProtectionInputProperties>;
@@ -123,6 +120,10 @@ export interface ReplicationProtectedItemArgs {
      * Protection container name.
      */
     readonly protectionContainerName: pulumi.Input<string>;
+    /**
+     * A name for the replication protected item.
+     */
+    readonly replicatedProtectedItemName: pulumi.Input<string>;
     /**
      * The name of the resource group where the recovery services vault is present.
      */

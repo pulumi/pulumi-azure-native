@@ -63,7 +63,7 @@ export class Pipeline extends pulumi.CustomResource {
     /**
      * The resource name.
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * List of parameters for pipeline.
      */
@@ -97,8 +97,8 @@ export class Pipeline extends pulumi.CustomResource {
             if (!args || args.factoryName === undefined) {
                 throw new Error("Missing required property 'factoryName'");
             }
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
+            if (!args || args.pipelineName === undefined) {
+                throw new Error("Missing required property 'pipelineName'");
             }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
@@ -109,12 +109,13 @@ export class Pipeline extends pulumi.CustomResource {
             inputs["description"] = args ? args.description : undefined;
             inputs["factoryName"] = args ? args.factoryName : undefined;
             inputs["folder"] = args ? args.folder : undefined;
-            inputs["name"] = args ? args.name : undefined;
             inputs["parameters"] = args ? args.parameters : undefined;
+            inputs["pipelineName"] = args ? args.pipelineName : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["runDimensions"] = args ? args.runDimensions : undefined;
             inputs["variables"] = args ? args.variables : undefined;
             inputs["etag"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -157,13 +158,13 @@ export interface PipelineArgs {
      */
     readonly folder?: pulumi.Input<inputs.datafactory.v20180601.PipelineFolder>;
     /**
-     * The pipeline name.
-     */
-    readonly name: pulumi.Input<string>;
-    /**
      * List of parameters for pipeline.
      */
     readonly parameters?: pulumi.Input<{[key: string]: pulumi.Input<inputs.datafactory.v20180601.ParameterSpecification>}>;
+    /**
+     * The pipeline name.
+     */
+    readonly pipelineName: pulumi.Input<string>;
     /**
      * The resource group name.
      */

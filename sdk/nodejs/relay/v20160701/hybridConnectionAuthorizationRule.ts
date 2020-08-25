@@ -37,7 +37,7 @@ export class HybridConnectionAuthorizationRule extends pulumi.CustomResource {
     /**
      * Resource name
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * The rights associated with the rule.
      */
@@ -60,11 +60,11 @@ export class HybridConnectionAuthorizationRule extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             const args = argsOrState as HybridConnectionAuthorizationRuleArgs | undefined;
+            if (!args || args.authorizationRuleName === undefined) {
+                throw new Error("Missing required property 'authorizationRuleName'");
+            }
             if (!args || args.hybridConnectionName === undefined) {
                 throw new Error("Missing required property 'hybridConnectionName'");
-            }
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
             }
             if (!args || args.namespaceName === undefined) {
                 throw new Error("Missing required property 'namespaceName'");
@@ -75,11 +75,12 @@ export class HybridConnectionAuthorizationRule extends pulumi.CustomResource {
             if (!args || args.rights === undefined) {
                 throw new Error("Missing required property 'rights'");
             }
+            inputs["authorizationRuleName"] = args ? args.authorizationRuleName : undefined;
             inputs["hybridConnectionName"] = args ? args.hybridConnectionName : undefined;
-            inputs["name"] = args ? args.name : undefined;
             inputs["namespaceName"] = args ? args.namespaceName : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["rights"] = args ? args.rights : undefined;
+            inputs["name"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -98,13 +99,13 @@ export class HybridConnectionAuthorizationRule extends pulumi.CustomResource {
  */
 export interface HybridConnectionAuthorizationRuleArgs {
     /**
+     * The authorizationRule name.
+     */
+    readonly authorizationRuleName: pulumi.Input<string>;
+    /**
      * The hybrid connection name.
      */
     readonly hybridConnectionName: pulumi.Input<string>;
-    /**
-     * The authorizationRule name.
-     */
-    readonly name: pulumi.Input<string>;
     /**
      * The Namespace Name
      */

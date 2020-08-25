@@ -16,7 +16,7 @@ export function getNetworkProfile(args: GetNetworkProfileArgs, opts?: pulumi.Inv
     }
     return pulumi.runtime.invoke("azurerm:network/v20190701:getNetworkProfile", {
         "expand": args.expand,
-        "name": args.name,
+        "networkProfileName": args.networkProfileName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);
 }
@@ -29,7 +29,7 @@ export interface GetNetworkProfileArgs {
     /**
      * The name of the public IP prefix.
      */
-    readonly name: string;
+    readonly networkProfileName: string;
     /**
      * The name of the resource group.
      */

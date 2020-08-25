@@ -15,8 +15,8 @@ export function getContentItem(args: GetContentItemArgs, opts?: pulumi.InvokeOpt
         opts.version = utilities.getVersion();
     }
     return pulumi.runtime.invoke("azurerm:apimanagement/v20191201:getContentItem", {
+        "contentItemId": args.contentItemId,
         "contentTypeId": args.contentTypeId,
-        "name": args.name,
         "resourceGroupName": args.resourceGroupName,
         "serviceName": args.serviceName,
     }, opts);
@@ -24,13 +24,13 @@ export function getContentItem(args: GetContentItemArgs, opts?: pulumi.InvokeOpt
 
 export interface GetContentItemArgs {
     /**
+     * Content item identifier.
+     */
+    readonly contentItemId: string;
+    /**
      * Content type identifier.
      */
     readonly contentTypeId: string;
-    /**
-     * Content item identifier.
-     */
-    readonly name: string;
     /**
      * The name of the resource group.
      */

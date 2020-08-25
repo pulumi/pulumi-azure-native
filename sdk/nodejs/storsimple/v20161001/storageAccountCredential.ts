@@ -63,7 +63,7 @@ export class StorageAccountCredential extends pulumi.CustomResource {
     /**
      * The name.
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * The type.
      */
@@ -85,6 +85,9 @@ export class StorageAccountCredential extends pulumi.CustomResource {
             if (!args || args.cloudType === undefined) {
                 throw new Error("Missing required property 'cloudType'");
             }
+            if (!args || args.credentialName === undefined) {
+                throw new Error("Missing required property 'credentialName'");
+            }
             if (!args || args.enableSSL === undefined) {
                 throw new Error("Missing required property 'enableSSL'");
             }
@@ -97,21 +100,19 @@ export class StorageAccountCredential extends pulumi.CustomResource {
             if (!args || args.managerName === undefined) {
                 throw new Error("Missing required property 'managerName'");
             }
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
-            }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["accessKey"] = args ? args.accessKey : undefined;
             inputs["cloudType"] = args ? args.cloudType : undefined;
+            inputs["credentialName"] = args ? args.credentialName : undefined;
             inputs["enableSSL"] = args ? args.enableSSL : undefined;
             inputs["endPoint"] = args ? args.endPoint : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["login"] = args ? args.login : undefined;
             inputs["managerName"] = args ? args.managerName : undefined;
-            inputs["name"] = args ? args.name : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["name"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -138,6 +139,10 @@ export interface StorageAccountCredentialArgs {
      */
     readonly cloudType: pulumi.Input<string>;
     /**
+     * The credential name.
+     */
+    readonly credentialName: pulumi.Input<string>;
+    /**
      * SSL needs to be enabled or not
      */
     readonly enableSSL: pulumi.Input<string>;
@@ -157,10 +162,6 @@ export interface StorageAccountCredentialArgs {
      * The manager name
      */
     readonly managerName: pulumi.Input<string>;
-    /**
-     * The credential name.
-     */
-    readonly name: pulumi.Input<string>;
     /**
      * The resource group name
      */

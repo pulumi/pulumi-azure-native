@@ -16,7 +16,7 @@ export function getDataSet(args: GetDataSetArgs, opts?: pulumi.InvokeOptions): P
     }
     return pulumi.runtime.invoke("azurerm:datashare/v20191101:getDataSet", {
         "accountName": args.accountName,
-        "name": args.name,
+        "dataSetName": args.dataSetName,
         "resourceGroupName": args.resourceGroupName,
         "shareName": args.shareName,
     }, opts);
@@ -30,7 +30,7 @@ export interface GetDataSetArgs {
     /**
      * The name of the dataSet.
      */
-    readonly name: string;
+    readonly dataSetName: string;
     /**
      * The resource group name.
      */

@@ -15,20 +15,20 @@ export function getIotSecuritySolution(args: GetIotSecuritySolutionArgs, opts?: 
         opts.version = utilities.getVersion();
     }
     return pulumi.runtime.invoke("azurerm:security/v20190801:getIotSecuritySolution", {
-        "name": args.name,
         "resourceGroupName": args.resourceGroupName,
+        "solutionName": args.solutionName,
     }, opts);
 }
 
 export interface GetIotSecuritySolutionArgs {
     /**
-     * The name of the IoT Security solution.
-     */
-    readonly name: string;
-    /**
      * The name of the resource group within the user's subscription. The name is case insensitive.
      */
     readonly resourceGroupName: string;
+    /**
+     * The name of the IoT Security solution.
+     */
+    readonly solutionName: string;
 }
 
 /**

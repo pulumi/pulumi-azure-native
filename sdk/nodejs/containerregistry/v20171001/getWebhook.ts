@@ -15,17 +15,13 @@ export function getWebhook(args: GetWebhookArgs, opts?: pulumi.InvokeOptions): P
         opts.version = utilities.getVersion();
     }
     return pulumi.runtime.invoke("azurerm:containerregistry/v20171001:getWebhook", {
-        "name": args.name,
         "registryName": args.registryName,
         "resourceGroupName": args.resourceGroupName,
+        "webhookName": args.webhookName,
     }, opts);
 }
 
 export interface GetWebhookArgs {
-    /**
-     * The name of the webhook.
-     */
-    readonly name: string;
     /**
      * The name of the container registry.
      */
@@ -34,6 +30,10 @@ export interface GetWebhookArgs {
      * The name of the resource group to which the container registry belongs.
      */
     readonly resourceGroupName: string;
+    /**
+     * The name of the webhook.
+     */
+    readonly webhookName: string;
 }
 
 /**

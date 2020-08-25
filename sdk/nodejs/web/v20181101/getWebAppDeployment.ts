@@ -15,6 +15,7 @@ export function getWebAppDeployment(args: GetWebAppDeploymentArgs, opts?: pulumi
         opts.version = utilities.getVersion();
     }
     return pulumi.runtime.invoke("azurerm:web/v20181101:getWebAppDeployment", {
+        "id": args.id,
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,
     }, opts);
@@ -23,6 +24,10 @@ export function getWebAppDeployment(args: GetWebAppDeploymentArgs, opts?: pulumi
 export interface GetWebAppDeploymentArgs {
     /**
      * Deployment ID.
+     */
+    readonly id: string;
+    /**
+     * Name of the app.
      */
     readonly name: string;
     /**

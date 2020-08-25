@@ -55,7 +55,7 @@ export class Profile extends pulumi.CustomResource {
     /**
      * Resource name
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * Gets or sets the status of the Traffic Manager profile.  Possible values are 'Enabled' and 'Disabled'.
      */
@@ -86,8 +86,8 @@ export class Profile extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             const args = argsOrState as ProfileArgs | undefined;
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
+            if (!args || args.profileName === undefined) {
+                throw new Error("Missing required property 'profileName'");
             }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
@@ -96,11 +96,12 @@ export class Profile extends pulumi.CustomResource {
             inputs["endpoints"] = args ? args.endpoints : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["monitorConfig"] = args ? args.monitorConfig : undefined;
-            inputs["name"] = args ? args.name : undefined;
+            inputs["profileName"] = args ? args.profileName : undefined;
             inputs["profileStatus"] = args ? args.profileStatus : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["trafficRoutingMethod"] = args ? args.trafficRoutingMethod : undefined;
+            inputs["name"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -139,7 +140,7 @@ export interface ProfileArgs {
     /**
      * The name of the Traffic Manager profile.
      */
-    readonly name: pulumi.Input<string>;
+    readonly profileName: pulumi.Input<string>;
     /**
      * Gets or sets the status of the Traffic Manager profile.  Possible values are 'Enabled' and 'Disabled'.
      */

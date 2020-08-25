@@ -51,7 +51,7 @@ export class PacketCapture extends pulumi.CustomResource {
     /**
      * Name of the packet capture session.
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * The provisioning state of the packet capture session.
      */
@@ -86,11 +86,11 @@ export class PacketCapture extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             const args = argsOrState as PacketCaptureArgs | undefined;
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
-            }
             if (!args || args.networkWatcherName === undefined) {
                 throw new Error("Missing required property 'networkWatcherName'");
+            }
+            if (!args || args.packetCaptureName === undefined) {
+                throw new Error("Missing required property 'packetCaptureName'");
             }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
@@ -103,14 +103,15 @@ export class PacketCapture extends pulumi.CustomResource {
             }
             inputs["bytesToCapturePerPacket"] = args ? args.bytesToCapturePerPacket : undefined;
             inputs["filters"] = args ? args.filters : undefined;
-            inputs["name"] = args ? args.name : undefined;
             inputs["networkWatcherName"] = args ? args.networkWatcherName : undefined;
+            inputs["packetCaptureName"] = args ? args.packetCaptureName : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["storageLocation"] = args ? args.storageLocation : undefined;
             inputs["target"] = args ? args.target : undefined;
             inputs["timeLimitInSeconds"] = args ? args.timeLimitInSeconds : undefined;
             inputs["totalBytesPerSession"] = args ? args.totalBytesPerSession : undefined;
             inputs["etag"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
         }
         if (!opts) {
@@ -139,13 +140,13 @@ export interface PacketCaptureArgs {
      */
     readonly filters?: pulumi.Input<pulumi.Input<inputs.network.v20200301.PacketCaptureFilter>[]>;
     /**
-     * The name of the packet capture session.
-     */
-    readonly name: pulumi.Input<string>;
-    /**
      * The name of the network watcher.
      */
     readonly networkWatcherName: pulumi.Input<string>;
+    /**
+     * The name of the packet capture session.
+     */
+    readonly packetCaptureName: pulumi.Input<string>;
     /**
      * The name of the resource group.
      */

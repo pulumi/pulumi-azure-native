@@ -17,8 +17,8 @@ export function getApplicationTypeVersion(args: GetApplicationTypeVersionArgs, o
     return pulumi.runtime.invoke("azurerm:servicefabric/v20200301:getApplicationTypeVersion", {
         "applicationTypeName": args.applicationTypeName,
         "clusterName": args.clusterName,
-        "name": args.name,
         "resourceGroupName": args.resourceGroupName,
+        "version": args.version,
     }, opts);
 }
 
@@ -32,13 +32,13 @@ export interface GetApplicationTypeVersionArgs {
      */
     readonly clusterName: string;
     /**
-     * The application type version.
-     */
-    readonly name: string;
-    /**
      * The name of the resource group.
      */
     readonly resourceGroupName: string;
+    /**
+     * The application type version.
+     */
+    readonly version: string;
 }
 
 /**

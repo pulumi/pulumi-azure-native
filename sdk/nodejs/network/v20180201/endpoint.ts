@@ -57,7 +57,7 @@ export class Endpoint extends pulumi.CustomResource {
     /**
      * The name of the resource
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * The priority of this endpoint when using the ‘Priority’ traffic routing method. Possible values are from 1 to 1000, lower values represent higher priority. This is an optional parameter.  If specified, it must be specified on all endpoints, and no two endpoints can share the same priority value.
      */
@@ -92,11 +92,11 @@ export class Endpoint extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             const args = argsOrState as EndpointArgs | undefined;
+            if (!args || args.endpointName === undefined) {
+                throw new Error("Missing required property 'endpointName'");
+            }
             if (!args || args.endpointType === undefined) {
                 throw new Error("Missing required property 'endpointType'");
-            }
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
             }
             if (!args || args.profileName === undefined) {
                 throw new Error("Missing required property 'profileName'");
@@ -106,17 +106,18 @@ export class Endpoint extends pulumi.CustomResource {
             }
             inputs["endpointLocation"] = args ? args.endpointLocation : undefined;
             inputs["endpointMonitorStatus"] = args ? args.endpointMonitorStatus : undefined;
+            inputs["endpointName"] = args ? args.endpointName : undefined;
             inputs["endpointStatus"] = args ? args.endpointStatus : undefined;
             inputs["endpointType"] = args ? args.endpointType : undefined;
             inputs["geoMapping"] = args ? args.geoMapping : undefined;
             inputs["minChildEndpoints"] = args ? args.minChildEndpoints : undefined;
-            inputs["name"] = args ? args.name : undefined;
             inputs["priority"] = args ? args.priority : undefined;
             inputs["profileName"] = args ? args.profileName : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["target"] = args ? args.target : undefined;
             inputs["targetResourceId"] = args ? args.targetResourceId : undefined;
             inputs["weight"] = args ? args.weight : undefined;
+            inputs["name"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -145,6 +146,10 @@ export interface EndpointArgs {
      */
     readonly endpointMonitorStatus?: pulumi.Input<string>;
     /**
+     * The name of the Traffic Manager endpoint to be created or updated.
+     */
+    readonly endpointName: pulumi.Input<string>;
+    /**
      * The status of the endpoint. If the endpoint is Enabled, it is probed for endpoint health and is included in the traffic routing method.
      */
     readonly endpointStatus?: pulumi.Input<string>;
@@ -160,10 +165,6 @@ export interface EndpointArgs {
      * The minimum number of endpoints that must be available in the child profile in order for the parent profile to be considered available. Only applicable to endpoint of type 'NestedEndpoints'.
      */
     readonly minChildEndpoints?: pulumi.Input<number>;
-    /**
-     * The name of the Traffic Manager endpoint to be created or updated.
-     */
-    readonly name: pulumi.Input<string>;
     /**
      * The priority of this endpoint when using the ‘Priority’ traffic routing method. Possible values are from 1 to 1000, lower values represent higher priority. This is an optional parameter.  If specified, it must be specified on all endpoints, and no two endpoints can share the same priority value.
      */

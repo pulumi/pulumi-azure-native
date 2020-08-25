@@ -15,7 +15,7 @@ export function getCluster(args: GetClusterArgs, opts?: pulumi.InvokeOptions): P
         opts.version = utilities.getVersion();
     }
     return pulumi.runtime.invoke("azurerm:kusto/v20200215:getCluster", {
-        "name": args.name,
+        "clusterName": args.clusterName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);
 }
@@ -24,7 +24,7 @@ export interface GetClusterArgs {
     /**
      * The name of the Kusto cluster.
      */
-    readonly name: string;
+    readonly clusterName: string;
     /**
      * The name of the resource group containing the Kusto cluster.
      */

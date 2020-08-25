@@ -98,6 +98,9 @@ export class MachineExtension extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             const args = argsOrState as MachineExtensionArgs | undefined;
+            if (!args || args.extensionName === undefined) {
+                throw new Error("Missing required property 'extensionName'");
+            }
             if (!args || args.location === undefined) {
                 throw new Error("Missing required property 'location'");
             }
@@ -108,6 +111,7 @@ export class MachineExtension extends pulumi.CustomResource {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["autoUpgradeMinorVersion"] = args ? args.autoUpgradeMinorVersion : undefined;
+            inputs["extensionName"] = args ? args.extensionName : undefined;
             inputs["forceUpdateTag"] = args ? args.forceUpdateTag : undefined;
             inputs["instanceView"] = args ? args.instanceView : undefined;
             inputs["location"] = args ? args.location : undefined;
@@ -141,6 +145,10 @@ export interface MachineExtensionArgs {
      */
     readonly autoUpgradeMinorVersion?: pulumi.Input<boolean>;
     /**
+     * The name of the machine extension.
+     */
+    readonly extensionName: pulumi.Input<string>;
+    /**
      * How the extension handler should be forced to update even if the extension configuration has not changed.
      */
     readonly forceUpdateTag?: pulumi.Input<string>;
@@ -153,7 +161,7 @@ export interface MachineExtensionArgs {
      */
     readonly location: pulumi.Input<string>;
     /**
-     * The name of the machine extension.
+     * The name of the machine where the extension should be created or updated.
      */
     readonly name: pulumi.Input<string>;
     /**

@@ -15,7 +15,7 @@ export function getDeviceSecurityGroup(args: GetDeviceSecurityGroupArgs, opts?: 
         opts.version = utilities.getVersion();
     }
     return pulumi.runtime.invoke("azurerm:security/v20190801:getDeviceSecurityGroup", {
-        "name": args.name,
+        "deviceSecurityGroupName": args.deviceSecurityGroupName,
         "resourceId": args.resourceId,
     }, opts);
 }
@@ -24,7 +24,7 @@ export interface GetDeviceSecurityGroupArgs {
     /**
      * The name of the device security group. Note that the name of the device security group is case insensitive.
      */
-    readonly name: string;
+    readonly deviceSecurityGroupName: string;
     /**
      * The identifier of the resource.
      */

@@ -43,7 +43,7 @@ export class IntegrationServiceEnvironmentManagedApi extends pulumi.CustomResour
     /**
      * Gets the resource name.
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * The api resource properties.
      */
@@ -70,19 +70,20 @@ export class IntegrationServiceEnvironmentManagedApi extends pulumi.CustomResour
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             const args = argsOrState as IntegrationServiceEnvironmentManagedApiArgs | undefined;
+            if (!args || args.apiName === undefined) {
+                throw new Error("Missing required property 'apiName'");
+            }
             if (!args || args.integrationServiceEnvironmentName === undefined) {
                 throw new Error("Missing required property 'integrationServiceEnvironmentName'");
-            }
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
             }
             if (!args || args.resourceGroup === undefined) {
                 throw new Error("Missing required property 'resourceGroup'");
             }
+            inputs["apiName"] = args ? args.apiName : undefined;
             inputs["integrationServiceEnvironmentName"] = args ? args.integrationServiceEnvironmentName : undefined;
-            inputs["name"] = args ? args.name : undefined;
             inputs["resourceGroup"] = args ? args.resourceGroup : undefined;
             inputs["location"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
             inputs["properties"] = undefined /*out*/;
             inputs["tags"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
@@ -103,13 +104,13 @@ export class IntegrationServiceEnvironmentManagedApi extends pulumi.CustomResour
  */
 export interface IntegrationServiceEnvironmentManagedApiArgs {
     /**
+     * The api name.
+     */
+    readonly apiName: pulumi.Input<string>;
+    /**
      * The integration service environment name.
      */
     readonly integrationServiceEnvironmentName: pulumi.Input<string>;
-    /**
-     * The api name.
-     */
-    readonly name: pulumi.Input<string>;
     /**
      * The resource group name.
      */

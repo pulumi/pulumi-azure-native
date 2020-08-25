@@ -44,7 +44,7 @@ export class JitNetworkAccessPolicy extends pulumi.CustomResource {
     /**
      * Resource name
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * Gets the provisioning state of the Just-in-Time policy.
      */
@@ -75,8 +75,8 @@ export class JitNetworkAccessPolicy extends pulumi.CustomResource {
             if (!args || args.ascLocation === undefined) {
                 throw new Error("Missing required property 'ascLocation'");
             }
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
+            if (!args || args.jitNetworkAccessPolicyName === undefined) {
+                throw new Error("Missing required property 'jitNetworkAccessPolicyName'");
             }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
@@ -85,12 +85,13 @@ export class JitNetworkAccessPolicy extends pulumi.CustomResource {
                 throw new Error("Missing required property 'virtualMachines'");
             }
             inputs["ascLocation"] = args ? args.ascLocation : undefined;
+            inputs["jitNetworkAccessPolicyName"] = args ? args.jitNetworkAccessPolicyName : undefined;
             inputs["kind"] = args ? args.kind : undefined;
-            inputs["name"] = args ? args.name : undefined;
             inputs["requests"] = args ? args.requests : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["virtualMachines"] = args ? args.virtualMachines : undefined;
             inputs["location"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
@@ -114,13 +115,13 @@ export interface JitNetworkAccessPolicyArgs {
      */
     readonly ascLocation: pulumi.Input<string>;
     /**
+     * Name of a Just-in-Time access configuration policy.
+     */
+    readonly jitNetworkAccessPolicyName: pulumi.Input<string>;
+    /**
      * Kind of the resource
      */
     readonly kind?: pulumi.Input<string>;
-    /**
-     * Name of a Just-in-Time access configuration policy.
-     */
-    readonly name: pulumi.Input<string>;
     readonly requests?: pulumi.Input<pulumi.Input<inputs.security.v20200101.JitNetworkAccessRequest>[]>;
     /**
      * The name of the resource group within the user's subscription. The name is case insensitive.

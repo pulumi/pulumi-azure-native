@@ -18,7 +18,7 @@ export function getProtectedItem(args: GetProtectedItemArgs, opts?: pulumi.Invok
         "containerName": args.containerName,
         "fabricName": args.fabricName,
         "filter": args.filter,
-        "name": args.name,
+        "protectedItemName": args.protectedItemName,
         "resourceGroupName": args.resourceGroupName,
         "vaultName": args.vaultName,
     }, opts);
@@ -40,7 +40,7 @@ export interface GetProtectedItemArgs {
     /**
      * Backed up item name whose details are to be fetched.
      */
-    readonly name: string;
+    readonly protectedItemName: string;
     /**
      * The name of the resource group where the recovery services vault is present.
      */

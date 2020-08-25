@@ -15,6 +15,7 @@ export function listWebAppFunctionSecretsSlot(args: ListWebAppFunctionSecretsSlo
         opts.version = utilities.getVersion();
     }
     return pulumi.runtime.invoke("azurerm:web/v20181101:listWebAppFunctionSecretsSlot", {
+        "functionName": args.functionName,
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,
         "slot": args.slot,
@@ -24,6 +25,10 @@ export function listWebAppFunctionSecretsSlot(args: ListWebAppFunctionSecretsSlo
 export interface ListWebAppFunctionSecretsSlotArgs {
     /**
      * Function name.
+     */
+    readonly functionName: string;
+    /**
+     * Site name.
      */
     readonly name: string;
     /**

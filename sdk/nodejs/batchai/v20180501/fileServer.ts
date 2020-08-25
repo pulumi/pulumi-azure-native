@@ -51,7 +51,7 @@ export class FileServer extends pulumi.CustomResource {
     /**
      * The name of the resource.
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * Provisioning state of the File Server. Possible values: creating - The File Server is getting created; updating - The File Server creation has been accepted and it is getting updated; deleting - The user has requested that the File Server be deleted, and it is in the process of being deleted; failed - The File Server creation has failed with the specified error code. Details about the error code are specified in the message field; succeeded - The File Server creation has succeeded.
      */
@@ -93,8 +93,8 @@ export class FileServer extends pulumi.CustomResource {
             if (!args || args.dataDisks === undefined) {
                 throw new Error("Missing required property 'dataDisks'");
             }
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
+            if (!args || args.fileServerName === undefined) {
+                throw new Error("Missing required property 'fileServerName'");
             }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
@@ -109,7 +109,7 @@ export class FileServer extends pulumi.CustomResource {
                 throw new Error("Missing required property 'workspaceName'");
             }
             inputs["dataDisks"] = args ? args.dataDisks : undefined;
-            inputs["name"] = args ? args.name : undefined;
+            inputs["fileServerName"] = args ? args.fileServerName : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["sshConfiguration"] = args ? args.sshConfiguration : undefined;
             inputs["subnet"] = args ? args.subnet : undefined;
@@ -117,6 +117,7 @@ export class FileServer extends pulumi.CustomResource {
             inputs["workspaceName"] = args ? args.workspaceName : undefined;
             inputs["creationTime"] = undefined /*out*/;
             inputs["mountSettings"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
             inputs["provisioningStateTransitionTime"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
@@ -143,7 +144,7 @@ export interface FileServerArgs {
     /**
      * The name of the file server within the specified resource group. File server names can only contain a combination of alphanumeric characters along with dash (-) and underscore (_). The name must be from 1 through 64 characters long.
      */
-    readonly name: pulumi.Input<string>;
+    readonly fileServerName: pulumi.Input<string>;
     /**
      * Name of the resource group to which the resource belongs.
      */

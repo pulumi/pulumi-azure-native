@@ -15,8 +15,8 @@ export function getEndpoint(args: GetEndpointArgs, opts?: pulumi.InvokeOptions):
         opts.version = utilities.getVersion();
     }
     return pulumi.runtime.invoke("azurerm:network/v20180201:getEndpoint", {
+        "endpointName": args.endpointName,
         "endpointType": args.endpointType,
-        "name": args.name,
         "profileName": args.profileName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);
@@ -24,13 +24,13 @@ export function getEndpoint(args: GetEndpointArgs, opts?: pulumi.InvokeOptions):
 
 export interface GetEndpointArgs {
     /**
+     * The name of the Traffic Manager endpoint.
+     */
+    readonly endpointName: string;
+    /**
      * The type of the Traffic Manager endpoint.
      */
     readonly endpointType: string;
-    /**
-     * The name of the Traffic Manager endpoint.
-     */
-    readonly name: string;
     /**
      * The name of the Traffic Manager profile.
      */

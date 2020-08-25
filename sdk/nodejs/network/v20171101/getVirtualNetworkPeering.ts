@@ -15,17 +15,13 @@ export function getVirtualNetworkPeering(args: GetVirtualNetworkPeeringArgs, opt
         opts.version = utilities.getVersion();
     }
     return pulumi.runtime.invoke("azurerm:network/v20171101:getVirtualNetworkPeering", {
-        "name": args.name,
         "resourceGroupName": args.resourceGroupName,
         "virtualNetworkName": args.virtualNetworkName,
+        "virtualNetworkPeeringName": args.virtualNetworkPeeringName,
     }, opts);
 }
 
 export interface GetVirtualNetworkPeeringArgs {
-    /**
-     * The name of the virtual network peering.
-     */
-    readonly name: string;
     /**
      * The name of the resource group.
      */
@@ -34,6 +30,10 @@ export interface GetVirtualNetworkPeeringArgs {
      * The name of the virtual network.
      */
     readonly virtualNetworkName: string;
+    /**
+     * The name of the virtual network peering.
+     */
+    readonly virtualNetworkPeeringName: string;
 }
 
 /**

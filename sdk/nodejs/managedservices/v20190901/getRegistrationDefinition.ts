@@ -15,7 +15,7 @@ export function getRegistrationDefinition(args: GetRegistrationDefinitionArgs, o
         opts.version = utilities.getVersion();
     }
     return pulumi.runtime.invoke("azurerm:managedservices/v20190901:getRegistrationDefinition", {
-        "name": args.name,
+        "registrationDefinitionId": args.registrationDefinitionId,
         "scope": args.scope,
     }, opts);
 }
@@ -24,7 +24,7 @@ export interface GetRegistrationDefinitionArgs {
     /**
      * Guid of the registration definition.
      */
-    readonly name: string;
+    readonly registrationDefinitionId: string;
     /**
      * Scope of the resource.
      */

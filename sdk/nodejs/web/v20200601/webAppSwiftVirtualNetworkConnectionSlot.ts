@@ -74,9 +74,13 @@ export class WebAppSwiftVirtualNetworkConnectionSlot extends pulumi.CustomResour
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            if (!args || args.slot === undefined) {
+                throw new Error("Missing required property 'slot'");
+            }
             inputs["kind"] = args ? args.kind : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["slot"] = args ? args.slot : undefined;
             inputs["subnetResourceId"] = args ? args.subnetResourceId : undefined;
             inputs["swiftSupported"] = args ? args.swiftSupported : undefined;
             inputs["type"] = undefined /*out*/;
@@ -103,13 +107,17 @@ export interface WebAppSwiftVirtualNetworkConnectionSlotArgs {
      */
     readonly kind?: pulumi.Input<string>;
     /**
-     * Name of the deployment slot. If a slot is not specified, the API will add or update connections for the production slot.
+     * Name of the app.
      */
     readonly name: pulumi.Input<string>;
     /**
      * Name of the resource group to which the resource belongs.
      */
     readonly resourceGroupName: pulumi.Input<string>;
+    /**
+     * Name of the deployment slot. If a slot is not specified, the API will add or update connections for the production slot.
+     */
+    readonly slot: pulumi.Input<string>;
     /**
      * The Virtual Network subnet's resource ID. This is the subnet that this Web App will join. This subnet must have a delegation to Microsoft.Web/serverFarms defined first.
      */

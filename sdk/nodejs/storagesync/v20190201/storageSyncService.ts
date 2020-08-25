@@ -41,7 +41,7 @@ export class StorageSyncService extends pulumi.CustomResource {
     /**
      * The name of the resource
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * Storage Sync service status.
      */
@@ -75,17 +75,18 @@ export class StorageSyncService extends pulumi.CustomResource {
             if (!args || args.location === undefined) {
                 throw new Error("Missing required property 'location'");
             }
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
-            }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            if (!args || args.storageSyncServiceName === undefined) {
+                throw new Error("Missing required property 'storageSyncServiceName'");
+            }
             inputs["location"] = args ? args.location : undefined;
-            inputs["name"] = args ? args.name : undefined;
             inputs["properties"] = args ? args.properties : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["storageSyncServiceName"] = args ? args.storageSyncServiceName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["name"] = undefined /*out*/;
             inputs["storageSyncServiceStatus"] = undefined /*out*/;
             inputs["storageSyncServiceUid"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
@@ -111,15 +112,15 @@ export interface StorageSyncServiceArgs {
      * Required. Gets or sets the location of the resource. This will be one of the supported and registered Azure Geo Regions (e.g. West US, East US, Southeast Asia, etc.). The geo region of a resource cannot be changed once it is created, but if an identical geo region is specified on update, the request will succeed.
      */
     readonly location: pulumi.Input<string>;
-    /**
-     * Name of Storage Sync Service resource.
-     */
-    readonly name: pulumi.Input<string>;
     readonly properties?: pulumi.Input<{[key: string]: any}>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
     readonly resourceGroupName: pulumi.Input<string>;
+    /**
+     * Name of Storage Sync Service resource.
+     */
+    readonly storageSyncServiceName: pulumi.Input<string>;
     /**
      * Gets or sets a list of key value pairs that describe the resource. These tags can be used for viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key with a length no greater than 128 characters and a value with a length no greater than 256 characters.
      */

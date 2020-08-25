@@ -16,7 +16,7 @@ export function getOutput(args: GetOutputArgs, opts?: pulumi.InvokeOptions): Pro
     }
     return pulumi.runtime.invoke("azurerm:streamanalytics/v20160301:getOutput", {
         "jobName": args.jobName,
-        "name": args.name,
+        "outputName": args.outputName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);
 }
@@ -29,7 +29,7 @@ export interface GetOutputArgs {
     /**
      * The name of the output.
      */
-    readonly name: string;
+    readonly outputName: string;
     /**
      * The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
      */

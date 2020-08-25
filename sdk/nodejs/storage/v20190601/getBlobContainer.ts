@@ -16,7 +16,7 @@ export function getBlobContainer(args: GetBlobContainerArgs, opts?: pulumi.Invok
     }
     return pulumi.runtime.invoke("azurerm:storage/v20190601:getBlobContainer", {
         "accountName": args.accountName,
-        "name": args.name,
+        "containerName": args.containerName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);
 }
@@ -29,7 +29,7 @@ export interface GetBlobContainerArgs {
     /**
      * The name of the blob container within the specified storage account. Blob container names must be between 3 and 63 characters in length and use numbers, lower-case letters and dash (-) only. Every dash (-) character must be immediately preceded and followed by a letter or number.
      */
-    readonly name: string;
+    readonly containerName: string;
     /**
      * The name of the resource group within the user's subscription. The name is case insensitive.
      */

@@ -15,7 +15,7 @@ export function getRoleAssignment(args: GetRoleAssignmentArgs, opts?: pulumi.Inv
         opts.version = utilities.getVersion();
     }
     return pulumi.runtime.invoke("azurerm:authorization/v20150701:getRoleAssignment", {
-        "name": args.name,
+        "roleAssignmentName": args.roleAssignmentName,
         "scope": args.scope,
     }, opts);
 }
@@ -24,7 +24,7 @@ export interface GetRoleAssignmentArgs {
     /**
      * The name of the role assignment to get.
      */
-    readonly name: string;
+    readonly roleAssignmentName: string;
     /**
      * The scope of the role assignment.
      */

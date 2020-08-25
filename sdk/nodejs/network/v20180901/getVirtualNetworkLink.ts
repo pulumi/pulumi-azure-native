@@ -15,17 +15,13 @@ export function getVirtualNetworkLink(args: GetVirtualNetworkLinkArgs, opts?: pu
         opts.version = utilities.getVersion();
     }
     return pulumi.runtime.invoke("azurerm:network/v20180901:getVirtualNetworkLink", {
-        "name": args.name,
         "privateZoneName": args.privateZoneName,
         "resourceGroupName": args.resourceGroupName,
+        "virtualNetworkLinkName": args.virtualNetworkLinkName,
     }, opts);
 }
 
 export interface GetVirtualNetworkLinkArgs {
-    /**
-     * The name of the virtual network link.
-     */
-    readonly name: string;
     /**
      * The name of the Private DNS zone (without a terminating dot).
      */
@@ -34,6 +30,10 @@ export interface GetVirtualNetworkLinkArgs {
      * The name of the resource group.
      */
     readonly resourceGroupName: string;
+    /**
+     * The name of the virtual network link.
+     */
+    readonly virtualNetworkLinkName: string;
 }
 
 /**

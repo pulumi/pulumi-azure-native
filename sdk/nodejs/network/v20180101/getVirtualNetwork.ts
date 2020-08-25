@@ -16,8 +16,8 @@ export function getVirtualNetwork(args: GetVirtualNetworkArgs, opts?: pulumi.Inv
     }
     return pulumi.runtime.invoke("azurerm:network/v20180101:getVirtualNetwork", {
         "expand": args.expand,
-        "name": args.name,
         "resourceGroupName": args.resourceGroupName,
+        "virtualNetworkName": args.virtualNetworkName,
     }, opts);
 }
 
@@ -27,13 +27,13 @@ export interface GetVirtualNetworkArgs {
      */
     readonly expand?: string;
     /**
-     * The name of the virtual network.
-     */
-    readonly name: string;
-    /**
      * The name of the resource group.
      */
     readonly resourceGroupName: string;
+    /**
+     * The name of the virtual network.
+     */
+    readonly virtualNetworkName: string;
 }
 
 /**

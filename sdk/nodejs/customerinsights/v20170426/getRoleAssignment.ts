@@ -15,21 +15,21 @@ export function getRoleAssignment(args: GetRoleAssignmentArgs, opts?: pulumi.Inv
         opts.version = utilities.getVersion();
     }
     return pulumi.runtime.invoke("azurerm:customerinsights/v20170426:getRoleAssignment", {
+        "assignmentName": args.assignmentName,
         "hubName": args.hubName,
-        "name": args.name,
         "resourceGroupName": args.resourceGroupName,
     }, opts);
 }
 
 export interface GetRoleAssignmentArgs {
     /**
+     * The name of the role assignment.
+     */
+    readonly assignmentName: string;
+    /**
      * The name of the hub.
      */
     readonly hubName: string;
-    /**
-     * The name of the role assignment.
-     */
-    readonly name: string;
     /**
      * The name of the resource group.
      */

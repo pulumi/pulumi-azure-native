@@ -16,8 +16,8 @@ export function getRulesEngine(args: GetRulesEngineArgs, opts?: pulumi.InvokeOpt
     }
     return pulumi.runtime.invoke("azurerm:network/v20200401:getRulesEngine", {
         "frontDoorName": args.frontDoorName,
-        "name": args.name,
         "resourceGroupName": args.resourceGroupName,
+        "rulesEngineName": args.rulesEngineName,
     }, opts);
 }
 
@@ -27,13 +27,13 @@ export interface GetRulesEngineArgs {
      */
     readonly frontDoorName: string;
     /**
-     * Name of the Rules Engine which is unique within the Front Door.
-     */
-    readonly name: string;
-    /**
      * Name of the Resource group within the Azure subscription.
      */
     readonly resourceGroupName: string;
+    /**
+     * Name of the Rules Engine which is unique within the Front Door.
+     */
+    readonly rulesEngineName: string;
 }
 
 /**

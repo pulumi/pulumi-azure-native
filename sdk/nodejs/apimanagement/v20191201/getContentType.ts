@@ -15,7 +15,7 @@ export function getContentType(args: GetContentTypeArgs, opts?: pulumi.InvokeOpt
         opts.version = utilities.getVersion();
     }
     return pulumi.runtime.invoke("azurerm:apimanagement/v20191201:getContentType", {
-        "name": args.name,
+        "contentTypeId": args.contentTypeId,
         "resourceGroupName": args.resourceGroupName,
         "serviceName": args.serviceName,
     }, opts);
@@ -25,7 +25,7 @@ export interface GetContentTypeArgs {
     /**
      * Content type identifier.
      */
-    readonly name: string;
+    readonly contentTypeId: string;
     /**
      * The name of the resource group.
      */

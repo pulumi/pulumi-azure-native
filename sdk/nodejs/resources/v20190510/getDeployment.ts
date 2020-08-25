@@ -15,7 +15,7 @@ export function getDeployment(args: GetDeploymentArgs, opts?: pulumi.InvokeOptio
         opts.version = utilities.getVersion();
     }
     return pulumi.runtime.invoke("azurerm:resources/v20190510:getDeployment", {
-        "name": args.name,
+        "deploymentName": args.deploymentName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);
 }
@@ -24,7 +24,7 @@ export interface GetDeploymentArgs {
     /**
      * The name of the deployment.
      */
-    readonly name: string;
+    readonly deploymentName: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */

@@ -17,7 +17,7 @@ export function getApiIssue(args: GetApiIssueArgs, opts?: pulumi.InvokeOptions):
     return pulumi.runtime.invoke("azurerm:apimanagement/v20190101:getApiIssue", {
         "apiId": args.apiId,
         "expandCommentsAttachments": args.expandCommentsAttachments,
-        "name": args.name,
+        "issueId": args.issueId,
         "resourceGroupName": args.resourceGroupName,
         "serviceName": args.serviceName,
     }, opts);
@@ -35,7 +35,7 @@ export interface GetApiIssueArgs {
     /**
      * Issue identifier. Must be unique in the current API Management service instance.
      */
-    readonly name: string;
+    readonly issueId: string;
     /**
      * The name of the resource group.
      */

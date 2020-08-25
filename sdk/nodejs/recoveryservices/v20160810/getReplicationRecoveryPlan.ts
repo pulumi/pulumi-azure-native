@@ -15,7 +15,7 @@ export function getReplicationRecoveryPlan(args: GetReplicationRecoveryPlanArgs,
         opts.version = utilities.getVersion();
     }
     return pulumi.runtime.invoke("azurerm:recoveryservices/v20160810:getReplicationRecoveryPlan", {
-        "name": args.name,
+        "recoveryPlanName": args.recoveryPlanName,
         "resourceGroupName": args.resourceGroupName,
         "resourceName": args.resourceName,
     }, opts);
@@ -25,7 +25,7 @@ export interface GetReplicationRecoveryPlanArgs {
     /**
      * Name of the recovery plan.
      */
-    readonly name: string;
+    readonly recoveryPlanName: string;
     /**
      * The name of the resource group where the recovery services vault is present.
      */

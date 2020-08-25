@@ -15,20 +15,20 @@ export function getServerAdministrator(args: GetServerAdministratorArgs, opts?: 
         opts.version = utilities.getVersion();
     }
     return pulumi.runtime.invoke("azurerm:dbformysql/v20171201:getServerAdministrator", {
-        "name": args.name,
         "resourceGroupName": args.resourceGroupName,
+        "serverName": args.serverName,
     }, opts);
 }
 
 export interface GetServerAdministratorArgs {
     /**
-     * The name of the server.
-     */
-    readonly name: string;
-    /**
      * The name of the resource group. The name is case insensitive.
      */
     readonly resourceGroupName: string;
+    /**
+     * The name of the server.
+     */
+    readonly serverName: string;
 }
 
 /**

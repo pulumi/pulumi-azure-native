@@ -15,17 +15,13 @@ export function getApiVersionSet(args: GetApiVersionSetArgs, opts?: pulumi.Invok
         opts.version = utilities.getVersion();
     }
     return pulumi.runtime.invoke("azurerm:apimanagement/v20190101:getApiVersionSet", {
-        "name": args.name,
         "resourceGroupName": args.resourceGroupName,
         "serviceName": args.serviceName,
+        "versionSetId": args.versionSetId,
     }, opts);
 }
 
 export interface GetApiVersionSetArgs {
-    /**
-     * Api Version Set identifier. Must be unique in the current API Management service instance.
-     */
-    readonly name: string;
     /**
      * The name of the resource group.
      */
@@ -34,6 +30,10 @@ export interface GetApiVersionSetArgs {
      * The name of the API Management service.
      */
     readonly serviceName: string;
+    /**
+     * Api Version Set identifier. Must be unique in the current API Management service instance.
+     */
+    readonly versionSetId: string;
 }
 
 /**

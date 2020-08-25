@@ -67,7 +67,7 @@ export class Endpoint extends pulumi.CustomResource {
     /**
      * Resource name.
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * Specifies what scenario the customer wants this CDN endpoint to optimize for, e.g. Download, Media services. With this information, CDN can apply scenario driven optimization.
      */
@@ -122,11 +122,11 @@ export class Endpoint extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             const args = argsOrState as EndpointArgs | undefined;
+            if (!args || args.endpointName === undefined) {
+                throw new Error("Missing required property 'endpointName'");
+            }
             if (!args || args.location === undefined) {
                 throw new Error("Missing required property 'location'");
-            }
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
             }
             if (!args || args.origins === undefined) {
                 throw new Error("Missing required property 'origins'");
@@ -138,12 +138,12 @@ export class Endpoint extends pulumi.CustomResource {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["contentTypesToCompress"] = args ? args.contentTypesToCompress : undefined;
+            inputs["endpointName"] = args ? args.endpointName : undefined;
             inputs["geoFilters"] = args ? args.geoFilters : undefined;
             inputs["isCompressionEnabled"] = args ? args.isCompressionEnabled : undefined;
             inputs["isHttpAllowed"] = args ? args.isHttpAllowed : undefined;
             inputs["isHttpsAllowed"] = args ? args.isHttpsAllowed : undefined;
             inputs["location"] = args ? args.location : undefined;
-            inputs["name"] = args ? args.name : undefined;
             inputs["optimizationType"] = args ? args.optimizationType : undefined;
             inputs["originHostHeader"] = args ? args.originHostHeader : undefined;
             inputs["originPath"] = args ? args.originPath : undefined;
@@ -154,6 +154,7 @@ export class Endpoint extends pulumi.CustomResource {
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["hostName"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
             inputs["resourceState"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
@@ -180,6 +181,10 @@ export interface EndpointArgs {
      */
     readonly contentTypesToCompress?: pulumi.Input<pulumi.Input<string>[]>;
     /**
+     * Name of the endpoint under the profile which is unique globally.
+     */
+    readonly endpointName: pulumi.Input<string>;
+    /**
      * List of rules defining the user's geo access within a CDN endpoint. Each geo filter defines an access rule to a specified path or content, e.g. block APAC for path /pictures/
      */
     readonly geoFilters?: pulumi.Input<pulumi.Input<inputs.cdn.v20170402.GeoFilter>[]>;
@@ -199,10 +204,6 @@ export interface EndpointArgs {
      * Resource location.
      */
     readonly location: pulumi.Input<string>;
-    /**
-     * Name of the endpoint under the profile which is unique globally.
-     */
-    readonly name: pulumi.Input<string>;
     /**
      * Specifies what scenario the customer wants this CDN endpoint to optimize for, e.g. Download, Media services. With this information, CDN can apply scenario driven optimization.
      */

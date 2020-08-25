@@ -16,12 +16,17 @@ export function getWebAppPrivateEndpointConnection(args: GetWebAppPrivateEndpoin
     }
     return pulumi.runtime.invoke("azurerm:web/v20190801:getWebAppPrivateEndpointConnection", {
         "name": args.name,
+        "privateEndpointConnectionName": args.privateEndpointConnectionName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);
 }
 
 export interface GetWebAppPrivateEndpointConnectionArgs {
+    /**
+     * Name of the site.
+     */
     readonly name: string;
+    readonly privateEndpointConnectionName: string;
     /**
      * Name of the resource group to which the resource belongs.
      */

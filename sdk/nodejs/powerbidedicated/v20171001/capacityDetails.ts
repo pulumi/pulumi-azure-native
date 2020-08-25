@@ -47,7 +47,7 @@ export class CapacityDetails extends pulumi.CustomResource {
     /**
      * The name of the PowerBI Dedicated resource.
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * The current deployment state of PowerBI Dedicated resource. The provisioningState is to indicate states for resource provisioning.
      */
@@ -82,11 +82,11 @@ export class CapacityDetails extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             const args = argsOrState as CapacityDetailsArgs | undefined;
+            if (!args || args.dedicatedCapacityName === undefined) {
+                throw new Error("Missing required property 'dedicatedCapacityName'");
+            }
             if (!args || args.location === undefined) {
                 throw new Error("Missing required property 'location'");
-            }
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
             }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
@@ -95,11 +95,12 @@ export class CapacityDetails extends pulumi.CustomResource {
                 throw new Error("Missing required property 'sku'");
             }
             inputs["administration"] = args ? args.administration : undefined;
+            inputs["dedicatedCapacityName"] = args ? args.dedicatedCapacityName : undefined;
             inputs["location"] = args ? args.location : undefined;
-            inputs["name"] = args ? args.name : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["sku"] = args ? args.sku : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["name"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
             inputs["state"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
@@ -124,13 +125,13 @@ export interface CapacityDetailsArgs {
      */
     readonly administration?: pulumi.Input<inputs.powerbidedicated.v20171001.DedicatedCapacityAdministrators>;
     /**
+     * The name of the Dedicated capacity. It must be a minimum of 3 characters, and a maximum of 63.
+     */
+    readonly dedicatedCapacityName: pulumi.Input<string>;
+    /**
      * Location of the PowerBI Dedicated resource.
      */
     readonly location: pulumi.Input<string>;
-    /**
-     * The name of the Dedicated capacity. It must be a minimum of 3 characters, and a maximum of 63.
-     */
-    readonly name: pulumi.Input<string>;
     /**
      * The name of the Azure Resource group of which a given PowerBIDedicated capacity is part. This name must be at least 1 character in length, and no more than 90.
      */

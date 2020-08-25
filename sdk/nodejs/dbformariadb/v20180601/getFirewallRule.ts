@@ -15,7 +15,7 @@ export function getFirewallRule(args: GetFirewallRuleArgs, opts?: pulumi.InvokeO
         opts.version = utilities.getVersion();
     }
     return pulumi.runtime.invoke("azurerm:dbformariadb/v20180601:getFirewallRule", {
-        "name": args.name,
+        "firewallRuleName": args.firewallRuleName,
         "resourceGroupName": args.resourceGroupName,
         "serverName": args.serverName,
     }, opts);
@@ -25,7 +25,7 @@ export interface GetFirewallRuleArgs {
     /**
      * The name of the server firewall rule.
      */
-    readonly name: string;
+    readonly firewallRuleName: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */

@@ -15,7 +15,7 @@ export function getProfile(args: GetProfileArgs, opts?: pulumi.InvokeOptions): P
         opts.version = utilities.getVersion();
     }
     return pulumi.runtime.invoke("azurerm:network/v20180201:getProfile", {
-        "name": args.name,
+        "profileName": args.profileName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);
 }
@@ -24,7 +24,7 @@ export interface GetProfileArgs {
     /**
      * The name of the Traffic Manager profile.
      */
-    readonly name: string;
+    readonly profileName: string;
     /**
      * The name of the resource group containing the Traffic Manager profile.
      */

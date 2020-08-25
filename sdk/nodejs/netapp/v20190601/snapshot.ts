@@ -49,7 +49,7 @@ export class Snapshot extends pulumi.CustomResource {
     /**
      * Resource name
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * Azure lifecycle management
      */
@@ -82,14 +82,14 @@ export class Snapshot extends pulumi.CustomResource {
             if (!args || args.location === undefined) {
                 throw new Error("Missing required property 'location'");
             }
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
-            }
             if (!args || args.poolName === undefined) {
                 throw new Error("Missing required property 'poolName'");
             }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
+            }
+            if (!args || args.snapshotName === undefined) {
+                throw new Error("Missing required property 'snapshotName'");
             }
             if (!args || args.volumeName === undefined) {
                 throw new Error("Missing required property 'volumeName'");
@@ -97,11 +97,12 @@ export class Snapshot extends pulumi.CustomResource {
             inputs["accountName"] = args ? args.accountName : undefined;
             inputs["fileSystemId"] = args ? args.fileSystemId : undefined;
             inputs["location"] = args ? args.location : undefined;
-            inputs["name"] = args ? args.name : undefined;
             inputs["poolName"] = args ? args.poolName : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["snapshotName"] = args ? args.snapshotName : undefined;
             inputs["volumeName"] = args ? args.volumeName : undefined;
             inputs["creationDate"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
             inputs["snapshotId"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
@@ -136,10 +137,6 @@ export interface SnapshotArgs {
      */
     readonly location: pulumi.Input<string>;
     /**
-     * The name of the mount target
-     */
-    readonly name: pulumi.Input<string>;
-    /**
      * The name of the capacity pool
      */
     readonly poolName: pulumi.Input<string>;
@@ -147,6 +144,10 @@ export interface SnapshotArgs {
      * The name of the resource group.
      */
     readonly resourceGroupName: pulumi.Input<string>;
+    /**
+     * The name of the mount target
+     */
+    readonly snapshotName: pulumi.Input<string>;
     /**
      * The name of the volume
      */

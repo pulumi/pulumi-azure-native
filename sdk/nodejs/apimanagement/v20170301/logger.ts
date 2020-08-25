@@ -56,7 +56,7 @@ export class Logger extends pulumi.CustomResource {
     /**
      * Resource name.
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * Sampling settings for an ApplicationInsights logger.
      */
@@ -85,8 +85,8 @@ export class Logger extends pulumi.CustomResource {
             if (!args || args.loggerType === undefined) {
                 throw new Error("Missing required property 'loggerType'");
             }
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
+            if (!args || args.loggerid === undefined) {
+                throw new Error("Missing required property 'loggerid'");
             }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
@@ -98,10 +98,11 @@ export class Logger extends pulumi.CustomResource {
             inputs["description"] = args ? args.description : undefined;
             inputs["isBuffered"] = args ? args.isBuffered : undefined;
             inputs["loggerType"] = args ? args.loggerType : undefined;
-            inputs["name"] = args ? args.name : undefined;
+            inputs["loggerid"] = args ? args.loggerid : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["sampling"] = args ? args.sampling : undefined;
             inputs["serviceName"] = args ? args.serviceName : undefined;
+            inputs["name"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -141,7 +142,7 @@ export interface LoggerArgs {
     /**
      * Logger identifier. Must be unique in the API Management service instance.
      */
-    readonly name: pulumi.Input<string>;
+    readonly loggerid: pulumi.Input<string>;
     /**
      * The name of the resource group.
      */

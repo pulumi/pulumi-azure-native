@@ -15,20 +15,20 @@ export function getTopic(args: GetTopicArgs, opts?: pulumi.InvokeOptions): Promi
         opts.version = utilities.getVersion();
     }
     return pulumi.runtime.invoke("azurerm:eventgrid/v20180101:getTopic", {
-        "name": args.name,
         "resourceGroupName": args.resourceGroupName,
+        "topicName": args.topicName,
     }, opts);
 }
 
 export interface GetTopicArgs {
     /**
-     * Name of the topic
-     */
-    readonly name: string;
-    /**
      * The name of the resource group within the user's subscription.
      */
     readonly resourceGroupName: string;
+    /**
+     * Name of the topic
+     */
+    readonly topicName: string;
 }
 
 /**

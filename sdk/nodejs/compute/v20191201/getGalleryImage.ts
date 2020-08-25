@@ -15,21 +15,21 @@ export function getGalleryImage(args: GetGalleryImageArgs, opts?: pulumi.InvokeO
         opts.version = utilities.getVersion();
     }
     return pulumi.runtime.invoke("azurerm:compute/v20191201:getGalleryImage", {
+        "galleryImageName": args.galleryImageName,
         "galleryName": args.galleryName,
-        "name": args.name,
         "resourceGroupName": args.resourceGroupName,
     }, opts);
 }
 
 export interface GetGalleryImageArgs {
     /**
+     * The name of the gallery Image Definition to be retrieved.
+     */
+    readonly galleryImageName: string;
+    /**
      * The name of the Shared Image Gallery from which the Image Definitions are to be retrieved.
      */
     readonly galleryName: string;
-    /**
-     * The name of the gallery Image Definition to be retrieved.
-     */
-    readonly name: string;
     /**
      * The name of the resource group.
      */

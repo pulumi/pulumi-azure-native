@@ -77,11 +77,11 @@ export class FirewallPolicyRuleGroup extends pulumi.CustomResource {
             if (!args || args.firewallPolicyName === undefined) {
                 throw new Error("Missing required property 'firewallPolicyName'");
             }
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
-            }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
+            }
+            if (!args || args.ruleGroupName === undefined) {
+                throw new Error("Missing required property 'ruleGroupName'");
             }
             inputs["firewallPolicyName"] = args ? args.firewallPolicyName : undefined;
             inputs["id"] = args ? args.id : undefined;
@@ -89,6 +89,7 @@ export class FirewallPolicyRuleGroup extends pulumi.CustomResource {
             inputs["priority"] = args ? args.priority : undefined;
             inputs["provisioningState"] = args ? args.provisioningState : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["ruleGroupName"] = args ? args.ruleGroupName : undefined;
             inputs["rules"] = args ? args.rules : undefined;
             inputs["etag"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
@@ -119,9 +120,9 @@ export interface FirewallPolicyRuleGroupArgs {
      */
     readonly id?: pulumi.Input<string>;
     /**
-     * The name of the FirewallPolicyRuleGroup.
+     * Gets name of the resource that is unique within a resource group. This name can be used to access the resource.
      */
-    readonly name: pulumi.Input<string>;
+    readonly name?: pulumi.Input<string>;
     /**
      * Priority of the Firewall Policy Rule Group resource.
      */
@@ -134,6 +135,10 @@ export interface FirewallPolicyRuleGroupArgs {
      * The name of the resource group.
      */
     readonly resourceGroupName: pulumi.Input<string>;
+    /**
+     * The name of the FirewallPolicyRuleGroup.
+     */
+    readonly ruleGroupName: pulumi.Input<string>;
     /**
      * Group of Firewall Policy rules.
      */

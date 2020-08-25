@@ -15,7 +15,7 @@ export function getNamespace(args: GetNamespaceArgs, opts?: pulumi.InvokeOptions
         opts.version = utilities.getVersion();
     }
     return pulumi.runtime.invoke("azurerm:notificationhubs/v20140901:getNamespace", {
-        "name": args.name,
+        "namespaceName": args.namespaceName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);
 }
@@ -24,7 +24,7 @@ export interface GetNamespaceArgs {
     /**
      * The namespace name.
      */
-    readonly name: string;
+    readonly namespaceName: string;
     /**
      * The name of the resource group.
      */

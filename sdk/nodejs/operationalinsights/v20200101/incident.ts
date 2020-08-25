@@ -91,7 +91,7 @@ export class Incident extends pulumi.CustomResource {
     /**
      * Azure resource name
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * Describes a user that the incident is assigned to
      */
@@ -130,8 +130,8 @@ export class Incident extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             const args = argsOrState as IncidentArgs | undefined;
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
+            if (!args || args.incidentId === undefined) {
+                throw new Error("Missing required property 'incidentId'");
             }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
@@ -154,9 +154,9 @@ export class Incident extends pulumi.CustomResource {
             inputs["description"] = args ? args.description : undefined;
             inputs["etag"] = args ? args.etag : undefined;
             inputs["firstActivityTimeUtc"] = args ? args.firstActivityTimeUtc : undefined;
+            inputs["incidentId"] = args ? args.incidentId : undefined;
             inputs["labels"] = args ? args.labels : undefined;
             inputs["lastActivityTimeUtc"] = args ? args.lastActivityTimeUtc : undefined;
-            inputs["name"] = args ? args.name : undefined;
             inputs["owner"] = args ? args.owner : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["severity"] = args ? args.severity : undefined;
@@ -168,6 +168,7 @@ export class Incident extends pulumi.CustomResource {
             inputs["incidentNumber"] = undefined /*out*/;
             inputs["incidentUrl"] = undefined /*out*/;
             inputs["lastModifiedTimeUtc"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
             inputs["relatedAnalyticRuleIds"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
@@ -211,6 +212,10 @@ export interface IncidentArgs {
      */
     readonly firstActivityTimeUtc?: pulumi.Input<string>;
     /**
+     * Incident ID
+     */
+    readonly incidentId: pulumi.Input<string>;
+    /**
      * List of labels relevant to this incident
      */
     readonly labels?: pulumi.Input<pulumi.Input<inputs.operationalinsights.v20200101.IncidentLabel>[]>;
@@ -218,10 +223,6 @@ export interface IncidentArgs {
      * The time of the last activity in the incident
      */
     readonly lastActivityTimeUtc?: pulumi.Input<string>;
-    /**
-     * Incident ID
-     */
-    readonly name: pulumi.Input<string>;
     /**
      * Describes a user that the incident is assigned to
      */

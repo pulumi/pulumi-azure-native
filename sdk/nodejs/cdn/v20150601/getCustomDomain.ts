@@ -15,8 +15,8 @@ export function getCustomDomain(args: GetCustomDomainArgs, opts?: pulumi.InvokeO
         opts.version = utilities.getVersion();
     }
     return pulumi.runtime.invoke("azurerm:cdn/v20150601:getCustomDomain", {
+        "customDomainName": args.customDomainName,
         "endpointName": args.endpointName,
-        "name": args.name,
         "profileName": args.profileName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);
@@ -24,13 +24,13 @@ export function getCustomDomain(args: GetCustomDomainArgs, opts?: pulumi.InvokeO
 
 export interface GetCustomDomainArgs {
     /**
+     * Name of the custom domain within an endpoint.
+     */
+    readonly customDomainName: string;
+    /**
      * Name of the endpoint within the CDN profile.
      */
     readonly endpointName: string;
-    /**
-     * Name of the custom domain within an endpoint.
-     */
-    readonly name: string;
     /**
      * Name of the CDN profile within the resource group.
      */

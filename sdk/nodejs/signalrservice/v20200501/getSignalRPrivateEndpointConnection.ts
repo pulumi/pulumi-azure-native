@@ -15,7 +15,7 @@ export function getSignalRPrivateEndpointConnection(args: GetSignalRPrivateEndpo
         opts.version = utilities.getVersion();
     }
     return pulumi.runtime.invoke("azurerm:signalrservice/v20200501:getSignalRPrivateEndpointConnection", {
-        "name": args.name,
+        "privateEndpointConnectionName": args.privateEndpointConnectionName,
         "resourceGroupName": args.resourceGroupName,
         "resourceName": args.resourceName,
     }, opts);
@@ -25,7 +25,7 @@ export interface GetSignalRPrivateEndpointConnectionArgs {
     /**
      * The name of the private endpoint connection associated with the SignalR resource.
      */
-    readonly name: string;
+    readonly privateEndpointConnectionName: string;
     /**
      * The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
      */

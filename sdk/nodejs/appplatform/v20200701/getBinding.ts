@@ -16,7 +16,7 @@ export function getBinding(args: GetBindingArgs, opts?: pulumi.InvokeOptions): P
     }
     return pulumi.runtime.invoke("azurerm:appplatform/v20200701:getBinding", {
         "appName": args.appName,
-        "name": args.name,
+        "bindingName": args.bindingName,
         "resourceGroupName": args.resourceGroupName,
         "serviceName": args.serviceName,
     }, opts);
@@ -30,7 +30,7 @@ export interface GetBindingArgs {
     /**
      * The name of the Binding resource.
      */
-    readonly name: string;
+    readonly bindingName: string;
     /**
      * The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
      */

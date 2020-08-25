@@ -58,7 +58,7 @@ export class BatchAccount extends pulumi.CustomResource {
     /**
      * The name of the resource.
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * The allocation mode for creating pools in the Batch account.
      */
@@ -90,19 +90,19 @@ export class BatchAccount extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             const args = argsOrState as BatchAccountArgs | undefined;
+            if (!args || args.accountName === undefined) {
+                throw new Error("Missing required property 'accountName'");
+            }
             if (!args || args.location === undefined) {
                 throw new Error("Missing required property 'location'");
-            }
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
             }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            inputs["accountName"] = args ? args.accountName : undefined;
             inputs["autoStorage"] = args ? args.autoStorage : undefined;
             inputs["keyVaultReference"] = args ? args.keyVaultReference : undefined;
             inputs["location"] = args ? args.location : undefined;
-            inputs["name"] = args ? args.name : undefined;
             inputs["poolAllocationMode"] = args ? args.poolAllocationMode : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
@@ -110,6 +110,7 @@ export class BatchAccount extends pulumi.CustomResource {
             inputs["activeJobAndJobScheduleQuota"] = undefined /*out*/;
             inputs["dedicatedCoreQuota"] = undefined /*out*/;
             inputs["lowPriorityCoreQuota"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
             inputs["poolQuota"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
@@ -132,6 +133,10 @@ export class BatchAccount extends pulumi.CustomResource {
  */
 export interface BatchAccountArgs {
     /**
+     * A name for the Batch account which must be unique within the region. Batch account names must be between 3 and 24 characters in length and must use only numbers and lowercase letters. This name is used as part of the DNS name that is used to access the Batch service in the region in which the account is created. For example: http://accountname.region.batch.azure.com/.
+     */
+    readonly accountName: pulumi.Input<string>;
+    /**
      * The properties related to the auto-storage account.
      */
     readonly autoStorage?: pulumi.Input<inputs.batch.v20170901.AutoStorageBaseProperties>;
@@ -143,10 +148,6 @@ export interface BatchAccountArgs {
      * The region in which to create the account.
      */
     readonly location: pulumi.Input<string>;
-    /**
-     * A name for the Batch account which must be unique within the region. Batch account names must be between 3 and 24 characters in length and must use only numbers and lowercase letters. This name is used as part of the DNS name that is used to access the Batch service in the region in which the account is created. For example: http://accountname.region.batch.azure.com/.
-     */
-    readonly name: pulumi.Input<string>;
     /**
      * The pool allocation mode also affects how clients may authenticate to the Batch Service API. If the mode is BatchService, clients may authenticate using access keys or Azure Active Directory. If the mode is UserSubscription, clients must use Azure Active Directory. The default is BatchService.
      */

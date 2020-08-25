@@ -15,21 +15,21 @@ export function getGuestConfigurationHCRPAssignment(args: GetGuestConfigurationH
         opts.version = utilities.getVersion();
     }
     return pulumi.runtime.invoke("azurerm:hybridcompute/v20181120:getGuestConfigurationHCRPAssignment", {
+        "guestConfigurationAssignmentName": args.guestConfigurationAssignmentName,
         "machineName": args.machineName,
-        "name": args.name,
         "resourceGroupName": args.resourceGroupName,
     }, opts);
 }
 
 export interface GetGuestConfigurationHCRPAssignmentArgs {
     /**
+     * The guest configuration assignment name.
+     */
+    readonly guestConfigurationAssignmentName: string;
+    /**
      * The name of the ARC machine.
      */
     readonly machineName: string;
-    /**
-     * The guest configuration assignment name.
-     */
-    readonly name: string;
     /**
      * The resource group name.
      */

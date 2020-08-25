@@ -17,8 +17,8 @@ export function getService(args: GetServiceArgs, opts?: pulumi.InvokeOptions): P
     return pulumi.runtime.invoke("azurerm:servicefabric/v20200301:getService", {
         "applicationName": args.applicationName,
         "clusterName": args.clusterName,
-        "name": args.name,
         "resourceGroupName": args.resourceGroupName,
+        "serviceName": args.serviceName,
     }, opts);
 }
 
@@ -32,13 +32,13 @@ export interface GetServiceArgs {
      */
     readonly clusterName: string;
     /**
-     * The name of the service resource in the format of {applicationName}~{serviceName}.
-     */
-    readonly name: string;
-    /**
      * The name of the resource group.
      */
     readonly resourceGroupName: string;
+    /**
+     * The name of the service resource in the format of {applicationName}~{serviceName}.
+     */
+    readonly serviceName: string;
 }
 
 /**

@@ -43,7 +43,7 @@ export class Profile extends pulumi.CustomResource {
     /**
      * Resource name.
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * Provisioning status of the profile.
      */
@@ -81,8 +81,8 @@ export class Profile extends pulumi.CustomResource {
             if (!args || args.location === undefined) {
                 throw new Error("Missing required property 'location'");
             }
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
+            if (!args || args.profileName === undefined) {
+                throw new Error("Missing required property 'profileName'");
             }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
@@ -91,10 +91,11 @@ export class Profile extends pulumi.CustomResource {
                 throw new Error("Missing required property 'sku'");
             }
             inputs["location"] = args ? args.location : undefined;
-            inputs["name"] = args ? args.name : undefined;
+            inputs["profileName"] = args ? args.profileName : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["sku"] = args ? args.sku : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["name"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
             inputs["resourceState"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
@@ -123,7 +124,7 @@ export interface ProfileArgs {
     /**
      * Name of the CDN profile which is unique within the resource group.
      */
-    readonly name: pulumi.Input<string>;
+    readonly profileName: pulumi.Input<string>;
     /**
      * Name of the Resource group within the Azure subscription.
      */

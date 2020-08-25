@@ -89,7 +89,7 @@ export class Assessment extends pulumi.CustomResource {
     /**
      * Unique name of an assessment.
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * Number of assessed machines part of this assessment.
      */
@@ -144,6 +144,9 @@ export class Assessment extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             const args = argsOrState as AssessmentArgs | undefined;
+            if (!args || args.assessmentName === undefined) {
+                throw new Error("Missing required property 'assessmentName'");
+            }
             if (!args || args.azureHybridUseBenefit === undefined) {
                 throw new Error("Missing required property 'azureHybridUseBenefit'");
             }
@@ -168,9 +171,6 @@ export class Assessment extends pulumi.CustomResource {
             if (!args || args.groupName === undefined) {
                 throw new Error("Missing required property 'groupName'");
             }
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
-            }
             if (!args || args.percentile === undefined) {
                 throw new Error("Missing required property 'percentile'");
             }
@@ -192,6 +192,7 @@ export class Assessment extends pulumi.CustomResource {
             if (!args || args.timeRange === undefined) {
                 throw new Error("Missing required property 'timeRange'");
             }
+            inputs["assessmentName"] = args ? args.assessmentName : undefined;
             inputs["azureHybridUseBenefit"] = args ? args.azureHybridUseBenefit : undefined;
             inputs["azureLocation"] = args ? args.azureLocation : undefined;
             inputs["azureOfferCode"] = args ? args.azureOfferCode : undefined;
@@ -201,7 +202,6 @@ export class Assessment extends pulumi.CustomResource {
             inputs["discountPercentage"] = args ? args.discountPercentage : undefined;
             inputs["eTag"] = args ? args.eTag : undefined;
             inputs["groupName"] = args ? args.groupName : undefined;
-            inputs["name"] = args ? args.name : undefined;
             inputs["percentile"] = args ? args.percentile : undefined;
             inputs["projectName"] = args ? args.projectName : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
@@ -214,6 +214,7 @@ export class Assessment extends pulumi.CustomResource {
             inputs["monthlyBandwidthCost"] = undefined /*out*/;
             inputs["monthlyComputeCost"] = undefined /*out*/;
             inputs["monthlyStorageCost"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
             inputs["numberOfMachines"] = undefined /*out*/;
             inputs["pricesTimestamp"] = undefined /*out*/;
             inputs["status"] = undefined /*out*/;
@@ -235,6 +236,10 @@ export class Assessment extends pulumi.CustomResource {
  * The set of arguments for constructing a Assessment resource.
  */
 export interface AssessmentArgs {
+    /**
+     * Unique name of an assessment within a project.
+     */
+    readonly assessmentName: pulumi.Input<string>;
     /**
      * AHUB discount on windows virtual machines.
      */
@@ -271,10 +276,6 @@ export interface AssessmentArgs {
      * Unique name of a group within a project.
      */
     readonly groupName: pulumi.Input<string>;
-    /**
-     * Unique name of an assessment within a project.
-     */
-    readonly name: pulumi.Input<string>;
     /**
      * Percentile of performance data used to recommend Azure size.
      */

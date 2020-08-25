@@ -56,7 +56,7 @@ export class AssessmentMetadataInSubscription extends pulumi.CustomResource {
     /**
      * Resource name
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * Describes the partner that created the assessment
      */
@@ -100,30 +100,31 @@ export class AssessmentMetadataInSubscription extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             const args = argsOrState as AssessmentMetadataInSubscriptionArgs | undefined;
+            if (!args || args.assessmentMetadataName === undefined) {
+                throw new Error("Missing required property 'assessmentMetadataName'");
+            }
             if (!args || args.assessmentType === undefined) {
                 throw new Error("Missing required property 'assessmentType'");
             }
             if (!args || args.displayName === undefined) {
                 throw new Error("Missing required property 'displayName'");
             }
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
-            }
             if (!args || args.severity === undefined) {
                 throw new Error("Missing required property 'severity'");
             }
+            inputs["assessmentMetadataName"] = args ? args.assessmentMetadataName : undefined;
             inputs["assessmentType"] = args ? args.assessmentType : undefined;
             inputs["category"] = args ? args.category : undefined;
             inputs["description"] = args ? args.description : undefined;
             inputs["displayName"] = args ? args.displayName : undefined;
             inputs["implementationEffort"] = args ? args.implementationEffort : undefined;
-            inputs["name"] = args ? args.name : undefined;
             inputs["partnerData"] = args ? args.partnerData : undefined;
             inputs["preview"] = args ? args.preview : undefined;
             inputs["remediationDescription"] = args ? args.remediationDescription : undefined;
             inputs["severity"] = args ? args.severity : undefined;
             inputs["threats"] = args ? args.threats : undefined;
             inputs["userImpact"] = args ? args.userImpact : undefined;
+            inputs["name"] = undefined /*out*/;
             inputs["policyDefinitionId"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
@@ -143,6 +144,10 @@ export class AssessmentMetadataInSubscription extends pulumi.CustomResource {
  */
 export interface AssessmentMetadataInSubscriptionArgs {
     /**
+     * The Assessment Key - Unique key for the assessment type
+     */
+    readonly assessmentMetadataName: pulumi.Input<string>;
+    /**
      * BuiltIn if the assessment based on built-in Azure Policy definition, Custom if the assessment based on custom Azure Policy definition
      */
     readonly assessmentType: pulumi.Input<string>;
@@ -159,10 +164,6 @@ export interface AssessmentMetadataInSubscriptionArgs {
      * The implementation effort required to remediate this assessment
      */
     readonly implementationEffort?: pulumi.Input<string>;
-    /**
-     * The Assessment Key - Unique key for the assessment type
-     */
-    readonly name: pulumi.Input<string>;
     /**
      * Describes the partner that created the assessment
      */

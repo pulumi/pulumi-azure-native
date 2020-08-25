@@ -69,7 +69,7 @@ export class SignalR extends pulumi.CustomResource {
     /**
      * The name of the resource.
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * Provisioning state of the resource.
      */
@@ -115,16 +115,16 @@ export class SignalR extends pulumi.CustomResource {
             if (!args || args.location === undefined) {
                 throw new Error("Missing required property 'location'");
             }
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
-            }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            if (!args || args.resourceName === undefined) {
+                throw new Error("Missing required property 'resourceName'");
+            }
             inputs["location"] = args ? args.location : undefined;
-            inputs["name"] = args ? args.name : undefined;
             inputs["properties"] = args ? args.properties : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["resourceName"] = args ? args.resourceName : undefined;
             inputs["sku"] = args ? args.sku : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["cors"] = undefined /*out*/;
@@ -132,6 +132,7 @@ export class SignalR extends pulumi.CustomResource {
             inputs["features"] = undefined /*out*/;
             inputs["hostName"] = undefined /*out*/;
             inputs["hostNamePrefix"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
             inputs["publicPort"] = undefined /*out*/;
             inputs["serverPort"] = undefined /*out*/;
@@ -161,10 +162,6 @@ export interface SignalRArgs {
      */
     readonly location: pulumi.Input<string>;
     /**
-     * The name of the SignalR resource.
-     */
-    readonly name: pulumi.Input<string>;
-    /**
      * Settings used to provision or configure the resource
      */
     readonly properties?: pulumi.Input<inputs.signalrservice.v20181001.SignalRCreateOrUpdateProperties>;
@@ -172,6 +169,10 @@ export interface SignalRArgs {
      * The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
      */
     readonly resourceGroupName: pulumi.Input<string>;
+    /**
+     * The name of the SignalR resource.
+     */
+    readonly resourceName: pulumi.Input<string>;
     /**
      * The billing information of the resource.(e.g. basic vs. standard)
      */

@@ -15,7 +15,7 @@ export function getRoleDefinition(args: GetRoleDefinitionArgs, opts?: pulumi.Inv
         opts.version = utilities.getVersion();
     }
     return pulumi.runtime.invoke("azurerm:authorization/v20150701:getRoleDefinition", {
-        "name": args.name,
+        "roleDefinitionId": args.roleDefinitionId,
         "scope": args.scope,
     }, opts);
 }
@@ -24,7 +24,7 @@ export interface GetRoleDefinitionArgs {
     /**
      * The ID of the role definition.
      */
-    readonly name: string;
+    readonly roleDefinitionId: string;
     /**
      * The scope of the role definition.
      */

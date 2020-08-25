@@ -51,7 +51,7 @@ export class PrivateEndpoint extends pulumi.CustomResource {
     /**
      * Resource name.
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * An array of references to the network interfaces created for this private endpoint.
      */
@@ -90,8 +90,8 @@ export class PrivateEndpoint extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             const args = argsOrState as PrivateEndpointArgs | undefined;
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
+            if (!args || args.privateEndpointName === undefined) {
+                throw new Error("Missing required property 'privateEndpointName'");
             }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
@@ -100,12 +100,13 @@ export class PrivateEndpoint extends pulumi.CustomResource {
             inputs["id"] = args ? args.id : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["manualPrivateLinkServiceConnections"] = args ? args.manualPrivateLinkServiceConnections : undefined;
-            inputs["name"] = args ? args.name : undefined;
+            inputs["privateEndpointName"] = args ? args.privateEndpointName : undefined;
             inputs["privateLinkServiceConnections"] = args ? args.privateLinkServiceConnections : undefined;
             inputs["provisioningState"] = args ? args.provisioningState : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["subnet"] = args ? args.subnet : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["name"] = undefined /*out*/;
             inputs["networkInterfaces"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
@@ -145,7 +146,7 @@ export interface PrivateEndpointArgs {
     /**
      * The name of the private endpoint.
      */
-    readonly name: pulumi.Input<string>;
+    readonly privateEndpointName: pulumi.Input<string>;
     /**
      * A grouping of information about the connection to the remote resource.
      */

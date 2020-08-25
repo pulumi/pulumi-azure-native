@@ -18,8 +18,8 @@ export function getSqlResourceSqlStoredProcedure(args: GetSqlResourceSqlStoredPr
         "accountName": args.accountName,
         "containerName": args.containerName,
         "databaseName": args.databaseName,
-        "name": args.name,
         "resourceGroupName": args.resourceGroupName,
+        "storedProcedureName": args.storedProcedureName,
     }, opts);
 }
 
@@ -37,13 +37,13 @@ export interface GetSqlResourceSqlStoredProcedureArgs {
      */
     readonly databaseName: string;
     /**
-     * Cosmos DB storedProcedure name.
-     */
-    readonly name: string;
-    /**
      * The name of the resource group. The name is case insensitive.
      */
     readonly resourceGroupName: string;
+    /**
+     * Cosmos DB storedProcedure name.
+     */
+    readonly storedProcedureName: string;
 }
 
 /**

@@ -79,7 +79,7 @@ export class GalleryImage extends pulumi.CustomResource {
     /**
      * The name of the resource.
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * The third party plan that applies to this image
      */
@@ -114,21 +114,21 @@ export class GalleryImage extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             const args = argsOrState as GalleryImageArgs | undefined;
+            if (!args || args.galleryImageName === undefined) {
+                throw new Error("Missing required property 'galleryImageName'");
+            }
             if (!args || args.labAccountName === undefined) {
                 throw new Error("Missing required property 'labAccountName'");
-            }
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
             }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            inputs["galleryImageName"] = args ? args.galleryImageName : undefined;
             inputs["isEnabled"] = args ? args.isEnabled : undefined;
             inputs["isOverride"] = args ? args.isOverride : undefined;
             inputs["isPlanAuthorized"] = args ? args.isPlanAuthorized : undefined;
             inputs["labAccountName"] = args ? args.labAccountName : undefined;
             inputs["location"] = args ? args.location : undefined;
-            inputs["name"] = args ? args.name : undefined;
             inputs["provisioningState"] = args ? args.provisioningState : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
@@ -139,6 +139,7 @@ export class GalleryImage extends pulumi.CustomResource {
             inputs["icon"] = undefined /*out*/;
             inputs["imageReference"] = undefined /*out*/;
             inputs["latestOperationResult"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
             inputs["planId"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
@@ -157,6 +158,10 @@ export class GalleryImage extends pulumi.CustomResource {
  * The set of arguments for constructing a GalleryImage resource.
  */
 export interface GalleryImageArgs {
+    /**
+     * The name of the gallery Image.
+     */
+    readonly galleryImageName: pulumi.Input<string>;
     /**
      * Indicates whether this gallery image is enabled.
      */
@@ -177,10 +182,6 @@ export interface GalleryImageArgs {
      * The location of the resource.
      */
     readonly location?: pulumi.Input<string>;
-    /**
-     * The name of the gallery Image.
-     */
-    readonly name: pulumi.Input<string>;
     /**
      * The provisioning status of the resource.
      */

@@ -15,21 +15,21 @@ export function getDataset(args: GetDatasetArgs, opts?: pulumi.InvokeOptions): P
         opts.version = utilities.getVersion();
     }
     return pulumi.runtime.invoke("azurerm:datafactory/v20180601:getDataset", {
+        "datasetName": args.datasetName,
         "factoryName": args.factoryName,
-        "name": args.name,
         "resourceGroupName": args.resourceGroupName,
     }, opts);
 }
 
 export interface GetDatasetArgs {
     /**
+     * The dataset name.
+     */
+    readonly datasetName: string;
+    /**
      * The factory name.
      */
     readonly factoryName: string;
-    /**
-     * The dataset name.
-     */
-    readonly name: string;
     /**
      * The resource group name.
      */

@@ -15,6 +15,7 @@ export function listWebAppFunctionKeys(args: ListWebAppFunctionKeysArgs, opts?: 
         opts.version = utilities.getVersion();
     }
     return pulumi.runtime.invoke("azurerm:web/v20190801:listWebAppFunctionKeys", {
+        "functionName": args.functionName,
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,
     }, opts);
@@ -23,6 +24,10 @@ export function listWebAppFunctionKeys(args: ListWebAppFunctionKeysArgs, opts?: 
 export interface ListWebAppFunctionKeysArgs {
     /**
      * Function name.
+     */
+    readonly functionName: string;
+    /**
+     * Site name.
      */
     readonly name: string;
     /**

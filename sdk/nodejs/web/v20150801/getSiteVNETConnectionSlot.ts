@@ -18,12 +18,13 @@ export function getSiteVNETConnectionSlot(args: GetSiteVNETConnectionSlotArgs, o
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,
         "slot": args.slot,
+        "vnetName": args.vnetName,
     }, opts);
 }
 
 export interface GetSiteVNETConnectionSlotArgs {
     /**
-     * The name of the Virtual Network
+     * The name of the web app
      */
     readonly name: string;
     /**
@@ -34,6 +35,10 @@ export interface GetSiteVNETConnectionSlotArgs {
      * The name of the slot for this web app.
      */
     readonly slot: string;
+    /**
+     * The name of the Virtual Network
+     */
+    readonly vnetName: string;
 }
 
 /**

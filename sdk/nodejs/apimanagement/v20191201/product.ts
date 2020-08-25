@@ -49,7 +49,7 @@ export class Product extends pulumi.CustomResource {
     /**
      * Resource name.
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * whether product is published or not. Published products are discoverable by users of developer portal. Non published products are visible only to administrators. Default state of Product is notPublished.
      */
@@ -87,8 +87,8 @@ export class Product extends pulumi.CustomResource {
             if (!args || args.displayName === undefined) {
                 throw new Error("Missing required property 'displayName'");
             }
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
+            if (!args || args.productId === undefined) {
+                throw new Error("Missing required property 'productId'");
             }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
@@ -99,13 +99,14 @@ export class Product extends pulumi.CustomResource {
             inputs["approvalRequired"] = args ? args.approvalRequired : undefined;
             inputs["description"] = args ? args.description : undefined;
             inputs["displayName"] = args ? args.displayName : undefined;
-            inputs["name"] = args ? args.name : undefined;
+            inputs["productId"] = args ? args.productId : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["serviceName"] = args ? args.serviceName : undefined;
             inputs["state"] = args ? args.state : undefined;
             inputs["subscriptionRequired"] = args ? args.subscriptionRequired : undefined;
             inputs["subscriptionsLimit"] = args ? args.subscriptionsLimit : undefined;
             inputs["terms"] = args ? args.terms : undefined;
+            inputs["name"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -140,7 +141,7 @@ export interface ProductArgs {
     /**
      * Product identifier. Must be unique in the current API Management service instance.
      */
-    readonly name: pulumi.Input<string>;
+    readonly productId: pulumi.Input<string>;
     /**
      * The name of the resource group.
      */

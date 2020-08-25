@@ -15,7 +15,7 @@ export function getGateway(args: GetGatewayArgs, opts?: pulumi.InvokeOptions): P
         opts.version = utilities.getVersion();
     }
     return pulumi.runtime.invoke("azurerm:apimanagement/v20191201:getGateway", {
-        "name": args.name,
+        "gatewayId": args.gatewayId,
         "resourceGroupName": args.resourceGroupName,
         "serviceName": args.serviceName,
     }, opts);
@@ -25,7 +25,7 @@ export interface GetGatewayArgs {
     /**
      * Gateway entity identifier. Must be unique in the current API Management service instance. Must not have value 'managed'
      */
-    readonly name: string;
+    readonly gatewayId: string;
     /**
      * The name of the resource group.
      */

@@ -16,9 +16,9 @@ export function getIscsiDisk(args: GetIscsiDiskArgs, opts?: pulumi.InvokeOptions
     }
     return pulumi.runtime.invoke("azurerm:storsimple/v20161001:getIscsiDisk", {
         "deviceName": args.deviceName,
+        "diskName": args.diskName,
         "iscsiServerName": args.iscsiServerName,
         "managerName": args.managerName,
-        "name": args.name,
         "resourceGroupName": args.resourceGroupName,
     }, opts);
 }
@@ -29,6 +29,10 @@ export interface GetIscsiDiskArgs {
      */
     readonly deviceName: string;
     /**
+     * The disk name.
+     */
+    readonly diskName: string;
+    /**
      * The iSCSI server name.
      */
     readonly iscsiServerName: string;
@@ -36,10 +40,6 @@ export interface GetIscsiDiskArgs {
      * The manager name
      */
     readonly managerName: string;
-    /**
-     * The disk name.
-     */
-    readonly name: string;
     /**
      * The resource group name
      */

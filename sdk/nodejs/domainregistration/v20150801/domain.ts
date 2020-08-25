@@ -134,11 +134,11 @@ export class Domain extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             const args = argsOrState as DomainArgs | undefined;
+            if (!args || args.domainName === undefined) {
+                throw new Error("Missing required property 'domainName'");
+            }
             if (!args || args.location === undefined) {
                 throw new Error("Missing required property 'location'");
-            }
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
             }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
@@ -150,6 +150,7 @@ export class Domain extends pulumi.CustomResource {
             inputs["contactRegistrant"] = args ? args.contactRegistrant : undefined;
             inputs["contactTech"] = args ? args.contactTech : undefined;
             inputs["createdTime"] = args ? args.createdTime : undefined;
+            inputs["domainName"] = args ? args.domainName : undefined;
             inputs["domainNotRenewableReasons"] = args ? args.domainNotRenewableReasons : undefined;
             inputs["expirationTime"] = args ? args.expirationTime : undefined;
             inputs["id"] = args ? args.id : undefined;
@@ -213,6 +214,10 @@ export interface DomainArgs {
      */
     readonly createdTime?: pulumi.Input<string>;
     /**
+     * Name of the domain
+     */
+    readonly domainName: pulumi.Input<string>;
+    /**
      * Reasons why domain is not renewable
      */
     readonly domainNotRenewableReasons?: pulumi.Input<pulumi.Input<string>[]>;
@@ -241,9 +246,9 @@ export interface DomainArgs {
      */
     readonly managedHostNames?: pulumi.Input<pulumi.Input<inputs.domainregistration.v20150801.HostName>[]>;
     /**
-     * Name of the domain
+     * Resource Name
      */
-    readonly name: pulumi.Input<string>;
+    readonly name?: pulumi.Input<string>;
     /**
      * Name servers
      */

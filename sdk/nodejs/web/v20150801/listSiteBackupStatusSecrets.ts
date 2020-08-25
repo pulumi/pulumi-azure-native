@@ -15,6 +15,7 @@ export function listSiteBackupStatusSecrets(args: ListSiteBackupStatusSecretsArg
         opts.version = utilities.getVersion();
     }
     return pulumi.runtime.invoke("azurerm:web/v20150801:listSiteBackupStatusSecrets", {
+        "backupId": args.backupId,
         "backupSchedule": args.backupSchedule,
         "databases": args.databases,
         "enabled": args.enabled,
@@ -30,6 +31,10 @@ export function listSiteBackupStatusSecrets(args: ListSiteBackupStatusSecretsArg
 }
 
 export interface ListSiteBackupStatusSecretsArgs {
+    /**
+     * Id of backup
+     */
+    readonly backupId: string;
     /**
      * Schedule for the backup if it is executed periodically
      */
@@ -55,7 +60,7 @@ export interface ListSiteBackupStatusSecretsArgs {
      */
     readonly location: string;
     /**
-     * Id of backup
+     * Resource Name
      */
     readonly name: string;
     /**

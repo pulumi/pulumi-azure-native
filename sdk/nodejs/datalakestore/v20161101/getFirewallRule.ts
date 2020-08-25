@@ -16,7 +16,7 @@ export function getFirewallRule(args: GetFirewallRuleArgs, opts?: pulumi.InvokeO
     }
     return pulumi.runtime.invoke("azurerm:datalakestore/v20161101:getFirewallRule", {
         "accountName": args.accountName,
-        "name": args.name,
+        "firewallRuleName": args.firewallRuleName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);
 }
@@ -29,7 +29,7 @@ export interface GetFirewallRuleArgs {
     /**
      * The name of the firewall rule to retrieve.
      */
-    readonly name: string;
+    readonly firewallRuleName: string;
     /**
      * The name of the Azure resource group.
      */

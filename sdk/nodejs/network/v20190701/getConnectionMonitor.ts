@@ -15,7 +15,7 @@ export function getConnectionMonitor(args: GetConnectionMonitorArgs, opts?: pulu
         opts.version = utilities.getVersion();
     }
     return pulumi.runtime.invoke("azurerm:network/v20190701:getConnectionMonitor", {
-        "name": args.name,
+        "connectionMonitorName": args.connectionMonitorName,
         "networkWatcherName": args.networkWatcherName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);
@@ -25,7 +25,7 @@ export interface GetConnectionMonitorArgs {
     /**
      * The name of the connection monitor.
      */
-    readonly name: string;
+    readonly connectionMonitorName: string;
     /**
      * The name of the Network Watcher resource.
      */

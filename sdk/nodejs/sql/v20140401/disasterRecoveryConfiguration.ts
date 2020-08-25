@@ -53,7 +53,7 @@ export class DisasterRecoveryConfiguration extends pulumi.CustomResource {
     /**
      * Resource name.
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * Logical name of the partner server.
      */
@@ -88,8 +88,8 @@ export class DisasterRecoveryConfiguration extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             const args = argsOrState as DisasterRecoveryConfigurationArgs | undefined;
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
+            if (!args || args.disasterRecoveryConfigurationName === undefined) {
+                throw new Error("Missing required property 'disasterRecoveryConfigurationName'");
             }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
@@ -97,13 +97,14 @@ export class DisasterRecoveryConfiguration extends pulumi.CustomResource {
             if (!args || args.serverName === undefined) {
                 throw new Error("Missing required property 'serverName'");
             }
-            inputs["name"] = args ? args.name : undefined;
+            inputs["disasterRecoveryConfigurationName"] = args ? args.disasterRecoveryConfigurationName : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["serverName"] = args ? args.serverName : undefined;
             inputs["autoFailover"] = undefined /*out*/;
             inputs["failoverPolicy"] = undefined /*out*/;
             inputs["location"] = undefined /*out*/;
             inputs["logicalServerName"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
             inputs["partnerLogicalServerName"] = undefined /*out*/;
             inputs["partnerServerId"] = undefined /*out*/;
             inputs["role"] = undefined /*out*/;
@@ -128,7 +129,7 @@ export interface DisasterRecoveryConfigurationArgs {
     /**
      * The name of the disaster recovery configuration to be created/updated.
      */
-    readonly name: pulumi.Input<string>;
+    readonly disasterRecoveryConfigurationName: pulumi.Input<string>;
     /**
      * The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
      */

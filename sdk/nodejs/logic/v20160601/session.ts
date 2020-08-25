@@ -53,7 +53,7 @@ export class Session extends pulumi.CustomResource {
     /**
      * Gets the resource name.
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * The resource tags.
      */
@@ -79,20 +79,21 @@ export class Session extends pulumi.CustomResource {
             if (!args || args.integrationAccountName === undefined) {
                 throw new Error("Missing required property 'integrationAccountName'");
             }
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
-            }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
+            }
+            if (!args || args.sessionName === undefined) {
+                throw new Error("Missing required property 'sessionName'");
             }
             inputs["content"] = args ? args.content : undefined;
             inputs["integrationAccountName"] = args ? args.integrationAccountName : undefined;
             inputs["location"] = args ? args.location : undefined;
-            inputs["name"] = args ? args.name : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["sessionName"] = args ? args.sessionName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["changedTime"] = undefined /*out*/;
             inputs["createdTime"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -125,13 +126,13 @@ export interface SessionArgs {
      */
     readonly location?: pulumi.Input<string>;
     /**
-     * The integration account session name.
-     */
-    readonly name: pulumi.Input<string>;
-    /**
      * The resource group name.
      */
     readonly resourceGroupName: pulumi.Input<string>;
+    /**
+     * The integration account session name.
+     */
+    readonly sessionName: pulumi.Input<string>;
     /**
      * The resource tags.
      */

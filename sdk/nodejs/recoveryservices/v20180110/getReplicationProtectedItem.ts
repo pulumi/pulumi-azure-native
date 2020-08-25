@@ -16,8 +16,8 @@ export function getReplicationProtectedItem(args: GetReplicationProtectedItemArg
     }
     return pulumi.runtime.invoke("azurerm:recoveryservices/v20180110:getReplicationProtectedItem", {
         "fabricName": args.fabricName,
-        "name": args.name,
         "protectionContainerName": args.protectionContainerName,
+        "replicatedProtectedItemName": args.replicatedProtectedItemName,
         "resourceGroupName": args.resourceGroupName,
         "resourceName": args.resourceName,
     }, opts);
@@ -29,13 +29,13 @@ export interface GetReplicationProtectedItemArgs {
      */
     readonly fabricName: string;
     /**
-     * Replication protected item name.
-     */
-    readonly name: string;
-    /**
      * Protection container name.
      */
     readonly protectionContainerName: string;
+    /**
+     * Replication protected item name.
+     */
+    readonly replicatedProtectedItemName: string;
     /**
      * The name of the resource group where the recovery services vault is present.
      */

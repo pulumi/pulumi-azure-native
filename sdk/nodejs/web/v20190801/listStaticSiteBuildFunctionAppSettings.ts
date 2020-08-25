@@ -16,15 +16,20 @@ export function listStaticSiteBuildFunctionAppSettings(args: ListStaticSiteBuild
     }
     return pulumi.runtime.invoke("azurerm:web/v20190801:listStaticSiteBuildFunctionAppSettings", {
         "name": args.name,
+        "prId": args.prId,
         "resourceGroupName": args.resourceGroupName,
     }, opts);
 }
 
 export interface ListStaticSiteBuildFunctionAppSettingsArgs {
     /**
-     * The stage site identifier.
+     * Name of the static site.
      */
     readonly name: string;
+    /**
+     * The stage site identifier.
+     */
+    readonly prId: string;
     /**
      * Name of the resource group to which the resource belongs.
      */

@@ -67,7 +67,7 @@ export class VpnSite extends pulumi.CustomResource {
     /**
      * Resource name.
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * The provisioning state of the resource.
      */
@@ -105,11 +105,11 @@ export class VpnSite extends pulumi.CustomResource {
             if (!args || args.location === undefined) {
                 throw new Error("Missing required property 'location'");
             }
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
-            }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
+            }
+            if (!args || args.vpnSiteName === undefined) {
+                throw new Error("Missing required property 'vpnSiteName'");
             }
             inputs["addressSpace"] = args ? args.addressSpace : undefined;
             inputs["bgpProperties"] = args ? args.bgpProperties : undefined;
@@ -118,13 +118,14 @@ export class VpnSite extends pulumi.CustomResource {
             inputs["ipAddress"] = args ? args.ipAddress : undefined;
             inputs["isSecuritySite"] = args ? args.isSecuritySite : undefined;
             inputs["location"] = args ? args.location : undefined;
-            inputs["name"] = args ? args.name : undefined;
             inputs["provisioningState"] = args ? args.provisioningState : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["siteKey"] = args ? args.siteKey : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["virtualWan"] = args ? args.virtualWan : undefined;
+            inputs["vpnSiteName"] = args ? args.vpnSiteName : undefined;
             inputs["etag"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -173,10 +174,6 @@ export interface VpnSiteArgs {
      */
     readonly location: pulumi.Input<string>;
     /**
-     * The name of the VpnSite being created or updated.
-     */
-    readonly name: pulumi.Input<string>;
-    /**
      * The provisioning state of the resource.
      */
     readonly provisioningState?: pulumi.Input<string>;
@@ -196,4 +193,8 @@ export interface VpnSiteArgs {
      * The VirtualWAN to which the vpnSite belongs
      */
     readonly virtualWan?: pulumi.Input<inputs.network.v20180801.SubResource>;
+    /**
+     * The name of the VpnSite being created or updated.
+     */
+    readonly vpnSiteName: pulumi.Input<string>;
 }

@@ -87,7 +87,7 @@ export class Api extends pulumi.CustomResource {
     /**
      * Resource name.
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * Relative URL uniquely identifying this API and all of its resource paths within the API Management service instance. It is appended to the API endpoint base URL specified during the service instance creation to form a public URL for this API.
      */
@@ -130,8 +130,8 @@ export class Api extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             const args = argsOrState as ApiArgs | undefined;
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
+            if (!args || args.apiId === undefined) {
+                throw new Error("Missing required property 'apiId'");
             }
             if (!args || args.path === undefined) {
                 throw new Error("Missing required property 'path'");
@@ -142,6 +142,7 @@ export class Api extends pulumi.CustomResource {
             if (!args || args.serviceName === undefined) {
                 throw new Error("Missing required property 'serviceName'");
             }
+            inputs["apiId"] = args ? args.apiId : undefined;
             inputs["apiRevision"] = args ? args.apiRevision : undefined;
             inputs["apiRevisionDescription"] = args ? args.apiRevisionDescription : undefined;
             inputs["apiType"] = args ? args.apiType : undefined;
@@ -154,7 +155,6 @@ export class Api extends pulumi.CustomResource {
             inputs["displayName"] = args ? args.displayName : undefined;
             inputs["format"] = args ? args.format : undefined;
             inputs["isCurrent"] = args ? args.isCurrent : undefined;
-            inputs["name"] = args ? args.name : undefined;
             inputs["path"] = args ? args.path : undefined;
             inputs["protocols"] = args ? args.protocols : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
@@ -167,6 +167,7 @@ export class Api extends pulumi.CustomResource {
             inputs["value"] = args ? args.value : undefined;
             inputs["wsdlSelector"] = args ? args.wsdlSelector : undefined;
             inputs["isOnline"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -186,6 +187,10 @@ export class Api extends pulumi.CustomResource {
  * The set of arguments for constructing a Api resource.
  */
 export interface ApiArgs {
+    /**
+     * API revision identifier. Must be unique in the current API Management service instance. Non-current revision has ;rev=n as a suffix where n is the revision number.
+     */
+    readonly apiId: pulumi.Input<string>;
     /**
      * Describes the Revision of the Api. If no value is provided, default revision 1 is created
      */
@@ -234,10 +239,6 @@ export interface ApiArgs {
      * Indicates if API revision is current api revision.
      */
     readonly isCurrent?: pulumi.Input<boolean>;
-    /**
-     * API revision identifier. Must be unique in the current API Management service instance. Non-current revision has ;rev=n as a suffix where n is the revision number.
-     */
-    readonly name: pulumi.Input<string>;
     /**
      * Relative URL uniquely identifying this API and all of its resource paths within the API Management service instance. It is appended to the API endpoint base URL specified during the service instance creation to form a public URL for this API.
      */

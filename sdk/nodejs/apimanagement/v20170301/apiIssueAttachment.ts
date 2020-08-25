@@ -45,7 +45,7 @@ export class ApiIssueAttachment extends pulumi.CustomResource {
     /**
      * Resource name.
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * Filename by which the binary data will be saved.
      */
@@ -71,6 +71,9 @@ export class ApiIssueAttachment extends pulumi.CustomResource {
             if (!args || args.apiId === undefined) {
                 throw new Error("Missing required property 'apiId'");
             }
+            if (!args || args.attachmentId === undefined) {
+                throw new Error("Missing required property 'attachmentId'");
+            }
             if (!args || args.content === undefined) {
                 throw new Error("Missing required property 'content'");
             }
@@ -79,9 +82,6 @@ export class ApiIssueAttachment extends pulumi.CustomResource {
             }
             if (!args || args.issueId === undefined) {
                 throw new Error("Missing required property 'issueId'");
-            }
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
             }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
@@ -93,13 +93,14 @@ export class ApiIssueAttachment extends pulumi.CustomResource {
                 throw new Error("Missing required property 'title'");
             }
             inputs["apiId"] = args ? args.apiId : undefined;
+            inputs["attachmentId"] = args ? args.attachmentId : undefined;
             inputs["content"] = args ? args.content : undefined;
             inputs["contentFormat"] = args ? args.contentFormat : undefined;
             inputs["issueId"] = args ? args.issueId : undefined;
-            inputs["name"] = args ? args.name : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["serviceName"] = args ? args.serviceName : undefined;
             inputs["title"] = args ? args.title : undefined;
+            inputs["name"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -124,6 +125,10 @@ export interface ApiIssueAttachmentArgs {
      */
     readonly apiId: pulumi.Input<string>;
     /**
+     * Attachment identifier within an Issue. Must be unique in the current Issue.
+     */
+    readonly attachmentId: pulumi.Input<string>;
+    /**
      * An HTTP link or Base64-encoded binary data.
      */
     readonly content: pulumi.Input<string>;
@@ -135,10 +140,6 @@ export interface ApiIssueAttachmentArgs {
      * Issue identifier. Must be unique in the current API Management service instance.
      */
     readonly issueId: pulumi.Input<string>;
-    /**
-     * Attachment identifier within an Issue. Must be unique in the current Issue.
-     */
-    readonly name: pulumi.Input<string>;
     /**
      * The name of the resource group.
      */

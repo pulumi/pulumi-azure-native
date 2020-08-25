@@ -15,7 +15,7 @@ export function getCustomerSubscription(args: GetCustomerSubscriptionArgs, opts?
         opts.version = utilities.getVersion();
     }
     return pulumi.runtime.invoke("azurerm:azurestack/v20170601:getCustomerSubscription", {
-        "name": args.name,
+        "customerSubscriptionName": args.customerSubscriptionName,
         "registrationName": args.registrationName,
         "resourceGroup": args.resourceGroup,
     }, opts);
@@ -25,7 +25,7 @@ export interface GetCustomerSubscriptionArgs {
     /**
      * Name of the product.
      */
-    readonly name: string;
+    readonly customerSubscriptionName: string;
     /**
      * Name of the Azure Stack registration.
      */

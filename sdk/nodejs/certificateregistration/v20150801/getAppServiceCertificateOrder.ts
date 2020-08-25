@@ -15,7 +15,7 @@ export function getAppServiceCertificateOrder(args: GetAppServiceCertificateOrde
         opts.version = utilities.getVersion();
     }
     return pulumi.runtime.invoke("azurerm:certificateregistration/v20150801:getAppServiceCertificateOrder", {
-        "name": args.name,
+        "certificateOrderName": args.certificateOrderName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);
 }
@@ -24,7 +24,7 @@ export interface GetAppServiceCertificateOrderArgs {
     /**
      * Name of the certificate order..
      */
-    readonly name: string;
+    readonly certificateOrderName: string;
     /**
      * Name of the resource group to which the resource belongs.
      */

@@ -15,20 +15,20 @@ export function getSite(args: GetSiteArgs, opts?: pulumi.InvokeOptions): Promise
         opts.version = utilities.getVersion();
     }
     return pulumi.runtime.invoke("azurerm:offazure/v20200101:getSite", {
-        "name": args.name,
         "resourceGroupName": args.resourceGroupName,
+        "siteName": args.siteName,
     }, opts);
 }
 
 export interface GetSiteArgs {
     /**
-     * Site name.
-     */
-    readonly name: string;
-    /**
      * The name of the resource group. The name is case insensitive.
      */
     readonly resourceGroupName: string;
+    /**
+     * Site name.
+     */
+    readonly siteName: string;
 }
 
 /**

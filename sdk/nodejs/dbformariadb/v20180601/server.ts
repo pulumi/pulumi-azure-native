@@ -59,7 +59,7 @@ export class Server extends pulumi.CustomResource {
     /**
      * The name of the resource
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * List of private endpoint connections on a server
      */
@@ -121,25 +121,26 @@ export class Server extends pulumi.CustomResource {
             if (!args || args.location === undefined) {
                 throw new Error("Missing required property 'location'");
             }
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
-            }
             if (!args || args.properties === undefined) {
                 throw new Error("Missing required property 'properties'");
             }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            if (!args || args.serverName === undefined) {
+                throw new Error("Missing required property 'serverName'");
+            }
             inputs["location"] = args ? args.location : undefined;
-            inputs["name"] = args ? args.name : undefined;
             inputs["properties"] = args ? args.properties : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["serverName"] = args ? args.serverName : undefined;
             inputs["sku"] = args ? args.sku : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["administratorLogin"] = undefined /*out*/;
             inputs["earliestRestoreDate"] = undefined /*out*/;
             inputs["fullyQualifiedDomainName"] = undefined /*out*/;
             inputs["masterServerId"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
             inputs["privateEndpointConnections"] = undefined /*out*/;
             inputs["publicNetworkAccess"] = undefined /*out*/;
             inputs["replicaCapacity"] = undefined /*out*/;
@@ -170,10 +171,6 @@ export interface ServerArgs {
      */
     readonly location: pulumi.Input<string>;
     /**
-     * The name of the server.
-     */
-    readonly name: pulumi.Input<string>;
-    /**
      * Properties of the server.
      */
     readonly properties: pulumi.Input<inputs.dbformariadb.v20180601.ServerPropertiesForCreate>;
@@ -181,6 +178,10 @@ export interface ServerArgs {
      * The name of the resource group. The name is case insensitive.
      */
     readonly resourceGroupName: pulumi.Input<string>;
+    /**
+     * The name of the server.
+     */
+    readonly serverName: pulumi.Input<string>;
     /**
      * The SKU (pricing tier) of the server.
      */

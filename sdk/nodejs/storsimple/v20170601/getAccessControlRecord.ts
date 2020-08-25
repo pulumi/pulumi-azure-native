@@ -15,21 +15,21 @@ export function getAccessControlRecord(args: GetAccessControlRecordArgs, opts?: 
         opts.version = utilities.getVersion();
     }
     return pulumi.runtime.invoke("azurerm:storsimple/v20170601:getAccessControlRecord", {
+        "accessControlRecordName": args.accessControlRecordName,
         "managerName": args.managerName,
-        "name": args.name,
         "resourceGroupName": args.resourceGroupName,
     }, opts);
 }
 
 export interface GetAccessControlRecordArgs {
     /**
+     * Name of access control record to be fetched.
+     */
+    readonly accessControlRecordName: string;
+    /**
      * The manager name
      */
     readonly managerName: string;
-    /**
-     * Name of access control record to be fetched.
-     */
-    readonly name: string;
     /**
      * The resource group name
      */

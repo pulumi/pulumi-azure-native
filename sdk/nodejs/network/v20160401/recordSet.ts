@@ -106,11 +106,11 @@ export class RecordSet extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             const args = argsOrState as RecordSetArgs | undefined;
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
-            }
             if (!args || args.recordType === undefined) {
                 throw new Error("Missing required property 'recordType'");
+            }
+            if (!args || args.relativeRecordSetName === undefined) {
+                throw new Error("Missing required property 'relativeRecordSetName'");
             }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
@@ -129,6 +129,7 @@ export class RecordSet extends pulumi.CustomResource {
             inputs["nsRecords"] = args ? args.nsRecords : undefined;
             inputs["ptrRecords"] = args ? args.ptrRecords : undefined;
             inputs["recordType"] = args ? args.recordType : undefined;
+            inputs["relativeRecordSetName"] = args ? args.relativeRecordSetName : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["soaRecord"] = args ? args.soaRecord : undefined;
             inputs["srvRecords"] = args ? args.srvRecords : undefined;
@@ -183,9 +184,9 @@ export interface RecordSetArgs {
      */
     readonly mxRecords?: pulumi.Input<pulumi.Input<inputs.network.v20160401.MxRecord>[]>;
     /**
-     * The name of the record set, relative to the name of the zone.
+     * The name of the record set.
      */
-    readonly name: pulumi.Input<string>;
+    readonly name?: pulumi.Input<string>;
     /**
      * The list of NS records in the record set.
      */
@@ -198,6 +199,10 @@ export interface RecordSetArgs {
      * The type of DNS record in this record set. Record sets of type SOA can be updated but not created (they are created when the DNS zone is created).
      */
     readonly recordType: pulumi.Input<string>;
+    /**
+     * The name of the record set, relative to the name of the zone.
+     */
+    readonly relativeRecordSetName: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

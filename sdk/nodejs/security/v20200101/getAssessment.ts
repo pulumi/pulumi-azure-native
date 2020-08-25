@@ -15,21 +15,21 @@ export function getAssessment(args: GetAssessmentArgs, opts?: pulumi.InvokeOptio
         opts.version = utilities.getVersion();
     }
     return pulumi.runtime.invoke("azurerm:security/v20200101:getAssessment", {
+        "assessmentName": args.assessmentName,
         "expand": args.expand,
-        "name": args.name,
         "resourceId": args.resourceId,
     }, opts);
 }
 
 export interface GetAssessmentArgs {
     /**
+     * The Assessment Key - Unique key for the assessment type
+     */
+    readonly assessmentName: string;
+    /**
      * OData expand. Optional.
      */
     readonly expand?: string;
-    /**
-     * The Assessment Key - Unique key for the assessment type
-     */
-    readonly name: string;
     /**
      * The identifier of the resource.
      */

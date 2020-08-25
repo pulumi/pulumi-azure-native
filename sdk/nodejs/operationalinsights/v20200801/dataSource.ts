@@ -45,7 +45,7 @@ export class DataSource extends pulumi.CustomResource {
     /**
      * The name of the resource
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * The data source properties in raw json format, each kind of data source have it's own schema.
      */
@@ -72,11 +72,11 @@ export class DataSource extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             const args = argsOrState as DataSourceArgs | undefined;
+            if (!args || args.dataSourceName === undefined) {
+                throw new Error("Missing required property 'dataSourceName'");
+            }
             if (!args || args.kind === undefined) {
                 throw new Error("Missing required property 'kind'");
-            }
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
             }
             if (!args || args.properties === undefined) {
                 throw new Error("Missing required property 'properties'");
@@ -87,13 +87,14 @@ export class DataSource extends pulumi.CustomResource {
             if (!args || args.workspaceName === undefined) {
                 throw new Error("Missing required property 'workspaceName'");
             }
+            inputs["dataSourceName"] = args ? args.dataSourceName : undefined;
             inputs["etag"] = args ? args.etag : undefined;
             inputs["kind"] = args ? args.kind : undefined;
-            inputs["name"] = args ? args.name : undefined;
             inputs["properties"] = args ? args.properties : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["workspaceName"] = args ? args.workspaceName : undefined;
+            inputs["name"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -112,6 +113,10 @@ export class DataSource extends pulumi.CustomResource {
  */
 export interface DataSourceArgs {
     /**
+     * The name of the datasource resource.
+     */
+    readonly dataSourceName: pulumi.Input<string>;
+    /**
      * The ETag of the data source.
      */
     readonly etag?: pulumi.Input<string>;
@@ -119,10 +124,6 @@ export interface DataSourceArgs {
      * The kind of the DataSource.
      */
     readonly kind: pulumi.Input<string>;
-    /**
-     * The name of the datasource resource.
-     */
-    readonly name: pulumi.Input<string>;
     /**
      * The data source properties in raw json format, each kind of data source have it's own schema.
      */

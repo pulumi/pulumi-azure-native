@@ -15,7 +15,7 @@ export function getServerAzureADAdministrator(args: GetServerAzureADAdministrato
         opts.version = utilities.getVersion();
     }
     return pulumi.runtime.invoke("azurerm:sql/v20140401:getServerAzureADAdministrator", {
-        "name": args.name,
+        "administratorName": args.administratorName,
         "resourceGroupName": args.resourceGroupName,
         "serverName": args.serverName,
     }, opts);
@@ -25,7 +25,7 @@ export interface GetServerAzureADAdministratorArgs {
     /**
      * Name of the server administrator resource.
      */
-    readonly name: string;
+    readonly administratorName: string;
     /**
      * The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
      */

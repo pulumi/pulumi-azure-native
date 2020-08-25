@@ -16,7 +16,7 @@ export function getDeployment(args: GetDeploymentArgs, opts?: pulumi.InvokeOptio
     }
     return pulumi.runtime.invoke("azurerm:appplatform/v20200701:getDeployment", {
         "appName": args.appName,
-        "name": args.name,
+        "deploymentName": args.deploymentName,
         "resourceGroupName": args.resourceGroupName,
         "serviceName": args.serviceName,
     }, opts);
@@ -30,7 +30,7 @@ export interface GetDeploymentArgs {
     /**
      * The name of the Deployment resource.
      */
-    readonly name: string;
+    readonly deploymentName: string;
     /**
      * The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
      */

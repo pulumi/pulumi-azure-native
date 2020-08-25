@@ -15,7 +15,7 @@ export function getCapacityDetails(args: GetCapacityDetailsArgs, opts?: pulumi.I
         opts.version = utilities.getVersion();
     }
     return pulumi.runtime.invoke("azurerm:powerbidedicated/v20171001:getCapacityDetails", {
-        "name": args.name,
+        "dedicatedCapacityName": args.dedicatedCapacityName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);
 }
@@ -24,7 +24,7 @@ export interface GetCapacityDetailsArgs {
     /**
      * The name of the dedicated capacity. It must be a minimum of 3 characters, and a maximum of 63.
      */
-    readonly name: string;
+    readonly dedicatedCapacityName: string;
     /**
      * The name of the Azure Resource group of which a given PowerBIDedicated capacity is part. This name must be at least 1 character in length, and no more than 90.
      */

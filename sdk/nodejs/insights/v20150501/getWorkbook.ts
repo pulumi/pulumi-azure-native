@@ -15,20 +15,20 @@ export function getWorkbook(args: GetWorkbookArgs, opts?: pulumi.InvokeOptions):
         opts.version = utilities.getVersion();
     }
     return pulumi.runtime.invoke("azurerm:insights/v20150501:getWorkbook", {
-        "name": args.name,
         "resourceGroupName": args.resourceGroupName,
+        "resourceName": args.resourceName,
     }, opts);
 }
 
 export interface GetWorkbookArgs {
     /**
-     * The name of the Application Insights component resource.
-     */
-    readonly name: string;
-    /**
      * The name of the resource group. The name is case insensitive.
      */
     readonly resourceGroupName: string;
+    /**
+     * The name of the Application Insights component resource.
+     */
+    readonly resourceName: string;
 }
 
 /**

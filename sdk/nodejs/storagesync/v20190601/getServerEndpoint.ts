@@ -15,8 +15,8 @@ export function getServerEndpoint(args: GetServerEndpointArgs, opts?: pulumi.Inv
         opts.version = utilities.getVersion();
     }
     return pulumi.runtime.invoke("azurerm:storagesync/v20190601:getServerEndpoint", {
-        "name": args.name,
         "resourceGroupName": args.resourceGroupName,
+        "serverEndpointName": args.serverEndpointName,
         "storageSyncServiceName": args.storageSyncServiceName,
         "syncGroupName": args.syncGroupName,
     }, opts);
@@ -24,13 +24,13 @@ export function getServerEndpoint(args: GetServerEndpointArgs, opts?: pulumi.Inv
 
 export interface GetServerEndpointArgs {
     /**
-     * Name of Server Endpoint object.
-     */
-    readonly name: string;
-    /**
      * The name of the resource group. The name is case insensitive.
      */
     readonly resourceGroupName: string;
+    /**
+     * Name of Server Endpoint object.
+     */
+    readonly serverEndpointName: string;
     /**
      * Name of Storage Sync Service resource.
      */

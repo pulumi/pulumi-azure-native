@@ -15,7 +15,7 @@ export function getAutomationAccount(args: GetAutomationAccountArgs, opts?: pulu
         opts.version = utilities.getVersion();
     }
     return pulumi.runtime.invoke("azurerm:automation/v20151031:getAutomationAccount", {
-        "name": args.name,
+        "automationAccountName": args.automationAccountName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);
 }
@@ -24,7 +24,7 @@ export interface GetAutomationAccountArgs {
     /**
      * The name of the automation account.
      */
-    readonly name: string;
+    readonly automationAccountName: string;
     /**
      * Name of an Azure Resource group.
      */

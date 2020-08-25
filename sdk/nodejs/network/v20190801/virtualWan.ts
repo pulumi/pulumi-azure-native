@@ -59,7 +59,7 @@ export class VirtualWan extends pulumi.CustomResource {
     /**
      * Resource name.
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * The office local breakout category.
      */
@@ -101,23 +101,24 @@ export class VirtualWan extends pulumi.CustomResource {
             if (!args || args.location === undefined) {
                 throw new Error("Missing required property 'location'");
             }
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
-            }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
+            }
+            if (!args || args.virtualWANName === undefined) {
+                throw new Error("Missing required property 'virtualWANName'");
             }
             inputs["allowBranchToBranchTraffic"] = args ? args.allowBranchToBranchTraffic : undefined;
             inputs["allowVnetToVnetTraffic"] = args ? args.allowVnetToVnetTraffic : undefined;
             inputs["disableVpnEncryption"] = args ? args.disableVpnEncryption : undefined;
             inputs["id"] = args ? args.id : undefined;
             inputs["location"] = args ? args.location : undefined;
-            inputs["name"] = args ? args.name : undefined;
             inputs["office365LocalBreakoutCategory"] = args ? args.office365LocalBreakoutCategory : undefined;
             inputs["provisioningState"] = args ? args.provisioningState : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["virtualWANName"] = args ? args.virtualWANName : undefined;
             inputs["etag"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
             inputs["virtualHubs"] = undefined /*out*/;
             inputs["vpnSites"] = undefined /*out*/;
@@ -160,10 +161,6 @@ export interface VirtualWanArgs {
      */
     readonly location: pulumi.Input<string>;
     /**
-     * The name of the VirtualWAN being created or updated.
-     */
-    readonly name: pulumi.Input<string>;
-    /**
      * The office local breakout category.
      */
     readonly office365LocalBreakoutCategory?: pulumi.Input<string>;
@@ -179,4 +176,8 @@ export interface VirtualWanArgs {
      * Resource tags.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * The name of the VirtualWAN being created or updated.
+     */
+    readonly virtualWANName: pulumi.Input<string>;
 }

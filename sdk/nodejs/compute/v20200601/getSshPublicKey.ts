@@ -15,20 +15,20 @@ export function getSshPublicKey(args: GetSshPublicKeyArgs, opts?: pulumi.InvokeO
         opts.version = utilities.getVersion();
     }
     return pulumi.runtime.invoke("azurerm:compute/v20200601:getSshPublicKey", {
-        "name": args.name,
         "resourceGroupName": args.resourceGroupName,
+        "sshPublicKeyName": args.sshPublicKeyName,
     }, opts);
 }
 
 export interface GetSshPublicKeyArgs {
     /**
-     * The name of the SSH public key.
-     */
-    readonly name: string;
-    /**
      * The name of the resource group.
      */
     readonly resourceGroupName: string;
+    /**
+     * The name of the SSH public key.
+     */
+    readonly sshPublicKeyName: string;
 }
 
 /**

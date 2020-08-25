@@ -15,7 +15,7 @@ export function getManagementLock(args: GetManagementLockArgs, opts?: pulumi.Inv
         opts.version = utilities.getVersion();
     }
     return pulumi.runtime.invoke("azurerm:authorization/v20150101:getManagementLock", {
-        "name": args.name,
+        "lockName": args.lockName,
     }, opts);
 }
 
@@ -23,7 +23,7 @@ export interface GetManagementLockArgs {
     /**
      * Name of the management lock.
      */
-    readonly name: string;
+    readonly lockName: string;
 }
 
 /**

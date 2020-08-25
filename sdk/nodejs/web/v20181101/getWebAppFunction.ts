@@ -15,6 +15,7 @@ export function getWebAppFunction(args: GetWebAppFunctionArgs, opts?: pulumi.Inv
         opts.version = utilities.getVersion();
     }
     return pulumi.runtime.invoke("azurerm:web/v20181101:getWebAppFunction", {
+        "functionName": args.functionName,
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,
     }, opts);
@@ -23,6 +24,10 @@ export function getWebAppFunction(args: GetWebAppFunctionArgs, opts?: pulumi.Inv
 export interface GetWebAppFunctionArgs {
     /**
      * Function name.
+     */
+    readonly functionName: string;
+    /**
+     * Site name.
      */
     readonly name: string;
     /**

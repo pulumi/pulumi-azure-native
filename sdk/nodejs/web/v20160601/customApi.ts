@@ -47,7 +47,7 @@ export class CustomApi extends pulumi.CustomResource {
     /**
      * Resource name
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * Custom API properties
      */
@@ -74,18 +74,19 @@ export class CustomApi extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             const args = argsOrState as CustomApiArgs | undefined;
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
+            if (!args || args.apiName === undefined) {
+                throw new Error("Missing required property 'apiName'");
             }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            inputs["apiName"] = args ? args.apiName : undefined;
             inputs["etag"] = args ? args.etag : undefined;
             inputs["location"] = args ? args.location : undefined;
-            inputs["name"] = args ? args.name : undefined;
             inputs["properties"] = args ? args.properties : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["name"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -104,6 +105,10 @@ export class CustomApi extends pulumi.CustomResource {
  */
 export interface CustomApiArgs {
     /**
+     * API name
+     */
+    readonly apiName: pulumi.Input<string>;
+    /**
      * Resource ETag
      */
     readonly etag?: pulumi.Input<string>;
@@ -111,10 +116,6 @@ export interface CustomApiArgs {
      * Resource location
      */
     readonly location?: pulumi.Input<string>;
-    /**
-     * API name
-     */
-    readonly name: pulumi.Input<string>;
     /**
      * Custom API properties
      */

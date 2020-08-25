@@ -41,7 +41,7 @@ export class AccessPolicy extends pulumi.CustomResource {
     /**
      * Resource name
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * The objectId of the principal in Azure Active Directory.
      */
@@ -68,21 +68,22 @@ export class AccessPolicy extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             const args = argsOrState as AccessPolicyArgs | undefined;
+            if (!args || args.accessPolicyName === undefined) {
+                throw new Error("Missing required property 'accessPolicyName'");
+            }
             if (!args || args.environmentName === undefined) {
                 throw new Error("Missing required property 'environmentName'");
-            }
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
             }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            inputs["accessPolicyName"] = args ? args.accessPolicyName : undefined;
             inputs["description"] = args ? args.description : undefined;
             inputs["environmentName"] = args ? args.environmentName : undefined;
-            inputs["name"] = args ? args.name : undefined;
             inputs["principalObjectId"] = args ? args.principalObjectId : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["roles"] = args ? args.roles : undefined;
+            inputs["name"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -103,6 +104,10 @@ export class AccessPolicy extends pulumi.CustomResource {
  */
 export interface AccessPolicyArgs {
     /**
+     * Name of the access policy.
+     */
+    readonly accessPolicyName: pulumi.Input<string>;
+    /**
      * An description of the access policy.
      */
     readonly description?: pulumi.Input<string>;
@@ -110,10 +115,6 @@ export interface AccessPolicyArgs {
      * The name of the Time Series Insights environment associated with the specified resource group.
      */
     readonly environmentName: pulumi.Input<string>;
-    /**
-     * Name of the access policy.
-     */
-    readonly name: pulumi.Input<string>;
     /**
      * The objectId of the principal in Azure Active Directory.
      */

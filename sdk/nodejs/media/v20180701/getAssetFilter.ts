@@ -17,7 +17,7 @@ export function getAssetFilter(args: GetAssetFilterArgs, opts?: pulumi.InvokeOpt
     return pulumi.runtime.invoke("azurerm:media/v20180701:getAssetFilter", {
         "accountName": args.accountName,
         "assetName": args.assetName,
-        "name": args.name,
+        "filterName": args.filterName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);
 }
@@ -34,7 +34,7 @@ export interface GetAssetFilterArgs {
     /**
      * The Asset Filter name
      */
-    readonly name: string;
+    readonly filterName: string;
     /**
      * The name of the resource group within the Azure subscription.
      */

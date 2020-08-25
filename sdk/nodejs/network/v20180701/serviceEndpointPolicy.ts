@@ -47,7 +47,7 @@ export class ServiceEndpointPolicy extends pulumi.CustomResource {
     /**
      * Resource name.
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * The provisioning state of the service endpoint policy. Possible values are: 'Updating', 'Deleting', and 'Failed'.
      */
@@ -82,21 +82,22 @@ export class ServiceEndpointPolicy extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             const args = argsOrState as ServiceEndpointPolicyArgs | undefined;
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
-            }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
+            }
+            if (!args || args.serviceEndpointPolicyName === undefined) {
+                throw new Error("Missing required property 'serviceEndpointPolicyName'");
             }
             inputs["etag"] = args ? args.etag : undefined;
             inputs["id"] = args ? args.id : undefined;
             inputs["location"] = args ? args.location : undefined;
-            inputs["name"] = args ? args.name : undefined;
             inputs["provisioningState"] = args ? args.provisioningState : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["resourceGuid"] = args ? args.resourceGuid : undefined;
             inputs["serviceEndpointPolicyDefinitions"] = args ? args.serviceEndpointPolicyDefinitions : undefined;
+            inputs["serviceEndpointPolicyName"] = args ? args.serviceEndpointPolicyName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["name"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -129,10 +130,6 @@ export interface ServiceEndpointPolicyArgs {
      */
     readonly location?: pulumi.Input<string>;
     /**
-     * The name of the service endpoint policy.
-     */
-    readonly name: pulumi.Input<string>;
-    /**
      * The provisioning state of the service endpoint policy. Possible values are: 'Updating', 'Deleting', and 'Failed'.
      */
     readonly provisioningState?: pulumi.Input<string>;
@@ -148,6 +145,10 @@ export interface ServiceEndpointPolicyArgs {
      * A collection of service endpoint policy definitions of the service endpoint policy.
      */
     readonly serviceEndpointPolicyDefinitions?: pulumi.Input<pulumi.Input<inputs.network.v20180701.ServiceEndpointPolicyDefinition>[]>;
+    /**
+     * The name of the service endpoint policy.
+     */
+    readonly serviceEndpointPolicyName: pulumi.Input<string>;
     /**
      * Resource tags.
      */

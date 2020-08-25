@@ -64,13 +64,14 @@ export class ManagementLockAtResourceGroupLevel extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             const args = argsOrState as ManagementLockAtResourceGroupLevelArgs | undefined;
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
+            if (!args || args.lockName === undefined) {
+                throw new Error("Missing required property 'lockName'");
             }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["level"] = args ? args.level : undefined;
+            inputs["lockName"] = args ? args.lockName : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["notes"] = args ? args.notes : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
@@ -100,7 +101,11 @@ export interface ManagementLockAtResourceGroupLevelArgs {
     /**
      * The lock name.
      */
-    readonly name: pulumi.Input<string>;
+    readonly lockName: pulumi.Input<string>;
+    /**
+     * The name of the lock.
+     */
+    readonly name?: pulumi.Input<string>;
     /**
      * The notes of the management lock.
      */

@@ -15,7 +15,7 @@ export function getBookmark(args: GetBookmarkArgs, opts?: pulumi.InvokeOptions):
         opts.version = utilities.getVersion();
     }
     return pulumi.runtime.invoke("azurerm:operationalinsights/v20200101:getBookmark", {
-        "name": args.name,
+        "bookmarkId": args.bookmarkId,
         "resourceGroupName": args.resourceGroupName,
         "workspaceName": args.workspaceName,
     }, opts);
@@ -25,7 +25,7 @@ export interface GetBookmarkArgs {
     /**
      * Bookmark ID
      */
-    readonly name: string;
+    readonly bookmarkId: string;
     /**
      * The name of the resource group within the user's subscription. The name is case insensitive.
      */

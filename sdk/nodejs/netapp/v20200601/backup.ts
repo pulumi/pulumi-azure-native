@@ -53,7 +53,7 @@ export class Backup extends pulumi.CustomResource {
     /**
      * Resource name
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * Azure lifecycle management
      */
@@ -83,11 +83,11 @@ export class Backup extends pulumi.CustomResource {
             if (!args || args.accountName === undefined) {
                 throw new Error("Missing required property 'accountName'");
             }
+            if (!args || args.backupName === undefined) {
+                throw new Error("Missing required property 'backupName'");
+            }
             if (!args || args.location === undefined) {
                 throw new Error("Missing required property 'location'");
-            }
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
             }
             if (!args || args.poolName === undefined) {
                 throw new Error("Missing required property 'poolName'");
@@ -99,14 +99,15 @@ export class Backup extends pulumi.CustomResource {
                 throw new Error("Missing required property 'volumeName'");
             }
             inputs["accountName"] = args ? args.accountName : undefined;
+            inputs["backupName"] = args ? args.backupName : undefined;
             inputs["label"] = args ? args.label : undefined;
             inputs["location"] = args ? args.location : undefined;
-            inputs["name"] = args ? args.name : undefined;
             inputs["poolName"] = args ? args.poolName : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["volumeName"] = args ? args.volumeName : undefined;
             inputs["backupType"] = undefined /*out*/;
             inputs["creationDate"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
             inputs["size"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
@@ -131,6 +132,10 @@ export interface BackupArgs {
      */
     readonly accountName: pulumi.Input<string>;
     /**
+     * The name of the backup
+     */
+    readonly backupName: pulumi.Input<string>;
+    /**
      * Label for backup
      */
     readonly label?: pulumi.Input<string>;
@@ -138,10 +143,6 @@ export interface BackupArgs {
      * Resource location
      */
     readonly location: pulumi.Input<string>;
-    /**
-     * The name of the backup
-     */
-    readonly name: pulumi.Input<string>;
     /**
      * The name of the capacity pool
      */

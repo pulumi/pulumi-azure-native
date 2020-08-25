@@ -45,7 +45,7 @@ export class Favorite extends pulumi.CustomResource {
     /**
      * Internally assigned unique id of the favorite definition.
      */
-    public /*out*/ readonly favoriteId!: pulumi.Output<string>;
+    public readonly favoriteId!: pulumi.Output<string>;
     /**
      * Enum indicating if this favorite definition is owned by a specific user or is shared between all users with access to the Application Insights component.
      */
@@ -92,8 +92,8 @@ export class Favorite extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             const args = argsOrState as FavoriteArgs | undefined;
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
+            if (!args || args.favoriteId === undefined) {
+                throw new Error("Missing required property 'favoriteId'");
             }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
@@ -103,6 +103,7 @@ export class Favorite extends pulumi.CustomResource {
             }
             inputs["category"] = args ? args.category : undefined;
             inputs["config"] = args ? args.config : undefined;
+            inputs["favoriteId"] = args ? args.favoriteId : undefined;
             inputs["favoriteType"] = args ? args.favoriteType : undefined;
             inputs["isGeneratedFromTemplate"] = args ? args.isGeneratedFromTemplate : undefined;
             inputs["name"] = args ? args.name : undefined;
@@ -111,7 +112,6 @@ export class Favorite extends pulumi.CustomResource {
             inputs["sourceType"] = args ? args.sourceType : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["version"] = args ? args.version : undefined;
-            inputs["favoriteId"] = undefined /*out*/;
             inputs["timeModified"] = undefined /*out*/;
             inputs["userId"] = undefined /*out*/;
         }
@@ -139,6 +139,10 @@ export interface FavoriteArgs {
      */
     readonly config?: pulumi.Input<string>;
     /**
+     * The Id of a specific favorite defined in the Application Insights component
+     */
+    readonly favoriteId: pulumi.Input<string>;
+    /**
      * Enum indicating if this favorite definition is owned by a specific user or is shared between all users with access to the Application Insights component.
      */
     readonly favoriteType?: pulumi.Input<string>;
@@ -147,9 +151,9 @@ export interface FavoriteArgs {
      */
     readonly isGeneratedFromTemplate?: pulumi.Input<boolean>;
     /**
-     * The Id of a specific favorite defined in the Application Insights component
+     * The user-defined name of the favorite.
      */
-    readonly name: pulumi.Input<string>;
+    readonly name?: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

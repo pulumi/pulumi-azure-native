@@ -91,7 +91,7 @@ export class AppServiceCertificateOrder extends pulumi.CustomResource {
     /**
      * Resource Name.
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * Time stamp when the certificate would be auto renewed next
      */
@@ -146,11 +146,11 @@ export class AppServiceCertificateOrder extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             const args = argsOrState as AppServiceCertificateOrderArgs | undefined;
+            if (!args || args.certificateOrderName === undefined) {
+                throw new Error("Missing required property 'certificateOrderName'");
+            }
             if (!args || args.location === undefined) {
                 throw new Error("Missing required property 'location'");
-            }
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
             }
             if (!args || args.productType === undefined) {
                 throw new Error("Missing required property 'productType'");
@@ -159,13 +159,13 @@ export class AppServiceCertificateOrder extends pulumi.CustomResource {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["autoRenew"] = args ? args.autoRenew : undefined;
+            inputs["certificateOrderName"] = args ? args.certificateOrderName : undefined;
             inputs["certificates"] = args ? args.certificates : undefined;
             inputs["csr"] = args ? args.csr : undefined;
             inputs["distinguishedName"] = args ? args.distinguishedName : undefined;
             inputs["keySize"] = args ? args.keySize : undefined;
             inputs["kind"] = args ? args.kind : undefined;
             inputs["location"] = args ? args.location : undefined;
-            inputs["name"] = args ? args.name : undefined;
             inputs["productType"] = args ? args.productType : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
@@ -176,6 +176,7 @@ export class AppServiceCertificateOrder extends pulumi.CustomResource {
             inputs["intermediate"] = undefined /*out*/;
             inputs["isPrivateKeyExternal"] = undefined /*out*/;
             inputs["lastCertificateIssuanceTime"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
             inputs["nextAutoRenewalTimeStamp"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
             inputs["root"] = undefined /*out*/;
@@ -206,6 +207,10 @@ export interface AppServiceCertificateOrderArgs {
      */
     readonly autoRenew?: pulumi.Input<boolean>;
     /**
+     * Name of the certificate order.
+     */
+    readonly certificateOrderName: pulumi.Input<string>;
+    /**
      * State of the Key Vault secret.
      */
     readonly certificates?: pulumi.Input<{[key: string]: pulumi.Input<inputs.certificateregistration.v20200601.AppServiceCertificate>}>;
@@ -229,10 +234,6 @@ export interface AppServiceCertificateOrderArgs {
      * Resource Location.
      */
     readonly location: pulumi.Input<string>;
-    /**
-     * Name of the certificate order.
-     */
-    readonly name: pulumi.Input<string>;
     /**
      * Certificate product type.
      */

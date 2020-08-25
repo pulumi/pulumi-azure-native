@@ -15,17 +15,13 @@ export function getSubscription(args: GetSubscriptionArgs, opts?: pulumi.InvokeO
         opts.version = utilities.getVersion();
     }
     return pulumi.runtime.invoke("azurerm:apimanagement/v20190101:getSubscription", {
-        "name": args.name,
         "resourceGroupName": args.resourceGroupName,
         "serviceName": args.serviceName,
+        "sid": args.sid,
     }, opts);
 }
 
 export interface GetSubscriptionArgs {
-    /**
-     * Subscription entity Identifier. The entity represents the association between a user and a product in API Management.
-     */
-    readonly name: string;
     /**
      * The name of the resource group.
      */
@@ -34,6 +30,10 @@ export interface GetSubscriptionArgs {
      * The name of the API Management service.
      */
     readonly serviceName: string;
+    /**
+     * Subscription entity Identifier. The entity represents the association between a user and a product in API Management.
+     */
+    readonly sid: string;
 }
 
 /**

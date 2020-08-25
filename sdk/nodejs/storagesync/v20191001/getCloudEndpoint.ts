@@ -15,7 +15,7 @@ export function getCloudEndpoint(args: GetCloudEndpointArgs, opts?: pulumi.Invok
         opts.version = utilities.getVersion();
     }
     return pulumi.runtime.invoke("azurerm:storagesync/v20191001:getCloudEndpoint", {
-        "name": args.name,
+        "cloudEndpointName": args.cloudEndpointName,
         "resourceGroupName": args.resourceGroupName,
         "storageSyncServiceName": args.storageSyncServiceName,
         "syncGroupName": args.syncGroupName,
@@ -26,7 +26,7 @@ export interface GetCloudEndpointArgs {
     /**
      * Name of Cloud Endpoint object.
      */
-    readonly name: string;
+    readonly cloudEndpointName: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */

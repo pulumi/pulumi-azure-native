@@ -16,7 +16,7 @@ export function getReferenceDataSet(args: GetReferenceDataSetArgs, opts?: pulumi
     }
     return pulumi.runtime.invoke("azurerm:timeseriesinsights/v20171115:getReferenceDataSet", {
         "environmentName": args.environmentName,
-        "name": args.name,
+        "referenceDataSetName": args.referenceDataSetName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);
 }
@@ -29,7 +29,7 @@ export interface GetReferenceDataSetArgs {
     /**
      * The name of the Time Series Insights reference data set associated with the specified environment.
      */
-    readonly name: string;
+    readonly referenceDataSetName: string;
     /**
      * Name of an Azure Resource group.
      */

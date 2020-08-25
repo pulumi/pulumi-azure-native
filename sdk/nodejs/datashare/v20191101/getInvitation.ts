@@ -16,7 +16,7 @@ export function getInvitation(args: GetInvitationArgs, opts?: pulumi.InvokeOptio
     }
     return pulumi.runtime.invoke("azurerm:datashare/v20191101:getInvitation", {
         "accountName": args.accountName,
-        "name": args.name,
+        "invitationName": args.invitationName,
         "resourceGroupName": args.resourceGroupName,
         "shareName": args.shareName,
     }, opts);
@@ -30,7 +30,7 @@ export interface GetInvitationArgs {
     /**
      * The name of the invitation.
      */
-    readonly name: string;
+    readonly invitationName: string;
     /**
      * The resource group name.
      */

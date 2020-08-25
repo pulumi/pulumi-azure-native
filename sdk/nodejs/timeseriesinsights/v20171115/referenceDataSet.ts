@@ -55,7 +55,7 @@ export class ReferenceDataSet extends pulumi.CustomResource {
     /**
      * Resource name
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * Provisioning state of the resource.
      */
@@ -91,8 +91,8 @@ export class ReferenceDataSet extends pulumi.CustomResource {
             if (!args || args.location === undefined) {
                 throw new Error("Missing required property 'location'");
             }
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
+            if (!args || args.referenceDataSetName === undefined) {
+                throw new Error("Missing required property 'referenceDataSetName'");
             }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
@@ -101,10 +101,11 @@ export class ReferenceDataSet extends pulumi.CustomResource {
             inputs["environmentName"] = args ? args.environmentName : undefined;
             inputs["keyProperties"] = args ? args.keyProperties : undefined;
             inputs["location"] = args ? args.location : undefined;
-            inputs["name"] = args ? args.name : undefined;
+            inputs["referenceDataSetName"] = args ? args.referenceDataSetName : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["creationTime"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
@@ -144,7 +145,7 @@ export interface ReferenceDataSetArgs {
     /**
      * Name of the reference data set.
      */
-    readonly name: pulumi.Input<string>;
+    readonly referenceDataSetName: pulumi.Input<string>;
     /**
      * Name of an Azure Resource group.
      */

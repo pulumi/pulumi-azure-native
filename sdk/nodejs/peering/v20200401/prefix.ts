@@ -51,7 +51,7 @@ export class Prefix extends pulumi.CustomResource {
     /**
      * The name of the resource.
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * The peering service prefix key
      */
@@ -86,23 +86,24 @@ export class Prefix extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             const args = argsOrState as PrefixArgs | undefined;
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
-            }
             if (!args || args.peeringServiceName === undefined) {
                 throw new Error("Missing required property 'peeringServiceName'");
+            }
+            if (!args || args.prefixName === undefined) {
+                throw new Error("Missing required property 'prefixName'");
             }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["name"] = args ? args.name : undefined;
             inputs["peeringServiceName"] = args ? args.peeringServiceName : undefined;
             inputs["peeringServicePrefixKey"] = args ? args.peeringServicePrefixKey : undefined;
             inputs["prefix"] = args ? args.prefix : undefined;
+            inputs["prefixName"] = args ? args.prefixName : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["errorMessage"] = undefined /*out*/;
             inputs["events"] = undefined /*out*/;
             inputs["learnedType"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
             inputs["prefixValidationState"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
@@ -123,10 +124,6 @@ export class Prefix extends pulumi.CustomResource {
  */
 export interface PrefixArgs {
     /**
-     * The name of the prefix.
-     */
-    readonly name: pulumi.Input<string>;
-    /**
      * The name of the peering service.
      */
     readonly peeringServiceName: pulumi.Input<string>;
@@ -138,6 +135,10 @@ export interface PrefixArgs {
      * The prefix from which your traffic originates.
      */
     readonly prefix?: pulumi.Input<string>;
+    /**
+     * The name of the prefix.
+     */
+    readonly prefixName: pulumi.Input<string>;
     /**
      * The name of the resource group.
      */

@@ -83,7 +83,7 @@ export class Profile extends pulumi.CustomResource {
     /**
      * Resource name.
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * Provisioning state.
      */
@@ -133,8 +133,8 @@ export class Profile extends pulumi.CustomResource {
             if (!args || args.hubName === undefined) {
                 throw new Error("Missing required property 'hubName'");
             }
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
+            if (!args || args.profileName === undefined) {
+                throw new Error("Missing required property 'profileName'");
             }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
@@ -150,7 +150,7 @@ export class Profile extends pulumi.CustomResource {
             inputs["largeImage"] = args ? args.largeImage : undefined;
             inputs["localizedAttributes"] = args ? args.localizedAttributes : undefined;
             inputs["mediumImage"] = args ? args.mediumImage : undefined;
-            inputs["name"] = args ? args.name : undefined;
+            inputs["profileName"] = args ? args.profileName : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["schemaItemTypeLink"] = args ? args.schemaItemTypeLink : undefined;
             inputs["smallImage"] = args ? args.smallImage : undefined;
@@ -158,6 +158,7 @@ export class Profile extends pulumi.CustomResource {
             inputs["timestampFieldName"] = args ? args.timestampFieldName : undefined;
             inputs["typeName"] = args ? args.typeName : undefined;
             inputs["lastChangedUtc"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
             inputs["tenantId"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
@@ -226,7 +227,7 @@ export interface ProfileArgs {
     /**
      * The name of the profile.
      */
-    readonly name: pulumi.Input<string>;
+    readonly profileName: pulumi.Input<string>;
     /**
      * The name of the resource group.
      */

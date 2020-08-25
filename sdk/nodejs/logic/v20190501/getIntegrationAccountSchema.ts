@@ -16,8 +16,8 @@ export function getIntegrationAccountSchema(args: GetIntegrationAccountSchemaArg
     }
     return pulumi.runtime.invoke("azurerm:logic/v20190501:getIntegrationAccountSchema", {
         "integrationAccountName": args.integrationAccountName,
-        "name": args.name,
         "resourceGroupName": args.resourceGroupName,
+        "schemaName": args.schemaName,
     }, opts);
 }
 
@@ -27,13 +27,13 @@ export interface GetIntegrationAccountSchemaArgs {
      */
     readonly integrationAccountName: string;
     /**
-     * The integration account schema name.
-     */
-    readonly name: string;
-    /**
      * The resource group name.
      */
     readonly resourceGroupName: string;
+    /**
+     * The integration account schema name.
+     */
+    readonly schemaName: string;
 }
 
 /**

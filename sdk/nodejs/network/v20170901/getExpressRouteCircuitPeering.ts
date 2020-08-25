@@ -16,7 +16,7 @@ export function getExpressRouteCircuitPeering(args: GetExpressRouteCircuitPeerin
     }
     return pulumi.runtime.invoke("azurerm:network/v20170901:getExpressRouteCircuitPeering", {
         "circuitName": args.circuitName,
-        "name": args.name,
+        "peeringName": args.peeringName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);
 }
@@ -29,7 +29,7 @@ export interface GetExpressRouteCircuitPeeringArgs {
     /**
      * The name of the peering.
      */
-    readonly name: string;
+    readonly peeringName: string;
     /**
      * The name of the resource group.
      */

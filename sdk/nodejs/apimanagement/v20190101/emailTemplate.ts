@@ -51,7 +51,7 @@ export class EmailTemplate extends pulumi.CustomResource {
     /**
      * Resource name.
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * Email Template Parameter values.
      */
@@ -82,24 +82,25 @@ export class EmailTemplate extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             const args = argsOrState as EmailTemplateArgs | undefined;
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
-            }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             if (!args || args.serviceName === undefined) {
                 throw new Error("Missing required property 'serviceName'");
             }
+            if (!args || args.templateName === undefined) {
+                throw new Error("Missing required property 'templateName'");
+            }
             inputs["body"] = args ? args.body : undefined;
             inputs["description"] = args ? args.description : undefined;
-            inputs["name"] = args ? args.name : undefined;
             inputs["parameters"] = args ? args.parameters : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["serviceName"] = args ? args.serviceName : undefined;
             inputs["subject"] = args ? args.subject : undefined;
+            inputs["templateName"] = args ? args.templateName : undefined;
             inputs["title"] = args ? args.title : undefined;
             inputs["isDefault"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -128,10 +129,6 @@ export interface EmailTemplateArgs {
      */
     readonly description?: pulumi.Input<string>;
     /**
-     * Email Template Name Identifier.
-     */
-    readonly name: pulumi.Input<string>;
-    /**
      * Email Template Parameter values.
      */
     readonly parameters?: pulumi.Input<pulumi.Input<inputs.apimanagement.v20190101.EmailTemplateParametersContractProperties>[]>;
@@ -147,6 +144,10 @@ export interface EmailTemplateArgs {
      * Subject of the Template.
      */
     readonly subject?: pulumi.Input<string>;
+    /**
+     * Email Template Name Identifier.
+     */
+    readonly templateName: pulumi.Input<string>;
     /**
      * Title of the Template.
      */

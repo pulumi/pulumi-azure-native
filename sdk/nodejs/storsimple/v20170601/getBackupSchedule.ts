@@ -16,9 +16,9 @@ export function getBackupSchedule(args: GetBackupScheduleArgs, opts?: pulumi.Inv
     }
     return pulumi.runtime.invoke("azurerm:storsimple/v20170601:getBackupSchedule", {
         "backupPolicyName": args.backupPolicyName,
+        "backupScheduleName": args.backupScheduleName,
         "deviceName": args.deviceName,
         "managerName": args.managerName,
-        "name": args.name,
         "resourceGroupName": args.resourceGroupName,
     }, opts);
 }
@@ -29,6 +29,10 @@ export interface GetBackupScheduleArgs {
      */
     readonly backupPolicyName: string;
     /**
+     * The name of the backup schedule to be fetched
+     */
+    readonly backupScheduleName: string;
+    /**
      * The device name
      */
     readonly deviceName: string;
@@ -36,10 +40,6 @@ export interface GetBackupScheduleArgs {
      * The manager name
      */
     readonly managerName: string;
-    /**
-     * The name of the backup schedule to be fetched
-     */
-    readonly name: string;
     /**
      * The resource group name
      */

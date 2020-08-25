@@ -43,7 +43,7 @@ export class Application extends pulumi.CustomResource {
     /**
      * The name of the resource
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * The properties of the application.
      */
@@ -70,21 +70,22 @@ export class Application extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             const args = argsOrState as ApplicationArgs | undefined;
+            if (!args || args.applicationName === undefined) {
+                throw new Error("Missing required property 'applicationName'");
+            }
             if (!args || args.clusterName === undefined) {
                 throw new Error("Missing required property 'clusterName'");
-            }
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
             }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            inputs["applicationName"] = args ? args.applicationName : undefined;
             inputs["clusterName"] = args ? args.clusterName : undefined;
             inputs["etag"] = args ? args.etag : undefined;
-            inputs["name"] = args ? args.name : undefined;
             inputs["properties"] = args ? args.properties : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["name"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -103,6 +104,10 @@ export class Application extends pulumi.CustomResource {
  */
 export interface ApplicationArgs {
     /**
+     * The constant value for the application name.
+     */
+    readonly applicationName: pulumi.Input<string>;
+    /**
      * The name of the cluster.
      */
     readonly clusterName: pulumi.Input<string>;
@@ -110,10 +115,6 @@ export interface ApplicationArgs {
      * The ETag for the application
      */
     readonly etag?: pulumi.Input<string>;
-    /**
-     * The constant value for the application name.
-     */
-    readonly name: pulumi.Input<string>;
     /**
      * The properties of the application.
      */

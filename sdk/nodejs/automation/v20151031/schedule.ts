@@ -126,6 +126,9 @@ export class Schedule extends pulumi.CustomResource {
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            if (!args || args.scheduleName === undefined) {
+                throw new Error("Missing required property 'scheduleName'");
+            }
             if (!args || args.startTime === undefined) {
                 throw new Error("Missing required property 'startTime'");
             }
@@ -137,6 +140,7 @@ export class Schedule extends pulumi.CustomResource {
             inputs["interval"] = args ? args.interval : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["scheduleName"] = args ? args.scheduleName : undefined;
             inputs["startTime"] = args ? args.startTime : undefined;
             inputs["timeZone"] = args ? args.timeZone : undefined;
             inputs["creationTime"] = undefined /*out*/;
@@ -188,13 +192,17 @@ export interface ScheduleArgs {
      */
     readonly interval?: pulumi.Input<{[key: string]: any}>;
     /**
-     * The schedule name.
+     * Gets or sets the name of the Schedule.
      */
     readonly name: pulumi.Input<string>;
     /**
      * Name of an Azure Resource group.
      */
     readonly resourceGroupName: pulumi.Input<string>;
+    /**
+     * The schedule name.
+     */
+    readonly scheduleName: pulumi.Input<string>;
     /**
      * Gets or sets the start time of the schedule.
      */

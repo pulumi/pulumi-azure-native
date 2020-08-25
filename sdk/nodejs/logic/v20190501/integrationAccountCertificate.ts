@@ -59,7 +59,7 @@ export class IntegrationAccountCertificate extends pulumi.CustomResource {
     /**
      * Gets the resource name.
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * The public certificate.
      */
@@ -86,25 +86,26 @@ export class IntegrationAccountCertificate extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             const args = argsOrState as IntegrationAccountCertificateArgs | undefined;
+            if (!args || args.certificateName === undefined) {
+                throw new Error("Missing required property 'certificateName'");
+            }
             if (!args || args.integrationAccountName === undefined) {
                 throw new Error("Missing required property 'integrationAccountName'");
-            }
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
             }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            inputs["certificateName"] = args ? args.certificateName : undefined;
             inputs["integrationAccountName"] = args ? args.integrationAccountName : undefined;
             inputs["key"] = args ? args.key : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["metadata"] = args ? args.metadata : undefined;
-            inputs["name"] = args ? args.name : undefined;
             inputs["publicCertificate"] = args ? args.publicCertificate : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["changedTime"] = undefined /*out*/;
             inputs["createdTime"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -125,6 +126,10 @@ export class IntegrationAccountCertificate extends pulumi.CustomResource {
  */
 export interface IntegrationAccountCertificateArgs {
     /**
+     * The integration account certificate name.
+     */
+    readonly certificateName: pulumi.Input<string>;
+    /**
      * The integration account name.
      */
     readonly integrationAccountName: pulumi.Input<string>;
@@ -140,10 +145,6 @@ export interface IntegrationAccountCertificateArgs {
      * The metadata.
      */
     readonly metadata?: pulumi.Input<{[key: string]: any}>;
-    /**
-     * The integration account certificate name.
-     */
-    readonly name: pulumi.Input<string>;
     /**
      * The public certificate.
      */

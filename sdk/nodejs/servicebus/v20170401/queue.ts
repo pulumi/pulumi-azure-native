@@ -103,7 +103,7 @@ export class Queue extends pulumi.CustomResource {
     /**
      * Resource name
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * A value indicating if this queue requires duplicate detection.
      */
@@ -142,11 +142,11 @@ export class Queue extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             const args = argsOrState as QueueArgs | undefined;
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
-            }
             if (!args || args.namespaceName === undefined) {
                 throw new Error("Missing required property 'namespaceName'");
+            }
+            if (!args || args.queueName === undefined) {
+                throw new Error("Missing required property 'queueName'");
             }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
@@ -163,8 +163,8 @@ export class Queue extends pulumi.CustomResource {
             inputs["lockDuration"] = args ? args.lockDuration : undefined;
             inputs["maxDeliveryCount"] = args ? args.maxDeliveryCount : undefined;
             inputs["maxSizeInMegabytes"] = args ? args.maxSizeInMegabytes : undefined;
-            inputs["name"] = args ? args.name : undefined;
             inputs["namespaceName"] = args ? args.namespaceName : undefined;
+            inputs["queueName"] = args ? args.queueName : undefined;
             inputs["requiresDuplicateDetection"] = args ? args.requiresDuplicateDetection : undefined;
             inputs["requiresSession"] = args ? args.requiresSession : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
@@ -173,6 +173,7 @@ export class Queue extends pulumi.CustomResource {
             inputs["countDetails"] = undefined /*out*/;
             inputs["createdAt"] = undefined /*out*/;
             inputs["messageCount"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
             inputs["sizeInBytes"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
             inputs["updatedAt"] = undefined /*out*/;
@@ -243,13 +244,13 @@ export interface QueueArgs {
      */
     readonly maxSizeInMegabytes?: pulumi.Input<number>;
     /**
-     * The queue name.
-     */
-    readonly name: pulumi.Input<string>;
-    /**
      * The namespace name
      */
     readonly namespaceName: pulumi.Input<string>;
+    /**
+     * The queue name.
+     */
+    readonly queueName: pulumi.Input<string>;
     /**
      * A value indicating if this queue requires duplicate detection.
      */

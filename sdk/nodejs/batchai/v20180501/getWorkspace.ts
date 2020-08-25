@@ -15,20 +15,20 @@ export function getWorkspace(args: GetWorkspaceArgs, opts?: pulumi.InvokeOptions
         opts.version = utilities.getVersion();
     }
     return pulumi.runtime.invoke("azurerm:batchai/v20180501:getWorkspace", {
-        "name": args.name,
         "resourceGroupName": args.resourceGroupName,
+        "workspaceName": args.workspaceName,
     }, opts);
 }
 
 export interface GetWorkspaceArgs {
     /**
-     * The name of the workspace. Workspace names can only contain a combination of alphanumeric characters along with dash (-) and underscore (_). The name must be from 1 through 64 characters long.
-     */
-    readonly name: string;
-    /**
      * Name of the resource group to which the resource belongs.
      */
     readonly resourceGroupName: string;
+    /**
+     * The name of the workspace. Workspace names can only contain a combination of alphanumeric characters along with dash (-) and underscore (_). The name must be from 1 through 64 characters long.
+     */
+    readonly workspaceName: string;
 }
 
 /**

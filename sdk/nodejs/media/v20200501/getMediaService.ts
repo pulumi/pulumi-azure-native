@@ -15,7 +15,7 @@ export function getMediaService(args: GetMediaServiceArgs, opts?: pulumi.InvokeO
         opts.version = utilities.getVersion();
     }
     return pulumi.runtime.invoke("azurerm:media/v20200501:getMediaService", {
-        "name": args.name,
+        "accountName": args.accountName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);
 }
@@ -24,7 +24,7 @@ export interface GetMediaServiceArgs {
     /**
      * The Media Services account name.
      */
-    readonly name: string;
+    readonly accountName: string;
     /**
      * The name of the resource group within the Azure subscription.
      */

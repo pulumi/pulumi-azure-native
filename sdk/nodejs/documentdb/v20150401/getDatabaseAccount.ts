@@ -15,7 +15,7 @@ export function getDatabaseAccount(args: GetDatabaseAccountArgs, opts?: pulumi.I
         opts.version = utilities.getVersion();
     }
     return pulumi.runtime.invoke("azurerm:documentdb/v20150401:getDatabaseAccount", {
-        "name": args.name,
+        "accountName": args.accountName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);
 }
@@ -24,7 +24,7 @@ export interface GetDatabaseAccountArgs {
     /**
      * Cosmos DB database account name.
      */
-    readonly name: string;
+    readonly accountName: string;
     /**
      * Name of an Azure resource group.
      */

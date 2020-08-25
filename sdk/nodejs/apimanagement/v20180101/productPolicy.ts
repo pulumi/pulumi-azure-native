@@ -41,7 +41,7 @@ export class ProductPolicy extends pulumi.CustomResource {
     /**
      * Resource name.
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * Json escaped Xml Encoded contents of the Policy.
      */
@@ -64,11 +64,11 @@ export class ProductPolicy extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             const args = argsOrState as ProductPolicyArgs | undefined;
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
-            }
             if (!args || args.policyContent === undefined) {
                 throw new Error("Missing required property 'policyContent'");
+            }
+            if (!args || args.policyId === undefined) {
+                throw new Error("Missing required property 'policyId'");
             }
             if (!args || args.productId === undefined) {
                 throw new Error("Missing required property 'productId'");
@@ -80,11 +80,12 @@ export class ProductPolicy extends pulumi.CustomResource {
                 throw new Error("Missing required property 'serviceName'");
             }
             inputs["contentFormat"] = args ? args.contentFormat : undefined;
-            inputs["name"] = args ? args.name : undefined;
             inputs["policyContent"] = args ? args.policyContent : undefined;
+            inputs["policyId"] = args ? args.policyId : undefined;
             inputs["productId"] = args ? args.productId : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["serviceName"] = args ? args.serviceName : undefined;
+            inputs["name"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -109,13 +110,13 @@ export interface ProductPolicyArgs {
      */
     readonly contentFormat?: pulumi.Input<string>;
     /**
-     * The identifier of the Policy.
-     */
-    readonly name: pulumi.Input<string>;
-    /**
      * Json escaped Xml Encoded contents of the Policy.
      */
     readonly policyContent: pulumi.Input<string>;
+    /**
+     * The identifier of the Policy.
+     */
+    readonly policyId: pulumi.Input<string>;
     /**
      * Product identifier. Must be unique in the current API Management service instance.
      */

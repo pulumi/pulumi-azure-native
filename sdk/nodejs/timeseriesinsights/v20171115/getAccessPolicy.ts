@@ -15,21 +15,21 @@ export function getAccessPolicy(args: GetAccessPolicyArgs, opts?: pulumi.InvokeO
         opts.version = utilities.getVersion();
     }
     return pulumi.runtime.invoke("azurerm:timeseriesinsights/v20171115:getAccessPolicy", {
+        "accessPolicyName": args.accessPolicyName,
         "environmentName": args.environmentName,
-        "name": args.name,
         "resourceGroupName": args.resourceGroupName,
     }, opts);
 }
 
 export interface GetAccessPolicyArgs {
     /**
+     * The name of the Time Series Insights access policy associated with the specified environment.
+     */
+    readonly accessPolicyName: string;
+    /**
      * The name of the Time Series Insights environment associated with the specified resource group.
      */
     readonly environmentName: string;
-    /**
-     * The name of the Time Series Insights access policy associated with the specified environment.
-     */
-    readonly name: string;
     /**
      * Name of an Azure Resource group.
      */

@@ -59,7 +59,7 @@ export class Factory extends pulumi.CustomResource {
     /**
      * The resource name.
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * Factory provisioning state, example Succeeded.
      */
@@ -94,21 +94,22 @@ export class Factory extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             const args = argsOrState as FactoryArgs | undefined;
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
+            if (!args || args.factoryName === undefined) {
+                throw new Error("Missing required property 'factoryName'");
             }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            inputs["factoryName"] = args ? args.factoryName : undefined;
             inputs["globalParameters"] = args ? args.globalParameters : undefined;
             inputs["identity"] = args ? args.identity : undefined;
             inputs["location"] = args ? args.location : undefined;
-            inputs["name"] = args ? args.name : undefined;
             inputs["repoConfiguration"] = args ? args.repoConfiguration : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["createTime"] = undefined /*out*/;
             inputs["eTag"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
             inputs["version"] = undefined /*out*/;
@@ -129,6 +130,10 @@ export class Factory extends pulumi.CustomResource {
  */
 export interface FactoryArgs {
     /**
+     * The factory name.
+     */
+    readonly factoryName: pulumi.Input<string>;
+    /**
      * List of parameters for factory.
      */
     readonly globalParameters?: pulumi.Input<{[key: string]: pulumi.Input<inputs.datafactory.v20180601.GlobalParameterSpecification>}>;
@@ -140,10 +145,6 @@ export interface FactoryArgs {
      * The resource location.
      */
     readonly location?: pulumi.Input<string>;
-    /**
-     * The factory name.
-     */
-    readonly name: pulumi.Input<string>;
     /**
      * Git repo information of the factory.
      */

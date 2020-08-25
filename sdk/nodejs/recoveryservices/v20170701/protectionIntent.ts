@@ -47,7 +47,7 @@ export class ProtectionIntent extends pulumi.CustomResource {
     /**
      * Resource name associated with the resource.
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * ProtectionIntentResource properties
      */
@@ -77,8 +77,8 @@ export class ProtectionIntent extends pulumi.CustomResource {
             if (!args || args.fabricName === undefined) {
                 throw new Error("Missing required property 'fabricName'");
             }
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
+            if (!args || args.intentObjectName === undefined) {
+                throw new Error("Missing required property 'intentObjectName'");
             }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
@@ -88,12 +88,13 @@ export class ProtectionIntent extends pulumi.CustomResource {
             }
             inputs["eTag"] = args ? args.eTag : undefined;
             inputs["fabricName"] = args ? args.fabricName : undefined;
+            inputs["intentObjectName"] = args ? args.intentObjectName : undefined;
             inputs["location"] = args ? args.location : undefined;
-            inputs["name"] = args ? args.name : undefined;
             inputs["properties"] = args ? args.properties : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["vaultName"] = args ? args.vaultName : undefined;
+            inputs["name"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -120,13 +121,13 @@ export interface ProtectionIntentArgs {
      */
     readonly fabricName: pulumi.Input<string>;
     /**
+     * Intent object name.
+     */
+    readonly intentObjectName: pulumi.Input<string>;
+    /**
      * Resource location.
      */
     readonly location?: pulumi.Input<string>;
-    /**
-     * Intent object name.
-     */
-    readonly name: pulumi.Input<string>;
     /**
      * ProtectionIntentResource properties
      */

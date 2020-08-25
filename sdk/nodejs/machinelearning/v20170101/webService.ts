@@ -43,7 +43,7 @@ export class WebService extends pulumi.CustomResource {
     /**
      * Specifies the name of the resource.
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * Contains the property payload that describes the web service.
      */
@@ -73,20 +73,21 @@ export class WebService extends pulumi.CustomResource {
             if (!args || args.location === undefined) {
                 throw new Error("Missing required property 'location'");
             }
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
-            }
             if (!args || args.properties === undefined) {
                 throw new Error("Missing required property 'properties'");
             }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            if (!args || args.webServiceName === undefined) {
+                throw new Error("Missing required property 'webServiceName'");
+            }
             inputs["location"] = args ? args.location : undefined;
-            inputs["name"] = args ? args.name : undefined;
             inputs["properties"] = args ? args.properties : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["webServiceName"] = args ? args.webServiceName : undefined;
+            inputs["name"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -109,10 +110,6 @@ export interface WebServiceArgs {
      */
     readonly location: pulumi.Input<string>;
     /**
-     * The name of the web service.
-     */
-    readonly name: pulumi.Input<string>;
-    /**
      * Contains the property payload that describes the web service.
      */
     readonly properties: pulumi.Input<inputs.machinelearning.v20170101.WebServiceProperties>;
@@ -124,4 +121,8 @@ export interface WebServiceArgs {
      * Contains resource tags defined as key/value pairs.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * The name of the web service.
+     */
+    readonly webServiceName: pulumi.Input<string>;
 }

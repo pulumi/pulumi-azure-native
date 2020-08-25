@@ -15,21 +15,21 @@ export function getCertificate(args: GetCertificateArgs, opts?: pulumi.InvokeOpt
         opts.version = utilities.getVersion();
     }
     return pulumi.runtime.invoke("azurerm:logic/v20160601:getCertificate", {
+        "certificateName": args.certificateName,
         "integrationAccountName": args.integrationAccountName,
-        "name": args.name,
         "resourceGroupName": args.resourceGroupName,
     }, opts);
 }
 
 export interface GetCertificateArgs {
     /**
+     * The integration account certificate name.
+     */
+    readonly certificateName: string;
+    /**
      * The integration account name.
      */
     readonly integrationAccountName: string;
-    /**
-     * The integration account certificate name.
-     */
-    readonly name: string;
     /**
      * The resource group name.
      */

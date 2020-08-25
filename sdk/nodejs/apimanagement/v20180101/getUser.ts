@@ -15,17 +15,13 @@ export function getUser(args: GetUserArgs, opts?: pulumi.InvokeOptions): Promise
         opts.version = utilities.getVersion();
     }
     return pulumi.runtime.invoke("azurerm:apimanagement/v20180101:getUser", {
-        "name": args.name,
         "resourceGroupName": args.resourceGroupName,
         "serviceName": args.serviceName,
+        "uid": args.uid,
     }, opts);
 }
 
 export interface GetUserArgs {
-    /**
-     * User identifier. Must be unique in the current API Management service instance.
-     */
-    readonly name: string;
     /**
      * The name of the resource group.
      */
@@ -34,6 +30,10 @@ export interface GetUserArgs {
      * The name of the API Management service.
      */
     readonly serviceName: string;
+    /**
+     * User identifier. Must be unique in the current API Management service instance.
+     */
+    readonly uid: string;
 }
 
 /**

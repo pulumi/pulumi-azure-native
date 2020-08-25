@@ -41,7 +41,7 @@ export class HcxEnterpriseSite extends pulumi.CustomResource {
     /**
      * Resource name.
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * The status of the HCX Enterprise Site
      */
@@ -64,8 +64,8 @@ export class HcxEnterpriseSite extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             const args = argsOrState as HcxEnterpriseSiteArgs | undefined;
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
+            if (!args || args.hcxEnterpriseSiteName === undefined) {
+                throw new Error("Missing required property 'hcxEnterpriseSiteName'");
             }
             if (!args || args.privateCloudName === undefined) {
                 throw new Error("Missing required property 'privateCloudName'");
@@ -73,10 +73,11 @@ export class HcxEnterpriseSite extends pulumi.CustomResource {
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["name"] = args ? args.name : undefined;
+            inputs["hcxEnterpriseSiteName"] = args ? args.hcxEnterpriseSiteName : undefined;
             inputs["privateCloudName"] = args ? args.privateCloudName : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["activationKey"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
             inputs["status"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
@@ -98,7 +99,7 @@ export interface HcxEnterpriseSiteArgs {
     /**
      * Name of the HCX Enterprise Site in the private cloud
      */
-    readonly name: pulumi.Input<string>;
+    readonly hcxEnterpriseSiteName: pulumi.Input<string>;
     /**
      * The name of the private cloud.
      */

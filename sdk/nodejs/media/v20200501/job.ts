@@ -63,7 +63,7 @@ export class Job extends pulumi.CustomResource {
     /**
      * The name of the resource
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * The outputs for the Job.
      */
@@ -104,8 +104,8 @@ export class Job extends pulumi.CustomResource {
             if (!args || args.input === undefined) {
                 throw new Error("Missing required property 'input'");
             }
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
+            if (!args || args.jobName === undefined) {
+                throw new Error("Missing required property 'jobName'");
             }
             if (!args || args.outputs === undefined) {
                 throw new Error("Missing required property 'outputs'");
@@ -120,7 +120,7 @@ export class Job extends pulumi.CustomResource {
             inputs["correlationData"] = args ? args.correlationData : undefined;
             inputs["description"] = args ? args.description : undefined;
             inputs["input"] = args ? args.input : undefined;
-            inputs["name"] = args ? args.name : undefined;
+            inputs["jobName"] = args ? args.jobName : undefined;
             inputs["outputs"] = args ? args.outputs : undefined;
             inputs["priority"] = args ? args.priority : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
@@ -128,6 +128,7 @@ export class Job extends pulumi.CustomResource {
             inputs["created"] = undefined /*out*/;
             inputs["endTime"] = undefined /*out*/;
             inputs["lastModified"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
             inputs["startTime"] = undefined /*out*/;
             inputs["state"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
@@ -168,7 +169,7 @@ export interface JobArgs {
     /**
      * The Job name.
      */
-    readonly name: pulumi.Input<string>;
+    readonly jobName: pulumi.Input<string>;
     /**
      * The outputs for the Job.
      */

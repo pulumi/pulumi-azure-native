@@ -39,7 +39,7 @@ export class SignalRPrivateEndpointConnection extends pulumi.CustomResource {
     /**
      * The name of the resource.
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * Private endpoint associated with the private endpoint connection
      */
@@ -70,8 +70,8 @@ export class SignalRPrivateEndpointConnection extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             const args = argsOrState as SignalRPrivateEndpointConnectionArgs | undefined;
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
+            if (!args || args.privateEndpointConnectionName === undefined) {
+                throw new Error("Missing required property 'privateEndpointConnectionName'");
             }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
@@ -79,11 +79,12 @@ export class SignalRPrivateEndpointConnection extends pulumi.CustomResource {
             if (!args || args.resourceName === undefined) {
                 throw new Error("Missing required property 'resourceName'");
             }
-            inputs["name"] = args ? args.name : undefined;
             inputs["privateEndpoint"] = args ? args.privateEndpoint : undefined;
+            inputs["privateEndpointConnectionName"] = args ? args.privateEndpointConnectionName : undefined;
             inputs["privateLinkServiceConnectionState"] = args ? args.privateLinkServiceConnectionState : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["resourceName"] = args ? args.resourceName : undefined;
+            inputs["name"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
@@ -103,13 +104,13 @@ export class SignalRPrivateEndpointConnection extends pulumi.CustomResource {
  */
 export interface SignalRPrivateEndpointConnectionArgs {
     /**
-     * The name of the private endpoint connection associated with the SignalR resource.
-     */
-    readonly name: pulumi.Input<string>;
-    /**
      * Private endpoint associated with the private endpoint connection
      */
     readonly privateEndpoint?: pulumi.Input<inputs.signalrservice.v20200501.PrivateEndpoint>;
+    /**
+     * The name of the private endpoint connection associated with the SignalR resource.
+     */
+    readonly privateEndpointConnectionName: pulumi.Input<string>;
     /**
      * Connection state
      */

@@ -15,6 +15,7 @@ export function listWebAppFunctionSecrets(args: ListWebAppFunctionSecretsArgs, o
         opts.version = utilities.getVersion();
     }
     return pulumi.runtime.invoke("azurerm:web/v20181101:listWebAppFunctionSecrets", {
+        "functionName": args.functionName,
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,
     }, opts);
@@ -23,6 +24,10 @@ export function listWebAppFunctionSecrets(args: ListWebAppFunctionSecretsArgs, o
 export interface ListWebAppFunctionSecretsArgs {
     /**
      * Function name.
+     */
+    readonly functionName: string;
+    /**
+     * Site name.
      */
     readonly name: string;
     /**

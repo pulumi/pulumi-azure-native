@@ -97,6 +97,9 @@ export class SiteSourceControlSlot extends pulumi.CustomResource {
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            if (!args || args.slot === undefined) {
+                throw new Error("Missing required property 'slot'");
+            }
             inputs["branch"] = args ? args.branch : undefined;
             inputs["deploymentRollbackEnabled"] = args ? args.deploymentRollbackEnabled : undefined;
             inputs["id"] = args ? args.id : undefined;
@@ -107,6 +110,7 @@ export class SiteSourceControlSlot extends pulumi.CustomResource {
             inputs["name"] = args ? args.name : undefined;
             inputs["repoUrl"] = args ? args.repoUrl : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["slot"] = args ? args.slot : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["type"] = args ? args.type : undefined;
         }
@@ -156,7 +160,7 @@ export interface SiteSourceControlSlotArgs {
      */
     readonly location: pulumi.Input<string>;
     /**
-     * Name of web app slot. If not specified then will default to production slot.
+     * Resource Name
      */
     readonly name: pulumi.Input<string>;
     /**
@@ -167,6 +171,10 @@ export interface SiteSourceControlSlotArgs {
      * Name of resource group
      */
     readonly resourceGroupName: pulumi.Input<string>;
+    /**
+     * Name of web app slot. If not specified then will default to production slot.
+     */
+    readonly slot: pulumi.Input<string>;
     /**
      * Resource tags
      */

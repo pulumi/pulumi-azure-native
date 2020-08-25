@@ -15,6 +15,7 @@ export function getSiteRelayServiceConnectionSlot(args: GetSiteRelayServiceConne
         opts.version = utilities.getVersion();
     }
     return pulumi.runtime.invoke("azurerm:web/v20150801:getSiteRelayServiceConnectionSlot", {
+        "entityName": args.entityName,
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,
         "slot": args.slot,
@@ -24,6 +25,10 @@ export function getSiteRelayServiceConnectionSlot(args: GetSiteRelayServiceConne
 export interface GetSiteRelayServiceConnectionSlotArgs {
     /**
      * The name by which the Hybrid Connection is identified
+     */
+    readonly entityName: string;
+    /**
+     * The name of the web app
      */
     readonly name: string;
     /**

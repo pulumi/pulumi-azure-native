@@ -37,7 +37,7 @@ export class TopicAuthorizationRule extends pulumi.CustomResource {
     /**
      * Resource name
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * The rights associated with the rule.
      */
@@ -60,8 +60,8 @@ export class TopicAuthorizationRule extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             const args = argsOrState as TopicAuthorizationRuleArgs | undefined;
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
+            if (!args || args.authorizationRuleName === undefined) {
+                throw new Error("Missing required property 'authorizationRuleName'");
             }
             if (!args || args.namespaceName === undefined) {
                 throw new Error("Missing required property 'namespaceName'");
@@ -75,11 +75,12 @@ export class TopicAuthorizationRule extends pulumi.CustomResource {
             if (!args || args.topicName === undefined) {
                 throw new Error("Missing required property 'topicName'");
             }
-            inputs["name"] = args ? args.name : undefined;
+            inputs["authorizationRuleName"] = args ? args.authorizationRuleName : undefined;
             inputs["namespaceName"] = args ? args.namespaceName : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["rights"] = args ? args.rights : undefined;
             inputs["topicName"] = args ? args.topicName : undefined;
+            inputs["name"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -102,7 +103,7 @@ export interface TopicAuthorizationRuleArgs {
     /**
      * The authorization rule name.
      */
-    readonly name: pulumi.Input<string>;
+    readonly authorizationRuleName: pulumi.Input<string>;
     /**
      * The namespace name
      */

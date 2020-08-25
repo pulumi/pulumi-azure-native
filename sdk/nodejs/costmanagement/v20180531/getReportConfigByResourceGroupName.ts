@@ -15,7 +15,7 @@ export function getReportConfigByResourceGroupName(args: GetReportConfigByResour
         opts.version = utilities.getVersion();
     }
     return pulumi.runtime.invoke("azurerm:costmanagement/v20180531:getReportConfigByResourceGroupName", {
-        "name": args.name,
+        "reportConfigName": args.reportConfigName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);
 }
@@ -24,7 +24,7 @@ export interface GetReportConfigByResourceGroupNameArgs {
     /**
      * Report Config Name.
      */
-    readonly name: string;
+    readonly reportConfigName: string;
     /**
      * Azure Resource Group Name.
      */

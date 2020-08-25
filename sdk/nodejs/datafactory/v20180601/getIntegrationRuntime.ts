@@ -16,7 +16,7 @@ export function getIntegrationRuntime(args: GetIntegrationRuntimeArgs, opts?: pu
     }
     return pulumi.runtime.invoke("azurerm:datafactory/v20180601:getIntegrationRuntime", {
         "factoryName": args.factoryName,
-        "name": args.name,
+        "integrationRuntimeName": args.integrationRuntimeName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);
 }
@@ -29,7 +29,7 @@ export interface GetIntegrationRuntimeArgs {
     /**
      * The integration runtime name.
      */
-    readonly name: string;
+    readonly integrationRuntimeName: string;
     /**
      * The resource group name.
      */

@@ -41,7 +41,7 @@ export class SynchronizationSetting extends pulumi.CustomResource {
     /**
      * Name of the azure resource
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * Type of the azure resource
      */
@@ -66,20 +66,21 @@ export class SynchronizationSetting extends pulumi.CustomResource {
             if (!args || args.kind === undefined) {
                 throw new Error("Missing required property 'kind'");
             }
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
-            }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             if (!args || args.shareName === undefined) {
                 throw new Error("Missing required property 'shareName'");
             }
+            if (!args || args.synchronizationSettingName === undefined) {
+                throw new Error("Missing required property 'synchronizationSettingName'");
+            }
             inputs["accountName"] = args ? args.accountName : undefined;
             inputs["kind"] = args ? args.kind : undefined;
-            inputs["name"] = args ? args.name : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["shareName"] = args ? args.shareName : undefined;
+            inputs["synchronizationSettingName"] = args ? args.synchronizationSettingName : undefined;
+            inputs["name"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -106,10 +107,6 @@ export interface SynchronizationSettingArgs {
      */
     readonly kind: pulumi.Input<string>;
     /**
-     * The name of the synchronizationSetting.
-     */
-    readonly name: pulumi.Input<string>;
-    /**
      * The resource group name.
      */
     readonly resourceGroupName: pulumi.Input<string>;
@@ -117,4 +114,8 @@ export interface SynchronizationSettingArgs {
      * The name of the share to add the synchronization setting to.
      */
     readonly shareName: pulumi.Input<string>;
+    /**
+     * The name of the synchronizationSetting.
+     */
+    readonly synchronizationSettingName: pulumi.Input<string>;
 }

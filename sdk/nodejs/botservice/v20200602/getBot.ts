@@ -15,20 +15,20 @@ export function getBot(args: GetBotArgs, opts?: pulumi.InvokeOptions): Promise<G
         opts.version = utilities.getVersion();
     }
     return pulumi.runtime.invoke("azurerm:botservice/v20200602:getBot", {
-        "name": args.name,
         "resourceGroupName": args.resourceGroupName,
+        "resourceName": args.resourceName,
     }, opts);
 }
 
 export interface GetBotArgs {
     /**
-     * The name of the Bot resource.
-     */
-    readonly name: string;
-    /**
      * The name of the Bot resource group in the user subscription.
      */
     readonly resourceGroupName: string;
+    /**
+     * The name of the Bot resource.
+     */
+    readonly resourceName: string;
 }
 
 /**

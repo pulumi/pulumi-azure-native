@@ -17,8 +17,8 @@ export function getGalleryApplicationVersion(args: GetGalleryApplicationVersionA
     return pulumi.runtime.invoke("azurerm:compute/v20190701:getGalleryApplicationVersion", {
         "expand": args.expand,
         "galleryApplicationName": args.galleryApplicationName,
+        "galleryApplicationVersionName": args.galleryApplicationVersionName,
         "galleryName": args.galleryName,
-        "name": args.name,
         "resourceGroupName": args.resourceGroupName,
     }, opts);
 }
@@ -33,13 +33,13 @@ export interface GetGalleryApplicationVersionArgs {
      */
     readonly galleryApplicationName: string;
     /**
+     * The name of the gallery Application Version to be retrieved.
+     */
+    readonly galleryApplicationVersionName: string;
+    /**
      * The name of the Shared Application Gallery in which the Application Definition resides.
      */
     readonly galleryName: string;
-    /**
-     * The name of the gallery Application Version to be retrieved.
-     */
-    readonly name: string;
     /**
      * The name of the resource group.
      */

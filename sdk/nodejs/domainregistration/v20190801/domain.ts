@@ -100,7 +100,7 @@ export class Domain extends pulumi.CustomResource {
     /**
      * Resource Name.
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * Name servers.
      */
@@ -163,11 +163,11 @@ export class Domain extends pulumi.CustomResource {
             if (!args || args.contactTech === undefined) {
                 throw new Error("Missing required property 'contactTech'");
             }
+            if (!args || args.domainName === undefined) {
+                throw new Error("Missing required property 'domainName'");
+            }
             if (!args || args.location === undefined) {
                 throw new Error("Missing required property 'location'");
-            }
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
             }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
@@ -181,9 +181,9 @@ export class Domain extends pulumi.CustomResource {
             inputs["contactTech"] = args ? args.contactTech : undefined;
             inputs["dnsType"] = args ? args.dnsType : undefined;
             inputs["dnsZoneId"] = args ? args.dnsZoneId : undefined;
+            inputs["domainName"] = args ? args.domainName : undefined;
             inputs["kind"] = args ? args.kind : undefined;
             inputs["location"] = args ? args.location : undefined;
-            inputs["name"] = args ? args.name : undefined;
             inputs["privacy"] = args ? args.privacy : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
@@ -193,6 +193,7 @@ export class Domain extends pulumi.CustomResource {
             inputs["expirationTime"] = undefined /*out*/;
             inputs["lastRenewedTime"] = undefined /*out*/;
             inputs["managedHostNames"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
             inputs["nameServers"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
             inputs["readyForDnsRecordManagement"] = undefined /*out*/;
@@ -250,6 +251,10 @@ export interface DomainArgs {
      */
     readonly dnsZoneId?: pulumi.Input<string>;
     /**
+     * Name of the domain.
+     */
+    readonly domainName: pulumi.Input<string>;
+    /**
      * Kind of resource.
      */
     readonly kind?: pulumi.Input<string>;
@@ -257,10 +262,6 @@ export interface DomainArgs {
      * Resource Location.
      */
     readonly location: pulumi.Input<string>;
-    /**
-     * Name of the domain.
-     */
-    readonly name: pulumi.Input<string>;
     /**
      * <code>true</code> if domain privacy is enabled for this domain; otherwise, <code>false</code>.
      */

@@ -47,7 +47,7 @@ export class Job extends pulumi.CustomResource {
     /**
      * Specifies the name of the job.
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * Specifies the job properties
      */
@@ -74,18 +74,19 @@ export class Job extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             const args = argsOrState as JobArgs | undefined;
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
+            if (!args || args.jobName === undefined) {
+                throw new Error("Missing required property 'jobName'");
             }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            inputs["jobName"] = args ? args.jobName : undefined;
             inputs["location"] = args ? args.location : undefined;
-            inputs["name"] = args ? args.name : undefined;
             inputs["properties"] = args ? args.properties : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["identity"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -106,13 +107,13 @@ export class Job extends pulumi.CustomResource {
  */
 export interface JobArgs {
     /**
+     * The name of the import/export job.
+     */
+    readonly jobName: pulumi.Input<string>;
+    /**
      * Specifies the supported Azure location where the job should be created
      */
     readonly location?: pulumi.Input<string>;
-    /**
-     * The name of the import/export job.
-     */
-    readonly name: pulumi.Input<string>;
     /**
      * Specifies the job properties
      */

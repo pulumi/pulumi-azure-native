@@ -15,6 +15,7 @@ export function getWebAppRelayServiceConnectionSlot(args: GetWebAppRelayServiceC
         opts.version = utilities.getVersion();
     }
     return pulumi.runtime.invoke("azurerm:web/v20200601:getWebAppRelayServiceConnectionSlot", {
+        "entityName": args.entityName,
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,
         "slot": args.slot,
@@ -24,6 +25,10 @@ export function getWebAppRelayServiceConnectionSlot(args: GetWebAppRelayServiceC
 export interface GetWebAppRelayServiceConnectionSlotArgs {
     /**
      * Name of the hybrid connection.
+     */
+    readonly entityName: string;
+    /**
+     * Name of the app.
      */
     readonly name: string;
     /**

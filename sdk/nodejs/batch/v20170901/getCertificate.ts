@@ -16,7 +16,7 @@ export function getCertificate(args: GetCertificateArgs, opts?: pulumi.InvokeOpt
     }
     return pulumi.runtime.invoke("azurerm:batch/v20170901:getCertificate", {
         "accountName": args.accountName,
-        "name": args.name,
+        "certificateName": args.certificateName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);
 }
@@ -29,7 +29,7 @@ export interface GetCertificateArgs {
     /**
      * The identifier for the certificate. This must be made up of algorithm and thumbprint separated by a dash, and must match the certificate data in the request. For example SHA1-a3d1c5.
      */
-    readonly name: string;
+    readonly certificateName: string;
     /**
      * The name of the resource group that contains the Batch account.
      */

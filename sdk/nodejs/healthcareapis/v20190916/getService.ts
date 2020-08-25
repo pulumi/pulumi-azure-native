@@ -15,20 +15,20 @@ export function getService(args: GetServiceArgs, opts?: pulumi.InvokeOptions): P
         opts.version = utilities.getVersion();
     }
     return pulumi.runtime.invoke("azurerm:healthcareapis/v20190916:getService", {
-        "name": args.name,
         "resourceGroupName": args.resourceGroupName,
+        "resourceName": args.resourceName,
     }, opts);
 }
 
 export interface GetServiceArgs {
     /**
-     * The name of the service instance.
-     */
-    readonly name: string;
-    /**
      * The name of the resource group that contains the service instance.
      */
     readonly resourceGroupName: string;
+    /**
+     * The name of the service instance.
+     */
+    readonly resourceName: string;
 }
 
 /**

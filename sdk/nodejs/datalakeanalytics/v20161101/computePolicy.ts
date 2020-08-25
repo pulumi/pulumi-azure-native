@@ -45,7 +45,7 @@ export class ComputePolicy extends pulumi.CustomResource {
     /**
      * The resource name.
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * The AAD object identifier for the entity to create a policy for.
      */
@@ -75,8 +75,8 @@ export class ComputePolicy extends pulumi.CustomResource {
             if (!args || args.accountName === undefined) {
                 throw new Error("Missing required property 'accountName'");
             }
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
+            if (!args || args.computePolicyName === undefined) {
+                throw new Error("Missing required property 'computePolicyName'");
             }
             if (!args || args.objectId === undefined) {
                 throw new Error("Missing required property 'objectId'");
@@ -88,12 +88,13 @@ export class ComputePolicy extends pulumi.CustomResource {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["accountName"] = args ? args.accountName : undefined;
+            inputs["computePolicyName"] = args ? args.computePolicyName : undefined;
             inputs["maxDegreeOfParallelismPerJob"] = args ? args.maxDegreeOfParallelismPerJob : undefined;
             inputs["minPriorityPerJob"] = args ? args.minPriorityPerJob : undefined;
-            inputs["name"] = args ? args.name : undefined;
             inputs["objectId"] = args ? args.objectId : undefined;
             inputs["objectType"] = args ? args.objectType : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["name"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -116,6 +117,10 @@ export interface ComputePolicyArgs {
      */
     readonly accountName: pulumi.Input<string>;
     /**
+     * The name of the compute policy to create or update.
+     */
+    readonly computePolicyName: pulumi.Input<string>;
+    /**
      * The maximum degree of parallelism per job this user can use to submit jobs. This property, the min priority per job property, or both must be passed.
      */
     readonly maxDegreeOfParallelismPerJob?: pulumi.Input<number>;
@@ -123,10 +128,6 @@ export interface ComputePolicyArgs {
      * The minimum priority per job this user can use to submit jobs. This property, the max degree of parallelism per job property, or both must be passed.
      */
     readonly minPriorityPerJob?: pulumi.Input<number>;
-    /**
-     * The name of the compute policy to create or update.
-     */
-    readonly name: pulumi.Input<string>;
     /**
      * The AAD object identifier for the entity to create a policy for.
      */

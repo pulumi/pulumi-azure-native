@@ -82,8 +82,8 @@ export class HubVirtualNetworkConnection extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             const args = argsOrState as HubVirtualNetworkConnectionArgs | undefined;
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
+            if (!args || args.connectionName === undefined) {
+                throw new Error("Missing required property 'connectionName'");
             }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
@@ -93,6 +93,7 @@ export class HubVirtualNetworkConnection extends pulumi.CustomResource {
             }
             inputs["allowHubToRemoteVnetTransit"] = args ? args.allowHubToRemoteVnetTransit : undefined;
             inputs["allowRemoteVnetToUseHubVnetGateways"] = args ? args.allowRemoteVnetToUseHubVnetGateways : undefined;
+            inputs["connectionName"] = args ? args.connectionName : undefined;
             inputs["enableInternetSecurity"] = args ? args.enableInternetSecurity : undefined;
             inputs["id"] = args ? args.id : undefined;
             inputs["name"] = args ? args.name : undefined;
@@ -129,6 +130,10 @@ export interface HubVirtualNetworkConnectionArgs {
      */
     readonly allowRemoteVnetToUseHubVnetGateways?: pulumi.Input<boolean>;
     /**
+     * The name of the HubVirtualNetworkConnection.
+     */
+    readonly connectionName: pulumi.Input<string>;
+    /**
      * Enable internet security.
      */
     readonly enableInternetSecurity?: pulumi.Input<boolean>;
@@ -137,9 +142,9 @@ export interface HubVirtualNetworkConnectionArgs {
      */
     readonly id?: pulumi.Input<string>;
     /**
-     * The name of the HubVirtualNetworkConnection.
+     * The name of the resource that is unique within a resource group. This name can be used to access the resource.
      */
-    readonly name: pulumi.Input<string>;
+    readonly name?: pulumi.Input<string>;
     /**
      * Reference to the remote virtual network.
      */

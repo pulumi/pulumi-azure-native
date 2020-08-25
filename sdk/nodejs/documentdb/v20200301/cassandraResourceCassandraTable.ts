@@ -43,7 +43,7 @@ export class CassandraResourceCassandraTable extends pulumi.CustomResource {
     /**
      * The name of the ARM resource.
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     public readonly options!: pulumi.Output<outputs.documentdb.v20200301.CassandraTableGetPropertiesResponseOptions | undefined>;
     public readonly resource!: pulumi.Output<outputs.documentdb.v20200301.CassandraTableGetPropertiesResponseResource | undefined>;
     /**
@@ -74,9 +74,6 @@ export class CassandraResourceCassandraTable extends pulumi.CustomResource {
             if (!args || args.keyspaceName === undefined) {
                 throw new Error("Missing required property 'keyspaceName'");
             }
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
-            }
             if (!args || args.options === undefined) {
                 throw new Error("Missing required property 'options'");
             }
@@ -86,14 +83,18 @@ export class CassandraResourceCassandraTable extends pulumi.CustomResource {
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            if (!args || args.tableName === undefined) {
+                throw new Error("Missing required property 'tableName'");
+            }
             inputs["accountName"] = args ? args.accountName : undefined;
             inputs["keyspaceName"] = args ? args.keyspaceName : undefined;
             inputs["location"] = args ? args.location : undefined;
-            inputs["name"] = args ? args.name : undefined;
             inputs["options"] = args ? args.options : undefined;
             inputs["resource"] = args ? args.resource : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["tableName"] = args ? args.tableName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["name"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -126,10 +127,6 @@ export interface CassandraResourceCassandraTableArgs {
      */
     readonly location?: pulumi.Input<string>;
     /**
-     * Cosmos DB table name.
-     */
-    readonly name: pulumi.Input<string>;
-    /**
      * A key-value pair of options to be applied for the request. This corresponds to the headers sent with the request.
      */
     readonly options: pulumi.Input<inputs.documentdb.v20200301.CreateUpdateOptions>;
@@ -141,6 +138,10 @@ export interface CassandraResourceCassandraTableArgs {
      * The name of the resource group. The name is case insensitive.
      */
     readonly resourceGroupName: pulumi.Input<string>;
+    /**
+     * Cosmos DB table name.
+     */
+    readonly tableName: pulumi.Input<string>;
     /**
      * Tags are a list of key-value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters. For example, the default experience for a template type is set with "defaultExperience": "Cassandra". Current "defaultExperience" values also include "Table", "Graph", "DocumentDB", and "MongoDB".
      */

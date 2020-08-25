@@ -15,7 +15,7 @@ export function getLogger(args: GetLoggerArgs, opts?: pulumi.InvokeOptions): Pro
         opts.version = utilities.getVersion();
     }
     return pulumi.runtime.invoke("azurerm:apimanagement/v20180101:getLogger", {
-        "name": args.name,
+        "loggerid": args.loggerid,
         "resourceGroupName": args.resourceGroupName,
         "serviceName": args.serviceName,
     }, opts);
@@ -25,7 +25,7 @@ export interface GetLoggerArgs {
     /**
      * Logger identifier. Must be unique in the API Management service instance.
      */
-    readonly name: string;
+    readonly loggerid: string;
     /**
      * The name of the resource group.
      */

@@ -142,14 +142,14 @@ export class Topic extends pulumi.CustomResource {
             if (!args || args.location === undefined) {
                 throw new Error("Missing required property 'location'");
             }
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
-            }
             if (!args || args.namespaceName === undefined) {
                 throw new Error("Missing required property 'namespaceName'");
             }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
+            }
+            if (!args || args.topicName === undefined) {
+                throw new Error("Missing required property 'topicName'");
             }
             inputs["autoDeleteOnIdle"] = args ? args.autoDeleteOnIdle : undefined;
             inputs["defaultMessageTimeToLive"] = args ? args.defaultMessageTimeToLive : undefined;
@@ -169,6 +169,7 @@ export class Topic extends pulumi.CustomResource {
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["status"] = args ? args.status : undefined;
             inputs["supportOrdering"] = args ? args.supportOrdering : undefined;
+            inputs["topicName"] = args ? args.topicName : undefined;
             inputs["accessedAt"] = undefined /*out*/;
             inputs["countDetails"] = undefined /*out*/;
             inputs["createdAt"] = undefined /*out*/;
@@ -240,9 +241,9 @@ export interface TopicArgs {
      */
     readonly maxSizeInMegabytes?: pulumi.Input<number>;
     /**
-     * The topic name.
+     * Topic name.
      */
-    readonly name: pulumi.Input<string>;
+    readonly name?: pulumi.Input<string>;
     /**
      * The namespace name
      */
@@ -263,4 +264,8 @@ export interface TopicArgs {
      * Value that indicates whether the topic supports ordering.
      */
     readonly supportOrdering?: pulumi.Input<boolean>;
+    /**
+     * The topic name.
+     */
+    readonly topicName: pulumi.Input<string>;
 }

@@ -17,18 +17,23 @@ export function getWebAppVnetConnection(args: GetWebAppVnetConnectionArgs, opts?
     return pulumi.runtime.invoke("azurerm:web/v20160801:getWebAppVnetConnection", {
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,
+        "vnetName": args.vnetName,
     }, opts);
 }
 
 export interface GetWebAppVnetConnectionArgs {
     /**
-     * Name of the virtual network.
+     * Name of the app.
      */
     readonly name: string;
     /**
      * Name of the resource group to which the resource belongs.
      */
     readonly resourceGroupName: string;
+    /**
+     * Name of the virtual network.
+     */
+    readonly vnetName: string;
 }
 
 /**

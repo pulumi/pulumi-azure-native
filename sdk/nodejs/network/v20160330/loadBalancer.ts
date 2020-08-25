@@ -67,7 +67,7 @@ export class LoadBalancer extends pulumi.CustomResource {
     /**
      * Resource name
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * Gets or sets outbound NAT rules
      */
@@ -106,8 +106,8 @@ export class LoadBalancer extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             const args = argsOrState as LoadBalancerArgs | undefined;
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
+            if (!args || args.loadBalancerName === undefined) {
+                throw new Error("Missing required property 'loadBalancerName'");
             }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
@@ -118,15 +118,16 @@ export class LoadBalancer extends pulumi.CustomResource {
             inputs["id"] = args ? args.id : undefined;
             inputs["inboundNatPools"] = args ? args.inboundNatPools : undefined;
             inputs["inboundNatRules"] = args ? args.inboundNatRules : undefined;
+            inputs["loadBalancerName"] = args ? args.loadBalancerName : undefined;
             inputs["loadBalancingRules"] = args ? args.loadBalancingRules : undefined;
             inputs["location"] = args ? args.location : undefined;
-            inputs["name"] = args ? args.name : undefined;
             inputs["outboundNatRules"] = args ? args.outboundNatRules : undefined;
             inputs["probes"] = args ? args.probes : undefined;
             inputs["provisioningState"] = args ? args.provisioningState : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["resourceGuid"] = args ? args.resourceGuid : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["name"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -171,6 +172,10 @@ export interface LoadBalancerArgs {
      */
     readonly inboundNatRules?: pulumi.Input<pulumi.Input<inputs.network.v20160330.InboundNatRule>[]>;
     /**
+     * The name of the loadBalancer.
+     */
+    readonly loadBalancerName: pulumi.Input<string>;
+    /**
      * Gets or sets load balancing rules
      */
     readonly loadBalancingRules?: pulumi.Input<pulumi.Input<inputs.network.v20160330.LoadBalancingRule>[]>;
@@ -178,10 +183,6 @@ export interface LoadBalancerArgs {
      * Resource location
      */
     readonly location?: pulumi.Input<string>;
-    /**
-     * The name of the loadBalancer.
-     */
-    readonly name: pulumi.Input<string>;
     /**
      * Gets or sets outbound NAT rules
      */

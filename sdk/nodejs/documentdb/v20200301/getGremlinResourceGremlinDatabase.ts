@@ -16,7 +16,7 @@ export function getGremlinResourceGremlinDatabase(args: GetGremlinResourceGremli
     }
     return pulumi.runtime.invoke("azurerm:documentdb/v20200301:getGremlinResourceGremlinDatabase", {
         "accountName": args.accountName,
-        "name": args.name,
+        "databaseName": args.databaseName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);
 }
@@ -29,7 +29,7 @@ export interface GetGremlinResourceGremlinDatabaseArgs {
     /**
      * Cosmos DB database name.
      */
-    readonly name: string;
+    readonly databaseName: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */

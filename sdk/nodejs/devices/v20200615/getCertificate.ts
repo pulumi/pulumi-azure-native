@@ -15,7 +15,7 @@ export function getCertificate(args: GetCertificateArgs, opts?: pulumi.InvokeOpt
         opts.version = utilities.getVersion();
     }
     return pulumi.runtime.invoke("azurerm:devices/v20200615:getCertificate", {
-        "name": args.name,
+        "certificateName": args.certificateName,
         "resourceGroupName": args.resourceGroupName,
         "resourceName": args.resourceName,
     }, opts);
@@ -25,7 +25,7 @@ export interface GetCertificateArgs {
     /**
      * The name of the certificate
      */
-    readonly name: string;
+    readonly certificateName: string;
     /**
      * The name of the resource group that contains the IoT hub.
      */

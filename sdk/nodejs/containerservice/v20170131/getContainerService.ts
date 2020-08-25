@@ -15,7 +15,7 @@ export function getContainerService(args: GetContainerServiceArgs, opts?: pulumi
         opts.version = utilities.getVersion();
     }
     return pulumi.runtime.invoke("azurerm:containerservice/v20170131:getContainerService", {
-        "name": args.name,
+        "containerServiceName": args.containerServiceName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);
 }
@@ -24,7 +24,7 @@ export interface GetContainerServiceArgs {
     /**
      * The name of the container service in the specified subscription and resource group.
      */
-    readonly name: string;
+    readonly containerServiceName: string;
     /**
      * The name of the resource group.
      */

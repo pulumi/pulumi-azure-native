@@ -15,21 +15,21 @@ export function getCustomIPPrefix(args: GetCustomIPPrefixArgs, opts?: pulumi.Inv
         opts.version = utilities.getVersion();
     }
     return pulumi.runtime.invoke("azurerm:network/v20200601:getCustomIPPrefix", {
+        "customIpPrefixName": args.customIpPrefixName,
         "expand": args.expand,
-        "name": args.name,
         "resourceGroupName": args.resourceGroupName,
     }, opts);
 }
 
 export interface GetCustomIPPrefixArgs {
     /**
+     * The name of the custom IP prefix.
+     */
+    readonly customIpPrefixName: string;
+    /**
      * Expands referenced resources.
      */
     readonly expand?: string;
-    /**
-     * The name of the custom IP prefix.
-     */
-    readonly name: string;
     /**
      * The name of the resource group.
      */

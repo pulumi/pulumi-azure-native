@@ -16,8 +16,8 @@ export function getTableResourceTable(args: GetTableResourceTableArgs, opts?: pu
     }
     return pulumi.runtime.invoke("azurerm:documentdb/v20191212:getTableResourceTable", {
         "accountName": args.accountName,
-        "name": args.name,
         "resourceGroupName": args.resourceGroupName,
+        "tableName": args.tableName,
     }, opts);
 }
 
@@ -27,13 +27,13 @@ export interface GetTableResourceTableArgs {
      */
     readonly accountName: string;
     /**
-     * Cosmos DB table name.
-     */
-    readonly name: string;
-    /**
      * Name of an Azure resource group.
      */
     readonly resourceGroupName: string;
+    /**
+     * Cosmos DB table name.
+     */
+    readonly tableName: string;
 }
 
 /**

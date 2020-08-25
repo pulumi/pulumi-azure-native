@@ -15,7 +15,7 @@ export function getLogProfile(args: GetLogProfileArgs, opts?: pulumi.InvokeOptio
         opts.version = utilities.getVersion();
     }
     return pulumi.runtime.invoke("azurerm:insights/v20160301:getLogProfile", {
-        "name": args.name,
+        "logProfileName": args.logProfileName,
     }, opts);
 }
 
@@ -23,7 +23,7 @@ export interface GetLogProfileArgs {
     /**
      * The name of the log profile.
      */
-    readonly name: string;
+    readonly logProfileName: string;
 }
 
 /**

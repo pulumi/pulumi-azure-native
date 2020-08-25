@@ -45,7 +45,7 @@ export class Share extends pulumi.CustomResource {
     /**
      * Name of the azure resource
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * Gets or sets the provisioning state
      */
@@ -87,19 +87,20 @@ export class Share extends pulumi.CustomResource {
             if (!args || args.accountName === undefined) {
                 throw new Error("Missing required property 'accountName'");
             }
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
-            }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            if (!args || args.shareName === undefined) {
+                throw new Error("Missing required property 'shareName'");
+            }
             inputs["accountName"] = args ? args.accountName : undefined;
             inputs["description"] = args ? args.description : undefined;
-            inputs["name"] = args ? args.name : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["shareKind"] = args ? args.shareKind : undefined;
+            inputs["shareName"] = args ? args.shareName : undefined;
             inputs["terms"] = args ? args.terms : undefined;
             inputs["createdAt"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
             inputs["userEmail"] = undefined /*out*/;
@@ -129,10 +130,6 @@ export interface ShareArgs {
      */
     readonly description?: pulumi.Input<string>;
     /**
-     * The name of the share.
-     */
-    readonly name: pulumi.Input<string>;
-    /**
      * The resource group name.
      */
     readonly resourceGroupName: pulumi.Input<string>;
@@ -140,6 +137,10 @@ export interface ShareArgs {
      * Share kind.
      */
     readonly shareKind?: pulumi.Input<string>;
+    /**
+     * The name of the share.
+     */
+    readonly shareName: pulumi.Input<string>;
     /**
      * Share terms.
      */

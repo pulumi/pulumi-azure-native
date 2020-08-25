@@ -15,7 +15,7 @@ export function getDataSource(args: GetDataSourceArgs, opts?: pulumi.InvokeOptio
         opts.version = utilities.getVersion();
     }
     return pulumi.runtime.invoke("azurerm:operationalinsights/v20200801:getDataSource", {
-        "name": args.name,
+        "dataSourceName": args.dataSourceName,
         "resourceGroupName": args.resourceGroupName,
         "workspaceName": args.workspaceName,
     }, opts);
@@ -25,7 +25,7 @@ export interface GetDataSourceArgs {
     /**
      * Name of the datasource
      */
-    readonly name: string;
+    readonly dataSourceName: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */

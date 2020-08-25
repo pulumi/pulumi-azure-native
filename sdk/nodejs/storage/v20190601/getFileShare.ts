@@ -17,8 +17,8 @@ export function getFileShare(args: GetFileShareArgs, opts?: pulumi.InvokeOptions
     return pulumi.runtime.invoke("azurerm:storage/v20190601:getFileShare", {
         "accountName": args.accountName,
         "expand": args.expand,
-        "name": args.name,
         "resourceGroupName": args.resourceGroupName,
+        "shareName": args.shareName,
     }, opts);
 }
 
@@ -32,13 +32,13 @@ export interface GetFileShareArgs {
      */
     readonly expand?: string;
     /**
-     * The name of the file share within the specified storage account. File share names must be between 3 and 63 characters in length and use numbers, lower-case letters and dash (-) only. Every dash (-) character must be immediately preceded and followed by a letter or number.
-     */
-    readonly name: string;
-    /**
      * The name of the resource group within the user's subscription. The name is case insensitive.
      */
     readonly resourceGroupName: string;
+    /**
+     * The name of the file share within the specified storage account. File share names must be between 3 and 63 characters in length and use numbers, lower-case letters and dash (-) only. Every dash (-) character must be immediately preceded and followed by a letter or number.
+     */
+    readonly shareName: string;
 }
 
 /**

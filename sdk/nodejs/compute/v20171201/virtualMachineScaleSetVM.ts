@@ -51,7 +51,7 @@ export class VirtualMachineScaleSetVM extends pulumi.CustomResource {
     /**
      * The virtual machine instance ID.
      */
-    public /*out*/ readonly instanceId!: pulumi.Output<string>;
+    public readonly instanceId!: pulumi.Output<string>;
     /**
      * The virtual machine instance view.
      */
@@ -71,7 +71,7 @@ export class VirtualMachineScaleSetVM extends pulumi.CustomResource {
     /**
      * Resource name
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * Specifies the network interfaces of the virtual machine.
      */
@@ -126,11 +126,11 @@ export class VirtualMachineScaleSetVM extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             const args = argsOrState as VirtualMachineScaleSetVMArgs | undefined;
+            if (!args || args.instanceId === undefined) {
+                throw new Error("Missing required property 'instanceId'");
+            }
             if (!args || args.location === undefined) {
                 throw new Error("Missing required property 'location'");
-            }
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
             }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
@@ -141,9 +141,9 @@ export class VirtualMachineScaleSetVM extends pulumi.CustomResource {
             inputs["availabilitySet"] = args ? args.availabilitySet : undefined;
             inputs["diagnosticsProfile"] = args ? args.diagnosticsProfile : undefined;
             inputs["hardwareProfile"] = args ? args.hardwareProfile : undefined;
+            inputs["instanceId"] = args ? args.instanceId : undefined;
             inputs["licenseType"] = args ? args.licenseType : undefined;
             inputs["location"] = args ? args.location : undefined;
-            inputs["name"] = args ? args.name : undefined;
             inputs["networkProfile"] = args ? args.networkProfile : undefined;
             inputs["osProfile"] = args ? args.osProfile : undefined;
             inputs["plan"] = args ? args.plan : undefined;
@@ -151,9 +151,9 @@ export class VirtualMachineScaleSetVM extends pulumi.CustomResource {
             inputs["storageProfile"] = args ? args.storageProfile : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["vmScaleSetName"] = args ? args.vmScaleSetName : undefined;
-            inputs["instanceId"] = undefined /*out*/;
             inputs["instanceView"] = undefined /*out*/;
             inputs["latestModelApplied"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
             inputs["resources"] = undefined /*out*/;
             inputs["sku"] = undefined /*out*/;
@@ -190,6 +190,10 @@ export interface VirtualMachineScaleSetVMArgs {
      */
     readonly hardwareProfile?: pulumi.Input<inputs.compute.v20171201.HardwareProfile>;
     /**
+     * The instance ID of the virtual machine.
+     */
+    readonly instanceId: pulumi.Input<string>;
+    /**
      * Specifies that the image or disk that is being used was licensed on-premises. This element is only used for images that contain the Windows Server operating system. <br><br> Possible values are: <br><br> Windows_Client <br><br> Windows_Server <br><br> If this element is included in a request for an update, the value must match the initial value. This value cannot be updated. <br><br> For more information, see [Azure Hybrid Use Benefit for Windows Server](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-hybrid-use-benefit-licensing?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) <br><br> Minimum api-version: 2015-06-15
      */
     readonly licenseType?: pulumi.Input<string>;
@@ -197,10 +201,6 @@ export interface VirtualMachineScaleSetVMArgs {
      * Resource location
      */
     readonly location: pulumi.Input<string>;
-    /**
-     * The instance ID of the virtual machine.
-     */
-    readonly name: pulumi.Input<string>;
     /**
      * Specifies the network interfaces of the virtual machine.
      */

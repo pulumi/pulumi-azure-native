@@ -65,7 +65,7 @@ export class Watcher extends pulumi.CustomResource {
     /**
      * The name of the resource
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * Gets or sets the name of the script the watcher is attached to, i.e. the name of an existing runbook.
      */
@@ -107,26 +107,27 @@ export class Watcher extends pulumi.CustomResource {
             if (!args || args.automationAccountName === undefined) {
                 throw new Error("Missing required property 'automationAccountName'");
             }
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
-            }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
+            }
+            if (!args || args.watcherName === undefined) {
+                throw new Error("Missing required property 'watcherName'");
             }
             inputs["automationAccountName"] = args ? args.automationAccountName : undefined;
             inputs["description"] = args ? args.description : undefined;
             inputs["etag"] = args ? args.etag : undefined;
             inputs["executionFrequencyInSeconds"] = args ? args.executionFrequencyInSeconds : undefined;
             inputs["location"] = args ? args.location : undefined;
-            inputs["name"] = args ? args.name : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["scriptName"] = args ? args.scriptName : undefined;
             inputs["scriptParameters"] = args ? args.scriptParameters : undefined;
             inputs["scriptRunOn"] = args ? args.scriptRunOn : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["watcherName"] = args ? args.watcherName : undefined;
             inputs["creationTime"] = undefined /*out*/;
             inputs["lastModifiedBy"] = undefined /*out*/;
             inputs["lastModifiedTime"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
             inputs["status"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
@@ -166,10 +167,6 @@ export interface WatcherArgs {
      */
     readonly location?: pulumi.Input<string>;
     /**
-     * The watcher name.
-     */
-    readonly name: pulumi.Input<string>;
-    /**
      * Name of an Azure Resource group.
      */
     readonly resourceGroupName: pulumi.Input<string>;
@@ -189,4 +186,8 @@ export interface WatcherArgs {
      * Resource tags.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * The watcher name.
+     */
+    readonly watcherName: pulumi.Input<string>;
 }

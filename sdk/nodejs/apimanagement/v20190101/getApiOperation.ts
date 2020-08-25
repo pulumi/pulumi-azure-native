@@ -16,7 +16,7 @@ export function getApiOperation(args: GetApiOperationArgs, opts?: pulumi.InvokeO
     }
     return pulumi.runtime.invoke("azurerm:apimanagement/v20190101:getApiOperation", {
         "apiId": args.apiId,
-        "name": args.name,
+        "operationId": args.operationId,
         "resourceGroupName": args.resourceGroupName,
         "serviceName": args.serviceName,
     }, opts);
@@ -30,7 +30,7 @@ export interface GetApiOperationArgs {
     /**
      * Operation identifier within an API. Must be unique in the current API Management service instance.
      */
-    readonly name: string;
+    readonly operationId: string;
     /**
      * The name of the resource group.
      */

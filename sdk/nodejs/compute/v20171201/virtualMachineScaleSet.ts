@@ -47,7 +47,7 @@ export class VirtualMachineScaleSet extends pulumi.CustomResource {
     /**
      * Resource name
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * Specifies whether the Virtual Machine Scale Set should be overprovisioned.
      */
@@ -117,15 +117,14 @@ export class VirtualMachineScaleSet extends pulumi.CustomResource {
             if (!args || args.location === undefined) {
                 throw new Error("Missing required property 'location'");
             }
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
-            }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            if (!args || args.vmScaleSetName === undefined) {
+                throw new Error("Missing required property 'vmScaleSetName'");
+            }
             inputs["identity"] = args ? args.identity : undefined;
             inputs["location"] = args ? args.location : undefined;
-            inputs["name"] = args ? args.name : undefined;
             inputs["overprovision"] = args ? args.overprovision : undefined;
             inputs["plan"] = args ? args.plan : undefined;
             inputs["platformFaultDomainCount"] = args ? args.platformFaultDomainCount : undefined;
@@ -135,8 +134,10 @@ export class VirtualMachineScaleSet extends pulumi.CustomResource {
             inputs["tags"] = args ? args.tags : undefined;
             inputs["upgradePolicy"] = args ? args.upgradePolicy : undefined;
             inputs["virtualMachineProfile"] = args ? args.virtualMachineProfile : undefined;
+            inputs["vmScaleSetName"] = args ? args.vmScaleSetName : undefined;
             inputs["zoneBalance"] = args ? args.zoneBalance : undefined;
             inputs["zones"] = args ? args.zones : undefined;
+            inputs["name"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
             inputs["uniqueId"] = undefined /*out*/;
@@ -166,10 +167,6 @@ export interface VirtualMachineScaleSetArgs {
      * Resource location
      */
     readonly location: pulumi.Input<string>;
-    /**
-     * The name of the VM scale set to create or update.
-     */
-    readonly name: pulumi.Input<string>;
     /**
      * Specifies whether the Virtual Machine Scale Set should be overprovisioned.
      */
@@ -206,6 +203,10 @@ export interface VirtualMachineScaleSetArgs {
      * The virtual machine profile.
      */
     readonly virtualMachineProfile?: pulumi.Input<inputs.compute.v20171201.VirtualMachineScaleSetVMProfile>;
+    /**
+     * The name of the VM scale set to create or update.
+     */
+    readonly vmScaleSetName: pulumi.Input<string>;
     /**
      * Whether to force strictly even Virtual Machine distribution cross x-zones in case there is zone outage.
      */

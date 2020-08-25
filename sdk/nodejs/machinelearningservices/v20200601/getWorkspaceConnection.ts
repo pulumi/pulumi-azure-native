@@ -15,7 +15,7 @@ export function getWorkspaceConnection(args: GetWorkspaceConnectionArgs, opts?: 
         opts.version = utilities.getVersion();
     }
     return pulumi.runtime.invoke("azurerm:machinelearningservices/v20200601:getWorkspaceConnection", {
-        "name": args.name,
+        "connectionName": args.connectionName,
         "resourceGroupName": args.resourceGroupName,
         "workspaceName": args.workspaceName,
     }, opts);
@@ -25,7 +25,7 @@ export interface GetWorkspaceConnectionArgs {
     /**
      * Friendly name of the workspace connection
      */
-    readonly name: string;
+    readonly connectionName: string;
     /**
      * Name of the resource group in which workspace is located.
      */

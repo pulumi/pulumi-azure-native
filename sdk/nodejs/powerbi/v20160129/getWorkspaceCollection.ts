@@ -15,20 +15,20 @@ export function getWorkspaceCollection(args: GetWorkspaceCollectionArgs, opts?: 
         opts.version = utilities.getVersion();
     }
     return pulumi.runtime.invoke("azurerm:powerbi/v20160129:getWorkspaceCollection", {
-        "name": args.name,
         "resourceGroupName": args.resourceGroupName,
+        "workspaceCollectionName": args.workspaceCollectionName,
     }, opts);
 }
 
 export interface GetWorkspaceCollectionArgs {
     /**
-     * Power BI Embedded Workspace Collection name
-     */
-    readonly name: string;
-    /**
      * Azure resource group
      */
     readonly resourceGroupName: string;
+    /**
+     * Power BI Embedded Workspace Collection name
+     */
+    readonly workspaceCollectionName: string;
 }
 
 export interface GetWorkspaceCollectionResult {

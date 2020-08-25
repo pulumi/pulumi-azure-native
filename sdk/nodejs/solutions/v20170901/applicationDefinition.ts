@@ -83,7 +83,7 @@ export class ApplicationDefinition extends pulumi.CustomResource {
     /**
      * Resource name
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * The managed application definition package file Uri. Use this element
      */
@@ -114,18 +114,19 @@ export class ApplicationDefinition extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             const args = argsOrState as ApplicationDefinitionArgs | undefined;
+            if (!args || args.applicationDefinitionName === undefined) {
+                throw new Error("Missing required property 'applicationDefinitionName'");
+            }
             if (!args || args.authorizations === undefined) {
                 throw new Error("Missing required property 'authorizations'");
             }
             if (!args || args.lockLevel === undefined) {
                 throw new Error("Missing required property 'lockLevel'");
             }
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
-            }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            inputs["applicationDefinitionName"] = args ? args.applicationDefinitionName : undefined;
             inputs["artifacts"] = args ? args.artifacts : undefined;
             inputs["authorizations"] = args ? args.authorizations : undefined;
             inputs["createUiDefinition"] = args ? args.createUiDefinition : undefined;
@@ -137,11 +138,11 @@ export class ApplicationDefinition extends pulumi.CustomResource {
             inputs["lockLevel"] = args ? args.lockLevel : undefined;
             inputs["mainTemplate"] = args ? args.mainTemplate : undefined;
             inputs["managedBy"] = args ? args.managedBy : undefined;
-            inputs["name"] = args ? args.name : undefined;
             inputs["packageFileUri"] = args ? args.packageFileUri : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["sku"] = args ? args.sku : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["name"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -161,6 +162,10 @@ export class ApplicationDefinition extends pulumi.CustomResource {
  * The set of arguments for constructing a ApplicationDefinition resource.
  */
 export interface ApplicationDefinitionArgs {
+    /**
+     * The name of the managed application definition.
+     */
+    readonly applicationDefinitionName: pulumi.Input<string>;
     /**
      * The collection of managed application artifacts. The portal will use the files specified as artifacts to construct the user experience of creating a managed application from a managed application definition.
      */
@@ -205,10 +210,6 @@ export interface ApplicationDefinitionArgs {
      * ID of the resource that manages this resource.
      */
     readonly managedBy?: pulumi.Input<string>;
-    /**
-     * The name of the managed application definition.
-     */
-    readonly name: pulumi.Input<string>;
     /**
      * The managed application definition package file Uri. Use this element
      */

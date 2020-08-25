@@ -43,7 +43,7 @@ export class IntegrationRuntime extends pulumi.CustomResource {
     /**
      * The resource name.
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * Integration runtime properties.
      */
@@ -69,8 +69,8 @@ export class IntegrationRuntime extends pulumi.CustomResource {
             if (!args || args.factoryName === undefined) {
                 throw new Error("Missing required property 'factoryName'");
             }
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
+            if (!args || args.integrationRuntimeName === undefined) {
+                throw new Error("Missing required property 'integrationRuntimeName'");
             }
             if (!args || args.properties === undefined) {
                 throw new Error("Missing required property 'properties'");
@@ -79,10 +79,11 @@ export class IntegrationRuntime extends pulumi.CustomResource {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["factoryName"] = args ? args.factoryName : undefined;
-            inputs["name"] = args ? args.name : undefined;
+            inputs["integrationRuntimeName"] = args ? args.integrationRuntimeName : undefined;
             inputs["properties"] = args ? args.properties : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["etag"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -107,7 +108,7 @@ export interface IntegrationRuntimeArgs {
     /**
      * The integration runtime name.
      */
-    readonly name: pulumi.Input<string>;
+    readonly integrationRuntimeName: pulumi.Input<string>;
     /**
      * Integration runtime properties.
      */

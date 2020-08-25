@@ -59,7 +59,7 @@ export class SmartDetectorAlertRule extends pulumi.CustomResource {
     /**
      * The resource name.
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * The alert rule resources scope.
      */
@@ -101,14 +101,14 @@ export class SmartDetectorAlertRule extends pulumi.CustomResource {
             if (!args || args.actionGroups === undefined) {
                 throw new Error("Missing required property 'actionGroups'");
             }
+            if (!args || args.alertRuleName === undefined) {
+                throw new Error("Missing required property 'alertRuleName'");
+            }
             if (!args || args.detector === undefined) {
                 throw new Error("Missing required property 'detector'");
             }
             if (!args || args.frequency === undefined) {
                 throw new Error("Missing required property 'frequency'");
-            }
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
             }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
@@ -123,17 +123,18 @@ export class SmartDetectorAlertRule extends pulumi.CustomResource {
                 throw new Error("Missing required property 'state'");
             }
             inputs["actionGroups"] = args ? args.actionGroups : undefined;
+            inputs["alertRuleName"] = args ? args.alertRuleName : undefined;
             inputs["description"] = args ? args.description : undefined;
             inputs["detector"] = args ? args.detector : undefined;
             inputs["frequency"] = args ? args.frequency : undefined;
             inputs["location"] = args ? args.location : undefined;
-            inputs["name"] = args ? args.name : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["scope"] = args ? args.scope : undefined;
             inputs["severity"] = args ? args.severity : undefined;
             inputs["state"] = args ? args.state : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["throttling"] = args ? args.throttling : undefined;
+            inputs["name"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -158,6 +159,10 @@ export interface SmartDetectorAlertRuleArgs {
      */
     readonly actionGroups: pulumi.Input<inputs.alertsmanagement.v20190601.ActionGroupsInformation>;
     /**
+     * The name of the alert rule.
+     */
+    readonly alertRuleName: pulumi.Input<string>;
+    /**
      * The alert rule description.
      */
     readonly description?: pulumi.Input<string>;
@@ -173,10 +178,6 @@ export interface SmartDetectorAlertRuleArgs {
      * The resource location.
      */
     readonly location?: pulumi.Input<string>;
-    /**
-     * The name of the alert rule.
-     */
-    readonly name: pulumi.Input<string>;
     /**
      * The name of the resource group.
      */

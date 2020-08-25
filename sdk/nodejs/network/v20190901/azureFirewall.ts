@@ -67,7 +67,7 @@ export class AzureFirewall extends pulumi.CustomResource {
     /**
      * Resource name.
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * Collection of NAT rule collections used by Azure Firewall.
      */
@@ -118,19 +118,19 @@ export class AzureFirewall extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             const args = argsOrState as AzureFirewallArgs | undefined;
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
+            if (!args || args.azureFirewallName === undefined) {
+                throw new Error("Missing required property 'azureFirewallName'");
             }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["additionalProperties"] = args ? args.additionalProperties : undefined;
             inputs["applicationRuleCollections"] = args ? args.applicationRuleCollections : undefined;
+            inputs["azureFirewallName"] = args ? args.azureFirewallName : undefined;
             inputs["firewallPolicy"] = args ? args.firewallPolicy : undefined;
             inputs["id"] = args ? args.id : undefined;
             inputs["ipConfigurations"] = args ? args.ipConfigurations : undefined;
             inputs["location"] = args ? args.location : undefined;
-            inputs["name"] = args ? args.name : undefined;
             inputs["natRuleCollections"] = args ? args.natRuleCollections : undefined;
             inputs["networkRuleCollections"] = args ? args.networkRuleCollections : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
@@ -141,6 +141,7 @@ export class AzureFirewall extends pulumi.CustomResource {
             inputs["zones"] = args ? args.zones : undefined;
             inputs["etag"] = undefined /*out*/;
             inputs["hubIpAddresses"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
@@ -170,6 +171,10 @@ export interface AzureFirewallArgs {
      */
     readonly applicationRuleCollections?: pulumi.Input<pulumi.Input<inputs.network.v20190901.AzureFirewallApplicationRuleCollection>[]>;
     /**
+     * The name of the Azure Firewall.
+     */
+    readonly azureFirewallName: pulumi.Input<string>;
+    /**
      * The firewallPolicy associated with this azure firewall.
      */
     readonly firewallPolicy?: pulumi.Input<inputs.network.v20190901.SubResource>;
@@ -185,10 +190,6 @@ export interface AzureFirewallArgs {
      * Resource location.
      */
     readonly location?: pulumi.Input<string>;
-    /**
-     * The name of the Azure Firewall.
-     */
-    readonly name: pulumi.Input<string>;
     /**
      * Collection of NAT rule collections used by Azure Firewall.
      */

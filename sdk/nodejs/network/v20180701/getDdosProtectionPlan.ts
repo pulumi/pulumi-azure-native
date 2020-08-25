@@ -15,7 +15,7 @@ export function getDdosProtectionPlan(args: GetDdosProtectionPlanArgs, opts?: pu
         opts.version = utilities.getVersion();
     }
     return pulumi.runtime.invoke("azurerm:network/v20180701:getDdosProtectionPlan", {
-        "name": args.name,
+        "ddosProtectionPlanName": args.ddosProtectionPlanName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);
 }
@@ -24,7 +24,7 @@ export interface GetDdosProtectionPlanArgs {
     /**
      * The name of the DDoS protection plan.
      */
-    readonly name: string;
+    readonly ddosProtectionPlanName: string;
     /**
      * The name of the resource group.
      */

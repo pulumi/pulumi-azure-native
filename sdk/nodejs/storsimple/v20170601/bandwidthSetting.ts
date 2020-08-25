@@ -43,7 +43,7 @@ export class BandwidthSetting extends pulumi.CustomResource {
     /**
      * The name of the object.
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * The schedules.
      */
@@ -70,11 +70,11 @@ export class BandwidthSetting extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             const args = argsOrState as BandwidthSettingArgs | undefined;
+            if (!args || args.bandwidthSettingName === undefined) {
+                throw new Error("Missing required property 'bandwidthSettingName'");
+            }
             if (!args || args.managerName === undefined) {
                 throw new Error("Missing required property 'managerName'");
-            }
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
             }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
@@ -82,11 +82,12 @@ export class BandwidthSetting extends pulumi.CustomResource {
             if (!args || args.schedules === undefined) {
                 throw new Error("Missing required property 'schedules'");
             }
+            inputs["bandwidthSettingName"] = args ? args.bandwidthSettingName : undefined;
             inputs["kind"] = args ? args.kind : undefined;
             inputs["managerName"] = args ? args.managerName : undefined;
-            inputs["name"] = args ? args.name : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["schedules"] = args ? args.schedules : undefined;
+            inputs["name"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
             inputs["volumeCount"] = undefined /*out*/;
         }
@@ -106,6 +107,10 @@ export class BandwidthSetting extends pulumi.CustomResource {
  */
 export interface BandwidthSettingArgs {
     /**
+     * The bandwidth setting name.
+     */
+    readonly bandwidthSettingName: pulumi.Input<string>;
+    /**
      * The Kind of the object. Currently only Series8000 is supported
      */
     readonly kind?: pulumi.Input<string>;
@@ -113,10 +118,6 @@ export interface BandwidthSettingArgs {
      * The manager name
      */
     readonly managerName: pulumi.Input<string>;
-    /**
-     * The bandwidth setting name.
-     */
-    readonly name: pulumi.Input<string>;
     /**
      * The resource group name
      */

@@ -15,7 +15,7 @@ export function getVpnGateway(args: GetVpnGatewayArgs, opts?: pulumi.InvokeOptio
         opts.version = utilities.getVersion();
     }
     return pulumi.runtime.invoke("azurerm:network/v20190201:getVpnGateway", {
-        "name": args.name,
+        "gatewayName": args.gatewayName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);
 }
@@ -24,7 +24,7 @@ export interface GetVpnGatewayArgs {
     /**
      * The name of the gateway.
      */
-    readonly name: string;
+    readonly gatewayName: string;
     /**
      * The resource group name of the VpnGateway.
      */

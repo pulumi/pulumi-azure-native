@@ -59,7 +59,7 @@ export class VirtualMachineExtension extends pulumi.CustomResource {
     /**
      * Resource name
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * The extension can contain either protectedSettings or protectedSettingsFromKeyVault or no protected settings at all.
      */
@@ -105,11 +105,11 @@ export class VirtualMachineExtension extends pulumi.CustomResource {
             if (!args || args.location === undefined) {
                 throw new Error("Missing required property 'location'");
             }
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
-            }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
+            }
+            if (!args || args.vmExtensionName === undefined) {
+                throw new Error("Missing required property 'vmExtensionName'");
             }
             if (!args || args.vmName === undefined) {
                 throw new Error("Missing required property 'vmName'");
@@ -119,7 +119,6 @@ export class VirtualMachineExtension extends pulumi.CustomResource {
             inputs["forceUpdateTag"] = args ? args.forceUpdateTag : undefined;
             inputs["instanceView"] = args ? args.instanceView : undefined;
             inputs["location"] = args ? args.location : undefined;
-            inputs["name"] = args ? args.name : undefined;
             inputs["protectedSettings"] = args ? args.protectedSettings : undefined;
             inputs["publisher"] = args ? args.publisher : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
@@ -127,7 +126,9 @@ export class VirtualMachineExtension extends pulumi.CustomResource {
             inputs["tags"] = args ? args.tags : undefined;
             inputs["type"] = args ? args.type : undefined;
             inputs["typeHandlerVersion"] = args ? args.typeHandlerVersion : undefined;
+            inputs["vmExtensionName"] = args ? args.vmExtensionName : undefined;
             inputs["vmName"] = args ? args.vmName : undefined;
+            inputs["name"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
         }
         if (!opts) {
@@ -168,10 +169,6 @@ export interface VirtualMachineExtensionArgs {
      */
     readonly location: pulumi.Input<string>;
     /**
-     * The name of the virtual machine extension.
-     */
-    readonly name: pulumi.Input<string>;
-    /**
      * The extension can contain either protectedSettings or protectedSettingsFromKeyVault or no protected settings at all.
      */
     readonly protectedSettings?: pulumi.Input<{[key: string]: any}>;
@@ -199,6 +196,10 @@ export interface VirtualMachineExtensionArgs {
      * Specifies the version of the script handler.
      */
     readonly typeHandlerVersion?: pulumi.Input<string>;
+    /**
+     * The name of the virtual machine extension.
+     */
+    readonly vmExtensionName: pulumi.Input<string>;
     /**
      * The name of the virtual machine where the extension should be created or updated.
      */

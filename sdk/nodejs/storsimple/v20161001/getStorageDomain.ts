@@ -16,8 +16,8 @@ export function getStorageDomain(args: GetStorageDomainArgs, opts?: pulumi.Invok
     }
     return pulumi.runtime.invoke("azurerm:storsimple/v20161001:getStorageDomain", {
         "managerName": args.managerName,
-        "name": args.name,
         "resourceGroupName": args.resourceGroupName,
+        "storageDomainName": args.storageDomainName,
     }, opts);
 }
 
@@ -27,13 +27,13 @@ export interface GetStorageDomainArgs {
      */
     readonly managerName: string;
     /**
-     * The storage domain name.
-     */
-    readonly name: string;
-    /**
      * The resource group name
      */
     readonly resourceGroupName: string;
+    /**
+     * The storage domain name.
+     */
+    readonly storageDomainName: string;
 }
 
 /**

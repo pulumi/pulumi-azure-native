@@ -16,7 +16,7 @@ export function getProximityPlacementGroup(args: GetProximityPlacementGroupArgs,
     }
     return pulumi.runtime.invoke("azurerm:compute/v20191201:getProximityPlacementGroup", {
         "includeColocationStatus": args.includeColocationStatus,
-        "name": args.name,
+        "proximityPlacementGroupName": args.proximityPlacementGroupName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);
 }
@@ -29,7 +29,7 @@ export interface GetProximityPlacementGroupArgs {
     /**
      * The name of the proximity placement group.
      */
-    readonly name: string;
+    readonly proximityPlacementGroupName: string;
     /**
      * The name of the resource group.
      */

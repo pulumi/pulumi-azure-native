@@ -49,7 +49,7 @@ export class AdaptiveApplicationControl extends pulumi.CustomResource {
     /**
      * Resource name
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     public readonly pathRecommendations!: pulumi.Output<outputs.security.v20200101.PathRecommendationResponse[] | undefined>;
     /**
      * The protection mode of the collection/file types. Exe/Msi/Script are used for Windows, Executable is used for Linux.
@@ -85,18 +85,19 @@ export class AdaptiveApplicationControl extends pulumi.CustomResource {
             if (!args || args.ascLocation === undefined) {
                 throw new Error("Missing required property 'ascLocation'");
             }
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
+            if (!args || args.groupName === undefined) {
+                throw new Error("Missing required property 'groupName'");
             }
             inputs["ascLocation"] = args ? args.ascLocation : undefined;
             inputs["enforcementMode"] = args ? args.enforcementMode : undefined;
-            inputs["name"] = args ? args.name : undefined;
+            inputs["groupName"] = args ? args.groupName : undefined;
             inputs["pathRecommendations"] = args ? args.pathRecommendations : undefined;
             inputs["protectionMode"] = args ? args.protectionMode : undefined;
             inputs["vmRecommendations"] = args ? args.vmRecommendations : undefined;
             inputs["configurationStatus"] = undefined /*out*/;
             inputs["issues"] = undefined /*out*/;
             inputs["location"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
             inputs["recommendationStatus"] = undefined /*out*/;
             inputs["sourceSystem"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
@@ -127,7 +128,7 @@ export interface AdaptiveApplicationControlArgs {
     /**
      * Name of an application control machine group
      */
-    readonly name: pulumi.Input<string>;
+    readonly groupName: pulumi.Input<string>;
     readonly pathRecommendations?: pulumi.Input<pulumi.Input<inputs.security.v20200101.PathRecommendation>[]>;
     /**
      * The protection mode of the collection/file types. Exe/Msi/Script are used for Windows, Executable is used for Linux.

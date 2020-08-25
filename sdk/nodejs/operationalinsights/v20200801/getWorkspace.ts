@@ -15,20 +15,20 @@ export function getWorkspace(args: GetWorkspaceArgs, opts?: pulumi.InvokeOptions
         opts.version = utilities.getVersion();
     }
     return pulumi.runtime.invoke("azurerm:operationalinsights/v20200801:getWorkspace", {
-        "name": args.name,
         "resourceGroupName": args.resourceGroupName,
+        "workspaceName": args.workspaceName,
     }, opts);
 }
 
 export interface GetWorkspaceArgs {
     /**
-     * The name of the workspace.
-     */
-    readonly name: string;
-    /**
      * The name of the resource group. The name is case insensitive.
      */
     readonly resourceGroupName: string;
+    /**
+     * The name of the workspace.
+     */
+    readonly workspaceName: string;
 }
 
 /**

@@ -67,7 +67,7 @@ export class PrivateCloud extends pulumi.CustomResource {
     /**
      * Resource name.
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * The block of addresses should be unique across VNet in your subscription as well as on-premise. Make sure the CIDR format is conformed to (A.B.C.D/X) where A,B,C,D are between 0 and 255, and X is between 0 and 22
      */
@@ -132,11 +132,11 @@ export class PrivateCloud extends pulumi.CustomResource {
             if (!args || args.managementCluster === undefined) {
                 throw new Error("Missing required property 'managementCluster'");
             }
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
-            }
             if (!args || args.networkBlock === undefined) {
                 throw new Error("Missing required property 'networkBlock'");
+            }
+            if (!args || args.privateCloudName === undefined) {
+                throw new Error("Missing required property 'privateCloudName'");
             }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
@@ -148,9 +148,9 @@ export class PrivateCloud extends pulumi.CustomResource {
             inputs["internet"] = args ? args.internet : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["managementCluster"] = args ? args.managementCluster : undefined;
-            inputs["name"] = args ? args.name : undefined;
             inputs["networkBlock"] = args ? args.networkBlock : undefined;
             inputs["nsxtPassword"] = args ? args.nsxtPassword : undefined;
+            inputs["privateCloudName"] = args ? args.privateCloudName : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["sku"] = args ? args.sku : undefined;
             inputs["tags"] = args ? args.tags : undefined;
@@ -158,6 +158,7 @@ export class PrivateCloud extends pulumi.CustomResource {
             inputs["circuit"] = undefined /*out*/;
             inputs["endpoints"] = undefined /*out*/;
             inputs["managementNetwork"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
             inputs["nsxtCertificateThumbprint"] = undefined /*out*/;
             inputs["provisioningNetwork"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
@@ -197,10 +198,6 @@ export interface PrivateCloudArgs {
      */
     readonly managementCluster: pulumi.Input<inputs.avs.v20200320.ManagementCluster>;
     /**
-     * Name of the private cloud
-     */
-    readonly name: pulumi.Input<string>;
-    /**
      * The block of addresses should be unique across VNet in your subscription as well as on-premise. Make sure the CIDR format is conformed to (A.B.C.D/X) where A,B,C,D are between 0 and 255, and X is between 0 and 22
      */
     readonly networkBlock: pulumi.Input<string>;
@@ -208,6 +205,10 @@ export interface PrivateCloudArgs {
      * Optionally, set the NSX-T Manager password when the private cloud is created
      */
     readonly nsxtPassword?: pulumi.Input<string>;
+    /**
+     * Name of the private cloud
+     */
+    readonly privateCloudName: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

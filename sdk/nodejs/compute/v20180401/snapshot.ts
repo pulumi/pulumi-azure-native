@@ -59,7 +59,7 @@ export class Snapshot extends pulumi.CustomResource {
     /**
      * Resource name
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * The Operating System type.
      */
@@ -104,22 +104,23 @@ export class Snapshot extends pulumi.CustomResource {
             if (!args || args.location === undefined) {
                 throw new Error("Missing required property 'location'");
             }
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
-            }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
+            }
+            if (!args || args.snapshotName === undefined) {
+                throw new Error("Missing required property 'snapshotName'");
             }
             inputs["creationData"] = args ? args.creationData : undefined;
             inputs["diskSizeGB"] = args ? args.diskSizeGB : undefined;
             inputs["encryptionSettings"] = args ? args.encryptionSettings : undefined;
             inputs["location"] = args ? args.location : undefined;
-            inputs["name"] = args ? args.name : undefined;
             inputs["osType"] = args ? args.osType : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["sku"] = args ? args.sku : undefined;
+            inputs["snapshotName"] = args ? args.snapshotName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["managedBy"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
             inputs["timeCreated"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
@@ -158,10 +159,6 @@ export interface SnapshotArgs {
      */
     readonly location: pulumi.Input<string>;
     /**
-     * The name of the snapshot that is being created. The name can't be changed after the snapshot is created. Supported characters for the name are a-z, A-Z, 0-9 and _. The max name length is 80 characters.
-     */
-    readonly name: pulumi.Input<string>;
-    /**
      * The Operating System type.
      */
     readonly osType?: pulumi.Input<string>;
@@ -173,6 +170,10 @@ export interface SnapshotArgs {
      * The snapshots sku name. Can be Standard_LRS, Premium_LRS, or Standard_ZRS.
      */
     readonly sku?: pulumi.Input<inputs.compute.v20180401.SnapshotSku>;
+    /**
+     * The name of the snapshot that is being created. The name can't be changed after the snapshot is created. Supported characters for the name are a-z, A-Z, 0-9 and _. The max name length is 80 characters.
+     */
+    readonly snapshotName: pulumi.Input<string>;
     /**
      * Resource tags
      */

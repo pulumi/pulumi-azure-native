@@ -43,7 +43,7 @@ export class AvailabilitySet extends pulumi.CustomResource {
     /**
      * Resource name
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * Fault Domain count.
      */
@@ -86,23 +86,24 @@ export class AvailabilitySet extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             const args = argsOrState as AvailabilitySetArgs | undefined;
+            if (!args || args.availabilitySetName === undefined) {
+                throw new Error("Missing required property 'availabilitySetName'");
+            }
             if (!args || args.location === undefined) {
                 throw new Error("Missing required property 'location'");
-            }
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
             }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            inputs["availabilitySetName"] = args ? args.availabilitySetName : undefined;
             inputs["location"] = args ? args.location : undefined;
-            inputs["name"] = args ? args.name : undefined;
             inputs["platformFaultDomainCount"] = args ? args.platformFaultDomainCount : undefined;
             inputs["platformUpdateDomainCount"] = args ? args.platformUpdateDomainCount : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["sku"] = args ? args.sku : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["virtualMachines"] = args ? args.virtualMachines : undefined;
+            inputs["name"] = undefined /*out*/;
             inputs["statuses"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
@@ -124,13 +125,13 @@ export class AvailabilitySet extends pulumi.CustomResource {
  */
 export interface AvailabilitySetArgs {
     /**
+     * The name of the availability set.
+     */
+    readonly availabilitySetName: pulumi.Input<string>;
+    /**
      * Resource location
      */
     readonly location: pulumi.Input<string>;
-    /**
-     * The name of the availability set.
-     */
-    readonly name: pulumi.Input<string>;
     /**
      * Fault Domain count.
      */

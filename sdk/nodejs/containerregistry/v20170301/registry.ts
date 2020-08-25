@@ -55,7 +55,7 @@ export class Registry extends pulumi.CustomResource {
     /**
      * The name of the resource.
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * The provisioning state of the container registry at the time the operation was called.
      */
@@ -93,8 +93,8 @@ export class Registry extends pulumi.CustomResource {
             if (!args || args.location === undefined) {
                 throw new Error("Missing required property 'location'");
             }
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
+            if (!args || args.registryName === undefined) {
+                throw new Error("Missing required property 'registryName'");
             }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
@@ -107,13 +107,14 @@ export class Registry extends pulumi.CustomResource {
             }
             inputs["adminUserEnabled"] = args ? args.adminUserEnabled : undefined;
             inputs["location"] = args ? args.location : undefined;
-            inputs["name"] = args ? args.name : undefined;
+            inputs["registryName"] = args ? args.registryName : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["sku"] = args ? args.sku : undefined;
             inputs["storageAccount"] = args ? args.storageAccount : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["creationDate"] = undefined /*out*/;
             inputs["loginServer"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
@@ -145,7 +146,7 @@ export interface RegistryArgs {
     /**
      * The name of the container registry.
      */
-    readonly name: pulumi.Input<string>;
+    readonly registryName: pulumi.Input<string>;
     /**
      * The name of the resource group to which the container registry belongs.
      */

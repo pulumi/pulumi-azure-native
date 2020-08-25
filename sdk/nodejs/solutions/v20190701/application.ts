@@ -91,7 +91,7 @@ export class Application extends pulumi.CustomResource {
     /**
      * Resource name
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * Name and value pairs that define the managed application outputs.
      */
@@ -146,23 +146,23 @@ export class Application extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             const args = argsOrState as ApplicationArgs | undefined;
+            if (!args || args.applicationName === undefined) {
+                throw new Error("Missing required property 'applicationName'");
+            }
             if (!args || args.kind === undefined) {
                 throw new Error("Missing required property 'kind'");
-            }
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
             }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["applicationDefinitionId"] = args ? args.applicationDefinitionId : undefined;
+            inputs["applicationName"] = args ? args.applicationName : undefined;
             inputs["identity"] = args ? args.identity : undefined;
             inputs["jitAccessPolicy"] = args ? args.jitAccessPolicy : undefined;
             inputs["kind"] = args ? args.kind : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["managedBy"] = args ? args.managedBy : undefined;
             inputs["managedResourceGroupId"] = args ? args.managedResourceGroupId : undefined;
-            inputs["name"] = args ? args.name : undefined;
             inputs["parameters"] = args ? args.parameters : undefined;
             inputs["plan"] = args ? args.plan : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
@@ -174,6 +174,7 @@ export class Application extends pulumi.CustomResource {
             inputs["createdBy"] = undefined /*out*/;
             inputs["customerSupport"] = undefined /*out*/;
             inputs["managementMode"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
             inputs["outputs"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
             inputs["publisherTenantId"] = undefined /*out*/;
@@ -203,6 +204,10 @@ export interface ApplicationArgs {
      */
     readonly applicationDefinitionId?: pulumi.Input<string>;
     /**
+     * The name of the managed application.
+     */
+    readonly applicationName: pulumi.Input<string>;
+    /**
      * The identity of the resource.
      */
     readonly identity?: pulumi.Input<inputs.solutions.v20190701.Identity>;
@@ -226,10 +231,6 @@ export interface ApplicationArgs {
      * The managed resource group Id.
      */
     readonly managedResourceGroupId?: pulumi.Input<string>;
-    /**
-     * The name of the managed application.
-     */
-    readonly name: pulumi.Input<string>;
     /**
      * Name and value pairs that define the managed application parameters. It can be a JObject or a well formed JSON string.
      */

@@ -16,7 +16,7 @@ export function getIpAllocation(args: GetIpAllocationArgs, opts?: pulumi.InvokeO
     }
     return pulumi.runtime.invoke("azurerm:network/v20200501:getIpAllocation", {
         "expand": args.expand,
-        "name": args.name,
+        "ipAllocationName": args.ipAllocationName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);
 }
@@ -29,7 +29,7 @@ export interface GetIpAllocationArgs {
     /**
      * The name of the IpAllocation.
      */
-    readonly name: string;
+    readonly ipAllocationName: string;
     /**
      * The name of the resource group.
      */

@@ -47,7 +47,7 @@ export class PrivateEndpointConnection extends pulumi.CustomResource {
     /**
      * Specifies the name of the resource.
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * The resource of private end point.
      */
@@ -86,8 +86,8 @@ export class PrivateEndpointConnection extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             const args = argsOrState as PrivateEndpointConnectionArgs | undefined;
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
+            if (!args || args.privateEndpointConnectionName === undefined) {
+                throw new Error("Missing required property 'privateEndpointConnectionName'");
             }
             if (!args || args.privateLinkServiceConnectionState === undefined) {
                 throw new Error("Missing required property 'privateLinkServiceConnectionState'");
@@ -100,13 +100,14 @@ export class PrivateEndpointConnection extends pulumi.CustomResource {
             }
             inputs["identity"] = args ? args.identity : undefined;
             inputs["location"] = args ? args.location : undefined;
-            inputs["name"] = args ? args.name : undefined;
+            inputs["privateEndpointConnectionName"] = args ? args.privateEndpointConnectionName : undefined;
             inputs["privateLinkServiceConnectionState"] = args ? args.privateLinkServiceConnectionState : undefined;
             inputs["provisioningState"] = args ? args.provisioningState : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["sku"] = args ? args.sku : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["workspaceName"] = args ? args.workspaceName : undefined;
+            inputs["name"] = undefined /*out*/;
             inputs["privateEndpoint"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
@@ -138,7 +139,7 @@ export interface PrivateEndpointConnectionArgs {
     /**
      * The name of the private endpoint connection associated with the workspace
      */
-    readonly name: pulumi.Input<string>;
+    readonly privateEndpointConnectionName: pulumi.Input<string>;
     /**
      * A collection of information about the state of the connection between service consumer and provider.
      */

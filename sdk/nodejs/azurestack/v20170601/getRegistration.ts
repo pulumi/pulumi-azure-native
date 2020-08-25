@@ -15,7 +15,7 @@ export function getRegistration(args: GetRegistrationArgs, opts?: pulumi.InvokeO
         opts.version = utilities.getVersion();
     }
     return pulumi.runtime.invoke("azurerm:azurestack/v20170601:getRegistration", {
-        "name": args.name,
+        "registrationName": args.registrationName,
         "resourceGroup": args.resourceGroup,
     }, opts);
 }
@@ -24,7 +24,7 @@ export interface GetRegistrationArgs {
     /**
      * Name of the Azure Stack registration.
      */
-    readonly name: string;
+    readonly registrationName: string;
     /**
      * Name of the resource group.
      */

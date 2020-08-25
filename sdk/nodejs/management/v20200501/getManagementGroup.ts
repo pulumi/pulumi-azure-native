@@ -17,7 +17,7 @@ export function getManagementGroup(args: GetManagementGroupArgs, opts?: pulumi.I
     return pulumi.runtime.invoke("azurerm:management/v20200501:getManagementGroup", {
         "expand": args.expand,
         "filter": args.filter,
-        "name": args.name,
+        "groupId": args.groupId,
         "recurse": args.recurse,
     }, opts);
 }
@@ -34,7 +34,7 @@ export interface GetManagementGroupArgs {
     /**
      * Management Group ID.
      */
-    readonly name: string;
+    readonly groupId: string;
     /**
      * The $recurse=true query string parameter allows clients to request inclusion of entire hierarchy in the response payload. Note that  $expand=children must be passed up if $recurse is set to true.
      */

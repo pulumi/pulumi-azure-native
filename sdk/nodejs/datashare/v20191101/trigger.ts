@@ -41,7 +41,7 @@ export class Trigger extends pulumi.CustomResource {
     /**
      * Name of the azure resource
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * Type of the azure resource
      */
@@ -66,20 +66,21 @@ export class Trigger extends pulumi.CustomResource {
             if (!args || args.kind === undefined) {
                 throw new Error("Missing required property 'kind'");
             }
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
-            }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             if (!args || args.shareSubscriptionName === undefined) {
                 throw new Error("Missing required property 'shareSubscriptionName'");
             }
+            if (!args || args.triggerName === undefined) {
+                throw new Error("Missing required property 'triggerName'");
+            }
             inputs["accountName"] = args ? args.accountName : undefined;
             inputs["kind"] = args ? args.kind : undefined;
-            inputs["name"] = args ? args.name : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["shareSubscriptionName"] = args ? args.shareSubscriptionName : undefined;
+            inputs["triggerName"] = args ? args.triggerName : undefined;
+            inputs["name"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -106,10 +107,6 @@ export interface TriggerArgs {
      */
     readonly kind: pulumi.Input<string>;
     /**
-     * The name of the trigger.
-     */
-    readonly name: pulumi.Input<string>;
-    /**
      * The resource group name.
      */
     readonly resourceGroupName: pulumi.Input<string>;
@@ -117,4 +114,8 @@ export interface TriggerArgs {
      * The name of the share subscription which will hold the data set sink.
      */
     readonly shareSubscriptionName: pulumi.Input<string>;
+    /**
+     * The name of the trigger.
+     */
+    readonly triggerName: pulumi.Input<string>;
 }

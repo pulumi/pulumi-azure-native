@@ -15,20 +15,20 @@ export function getService(args: GetServiceArgs, opts?: pulumi.InvokeOptions): P
         opts.version = utilities.getVersion();
     }
     return pulumi.runtime.invoke("azurerm:appplatform/v20200701:getService", {
-        "name": args.name,
         "resourceGroupName": args.resourceGroupName,
+        "serviceName": args.serviceName,
     }, opts);
 }
 
 export interface GetServiceArgs {
     /**
-     * The name of the Service resource.
-     */
-    readonly name: string;
-    /**
      * The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
      */
     readonly resourceGroupName: string;
+    /**
+     * The name of the Service resource.
+     */
+    readonly serviceName: string;
 }
 
 /**

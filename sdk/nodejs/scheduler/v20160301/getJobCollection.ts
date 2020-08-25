@@ -15,7 +15,7 @@ export function getJobCollection(args: GetJobCollectionArgs, opts?: pulumi.Invok
         opts.version = utilities.getVersion();
     }
     return pulumi.runtime.invoke("azurerm:scheduler/v20160301:getJobCollection", {
-        "name": args.name,
+        "jobCollectionName": args.jobCollectionName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);
 }
@@ -24,7 +24,7 @@ export interface GetJobCollectionArgs {
     /**
      * The job collection name.
      */
-    readonly name: string;
+    readonly jobCollectionName: string;
     /**
      * The resource group name.
      */

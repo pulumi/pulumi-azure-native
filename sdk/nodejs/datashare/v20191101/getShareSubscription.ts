@@ -16,8 +16,8 @@ export function getShareSubscription(args: GetShareSubscriptionArgs, opts?: pulu
     }
     return pulumi.runtime.invoke("azurerm:datashare/v20191101:getShareSubscription", {
         "accountName": args.accountName,
-        "name": args.name,
         "resourceGroupName": args.resourceGroupName,
+        "shareSubscriptionName": args.shareSubscriptionName,
     }, opts);
 }
 
@@ -27,13 +27,13 @@ export interface GetShareSubscriptionArgs {
      */
     readonly accountName: string;
     /**
-     * The name of the shareSubscription.
-     */
-    readonly name: string;
-    /**
      * The resource group name.
      */
     readonly resourceGroupName: string;
+    /**
+     * The name of the shareSubscription.
+     */
+    readonly shareSubscriptionName: string;
 }
 
 /**

@@ -15,7 +15,7 @@ export function getExperiment(args: GetExperimentArgs, opts?: pulumi.InvokeOptio
         opts.version = utilities.getVersion();
     }
     return pulumi.runtime.invoke("azurerm:batchai/v20180501:getExperiment", {
-        "name": args.name,
+        "experimentName": args.experimentName,
         "resourceGroupName": args.resourceGroupName,
         "workspaceName": args.workspaceName,
     }, opts);
@@ -25,7 +25,7 @@ export interface GetExperimentArgs {
     /**
      * The name of the experiment. Experiment names can only contain a combination of alphanumeric characters along with dash (-) and underscore (_). The name must be from 1 through 64 characters long.
      */
-    readonly name: string;
+    readonly experimentName: string;
     /**
      * Name of the resource group to which the resource belongs.
      */

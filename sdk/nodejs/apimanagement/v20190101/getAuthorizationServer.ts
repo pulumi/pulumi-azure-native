@@ -15,7 +15,7 @@ export function getAuthorizationServer(args: GetAuthorizationServerArgs, opts?: 
         opts.version = utilities.getVersion();
     }
     return pulumi.runtime.invoke("azurerm:apimanagement/v20190101:getAuthorizationServer", {
-        "name": args.name,
+        "authsid": args.authsid,
         "resourceGroupName": args.resourceGroupName,
         "serviceName": args.serviceName,
     }, opts);
@@ -25,7 +25,7 @@ export interface GetAuthorizationServerArgs {
     /**
      * Identifier of the authorization server.
      */
-    readonly name: string;
+    readonly authsid: string;
     /**
      * The name of the resource group.
      */

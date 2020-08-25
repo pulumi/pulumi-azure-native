@@ -15,7 +15,7 @@ export function getCertificate(args: GetCertificateArgs, opts?: pulumi.InvokeOpt
         opts.version = utilities.getVersion();
     }
     return pulumi.runtime.invoke("azurerm:appplatform/v20200701:getCertificate", {
-        "name": args.name,
+        "certificateName": args.certificateName,
         "resourceGroupName": args.resourceGroupName,
         "serviceName": args.serviceName,
     }, opts);
@@ -25,7 +25,7 @@ export interface GetCertificateArgs {
     /**
      * The name of the certificate resource.
      */
-    readonly name: string;
+    readonly certificateName: string;
     /**
      * The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
      */

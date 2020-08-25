@@ -51,7 +51,7 @@ export class EventSubscription extends pulumi.CustomResource {
     /**
      * Name of the resource
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * Provisioning state of the event subscription.
      */
@@ -78,17 +78,18 @@ export class EventSubscription extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             const args = argsOrState as EventSubscriptionArgs | undefined;
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
+            if (!args || args.eventSubscriptionName === undefined) {
+                throw new Error("Missing required property 'eventSubscriptionName'");
             }
             if (!args || args.scope === undefined) {
                 throw new Error("Missing required property 'scope'");
             }
             inputs["destination"] = args ? args.destination : undefined;
+            inputs["eventSubscriptionName"] = args ? args.eventSubscriptionName : undefined;
             inputs["filter"] = args ? args.filter : undefined;
             inputs["labels"] = args ? args.labels : undefined;
-            inputs["name"] = args ? args.name : undefined;
             inputs["scope"] = args ? args.scope : undefined;
+            inputs["name"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
             inputs["topic"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
@@ -115,6 +116,10 @@ export interface EventSubscriptionArgs {
      */
     readonly destination?: pulumi.Input<inputs.eventgrid.v20180101.EventSubscriptionDestination>;
     /**
+     * Name of the event subscription. Event subscription names must be between 3 and 64 characters in length and should use alphanumeric letters only.
+     */
+    readonly eventSubscriptionName: pulumi.Input<string>;
+    /**
      * Information about the filter for the event subscription.
      */
     readonly filter?: pulumi.Input<inputs.eventgrid.v20180101.EventSubscriptionFilter>;
@@ -122,10 +127,6 @@ export interface EventSubscriptionArgs {
      * List of user defined labels.
      */
     readonly labels?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * Name of the event subscription. Event subscription names must be between 3 and 64 characters in length and should use alphanumeric letters only.
-     */
-    readonly name: pulumi.Input<string>;
     /**
      * The identifier of the resource to which the event subscription needs to be created or updated. The scope can be a subscription, or a resource group, or a top level resource belonging to a resource provider namespace, or an EventGrid topic. For example, use '/subscriptions/{subscriptionId}/' for a subscription, '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}' for a resource group, and '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}' for a resource, and '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.EventGrid/topics/{topicName}' for an EventGrid topic.
      */

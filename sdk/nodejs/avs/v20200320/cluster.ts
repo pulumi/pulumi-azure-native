@@ -51,7 +51,7 @@ export class Cluster extends pulumi.CustomResource {
     /**
      * Resource name.
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * The state of the cluster provisioning
      */
@@ -78,11 +78,11 @@ export class Cluster extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             const args = argsOrState as ClusterArgs | undefined;
+            if (!args || args.clusterName === undefined) {
+                throw new Error("Missing required property 'clusterName'");
+            }
             if (!args || args.clusterSize === undefined) {
                 throw new Error("Missing required property 'clusterSize'");
-            }
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
             }
             if (!args || args.privateCloudName === undefined) {
                 throw new Error("Missing required property 'privateCloudName'");
@@ -93,13 +93,14 @@ export class Cluster extends pulumi.CustomResource {
             if (!args || args.sku === undefined) {
                 throw new Error("Missing required property 'sku'");
             }
+            inputs["clusterName"] = args ? args.clusterName : undefined;
             inputs["clusterSize"] = args ? args.clusterSize : undefined;
-            inputs["name"] = args ? args.name : undefined;
             inputs["privateCloudName"] = args ? args.privateCloudName : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["sku"] = args ? args.sku : undefined;
             inputs["clusterId"] = undefined /*out*/;
             inputs["hosts"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
@@ -119,13 +120,13 @@ export class Cluster extends pulumi.CustomResource {
  */
 export interface ClusterArgs {
     /**
+     * Name of the cluster in the private cloud
+     */
+    readonly clusterName: pulumi.Input<string>;
+    /**
      * The cluster size
      */
     readonly clusterSize: pulumi.Input<number>;
-    /**
-     * Name of the cluster in the private cloud
-     */
-    readonly name: pulumi.Input<string>;
     /**
      * The name of the private cloud.
      */

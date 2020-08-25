@@ -15,7 +15,7 @@ export function getNetworkWatcher(args: GetNetworkWatcherArgs, opts?: pulumi.Inv
         opts.version = utilities.getVersion();
     }
     return pulumi.runtime.invoke("azurerm:network/v20190901:getNetworkWatcher", {
-        "name": args.name,
+        "networkWatcherName": args.networkWatcherName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);
 }
@@ -24,7 +24,7 @@ export interface GetNetworkWatcherArgs {
     /**
      * The name of the network watcher.
      */
-    readonly name: string;
+    readonly networkWatcherName: string;
     /**
      * The name of the resource group.
      */

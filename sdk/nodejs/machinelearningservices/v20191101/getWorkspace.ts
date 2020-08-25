@@ -15,20 +15,20 @@ export function getWorkspace(args: GetWorkspaceArgs, opts?: pulumi.InvokeOptions
         opts.version = utilities.getVersion();
     }
     return pulumi.runtime.invoke("azurerm:machinelearningservices/v20191101:getWorkspace", {
-        "name": args.name,
         "resourceGroupName": args.resourceGroupName,
+        "workspaceName": args.workspaceName,
     }, opts);
 }
 
 export interface GetWorkspaceArgs {
     /**
-     * Name of Azure Machine Learning workspace.
-     */
-    readonly name: string;
-    /**
      * Name of the resource group in which workspace is located.
      */
     readonly resourceGroupName: string;
+    /**
+     * Name of Azure Machine Learning workspace.
+     */
+    readonly workspaceName: string;
 }
 
 /**

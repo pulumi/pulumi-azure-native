@@ -15,21 +15,21 @@ export function getAlertRule(args: GetAlertRuleArgs, opts?: pulumi.InvokeOptions
         opts.version = utilities.getVersion();
     }
     return pulumi.runtime.invoke("azurerm:operationalinsights/v20200101:getAlertRule", {
-        "name": args.name,
         "resourceGroupName": args.resourceGroupName,
+        "ruleId": args.ruleId,
         "workspaceName": args.workspaceName,
     }, opts);
 }
 
 export interface GetAlertRuleArgs {
     /**
-     * Alert rule ID
-     */
-    readonly name: string;
-    /**
      * The name of the resource group within the user's subscription. The name is case insensitive.
      */
     readonly resourceGroupName: string;
+    /**
+     * Alert rule ID
+     */
+    readonly ruleId: string;
     /**
      * The name of the workspace.
      */

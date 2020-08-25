@@ -51,7 +51,7 @@ export class NetworkSecurityGroup extends pulumi.CustomResource {
     /**
      * Resource name
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * Gets collection of references to Network Interfaces
      */
@@ -94,8 +94,8 @@ export class NetworkSecurityGroup extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             const args = argsOrState as NetworkSecurityGroupArgs | undefined;
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
+            if (!args || args.networkSecurityGroupName === undefined) {
+                throw new Error("Missing required property 'networkSecurityGroupName'");
             }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
@@ -104,14 +104,15 @@ export class NetworkSecurityGroup extends pulumi.CustomResource {
             inputs["etag"] = args ? args.etag : undefined;
             inputs["id"] = args ? args.id : undefined;
             inputs["location"] = args ? args.location : undefined;
-            inputs["name"] = args ? args.name : undefined;
             inputs["networkInterfaces"] = args ? args.networkInterfaces : undefined;
+            inputs["networkSecurityGroupName"] = args ? args.networkSecurityGroupName : undefined;
             inputs["provisioningState"] = args ? args.provisioningState : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["resourceGuid"] = args ? args.resourceGuid : undefined;
             inputs["securityRules"] = args ? args.securityRules : undefined;
             inputs["subnets"] = args ? args.subnets : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["name"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -148,13 +149,13 @@ export interface NetworkSecurityGroupArgs {
      */
     readonly location?: pulumi.Input<string>;
     /**
-     * The name of the network security group.
-     */
-    readonly name: pulumi.Input<string>;
-    /**
      * Gets collection of references to Network Interfaces
      */
     readonly networkInterfaces?: pulumi.Input<pulumi.Input<inputs.network.v20160330.NetworkInterface>[]>;
+    /**
+     * The name of the network security group.
+     */
+    readonly networkSecurityGroupName: pulumi.Input<string>;
     /**
      * Gets or sets Provisioning state of the PublicIP resource Updating/Deleting/Failed
      */

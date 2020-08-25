@@ -15,7 +15,7 @@ export function getPolicyAssignment(args: GetPolicyAssignmentArgs, opts?: pulumi
         opts.version = utilities.getVersion();
     }
     return pulumi.runtime.invoke("azurerm:authorization/v20151101:getPolicyAssignment", {
-        "name": args.name,
+        "policyAssignmentName": args.policyAssignmentName,
         "scope": args.scope,
     }, opts);
 }
@@ -24,7 +24,7 @@ export interface GetPolicyAssignmentArgs {
     /**
      * Policy assignment name.
      */
-    readonly name: string;
+    readonly policyAssignmentName: string;
     /**
      * Scope.
      */

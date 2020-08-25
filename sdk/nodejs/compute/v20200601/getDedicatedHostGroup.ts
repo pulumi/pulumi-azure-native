@@ -16,7 +16,7 @@ export function getDedicatedHostGroup(args: GetDedicatedHostGroupArgs, opts?: pu
     }
     return pulumi.runtime.invoke("azurerm:compute/v20200601:getDedicatedHostGroup", {
         "expand": args.expand,
-        "name": args.name,
+        "hostGroupName": args.hostGroupName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);
 }
@@ -29,7 +29,7 @@ export interface GetDedicatedHostGroupArgs {
     /**
      * The name of the dedicated host group.
      */
-    readonly name: string;
+    readonly hostGroupName: string;
     /**
      * The name of the resource group.
      */

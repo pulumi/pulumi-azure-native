@@ -91,11 +91,11 @@ export class Kpi extends pulumi.CustomResource {
     /**
      * The KPI name.
      */
-    public /*out*/ readonly kpiName!: pulumi.Output<string>;
+    public readonly kpiName!: pulumi.Output<string>;
     /**
      * Resource name.
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * The participant profiles.
      */
@@ -152,8 +152,8 @@ export class Kpi extends pulumi.CustomResource {
             if (!args || args.hubName === undefined) {
                 throw new Error("Missing required property 'hubName'");
             }
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
+            if (!args || args.kpiName === undefined) {
+                throw new Error("Missing required property 'kpiName'");
             }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
@@ -171,12 +171,12 @@ export class Kpi extends pulumi.CustomResource {
             inputs["function"] = args ? args.function : undefined;
             inputs["groupBy"] = args ? args.groupBy : undefined;
             inputs["hubName"] = args ? args.hubName : undefined;
-            inputs["name"] = args ? args.name : undefined;
+            inputs["kpiName"] = args ? args.kpiName : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["thresHolds"] = args ? args.thresHolds : undefined;
             inputs["unit"] = args ? args.unit : undefined;
             inputs["groupByMetadata"] = undefined /*out*/;
-            inputs["kpiName"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
             inputs["participantProfilesMetadata"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
             inputs["tenantId"] = undefined /*out*/;
@@ -254,7 +254,7 @@ export interface KpiArgs {
     /**
      * The name of the KPI.
      */
-    readonly name: pulumi.Input<string>;
+    readonly kpiName: pulumi.Input<string>;
     /**
      * The name of the resource group.
      */

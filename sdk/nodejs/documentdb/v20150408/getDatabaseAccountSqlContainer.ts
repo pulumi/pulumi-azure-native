@@ -16,8 +16,8 @@ export function getDatabaseAccountSqlContainer(args: GetDatabaseAccountSqlContai
     }
     return pulumi.runtime.invoke("azurerm:documentdb/v20150408:getDatabaseAccountSqlContainer", {
         "accountName": args.accountName,
+        "containerName": args.containerName,
         "databaseName": args.databaseName,
-        "name": args.name,
         "resourceGroupName": args.resourceGroupName,
     }, opts);
 }
@@ -28,13 +28,13 @@ export interface GetDatabaseAccountSqlContainerArgs {
      */
     readonly accountName: string;
     /**
+     * Cosmos DB container name.
+     */
+    readonly containerName: string;
+    /**
      * Cosmos DB database name.
      */
     readonly databaseName: string;
-    /**
-     * Cosmos DB container name.
-     */
-    readonly name: string;
     /**
      * Name of an Azure resource group.
      */

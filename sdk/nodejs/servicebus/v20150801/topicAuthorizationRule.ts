@@ -64,8 +64,8 @@ export class TopicAuthorizationRule extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             const args = argsOrState as TopicAuthorizationRuleArgs | undefined;
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
+            if (!args || args.authorizationRuleName === undefined) {
+                throw new Error("Missing required property 'authorizationRuleName'");
             }
             if (!args || args.namespaceName === undefined) {
                 throw new Error("Missing required property 'namespaceName'");
@@ -79,6 +79,7 @@ export class TopicAuthorizationRule extends pulumi.CustomResource {
             if (!args || args.topicName === undefined) {
                 throw new Error("Missing required property 'topicName'");
             }
+            inputs["authorizationRuleName"] = args ? args.authorizationRuleName : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["namespaceName"] = args ? args.namespaceName : undefined;
@@ -105,13 +106,17 @@ export class TopicAuthorizationRule extends pulumi.CustomResource {
  */
 export interface TopicAuthorizationRuleArgs {
     /**
+     * The authorization rule name.
+     */
+    readonly authorizationRuleName: pulumi.Input<string>;
+    /**
      * data center location.
      */
     readonly location?: pulumi.Input<string>;
     /**
-     * The authorization rule name.
+     * Name of the authorization rule.
      */
-    readonly name: pulumi.Input<string>;
+    readonly name?: pulumi.Input<string>;
     /**
      * The namespace name
      */

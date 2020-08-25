@@ -16,8 +16,8 @@ export function getStorageTarget(args: GetStorageTargetArgs, opts?: pulumi.Invok
     }
     return pulumi.runtime.invoke("azurerm:storagecache/v20191101:getStorageTarget", {
         "cacheName": args.cacheName,
-        "name": args.name,
         "resourceGroupName": args.resourceGroupName,
+        "storageTargetName": args.storageTargetName,
     }, opts);
 }
 
@@ -27,13 +27,13 @@ export interface GetStorageTargetArgs {
      */
     readonly cacheName: string;
     /**
-     * Name of the Storage Target.
-     */
-    readonly name: string;
-    /**
      * Target resource group.
      */
     readonly resourceGroupName: string;
+    /**
+     * Name of the Storage Target.
+     */
+    readonly storageTargetName: string;
 }
 
 /**

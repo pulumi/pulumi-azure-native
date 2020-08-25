@@ -59,7 +59,7 @@ export class DatabaseAccountGremlinGraph extends pulumi.CustomResource {
     /**
      * The name of the database account.
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * The configuration of the partition key to be used for partitioning data into multiple partitions
      */
@@ -104,8 +104,8 @@ export class DatabaseAccountGremlinGraph extends pulumi.CustomResource {
             if (!args || args.databaseName === undefined) {
                 throw new Error("Missing required property 'databaseName'");
             }
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
+            if (!args || args.graphName === undefined) {
+                throw new Error("Missing required property 'graphName'");
             }
             if (!args || args.options === undefined) {
                 throw new Error("Missing required property 'options'");
@@ -118,7 +118,7 @@ export class DatabaseAccountGremlinGraph extends pulumi.CustomResource {
             }
             inputs["accountName"] = args ? args.accountName : undefined;
             inputs["databaseName"] = args ? args.databaseName : undefined;
-            inputs["name"] = args ? args.name : undefined;
+            inputs["graphName"] = args ? args.graphName : undefined;
             inputs["options"] = args ? args.options : undefined;
             inputs["resource"] = args ? args.resource : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
@@ -127,6 +127,7 @@ export class DatabaseAccountGremlinGraph extends pulumi.CustomResource {
             inputs["etag"] = undefined /*out*/;
             inputs["indexingPolicy"] = undefined /*out*/;
             inputs["location"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
             inputs["partitionKey"] = undefined /*out*/;
             inputs["rid"] = undefined /*out*/;
             inputs["tags"] = undefined /*out*/;
@@ -162,7 +163,7 @@ export interface DatabaseAccountGremlinGraphArgs {
     /**
      * Cosmos DB graph name.
      */
-    readonly name: pulumi.Input<string>;
+    readonly graphName: pulumi.Input<string>;
     /**
      * A key-value pair of options to be applied for the request. This corresponds to the headers sent with the request.
      */

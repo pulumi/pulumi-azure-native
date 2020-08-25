@@ -16,8 +16,8 @@ export function getApiSchema(args: GetApiSchemaArgs, opts?: pulumi.InvokeOptions
     }
     return pulumi.runtime.invoke("azurerm:apimanagement/v20190101:getApiSchema", {
         "apiId": args.apiId,
-        "name": args.name,
         "resourceGroupName": args.resourceGroupName,
+        "schemaId": args.schemaId,
         "serviceName": args.serviceName,
     }, opts);
 }
@@ -28,13 +28,13 @@ export interface GetApiSchemaArgs {
      */
     readonly apiId: string;
     /**
-     * Schema identifier within an API. Must be unique in the current API Management service instance.
-     */
-    readonly name: string;
-    /**
      * The name of the resource group.
      */
     readonly resourceGroupName: string;
+    /**
+     * Schema identifier within an API. Must be unique in the current API Management service instance.
+     */
+    readonly schemaId: string;
     /**
      * The name of the API Management service.
      */

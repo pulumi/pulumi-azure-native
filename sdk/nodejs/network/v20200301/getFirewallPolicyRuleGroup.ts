@@ -16,8 +16,8 @@ export function getFirewallPolicyRuleGroup(args: GetFirewallPolicyRuleGroupArgs,
     }
     return pulumi.runtime.invoke("azurerm:network/v20200301:getFirewallPolicyRuleGroup", {
         "firewallPolicyName": args.firewallPolicyName,
-        "name": args.name,
         "resourceGroupName": args.resourceGroupName,
+        "ruleGroupName": args.ruleGroupName,
     }, opts);
 }
 
@@ -27,13 +27,13 @@ export interface GetFirewallPolicyRuleGroupArgs {
      */
     readonly firewallPolicyName: string;
     /**
-     * The name of the FirewallPolicyRuleGroup.
-     */
-    readonly name: string;
-    /**
      * The name of the resource group.
      */
     readonly resourceGroupName: string;
+    /**
+     * The name of the FirewallPolicyRuleGroup.
+     */
+    readonly ruleGroupName: string;
 }
 
 /**

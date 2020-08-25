@@ -93,8 +93,8 @@ export class ExpressRouteCircuitConnection extends pulumi.CustomResource {
             if (!args || args.circuitName === undefined) {
                 throw new Error("Missing required property 'circuitName'");
             }
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
+            if (!args || args.connectionName === undefined) {
+                throw new Error("Missing required property 'connectionName'");
             }
             if (!args || args.peeringName === undefined) {
                 throw new Error("Missing required property 'peeringName'");
@@ -106,6 +106,7 @@ export class ExpressRouteCircuitConnection extends pulumi.CustomResource {
             inputs["authorizationKey"] = args ? args.authorizationKey : undefined;
             inputs["circuitConnectionStatus"] = args ? args.circuitConnectionStatus : undefined;
             inputs["circuitName"] = args ? args.circuitName : undefined;
+            inputs["connectionName"] = args ? args.connectionName : undefined;
             inputs["expressRouteCircuitPeering"] = args ? args.expressRouteCircuitPeering : undefined;
             inputs["id"] = args ? args.id : undefined;
             inputs["ipv6CircuitConnectionConfig"] = args ? args.ipv6CircuitConnectionConfig : undefined;
@@ -151,6 +152,10 @@ export interface ExpressRouteCircuitConnectionArgs {
      */
     readonly circuitName: pulumi.Input<string>;
     /**
+     * The name of the express route circuit connection.
+     */
+    readonly connectionName: pulumi.Input<string>;
+    /**
      * Reference to Express Route Circuit Private Peering Resource of the circuit initiating connection.
      */
     readonly expressRouteCircuitPeering?: pulumi.Input<inputs.network.v20191201.SubResource>;
@@ -163,9 +168,9 @@ export interface ExpressRouteCircuitConnectionArgs {
      */
     readonly ipv6CircuitConnectionConfig?: pulumi.Input<inputs.network.v20191201.Ipv6CircuitConnectionConfig>;
     /**
-     * The name of the express route circuit connection.
+     * The name of the resource that is unique within a resource group. This name can be used to access the resource.
      */
-    readonly name: pulumi.Input<string>;
+    readonly name?: pulumi.Input<string>;
     /**
      * Reference to Express Route Circuit Private Peering Resource of the peered circuit.
      */

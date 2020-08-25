@@ -51,7 +51,7 @@ export class EventHub extends pulumi.CustomResource {
     /**
      * Resource name.
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * Number of partitions created for the Event Hub, allowed values are from 1 to 32 partitions.
      */
@@ -86,8 +86,8 @@ export class EventHub extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             const args = argsOrState as EventHubArgs | undefined;
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
+            if (!args || args.eventHubName === undefined) {
+                throw new Error("Missing required property 'eventHubName'");
             }
             if (!args || args.namespaceName === undefined) {
                 throw new Error("Missing required property 'namespaceName'");
@@ -96,13 +96,14 @@ export class EventHub extends pulumi.CustomResource {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["captureDescription"] = args ? args.captureDescription : undefined;
+            inputs["eventHubName"] = args ? args.eventHubName : undefined;
             inputs["messageRetentionInDays"] = args ? args.messageRetentionInDays : undefined;
-            inputs["name"] = args ? args.name : undefined;
             inputs["namespaceName"] = args ? args.namespaceName : undefined;
             inputs["partitionCount"] = args ? args.partitionCount : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["status"] = args ? args.status : undefined;
             inputs["createdAt"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
             inputs["partitionIds"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
             inputs["updatedAt"] = undefined /*out*/;
@@ -129,13 +130,13 @@ export interface EventHubArgs {
      */
     readonly captureDescription?: pulumi.Input<inputs.eventhub.v20170401.CaptureDescription>;
     /**
+     * The Event Hub name
+     */
+    readonly eventHubName: pulumi.Input<string>;
+    /**
      * Number of days to retain the events for this Event Hub, value should be 1 to 7 days
      */
     readonly messageRetentionInDays?: pulumi.Input<number>;
-    /**
-     * The Event Hub name
-     */
-    readonly name: pulumi.Input<string>;
     /**
      * The Namespace name
      */

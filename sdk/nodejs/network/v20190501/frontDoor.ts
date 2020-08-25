@@ -75,7 +75,7 @@ export class FrontDoor extends pulumi.CustomResource {
     /**
      * Resource name.
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * Provisioning state of the Front Door.
      */
@@ -110,8 +110,8 @@ export class FrontDoor extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             const args = argsOrState as FrontDoorArgs | undefined;
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
+            if (!args || args.frontDoorName === undefined) {
+                throw new Error("Missing required property 'frontDoorName'");
             }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
@@ -120,16 +120,17 @@ export class FrontDoor extends pulumi.CustomResource {
             inputs["backendPoolsSettings"] = args ? args.backendPoolsSettings : undefined;
             inputs["enabledState"] = args ? args.enabledState : undefined;
             inputs["friendlyName"] = args ? args.friendlyName : undefined;
+            inputs["frontDoorName"] = args ? args.frontDoorName : undefined;
             inputs["frontendEndpoints"] = args ? args.frontendEndpoints : undefined;
             inputs["healthProbeSettings"] = args ? args.healthProbeSettings : undefined;
             inputs["loadBalancingSettings"] = args ? args.loadBalancingSettings : undefined;
             inputs["location"] = args ? args.location : undefined;
-            inputs["name"] = args ? args.name : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["resourceState"] = args ? args.resourceState : undefined;
             inputs["routingRules"] = args ? args.routingRules : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["cname"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
@@ -167,6 +168,10 @@ export interface FrontDoorArgs {
      */
     readonly friendlyName?: pulumi.Input<string>;
     /**
+     * Name of the Front Door which is globally unique.
+     */
+    readonly frontDoorName: pulumi.Input<string>;
+    /**
      * Frontend endpoints available to routing rules.
      */
     readonly frontendEndpoints?: pulumi.Input<pulumi.Input<inputs.network.v20190501.FrontendEndpoint>[]>;
@@ -182,10 +187,6 @@ export interface FrontDoorArgs {
      * Resource location.
      */
     readonly location?: pulumi.Input<string>;
-    /**
-     * Name of the Front Door which is globally unique.
-     */
-    readonly name: pulumi.Input<string>;
     /**
      * Name of the Resource group within the Azure subscription.
      */

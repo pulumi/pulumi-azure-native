@@ -16,9 +16,9 @@ export function getReplicationvCenter(args: GetReplicationvCenterArgs, opts?: pu
     }
     return pulumi.runtime.invoke("azurerm:recoveryservices/v20160810:getReplicationvCenter", {
         "fabricName": args.fabricName,
-        "name": args.name,
         "resourceGroupName": args.resourceGroupName,
         "resourceName": args.resourceName,
+        "vCenterName": args.vCenterName,
     }, opts);
 }
 
@@ -28,10 +28,6 @@ export interface GetReplicationvCenterArgs {
      */
     readonly fabricName: string;
     /**
-     * vCenter name.
-     */
-    readonly name: string;
-    /**
      * The name of the resource group where the recovery services vault is present.
      */
     readonly resourceGroupName: string;
@@ -39,6 +35,10 @@ export interface GetReplicationvCenterArgs {
      * The name of the recovery services vault.
      */
     readonly resourceName: string;
+    /**
+     * vCenter name.
+     */
+    readonly vCenterName: string;
 }
 
 /**

@@ -53,7 +53,7 @@ export class View extends pulumi.CustomResource {
     /**
      * Resource name.
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * the hub name.
      */
@@ -69,7 +69,7 @@ export class View extends pulumi.CustomResource {
     /**
      * Name of the view.
      */
-    public /*out*/ readonly viewName!: pulumi.Output<string>;
+    public readonly viewName!: pulumi.Output<string>;
 
     /**
      * Create a View resource with the given unique name, arguments, and options.
@@ -90,23 +90,23 @@ export class View extends pulumi.CustomResource {
             if (!args || args.hubName === undefined) {
                 throw new Error("Missing required property 'hubName'");
             }
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
-            }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
+            }
+            if (!args || args.viewName === undefined) {
+                throw new Error("Missing required property 'viewName'");
             }
             inputs["definition"] = args ? args.definition : undefined;
             inputs["displayName"] = args ? args.displayName : undefined;
             inputs["hubName"] = args ? args.hubName : undefined;
-            inputs["name"] = args ? args.name : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["userId"] = args ? args.userId : undefined;
+            inputs["viewName"] = args ? args.viewName : undefined;
             inputs["changed"] = undefined /*out*/;
             inputs["created"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
             inputs["tenantId"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
-            inputs["viewName"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -138,10 +138,6 @@ export interface ViewArgs {
      */
     readonly hubName: pulumi.Input<string>;
     /**
-     * The name of the view.
-     */
-    readonly name: pulumi.Input<string>;
-    /**
      * The name of the resource group.
      */
     readonly resourceGroupName: pulumi.Input<string>;
@@ -149,4 +145,8 @@ export interface ViewArgs {
      * the user ID.
      */
     readonly userId?: pulumi.Input<string>;
+    /**
+     * The name of the view.
+     */
+    readonly viewName: pulumi.Input<string>;
 }

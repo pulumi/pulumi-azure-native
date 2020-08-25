@@ -16,7 +16,7 @@ export function getPrediction(args: GetPredictionArgs, opts?: pulumi.InvokeOptio
     }
     return pulumi.runtime.invoke("azurerm:customerinsights/v20170426:getPrediction", {
         "hubName": args.hubName,
-        "name": args.name,
+        "predictionName": args.predictionName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);
 }
@@ -29,7 +29,7 @@ export interface GetPredictionArgs {
     /**
      * The name of the Prediction.
      */
-    readonly name: string;
+    readonly predictionName: string;
     /**
      * The name of the resource group.
      */

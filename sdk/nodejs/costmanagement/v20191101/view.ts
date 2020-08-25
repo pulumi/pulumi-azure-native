@@ -75,7 +75,7 @@ export class View extends pulumi.CustomResource {
     /**
      * Resource name.
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * Configuration of 3 sub-views in the Cost Analysis UI.
      */
@@ -110,14 +110,14 @@ export class View extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             const args = argsOrState as ViewArgs | undefined;
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
-            }
             if (!args || args.timeframe === undefined) {
                 throw new Error("Missing required property 'timeframe'");
             }
             if (!args || args.type === undefined) {
                 throw new Error("Missing required property 'type'");
+            }
+            if (!args || args.viewName === undefined) {
+                throw new Error("Missing required property 'viewName'");
             }
             inputs["accumulated"] = args ? args.accumulated : undefined;
             inputs["chart"] = args ? args.chart : undefined;
@@ -126,14 +126,15 @@ export class View extends pulumi.CustomResource {
             inputs["eTag"] = args ? args.eTag : undefined;
             inputs["kpis"] = args ? args.kpis : undefined;
             inputs["metric"] = args ? args.metric : undefined;
-            inputs["name"] = args ? args.name : undefined;
             inputs["pivots"] = args ? args.pivots : undefined;
             inputs["scope"] = args ? args.scope : undefined;
             inputs["timePeriod"] = args ? args.timePeriod : undefined;
             inputs["timeframe"] = args ? args.timeframe : undefined;
             inputs["type"] = args ? args.type : undefined;
+            inputs["viewName"] = args ? args.viewName : undefined;
             inputs["createdOn"] = undefined /*out*/;
             inputs["modifiedOn"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -181,10 +182,6 @@ export interface ViewArgs {
      */
     readonly metric?: pulumi.Input<string>;
     /**
-     * View name
-     */
-    readonly name: pulumi.Input<string>;
-    /**
      * Configuration of 3 sub-views in the Cost Analysis UI.
      */
     readonly pivots?: pulumi.Input<pulumi.Input<inputs.costmanagement.v20191101.PivotProperties>[]>;
@@ -204,4 +201,8 @@ export interface ViewArgs {
      * The type of the report. Usage represents actual usage, forecast represents forecasted data and UsageAndForecast represents both usage and forecasted data. Actual usage and forecasted data can be differentiated based on dates.
      */
     readonly type: pulumi.Input<string>;
+    /**
+     * View name
+     */
+    readonly viewName: pulumi.Input<string>;
 }

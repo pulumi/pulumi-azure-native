@@ -43,7 +43,7 @@ export class ManagementPolicy extends pulumi.CustomResource {
     /**
      * The name of the resource
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * The Storage Account ManagementPolicy, in JSON format. See more details in: https://docs.microsoft.com/en-us/azure/storage/common/storage-lifecycle-managment-concepts.
      */
@@ -69,8 +69,8 @@ export class ManagementPolicy extends pulumi.CustomResource {
             if (!args || args.accountName === undefined) {
                 throw new Error("Missing required property 'accountName'");
             }
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
+            if (!args || args.managementPolicyName === undefined) {
+                throw new Error("Missing required property 'managementPolicyName'");
             }
             if (!args || args.policy === undefined) {
                 throw new Error("Missing required property 'policy'");
@@ -79,10 +79,11 @@ export class ManagementPolicy extends pulumi.CustomResource {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["accountName"] = args ? args.accountName : undefined;
-            inputs["name"] = args ? args.name : undefined;
+            inputs["managementPolicyName"] = args ? args.managementPolicyName : undefined;
             inputs["policy"] = args ? args.policy : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["lastModifiedTime"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -109,7 +110,7 @@ export interface ManagementPolicyArgs {
     /**
      * The name of the Storage Account Management Policy. It should always be 'default'
      */
-    readonly name: pulumi.Input<string>;
+    readonly managementPolicyName: pulumi.Input<string>;
     /**
      * The Storage Account ManagementPolicy, in JSON format. See more details in: https://docs.microsoft.com/en-us/azure/storage/common/storage-lifecycle-managment-concepts.
      */

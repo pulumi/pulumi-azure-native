@@ -43,7 +43,7 @@ export class ManagementLockAtResourceLevel extends pulumi.CustomResource {
     /**
      * The name of the lock.
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * Notes about the lock. Maximum of 512 characters.
      */
@@ -73,8 +73,8 @@ export class ManagementLockAtResourceLevel extends pulumi.CustomResource {
             if (!args || args.level === undefined) {
                 throw new Error("Missing required property 'level'");
             }
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
+            if (!args || args.lockName === undefined) {
+                throw new Error("Missing required property 'lockName'");
             }
             if (!args || args.parentResourcePath === undefined) {
                 throw new Error("Missing required property 'parentResourcePath'");
@@ -92,7 +92,7 @@ export class ManagementLockAtResourceLevel extends pulumi.CustomResource {
                 throw new Error("Missing required property 'resourceType'");
             }
             inputs["level"] = args ? args.level : undefined;
-            inputs["name"] = args ? args.name : undefined;
+            inputs["lockName"] = args ? args.lockName : undefined;
             inputs["notes"] = args ? args.notes : undefined;
             inputs["owners"] = args ? args.owners : undefined;
             inputs["parentResourcePath"] = args ? args.parentResourcePath : undefined;
@@ -100,6 +100,7 @@ export class ManagementLockAtResourceLevel extends pulumi.CustomResource {
             inputs["resourceName"] = args ? args.resourceName : undefined;
             inputs["resourceProviderNamespace"] = args ? args.resourceProviderNamespace : undefined;
             inputs["resourceType"] = args ? args.resourceType : undefined;
+            inputs["name"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -126,7 +127,7 @@ export interface ManagementLockAtResourceLevelArgs {
     /**
      * The name of lock. The lock name can be a maximum of 260 characters. It cannot contain <, > %, &, :, \, ?, /, or any control characters.
      */
-    readonly name: pulumi.Input<string>;
+    readonly lockName: pulumi.Input<string>;
     /**
      * Notes about the lock. Maximum of 512 characters.
      */

@@ -81,6 +81,9 @@ export class ConnectionType extends pulumi.CustomResource {
             if (!args || args.automationAccountName === undefined) {
                 throw new Error("Missing required property 'automationAccountName'");
             }
+            if (!args || args.connectionTypeName === undefined) {
+                throw new Error("Missing required property 'connectionTypeName'");
+            }
             if (!args || args.fieldDefinitions === undefined) {
                 throw new Error("Missing required property 'fieldDefinitions'");
             }
@@ -91,6 +94,7 @@ export class ConnectionType extends pulumi.CustomResource {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["automationAccountName"] = args ? args.automationAccountName : undefined;
+            inputs["connectionTypeName"] = args ? args.connectionTypeName : undefined;
             inputs["fieldDefinitions"] = args ? args.fieldDefinitions : undefined;
             inputs["isGlobal"] = args ? args.isGlobal : undefined;
             inputs["name"] = args ? args.name : undefined;
@@ -120,6 +124,10 @@ export interface ConnectionTypeArgs {
      */
     readonly automationAccountName: pulumi.Input<string>;
     /**
+     * The parameters supplied to the create or update connection type operation.
+     */
+    readonly connectionTypeName: pulumi.Input<string>;
+    /**
      * Gets or sets the field definitions of the connection type.
      */
     readonly fieldDefinitions: pulumi.Input<{[key: string]: pulumi.Input<inputs.automation.v20151031.FieldDefinition>}>;
@@ -128,7 +136,7 @@ export interface ConnectionTypeArgs {
      */
     readonly isGlobal?: pulumi.Input<boolean>;
     /**
-     * The parameters supplied to the create or update connection type operation.
+     * Gets or sets the name of the connection type.
      */
     readonly name: pulumi.Input<string>;
     /**

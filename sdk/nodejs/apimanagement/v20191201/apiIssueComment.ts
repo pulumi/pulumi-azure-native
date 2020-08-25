@@ -41,7 +41,7 @@ export class ApiIssueComment extends pulumi.CustomResource {
     /**
      * Resource name.
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * Comment text.
      */
@@ -71,11 +71,11 @@ export class ApiIssueComment extends pulumi.CustomResource {
             if (!args || args.apiId === undefined) {
                 throw new Error("Missing required property 'apiId'");
             }
+            if (!args || args.commentId === undefined) {
+                throw new Error("Missing required property 'commentId'");
+            }
             if (!args || args.issueId === undefined) {
                 throw new Error("Missing required property 'issueId'");
-            }
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
             }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
@@ -90,13 +90,14 @@ export class ApiIssueComment extends pulumi.CustomResource {
                 throw new Error("Missing required property 'userId'");
             }
             inputs["apiId"] = args ? args.apiId : undefined;
+            inputs["commentId"] = args ? args.commentId : undefined;
             inputs["createdDate"] = args ? args.createdDate : undefined;
             inputs["issueId"] = args ? args.issueId : undefined;
-            inputs["name"] = args ? args.name : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["serviceName"] = args ? args.serviceName : undefined;
             inputs["text"] = args ? args.text : undefined;
             inputs["userId"] = args ? args.userId : undefined;
+            inputs["name"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -121,6 +122,10 @@ export interface ApiIssueCommentArgs {
      */
     readonly apiId: pulumi.Input<string>;
     /**
+     * Comment identifier within an Issue. Must be unique in the current Issue.
+     */
+    readonly commentId: pulumi.Input<string>;
+    /**
      * Date and time when the comment was created.
      */
     readonly createdDate?: pulumi.Input<string>;
@@ -128,10 +133,6 @@ export interface ApiIssueCommentArgs {
      * Issue identifier. Must be unique in the current API Management service instance.
      */
     readonly issueId: pulumi.Input<string>;
-    /**
-     * Comment identifier within an Issue. Must be unique in the current Issue.
-     */
-    readonly name: pulumi.Input<string>;
     /**
      * The name of the resource group.
      */

@@ -43,7 +43,7 @@ export class PeeringService extends pulumi.CustomResource {
     /**
      * The name of the resource.
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * The PeeringServiceLocation of the Customer.
      */
@@ -85,19 +85,20 @@ export class PeeringService extends pulumi.CustomResource {
             if (!args || args.location === undefined) {
                 throw new Error("Missing required property 'location'");
             }
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
+            if (!args || args.peeringServiceName === undefined) {
+                throw new Error("Missing required property 'peeringServiceName'");
             }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["location"] = args ? args.location : undefined;
-            inputs["name"] = args ? args.name : undefined;
             inputs["peeringServiceLocation"] = args ? args.peeringServiceLocation : undefined;
+            inputs["peeringServiceName"] = args ? args.peeringServiceName : undefined;
             inputs["peeringServiceProvider"] = args ? args.peeringServiceProvider : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["sku"] = args ? args.sku : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["name"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
@@ -121,13 +122,13 @@ export interface PeeringServiceArgs {
      */
     readonly location: pulumi.Input<string>;
     /**
-     * The name of the peering service.
-     */
-    readonly name: pulumi.Input<string>;
-    /**
      * The PeeringServiceLocation of the Customer.
      */
     readonly peeringServiceLocation?: pulumi.Input<string>;
+    /**
+     * The name of the peering service.
+     */
+    readonly peeringServiceName: pulumi.Input<string>;
     /**
      * The MAPS Provider Name.
      */

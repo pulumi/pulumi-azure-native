@@ -15,20 +15,20 @@ export function getUserAssignedIdentity(args: GetUserAssignedIdentityArgs, opts?
         opts.version = utilities.getVersion();
     }
     return pulumi.runtime.invoke("azurerm:managedidentity/v20181130:getUserAssignedIdentity", {
-        "name": args.name,
         "resourceGroupName": args.resourceGroupName,
+        "resourceName": args.resourceName,
     }, opts);
 }
 
 export interface GetUserAssignedIdentityArgs {
     /**
-     * The name of the identity resource.
-     */
-    readonly name: string;
-    /**
      * The name of the Resource Group to which the identity belongs.
      */
     readonly resourceGroupName: string;
+    /**
+     * The name of the identity resource.
+     */
+    readonly resourceName: string;
 }
 
 /**

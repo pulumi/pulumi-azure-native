@@ -15,7 +15,7 @@ export function getExpressRouteCircuit(args: GetExpressRouteCircuitArgs, opts?: 
         opts.version = utilities.getVersion();
     }
     return pulumi.runtime.invoke("azurerm:network/v20180601:getExpressRouteCircuit", {
-        "name": args.name,
+        "circuitName": args.circuitName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);
 }
@@ -24,7 +24,7 @@ export interface GetExpressRouteCircuitArgs {
     /**
      * The name of express route circuit.
      */
-    readonly name: string;
+    readonly circuitName: string;
     /**
      * The name of the resource group.
      */

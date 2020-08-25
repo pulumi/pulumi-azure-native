@@ -43,7 +43,7 @@ export class Group extends pulumi.CustomResource {
     /**
      * Name of the group.
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * Properties of the group.
      */
@@ -66,8 +66,8 @@ export class Group extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             const args = argsOrState as GroupArgs | undefined;
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
+            if (!args || args.groupName === undefined) {
+                throw new Error("Missing required property 'groupName'");
             }
             if (!args || args.projectName === undefined) {
                 throw new Error("Missing required property 'projectName'");
@@ -76,9 +76,10 @@ export class Group extends pulumi.CustomResource {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["eTag"] = args ? args.eTag : undefined;
-            inputs["name"] = args ? args.name : undefined;
+            inputs["groupName"] = args ? args.groupName : undefined;
             inputs["projectName"] = args ? args.projectName : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["name"] = undefined /*out*/;
             inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
@@ -104,7 +105,7 @@ export interface GroupArgs {
     /**
      * Unique name of a group within a project.
      */
-    readonly name: pulumi.Input<string>;
+    readonly groupName: pulumi.Input<string>;
     /**
      * Name of the Azure Migrate project.
      */

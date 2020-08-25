@@ -63,7 +63,7 @@ export class DscpConfiguration extends pulumi.CustomResource {
     /**
      * Resource name.
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * RNM supported protocol types.
      */
@@ -110,18 +110,18 @@ export class DscpConfiguration extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             const args = argsOrState as DscpConfigurationArgs | undefined;
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
+            if (!args || args.dscpConfigurationName === undefined) {
+                throw new Error("Missing required property 'dscpConfigurationName'");
             }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["destinationIpRanges"] = args ? args.destinationIpRanges : undefined;
             inputs["destinationPortRanges"] = args ? args.destinationPortRanges : undefined;
+            inputs["dscpConfigurationName"] = args ? args.dscpConfigurationName : undefined;
             inputs["id"] = args ? args.id : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["markings"] = args ? args.markings : undefined;
-            inputs["name"] = args ? args.name : undefined;
             inputs["protocol"] = args ? args.protocol : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["sourceIpRanges"] = args ? args.sourceIpRanges : undefined;
@@ -129,6 +129,7 @@ export class DscpConfiguration extends pulumi.CustomResource {
             inputs["tags"] = args ? args.tags : undefined;
             inputs["associatedNetworkInterfaces"] = undefined /*out*/;
             inputs["etag"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
             inputs["qosCollectionId"] = undefined /*out*/;
             inputs["resourceGuid"] = undefined /*out*/;
@@ -158,6 +159,10 @@ export interface DscpConfigurationArgs {
      */
     readonly destinationPortRanges?: pulumi.Input<pulumi.Input<inputs.network.v20200601.QosPortRange>[]>;
     /**
+     * The name of the resource.
+     */
+    readonly dscpConfigurationName: pulumi.Input<string>;
+    /**
      * Resource ID.
      */
     readonly id?: pulumi.Input<string>;
@@ -169,10 +174,6 @@ export interface DscpConfigurationArgs {
      * List of markings to be used in the configuration.
      */
     readonly markings?: pulumi.Input<pulumi.Input<number>[]>;
-    /**
-     * The name of the resource.
-     */
-    readonly name: pulumi.Input<string>;
     /**
      * RNM supported protocol types.
      */

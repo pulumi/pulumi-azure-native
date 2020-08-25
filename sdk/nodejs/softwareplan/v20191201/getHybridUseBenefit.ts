@@ -15,7 +15,7 @@ export function getHybridUseBenefit(args: GetHybridUseBenefitArgs, opts?: pulumi
         opts.version = utilities.getVersion();
     }
     return pulumi.runtime.invoke("azurerm:softwareplan/v20191201:getHybridUseBenefit", {
-        "name": args.name,
+        "planId": args.planId,
         "scope": args.scope,
     }, opts);
 }
@@ -24,7 +24,7 @@ export interface GetHybridUseBenefitArgs {
     /**
      * This is a unique identifier for a plan. Should be a guid.
      */
-    readonly name: string;
+    readonly planId: string;
     /**
      * The scope at which the operation is performed. This is limited to Microsoft.Compute/virtualMachines and Microsoft.Compute/hostGroups/hosts for now
      */

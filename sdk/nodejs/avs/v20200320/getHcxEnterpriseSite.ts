@@ -15,7 +15,7 @@ export function getHcxEnterpriseSite(args: GetHcxEnterpriseSiteArgs, opts?: pulu
         opts.version = utilities.getVersion();
     }
     return pulumi.runtime.invoke("azurerm:avs/v20200320:getHcxEnterpriseSite", {
-        "name": args.name,
+        "hcxEnterpriseSiteName": args.hcxEnterpriseSiteName,
         "privateCloudName": args.privateCloudName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);
@@ -25,7 +25,7 @@ export interface GetHcxEnterpriseSiteArgs {
     /**
      * Name of the HCX Enterprise Site in the private cloud
      */
-    readonly name: string;
+    readonly hcxEnterpriseSiteName: string;
     /**
      * Name of the private cloud
      */

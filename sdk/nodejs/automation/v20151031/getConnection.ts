@@ -16,7 +16,7 @@ export function getConnection(args: GetConnectionArgs, opts?: pulumi.InvokeOptio
     }
     return pulumi.runtime.invoke("azurerm:automation/v20151031:getConnection", {
         "automationAccountName": args.automationAccountName,
-        "name": args.name,
+        "connectionName": args.connectionName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);
 }
@@ -29,7 +29,7 @@ export interface GetConnectionArgs {
     /**
      * The name of connection.
      */
-    readonly name: string;
+    readonly connectionName: string;
     /**
      * Name of an Azure Resource group.
      */

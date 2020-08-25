@@ -95,6 +95,9 @@ export class ServerFarmRouteForVnet extends pulumi.CustomResource {
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            if (!args || args.routeName === undefined) {
+                throw new Error("Missing required property 'routeName'");
+            }
             if (!args || args.vnetName === undefined) {
                 throw new Error("Missing required property 'vnetName'");
             }
@@ -104,6 +107,7 @@ export class ServerFarmRouteForVnet extends pulumi.CustomResource {
             inputs["location"] = args ? args.location : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["routeName"] = args ? args.routeName : undefined;
             inputs["routeType"] = args ? args.routeType : undefined;
             inputs["startAddress"] = args ? args.startAddress : undefined;
             inputs["tags"] = args ? args.tags : undefined;
@@ -144,13 +148,17 @@ export interface ServerFarmRouteForVnetArgs {
      */
     readonly location: pulumi.Input<string>;
     /**
-     * Name of the virtual network route
+     * Resource Name
      */
     readonly name: pulumi.Input<string>;
     /**
      * Name of resource group
      */
     readonly resourceGroupName: pulumi.Input<string>;
+    /**
+     * Name of the virtual network route
+     */
+    readonly routeName: pulumi.Input<string>;
     /**
      * The type of route this is:
      *             DEFAULT - By default, every web app has routes to the local address ranges specified by RFC1918

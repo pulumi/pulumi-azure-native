@@ -45,7 +45,7 @@ export class Workspace extends pulumi.CustomResource {
     /**
      * The name of the resource
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * The provisioned state of the Workspace
      */
@@ -79,17 +79,18 @@ export class Workspace extends pulumi.CustomResource {
             if (!args || args.location === undefined) {
                 throw new Error("Missing required property 'location'");
             }
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
-            }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            if (!args || args.workspaceName === undefined) {
+                throw new Error("Missing required property 'workspaceName'");
+            }
             inputs["location"] = args ? args.location : undefined;
-            inputs["name"] = args ? args.name : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["workspaceName"] = args ? args.workspaceName : undefined;
             inputs["creationTime"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
             inputs["provisioningStateTransitionTime"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
@@ -114,10 +115,6 @@ export interface WorkspaceArgs {
      */
     readonly location: pulumi.Input<string>;
     /**
-     * The name of the workspace. Workspace names can only contain a combination of alphanumeric characters along with dash (-) and underscore (_). The name must be from 1 through 64 characters long.
-     */
-    readonly name: pulumi.Input<string>;
-    /**
      * Name of the resource group to which the resource belongs.
      */
     readonly resourceGroupName: pulumi.Input<string>;
@@ -125,4 +122,8 @@ export interface WorkspaceArgs {
      * The user specified tags associated with the Workspace.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * The name of the workspace. Workspace names can only contain a combination of alphanumeric characters along with dash (-) and underscore (_). The name must be from 1 through 64 characters long.
+     */
+    readonly workspaceName: pulumi.Input<string>;
 }

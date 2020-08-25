@@ -16,7 +16,7 @@ export function getJitNetworkAccessPolicy(args: GetJitNetworkAccessPolicyArgs, o
     }
     return pulumi.runtime.invoke("azurerm:security/v20200101:getJitNetworkAccessPolicy", {
         "ascLocation": args.ascLocation,
-        "name": args.name,
+        "jitNetworkAccessPolicyName": args.jitNetworkAccessPolicyName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);
 }
@@ -29,7 +29,7 @@ export interface GetJitNetworkAccessPolicyArgs {
     /**
      * Name of a Just-in-Time access configuration policy.
      */
-    readonly name: string;
+    readonly jitNetworkAccessPolicyName: string;
     /**
      * The name of the resource group within the user's subscription. The name is case insensitive.
      */

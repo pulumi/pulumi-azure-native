@@ -15,8 +15,8 @@ export function getConsumerGroup(args: GetConsumerGroupArgs, opts?: pulumi.Invok
         opts.version = utilities.getVersion();
     }
     return pulumi.runtime.invoke("azurerm:eventhub/v20170401:getConsumerGroup", {
+        "consumerGroupName": args.consumerGroupName,
         "eventHubName": args.eventHubName,
-        "name": args.name,
         "namespaceName": args.namespaceName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);
@@ -24,13 +24,13 @@ export function getConsumerGroup(args: GetConsumerGroupArgs, opts?: pulumi.Invok
 
 export interface GetConsumerGroupArgs {
     /**
+     * The consumer group name
+     */
+    readonly consumerGroupName: string;
+    /**
      * The Event Hub name
      */
     readonly eventHubName: string;
-    /**
-     * The consumer group name
-     */
-    readonly name: string;
     /**
      * The Namespace name
      */

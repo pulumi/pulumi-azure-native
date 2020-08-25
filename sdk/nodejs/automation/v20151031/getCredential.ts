@@ -16,7 +16,7 @@ export function getCredential(args: GetCredentialArgs, opts?: pulumi.InvokeOptio
     }
     return pulumi.runtime.invoke("azurerm:automation/v20151031:getCredential", {
         "automationAccountName": args.automationAccountName,
-        "name": args.name,
+        "credentialName": args.credentialName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);
 }
@@ -29,7 +29,7 @@ export interface GetCredentialArgs {
     /**
      * The name of credential.
      */
-    readonly name: string;
+    readonly credentialName: string;
     /**
      * Name of an Azure Resource group.
      */

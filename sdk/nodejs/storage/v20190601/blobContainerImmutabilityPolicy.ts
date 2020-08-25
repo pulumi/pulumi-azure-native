@@ -49,7 +49,7 @@ export class BlobContainerImmutabilityPolicy extends pulumi.CustomResource {
     /**
      * The name of the resource
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * The ImmutabilityPolicy state of a blob container, possible values include: Locked and Unlocked.
      */
@@ -78,8 +78,8 @@ export class BlobContainerImmutabilityPolicy extends pulumi.CustomResource {
             if (!args || args.containerName === undefined) {
                 throw new Error("Missing required property 'containerName'");
             }
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
+            if (!args || args.immutabilityPolicyName === undefined) {
+                throw new Error("Missing required property 'immutabilityPolicyName'");
             }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
@@ -88,9 +88,10 @@ export class BlobContainerImmutabilityPolicy extends pulumi.CustomResource {
             inputs["allowProtectedAppendWrites"] = args ? args.allowProtectedAppendWrites : undefined;
             inputs["containerName"] = args ? args.containerName : undefined;
             inputs["immutabilityPeriodSinceCreationInDays"] = args ? args.immutabilityPeriodSinceCreationInDays : undefined;
-            inputs["name"] = args ? args.name : undefined;
+            inputs["immutabilityPolicyName"] = args ? args.immutabilityPolicyName : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["etag"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
             inputs["state"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
@@ -130,7 +131,7 @@ export interface BlobContainerImmutabilityPolicyArgs {
     /**
      * The name of the blob container immutabilityPolicy within the specified storage account. ImmutabilityPolicy Name must be 'default'
      */
-    readonly name: pulumi.Input<string>;
+    readonly immutabilityPolicyName: pulumi.Input<string>;
     /**
      * The name of the resource group within the user's subscription. The name is case insensitive.
      */

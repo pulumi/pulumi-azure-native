@@ -15,20 +15,20 @@ export function getApiManagementService(args: GetApiManagementServiceArgs, opts?
         opts.version = utilities.getVersion();
     }
     return pulumi.runtime.invoke("azurerm:apimanagement/v20191201:getApiManagementService", {
-        "name": args.name,
         "resourceGroupName": args.resourceGroupName,
+        "serviceName": args.serviceName,
     }, opts);
 }
 
 export interface GetApiManagementServiceArgs {
     /**
-     * The name of the API Management service.
-     */
-    readonly name: string;
-    /**
      * The name of the resource group.
      */
     readonly resourceGroupName: string;
+    /**
+     * The name of the API Management service.
+     */
+    readonly serviceName: string;
 }
 
 /**

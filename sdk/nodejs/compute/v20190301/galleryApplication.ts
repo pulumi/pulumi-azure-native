@@ -53,7 +53,7 @@ export class GalleryApplication extends pulumi.CustomResource {
     /**
      * Resource name
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * The privacy statement uri.
      */
@@ -88,14 +88,14 @@ export class GalleryApplication extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             const args = argsOrState as GalleryApplicationArgs | undefined;
+            if (!args || args.galleryApplicationName === undefined) {
+                throw new Error("Missing required property 'galleryApplicationName'");
+            }
             if (!args || args.galleryName === undefined) {
                 throw new Error("Missing required property 'galleryName'");
             }
             if (!args || args.location === undefined) {
                 throw new Error("Missing required property 'location'");
-            }
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
             }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
@@ -106,14 +106,15 @@ export class GalleryApplication extends pulumi.CustomResource {
             inputs["description"] = args ? args.description : undefined;
             inputs["endOfLifeDate"] = args ? args.endOfLifeDate : undefined;
             inputs["eula"] = args ? args.eula : undefined;
+            inputs["galleryApplicationName"] = args ? args.galleryApplicationName : undefined;
             inputs["galleryName"] = args ? args.galleryName : undefined;
             inputs["location"] = args ? args.location : undefined;
-            inputs["name"] = args ? args.name : undefined;
             inputs["privacyStatementUri"] = args ? args.privacyStatementUri : undefined;
             inputs["releaseNoteUri"] = args ? args.releaseNoteUri : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["supportedOSType"] = args ? args.supportedOSType : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["name"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -146,6 +147,10 @@ export interface GalleryApplicationArgs {
      */
     readonly eula?: pulumi.Input<string>;
     /**
+     * The name of the gallery Application Definition to be created or updated. The allowed characters are alphabets and numbers with dots, dashes, and periods allowed in the middle. The maximum length is 80 characters.
+     */
+    readonly galleryApplicationName: pulumi.Input<string>;
+    /**
      * The name of the Shared Application Gallery in which the Application Definition is to be created.
      */
     readonly galleryName: pulumi.Input<string>;
@@ -153,10 +158,6 @@ export interface GalleryApplicationArgs {
      * Resource location
      */
     readonly location: pulumi.Input<string>;
-    /**
-     * The name of the gallery Application Definition to be created or updated. The allowed characters are alphabets and numbers with dots, dashes, and periods allowed in the middle. The maximum length is 80 characters.
-     */
-    readonly name: pulumi.Input<string>;
     /**
      * The privacy statement uri.
      */

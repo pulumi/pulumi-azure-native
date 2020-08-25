@@ -15,7 +15,7 @@ export function getServerCommunicationLink(args: GetServerCommunicationLinkArgs,
         opts.version = utilities.getVersion();
     }
     return pulumi.runtime.invoke("azurerm:sql/v20140401:getServerCommunicationLink", {
-        "name": args.name,
+        "communicationLinkName": args.communicationLinkName,
         "resourceGroupName": args.resourceGroupName,
         "serverName": args.serverName,
     }, opts);
@@ -25,7 +25,7 @@ export interface GetServerCommunicationLinkArgs {
     /**
      * The name of the server communication link.
      */
-    readonly name: string;
+    readonly communicationLinkName: string;
     /**
      * The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
      */

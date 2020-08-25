@@ -92,7 +92,7 @@ export class Pool extends pulumi.CustomResource {
     /**
      * The name of the resource.
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * The network configuration for a pool.
      */
@@ -144,8 +144,8 @@ export class Pool extends pulumi.CustomResource {
             if (!args || args.accountName === undefined) {
                 throw new Error("Missing required property 'accountName'");
             }
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
+            if (!args || args.poolName === undefined) {
+                throw new Error("Missing required property 'poolName'");
             }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
@@ -159,8 +159,8 @@ export class Pool extends pulumi.CustomResource {
             inputs["interNodeCommunication"] = args ? args.interNodeCommunication : undefined;
             inputs["maxTasksPerNode"] = args ? args.maxTasksPerNode : undefined;
             inputs["metadata"] = args ? args.metadata : undefined;
-            inputs["name"] = args ? args.name : undefined;
             inputs["networkConfiguration"] = args ? args.networkConfiguration : undefined;
+            inputs["poolName"] = args ? args.poolName : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["scaleSettings"] = args ? args.scaleSettings : undefined;
             inputs["startTask"] = args ? args.startTask : undefined;
@@ -175,6 +175,7 @@ export class Pool extends pulumi.CustomResource {
             inputs["currentLowPriorityNodes"] = undefined /*out*/;
             inputs["etag"] = undefined /*out*/;
             inputs["lastModified"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
             inputs["provisioningStateTransitionTime"] = undefined /*out*/;
             inputs["resizeOperationStatus"] = undefined /*out*/;
@@ -231,13 +232,13 @@ export interface PoolArgs {
      */
     readonly metadata?: pulumi.Input<pulumi.Input<inputs.batch.v20170901.MetadataItem>[]>;
     /**
-     * The pool name. This must be unique within the account.
-     */
-    readonly name: pulumi.Input<string>;
-    /**
      * The network configuration for a pool.
      */
     readonly networkConfiguration?: pulumi.Input<inputs.batch.v20170901.NetworkConfiguration>;
+    /**
+     * The pool name. This must be unique within the account.
+     */
+    readonly poolName: pulumi.Input<string>;
     /**
      * The name of the resource group that contains the Batch account.
      */

@@ -108,7 +108,7 @@ export class Job extends pulumi.CustomResource {
     /**
      * The name of the resource
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * The job will be gang scheduled on that many compute nodes
      */
@@ -171,11 +171,11 @@ export class Job extends pulumi.CustomResource {
             if (!args || args.cluster === undefined) {
                 throw new Error("Missing required property 'cluster'");
             }
+            if (!args || args.jobName === undefined) {
+                throw new Error("Missing required property 'jobName'");
+            }
             if (!args || args.location === undefined) {
                 throw new Error("Missing required property 'location'");
-            }
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
             }
             if (!args || args.nodeCount === undefined) {
                 throw new Error("Missing required property 'nodeCount'");
@@ -197,10 +197,10 @@ export class Job extends pulumi.CustomResource {
             inputs["environmentVariables"] = args ? args.environmentVariables : undefined;
             inputs["experimentName"] = args ? args.experimentName : undefined;
             inputs["inputDirectories"] = args ? args.inputDirectories : undefined;
+            inputs["jobName"] = args ? args.jobName : undefined;
             inputs["jobPreparation"] = args ? args.jobPreparation : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["mountVolumes"] = args ? args.mountVolumes : undefined;
-            inputs["name"] = args ? args.name : undefined;
             inputs["nodeCount"] = args ? args.nodeCount : undefined;
             inputs["outputDirectories"] = args ? args.outputDirectories : undefined;
             inputs["priority"] = args ? args.priority : undefined;
@@ -215,6 +215,7 @@ export class Job extends pulumi.CustomResource {
             inputs["executionState"] = undefined /*out*/;
             inputs["executionStateTransitionTime"] = undefined /*out*/;
             inputs["jobOutputDirectoryPathSegment"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
             inputs["provisioningStateTransitionTime"] = undefined /*out*/;
             inputs["toolType"] = undefined /*out*/;
@@ -277,6 +278,10 @@ export interface JobArgs {
     readonly experimentName?: pulumi.Input<string>;
     readonly inputDirectories?: pulumi.Input<pulumi.Input<inputs.batchai.v20180301.InputDirectory>[]>;
     /**
+     * The name of the job within the specified resource group. Job names can only contain a combination of alphanumeric characters along with dash (-) and underscore (_). The name must be from 1 through 64 characters long.
+     */
+    readonly jobName: pulumi.Input<string>;
+    /**
      * The specified actions will run on all the nodes that are part of the job
      */
     readonly jobPreparation?: pulumi.Input<inputs.batchai.v20180301.JobPreparation>;
@@ -288,10 +293,6 @@ export interface JobArgs {
      * These volumes will be mounted before the job execution and will be unmounted after the job completion. The volumes will be mounted at location specified by $AZ_BATCHAI_JOB_MOUNT_ROOT environment variable.
      */
     readonly mountVolumes?: pulumi.Input<inputs.batchai.v20180301.MountVolumes>;
-    /**
-     * The name of the job within the specified resource group. Job names can only contain a combination of alphanumeric characters along with dash (-) and underscore (_). The name must be from 1 through 64 characters long.
-     */
-    readonly name: pulumi.Input<string>;
     /**
      * The job will be gang scheduled on that many compute nodes
      */

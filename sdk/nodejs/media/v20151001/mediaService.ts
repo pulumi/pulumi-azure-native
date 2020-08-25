@@ -47,7 +47,7 @@ export class MediaService extends pulumi.CustomResource {
     /**
      * The name of the resource.
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * The storage accounts for this resource.
      */
@@ -74,18 +74,19 @@ export class MediaService extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             const args = argsOrState as MediaServiceArgs | undefined;
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
+            if (!args || args.mediaServiceName === undefined) {
+                throw new Error("Missing required property 'mediaServiceName'");
             }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["location"] = args ? args.location : undefined;
-            inputs["name"] = args ? args.name : undefined;
+            inputs["mediaServiceName"] = args ? args.mediaServiceName : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["storageAccounts"] = args ? args.storageAccounts : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["apiEndpoints"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -110,7 +111,7 @@ export interface MediaServiceArgs {
     /**
      * Name of the Media Service.
      */
-    readonly name: pulumi.Input<string>;
+    readonly mediaServiceName: pulumi.Input<string>;
     /**
      * Name of the resource group within the Azure subscription.
      */

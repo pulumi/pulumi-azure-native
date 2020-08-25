@@ -59,7 +59,7 @@ export class RelationshipLink extends pulumi.CustomResource {
     /**
      * Resource name.
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * The property references for the Profile of the Relationship.
      */
@@ -108,14 +108,14 @@ export class RelationshipLink extends pulumi.CustomResource {
             if (!args || args.interactionType === undefined) {
                 throw new Error("Missing required property 'interactionType'");
             }
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
-            }
             if (!args || args.profilePropertyReferences === undefined) {
                 throw new Error("Missing required property 'profilePropertyReferences'");
             }
             if (!args || args.relatedProfilePropertyReferences === undefined) {
                 throw new Error("Missing required property 'relatedProfilePropertyReferences'");
+            }
+            if (!args || args.relationshipLinkName === undefined) {
+                throw new Error("Missing required property 'relationshipLinkName'");
             }
             if (!args || args.relationshipName === undefined) {
                 throw new Error("Missing required property 'relationshipName'");
@@ -128,12 +128,13 @@ export class RelationshipLink extends pulumi.CustomResource {
             inputs["hubName"] = args ? args.hubName : undefined;
             inputs["interactionType"] = args ? args.interactionType : undefined;
             inputs["mappings"] = args ? args.mappings : undefined;
-            inputs["name"] = args ? args.name : undefined;
             inputs["profilePropertyReferences"] = args ? args.profilePropertyReferences : undefined;
             inputs["relatedProfilePropertyReferences"] = args ? args.relatedProfilePropertyReferences : undefined;
+            inputs["relationshipLinkName"] = args ? args.relationshipLinkName : undefined;
             inputs["relationshipName"] = args ? args.relationshipName : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["linkName"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
             inputs["relationshipGuidId"] = undefined /*out*/;
             inputs["tenantId"] = undefined /*out*/;
@@ -177,10 +178,6 @@ export interface RelationshipLinkArgs {
      */
     readonly mappings?: pulumi.Input<pulumi.Input<inputs.customerinsights.v20170426.RelationshipLinkFieldMapping>[]>;
     /**
-     * The name of the relationship link.
-     */
-    readonly name: pulumi.Input<string>;
-    /**
      * The property references for the Profile of the Relationship.
      */
     readonly profilePropertyReferences: pulumi.Input<pulumi.Input<inputs.customerinsights.v20170426.ParticipantProfilePropertyReference>[]>;
@@ -188,6 +185,10 @@ export interface RelationshipLinkArgs {
      * The property references for the Related Profile of the Relationship.
      */
     readonly relatedProfilePropertyReferences: pulumi.Input<pulumi.Input<inputs.customerinsights.v20170426.ParticipantProfilePropertyReference>[]>;
+    /**
+     * The name of the relationship link.
+     */
+    readonly relationshipLinkName: pulumi.Input<string>;
     /**
      * The Relationship associated with the Link.
      */

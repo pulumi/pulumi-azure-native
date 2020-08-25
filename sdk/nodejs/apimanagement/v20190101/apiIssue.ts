@@ -49,7 +49,7 @@ export class ApiIssue extends pulumi.CustomResource {
     /**
      * Resource name.
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * Status of the issue.
      */
@@ -86,8 +86,8 @@ export class ApiIssue extends pulumi.CustomResource {
             if (!args || args.description === undefined) {
                 throw new Error("Missing required property 'description'");
             }
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
+            if (!args || args.issueId === undefined) {
+                throw new Error("Missing required property 'issueId'");
             }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
@@ -104,12 +104,13 @@ export class ApiIssue extends pulumi.CustomResource {
             inputs["apiId"] = args ? args.apiId : undefined;
             inputs["createdDate"] = args ? args.createdDate : undefined;
             inputs["description"] = args ? args.description : undefined;
-            inputs["name"] = args ? args.name : undefined;
+            inputs["issueId"] = args ? args.issueId : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["serviceName"] = args ? args.serviceName : undefined;
             inputs["state"] = args ? args.state : undefined;
             inputs["title"] = args ? args.title : undefined;
             inputs["userId"] = args ? args.userId : undefined;
+            inputs["name"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -144,7 +145,7 @@ export interface ApiIssueArgs {
     /**
      * Issue identifier. Must be unique in the current API Management service instance.
      */
-    readonly name: pulumi.Input<string>;
+    readonly issueId: pulumi.Input<string>;
     /**
      * The name of the resource group.
      */

@@ -16,7 +16,7 @@ export function getOuContainer(args: GetOuContainerArgs, opts?: pulumi.InvokeOpt
     }
     return pulumi.runtime.invoke("azurerm:aad/v20200101:getOuContainer", {
         "domainServiceName": args.domainServiceName,
-        "name": args.name,
+        "ouContainerName": args.ouContainerName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);
 }
@@ -29,7 +29,7 @@ export interface GetOuContainerArgs {
     /**
      * The name of the OuContainer.
      */
-    readonly name: string;
+    readonly ouContainerName: string;
     /**
      * The name of the resource group within the user's subscription. The name is case insensitive.
      */

@@ -118,11 +118,11 @@ export class VpnServerConfiguration extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             const args = argsOrState as VpnServerConfigurationArgs | undefined;
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
-            }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
+            }
+            if (!args || args.vpnServerConfigurationName === undefined) {
+                throw new Error("Missing required property 'vpnServerConfigurationName'");
             }
             inputs["aadAuthenticationParameters"] = args ? args.aadAuthenticationParameters : undefined;
             inputs["id"] = args ? args.id : undefined;
@@ -139,6 +139,7 @@ export class VpnServerConfiguration extends pulumi.CustomResource {
             inputs["vpnClientRevokedCertificates"] = args ? args.vpnClientRevokedCertificates : undefined;
             inputs["vpnClientRootCertificates"] = args ? args.vpnClientRootCertificates : undefined;
             inputs["vpnProtocols"] = args ? args.vpnProtocols : undefined;
+            inputs["vpnServerConfigurationName"] = args ? args.vpnServerConfigurationName : undefined;
             inputs["etag"] = undefined /*out*/;
             inputs["p2SVpnGateways"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
@@ -174,9 +175,9 @@ export interface VpnServerConfigurationArgs {
      */
     readonly location?: pulumi.Input<string>;
     /**
-     * The name of the VpnServerConfiguration being created or updated.
+     * The name of the VpnServerConfiguration that is unique within a resource group.
      */
-    readonly name: pulumi.Input<string>;
+    readonly name?: pulumi.Input<string>;
     /**
      * Radius client root certificate of VpnServerConfiguration.
      */
@@ -221,4 +222,8 @@ export interface VpnServerConfigurationArgs {
      * VPN protocols for the VpnServerConfiguration.
      */
     readonly vpnProtocols?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The name of the VpnServerConfiguration being created or updated.
+     */
+    readonly vpnServerConfigurationName: pulumi.Input<string>;
 }

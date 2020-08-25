@@ -41,7 +41,7 @@ export class SshPublicKey extends pulumi.CustomResource {
     /**
      * Resource name
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * SSH public key used to authenticate to a virtual machine through ssh. If this property is not initially provided when the resource is created, the publicKey property will be populated when generateKeyPair is called. If the public key is provided upon resource creation, the provided public key needs to be at least 2048-bit and in ssh-rsa format.
      */
@@ -71,17 +71,18 @@ export class SshPublicKey extends pulumi.CustomResource {
             if (!args || args.location === undefined) {
                 throw new Error("Missing required property 'location'");
             }
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
-            }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            if (!args || args.sshPublicKeyName === undefined) {
+                throw new Error("Missing required property 'sshPublicKeyName'");
+            }
             inputs["location"] = args ? args.location : undefined;
-            inputs["name"] = args ? args.name : undefined;
             inputs["publicKey"] = args ? args.publicKey : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["sshPublicKeyName"] = args ? args.sshPublicKeyName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["name"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -106,10 +107,6 @@ export interface SshPublicKeyArgs {
      */
     readonly location: pulumi.Input<string>;
     /**
-     * The name of the SSH public key.
-     */
-    readonly name: pulumi.Input<string>;
-    /**
      * SSH public key used to authenticate to a virtual machine through ssh. If this property is not initially provided when the resource is created, the publicKey property will be populated when generateKeyPair is called. If the public key is provided upon resource creation, the provided public key needs to be at least 2048-bit and in ssh-rsa format.
      */
     readonly publicKey?: pulumi.Input<string>;
@@ -117,6 +114,10 @@ export interface SshPublicKeyArgs {
      * The name of the resource group.
      */
     readonly resourceGroupName: pulumi.Input<string>;
+    /**
+     * The name of the SSH public key.
+     */
+    readonly sshPublicKeyName: pulumi.Input<string>;
     /**
      * Resource tags
      */

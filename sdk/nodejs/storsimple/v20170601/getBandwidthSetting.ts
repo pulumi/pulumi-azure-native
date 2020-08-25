@@ -15,21 +15,21 @@ export function getBandwidthSetting(args: GetBandwidthSettingArgs, opts?: pulumi
         opts.version = utilities.getVersion();
     }
     return pulumi.runtime.invoke("azurerm:storsimple/v20170601:getBandwidthSetting", {
+        "bandwidthSettingName": args.bandwidthSettingName,
         "managerName": args.managerName,
-        "name": args.name,
         "resourceGroupName": args.resourceGroupName,
     }, opts);
 }
 
 export interface GetBandwidthSettingArgs {
     /**
+     * The name of bandwidth setting to be fetched.
+     */
+    readonly bandwidthSettingName: string;
+    /**
      * The manager name
      */
     readonly managerName: string;
-    /**
-     * The name of bandwidth setting to be fetched.
-     */
-    readonly name: string;
     /**
      * The resource group name
      */

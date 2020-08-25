@@ -15,6 +15,7 @@ export function getSiteHostNameBinding(args: GetSiteHostNameBindingArgs, opts?: 
         opts.version = utilities.getVersion();
     }
     return pulumi.runtime.invoke("azurerm:web/v20150801:getSiteHostNameBinding", {
+        "hostName": args.hostName,
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,
     }, opts);
@@ -23,6 +24,10 @@ export function getSiteHostNameBinding(args: GetSiteHostNameBindingArgs, opts?: 
 export interface GetSiteHostNameBindingArgs {
     /**
      * Name of host
+     */
+    readonly hostName: string;
+    /**
+     * Name of web app
      */
     readonly name: string;
     /**

@@ -17,7 +17,7 @@ export function getBlobContainerImmutabilityPolicy(args: GetBlobContainerImmutab
     return pulumi.runtime.invoke("azurerm:storage/v20190401:getBlobContainerImmutabilityPolicy", {
         "accountName": args.accountName,
         "containerName": args.containerName,
-        "name": args.name,
+        "immutabilityPolicyName": args.immutabilityPolicyName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);
 }
@@ -34,7 +34,7 @@ export interface GetBlobContainerImmutabilityPolicyArgs {
     /**
      * The name of the blob container immutabilityPolicy within the specified storage account. ImmutabilityPolicy Name must be 'default'
      */
-    readonly name: string;
+    readonly immutabilityPolicyName: string;
     /**
      * The name of the resource group within the user's subscription. The name is case insensitive.
      */

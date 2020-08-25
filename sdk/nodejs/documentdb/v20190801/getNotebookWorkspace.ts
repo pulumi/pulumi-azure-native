@@ -16,7 +16,7 @@ export function getNotebookWorkspace(args: GetNotebookWorkspaceArgs, opts?: pulu
     }
     return pulumi.runtime.invoke("azurerm:documentdb/v20190801:getNotebookWorkspace", {
         "accountName": args.accountName,
-        "name": args.name,
+        "notebookWorkspaceName": args.notebookWorkspaceName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);
 }
@@ -29,7 +29,7 @@ export interface GetNotebookWorkspaceArgs {
     /**
      * The name of the notebook workspace resource.
      */
-    readonly name: string;
+    readonly notebookWorkspaceName: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */

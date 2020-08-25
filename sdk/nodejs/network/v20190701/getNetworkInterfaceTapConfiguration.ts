@@ -15,17 +15,13 @@ export function getNetworkInterfaceTapConfiguration(args: GetNetworkInterfaceTap
         opts.version = utilities.getVersion();
     }
     return pulumi.runtime.invoke("azurerm:network/v20190701:getNetworkInterfaceTapConfiguration", {
-        "name": args.name,
         "networkInterfaceName": args.networkInterfaceName,
         "resourceGroupName": args.resourceGroupName,
+        "tapConfigurationName": args.tapConfigurationName,
     }, opts);
 }
 
 export interface GetNetworkInterfaceTapConfigurationArgs {
-    /**
-     * The name of the tap configuration.
-     */
-    readonly name: string;
     /**
      * The name of the network interface.
      */
@@ -34,6 +30,10 @@ export interface GetNetworkInterfaceTapConfigurationArgs {
      * The name of the resource group.
      */
     readonly resourceGroupName: string;
+    /**
+     * The name of the tap configuration.
+     */
+    readonly tapConfigurationName: string;
 }
 
 /**

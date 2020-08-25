@@ -15,21 +15,21 @@ export function getDataFlow(args: GetDataFlowArgs, opts?: pulumi.InvokeOptions):
         opts.version = utilities.getVersion();
     }
     return pulumi.runtime.invoke("azurerm:datafactory/v20180601:getDataFlow", {
+        "dataFlowName": args.dataFlowName,
         "factoryName": args.factoryName,
-        "name": args.name,
         "resourceGroupName": args.resourceGroupName,
     }, opts);
 }
 
 export interface GetDataFlowArgs {
     /**
+     * The data flow name.
+     */
+    readonly dataFlowName: string;
+    /**
      * The factory name.
      */
     readonly factoryName: string;
-    /**
-     * The data flow name.
-     */
-    readonly name: string;
     /**
      * The resource group name.
      */

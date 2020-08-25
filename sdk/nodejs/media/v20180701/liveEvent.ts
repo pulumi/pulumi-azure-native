@@ -67,7 +67,7 @@ export class LiveEvent extends pulumi.CustomResource {
     /**
      * The name of the resource.
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * The Live Event preview.
      */
@@ -116,8 +116,8 @@ export class LiveEvent extends pulumi.CustomResource {
             if (!args || args.input === undefined) {
                 throw new Error("Missing required property 'input'");
             }
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
+            if (!args || args.liveEventName === undefined) {
+                throw new Error("Missing required property 'liveEventName'");
             }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
@@ -128,8 +128,8 @@ export class LiveEvent extends pulumi.CustomResource {
             inputs["description"] = args ? args.description : undefined;
             inputs["encoding"] = args ? args.encoding : undefined;
             inputs["input"] = args ? args.input : undefined;
+            inputs["liveEventName"] = args ? args.liveEventName : undefined;
             inputs["location"] = args ? args.location : undefined;
-            inputs["name"] = args ? args.name : undefined;
             inputs["preview"] = args ? args.preview : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["streamOptions"] = args ? args.streamOptions : undefined;
@@ -137,6 +137,7 @@ export class LiveEvent extends pulumi.CustomResource {
             inputs["vanityUrl"] = args ? args.vanityUrl : undefined;
             inputs["created"] = undefined /*out*/;
             inputs["lastModified"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
             inputs["resourceState"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
@@ -183,13 +184,13 @@ export interface LiveEventArgs {
      */
     readonly input: pulumi.Input<inputs.media.v20180701.LiveEventInput>;
     /**
+     * The name of the Live Event.
+     */
+    readonly liveEventName: pulumi.Input<string>;
+    /**
      * The Azure Region of the resource.
      */
     readonly location?: pulumi.Input<string>;
-    /**
-     * The name of the Live Event.
-     */
-    readonly name: pulumi.Input<string>;
     /**
      * The Live Event preview.
      */

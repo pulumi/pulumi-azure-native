@@ -16,8 +16,8 @@ export function getMongoDBResourceMongoDBCollection(args: GetMongoDBResourceMong
     }
     return pulumi.runtime.invoke("azurerm:documentdb/v20200301:getMongoDBResourceMongoDBCollection", {
         "accountName": args.accountName,
+        "collectionName": args.collectionName,
         "databaseName": args.databaseName,
-        "name": args.name,
         "resourceGroupName": args.resourceGroupName,
     }, opts);
 }
@@ -28,13 +28,13 @@ export interface GetMongoDBResourceMongoDBCollectionArgs {
      */
     readonly accountName: string;
     /**
+     * Cosmos DB collection name.
+     */
+    readonly collectionName: string;
+    /**
      * Cosmos DB database name.
      */
     readonly databaseName: string;
-    /**
-     * Cosmos DB collection name.
-     */
-    readonly name: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */

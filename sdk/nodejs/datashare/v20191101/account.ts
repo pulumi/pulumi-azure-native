@@ -51,7 +51,7 @@ export class Account extends pulumi.CustomResource {
     /**
      * Name of the azure resource
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * Provisioning state of the Account
      */
@@ -86,21 +86,22 @@ export class Account extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             const args = argsOrState as AccountArgs | undefined;
+            if (!args || args.accountName === undefined) {
+                throw new Error("Missing required property 'accountName'");
+            }
             if (!args || args.identity === undefined) {
                 throw new Error("Missing required property 'identity'");
-            }
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
             }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            inputs["accountName"] = args ? args.accountName : undefined;
             inputs["identity"] = args ? args.identity : undefined;
             inputs["location"] = args ? args.location : undefined;
-            inputs["name"] = args ? args.name : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["createdAt"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
             inputs["userEmail"] = undefined /*out*/;
@@ -122,6 +123,10 @@ export class Account extends pulumi.CustomResource {
  */
 export interface AccountArgs {
     /**
+     * The name of the share account.
+     */
+    readonly accountName: pulumi.Input<string>;
+    /**
      * Identity Info on the Account
      */
     readonly identity: pulumi.Input<inputs.datashare.v20191101.Identity>;
@@ -129,10 +134,6 @@ export interface AccountArgs {
      * Location of the azure resource.
      */
     readonly location?: pulumi.Input<string>;
-    /**
-     * The name of the share account.
-     */
-    readonly name: pulumi.Input<string>;
     /**
      * The resource group name.
      */

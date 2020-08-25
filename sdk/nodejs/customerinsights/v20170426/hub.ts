@@ -51,7 +51,7 @@ export class Hub extends pulumi.CustomResource {
     /**
      * Resource name.
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * Provisioning state of the hub.
      */
@@ -86,19 +86,20 @@ export class Hub extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             const args = argsOrState as HubArgs | undefined;
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
+            if (!args || args.hubName === undefined) {
+                throw new Error("Missing required property 'hubName'");
             }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["hubBillingInfo"] = args ? args.hubBillingInfo : undefined;
+            inputs["hubName"] = args ? args.hubName : undefined;
             inputs["location"] = args ? args.location : undefined;
-            inputs["name"] = args ? args.name : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["tenantFeatures"] = args ? args.tenantFeatures : undefined;
             inputs["apiEndpoint"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
             inputs["webEndpoint"] = undefined /*out*/;
@@ -125,13 +126,13 @@ export interface HubArgs {
      */
     readonly hubBillingInfo?: pulumi.Input<inputs.customerinsights.v20170426.HubBillingInfoFormat>;
     /**
+     * The name of the Hub.
+     */
+    readonly hubName: pulumi.Input<string>;
+    /**
      * Resource location.
      */
     readonly location?: pulumi.Input<string>;
-    /**
-     * The name of the Hub.
-     */
-    readonly name: pulumi.Input<string>;
     /**
      * The name of the resource group.
      */

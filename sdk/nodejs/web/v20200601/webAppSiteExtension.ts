@@ -143,8 +143,12 @@ export class WebAppSiteExtension extends pulumi.CustomResource {
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            if (!args || args.siteExtensionId === undefined) {
+                throw new Error("Missing required property 'siteExtensionId'");
+            }
             inputs["name"] = args ? args.name : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["siteExtensionId"] = args ? args.siteExtensionId : undefined;
             inputs["authors"] = undefined /*out*/;
             inputs["comment"] = undefined /*out*/;
             inputs["description"] = undefined /*out*/;
@@ -186,11 +190,15 @@ export class WebAppSiteExtension extends pulumi.CustomResource {
  */
 export interface WebAppSiteExtensionArgs {
     /**
-     * Site extension name.
+     * Site name.
      */
     readonly name: pulumi.Input<string>;
     /**
      * Name of the resource group to which the resource belongs.
      */
     readonly resourceGroupName: pulumi.Input<string>;
+    /**
+     * Site extension name.
+     */
+    readonly siteExtensionId: pulumi.Input<string>;
 }

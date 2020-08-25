@@ -86,9 +86,6 @@ export class RouteFilterRule extends pulumi.CustomResource {
             if (!args || args.communities === undefined) {
                 throw new Error("Missing required property 'communities'");
             }
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
-            }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -98,6 +95,9 @@ export class RouteFilterRule extends pulumi.CustomResource {
             if (!args || args.routeFilterRuleType === undefined) {
                 throw new Error("Missing required property 'routeFilterRuleType'");
             }
+            if (!args || args.ruleName === undefined) {
+                throw new Error("Missing required property 'ruleName'");
+            }
             inputs["access"] = args ? args.access : undefined;
             inputs["communities"] = args ? args.communities : undefined;
             inputs["id"] = args ? args.id : undefined;
@@ -106,6 +106,7 @@ export class RouteFilterRule extends pulumi.CustomResource {
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["routeFilterName"] = args ? args.routeFilterName : undefined;
             inputs["routeFilterRuleType"] = args ? args.routeFilterRuleType : undefined;
+            inputs["ruleName"] = args ? args.ruleName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["etag"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
@@ -144,9 +145,9 @@ export interface RouteFilterRuleArgs {
      */
     readonly location?: pulumi.Input<string>;
     /**
-     * The name of the route filter rule.
+     * The name of the resource that is unique within a resource group. This name can be used to access the resource.
      */
-    readonly name: pulumi.Input<string>;
+    readonly name?: pulumi.Input<string>;
     /**
      * The name of the resource group.
      */
@@ -159,6 +160,10 @@ export interface RouteFilterRuleArgs {
      * The rule type of the rule. Valid value is: 'Community'
      */
     readonly routeFilterRuleType: pulumi.Input<string>;
+    /**
+     * The name of the route filter rule.
+     */
+    readonly ruleName: pulumi.Input<string>;
     /**
      * Resource tags.
      */

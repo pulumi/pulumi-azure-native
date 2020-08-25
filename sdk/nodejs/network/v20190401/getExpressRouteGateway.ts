@@ -15,7 +15,7 @@ export function getExpressRouteGateway(args: GetExpressRouteGatewayArgs, opts?: 
         opts.version = utilities.getVersion();
     }
     return pulumi.runtime.invoke("azurerm:network/v20190401:getExpressRouteGateway", {
-        "name": args.name,
+        "expressRouteGatewayName": args.expressRouteGatewayName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);
 }
@@ -24,7 +24,7 @@ export interface GetExpressRouteGatewayArgs {
     /**
      * The name of the ExpressRoute gateway.
      */
-    readonly name: string;
+    readonly expressRouteGatewayName: string;
     /**
      * The name of the resource group.
      */

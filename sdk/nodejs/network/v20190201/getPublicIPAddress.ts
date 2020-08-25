@@ -16,7 +16,7 @@ export function getPublicIPAddress(args: GetPublicIPAddressArgs, opts?: pulumi.I
     }
     return pulumi.runtime.invoke("azurerm:network/v20190201:getPublicIPAddress", {
         "expand": args.expand,
-        "name": args.name,
+        "publicIpAddressName": args.publicIpAddressName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);
 }
@@ -29,7 +29,7 @@ export interface GetPublicIPAddressArgs {
     /**
      * The name of the subnet.
      */
-    readonly name: string;
+    readonly publicIpAddressName: string;
     /**
      * The name of the resource group.
      */

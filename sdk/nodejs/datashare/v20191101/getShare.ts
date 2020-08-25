@@ -16,8 +16,8 @@ export function getShare(args: GetShareArgs, opts?: pulumi.InvokeOptions): Promi
     }
     return pulumi.runtime.invoke("azurerm:datashare/v20191101:getShare", {
         "accountName": args.accountName,
-        "name": args.name,
         "resourceGroupName": args.resourceGroupName,
+        "shareName": args.shareName,
     }, opts);
 }
 
@@ -27,13 +27,13 @@ export interface GetShareArgs {
      */
     readonly accountName: string;
     /**
-     * The name of the share to retrieve.
-     */
-    readonly name: string;
-    /**
      * The resource group name.
      */
     readonly resourceGroupName: string;
+    /**
+     * The name of the share to retrieve.
+     */
+    readonly shareName: string;
 }
 
 /**

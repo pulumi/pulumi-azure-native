@@ -37,7 +37,7 @@ export class VirtualNetworkRule extends pulumi.CustomResource {
     /**
      * The resource name.
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * The resource identifier for the subnet.
      */
@@ -63,19 +63,20 @@ export class VirtualNetworkRule extends pulumi.CustomResource {
             if (!args || args.accountName === undefined) {
                 throw new Error("Missing required property 'accountName'");
             }
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
-            }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             if (!args || args.subnetId === undefined) {
                 throw new Error("Missing required property 'subnetId'");
             }
+            if (!args || args.virtualNetworkRuleName === undefined) {
+                throw new Error("Missing required property 'virtualNetworkRuleName'");
+            }
             inputs["accountName"] = args ? args.accountName : undefined;
-            inputs["name"] = args ? args.name : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["subnetId"] = args ? args.subnetId : undefined;
+            inputs["virtualNetworkRuleName"] = args ? args.virtualNetworkRuleName : undefined;
+            inputs["name"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -98,10 +99,6 @@ export interface VirtualNetworkRuleArgs {
      */
     readonly accountName: pulumi.Input<string>;
     /**
-     * The name of the virtual network rule to create or update.
-     */
-    readonly name: pulumi.Input<string>;
-    /**
      * The name of the Azure resource group.
      */
     readonly resourceGroupName: pulumi.Input<string>;
@@ -109,4 +106,8 @@ export interface VirtualNetworkRuleArgs {
      * The resource identifier for the subnet.
      */
     readonly subnetId: pulumi.Input<string>;
+    /**
+     * The name of the virtual network rule to create or update.
+     */
+    readonly virtualNetworkRuleName: pulumi.Input<string>;
 }

@@ -15,7 +15,7 @@ export function getHubVirtualNetworkConnection(args: GetHubVirtualNetworkConnect
         opts.version = utilities.getVersion();
     }
     return pulumi.runtime.invoke("azurerm:network/v20200501:getHubVirtualNetworkConnection", {
-        "name": args.name,
+        "connectionName": args.connectionName,
         "resourceGroupName": args.resourceGroupName,
         "virtualHubName": args.virtualHubName,
     }, opts);
@@ -25,7 +25,7 @@ export interface GetHubVirtualNetworkConnectionArgs {
     /**
      * The name of the vpn connection.
      */
-    readonly name: string;
+    readonly connectionName: string;
     /**
      * The resource group name of the VirtualHub.
      */

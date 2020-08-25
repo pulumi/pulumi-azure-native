@@ -47,7 +47,7 @@ export class Gateway extends pulumi.CustomResource {
     /**
      * Resource name.
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * Resource type for API Management resource.
      */
@@ -66,8 +66,8 @@ export class Gateway extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             const args = argsOrState as GatewayArgs | undefined;
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
+            if (!args || args.gatewayId === undefined) {
+                throw new Error("Missing required property 'gatewayId'");
             }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
@@ -76,10 +76,11 @@ export class Gateway extends pulumi.CustomResource {
                 throw new Error("Missing required property 'serviceName'");
             }
             inputs["description"] = args ? args.description : undefined;
+            inputs["gatewayId"] = args ? args.gatewayId : undefined;
             inputs["locationData"] = args ? args.locationData : undefined;
-            inputs["name"] = args ? args.name : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["serviceName"] = args ? args.serviceName : undefined;
+            inputs["name"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -102,13 +103,13 @@ export interface GatewayArgs {
      */
     readonly description?: pulumi.Input<string>;
     /**
+     * Gateway entity identifier. Must be unique in the current API Management service instance. Must not have value 'managed'
+     */
+    readonly gatewayId: pulumi.Input<string>;
+    /**
      * Gateway location.
      */
     readonly locationData?: pulumi.Input<inputs.apimanagement.v20191201.ResourceLocationDataContract>;
-    /**
-     * Gateway entity identifier. Must be unique in the current API Management service instance. Must not have value 'managed'
-     */
-    readonly name: pulumi.Input<string>;
     /**
      * The name of the resource group.
      */

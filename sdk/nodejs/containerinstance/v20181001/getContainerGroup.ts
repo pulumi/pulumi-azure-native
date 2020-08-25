@@ -15,7 +15,7 @@ export function getContainerGroup(args: GetContainerGroupArgs, opts?: pulumi.Inv
         opts.version = utilities.getVersion();
     }
     return pulumi.runtime.invoke("azurerm:containerinstance/v20181001:getContainerGroup", {
-        "name": args.name,
+        "containerGroupName": args.containerGroupName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);
 }
@@ -24,7 +24,7 @@ export interface GetContainerGroupArgs {
     /**
      * The name of the container group.
      */
-    readonly name: string;
+    readonly containerGroupName: string;
     /**
      * The name of the resource group.
      */

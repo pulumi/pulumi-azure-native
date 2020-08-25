@@ -16,9 +16,9 @@ export function getTagByApi(args: GetTagByApiArgs, opts?: pulumi.InvokeOptions):
     }
     return pulumi.runtime.invoke("azurerm:apimanagement/v20170301:getTagByApi", {
         "apiId": args.apiId,
-        "name": args.name,
         "resourceGroupName": args.resourceGroupName,
         "serviceName": args.serviceName,
+        "tagId": args.tagId,
     }, opts);
 }
 
@@ -28,10 +28,6 @@ export interface GetTagByApiArgs {
      */
     readonly apiId: string;
     /**
-     * Tag identifier. Must be unique in the current API Management service instance.
-     */
-    readonly name: string;
-    /**
      * The name of the resource group.
      */
     readonly resourceGroupName: string;
@@ -39,6 +35,10 @@ export interface GetTagByApiArgs {
      * The name of the API Management service.
      */
     readonly serviceName: string;
+    /**
+     * Tag identifier. Must be unique in the current API Management service instance.
+     */
+    readonly tagId: string;
 }
 
 /**

@@ -45,7 +45,7 @@ export class Invitation extends pulumi.CustomResource {
     /**
      * Name of the azure resource
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * The time the recipient responded to the invitation.
      */
@@ -97,8 +97,8 @@ export class Invitation extends pulumi.CustomResource {
             if (!args || args.accountName === undefined) {
                 throw new Error("Missing required property 'accountName'");
             }
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
+            if (!args || args.invitationName === undefined) {
+                throw new Error("Missing required property 'invitationName'");
             }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
@@ -107,7 +107,7 @@ export class Invitation extends pulumi.CustomResource {
                 throw new Error("Missing required property 'shareName'");
             }
             inputs["accountName"] = args ? args.accountName : undefined;
-            inputs["name"] = args ? args.name : undefined;
+            inputs["invitationName"] = args ? args.invitationName : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["shareName"] = args ? args.shareName : undefined;
             inputs["targetActiveDirectoryId"] = args ? args.targetActiveDirectoryId : undefined;
@@ -115,6 +115,7 @@ export class Invitation extends pulumi.CustomResource {
             inputs["targetObjectId"] = args ? args.targetObjectId : undefined;
             inputs["invitationId"] = undefined /*out*/;
             inputs["invitationStatus"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
             inputs["respondedAt"] = undefined /*out*/;
             inputs["sentAt"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
@@ -143,7 +144,7 @@ export interface InvitationArgs {
     /**
      * The name of the invitation.
      */
-    readonly name: pulumi.Input<string>;
+    readonly invitationName: pulumi.Input<string>;
     /**
      * The resource group name.
      */

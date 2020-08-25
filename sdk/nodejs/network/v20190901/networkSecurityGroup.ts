@@ -51,7 +51,7 @@ export class NetworkSecurityGroup extends pulumi.CustomResource {
     /**
      * Resource name.
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * A collection of references to network interfaces.
      */
@@ -94,20 +94,21 @@ export class NetworkSecurityGroup extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             const args = argsOrState as NetworkSecurityGroupArgs | undefined;
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
+            if (!args || args.networkSecurityGroupName === undefined) {
+                throw new Error("Missing required property 'networkSecurityGroupName'");
             }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["id"] = args ? args.id : undefined;
             inputs["location"] = args ? args.location : undefined;
-            inputs["name"] = args ? args.name : undefined;
+            inputs["networkSecurityGroupName"] = args ? args.networkSecurityGroupName : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["securityRules"] = args ? args.securityRules : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["defaultSecurityRules"] = undefined /*out*/;
             inputs["etag"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
             inputs["networkInterfaces"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
             inputs["resourceGuid"] = undefined /*out*/;
@@ -142,7 +143,7 @@ export interface NetworkSecurityGroupArgs {
     /**
      * The name of the network security group.
      */
-    readonly name: pulumi.Input<string>;
+    readonly networkSecurityGroupName: pulumi.Input<string>;
     /**
      * The name of the resource group.
      */

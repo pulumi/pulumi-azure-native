@@ -15,7 +15,7 @@ export function getProfile(args: GetProfileArgs, opts?: pulumi.InvokeOptions): P
         opts.version = utilities.getVersion();
     }
     return pulumi.runtime.invoke("azurerm:cdn/v20170402:getProfile", {
-        "name": args.name,
+        "profileName": args.profileName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);
 }
@@ -24,7 +24,7 @@ export interface GetProfileArgs {
     /**
      * Name of the CDN profile which is unique within the resource group.
      */
-    readonly name: string;
+    readonly profileName: string;
     /**
      * Name of the Resource group within the Azure subscription.
      */

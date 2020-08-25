@@ -47,7 +47,7 @@ export class StorageTarget extends pulumi.CustomResource {
     /**
      * Name of the Storage Target.
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * Properties when targetType is nfs3.
      */
@@ -85,11 +85,11 @@ export class StorageTarget extends pulumi.CustomResource {
             if (!args || args.cacheName === undefined) {
                 throw new Error("Missing required property 'cacheName'");
             }
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
-            }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
+            }
+            if (!args || args.storageTargetName === undefined) {
+                throw new Error("Missing required property 'storageTargetName'");
             }
             if (!args || args.targetType === undefined) {
                 throw new Error("Missing required property 'targetType'");
@@ -97,12 +97,13 @@ export class StorageTarget extends pulumi.CustomResource {
             inputs["cacheName"] = args ? args.cacheName : undefined;
             inputs["clfs"] = args ? args.clfs : undefined;
             inputs["junctions"] = args ? args.junctions : undefined;
-            inputs["name"] = args ? args.name : undefined;
             inputs["nfs3"] = args ? args.nfs3 : undefined;
             inputs["provisioningState"] = args ? args.provisioningState : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["storageTargetName"] = args ? args.storageTargetName : undefined;
             inputs["targetType"] = args ? args.targetType : undefined;
             inputs["unknown"] = args ? args.unknown : undefined;
+            inputs["name"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -135,10 +136,6 @@ export interface StorageTargetArgs {
      */
     readonly junctions?: pulumi.Input<pulumi.Input<inputs.storagecache.v20200301.NamespaceJunction>[]>;
     /**
-     * Name of the Storage Target. Length of name must be not greater than 80 and chars must be in list of [-0-9a-zA-Z_] char class.
-     */
-    readonly name: pulumi.Input<string>;
-    /**
      * Properties when targetType is nfs3.
      */
     readonly nfs3?: pulumi.Input<inputs.storagecache.v20200301.Nfs3Target>;
@@ -150,6 +147,10 @@ export interface StorageTargetArgs {
      * Target resource group.
      */
     readonly resourceGroupName: pulumi.Input<string>;
+    /**
+     * Name of the Storage Target. Length of name must be not greater than 80 and chars must be in list of [-0-9a-zA-Z_] char class.
+     */
+    readonly storageTargetName: pulumi.Input<string>;
     /**
      * Type of the Storage Target.
      */

@@ -59,7 +59,7 @@ export class User extends pulumi.CustomResource {
     /**
      * Resource name.
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * Optional note about a user set by the administrator.
      */
@@ -99,14 +99,14 @@ export class User extends pulumi.CustomResource {
             if (!args || args.lastName === undefined) {
                 throw new Error("Missing required property 'lastName'");
             }
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
-            }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             if (!args || args.serviceName === undefined) {
                 throw new Error("Missing required property 'serviceName'");
+            }
+            if (!args || args.userId === undefined) {
+                throw new Error("Missing required property 'userId'");
             }
             inputs["appType"] = args ? args.appType : undefined;
             inputs["confirmation"] = args ? args.confirmation : undefined;
@@ -114,14 +114,15 @@ export class User extends pulumi.CustomResource {
             inputs["firstName"] = args ? args.firstName : undefined;
             inputs["identities"] = args ? args.identities : undefined;
             inputs["lastName"] = args ? args.lastName : undefined;
-            inputs["name"] = args ? args.name : undefined;
             inputs["note"] = args ? args.note : undefined;
             inputs["notify"] = args ? args.notify : undefined;
             inputs["password"] = args ? args.password : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["serviceName"] = args ? args.serviceName : undefined;
             inputs["state"] = args ? args.state : undefined;
+            inputs["userId"] = args ? args.userId : undefined;
             inputs["groups"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
             inputs["registrationDate"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
@@ -167,10 +168,6 @@ export interface UserArgs {
      */
     readonly lastName: pulumi.Input<string>;
     /**
-     * User identifier. Must be unique in the current API Management service instance.
-     */
-    readonly name: pulumi.Input<string>;
-    /**
      * Optional note about a user set by the administrator.
      */
     readonly note?: pulumi.Input<string>;
@@ -194,4 +191,8 @@ export interface UserArgs {
      * Account state. Specifies whether the user is active or not. Blocked users are unable to sign into the developer portal or call any APIs of subscribed products. Default state is Active.
      */
     readonly state?: pulumi.Input<string>;
+    /**
+     * User identifier. Must be unique in the current API Management service instance.
+     */
+    readonly userId: pulumi.Input<string>;
 }

@@ -71,7 +71,7 @@ export class PrivateLinkService extends pulumi.CustomResource {
     /**
      * Resource name.
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * An array of references to the network interfaces created for this private link service.
      */
@@ -110,11 +110,11 @@ export class PrivateLinkService extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             const args = argsOrState as PrivateLinkServiceArgs | undefined;
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
-            }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
+            }
+            if (!args || args.serviceName === undefined) {
+                throw new Error("Missing required property 'serviceName'");
             }
             inputs["autoApproval"] = args ? args.autoApproval : undefined;
             inputs["enableProxyProtocol"] = args ? args.enableProxyProtocol : undefined;
@@ -123,12 +123,13 @@ export class PrivateLinkService extends pulumi.CustomResource {
             inputs["ipConfigurations"] = args ? args.ipConfigurations : undefined;
             inputs["loadBalancerFrontendIpConfigurations"] = args ? args.loadBalancerFrontendIpConfigurations : undefined;
             inputs["location"] = args ? args.location : undefined;
-            inputs["name"] = args ? args.name : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["serviceName"] = args ? args.serviceName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["visibility"] = args ? args.visibility : undefined;
             inputs["alias"] = undefined /*out*/;
             inputs["etag"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
             inputs["networkInterfaces"] = undefined /*out*/;
             inputs["privateEndpointConnections"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
@@ -180,13 +181,13 @@ export interface PrivateLinkServiceArgs {
      */
     readonly location?: pulumi.Input<string>;
     /**
-     * The name of the private link service.
-     */
-    readonly name: pulumi.Input<string>;
-    /**
      * The name of the resource group.
      */
     readonly resourceGroupName: pulumi.Input<string>;
+    /**
+     * The name of the private link service.
+     */
+    readonly serviceName: pulumi.Input<string>;
     /**
      * Resource tags.
      */

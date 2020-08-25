@@ -55,7 +55,7 @@ export class DiskEncryptionSet extends pulumi.CustomResource {
     /**
      * Resource name
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * A readonly collection of key vault keys previously used by this disk encryption set while a key rotation is in progress. It will be empty if there is no ongoing key rotation.
      */
@@ -86,22 +86,23 @@ export class DiskEncryptionSet extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             const args = argsOrState as DiskEncryptionSetArgs | undefined;
+            if (!args || args.diskEncryptionSetName === undefined) {
+                throw new Error("Missing required property 'diskEncryptionSetName'");
+            }
             if (!args || args.location === undefined) {
                 throw new Error("Missing required property 'location'");
-            }
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
             }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["activeKey"] = args ? args.activeKey : undefined;
+            inputs["diskEncryptionSetName"] = args ? args.diskEncryptionSetName : undefined;
             inputs["encryptionType"] = args ? args.encryptionType : undefined;
             inputs["identity"] = args ? args.identity : undefined;
             inputs["location"] = args ? args.location : undefined;
-            inputs["name"] = args ? args.name : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["name"] = undefined /*out*/;
             inputs["previousKeys"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
@@ -128,6 +129,10 @@ export interface DiskEncryptionSetArgs {
      */
     readonly activeKey?: pulumi.Input<inputs.compute.v20200501.KeyVaultAndKeyReference>;
     /**
+     * The name of the disk encryption set that is being created. The name can't be changed after the disk encryption set is created. Supported characters for the name are a-z, A-Z, 0-9 and _. The maximum name length is 80 characters.
+     */
+    readonly diskEncryptionSetName: pulumi.Input<string>;
+    /**
      * The type of key used to encrypt the data of the disk.
      */
     readonly encryptionType?: pulumi.Input<string>;
@@ -139,10 +144,6 @@ export interface DiskEncryptionSetArgs {
      * Resource location
      */
     readonly location: pulumi.Input<string>;
-    /**
-     * The name of the disk encryption set that is being created. The name can't be changed after the disk encryption set is created. Supported characters for the name are a-z, A-Z, 0-9 and _. The maximum name length is 80 characters.
-     */
-    readonly name: pulumi.Input<string>;
     /**
      * The name of the resource group.
      */

@@ -16,8 +16,8 @@ export function getTrustedIdProvider(args: GetTrustedIdProviderArgs, opts?: pulu
     }
     return pulumi.runtime.invoke("azurerm:datalakestore/v20161101:getTrustedIdProvider", {
         "accountName": args.accountName,
-        "name": args.name,
         "resourceGroupName": args.resourceGroupName,
+        "trustedIdProviderName": args.trustedIdProviderName,
     }, opts);
 }
 
@@ -27,13 +27,13 @@ export interface GetTrustedIdProviderArgs {
      */
     readonly accountName: string;
     /**
-     * The name of the trusted identity provider to retrieve.
-     */
-    readonly name: string;
-    /**
      * The name of the Azure resource group.
      */
     readonly resourceGroupName: string;
+    /**
+     * The name of the trusted identity provider to retrieve.
+     */
+    readonly trustedIdProviderName: string;
 }
 
 /**

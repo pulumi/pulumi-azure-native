@@ -16,7 +16,7 @@ export function getLoadBalancer(args: GetLoadBalancerArgs, opts?: pulumi.InvokeO
     }
     return pulumi.runtime.invoke("azurerm:network/v20190701:getLoadBalancer", {
         "expand": args.expand,
-        "name": args.name,
+        "loadBalancerName": args.loadBalancerName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);
 }
@@ -29,7 +29,7 @@ export interface GetLoadBalancerArgs {
     /**
      * The name of the load balancer.
      */
-    readonly name: string;
+    readonly loadBalancerName: string;
     /**
      * The name of the resource group.
      */

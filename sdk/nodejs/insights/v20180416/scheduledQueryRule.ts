@@ -59,7 +59,7 @@ export class ScheduledQueryRule extends pulumi.CustomResource {
     /**
      * Azure resource name
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * Provisioning state of the scheduled query rule
      */
@@ -100,11 +100,11 @@ export class ScheduledQueryRule extends pulumi.CustomResource {
             if (!args || args.location === undefined) {
                 throw new Error("Missing required property 'location'");
             }
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
-            }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
+            }
+            if (!args || args.ruleName === undefined) {
+                throw new Error("Missing required property 'ruleName'");
             }
             if (!args || args.source === undefined) {
                 throw new Error("Missing required property 'source'");
@@ -113,12 +113,13 @@ export class ScheduledQueryRule extends pulumi.CustomResource {
             inputs["description"] = args ? args.description : undefined;
             inputs["enabled"] = args ? args.enabled : undefined;
             inputs["location"] = args ? args.location : undefined;
-            inputs["name"] = args ? args.name : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["ruleName"] = args ? args.ruleName : undefined;
             inputs["schedule"] = args ? args.schedule : undefined;
             inputs["source"] = args ? args.source : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["lastUpdatedTime"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
@@ -154,13 +155,13 @@ export interface ScheduledQueryRuleArgs {
      */
     readonly location: pulumi.Input<string>;
     /**
-     * The name of the rule.
-     */
-    readonly name: pulumi.Input<string>;
-    /**
      * The name of the resource group.
      */
     readonly resourceGroupName: pulumi.Input<string>;
+    /**
+     * The name of the rule.
+     */
+    readonly ruleName: pulumi.Input<string>;
     /**
      * Schedule (Frequency, Time Window) for rule. Required for action type - AlertingAction
      */

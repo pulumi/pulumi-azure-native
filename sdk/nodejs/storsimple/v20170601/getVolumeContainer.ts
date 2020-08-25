@@ -17,8 +17,8 @@ export function getVolumeContainer(args: GetVolumeContainerArgs, opts?: pulumi.I
     return pulumi.runtime.invoke("azurerm:storsimple/v20170601:getVolumeContainer", {
         "deviceName": args.deviceName,
         "managerName": args.managerName,
-        "name": args.name,
         "resourceGroupName": args.resourceGroupName,
+        "volumeContainerName": args.volumeContainerName,
     }, opts);
 }
 
@@ -32,13 +32,13 @@ export interface GetVolumeContainerArgs {
      */
     readonly managerName: string;
     /**
-     * The name of the volume container.
-     */
-    readonly name: string;
-    /**
      * The resource group name
      */
     readonly resourceGroupName: string;
+    /**
+     * The name of the volume container.
+     */
+    readonly volumeContainerName: string;
 }
 
 /**

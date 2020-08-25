@@ -17,7 +17,7 @@ export function getLab(args: GetLabArgs, opts?: pulumi.InvokeOptions): Promise<G
     return pulumi.runtime.invoke("azurerm:labservices/v20181015:getLab", {
         "expand": args.expand,
         "labAccountName": args.labAccountName,
-        "name": args.name,
+        "labName": args.labName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);
 }
@@ -34,7 +34,7 @@ export interface GetLabArgs {
     /**
      * The name of the lab.
      */
-    readonly name: string;
+    readonly labName: string;
     /**
      * The name of the resource group.
      */

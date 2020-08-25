@@ -112,6 +112,9 @@ export class WebAppFunction extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             const args = argsOrState as WebAppFunctionArgs | undefined;
+            if (!args || args.functionName === undefined) {
+                throw new Error("Missing required property 'functionName'");
+            }
             if (!args || args.name === undefined) {
                 throw new Error("Missing required property 'name'");
             }
@@ -122,6 +125,7 @@ export class WebAppFunction extends pulumi.CustomResource {
             inputs["configHref"] = args ? args.configHref : undefined;
             inputs["files"] = args ? args.files : undefined;
             inputs["functionAppId"] = args ? args.functionAppId : undefined;
+            inputs["functionName"] = args ? args.functionName : undefined;
             inputs["href"] = args ? args.href : undefined;
             inputs["invokeUrlTemplate"] = args ? args.invokeUrlTemplate : undefined;
             inputs["isDisabled"] = args ? args.isDisabled : undefined;
@@ -170,6 +174,10 @@ export interface WebAppFunctionArgs {
      */
     readonly functionAppId?: pulumi.Input<string>;
     /**
+     * Function name.
+     */
+    readonly functionName: pulumi.Input<string>;
+    /**
      * Function URI.
      */
     readonly href?: pulumi.Input<string>;
@@ -190,7 +198,7 @@ export interface WebAppFunctionArgs {
      */
     readonly language?: pulumi.Input<string>;
     /**
-     * Function name.
+     * Site name.
      */
     readonly name: pulumi.Input<string>;
     /**

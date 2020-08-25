@@ -55,7 +55,7 @@ export class BackupPolicy extends pulumi.CustomResource {
     /**
      * Name of backup policy
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * Azure lifecycle management
      */
@@ -101,27 +101,28 @@ export class BackupPolicy extends pulumi.CustomResource {
             if (!args || args.accountName === undefined) {
                 throw new Error("Missing required property 'accountName'");
             }
+            if (!args || args.backupPolicyName === undefined) {
+                throw new Error("Missing required property 'backupPolicyName'");
+            }
             if (!args || args.location === undefined) {
                 throw new Error("Missing required property 'location'");
-            }
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
             }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["accountName"] = args ? args.accountName : undefined;
+            inputs["backupPolicyName"] = args ? args.backupPolicyName : undefined;
             inputs["dailyBackupsToKeep"] = args ? args.dailyBackupsToKeep : undefined;
             inputs["enabled"] = args ? args.enabled : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["monthlyBackupsToKeep"] = args ? args.monthlyBackupsToKeep : undefined;
-            inputs["name"] = args ? args.name : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["volumeBackups"] = args ? args.volumeBackups : undefined;
             inputs["volumesAssigned"] = args ? args.volumesAssigned : undefined;
             inputs["weeklyBackupsToKeep"] = args ? args.weeklyBackupsToKeep : undefined;
             inputs["yearlyBackupsToKeep"] = args ? args.yearlyBackupsToKeep : undefined;
+            inputs["name"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
@@ -145,6 +146,10 @@ export interface BackupPolicyArgs {
      */
     readonly accountName: pulumi.Input<string>;
     /**
+     * Backup policy Name which uniquely identify backup policy.
+     */
+    readonly backupPolicyName: pulumi.Input<string>;
+    /**
      * Daily backups count to keep
      */
     readonly dailyBackupsToKeep?: pulumi.Input<number>;
@@ -160,10 +165,6 @@ export interface BackupPolicyArgs {
      * Monthly backups count to keep
      */
     readonly monthlyBackupsToKeep?: pulumi.Input<number>;
-    /**
-     * Backup policy Name which uniquely identify backup policy.
-     */
-    readonly name: pulumi.Input<string>;
     /**
      * The name of the resource group.
      */

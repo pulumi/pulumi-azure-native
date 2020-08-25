@@ -15,21 +15,21 @@ export function getQueue(args: GetQueueArgs, opts?: pulumi.InvokeOptions): Promi
         opts.version = utilities.getVersion();
     }
     return pulumi.runtime.invoke("azurerm:servicebus/v20150801:getQueue", {
-        "name": args.name,
         "namespaceName": args.namespaceName,
+        "queueName": args.queueName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);
 }
 
 export interface GetQueueArgs {
     /**
-     * The queue name.
-     */
-    readonly name: string;
-    /**
      * The namespace name
      */
     readonly namespaceName: string;
+    /**
+     * The queue name.
+     */
+    readonly queueName: string;
     /**
      * Name of the Resource group within the Azure subscription.
      */

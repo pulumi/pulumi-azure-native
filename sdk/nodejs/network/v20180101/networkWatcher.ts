@@ -42,7 +42,7 @@ export class NetworkWatcher extends pulumi.CustomResource {
     /**
      * Resource name.
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * The provisioning state of the resource.
      */
@@ -72,8 +72,8 @@ export class NetworkWatcher extends pulumi.CustomResource {
             if (!args || args.location === undefined) {
                 throw new Error("Missing required property 'location'");
             }
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
+            if (!args || args.networkWatcherName === undefined) {
+                throw new Error("Missing required property 'networkWatcherName'");
             }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
@@ -81,9 +81,10 @@ export class NetworkWatcher extends pulumi.CustomResource {
             inputs["etag"] = args ? args.etag : undefined;
             inputs["id"] = args ? args.id : undefined;
             inputs["location"] = args ? args.location : undefined;
-            inputs["name"] = args ? args.name : undefined;
+            inputs["networkWatcherName"] = args ? args.networkWatcherName : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["name"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
@@ -116,7 +117,7 @@ export interface NetworkWatcherArgs {
     /**
      * The name of the network watcher.
      */
-    readonly name: pulumi.Input<string>;
+    readonly networkWatcherName: pulumi.Input<string>;
     /**
      * The name of the resource group.
      */

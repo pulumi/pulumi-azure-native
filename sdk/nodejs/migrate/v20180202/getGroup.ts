@@ -15,7 +15,7 @@ export function getGroup(args: GetGroupArgs, opts?: pulumi.InvokeOptions): Promi
         opts.version = utilities.getVersion();
     }
     return pulumi.runtime.invoke("azurerm:migrate/v20180202:getGroup", {
-        "name": args.name,
+        "groupName": args.groupName,
         "projectName": args.projectName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);
@@ -25,7 +25,7 @@ export interface GetGroupArgs {
     /**
      * Unique name of a group within a project.
      */
-    readonly name: string;
+    readonly groupName: string;
     /**
      * Name of the Azure Migrate project.
      */

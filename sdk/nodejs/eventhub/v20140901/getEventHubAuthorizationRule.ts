@@ -15,8 +15,8 @@ export function getEventHubAuthorizationRule(args: GetEventHubAuthorizationRuleA
         opts.version = utilities.getVersion();
     }
     return pulumi.runtime.invoke("azurerm:eventhub/v20140901:getEventHubAuthorizationRule", {
+        "authorizationRuleName": args.authorizationRuleName,
         "eventHubName": args.eventHubName,
-        "name": args.name,
         "namespaceName": args.namespaceName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);
@@ -24,13 +24,13 @@ export function getEventHubAuthorizationRule(args: GetEventHubAuthorizationRuleA
 
 export interface GetEventHubAuthorizationRuleArgs {
     /**
+     * The authorization rule name.
+     */
+    readonly authorizationRuleName: string;
+    /**
      * The Event Hub name
      */
     readonly eventHubName: string;
-    /**
-     * The authorization rule name.
-     */
-    readonly name: string;
     /**
      * The Namespace name
      */

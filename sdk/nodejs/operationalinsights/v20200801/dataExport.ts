@@ -61,7 +61,7 @@ export class DataExport extends pulumi.CustomResource {
     /**
      * The name of the resource
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * The destination resource ID. This can be copied from the Properties entry of the destination resource in Azure.
      */
@@ -88,8 +88,8 @@ export class DataExport extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             const args = argsOrState as DataExportArgs | undefined;
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
+            if (!args || args.dataExportName === undefined) {
+                throw new Error("Missing required property 'dataExportName'");
             }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
@@ -103,14 +103,15 @@ export class DataExport extends pulumi.CustomResource {
             inputs["allTables"] = args ? args.allTables : undefined;
             inputs["createdDate"] = args ? args.createdDate : undefined;
             inputs["dataExportId"] = args ? args.dataExportId : undefined;
+            inputs["dataExportName"] = args ? args.dataExportName : undefined;
             inputs["enable"] = args ? args.enable : undefined;
             inputs["eventHubName"] = args ? args.eventHubName : undefined;
             inputs["lastModifiedDate"] = args ? args.lastModifiedDate : undefined;
-            inputs["name"] = args ? args.name : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["resourceId"] = args ? args.resourceId : undefined;
             inputs["tableNames"] = args ? args.tableNames : undefined;
             inputs["workspaceName"] = args ? args.workspaceName : undefined;
+            inputs["name"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -141,6 +142,10 @@ export interface DataExportArgs {
      */
     readonly dataExportId?: pulumi.Input<string>;
     /**
+     * The data export rule name.
+     */
+    readonly dataExportName: pulumi.Input<string>;
+    /**
      * Active when enabled.
      */
     readonly enable?: pulumi.Input<boolean>;
@@ -152,10 +157,6 @@ export interface DataExportArgs {
      * Date and time when the export was last modified.
      */
     readonly lastModifiedDate?: pulumi.Input<string>;
-    /**
-     * The data export rule name.
-     */
-    readonly name: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

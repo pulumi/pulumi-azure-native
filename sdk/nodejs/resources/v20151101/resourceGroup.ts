@@ -69,11 +69,12 @@ export class ResourceGroup extends pulumi.CustomResource {
             if (!args || args.location === undefined) {
                 throw new Error("Missing required property 'location'");
             }
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
+            if (!args || args.resourceGroupName === undefined) {
+                throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["location"] = args ? args.location : undefined;
             inputs["name"] = args ? args.name : undefined;
+            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["properties"] = undefined /*out*/;
         }
@@ -99,9 +100,13 @@ export interface ResourceGroupArgs {
      */
     readonly location: pulumi.Input<string>;
     /**
+     * Gets or sets the Name of the resource group.
+     */
+    readonly name?: pulumi.Input<string>;
+    /**
      * The name of the resource group to be created or updated.
      */
-    readonly name: pulumi.Input<string>;
+    readonly resourceGroupName: pulumi.Input<string>;
     /**
      * Gets or sets the tags attached to the resource group.
      */

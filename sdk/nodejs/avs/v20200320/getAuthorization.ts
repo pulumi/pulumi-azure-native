@@ -15,7 +15,7 @@ export function getAuthorization(args: GetAuthorizationArgs, opts?: pulumi.Invok
         opts.version = utilities.getVersion();
     }
     return pulumi.runtime.invoke("azurerm:avs/v20200320:getAuthorization", {
-        "name": args.name,
+        "authorizationName": args.authorizationName,
         "privateCloudName": args.privateCloudName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);
@@ -25,7 +25,7 @@ export interface GetAuthorizationArgs {
     /**
      * Name of the ExpressRoute Circuit Authorization in the private cloud
      */
-    readonly name: string;
+    readonly authorizationName: string;
     /**
      * Name of the private cloud
      */

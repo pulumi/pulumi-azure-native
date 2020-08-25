@@ -15,7 +15,7 @@ export function getPrivateCloud(args: GetPrivateCloudArgs, opts?: pulumi.InvokeO
         opts.version = utilities.getVersion();
     }
     return pulumi.runtime.invoke("azurerm:avs/v20200320:getPrivateCloud", {
-        "name": args.name,
+        "privateCloudName": args.privateCloudName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);
 }
@@ -24,7 +24,7 @@ export interface GetPrivateCloudArgs {
     /**
      * Name of the private cloud
      */
-    readonly name: string;
+    readonly privateCloudName: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */

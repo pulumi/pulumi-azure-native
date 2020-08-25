@@ -18,12 +18,13 @@ export function getSiteSlot(args: GetSiteSlotArgs, opts?: pulumi.InvokeOptions):
         "name": args.name,
         "propertiesToInclude": args.propertiesToInclude,
         "resourceGroupName": args.resourceGroupName,
+        "slot": args.slot,
     }, opts);
 }
 
 export interface GetSiteSlotArgs {
     /**
-     * Name of web app slot. If not specified then will default to production slot.
+     * Name of web app
      */
     readonly name: string;
     /**
@@ -34,6 +35,10 @@ export interface GetSiteSlotArgs {
      * Name of resource group
      */
     readonly resourceGroupName: string;
+    /**
+     * Name of web app slot. If not specified then will default to production slot.
+     */
+    readonly slot: string;
 }
 
 /**

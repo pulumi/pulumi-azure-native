@@ -15,20 +15,20 @@ export function getMaintenanceConfiguration(args: GetMaintenanceConfigurationArg
         opts.version = utilities.getVersion();
     }
     return pulumi.runtime.invoke("azurerm:maintenance/v20200401:getMaintenanceConfiguration", {
-        "name": args.name,
         "resourceGroupName": args.resourceGroupName,
+        "resourceName": args.resourceName,
     }, opts);
 }
 
 export interface GetMaintenanceConfigurationArgs {
     /**
-     * Resource Identifier
-     */
-    readonly name: string;
-    /**
      * Resource Group Name
      */
     readonly resourceGroupName: string;
+    /**
+     * Resource Identifier
+     */
+    readonly resourceName: string;
 }
 
 /**

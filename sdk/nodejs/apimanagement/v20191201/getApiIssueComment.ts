@@ -16,8 +16,8 @@ export function getApiIssueComment(args: GetApiIssueCommentArgs, opts?: pulumi.I
     }
     return pulumi.runtime.invoke("azurerm:apimanagement/v20191201:getApiIssueComment", {
         "apiId": args.apiId,
+        "commentId": args.commentId,
         "issueId": args.issueId,
-        "name": args.name,
         "resourceGroupName": args.resourceGroupName,
         "serviceName": args.serviceName,
     }, opts);
@@ -29,13 +29,13 @@ export interface GetApiIssueCommentArgs {
      */
     readonly apiId: string;
     /**
+     * Comment identifier within an Issue. Must be unique in the current Issue.
+     */
+    readonly commentId: string;
+    /**
      * Issue identifier. Must be unique in the current API Management service instance.
      */
     readonly issueId: string;
-    /**
-     * Comment identifier within an Issue. Must be unique in the current Issue.
-     */
-    readonly name: string;
     /**
      * The name of the resource group.
      */

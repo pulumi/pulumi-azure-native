@@ -55,7 +55,7 @@ export class Peering extends pulumi.CustomResource {
     /**
      * The name of the resource.
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * The location of the peering.
      */
@@ -96,8 +96,8 @@ export class Peering extends pulumi.CustomResource {
             if (!args || args.location === undefined) {
                 throw new Error("Missing required property 'location'");
             }
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
+            if (!args || args.peeringName === undefined) {
+                throw new Error("Missing required property 'peeringName'");
             }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
@@ -109,11 +109,12 @@ export class Peering extends pulumi.CustomResource {
             inputs["exchange"] = args ? args.exchange : undefined;
             inputs["kind"] = args ? args.kind : undefined;
             inputs["location"] = args ? args.location : undefined;
-            inputs["name"] = args ? args.name : undefined;
             inputs["peeringLocation"] = args ? args.peeringLocation : undefined;
+            inputs["peeringName"] = args ? args.peeringName : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["sku"] = args ? args.sku : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["name"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
@@ -149,13 +150,13 @@ export interface PeeringArgs {
      */
     readonly location: pulumi.Input<string>;
     /**
-     * The name of the peering.
-     */
-    readonly name: pulumi.Input<string>;
-    /**
      * The location of the peering.
      */
     readonly peeringLocation?: pulumi.Input<string>;
+    /**
+     * The name of the peering.
+     */
+    readonly peeringName: pulumi.Input<string>;
     /**
      * The name of the resource group.
      */

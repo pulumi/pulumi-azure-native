@@ -15,20 +15,20 @@ export function getVirtualNetworkGatewayConnection(args: GetVirtualNetworkGatewa
         opts.version = utilities.getVersion();
     }
     return pulumi.runtime.invoke("azurerm:network/v20180101:getVirtualNetworkGatewayConnection", {
-        "name": args.name,
         "resourceGroupName": args.resourceGroupName,
+        "virtualNetworkGatewayConnectionName": args.virtualNetworkGatewayConnectionName,
     }, opts);
 }
 
 export interface GetVirtualNetworkGatewayConnectionArgs {
     /**
-     * The name of the virtual network gateway connection.
-     */
-    readonly name: string;
-    /**
      * The name of the resource group.
      */
     readonly resourceGroupName: string;
+    /**
+     * The name of the virtual network gateway connection.
+     */
+    readonly virtualNetworkGatewayConnectionName: string;
 }
 
 /**

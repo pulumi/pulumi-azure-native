@@ -129,8 +129,8 @@ export class ExpressRouteCircuitPeering extends pulumi.CustomResource {
             if (!args || args.circuitName === undefined) {
                 throw new Error("Missing required property 'circuitName'");
             }
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
+            if (!args || args.peeringName === undefined) {
+                throw new Error("Missing required property 'peeringName'");
             }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
@@ -144,6 +144,7 @@ export class ExpressRouteCircuitPeering extends pulumi.CustomResource {
             inputs["microsoftPeeringConfig"] = args ? args.microsoftPeeringConfig : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["peerASN"] = args ? args.peerASN : undefined;
+            inputs["peeringName"] = args ? args.peeringName : undefined;
             inputs["peeringType"] = args ? args.peeringType : undefined;
             inputs["primaryAzurePort"] = args ? args.primaryAzurePort : undefined;
             inputs["primaryPeerAddressPrefix"] = args ? args.primaryPeerAddressPrefix : undefined;
@@ -204,13 +205,17 @@ export interface ExpressRouteCircuitPeeringArgs {
      */
     readonly microsoftPeeringConfig?: pulumi.Input<inputs.network.v20170601.ExpressRouteCircuitPeeringConfig>;
     /**
-     * The name of the peering.
+     * Gets name of the resource that is unique within a resource group. This name can be used to access the resource.
      */
-    readonly name: pulumi.Input<string>;
+    readonly name?: pulumi.Input<string>;
     /**
      * The peer ASN.
      */
     readonly peerASN?: pulumi.Input<number>;
+    /**
+     * The name of the peering.
+     */
+    readonly peeringName: pulumi.Input<string>;
     /**
      * The PeeringType. Possible values are: 'AzurePublicPeering', 'AzurePrivatePeering', and 'MicrosoftPeering'.
      */

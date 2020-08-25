@@ -53,7 +53,7 @@ export class RouteFilterRule extends pulumi.CustomResource {
     /**
      * The name of the resource that is unique within a resource group. This name can be used to access the resource.
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * The provisioning state of the resource. Possible values are: 'Updating', 'Deleting', 'Succeeded' and 'Failed'.
      */
@@ -86,9 +86,6 @@ export class RouteFilterRule extends pulumi.CustomResource {
             if (!args || args.communities === undefined) {
                 throw new Error("Missing required property 'communities'");
             }
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
-            }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -98,16 +95,20 @@ export class RouteFilterRule extends pulumi.CustomResource {
             if (!args || args.routeFilterRuleType === undefined) {
                 throw new Error("Missing required property 'routeFilterRuleType'");
             }
+            if (!args || args.ruleName === undefined) {
+                throw new Error("Missing required property 'ruleName'");
+            }
             inputs["access"] = args ? args.access : undefined;
             inputs["communities"] = args ? args.communities : undefined;
             inputs["id"] = args ? args.id : undefined;
             inputs["location"] = args ? args.location : undefined;
-            inputs["name"] = args ? args.name : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["routeFilterName"] = args ? args.routeFilterName : undefined;
             inputs["routeFilterRuleType"] = args ? args.routeFilterRuleType : undefined;
+            inputs["ruleName"] = args ? args.ruleName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["etag"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
         }
         if (!opts) {
@@ -144,10 +145,6 @@ export interface RouteFilterRuleArgs {
      */
     readonly location?: pulumi.Input<string>;
     /**
-     * The name of the route filter rule.
-     */
-    readonly name: pulumi.Input<string>;
-    /**
      * The name of the resource group.
      */
     readonly resourceGroupName: pulumi.Input<string>;
@@ -159,6 +156,10 @@ export interface RouteFilterRuleArgs {
      * The rule type of the rule. Valid value is: 'Community'
      */
     readonly routeFilterRuleType: pulumi.Input<string>;
+    /**
+     * The name of the route filter rule.
+     */
+    readonly ruleName: pulumi.Input<string>;
     /**
      * Resource tags.
      */

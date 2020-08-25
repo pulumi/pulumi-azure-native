@@ -45,7 +45,7 @@ export class ServerCommunicationLink extends pulumi.CustomResource {
     /**
      * Resource name.
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * The name of the partner server.
      */
@@ -72,8 +72,8 @@ export class ServerCommunicationLink extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             const args = argsOrState as ServerCommunicationLinkArgs | undefined;
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
+            if (!args || args.communicationLinkName === undefined) {
+                throw new Error("Missing required property 'communicationLinkName'");
             }
             if (!args || args.partnerServer === undefined) {
                 throw new Error("Missing required property 'partnerServer'");
@@ -84,12 +84,13 @@ export class ServerCommunicationLink extends pulumi.CustomResource {
             if (!args || args.serverName === undefined) {
                 throw new Error("Missing required property 'serverName'");
             }
-            inputs["name"] = args ? args.name : undefined;
+            inputs["communicationLinkName"] = args ? args.communicationLinkName : undefined;
             inputs["partnerServer"] = args ? args.partnerServer : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["serverName"] = args ? args.serverName : undefined;
             inputs["kind"] = undefined /*out*/;
             inputs["location"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
             inputs["state"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
@@ -111,7 +112,7 @@ export interface ServerCommunicationLinkArgs {
     /**
      * The name of the server communication link.
      */
-    readonly name: pulumi.Input<string>;
+    readonly communicationLinkName: pulumi.Input<string>;
     /**
      * The name of the partner server.
      */

@@ -16,9 +16,9 @@ export function getTrigger(args: GetTriggerArgs, opts?: pulumi.InvokeOptions): P
     }
     return pulumi.runtime.invoke("azurerm:datashare/v20191101:getTrigger", {
         "accountName": args.accountName,
-        "name": args.name,
         "resourceGroupName": args.resourceGroupName,
         "shareSubscriptionName": args.shareSubscriptionName,
+        "triggerName": args.triggerName,
     }, opts);
 }
 
@@ -28,10 +28,6 @@ export interface GetTriggerArgs {
      */
     readonly accountName: string;
     /**
-     * The name of the trigger.
-     */
-    readonly name: string;
-    /**
      * The resource group name.
      */
     readonly resourceGroupName: string;
@@ -39,6 +35,10 @@ export interface GetTriggerArgs {
      * The name of the shareSubscription.
      */
     readonly shareSubscriptionName: string;
+    /**
+     * The name of the trigger.
+     */
+    readonly triggerName: string;
 }
 
 /**

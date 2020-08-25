@@ -66,8 +66,8 @@ export class GuestConfigurationAssignment extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             const args = argsOrState as GuestConfigurationAssignmentArgs | undefined;
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
+            if (!args || args.guestConfigurationAssignmentName === undefined) {
+                throw new Error("Missing required property 'guestConfigurationAssignmentName'");
             }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
@@ -75,6 +75,7 @@ export class GuestConfigurationAssignment extends pulumi.CustomResource {
             if (!args || args.vmName === undefined) {
                 throw new Error("Missing required property 'vmName'");
             }
+            inputs["guestConfigurationAssignmentName"] = args ? args.guestConfigurationAssignmentName : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["properties"] = args ? args.properties : undefined;
@@ -100,13 +101,17 @@ export class GuestConfigurationAssignment extends pulumi.CustomResource {
  */
 export interface GuestConfigurationAssignmentArgs {
     /**
+     * Name of the guest configuration assignment.
+     */
+    readonly guestConfigurationAssignmentName: pulumi.Input<string>;
+    /**
      * Region where the VM is located.
      */
     readonly location?: pulumi.Input<string>;
     /**
      * Name of the guest configuration assignment.
      */
-    readonly name: pulumi.Input<string>;
+    readonly name?: pulumi.Input<string>;
     /**
      * Properties of the Guest configuration assignment.
      */

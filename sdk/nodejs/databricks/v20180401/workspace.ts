@@ -59,7 +59,7 @@ export class Workspace extends pulumi.CustomResource {
     /**
      * The name of the resource
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * The workspace's custom parameters.
      */
@@ -120,23 +120,24 @@ export class Workspace extends pulumi.CustomResource {
             if (!args || args.managedResourceGroupId === undefined) {
                 throw new Error("Missing required property 'managedResourceGroupId'");
             }
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
-            }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
+            }
+            if (!args || args.workspaceName === undefined) {
+                throw new Error("Missing required property 'workspaceName'");
             }
             inputs["authorizations"] = args ? args.authorizations : undefined;
             inputs["createdDateTime"] = args ? args.createdDateTime : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["managedResourceGroupId"] = args ? args.managedResourceGroupId : undefined;
-            inputs["name"] = args ? args.name : undefined;
             inputs["parameters"] = args ? args.parameters : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["sku"] = args ? args.sku : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["uiDefinitionUri"] = args ? args.uiDefinitionUri : undefined;
+            inputs["workspaceName"] = args ? args.workspaceName : undefined;
             inputs["createdBy"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
             inputs["storageAccountIdentity"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
@@ -176,10 +177,6 @@ export interface WorkspaceArgs {
      */
     readonly managedResourceGroupId: pulumi.Input<string>;
     /**
-     * The name of the workspace.
-     */
-    readonly name: pulumi.Input<string>;
-    /**
      * The workspace's custom parameters.
      */
     readonly parameters?: pulumi.Input<inputs.databricks.v20180401.WorkspaceCustomParameters>;
@@ -199,4 +196,8 @@ export interface WorkspaceArgs {
      * The blob URI where the UI definition file is located.
      */
     readonly uiDefinitionUri?: pulumi.Input<string>;
+    /**
+     * The name of the workspace.
+     */
+    readonly workspaceName: pulumi.Input<string>;
 }

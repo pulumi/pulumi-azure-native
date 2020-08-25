@@ -49,7 +49,7 @@ export class ApplicationPackage extends pulumi.CustomResource {
     /**
      * The name of the resource.
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * The current state of the application package.
      */
@@ -86,19 +86,20 @@ export class ApplicationPackage extends pulumi.CustomResource {
             if (!args || args.applicationName === undefined) {
                 throw new Error("Missing required property 'applicationName'");
             }
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
-            }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            if (!args || args.versionName === undefined) {
+                throw new Error("Missing required property 'versionName'");
+            }
             inputs["accountName"] = args ? args.accountName : undefined;
             inputs["applicationName"] = args ? args.applicationName : undefined;
-            inputs["name"] = args ? args.name : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["versionName"] = args ? args.versionName : undefined;
             inputs["etag"] = undefined /*out*/;
             inputs["format"] = undefined /*out*/;
             inputs["lastActivationTime"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
             inputs["state"] = undefined /*out*/;
             inputs["storageUrl"] = undefined /*out*/;
             inputs["storageUrlExpiry"] = undefined /*out*/;
@@ -130,11 +131,11 @@ export interface ApplicationPackageArgs {
      */
     readonly applicationName: pulumi.Input<string>;
     /**
-     * The version of the application.
-     */
-    readonly name: pulumi.Input<string>;
-    /**
      * The name of the resource group that contains the Batch account.
      */
     readonly resourceGroupName: pulumi.Input<string>;
+    /**
+     * The version of the application.
+     */
+    readonly versionName: pulumi.Input<string>;
 }

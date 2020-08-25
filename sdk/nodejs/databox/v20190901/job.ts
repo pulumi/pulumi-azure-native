@@ -79,7 +79,7 @@ export class Job extends pulumi.CustomResource {
     /**
      * Name of the object.
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * The sku type.
      */
@@ -114,11 +114,11 @@ export class Job extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             const args = argsOrState as JobArgs | undefined;
+            if (!args || args.jobName === undefined) {
+                throw new Error("Missing required property 'jobName'");
+            }
             if (!args || args.location === undefined) {
                 throw new Error("Missing required property 'location'");
-            }
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
             }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
@@ -129,8 +129,8 @@ export class Job extends pulumi.CustomResource {
             inputs["deliveryInfo"] = args ? args.deliveryInfo : undefined;
             inputs["deliveryType"] = args ? args.deliveryType : undefined;
             inputs["details"] = args ? args.details : undefined;
+            inputs["jobName"] = args ? args.jobName : undefined;
             inputs["location"] = args ? args.location : undefined;
-            inputs["name"] = args ? args.name : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["sku"] = args ? args.sku : undefined;
             inputs["tags"] = args ? args.tags : undefined;
@@ -140,6 +140,7 @@ export class Job extends pulumi.CustomResource {
             inputs["isCancellableWithoutFee"] = undefined /*out*/;
             inputs["isDeletable"] = undefined /*out*/;
             inputs["isShippingAddressEditable"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
             inputs["startTime"] = undefined /*out*/;
             inputs["status"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
@@ -174,13 +175,13 @@ export interface JobArgs {
      */
     readonly details?: pulumi.Input<inputs.databox.v20190901.JobDetails>;
     /**
+     * The name of the job Resource within the specified resource group. job names must be between 3 and 24 characters in length and use any alphanumeric and underscore only
+     */
+    readonly jobName: pulumi.Input<string>;
+    /**
      * The location of the resource. This will be one of the supported and registered Azure Regions (e.g. West US, East US, Southeast Asia, etc.). The region of a resource cannot be changed once it is created, but if an identical region is specified on update the request will succeed.
      */
     readonly location: pulumi.Input<string>;
-    /**
-     * The name of the job Resource within the specified resource group. job names must be between 3 and 24 characters in length and use any alphanumeric and underscore only
-     */
-    readonly name: pulumi.Input<string>;
     /**
      * The Resource Group Name
      */

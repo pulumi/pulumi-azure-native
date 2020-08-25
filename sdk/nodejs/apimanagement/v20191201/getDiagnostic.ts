@@ -15,7 +15,7 @@ export function getDiagnostic(args: GetDiagnosticArgs, opts?: pulumi.InvokeOptio
         opts.version = utilities.getVersion();
     }
     return pulumi.runtime.invoke("azurerm:apimanagement/v20191201:getDiagnostic", {
-        "name": args.name,
+        "diagnosticId": args.diagnosticId,
         "resourceGroupName": args.resourceGroupName,
         "serviceName": args.serviceName,
     }, opts);
@@ -25,7 +25,7 @@ export interface GetDiagnosticArgs {
     /**
      * Diagnostic identifier. Must be unique in the current API Management service instance.
      */
-    readonly name: string;
+    readonly diagnosticId: string;
     /**
      * The name of the resource group.
      */
