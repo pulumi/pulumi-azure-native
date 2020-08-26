@@ -15,6 +15,8 @@
 package provider
 
 import (
+	"bytes"
+	"compress/gzip"
 	"context"
 	"encoding/json"
 	"fmt"
@@ -66,10 +68,29 @@ func makeProvider(host *provider.HostClient, name, version string, schemaBytes [
 	// Set a long timeout of 2 hours for now.
 	client.PollingDuration = 120 * time.Minute
 
-	var resourceMap *AzureApiMetadata
-	err := json.Unmarshal(azureApiResourcesBytes, &resourceMap)
+	var resourceMap AzureApiMetadata
+
+	uncompressed, err := gzip.NewReader(bytes.NewReader(azureApiResourcesBytes))
 	if err != nil {
+		return nil, errors.Wrap(err, "expand compressed metadata")
+	}
+	if err = json.NewDecoder(uncompressed).Decode(&resourceMap); err != nil {
 		return nil, errors.Wrap(err, "unmarshalling resource map")
+	}
+	if err = uncompressed.Close(); err != nil {
+		return nil, errors.Wrap(err, "closing uncompress stream for metadata")
+	}
+
+	uncompressed, err = gzip.NewReader(bytes.NewReader(schemaBytes))
+	if err != nil {
+		return nil, errors.Wrap(err, "expand compressed schema")
+	}
+
+	buf := bytes.Buffer{}
+	buf.ReadFrom(uncompressed)
+
+	if err = uncompressed.Close(); err != nil {
+		return nil, errors.Wrap(err, "closing uncompress stream for schema")
 	}
 
 	// Return the new provider
@@ -78,9 +99,9 @@ func makeProvider(host *provider.HostClient, name, version string, schemaBytes [
 		name:        name,
 		version:     version,
 		client:      client,
-		resourceMap: resourceMap,
+		resourceMap: &resourceMap,
 		config:      map[string]string{},
-		schemaBytes: schemaBytes,
+		schemaBytes: buf.Bytes(),
 	}, nil
 }
 

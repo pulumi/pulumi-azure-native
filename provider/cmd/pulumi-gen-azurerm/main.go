@@ -15,6 +15,8 @@
 package main
 
 import (
+	"bytes"
+	"compress/gzip"
 	"encoding/json"
 	"fmt"
 	"io/ioutil"
@@ -81,6 +83,7 @@ func main() {
 		}
 		if err != nil {
 			panic(err)
+
 		}
 	}
 }
@@ -96,8 +99,14 @@ func emitSchema(pkgSpec schema.PackageSpec, outDir string) error {
 }
 
 func emitMetadata(metadata *provider.AzureApiMetadata, outDir string) error {
-	raw, err := json.Marshal(metadata)
+	compressedMeta := bytes.Buffer{}
+	compressedWriter := gzip.NewWriter(&compressedMeta)
+	err := json.NewEncoder(compressedWriter).Encode(metadata)
 	if err != nil {
+		return errors.Wrap(err, "marshaling metadata")
+	}
+
+	if err = compressedWriter.Close(); err != nil {
 		return err
 	}
 
@@ -108,7 +117,7 @@ func emitMetadata(metadata *provider.AzureApiMetadata, outDir string) error {
 
 	err = ioutil.WriteFile("./provider/cmd/pulumi-resource-azurerm/metadata.go", []byte(fmt.Sprintf(`package main
 var azureApiResources = %#v
-`, raw)), 0600)
+`, compressedMeta.Bytes())), 0600)
 	if err != nil {
 		return err
 	}
@@ -120,14 +129,19 @@ func emitSchemaBytes(pkgSpec schema.PackageSpec, version string) error {
 	// Ensure the spec is stamped with a version.
 	pkgSpec.Version = version
 
-	bytes, err := json.Marshal(pkgSpec)
+	compressedSchema := bytes.Buffer{}
+	compressedWriter := gzip.NewWriter(&compressedSchema)
+	err := json.NewEncoder(compressedWriter).Encode(pkgSpec)
 	if err != nil {
+		return errors.Wrap(err, "marshaling metadata")
+	}
+	if err = compressedWriter.Close(); err != nil {
 		return err
 	}
 
 	return ioutil.WriteFile("./provider/cmd/pulumi-resource-azurerm/schema.go", []byte(fmt.Sprintf(`package main
 var pulumiSchema = %#v
-`, bytes)), 0600)
+`, compressedSchema.Bytes())), 0600)
 }
 
 func generate(ppkg *schema.Package, language string) (map[string][]byte, error) {
